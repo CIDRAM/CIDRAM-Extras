@@ -4604,7 +4604,7 @@ Tag: PlusServer AG
 # ASNs 16880, 36421 ("Trend Micro Incorporated").
 # Follows their users around and attempts to get into restricted/private parts of websites.
 # Infected by malware (as per reported by Google): 0% (AS16880 + AS36421).
-# Updated: 2016.03.12
+# Updated: 2016.08.09
 
 8.30.172.0/24 Deny Generic
 66.180.80.0/20 Deny Generic
@@ -4612,14 +4612,13 @@ Tag: PlusServer AG
 150.70.31.0/24 Deny Generic
 150.70.48.0/20 Deny Generic
 150.70.64.0/18 Deny Generic
-150.70.144.0/20 Deny Generic
 150.70.160.0/19 Deny Generic
 150.70.192.0/21 Deny Generic
 150.70.224.0/19 Deny Generic
 202.3.185.0/24 Deny Generic
 206.165.76.0/24 Deny Generic
 216.99.128.0/20 Deny Generic
-216.104.0.0/19 Deny Generic
+216.104.16.0/20 Deny Generic
 Tag: Trend Micro
 
 
@@ -6134,8 +6133,8 @@ Tag: Pulsant
 
 
 # ASN 51852 ("Private Layer INC").
-# Infected by malware (as per reported by Google): 1.12%.
-# Updated: 2016.03.12
+# Infected by malware (as per reported by Google): 0.46%.
+# Updated: 2016.08.09
 
 31.7.56.0/21 Deny Cloud
 31.44.189.0/24 Deny Cloud
@@ -6143,7 +6142,6 @@ Tag: Pulsant
 46.102.152.0/24 Deny Cloud
 81.17.16.0/20 Deny Cloud
 141.255.160.0/21 Deny Cloud
-172.111.182.0/24 Deny Cloud
 176.223.111.0/24 Deny Cloud
 179.43.128.0/18 Deny Cloud
 185.12.44.0/22 Deny Cloud
@@ -6367,12 +6365,13 @@ Tag: PP SKS-LUGAN
 
 # ASN 131222 ("Sistema Shyam Teleservices Ltd").
 # Infected by malware (as per reported by Google): 0%.
-# Updated: 2016.01.22 / Checked: 2016.03.12
+# Updated: 2016.08.09
 
 103.18.64.0/22 Deny Spam
 116.202.0.0/19 Deny Spam
 116.202.32.0/20 Deny Spam
 116.202.48.0/21 Deny Spam
+116.202.60.0/22 Deny Spam
 116.202.64.0/18 Deny Spam
 116.202.128.0/17 Deny Spam
 116.203.0.0/16 Deny Spam
@@ -15534,3 +15533,98 @@ Expires: 2016.10.31
 223.254.0.0/16 Deny Generic
 Tag: Spamhaus DROP/EDROP
 Expires: 2016.10.31
+
+
+# ---
+# Toxic IP numbers in CIDR format from Stop Forum Spam.
+# Updated: 2016.08.09
+# Refer stopforumspam.com/downloads/toxic_ip_cidr.txt
+
+103.41.124.0/24 Deny Generic
+107.153.2.128/25 Deny Generic
+108.177.128.0/17 Deny Generic
+108.62.0.0/16 Deny Generic
+109.200.1.0/24 Deny Generic
+109.200.2.0/23 Deny Generic
+109.200.4.0/22 Deny Generic
+109.200.8.0/21 Deny Generic
+109.200.16.0/20 Deny Generic
+109.230.192.0/18 Deny Generic
+109.73.64.0/20 Deny Generic
+109.73.75.192/27 Deny Generic
+112.101.64.0/24 Deny Generic
+141.105.64.0/21 Deny Generic
+142.91.0.0/16 Deny Generic
+149.3.128.0/20 Deny Generic
+158.255.0.0/21 Deny Generic
+173.192.215.224/28 Deny Generic
+173.208.0.0/17 Deny Generic
+173.234.0.0/16 Deny Generic
+174.34.128.0/18 Deny Generic
+174.76.30.11/32 Deny Generic
+174.76.30.12/30 Deny Generic
+174.76.30.16/28 Deny Generic
+174.76.30.32/27 Deny Generic
+174.76.30.64/30 Deny Generic
+174.76.30.68/31 Deny Generic
+174.76.30.70/32 Deny Generic
+176.227.192.0/19 Deny Generic
+188.143.232.0/23 Deny Generic
+188.143.234.0/24 Deny Generic
+188.227.160.0/19 Deny Generic
+192.99.32.0/22 Deny Generic
+195.211.152.0/22 Deny Generic
+199.15.232.0/21 Deny Generic
+199.59.62.80/28 Deny Generic
+205.189.71.0/24 Deny Generic
+205.189.72.0/23 Deny Generic
+212.129.0.0/18 Deny Generic
+216.172.155.128/25 Deny Generic
+23.106.192.0/20 Deny Generic
+23.106.208.0/21 Deny Generic
+23.106.216.0/22 Deny Generic
+23.106.220.0/23 Deny Generic
+23.106.222.0/24 Deny Generic
+23.106.223.0/25 Deny Generic
+23.106.223.128/26 Deny Generic
+23.106.223.192/27 Deny Generic
+23.106.223.224/28 Deny Generic
+23.106.223.240/29 Deny Generic
+23.106.223.248/30 Deny Generic
+23.106.223.252/31 Deny Generic
+23.106.223.254/32 Deny Generic
+23.106.64.0/19 Deny Generic
+23.19.0.0/16 Deny Generic
+31.192.104.0/21 Deny Generic
+31.214.128.0/18 Deny Generic
+31.3.224.0/19 Deny Generic
+37.157.240.0/21 Deny Generic
+37.220.0.0/19 Deny Generic
+46.118.115.0/24 Deny Generic
+46.151.52.0/22 Deny Generic
+46.161.9.0/24 Deny Generic
+46.17.96.0/21 Deny Generic
+46.251.224.0/19 Deny Generic
+5.39.216.0/21 Deny Generic
+62.210.211.0/24 Deny Generic
+64.120.0.0/17 Deny Generic
+69.147.224.0/19 Deny Generic
+77.245.64.0/20 Deny Generic
+80.243.176.0/20 Deny Generic
+80.243.191.112/28 Deny Generic
+80.82.66.0/24 Deny Generic
+80.84.48.0/20 Deny Generic
+81.94.192.0/20 Deny Generic
+91.200.12.0/22 Deny Generic
+91.207.4.0/22 Deny Generic
+91.207.8.0/23 Deny Generic
+91.210.104.0/22 Deny Generic
+91.212.124.0/24 Deny Generic
+91.217.162.0/24 Deny Generic
+91.218.244.0/22 Deny Generic
+91.236.74.0/23 Deny Generic
+94.73.158.24/29 Deny Generic
+95.156.192.0/22 Deny Generic
+95.156.226.0/23 Deny Generic
+95.156.228.0/22 Deny Generic
+Tag: SFS Toxic CIDRs
