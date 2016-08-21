@@ -222,11 +222,13 @@ Tag: ISPsystem
 
 
 # ASN 47583 ("Hostinger International").
-# Infected by malware (as per reported by Google): 1.20%.
-# Updated: 2016.01.18 / Checked: 2016.04.06
+# Infected by malware (as per reported by Google): 0.63%.
+# Updated: 2016.08.16
 
-2a02:4780:1::/48 Deny Generic
-2a02:4780:2::/48 Deny Generic
+2a02:4780::/47 Deny Cloud
+2a02:4780:2::/48 Deny Cloud
+2a02:4780:bad::/48 Deny Cloud
+2a02:4780:dead::/48 Deny Cloud
 Tag: Hostinger Int
 
 
@@ -917,6 +919,9 @@ Tag: WestHost, Inc
 
 2001:4cd0::/32 Deny Generic
 Tag: Bezeq International
+---
+recaptcha:
+ enabled: true
 
 
 # ASN 32097 ("WholeSale Internet, Inc").
@@ -1358,10 +1363,10 @@ Tag: Choopa, LLC
 
 
 # ASN 7162 ("UOL DIVEO S.A").
-# Infected by malware (as per reported by Google): 1.80%.
-# Updated: 2016.01.23 / Checked: 2016.06.09
+# Infected by malware (as per reported by Google): 2.10%.
+# Updated: 2016.01.23 / Checked: 2016.08.16
 
-2804:49c::/32 Deny Generic
+2804:49c::/32 Deny Cloud
 Tag: UOL DIVEO S.A
 
 
@@ -2959,6 +2964,17 @@ Tag: IT7 Networks Inc
 Tag: OPTICAL TECHNOLOGIES
 
 
+# ASNs 29302, 32780 ("Hosting Services Inc").
+# Infected by malware (as per reported by Google): 1.08% (AS29302), 1.81% (AS32780).
+# Updated: 2016.08.19
+
+2602:ffb0:27::/48 Deny Cloud
+2602:ffb0:ffd::/48 Deny Cloud
+2606:2e00:8000::/48 Deny Cloud
+2606:2e00:8002::/47 Deny Cloud
+Tag: Hosting Services Inc
+
+
 # ASN 54540 ("Incero LLC").
 # Infected by malware (as per reported by Google): 1.19%.
 # Updated: 2016.05.30
@@ -3211,3 +3227,20 @@ Tag: Keyweb AG
 2a00:9900::/29 Deny Generic
 2a01:320::/29 Deny Generic
 Tag: STARNET S.R.L
+
+
+# ASN 10929 ("Netelligent Hosting Services Inc").
+# Infected by malware (as per reported by Google): 1.94%.
+# Updated: 2016.08.19
+
+2605:6f00:9000::/36 Deny Cloud
+2605:9000::/32 Deny Cloud
+Tag: Netelligent Hosting
+
+
+# ASN 9925 ("Powerbase DataCenter Services (HK) Ltd").
+# Infected by malware (as per reported by Google): 0.25%.
+# Updated: 2016.08.19
+
+2401:9f00::/32 Deny Cloud
+Tag: Powerbase DataCenter
