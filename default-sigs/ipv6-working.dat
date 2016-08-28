@@ -692,13 +692,18 @@ Tag: JPMorgan Chase & Co
 
 # ASN 42708 ("Portlane Networks AB").
 # Infected by malware (as per reported by Google): 0.10%.
-# Updated: 2016.01.20 / Checked: 2016.03.12
+# Updated: 2016.08.26
 
 2a00:1a28::/32 Deny Spam
 2a01:6f0:ffff::/48 Deny Spam
 2a01:8640:6::/48 Deny Spam
+2a02:750:10::/48 Deny Spam
+2a02:750:14::/48 Deny Spam
 2a02:7ac0::/32 Deny Spam
 2a02:d507:ffff::/48 Deny Spam
+2a03:4bc0:2931::/48 Deny Spam
+2a03:4bc0:2944::/48 Deny Spam
+2a06:2f40::/48 Deny Spam
 Tag: Portlane Networks AB
 
 
@@ -787,9 +792,9 @@ Tag: PIN-AS
 Tag: IOMart
 
 
-# ASNs 35425, 58117 ("Bytemark Limited").
-# Infected by malware (as per reported by Google): 0.41% (AS35425), 0% (AS58117).
-# Updated: 2016.01.20 / Checked: 2016.03.12
+# ASN 35425 ("Bytemark Limited").
+# Infected by malware (as per reported by Google): 0.69%.
+# Updated: 2016.01.20 / Checked: 2016.08.26
 
 2001:41c8::/29 Deny Generic
 2a03:9ba0::/40 Deny Generic
@@ -862,12 +867,13 @@ Tag: Tzulo Inc
 
 
 # ASN 17139 ("Corporate Colocation Inc")
-# Infected by malware (as per reported by Google): 16.00%.
-# Updated: 2016.01.20 / Checked: 2016.04.19
+# Infected by malware (as per reported by Google): 16.42%.
+# Updated: 2016.08.26
 
 2401:f500:1::/48 Deny Cloud
 2602:ffe5:400::/40 Deny Cloud
 2607:fca8::/32 Deny Cloud
+2607:fca8:10::/44 Deny Cloud
 Tag: Corporate Colocation
 
 
@@ -895,8 +901,8 @@ Tag: Reliable Hosting
 
 
 # ASN 33597 ("InfoRelay Online Systems, Inc").
-# Infected by malware (as per reported by Google): 0.70%.
-# Updated: 2016.01.27 / Checked: 2016.03.12
+# Infected by malware (as per reported by Google): 0.66%.
+# Updated: 2016.01.27 / Checked: 2016.08.26
 
 2607:f108::/32 Deny Cloud
 2a03:b280:1000::/48 Deny Cloud
@@ -942,11 +948,10 @@ Tag: Avante Hosting
 
 
 # ASN 63930 ("Ready Server - Dedicated Server Hosting").
-# Infected by malware (as per reported by Google): 3.80%.
-# Updated: 2016.01.21 / Checked: 2016.03.12
+# Infected by malware (as per reported by Google): 4.37%.
+# Updated: 2016.08.26
 
 2401:e780::/32 Deny Cloud
-2602:ffa0::/48 Deny Cloud
 Tag: Ready Server
 
 
@@ -1021,7 +1026,7 @@ Tag: HyperHosting
 
 # ASN 11051 ("Cyberverse, Inc").
 # Infected by malware (as per reported by Google): 1.88%.
-# Updated: 2016.01.22 / Checked: 2016.03.15
+# Updated: 2016.01.22 / Checked: 2016.08.26
 
 2607:f820::/32 Deny Cloud
 Tag: Cyberverse, Inc
@@ -3244,3 +3249,11 @@ Tag: Netelligent Hosting
 
 2401:9f00::/32 Deny Cloud
 Tag: Powerbase DataCenter
+
+
+# ASN 32392 ("Ecommerce Corporation").
+# Infected by malware (as per reported by Google): 6.59%.
+# Updated: 2016.08.28
+
+2604:7800::/32 Deny Cloud
+Tag: Ecommerce Corporation
