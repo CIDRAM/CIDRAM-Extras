@@ -958,7 +958,7 @@ Tag: WestHost, Inc
 
 # ASN 8551 ("Bezeq International-Ltd").
 # %Listed, Google Malware Dashboard: 1.55%.
-# Updated: 2016.01.20 / Checked: 2016.07.28
+# Updated: 2016.01.20 / Checked: 2016.09.20
 
 2001:4cd0::/32 Deny Generic
 Tag: Bezeq International
@@ -3665,8 +3665,7 @@ recaptcha:
 2001:df2:ca00::/48 Deny Generic
 2001:df2:ce00::/48 Deny Generic
 2001:df3:5c00::/48 Deny Generic
-2001:ee0::/48 Deny Generic
-2001:ee0:1::/48 Deny Generic
+2001:ee0::/47 Deny Generic
 2001:ee0:300::/47 Deny Generic
 2001:ee0:304::/47 Deny Generic
 2001:ee0:37f::/48 Deny Generic
@@ -3744,6 +3743,14 @@ Tag: Bharti Airtel
 ---
 recaptcha:
  enabled: true
+
+
+# ASN 53850 ("GorillaServers, Inc").
+# %Listed, Google Malware Dashboard: 3.74%.
+# Updated: 2016.09.15
+
+2606:c700::/32 Deny Cloud
+Tag: GorillaServers, Inc
 
 
 # Announcing as: "Data Center", "Data Centre".
