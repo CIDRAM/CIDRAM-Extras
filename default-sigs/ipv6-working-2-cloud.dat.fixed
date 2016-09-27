@@ -1,125 +1,3 @@
----
-Meta:
- Name: IPv6 signatures file.
- Source: https://github.com/Maikuolan/CIDRAM/blob/master/vault/ipv6.dat
- Hash: https://github.com/Maikuolan/CIDRAM-Extras/blob/master/hashes/ipv6.dat
-
-
-# ---
-# Some additional useful resources:
-
-# http://bgp.he.net/
-# - Get CIDRs from ASNs, determine ASN relationships, discover ASNs based upon network names, etc.
-
-# https://www.stopforumspam.com/aggregate
-# - Useful aggregation tool for IPv4 IPs.
-
-# https://radar.qrator.net/as%Num%
-# - Useful tool for checking the connectivity of ASNs as well as for various other information about ASNs.
-
-# http://macmathan.info/zbblock-range-blocks
-# - Some fantastic additional blocklists provided by MacMathan that can be used with CIDRAM and/or ZB Block.
-
-# http://www.ipdeny.com/ipblocks/
-# - A fantastic and accurate service for generating country-wide signatures. They maintain lists of CIDRs based upon
-#   countries, so, if you want to use CIDRAM to block entire countries from accessing your website, you can use their
-#   lists to do this (you just need to append the "Deny %Reason%" to the end of list items; this can be done quickly
-#   and easily with most regex-capable text editors, such as Notepad++, for example; you can do this in Notepad++ by
-#   using Search and Replace, accessible with Ctrl+H; use "$" in "Find what" and " Deny Generic" in "Replace with").
-#   IPDeny.com IPv4 country-based lists:
-#   * http://www.ipdeny.com/ipblocks/
-#   IPDeny.com IPv4 aggregated country-based lists (recommended over non-aggregated):
-#   * http://www.ipdeny.com/ipblocks/data/aggregated/
-#   IPDeny.com IPv6 country-based lists:
-#   * http://www.ipdeny.com/ipv6/ipaddresses/blocks/
-#   IPDeny.com IPv6 aggregated country-based lists (recommended over non-aggregated):
-#   * http://www.ipdeny.com/ipv6/ipaddresses/aggregated/
-
-
-# ---
-# WORST OFFENDING ASNs FOR MALWARE INFECTIONS, ACCORDING TO THE GOOGLE MALWARE DASHBOARD.
-# https://www.google.com/transparencyreport/safebrowsing/malware/
-# Updated: 2016.09.09 (Previously: 2016.08.05)
-# Statistics account for scanning by Google from 1 year up until the cited update date.
-
-#   RANK     ASN    AS                      RATE    INCLUDED IN HERE?   RANK SHIFT†
-#      1   35916    Multacom Corp.        38.26%    Yes                 ±0
-#      2  132422    AS132422 Data Centre  31.82%    Yes                 NA
-#      3   18978    Enzu Inc              30.54%    Yes                 ±0
-#      4   22653    Cyber Wurx LLC        30.07%    Yes                 -2
-#      5   32097    WholeSale Internet    26.42%    Yes                 -1
-#      6   21859    Zenlayer Inc          26.41%    Yes                 -1
-#      7   36114    Versaweb, LLC         22.09%    Yes                 ±0
-#      8   33387    DataShack, LC         17.82%    Yes                 +1
-#      9   38197    Sun Network HK        17.35%    Yes                 -3
-#     10   62468    VpsQuan LLC           17.01%    Yes                 ±0
-#     11   23033    Wowrack.com           16.44%    Yes                 +1
-#     12   26658    HT                    15.45%    Yes                 -4
-#     13   46261    QuickPacket, LLC      15.35%    Yes                 +1
-#     14   35908    Krypt Technologies    14.03%    Yes                 +3
-#     15  133618    Trellian Pty. Ltd.    13.82%    Yes                 ±0
-#     16   17139    Corporate Colocation  13.56%    Yes                 -5
-#     17   18779    EGIHosting            12.59%    Yes                 NA
-#     18   15967    Nazwa.pl Sp.z.o.o     12.57%    Yes                 +1
-#     19   54600    PEG TECH INC          12.48%    Yes                 -3
-#     20   40676    Psychz Networks       12.37%    Yes                 ±0
-
-# THE WORLD's WORST BOTNET ASNs, ACCORDING TO ABUSEAT.ORG's CBL ("COMPOSITE BLOCKING LIST").
-# https://www.spamhaus.org/statistics/botnet-asn/
-# http://www.abuseat.org/asn.html
-# Updated: 2016.09.09 (Previously: 2016.08.05)
-
-#   RANK     ASN    AS            No. of BOTNETS     INFECT%    INCLUDED IN HERE?   RANK SHIFT†
-#      1    9829    BSNL               1,102,544      16.55%    Yes                 ±0
-#      2   45899    VNPT Corp            578,328      10.29%    Yes                 ±0
-#      3    4134    China Backbone 4134  498,231       0.42%    Yes                 ±0
-#      4   45595    Pakistan Telecom     429,713       2.82%    Yes                 ±0
-#      5   24560    Bharti Airtel        342,686      11.13%    Yes                 ±0
-#      6   17974    PT Tel. Indonesia    261,798       3.60%    Pending†            ±0
-#      7   45609    Bharti Airtel        191,083       3.49%    Yes                 +6
-#      8    8151    Uninet S.A. de C.V.  189,247       1.18%    Pending†            +2
-#      9    3462    DCBG                 182,438       1.40%    Yes                 -1
-#     10    7552    Viettel Corporation  164,206       1.11%    Yes                 -3
-#     11   18403    CFPT                 159,439       2.85%    Yes                 -2
-#     12   45271    Idea Cellular Ltd    153,286      21.36%    Yes                 +4
-#     13   12880    AS12880              147,906       1.71%    Yes                 NA
-#     14    4837    China Backbone 4837  137,494       0.24%    Yes                 -2
-#     15    8048    Servicios, Venezuela 116,994       3.16%    Pending†            -4
-#     16   36947    ALGTEL               113,847       0.96%    No                  -1
-#     17   23969    TOT Public Company   107,715       9.89%    No                  ±0
-#     18   22927    Tel. de Argentina    105,202       2.27%    No                  -4
-#     19   48159    AS48159               96,224      11.87%    Yes                 NA
-#     20   12389    PJSC Rostelecom       90,495       1.04%    No                  ±0
-
-# THE WORLD's WORST SPAM ISPs, ACCORDING TO MEGARBL.NET (https://www.megarbl.net/top10/isps).
-# Updated: 2016.09.10
-
-#   RANK     ASN    AS                   INCLUDED IN HERE?   RANK SHIFT†
-#      1    4134    China Backbone 4134  Yes                 NA
-#      2   45899    VNPT Corp            Yes                 NA
-#      3    9829    BSNL                 Yes                 NA
-#      4    8151    Uninet S.A. de C.V.  Pending†            NA
-#      5   45595    Pakistan Telecom     Yes                 NA
-#      6   24560    Bharti Airtel        Yes                 NA
-#      7   18403    CFPT                 Yes                 NA
-#      8    7552    Viettel Corporation  Yes                 NA
-#      9   13999    Mega Cable, S.A      Pending†            NA
-#     10    4837    China Backbone 4837  Yes                 NA
-
-# RANK SHIFT† = RANK SHIFT SINCE LAST UPDATE
-# Pending† = Not yet included, but under consideration (possibly to be added in the future, pending further research).
-
-# ---
-# INCLUDED DEFAULT IPV6 SIGNATURES ARE BELOW THIS LINE.
-
-
-# ---
-# Some basic greylisting to avoid problems with the local network being blocked by some of the bogon CIDR signatures
-# that appear further down into the signature files.
-
-0::/8 Greylist
-
-
 # ---
 # ASN 46844 ("Sharktech").
 # %Listed, Google Malware Dashboard: 29.29%.
@@ -137,18 +15,6 @@ Tag: Sharktech
 2607:9a00::/32 Deny Cloud
 2607:f130::/32 Deny Cloud
 Tag: Multacom Corp
-
-
-# ASN 38197 ("Sun Network (Hong Kong) Limited").
-# %Listed, Google Malware Dashboard: 21.05%.
-# Updated: 2016.07.31
-
-2400:1c80::/48 Deny Generic
-2403:ea00::/32 Deny Generic
-Tag: Sun Network HK
----
-recaptcha:
- enabled: true
 
 
 # ASN 16138 ("INTERIA.PL Sp z.o.o").
@@ -210,34 +76,6 @@ Tag: New Dream Network
 2806:213::/32 Deny Cloud
 2a04:840::/44 Deny Cloud
 Tag: HostDime.com, Inc
-
-
-# ASNs 30548, 31034, 199653, 200185, 394189 ("Aruba S.p.A" / "Aruba SAS").
-# %Listed, Google Malware Dashboard: 0% (AS30548), 2.28% (AS31034), 30.82% (AS199653),
-#   4.86% (AS200185), "ASN not found" (AS394189).
-# Updated: 2016.07.02
-
-2620:11d:6000::/42 Deny Generic
-2a00:6d40::/31 Deny Generic
-2a01:5940::/35 Deny Generic
-2a01:5940:2000::/36 Deny Generic
-2a02:4ae0:a::/48 Deny Generic
-2a02:fd40::/31 Deny Generic
-2a03:2c40::/32 Deny Generic
-2a03:a140::/32 Deny Generic
-2a03:cdc0::/35 Deny Generic
-2a04:e100::/31 Deny Generic
-Tag: Aruba S.p.A
-
-
-# ASN 29182 ("ISPsystem").
-# %Listed, Google Malware Dashboard: 3.48%.
-# Updated: 2016.04.18
-
-2a01:230::/47 Deny Generic
-2a01:230:2::/48 Deny Generic
-2a07:500::/29 Deny Generic
-Tag: ISPsystem
 
 
 # ASN 47583 ("Hostinger International").
@@ -333,29 +171,12 @@ Tag: 1&1 Internet SE
 
 # ASN 16276 ("OVH Systems").
 # %Listed, Google Malware Dashboard: 1.22%.
-# Updated: 2016.01.20 / Checked: 2016.08.15
+# Updated: 2016.09.27
 
-2001:41d0::/32 Deny Generic
-2402:1f00::/32 Deny Generic
-2607:5300::/32 Deny Generic
+2001:41d0::/32 Deny Cloud
+2402:1f00::/32 Deny Cloud
+2607:5300::/32 Deny Cloud
 Tag: OVH Systems
-
-
-# ASN 34619 ("Çizgi Telekomünikasyon").
-# %Listed, Google Malware Dashboard: 5.10%.
-# Updated: 2016.01.18 / Checked: 2016.05.20
-
-2a02:2020::/32 Deny Generic
-Tag: CIZGI TELEKOM
-
-
-# ASN 25504 ("Vautron Rechenzentrum AG").
-# %Listed, Google Malware Dashboard: 2.17%.
-# Updated: 2016.01.18 / Checked: 2016.04.18
-
-2001:67c:2394::/48 Deny Generic
-2a00:19e0::/29 Deny Generic
-Tag: Vautron Rech. AG
 
 
 # ASN 27823 ("Dattatec.com").
@@ -364,14 +185,6 @@ Tag: Vautron Rech. AG
 
 2800:6c0::/32 Deny Cloud
 Tag: Dattatec.com
-
-
-# ASN 38955 ("World4You Internet Services").
-# %Listed, Google Malware Dashboard: 1.79%.
-# Updated: 2016.01.18 / Checked: 2016.04.18
-
-2a00:1a68::/32 Deny Generic
-Tag: World4You
 
 
 # ASNs 16265, 28753, 30633, 60781 ("Leaseweb Network").
@@ -406,34 +219,6 @@ Tag: World4You
 2a05:3f40::/30 Deny Cloud
 2c0f:f9b8:d::/48 Deny Cloud
 Tag: Leaseweb
-
-
-# ASN 48159 ("Telecommunication Infrastructure Company").
-# %Listed, Google Malware Dashboard: 0.60%.
-# %Listed, abuseat.org (CBL-Listed): 11.87%.
-# Updated: 2016.07.13 / Checked: 2016.09.09
-
-2a03:57c0::/32 Deny Generic
-Tag: AS48159
-
-
-# ASN 12880 ("Information Technology Company (ITC)").
-# %Listed, Google Malware Dashboard: 1.23%.
-# %Listed, abuseat.org (CBL-Listed): 1.71%.
-# Updated: 2016.09.09
-
-2001:4188::/32 Deny Generic
-Tag: AS12880
-
-
-# ASNs 24940, 37153 ("Hetzner Online GmbH").
-# %Listed, Google Malware Dashboard: 1.15% (AS24940), 1.39% (AS37153).
-# Updated: 2016.05.21
-
-2a01:4f8::/29 Deny Generic
-2a06:be80::/29 Deny Generic
-2c0f:fce8::/33 Deny Generic
-Tag: Hetzner Online GmbH
 
 
 # ASN 43146 ("Agava Ltd").
@@ -493,18 +278,6 @@ Tag: Agava Ltd
 Tag: SoftLayer
 
 
-# ASN 51559 ("Server Internet Bilisim ve Bilgisayar Hizmetleri").
-# %Listed, Google Malware Dashboard: 2.43%.
-# Updated: 2016.02.27 / Checked: 2016.05.21
-# Refer spambotsecurity.com/forum/viewtopic.php?f=7&t=3553
-
-2a03:2100::/32 Deny Generic
-2a05:9bc0::/29 Deny Generic
-2a06:41c0::/29 Deny Generic
-2a06:c400::/29 Deny Generic
-Tag: AS51559
-
-
 # ASN 42244 ("Hosting Operator eServer.ru Ltd").
 # %Listed, Google Malware Dashboard: 1.69%.
 # Updated: 2016.03.28 / Checked: 2016.05.21
@@ -517,26 +290,20 @@ Tag: eServer.ru
 
 
 # ASN 35415 ("Webzilla B.V").
-# %Listed, Google Malware Dashboard: 1.60%.
-# Updated: 2016.03.28 / Checked: 2016.05.21
+# %Listed, Google Malware Dashboard: 1.16%.
+# Updated: 2016.09.27
 
-2803:8700:5::/48 Deny Generic
-2803:8700:45::/48 Deny Generic
-2803:8700:b591::/48 Deny Generic
-2803:8700:deb9::/48 Deny Generic
-2a00:1178::/32 Deny Generic
-2a06:4100::/29 Deny Generic
-2a06:7740::/48 Deny Generic
-2a06:78c0::/48 Deny Generic
+2803:8700:5::/48 Deny Cloud
+2803:8700:45::/48 Deny Cloud
+2803:8700:2f3a::/48 Deny Cloud
+2803:8700:6f32::/48 Deny Cloud
+2803:8700:b591::/48 Deny Cloud
+2803:8700:deb9::/48 Deny Cloud
+2a00:1178::/32 Deny Cloud
+2a06:4100::/32 Deny Cloud
+2a06:7740::/48 Deny Cloud
+2a06:78c0::/48 Deny Cloud
 Tag: Webzilla B.V
-
-
-# ASN 41079 ("SuperHost.pl").
-# %Listed, Google Malware Dashboard: 2.46%.
-# Updated: 2016.01.18 / Checked: 2016.03.28
-
-2a02:1778::/32 Deny Generic
-Tag: SuperHost.pl
 
 
 # ASN 53225 ("IPGLOBE DATACENTER").
@@ -556,76 +323,63 @@ Tag: IPGLOBE DATACENTER
 Tag: DataCorpore Servios
 
 
-# ASN 57879 ("sfip84").
-# %Listed, Google Malware Dashboard: 0%.
-# Updated: 2016.01.18 / Checked: 2016.05.15
+# ASN 53850 ("GorillaServers, Inc").
+# %Listed, Google Malware Dashboard: 3.74%.
+# Updated: 2016.09.15
 
-2a00:b540::/32 Deny Spam
-Tag: sfip84
-
-
-# ASN 45727 ("PT Hutchison CP Telecommunications").
-# %Listed, Google Malware Dashboard: 1.12%.
-# Updated: 2016.07.20
-
-2400:8b00:1000:1::/64 Deny Spam
-2400:8b00:1000:2::/64 Deny Spam
-2400:8b00:1000:4::/64 Deny Spam
-2400:8b00:a000::/47 Deny Spam
-2400:8b00:a400::/64 Deny Spam
-Tag: PT Hutchison
----
-recaptcha:
- enabled: true
+2606:c700::/32 Deny Cloud
+Tag: GorillaServers, Inc
 
 
-# ASN 24203 ("PT Excelcomindo Pratama").
-# %Listed, Google Malware Dashboard: 0%.
-# Updated: 2016.03.02 / Checked: 2016.05.15
+# Announcing as: "Data Center", "Data Centre".
+# Various ASNs; Sourced from HE.
+# Updated: 2016.09.07
 
-2400:9800::/32 Deny Spam
-Tag: PT Excelcomindo
----
-recaptcha:
- enabled: true
+2401:200::/32 Deny Cloud
+2401:8800::/40 Deny Cloud
+2401:8800:400::/40 Deny Cloud
+2401:8800:600::/40 Deny Cloud
+2401:8800:800::/40 Deny Cloud
+2401:8800:a00::/40 Deny Cloud
+2401:8800:c05::/48 Deny Cloud
+2401:9800::/32 Deny Cloud
+2401:9f00::/32 Deny Cloud
+2402:7a00::/32 Deny Cloud
+2403:bc00:1::/48 Deny Cloud
+2403:bc00:7fff::/48 Deny Cloud
+2403:bc00:8000::/47 Deny Cloud
+2404:3d00:400::/40 Deny Cloud
+2404:6300::/32 Deny Cloud
+2404:d8::/32 Deny Cloud
+2406:fe00::/32 Deny Cloud
+2407:7200::/32 Deny Cloud
+2602:fff8::/36 Deny Cloud
+2605:3380::/32 Deny Cloud
+2605:9700::/32 Deny Cloud
+2605:bc00::/32 Deny Cloud
+2804:160::/32 Deny Cloud
+2804:888::/32 Deny Cloud
+2804:122c::/32 Deny Cloud
+2a00:7580:10::/48 Deny Cloud
+2a00:a300::/32 Deny Cloud
+2a02:118::/32 Deny Cloud
+2a02:1760::/32 Deny Cloud
+2a02:f48:2000::/48 Deny Cloud
+2a03:7580:1::/48 Deny Cloud
+2a04:a180::/32 Deny Cloud
+2a04:b2c0::/29 Deny Cloud
+2a07:6d40::/29 Deny Cloud
+Tag: Data Center
 
 
-# ASN 45682 ("Excite Japan Co., Ltd").
-# %Listed, Google Malware Dashboard: 0.01%.
-# Updated: 2016.01.18 / Checked: 2016.07.20
+# ASNs 34360, 41079, 48760 ("H88 S.A").
+# %Listed, Google Malware Dashboard: 2.18% (AS34360), 9.49% (AS41079), 0% (AS48760).
+# Updated: 2016.01.18 / Checked: 2016.03.28
 
-2402:dc00::/32 Deny Generic
-Tag: Excite Japan
-
-
-# ASN 31080 ("o2 Sp. Z.o.o").
-# %Listed, Google Malware Dashboard: 0.27%.
-# Updated: 2016.01.18 / Checked: 2016.05.15
-
-2001:67c:25c4::/48 Deny Generic
-Tag: AS31080
-
-
-# ASN 6870 ("H1 LLC").
-# %Listed, Google Malware Dashboard: 1.17%.
-# Updated: 2016.01.18 / Checked: 2016.04.23
-
-2a00:1f70::/32 Deny Generic
-Tag: H1 LLC
-
-
-# ASN 3223 ("Voxility LLC").
-# %Listed, Google Malware Dashboard: 1.43%.
-# Updated: 2016.05.15
-
-2404:8080::/32 Deny Generic
-2602:ff84:8::/48 Deny Generic
-2a02:13f0:8100::/48 Deny Generic
-2a03:5180::/46 Deny Generic
-2a03:5180:4::/47 Deny Generic
-2a06:1700::/48 Deny Generic
-2a07:7500::/29 Deny Generic
-Tag: Voxility LLC
+2a01:4660::/32 Deny Cloud
+2a02:1778::/32 Deny Cloud
+2a07:1cc0::/29 Deny Cloud
+Tag: H88 S.A
 
 
 # ASN 46475 ("Limestone Networks, Inc").
@@ -645,17 +399,6 @@ Tag: Limestone Networks
 Tag: Redstation Limited
 
 
-# ASN 24961 ("myLoc managed IT AG").
-# Caught trying to DDoS SFS.
-# %Listed, Google Malware Dashboard: 0.92%.
-# Updated: 2016.04.23 / Checked: 2016.05.13
-
-2001:67c:192c::/48 Deny Generic
-2001:4ba0::/32 Deny Generic
-2a07:4400::/29 Deny Generic
-Tag: myLoc
-
-
 # ASN 13301 ("United Gameserver GmbH").
 # Caught trying to DDoS SFS.
 # %Listed, Google Malware Dashboard: 0.16%.
@@ -665,12 +408,15 @@ Tag: myLoc
 Tag: United Gameserver
 
 
-# ASN 30968 ("INFOBOX").
-# %Listed, Google Malware Dashboard: 2.23%.
-# Updated: 2016.01.18 / Checked: 2016.05.15
+# ASN 24961 ("myLoc managed IT AG").
+# Caught trying to DDoS SFS.
+# %Listed, Google Malware Dashboard: 1.13%.
+# Updated: 2016.09.27
 
-2a02:440::/32 Deny Generic
-Tag: INFOBOX
+2001:67c:192c::/48 Deny Cloud
+2001:4ba0::/32 Deny Cloud
+2a07:4400::/29 Deny Cloud
+Tag: myLoc
 
 
 # ASN 57043 ("HOSTKEY B.V").
@@ -679,14 +425,6 @@ Tag: INFOBOX
 
 2a05:b40::/29 Deny Cloud
 Tag: HOSTKEY B.V
-
-
-# ASN 49335 ("Mir Telematiki Ltd").
-# %Listed, Google Malware Dashboard: 0.28%.
-# Updated: 2016.04.27
-
-2a05:b80::/29 Deny Spam
-Tag: Mir Telematiki Ltd
 
 
 # ASNs 10532, 15395, 19994, 22720, 27357, 33070, 44716, 45187, 47715, 58683 ("Rackspace Hosting").
@@ -713,34 +451,6 @@ Tag: Rackspace Hosting
 2605:3b80::/32 Deny Cloud
 2a02:748::/32 Deny Cloud
 Tag: Swiftway
-
-
-# ASN 7743 ("JPMorgan Chase & Co").
-# %Listed, Google Malware Dashboard: 0%.
-# Updated: 2016.03.13 / Checked: 2016.08.15
-
-2620:11::/40 Deny Generic
-Tag: JPMorgan Chase & Co
-
-
-# ASN 42708 ("Portlane Networks AB").
-# %Listed, Google Malware Dashboard: 0.10%.
-# Updated: 2016.08.26
-
-2a00:1a28::/32 Deny Spam
-2a01:6f0:ffff::/48 Deny Spam
-2a01:8640:6::/48 Deny Spam
-2a02:750:10::/48 Deny Spam
-2a02:750:14::/48 Deny Spam
-2a02:7ac0::/32 Deny Spam
-2a02:d507:ffff::/48 Deny Spam
-2a03:4bc0:2931::/48 Deny Spam
-2a03:4bc0:2944::/48 Deny Spam
-2a06:2f40::/48 Deny Spam
-Tag: Portlane Networks AB
----
-recaptcha:
- enabled: true
 
 
 # ASN 6939 ("Hurricane Electric, Inc").
@@ -802,15 +512,6 @@ Tag: Steadfast Networks
 Tag: A2B IP B.V
 
 
-# ASN 44050 ("Petersburg Internet Network ltd").
-# %Listed, Google Malware Dashboard: 1.05%.
-# Updated: 2016.01.20 / Checked: 2016.03.29
-
-2001:67c:29b8::/48 Deny Generic
-2a00:1d78::/32 Deny Generic
-Tag: PIN-AS
-
-
 # ASNs 20860, 21130 ("IOMart").
 # Crimeware friendly ISP; Warnings about them at the hpHosts Blog.
 # %Listed, Google Malware Dashboard: 0.91% (AS20860), 0% (AS21130).
@@ -831,8 +532,8 @@ Tag: IOMart
 # %Listed, Google Malware Dashboard: 0.69%.
 # Updated: 2016.01.20 / Checked: 2016.08.26
 
-2001:41c8::/29 Deny Generic
-2a03:9ba0::/40 Deny Generic
+2001:41c8::/29 Deny Cloud
+2a03:9ba0::/40 Deny Cloud
 Tag: Bytemark Limited
 
 
@@ -848,21 +549,6 @@ Tag: Bytemark Limited
 2a02:e740::/29 Deny Cloud
 2a04:2f80::/29 Deny Cloud
 Tag: PlusServer AG
-
-
-# ASNs 16880, 36421 ("Trend Micro Incorporated").
-# Follows their users around and attempts to get into restricted/private parts of websites.
-# %Listed, Google Malware Dashboard: 0% (AS16880 + AS36421).
-# Updated: 2016.08.09
-
-2001:450:2045::/48 Deny Generic
-2620:101:402c::/47 Deny Generic
-2620:101:4030::/48 Deny Generic
-2620:101:4032::/48 Deny Generic
-2620:101:4034::/46 Deny Generic
-2620:101:403a::/48 Deny Generic
-2620:101:403c::/48 Deny Generic
-Tag: Trend Micro
 
 
 # ASNs 14061, 46652, 62567, 65040, 133165, 200130, 201229, 202018, 202109, 393406, 394362 ("Digital Ocean, Inc").
@@ -953,17 +639,6 @@ Tag: InfoRelay Online
 Tag: WestHost, Inc
 
 
-# ASN 8551 ("Bezeq International-Ltd").
-# %Listed, Google Malware Dashboard: 1.55%.
-# Updated: 2016.01.20 / Checked: 2016.09.20
-
-2001:4cd0::/32 Deny Generic
-Tag: Bezeq International
----
-recaptcha:
- enabled: true
-
-
 # ASN 32097 ("WholeSale Internet, Inc").
 # %Listed, Google Malware Dashboard: 25.78%.
 # Updated: 2016.01.20 / Checked: 2016.05.21
@@ -1026,16 +701,6 @@ Tag: ON-LINE Ltd
 2a02:b50::/33 Deny Cloud
 2a02:b50:8000::/34 Deny Cloud
 Tag: Internap Network
-
-
-# ASN 51191 ("Xirra GmbH").
-# %Listed, Google Malware Dashboard: 2.77%.
-# Updated: 2016.01.21 / Checked: 2016.03.30
-
-2a01:4a0:2000::/47 Deny Generic
-2a01:4a0:2002::/48 Deny Generic
-2a06:4b00::/29 Deny Generic
-Tag: Xirra GmbH
 
 
 # ASN 23033 ("Wowrack.com").
@@ -1186,58 +851,6 @@ Tag: Private Layer INC
 Tag: Psychz Networks
 
 
-# ASN 35804 ("PP SKS-LUGAN").
-# %Listed, Google Malware Dashboard: 3.31%.
-# Updated: 2016.03.30 / Checked: 2016.04.25
-
-2a00:ede0::/32 Deny Generic
-Tag: PP SKS-LUGAN
-
-
-# ASN 131222 ("Sistema Shyam Teleservices Ltd").
-# %Listed, Google Malware Dashboard: 0%.
-# Updated: 2016.08.09
-
-2406:5600:9::/48 Deny Spam
-2406:5600:a::/48 Deny Spam
-2406:5600:13::/48 Deny Spam
-2406:5600:14::/46 Deny Spam
-2406:5600:18::/45 Deny Spam
-2406:5600:20::/44 Deny Spam
-2406:5600:30::/47 Deny Spam
-2406:5600:53::/48 Deny Spam
-2406:5600:54::/46 Deny Spam
-2406:5600:58::/45 Deny Spam
-2406:5600:60::/44 Deny Spam
-2406:5600:70::/48 Deny Spam
-2406:5600:73::/48 Deny Spam
-2406:5600:74::/46 Deny Spam
-2406:5600:78::/45 Deny Spam
-2406:5600:80::/45 Deny Spam
-2406:5600:88::/48 Deny Spam
-2406:5600:8a::/47 Deny Spam
-2406:5600:8c::/46 Deny Spam
-2406:5600:90::/48 Deny Spam
-2406:5600:93::/48 Deny Spam
-2406:5600:94::/46 Deny Spam
-2406:5600:98::/45 Deny Spam
-2406:5600:a0::/47 Deny Spam
-2406:5600:a2::/48 Deny Spam
-2406:5600:b3::/48 Deny Spam
-2406:5600:b4::/47 Deny Spam
-2406:5600:b9::/48 Deny Spam
-2406:5600:ba::/47 Deny Spam
-2406:5600:bc::/46 Deny Spam
-2406:5600:c0::/48 Deny Spam
-2406:5600:d2::/47 Deny Spam
-2406:5600:d4::/46 Deny Spam
-2406:5600:d8::/45 Deny Spam
-Tag: Sistema Shyam
----
-recaptcha:
- enabled: true
-
-
 # ASN 36114 ("Versaweb, LLC").
 # %Listed, Google Malware Dashboard: 8.42%.
 # Updated: 2016.01.23 / Checked: 2016.03.20
@@ -1252,17 +865,6 @@ Tag: Versaweb, LLC
 
 2605:aa80::/32 Deny Cloud
 Tag: DataWagon LLC
-
-
-# ASN 49981 ("WorldStream").
-# %Listed, Google Malware Dashboard: 1.89%.
-# Updated: 2016.03.20 / Checked: 2016.05.21
-
-2001:16c0:fefe::/48 Deny Generic
-2a00:7c80::/32 Deny Generic
-2a06:3880::/29 Deny Generic
-2a06:d641::/32 Deny Generic
-Tag: WorldStream
 
 
 # ASN 20473 ("Choopa, LLC").
@@ -1435,22 +1037,25 @@ Tag: AS46562
 Tag: RAM Host
 
 
-# ASN 13030 ("Init7").
-# %Listed, Google Malware Dashboard: 0.33%.
-# Updated: 2016.01.18 / Checked: 2016.05.21
-# Refer spambotsecurity.com/forum/viewtopic.php?f=15&t=3740
+# ASNs 8972, 20738, 20773, 25074, 31100, 34011, 39779, 44497, 50932, 61157 ("Host Europe GmbH").
+# %Listed, Google Malware Dashboard: 0.75% (AS8972), 2.35% (AS20738), 1.71% (AS20773), 2.01% (AS25074), 0% (AS31100),
+#    1.64% (AS34011), 2.62% (AS39779), 3.51% (AS44497), 100% (AS50932), 0.14% (AS61157).
+# Note: When updating, check for both "Host Europe" and "HostEurope" (no space). There are some additional CIDRs in use
+# that aren't tied to any particular ASN (should aggregate these alongside those announced by the aforementioned ASNs).
+# Updated: 2016.09.28
 
-2001:67c:1388::/48 Deny Generic
-2001:67c:2570::/48 Deny Generic
-2001:67c:2648::/48 Deny Generic
-2001:1620::/32 Deny Generic
-2a00:5640::/32 Deny Generic
-2a00:e020::/32 Deny Generic
-2a02:168::/32 Deny Generic
-2a02:16a0::/32 Deny Generic
-2a03:7520::/32 Deny Generic
-2a05:36c0::/29 Deny Generic
-Tag: Init7
+2001:1520::/32 Deny Cloud
+2a00:1158::/32 Deny Cloud
+2a01:488::/32 Deny Cloud
+2a02:4e8:1::/48 Deny Cloud
+2a02:4e8:4::/47 Deny Cloud
+2a02:4e8:a::/48 Deny Cloud
+2a02:4e8:d::/48 Deny Cloud
+2a02:4e8:14::/48 Deny Cloud
+2a02:4e8:de::/48 Deny Cloud
+2a02:cbf0::/29 Deny Cloud
+2a04:e540::/32 Deny Cloud
+Tag: Host Europe GmbH
 
 
 # ASN 14576 ("K SERVERS LTD").
@@ -1496,8 +1101,9 @@ Tag: AS30083
 
 
 # ASN 12876 ("ONLINE S.A.S").
-# %Listed, Google Malware Dashboard: 1.07%.
-# Updated: 2016.01.25 / Checked: 2016.05.24
+# Caught trying to DDoS SFS.
+# %Listed, Google Malware Dashboard: 1.98%.
+# Updated: 2016.09.28
 
 2001:bc8::/32 Deny Cloud
 Tag: ONLINE S.A.S
@@ -1628,15 +1234,6 @@ Tag: HZ Hosting Ltd
 
 2605:3e80::/32 Deny Cloud
 Tag: Micfo, LLC
-
-
-# ASN 35908 ("Krypt Technologies").
-# %Listed, Google Malware Dashboard: 12.50%.
-# Updated: 2016.02.27 / Checked: 2016.07.09
-# Refer spambotsecurity.com/forum/viewtopic.php?f=7&t=3273
-
-2607:f180::/31 Deny Generic
-Tag: Krypt Technologies
 
 
 # ASN 53264 ("Continuum Data Centers, LLC").
@@ -2315,22 +1912,13 @@ Tag: FranTech Solutions
 Tag: Astutium Limited
 
 
-# ASNs 3491, 6279, 7262 ("PCCW Global" / "Beyond The Network America, Inc").
-# %Listed, Google Malware Dashboard: 2.67% (AS3491), 0% (AS6279), "ASN not found" (AS7262).
-# Updated: 2016.07.20
+# ASN 35908 ("Krypt Technologies").
+# %Listed, Google Malware Dashboard: 13.67%.
+# Updated: 2016.09.28
+# Refer spambotsecurity.com/forum/viewtopic.php?f=7&t=3273
 
-2001:478:124::/48 Deny Spam
-2400:8800::/32 Deny Spam
-2600:1400:7::/48 Deny Spam
-2600:1407:8::/48 Deny Spam
-2602:ff95::/36 Deny Spam
-2a02:b48:4000::/34 Deny Spam
-2a02:13e0:2::/48 Deny Spam
-2a03:5400::/32 Deny Spam
-Tag: PCCW Global
----
-recaptcha:
- enabled: true
+2607:f180::/31 Deny Cloud
+Tag: Krypt Technologies
 
 
 # ASN 31815 ("Media Temple, Inc").
@@ -2396,14 +1984,6 @@ Tag: Centrilogic
 Tag: VegasNAP, LLC
 
 
-# ASN 37254 ("GREEN FLASH TRADING").
-# %Listed, Google Malware Dashboard: 0%.
-# Updated: 2016.05.12
-
-2c0f:f4a8::/32 Deny Spam
-Tag: GREEN FLASH TRADING
-
-
 # ASN 54290 ("Hostwinds LLC").
 # %Listed, Google Malware Dashboard: 1.97%.
 # Updated: 2016.04.19
@@ -2420,14 +2000,6 @@ Tag: Hostwinds LLC
 
 2001:1bb0::/32 Deny Cloud
 Tag: OJSC RTComm.RU
-
-
-# ASN 62454 ("Zyztm Research Division 10 B.V").
-# %Listed, Google Malware Dashboard: 0.42%.
-# Updated: 2016.04.23
-
-2a01:54c0::/32 Deny Generic
-Tag: Zyztm
 
 
 # ASN 9009 ("M247 Ltd").
@@ -2455,10 +2027,9 @@ Tag: OOO TimeWeb
 
 
 # ASN 10098 ("Henderson Data Centre Limited").
-# %Listed, Google Malware Dashboard: 3.06%.
-# Updated: 2016.04.23
+# %Listed, Google Malware Dashboard: 3.17%.
+# Updated: 2016.04.23 / Checked: 2016.09.28
 
-2407:7200::/32 Deny Cloud
 Tag: Henderson
 
 
@@ -2476,22 +2047,6 @@ Tag: Nazwa.pl
 
 2607:f2d8::/32 Deny Cloud
 Tag: WebNX, Inc
-
-
-# ASN 201848 ("Trader soft LLC").
-# %Listed, Google Malware Dashboard: 5.01%.
-# Updated: 2016.04.25
-
-2a04:ac00:1::/48 Deny Generic
-Tag: Trader soft LLC
-
-
-# ASN 198068 ("FASTVPS EESTI OU").
-# %Listed, Google Malware Dashboard: 4.86%.
-# Updated: 2016.04.25
-
-2a03:f480:1::/48 Deny Generic
-Tag: FASTVPS EESTI OU
 
 
 # ASN 62638 ("Query Foundry, LLC").
@@ -2810,6 +2365,14 @@ Tag: Serverius Holding
 Tag: Transip B.V
 
 
+# ASN 200429 ("HostSlim BV")
+# %Listed, Google Malware Dashboard: 0.71%.
+# Updated: 2016.09.28
+
+2a06:5b80::/32 Deny Cloud
+Tag: HostSlim BV
+
+
 # ASN 43350 ("NForce Entertainment B.V")
 # %Listed, Google Malware Dashboard: 1.23%.
 # Updated: 2016.05.09
@@ -2837,20 +2400,6 @@ Tag: Transip B.V
 Tag: NForce Entertainment
 
 
-# ASN 43260 ("DGN TEKNOLOJI BILISIM YAYINCILIK SANAYI VE LIMITED SIRKETI").
-# Caught trying to DDoS SFS.
-# %Listed, Google Malware Dashboard: 1.82%.
-# Updated: 2016.05.13
-
-2402:1780:1::/48 Deny Generic
-2a04:4280:10::/48 Deny Generic
-2a04:4280:100::/47 Deny Generic
-2a05:b700::/29 Deny Generic
-2a05:bf00::/29 Deny Generic
-2a06:9140::/29 Deny Generic
-Tag: DGN TEKNOLOJI
-
-
 # ASN 38001 ("NewMedia Express Pte Ltd. Singapore Web Hosting Service Provider").
 # Caught trying to DDoS SFS.
 # %Listed, Google Malware Dashboard: 1.35%.
@@ -2860,29 +2409,6 @@ Tag: DGN TEKNOLOJI
 2402:2f80:1::/48 Deny Cloud
 2406:f400::/32 Deny Cloud
 Tag: NewMedia Express
-
-
-# ASN 42868 ("Niobe Bilisim Teknolojileri Yazilim San. Tic. Ltd. Sti").
-# Caught trying to DDoS SFS.
-# %Listed, Google Malware Dashboard: 2.70%.
-# Updated: 2016.05.13
-
-77.245.144.0/20 Deny Generic
-Tag: Niobe Bilisim
-
-
-# ASN 38731 ("Vietel - CHT Compamy Ltd").
-# %Listed, Google Malware Dashboard: 1.81%.
-# Updated: 2016.05.13
-
-2401:5f80::/36 Deny Generic
-2401:5f80:1001::/48 Deny Generic
-2401:5f80:2000::/35 Deny Generic
-2401:5f80:5000::/36 Deny Generic
-Tag: Vietel
----
-recaptcha:
- enabled: true
 
 
 # ASN 3842 ("RamNode LLC").
@@ -3055,18 +2581,6 @@ Tag: Host Sailor Ltd
 Tag: D.E.Tech
 
 
-# ASN 20738 ("Host Europe GmbH").
-# %Listed, Google Malware Dashboard: 1.45%.
-# Updated: 2016.06.09
-
-2a02:4e8:1::/48 Deny Cloud
-2a02:4e8:4::/47 Deny Cloud
-2a02:4e8:a::/48 Deny Cloud
-2a02:4e8:d::/48 Deny Cloud
-2a02:4e8:14::/48 Deny Cloud
-Tag: Host Europe GmbH
-
-
 # ASN 29873 ("The Endurance International Group, Inc").
 # %Listed, Google Malware Dashboard: 0.91%.
 # Updated: 2016.06.17
@@ -3159,6 +2673,8 @@ Tag: Data Room, Inc
 2003:0:1308:800d::/64 Deny Cloud
 2003:0:f000:801f::/64 Deny Cloud
 2003:3c0:1603:f::/64 Deny Cloud
+2400:8800:3f10:5::/64 Deny Cloud
+2400:8800:7f01:c::/64 Deny Cloud
 2604:9700:8000::/48 Deny Cloud
 2604:e500::/32 Deny Cloud
 2607:c200:1106::/48 Deny Cloud
@@ -3169,14 +2685,6 @@ Tag: Data Room, Inc
 2a00:16f8::/32 Deny Cloud
 2a00:f300:1::/48 Deny Cloud
 Tag: Zayo Bandwidth Inc
-
-
-# ASN 6876 ("TeNeT Scientific Production Enterprise LLC").
-# %Listed, Google Malware Dashboard: 2.39%.
-# Updated: 2016.07.20
-
-2a04:2c00::/29 Deny Generic
-Tag: TeNeT
 
 
 # ASN 7151 ("Bay Area Internet Solutions").
@@ -3214,15 +2722,6 @@ Tag: Trans-IX B.V
 Tag: Keyweb AG
 
 
-# ASN 31252 ("STARNET S.R.L").
-# %Listed, Google Malware Dashboard: 2.48%.
-# Updated: 2016.07.24
-
-2a00:9900::/29 Deny Generic
-2a01:320::/29 Deny Generic
-Tag: STARNET S.R.L
-
-
 # ASN 10929 ("Netelligent Hosting Services Inc").
 # %Listed, Google Malware Dashboard: 1.94%.
 # Updated: 2016.08.19
@@ -3236,7 +2735,6 @@ Tag: Netelligent Hosting
 # %Listed, Google Malware Dashboard: 0.25%.
 # Updated: 2016.08.19
 
-2401:9f00::/32 Deny Cloud
 Tag: Powerbase DataCenter
 
 
@@ -3248,105 +2746,11 @@ Tag: Powerbase DataCenter
 Tag: Ecommerce Corporation
 
 
-# ASN 17747 ("SITI NETWORKS LIMITED").
-# %Listed, Google Malware Dashboard: 0%.
-# %Listed, abuseat.org (CBL-Listed): 40.11%.
-# Updated: 2016.09.04
-
-2402:ea80::/48 Deny Spam
-2406:3c80::/46 Deny Spam
-Tag: SITI NETWORKS LTD
----
-recaptcha:
- enabled: true
-
-
-# ASN 45271 ("Idea Cellular Limited").
-# %Listed, Google Malware Dashboard: 0%.
-# %Listed, abuseat.org (CBL-Listed): 19.97%.
-# Updated: 2016.09.04
-
-2400:c700::/32 Deny Spam
-2402:8100::/48 Deny Spam
-2402:8100:2::/48 Deny Spam
-2402:8100:5::/48 Deny Spam
-2402:8100:6::/47 Deny Spam
-2402:8100:2000::/42 Deny Spam
-2402:8100:2800::/42 Deny Spam
-2402:8100:3010::/45 Deny Spam
-2402:8100:3020::/45 Deny Spam
-2402:8100:38c0::/42 Deny Spam
-2402:8100:3900::/42 Deny Spam
-Tag: Idea Cellular
----
-recaptcha:
- enabled: true
-
-
 # ASNs 132412, 135511 ("CyberWorld Data Center").
 # Updated: 2016.09.06
 
 2404:b0:15::/48 Deny Cloud
 Tag: CyberWorld
-
-
-# ASNs 12530, 15895, 35081 ('"Kyivstar" PJSC').
-# %Listed, Google Malware Dashboard: 1.58% (AS12530), 0.79% (AS15895), 0% (AS35081).
-# Updated: 2016.09.06
-
-2a02:8a8::/32 Deny Spam
-2a02:2378::/32 Deny Spam
-Tag: Kyivstar
-
-
-# ASN 13188 ("CONTENT DELIVERY NETWORK LTD").
-# %Listed, Google Malware Dashboard: 1.81%.
-# Updated: 2016.09.06
-
-2a03:7380::/38 Deny Spam
-2a03:7380:400::/39 Deny Spam
-2a03:7380:600::/41 Deny Spam
-2a03:7380:1e00::/42 Deny Spam
-2a03:7380:1e80::/42 Deny Spam
-2a03:7380:1f40::/42 Deny Spam
-2a03:7380:1f80::/42 Deny Spam
-2a03:7380:2000::/41 Deny Spam
-2a03:7380:2080::/42 Deny Spam
-2a03:7380:2100::/40 Deny Spam
-2a03:7380:2200::/39 Deny Spam
-2a03:7380:2400::/39 Deny Spam
-2a03:7380:2fc0::/42 Deny Spam
-2a03:7380:3000::/42 Deny Spam
-2a03:7380:30c0::/42 Deny Spam
-2a03:7380:3100::/40 Deny Spam
-2a03:7380:3800::/40 Deny Spam
-2a03:7380:4000::/41 Deny Spam
-2a03:7380:4080::/42 Deny Spam
-2a03:7380:5400::/41 Deny Spam
-2a03:7380:5480::/42 Deny Spam
-2a03:7380:5840::/42 Deny Spam
-2a03:7380:5c00::/42 Deny Spam
-2a03:7380:5c80::/42 Deny Spam
-2a03:7380:6000::/41 Deny Spam
-2a03:7380:6400::/42 Deny Spam
-Tag: AS13188-CDN-LTD
-
-
-# ASN 48666 ("MAROSNET Telecommunication Company LLC").
-# %Listed, Google Malware Dashboard: 0.19%.
-# Updated: 2016.09.06
-
-2a02:f680::/29 Deny Spam
-Tag: MAROSNET
-
-
-# ASNs 43037, 200600 ("Seznam.cz").
-# %Listed, Google Malware Dashboard: 1.45% (AS43037), 0% (AS200600).
-# Updated: 2016.09.06
-
-2a02:598::/32 Deny Spam
-2a06:2140::/29 Deny Spam
-Tag: Seznam.cz
 
 
 # ASNs 24931, 32911, 55369, 57669 ("DediPower Managed Hosting Limited").
@@ -3387,19 +2791,6 @@ Tag: Desync Networks
 Tag: DataClub S.A
 
 
-# ASNs 7552, 24086, 37620, 133606, 262210, 327799, 327885 ("Viettel Corporation").
-# %Listed, Google Malware Dashboard: 3.10% (AS7552), 2.87% (AS24086), 0% (AS37620/AS133606/AS262210/AS327799/AS327885).
-# %Listed, abuseat.org (CBL-Listed): 1.12% (AS7552), 1.52% (AS24086).
-# Updated: 2016.09.06
-
-2401:800:63ff:1::/64 Deny Spam
-2402:800::/32 Deny Spam
-Tag: Viettel Corporation
----
-recaptcha:
- enabled: true
-
-
 # ASN 30962 ("comtrance GmbH").
 # %Listed, Google Malware Dashboard: 1.52%.
 # Updated: 2016.09.09
@@ -3409,82 +2800,12 @@ recaptcha:
 Tag: comtrance GmbH
 
 
-# ASN 41704 ("Orenburgskaya Gorodskaya Set, ZAO").
-# %Listed, Google Malware Dashboard: 0%.
-# Updated: 2016.09.09
-
-2a02:1c8:7::/48 Deny Spam
-2a02:1c8:700::/40 Deny Spam
-Tag: Ufanet
----
-recaptcha:
- enabled: true
-
-
 # ASN 132422 ("Hong Kong Telecom Global Data Centre").
 # %Listed, Google Malware Dashboard: 31.82%.
 # Updated: 2016.09.09
 
 2401:2c80::/32 Deny Cloud
 Tag: AS132422 Data Centre
-
-
-# ASN 9829 ("BSNL (Bharat Sanchar Nigam Ltd)").
-# Kind of a big AS, and does also carry legitimate human traffic, but the infection rate listed at CBL is excessively
-# high at the moment, with over a million bad listings currently and far surpassing that of any other AS.
-# I think it would be unwise to not block this AS. However, I'm marking it for use with reCAPTCHA, and those CIDRAM
-# users that don't want to block it can drop this section's tag into the ignore list as a means of ignoring this
-# listing if they want to do so. May remove this section in the future if the AS cleans up their act.
-# %Listed, Google Malware Dashboard: 1.34%.
-# %Listed, abuseat.org (CBL-Listed): 16.55%.
-# Updated: 2016.09.09
-
-2001:4490:3ffc::/46 Deny Spam
-2001:4490:7000::/46 Deny Spam
-2001:4490:7400::/46 Deny Spam
-2001:4490:7800::/46 Deny Spam
-2001:4490:7c00::/46 Deny Spam
-2001:4490:d000::/46 Deny Spam
-2001:4490:d040::/46 Deny Spam
-2001:4490:d080::/46 Deny Spam
-2001:4490:d0c0::/46 Deny Spam
-2001:4490:d100::/46 Deny Spam
-2001:4490:d140::/46 Deny Spam
-2001:4490:d180::/46 Deny Spam
-2001:4490:d1c0::/46 Deny Spam
-2001:4490:d240::/46 Deny Spam
-2001:4490:d280::/46 Deny Spam
-2001:4490:d380::/46 Deny Spam
-2001:4490:d4c0::/46 Deny Spam
-2001:4490:d500::/46 Deny Spam
-2001:4490:d660::/46 Deny Spam
-2001:4490:d700::/46 Deny Spam
-2001:4490:d760::/46 Deny Spam
-2001:4490:d7a0::/46 Deny Spam
-2001:4490:d800::/46 Deny Spam
-2001:4490:d820::/46 Deny Spam
-2001:4490:d930::/46 Deny Spam
-2001:4490:d970::/46 Deny Spam
-2001:4490:d980::/46 Deny Spam
-2001:4490:da30::/46 Deny Spam
-2001:4490:da70::/46 Deny Spam
-2001:4490:dad0::/46 Deny Spam
-2001:4490:db40::/46 Deny Spam
-2001:4490:dbf0::/46 Deny Spam
-2001:4490:dc4c::/46 Deny Spam
-2001:4490:de18::/46 Deny Spam
-2001:4490:de24::/46 Deny Spam
-2001:4490:e000::/46 Deny Spam
-2001:4490:eff8::/46 Deny Spam
-2001:4490:effc::/46 Deny Spam
-2001:4490:f020::/46 Deny Spam
-2001:4490:fffc::/46 Deny Spam
-2600:1417:50::/48 Deny Spam
-2600:1417:62::/48 Deny Spam
-Tag: BSNL
----
-recaptcha:
- enabled: true
 
 
 # ASN 6724 ("Strato AG").
@@ -3512,226 +2833,3 @@ Tag: Net Access Corp
 Tag: iu.nl
 
 
-# ASN 4134 ("China Telecom Backbone").
-# Interlaces with numerous providers and contains a large portion of Chinese human access endpoints; Would rather not
-# be including this section here due to the high risk of false positives, but the massive influx/uptick of undesirable
-# events (spamming, hacking, attempted brute-forcing, probing, etc) seen originating from across a wide range of CIDRs
-# tied this ASN, plus the presence of this ASN in numerous worst offenders lists and blacklists, are not considerations
-# that can be easily ignored at this point in time. The section is marked for use with reCAPTCHA due to the risk of
-# false positives, and I would encourage any Chinese CIDRAM users, and any CIDRAM users expecting to receive any
-# traffic from China, to list this section in their ignore file as a means of minimising the potential impact of false
-# positives. A balanced approach for those that may expect some such traffic, but not a lot of it, would be to not
-# ignore this section, but to ensure that the reCAPTCHA feature is enabled in their configuration.
-# %Listed, Google Malware Dashboard: 6.37%.
-# %Listed, abuseat.org (CBL-Listed): 0.42%.
-# Updated: 2016.09.12
-
-2406:8500::/32 Deny Generic
-240e::/24 Deny Generic
-Tag: China Backbone 4134
----
-recaptcha:
- enabled: true
-
-
-# ASN 4837 ("China Unicom Backbone").
-# Interlaces with numerous providers and contains a large portion of Chinese human access endpoints; Would rather not
-# be including this section here due to the high risk of false positives, but the massive influx/uptick of undesirable
-# events (spamming, hacking, attempted brute-forcing, probing, etc) seen originating from across a wide range of CIDRs
-# tied this ASN, plus the presence of this ASN in numerous worst offenders lists and blacklists, are not considerations
-# that can be easily ignored at this point in time. The section is marked for use with reCAPTCHA due to the risk of
-# false positives, and I would encourage any Chinese CIDRAM users, and any CIDRAM users expecting to receive any
-# traffic from China, to list this section in their ignore file as a means of minimising the potential impact of false
-# positives. A balanced approach for those that may expect some such traffic, but not a lot of it, would be to not
-# ignore this section, but to ensure that the reCAPTCHA feature is enabled in their configuration.
-# %Listed, Google Malware Dashboard: 2.58%.
-# %Listed, abuseat.org (CBL-Listed): 0.25%.
-# Updated: 2016.09.14
-
-2408:8000::/24 Deny Generic
-Tag: China Backbone 4837
----
-recaptcha:
- enabled: true
-
-
-# ASN 3462 ("Data Communication Business Group").
-# Interlaces with human access endpoints in Taiwan; Would rather not be including this section here due to the high
-# risk of false positives, but the numerous records of spamming events seen originating from across a wide range of
-# CIDRs tied this ASN, plus the presence of this ASN in numerous worst offenders lists and blacklists, are not
-# considerations that can be easily ignored at this point in time. The section is marked for use with reCAPTCHA due to
-# the risk of false positives, and I would encourage any Taiwanese CIDRAM users, and any CIDRAM users expecting to
-# receive any traffic from Taiwan, to list this section in their ignore file as a means of minimising the potential
-# impact of false positives. A balanced approach for those that may expect some such traffic, but not a lot of it,
-# would be to not ignore this section, but to ensure that the reCAPTCHA feature is enabled in their configuration.
-# %Listed, Google Malware Dashboard: 1.09%.
-# %Listed, abuseat.org (CBL-Listed): 1.37%.
-# Updated: 2016.09.14
-
-2001:b032:6::/47 Deny Generic
-2001:b032:b::/48 Deny Generic
-2001:b032:c::/46 Deny Generic
-2001:b032:10::/47 Deny Generic
-2001:b032:12::/48 Deny Generic
-2001:b032:14::/47 Deny Generic
-2001:b032:17::/48 Deny Generic
-2001:b032:19::/48 Deny Generic
-2001:b032:1b::/48 Deny Generic
-2001:b032:1c::/46 Deny Generic
-2001:b032:20::/48 Deny Generic
-2001:b032:5c00::/48 Deny Generic
-2001:b032:7001::/48 Deny Generic
-2001:b032:8010::/47 Deny Generic
-2001:b032:c000::/48 Deny Generic
-2405:6100::/32 Deny Generic
-2406:300::/32 Deny Generic
-2407:4700::/32 Deny Generic
-Tag: DCBG
----
-recaptcha:
- enabled: true
-
-
-# ASN 45899 ("VietNam Post and Telecom Corporation").
-# Interlaces with numerous providers and contains a large portion of Vietnamese human access endpoints; Would rather
-# not be including this section here due to the high risk of false positives, but the massive influx/uptick of
-# undesirable events (spamming, hacking, attempted brute-forcing, probing, etc) seen originating from across a wide
-# range of CIDRs tied this ASN, plus the presence of this ASN in numerous worst offenders lists and blacklists, are
-# not considerations that can be easily ignored at this point in time. The section is marked for use with reCAPTCHA
-# due to the risk of false positives, and I would encourage any Vietnamese CIDRAM users, and any CIDRAM users
-# expecting to receive any traffic from Vietnam, to list this section in their ignore file as a means of minimising
-# the potential impact of false positives. A balanced approach for those that may expect some such traffic, but not a
-# lot of it, would be to not ignore this section, but to ensure that the reCAPTCHA feature is enabled in their
-# configuration.
-# %Listed, Google Malware Dashboard: 3.92%.
-# %Listed, abuseat.org (CBL-Listed): 10.29%.
-# Updated: 2016.09.12
-
-2001:df2:ca00::/48 Deny Generic
-2001:df2:ce00::/48 Deny Generic
-2001:df3:5c00::/48 Deny Generic
-2001:ee0::/47 Deny Generic
-2001:ee0:300::/47 Deny Generic
-2001:ee0:304::/47 Deny Generic
-2001:ee0:37f::/48 Deny Generic
-2001:ee0:3c0::/43 Deny Generic
-2001:ee0:1080::/48 Deny Generic
-2001:ee0:2f00::/48 Deny Generic
-2001:ee0:3209::/48 Deny Generic
-2001:ee0:3e00:1::/64 Deny Generic
-2001:ef0:1:1b::/64 Deny Generic
-Tag: VNPT Corp
----
-recaptcha:
- enabled: true
-
-
-# ASN 18403 ("The Corporation for Financing & Promoting Technology").
-# Interlaces with numerous providers and contains a large portion of Vietnamese human access endpoints; Would rather
-# not be including this section here due to the high risk of false positives, but the massive influx/uptick of
-# undesirable events (spamming, hacking, attempted brute-forcing, probing, etc) seen originating from across a wide
-# range of CIDRs tied this ASN, plus the presence of this ASN in numerous worst offenders lists and blacklists, are
-# not considerations that can be easily ignored at this point in time. The section is marked for use with reCAPTCHA
-# due to the risk of false positives, and I would encourage any Vietnamese CIDRAM users, and any CIDRAM users
-# expecting to receive any traffic from Vietnam, to list this section in their ignore file as a means of minimising
-# the potential impact of false positives. A balanced approach for those that may expect some such traffic, but not a
-# lot of it, would be to not ignore this section, but to ensure that the reCAPTCHA feature is enabled in their
-# configuration.
-# %Listed, Google Malware Dashboard: 3.92%.
-# %Listed, abuseat.org (CBL-Listed): 10.29%.
-# Updated: 2016.09.12
-
-2405:4800::/32 Deny Generic
-Tag: CFPT
----
-recaptcha:
- enabled: true
-
-
-# ASNs 9498, 24560, 45514, 45609 ("Bharti Airtel").
-# Interlaces with numerous providers and contains a large portion of Indian human access endpoints; Would rather not
-# be including this section here due to the high risk of false positives, but the significant number of spamming events
-# originating from CIDRs tied this ASN, plus the presence of this ASN in numerous worst offenders lists and blacklists,
-# are not considerations that can be easily ignored at this point in time. The section is marked for use with reCAPTCHA
-# due to the risk of false positives, and I would encourage any Indian CIDRAM users, and any CIDRAM users expecting to
-# receive any traffic from India, to list this section in their ignore file as a means of minimising the potential
-# impact of false positives. A balanced approach for those that may expect some such traffic, but not a lot of it,
-# would be to not ignore this section, but to ensure that the reCAPTCHA feature is enabled in their configuration.
-# %Listed, Google Malware Dashboard: 1.49% (AS9498), 1.82% (AS24560), 0% (AS45514/AS45609).
-# %Listed, abuseat.org (CBL-Listed): 9.74% (AS24560), 3.05% (AS45609).
-# Updated: 2016.09.12
-
-2401:4900:808::/45 Deny Spam
-2401:4900:810::/44 Deny Spam
-2401:4900:840::/44 Deny Spam
-2401:4900:880::/45 Deny Spam
-2401:4900:900::/45 Deny Spam
-2401:4900:940::/45 Deny Spam
-2401:4900:980::/45 Deny Spam
-2401:4900:1100::/41 Deny Spam
-2404:a800::/32 Deny Spam
-2407:7400::/48 Deny Spam
-2600:140f:b::/48 Deny Spam
-2600:140f:d::/48 Deny Spam
-2600:140f:e::/48 Deny Spam
-2600:1417:1e::/48 Deny Spam
-2600:1417:20::/48 Deny Spam
-2600:1417:2c::/48 Deny Spam
-2600:1417:53::/48 Deny Spam
-2600:1417:56::/48 Deny Spam
-2600:1417:6a::/47 Deny Spam
-2600:1417:6d::/48 Deny Spam
-2600:1417:6e::/48 Deny Spam
-2600:1417:70::/48 Deny Spam
-2600:1417:78::/48 Deny Spam
-Tag: Bharti Airtel
----
-recaptcha:
- enabled: true
-
-
-# ASN 53850 ("GorillaServers, Inc").
-# %Listed, Google Malware Dashboard: 3.74%.
-# Updated: 2016.09.15
-
-2606:c700::/32 Deny Cloud
-Tag: GorillaServers, Inc
-
-
-# Announcing as: "Data Center", "Data Centre".
-# Various ASNs; Sourced from HE.
-# Updated: 2016.09.07
-
-2401:200::/32 Deny Cloud
-2401:8800::/40 Deny Cloud
-2401:8800:400::/40 Deny Cloud
-2401:8800:600::/40 Deny Cloud
-2401:8800:800::/40 Deny Cloud
-2401:8800:a00::/40 Deny Cloud
-2401:8800:c05::/48 Deny Cloud
-2401:9800::/32 Deny Cloud
-2402:7a00::/32 Deny Cloud
-2403:bc00:1::/48 Deny Cloud
-2403:bc00:7fff::/48 Deny Cloud
-2403:bc00:8000::/47 Deny Cloud
-2404:3d00:400::/40 Deny Cloud
-2404:6300::/32 Deny Cloud
-2404:d8::/32 Deny Cloud
-2406:fe00::/32 Deny Cloud
-2602:fff8::/36 Deny Cloud
-2605:3380::/32 Deny Cloud
-2605:9700::/32 Deny Cloud
-2605:bc00::/32 Deny Cloud
-2804:160::/32 Deny Cloud
-2804:888::/32 Deny Cloud
-2804:122c::/32 Deny Cloud
-2a00:7580:10::/48 Deny Cloud
-2a00:a300::/32 Deny Cloud
-2a02:118::/32 Deny Cloud
-2a02:1760::/32 Deny Cloud
-2a02:f48:2000::/48 Deny Cloud
-2a03:7580:1::/48 Deny Cloud
-2a04:a180::/32 Deny Cloud
-2a04:b2c0::/29 Deny Cloud
-2a07:6d40::/29 Deny Cloud
-Tag: Data Center

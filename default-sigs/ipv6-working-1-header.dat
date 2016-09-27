@@ -1,0 +1,122 @@
+---
+Meta:
+ Name: IPv6 signatures file.
+ Source: https://github.com/Maikuolan/CIDRAM/blob/master/vault/ipv6.dat
+ Hash: https://github.com/Maikuolan/CIDRAM-Extras/blob/master/hashes/ipv6.dat
+
+
+# ---
+# Some additional useful resources:
+
+# http://bgp.he.net/
+# - Get CIDRs from ASNs, determine ASN relationships, discover ASNs based upon network names, etc.
+
+# https://www.stopforumspam.com/aggregate
+# - Useful aggregation tool for IPv4 IPs.
+
+# https://radar.qrator.net/as%Num%
+# - Useful tool for checking the connectivity of ASNs as well as for various other information about ASNs.
+
+# http://macmathan.info/zbblock-range-blocks
+# - Some fantastic additional blocklists provided by MacMathan that can be used with CIDRAM and/or ZB Block.
+
+# http://www.ipdeny.com/ipblocks/
+# - A fantastic and accurate service for generating country-wide signatures. They maintain lists of CIDRs based upon
+#   countries, so, if you want to use CIDRAM to block entire countries from accessing your website, you can use their
+#   lists to do this (you just need to append the "Deny %Reason%" to the end of list items; this can be done quickly
+#   and easily with most regex-capable text editors, such as Notepad++, for example; you can do this in Notepad++ by
+#   using Search and Replace, accessible with Ctrl+H; use "$" in "Find what" and " Deny Generic" in "Replace with").
+#   IPDeny.com IPv4 country-based lists:
+#   * http://www.ipdeny.com/ipblocks/
+#   IPDeny.com IPv4 aggregated country-based lists (recommended over non-aggregated):
+#   * http://www.ipdeny.com/ipblocks/data/aggregated/
+#   IPDeny.com IPv6 country-based lists:
+#   * http://www.ipdeny.com/ipv6/ipaddresses/blocks/
+#   IPDeny.com IPv6 aggregated country-based lists (recommended over non-aggregated):
+#   * http://www.ipdeny.com/ipv6/ipaddresses/aggregated/
+
+
+# ---
+# WORST OFFENDING ASNs FOR MALWARE INFECTIONS, ACCORDING TO THE GOOGLE MALWARE DASHBOARD.
+# https://www.google.com/transparencyreport/safebrowsing/malware/
+# Updated: 2016.09.09 (Previously: 2016.08.05)
+# Statistics account for scanning by Google from 1 year up until the cited update date.
+
+#   RANK     ASN    AS                      RATE    INCLUDED IN HERE?   RANK SHIFT†
+#      1   35916    Multacom Corp.        38.26%    Yes                 ±0
+#      2  132422    AS132422 Data Centre  31.82%    Yes                 NA
+#      3   18978    Enzu Inc              30.54%    Yes                 ±0
+#      4   22653    Cyber Wurx LLC        30.07%    Yes                 -2
+#      5   32097    WholeSale Internet    26.42%    Yes                 -1
+#      6   21859    Zenlayer Inc          26.41%    Yes                 -1
+#      7   36114    Versaweb, LLC         22.09%    Yes                 ±0
+#      8   33387    DataShack, LC         17.82%    Yes                 +1
+#      9   38197    Sun Network HK        17.35%    Yes                 -3
+#     10   62468    VpsQuan LLC           17.01%    Yes                 ±0
+#     11   23033    Wowrack.com           16.44%    Yes                 +1
+#     12   26658    HT                    15.45%    Yes                 -4
+#     13   46261    QuickPacket, LLC      15.35%    Yes                 +1
+#     14   35908    Krypt Technologies    14.03%    Yes                 +3
+#     15  133618    Trellian Pty. Ltd.    13.82%    Yes                 ±0
+#     16   17139    Corporate Colocation  13.56%    Yes                 -5
+#     17   18779    EGIHosting            12.59%    Yes                 NA
+#     18   15967    Nazwa.pl Sp.z.o.o     12.57%    Yes                 +1
+#     19   54600    PEG TECH INC          12.48%    Yes                 -3
+#     20   40676    Psychz Networks       12.37%    Yes                 ±0
+
+# THE WORLD's WORST BOTNET ASNs, ACCORDING TO ABUSEAT.ORG's CBL ("COMPOSITE BLOCKING LIST").
+# https://www.spamhaus.org/statistics/botnet-asn/
+# http://www.abuseat.org/asn.html
+# Updated: 2016.09.09 (Previously: 2016.08.05)
+
+#   RANK     ASN    AS            No. of BOTNETS     INFECT%    INCLUDED IN HERE?   RANK SHIFT†
+#      1    9829    BSNL               1,102,544      16.55%    Yes                 ±0
+#      2   45899    VNPT Corp            578,328      10.29%    Yes                 ±0
+#      3    4134    China Backbone 4134  498,231       0.42%    Yes                 ±0
+#      4   45595    Pakistan Telecom     429,713       2.82%    Yes                 ±0
+#      5   24560    Bharti Airtel        342,686      11.13%    Yes                 ±0
+#      6   17974    PT Tel. Indonesia    261,798       3.60%    Pending†            ±0
+#      7   45609    Bharti Airtel        191,083       3.49%    Yes                 +6
+#      8    8151    Uninet S.A. de C.V.  189,247       1.18%    Pending†            +2
+#      9    3462    DCBG                 182,438       1.40%    Yes                 -1
+#     10    7552    Viettel Corporation  164,206       1.11%    Yes                 -3
+#     11   18403    CFPT                 159,439       2.85%    Yes                 -2
+#     12   45271    Idea Cellular Ltd    153,286      21.36%    Yes                 +4
+#     13   12880    AS12880              147,906       1.71%    Yes                 NA
+#     14    4837    China Backbone 4837  137,494       0.24%    Yes                 -2
+#     15    8048    Servicios, Venezuela 116,994       3.16%    Pending†            -4
+#     16   36947    ALGTEL               113,847       0.96%    No                  -1
+#     17   23969    TOT Public Company   107,715       9.89%    No                  ±0
+#     18   22927    Tel. de Argentina    105,202       2.27%    No                  -4
+#     19   48159    AS48159               96,224      11.87%    Yes                 NA
+#     20   12389    PJSC Rostelecom       90,495       1.04%    No                  ±0
+
+# THE WORLD's WORST SPAM ISPs, ACCORDING TO MEGARBL.NET (https://www.megarbl.net/top10/isps).
+# Updated: 2016.09.10
+
+#   RANK     ASN    AS                   INCLUDED IN HERE?   RANK SHIFT†
+#      1    4134    China Backbone 4134  Yes                 NA
+#      2   45899    VNPT Corp            Yes                 NA
+#      3    9829    BSNL                 Yes                 NA
+#      4    8151    Uninet S.A. de C.V.  Pending†            NA
+#      5   45595    Pakistan Telecom     Yes                 NA
+#      6   24560    Bharti Airtel        Yes                 NA
+#      7   18403    CFPT                 Yes                 NA
+#      8    7552    Viettel Corporation  Yes                 NA
+#      9   13999    Mega Cable, S.A      Pending†            NA
+#     10    4837    China Backbone 4837  Yes                 NA
+
+# RANK SHIFT† = RANK SHIFT SINCE LAST UPDATE
+# Pending† = Not yet included, but under consideration (possibly to be added in the future, pending further research).
+
+# ---
+# INCLUDED DEFAULT IPV6 SIGNATURES ARE BELOW THIS LINE.
+
+
+# ---
+# Some basic greylisting to avoid problems with the local network being blocked by some of the bogon CIDR signatures
+# that appear further down into the signature files.
+
+0::/8 Greylist
+
+
