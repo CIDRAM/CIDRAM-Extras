@@ -214,10 +214,9 @@ recaptcha:
 
 
 # ASN 44050 ("Petersburg Internet Network ltd").
-# %Listed, Google Malware Dashboard: 1.05%.
-# Updated: 2016.01.20 / Checked: 2016.03.29
+# %Listed, Google Malware Dashboard: 5.41%.
+# Updated: 2016.09.28
 
-2001:67c:29b8::/48 Deny Generic
 2a00:1d78::/32 Deny Generic
 Tag: PIN-AS
 
@@ -249,8 +248,8 @@ recaptcha:
 
 
 # ASN 51191 ("Xirra GmbH").
-# %Listed, Google Malware Dashboard: 2.77%.
-# Updated: 2016.01.21 / Checked: 2016.03.30
+# %Listed, Google Malware Dashboard: 3.23%.
+# Updated: 2016.01.21 / Checked: 2016.09.28
 
 2a01:4a0:2000::/47 Deny Generic
 2a01:4a0:2002::/48 Deny Generic
