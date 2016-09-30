@@ -498,7 +498,7 @@ Tag: Swiftway
 2604:6700::/48 Run rules_as6939.php
 2604:a100::/32 Run rules_as6939.php
 2604:c800:ffff::/48 Run rules_as6939.php
-2620:0:50c0::/48 Run rules_as6939.php
+2620::50c0::/48 Run rules_as6939.php
 2620:8d::/48 Run rules_as6939.php
 2620:ba:4000::/48 Run rules_as6939.php
 2620:10a:80fd::/48 Run rules_as6939.php
@@ -702,8 +702,8 @@ Tag: ON-LINE Ltd
 
 
 # ASNs 10910, 10912, 10913, 11853, 11854, 11855, 12178, 12179, 12180, 12181, 12182, 13789, 13790, 13791, 13792, 14742,
-# ASNs 14743, 14744, 14745, 15421, 15570, 17675, 19024, 22132, 22211, 24245, 24246, 24247, 24295, 30282, 30636, 48910,
-# "Internap Network Services Corporation", Updated: 2016.03.30
+#    14743, 14744, 14745, 15421, 15570, 17675, 19024, 22132, 22211, 24245, 24246, 24247, 24295, 30282, 30636, 48910
+# ("Internap Network Services Corporation"). Updated: 2016.10.01
 
 2400:f800::/32 Deny Cloud
 2404:ca00::/32 Deny Cloud
@@ -723,10 +723,8 @@ Tag: ON-LINE Ltd
 2604:5b00::/32 Deny Cloud
 2604:6300::/32 Deny Cloud
 2604:b300:ad03::/48 Deny Cloud
+2606:fe80:20::/44 Deny Cloud
 2607:f080:300::/40 Deny Cloud
-2607:fd60:c934::/48 Deny Cloud
-2620:113:f000::/45 Deny Cloud
-2620:116:8000::/48 Deny Cloud
 2a02:b50::/33 Deny Cloud
 2a02:b50:8000::/34 Deny Cloud
 Tag: Internap Network
@@ -2125,25 +2123,65 @@ Tag: Query Foundry, LLC
 Tag: Sia Nano IT
 
 
-# ASNs 8987, 14618, 16509, 39111 ("Amazon.com, Inc").
-# %Listed, Google Malware Dashboard: 0% (AS8987), 1.13% (AS14618), 0.02% (AS16509), 0.14% (AS39111).
-# Updated: 2016.06.19
+# ASNs 7224, 8987, 14618, 16509, 38895, 39111, 62785 ("Amazon.com, Inc").
+# %Listed, Google Malware Dashboard: 0% (AS7224/AS8987), 0.13% (AS14618), 0.03% (AS16509), 0.05% (AS38895),
+#    0.14% (AS39111), "ASN not found" (AS62785).
+# Updated: 2016.10.01
 
 2400:6500::/32 Deny Cloud
 2400:6700::/32 Deny Cloud
 2403:b300::/32 Deny Cloud
 2406:da00::/32 Deny Cloud
+2406:da12::/36 Deny Cloud
+2406:da14::/36 Deny Cloud
+2406:da18::/36 Deny Cloud
+2406:da1c::/36 Deny Cloud
+2406:daa0:2040::/44 Deny Cloud
+2406:daa0:2080::/44 Deny Cloud
+2406:daa0:20c0::/44 Deny Cloud
+2406:daa0:4020::/44 Deny Cloud
+2406:daa0:4040::/44 Deny Cloud
+2406:daa0:4060::/44 Deny Cloud
+2406:daa0:4080::/44 Deny Cloud
+2406:daa0:40a0::/44 Deny Cloud
+2406:daa0:8020::/44 Deny Cloud
+2406:daa0:8080::/44 Deny Cloud
+2406:daa0:80c0::/44 Deny Cloud
+2406:daa0:a040::/44 Deny Cloud
+2406:daa0:a080::/44 Deny Cloud
+2406:daa0:a0c0::/44 Deny Cloud
+2406:daa0:c020::/44 Deny Cloud
+2406:daa0:c040::/44 Deny Cloud
+2406:daa0:c080::/44 Deny Cloud
+2406:daa0:c0c0::/44 Deny Cloud
+2600:1f00:1000::/40 Deny Cloud
+2600:1f00:6000::/40 Deny Cloud
 2600:1f10:8080::/48 Deny Cloud
-2600:1fa0:2040::/46 Deny Cloud
-2600:1fa0:2080::/46 Deny Cloud
-2600:1fa0:20c0::/46 Deny Cloud
+2600:1f11::/36 Deny Cloud
+2600:1f14::/36 Deny Cloud
+2600:1f16::/36 Deny Cloud
+2600:1f18::/36 Deny Cloud
+2600:1f1c::/36 Deny Cloud
+2600:1f1e::/36 Deny Cloud
+2600:1fa0:1040::/44 Deny Cloud
+2600:1fa0:1080::/44 Deny Cloud
+2600:1fa0:10c0::/44 Deny Cloud
+2600:1fa0:2040::/44 Deny Cloud
+2600:1fa0:2080::/44 Deny Cloud
+2600:1fa0:20c0::/44 Deny Cloud
 2600:1fa0:4040::/44 Deny Cloud
 2600:1fa0:4080::/44 Deny Cloud
 2600:1fa0:40c0::/44 Deny Cloud
+2600:1fa0:6040::/46 Deny Cloud
+2600:1fa0:6080::/46 Deny Cloud
+2600:1fa0:60c0::/46 Deny Cloud
 2600:1fa0:8010::/44 Deny Cloud
 2600:1fa0:8020::/44 Deny Cloud
-2600:1fa0:8080::/43 Deny Cloud
+2600:1fa0:8040::/44 Deny Cloud
+2600:1fa0:8080::/44 Deny Cloud
+2600:1fa0:8090::/44 Deny Cloud
 2600:1fa0:80a0::/44 Deny Cloud
+2600:1fa0:80c0::/44 Deny Cloud
 2600:1fa0:c020::/44 Deny Cloud
 2600:1fa0:c040::/44 Deny Cloud
 2600:1fa0:c0c0::/44 Deny Cloud
@@ -2154,33 +2192,70 @@ Tag: Sia Nano IT
 2600:9000:1001::/48 Deny Cloud
 2600:9000:1002::/47 Deny Cloud
 2600:9000:1004::/48 Deny Cloud
-2600:9000:1006::/48 Deny Cloud
+2600:9000:1006::/47 Deny Cloud
 2600:9000:1008::/47 Deny Cloud
-2600:9000:100c::/47 Deny Cloud
-2600:9000:100f::/48 Deny Cloud
+2600:9000:100a::/48 Deny Cloud
+2600:9000:100c::/46 Deny Cloud
 2600:9000:1011::/48 Deny Cloud
-2600:9000:1012::/48 Deny Cloud
-2600:9000:1018::/47 Deny Cloud
-2600:9000:101a::/47 Deny Cloud
-2600:9000:101c::/48 Deny Cloud
-2600:9000:101f::/48 Deny Cloud
+2600:9000:1012::/47 Deny Cloud
+2600:9000:1015::/48 Deny Cloud
+2600:9000:1018::/46 Deny Cloud
+2600:9000:101c::/46 Deny Cloud
 2600:9000:1020::/47 Deny Cloud
 2600:9000:1023::/48 Deny Cloud
 2600:9000:1024::/47 Deny Cloud
 2600:9000:1027::/48 Deny Cloud
-2600:9000:1028::/48 Deny Cloud
-2600:9000:1032::/48 Deny Cloud
+2600:9000:1028::/47 Deny Cloud
+2600:9000:102a::/48 Deny Cloud
+2600:9000:102d::/48 Deny Cloud
+2600:9000:102e::/47 Deny Cloud
+2600:9000:1030::/46 Deny Cloud
 2600:9000:1034::/48 Deny Cloud
-2600:9000:103b::/48 Deny Cloud
-2600:9000:103c::/47 Deny Cloud
-2600:9000:103e::/48 Deny Cloud
-2600:9000:203e::/48 Deny Cloud
+2600:9000:1038::/45 Deny Cloud
+2600:9000:1040::/45 Deny Cloud
+2600:9000:1049::/48 Deny Cloud
+2600:9000:2001::/48 Deny Cloud
+2600:9000:2002::/47 Deny Cloud
+2600:9000:2004::/48 Deny Cloud
+2600:9000:2008::/47 Deny Cloud
+2600:9000:200a::/48 Deny Cloud
+2600:9000:200c::/47 Deny Cloud
+2600:9000:200e::/48 Deny Cloud
+2600:9000:2011::/48 Deny Cloud
+2600:9000:2012::/47 Deny Cloud
+2600:9000:2015::/48 Deny Cloud
+2600:9000:2019::/48 Deny Cloud
+2600:9000:201a::/47 Deny Cloud
+2600:9000:201c::/47 Deny Cloud
+2600:9000:201f::/48 Deny Cloud
+2600:9000:2020::/47 Deny Cloud
+2600:9000:2023::/48 Deny Cloud
+2600:9000:2024::/47 Deny Cloud
+2600:9000:2027::/48 Deny Cloud
+2600:9000:2028::/47 Deny Cloud
+2600:9000:202a::/48 Deny Cloud
+2600:9000:202e::/47 Deny Cloud
+2600:9000:2030::/48 Deny Cloud
+2600:9000:2034::/48 Deny Cloud
+2600:9000:2038::/46 Deny Cloud
+2600:9000:203d::/48 Deny Cloud
+2600:9000:203e::/47 Deny Cloud
+2600:9000:2041::/48 Deny Cloud
+2600:9000:2042::/47 Deny Cloud
+2600:9000:2044::/48 Deny Cloud
 2600:9000:f110::/48 Deny Cloud
+2600:9000:f140::/48 Deny Cloud
+2600:9000:f530::/47 Deny Cloud
 2620:107:3000::/44 Deny Cloud
 2620:108:7000::/44 Deny Cloud
 2620:108:d000::/44 Deny Cloud
 2804:800::/32 Deny Cloud
 2a01:578::/32 Deny Cloud
+2a05:d000:c000::/40 Deny Cloud
+2a05:d014::/36 Deny Cloud
+2a05:d018::/36 Deny Cloud
+2a05:d018::/36 Deny Cloud
+2a05:d01c::/36 Deny Cloud
 2a05:d050:4040::/44 Deny Cloud
 2a05:d050:4080::/44 Deny Cloud
 2a05:d050:40c0::/44 Deny Cloud
@@ -2190,6 +2265,7 @@ Tag: Sia Nano IT
 2a05:d050:8080::/43 Deny Cloud
 2a05:d050:80a0::/44 Deny Cloud
 2a05:d050:80c0::/44 Deny Cloud
+2a05:d050:80e0::/44 Deny Cloud
 2a05:d050:c040::/44 Deny Cloud
 2a05:d050:c080::/44 Deny Cloud
 2a05:d050:c0c0::/44 Deny Cloud
@@ -2197,16 +2273,17 @@ Tag: Amazon.com, Inc
 
 
 # ASN 62282 ("UAB Rakrejus").
-# %Listed, Google Malware Dashboard: 2.18%.
-# Updated: 2016.04.29
+# %Listed, Google Malware Dashboard: 3.56%.
+# Updated: 2016.10.01
 
 2a01:41a0::/32 Deny Cloud
+2a02:7b40::/32 Deny Cloud
 Tag: UAB Rakrejus
 
 
 # ASN 45638 ("SYNERGY WHOLESALE PTY LTD").
-# %Listed, Google Malware Dashboard: 2.36%.
-# Updated: 2016.04.29
+# %Listed, Google Malware Dashboard: 2.25%.
+# Updated: 2016.04.29 / Checked: 2016.10.01
 
 2400:8f80::/47 Deny Cloud
 2400:b800::/47 Deny Cloud
@@ -2735,16 +2812,16 @@ Tag: Data Room, Inc
 2001:2000:3080:d4c::/64 Deny Cloud
 2001:2000:3080:dfe::/64 Deny Cloud
 2001:49f0:d003::/48 Deny Cloud
-2003:0:1308:800d::/64 Deny Cloud
-2003:0:f000:801f::/64 Deny Cloud
+2003::1308:800d::/64 Deny Cloud
+2003::f000:801f::/64 Deny Cloud
 2003:3c0:1603:f::/64 Deny Cloud
 2400:8800:3f10:5::/64 Deny Cloud
 2400:8800:7f01:c::/64 Deny Cloud
 2604:9700:8000::/48 Deny Cloud
 2604:e500::/32 Deny Cloud
 2607:c200:1106::/48 Deny Cloud
-2620:0:50a0:821::/64 Deny Cloud
-2620:0:50a0:bf5::/64 Deny Cloud
+2620::50a0:821::/64 Deny Cloud
+2620::50a0:bf5::/64 Deny Cloud
 2620:bc:8000::/48 Deny Cloud
 2620:107:4008:73::/64 Deny Cloud
 2a00:16f8::/32 Deny Cloud

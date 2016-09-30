@@ -5395,3 +5395,14 @@ recaptcha:
  enabled: true
 
 
+# ASN 23944 ("SKYBroadband SKYCable Corporation").
+# Caught mass-spamming/flooding the SFS support forums. Spamming seems limited to the one CIDR currently; Will
+# escalate this section to cover the entire ASN in a future update if the problems worsens; May eventually remove if
+# spamming activity decreases.
+# %Listed, Google Malware Dashboard: 0%.
+# Updated: 2016.10.01
+
+130.105.160.0/22 Deny Spam
+Tag: SKYBROADBAND
+
+
