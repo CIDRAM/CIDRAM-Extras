@@ -1,8 +1,8 @@
 ---
 Meta:
  Name: IPv6 signatures file.
- Source: https://github.com/Maikuolan/CIDRAM/blob/master/vault/ipv6.dat
- Hash: https://github.com/Maikuolan/CIDRAM-Extras/blob/master/hashes/ipv6.dat
+ Source: https://raw.githubusercontent.com/Maikuolan/CIDRAM/master/vault/ipv6.dat
+ Hash: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/hashes/ipv6.dat
 
 
 # ---

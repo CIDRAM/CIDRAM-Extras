@@ -754,16 +754,16 @@ Tag: Cyberverse, Inc
 
 
 # ASN 54489 ("CoreSpace, Inc").
-# %Listed, Google Malware Dashboard: 0.41%.
-# Updated: 2016.01.22 / Checked: 2016.04.03
+# %Listed, Google Malware Dashboard: 0.98%.
+# Updated: 2016.01.22 / Checked: 2016.10.02
 
 2604:7780::/32 Deny Cloud
 Tag: CoreSpace, Inc
 
 
 # ASNs 26458, 32421 ("Black Lotus Communications").
-# %Listed, Google Malware Dashboard: 0.37% (26458), 1.04% (32421).
-# Updated: 2016.04.03
+# %Listed, Google Malware Dashboard: 0.80% (26458), 0.87% (32421).
+# Updated: 2016.04.03 / Checked: 2016.10.02
 
 2604:8300::/32 Deny Cloud
 2a04:d440::/29 Deny Cloud
@@ -1740,8 +1740,8 @@ Tag: Akamai Technologies
 
 
 # ASN 5693 ("Latisys-Irvine, LLC").
-# %Listed, Google Malware Dashboard: 1.62%.
-# Updated: 2016.04.03
+# %Listed, Google Malware Dashboard: 1.99%.
+# Updated: 2016.04.03 / Checked: 2016.10.02
 
 2001:1990::/32 Deny Cloud
 Tag: Latisys-Irvine, LLC
@@ -2916,5 +2916,16 @@ Tag: Net Access Corp
 
 2a00:1ac0:f1be::/48 Deny Cloud
 Tag: iu.nl
+
+
+# ASN 7991 ("SAVVIS COMMUNICATIONS").
+# %Listed, Google Malware Dashboard: 0%.
+# Updated: 2016.10.02
+
+2001:460:70::/46 Deny Cloud
+2001:460:78::/46 Deny Cloud
+2001:460:80::/46 Deny Cloud
+2001:460:90::/46 Deny Cloud
+Tag: SAVVIS
 
 
