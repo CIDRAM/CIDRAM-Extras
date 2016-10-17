@@ -1,0 +1,26 @@
+---
+IPv4:
+ Name:
+  en: IPv4 signatures file.
+  ar: عناوين IPv4 ملف التوقيعات.
+  de: IPv4 Signaturdatei.
+  es: Archivo de firmas por IPv4.
+  fr: Fichier de signatures pour IPv4.
+  id: File tanda tangan IPv4.
+  it: File di firme per IPv4.
+  ja: IPv4のシグネチャファイル。
+  nl: IPv4 handtekeningen bestand.
+  pt: Arquivo de assinaturas para IPv4.
+  ru: IPv4 файла сигнатур.
+  vi: Tập tin chữ ký IPv4.
+  zh: IPv4签名文件。
+  zh-TW: IPv4簽名文件。
+ Version: 2016.10.18
+ Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/components/ipv4.dat
+ Files:
+  From:
+   - https://raw.githubusercontent.com/Maikuolan/CIDRAM/master/vault/ipv4.dat
+  To:
+   - ipv4.dat
+ Reannotate: false
+
