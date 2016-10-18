@@ -1,11 +1,3 @@
----
-Meta:
- Name: IPv4 signatures file.
- Source: https://raw.githubusercontent.com/Maikuolan/CIDRAM/master/vault/ipv4.dat
- Hash: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/hashes/ipv4.dat
-
-
-# ---
 # Some additional useful resources:
 
 # http://bgp.he.net/

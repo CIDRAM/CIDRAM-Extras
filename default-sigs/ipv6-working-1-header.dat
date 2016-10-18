@@ -1,11 +1,3 @@
----
-Meta:
- Name: IPv6 signatures file.
- Source: https://raw.githubusercontent.com/Maikuolan/CIDRAM/master/vault/ipv6.dat
- Hash: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/hashes/ipv6.dat
-
-
-# ---
 # Some additional useful resources:
 
 # http://bgp.he.net/
