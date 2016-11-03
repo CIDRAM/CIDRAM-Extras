@@ -132,24 +132,24 @@ Tag: CloudFlare, Inc
 
 
 # ASN 12824 ("home.pl").
-# %Listed, Google Malware Dashboard: 4.40%.
-# Updated: 2016.04.18
+# %Listed, Google Malware Dashboard: 5.18%.
+# Updated: 2016.04.18 / Checked: 2016.11.03
 
 2a02:25a8::/29 Deny Cloud
 Tag: home.pl
 
 
 # ASN 25532 ("Masterhost").
-# %Listed, Google Malware Dashboard: 1.67%.
-# Updated: 2016.04.18
+# %Listed, Google Malware Dashboard: 1.99%.
+# Updated: 2016.04.18 / Checked: 2016.11.03
 
 2a00:15f8::/32 Deny Cloud
 Tag: Masterhost
 
 
 # ASN 26496 ("GoDaddy.com, LLC").
-# %Listed, Google Malware Dashboard: 2.78%.
-# Updated: 2016.04.18
+# %Listed, Google Malware Dashboard: 3.83%.
+# Updated: 2016.04.18 / Checked: 2016.11.03
 
 2407:1c00::/32 Deny Cloud
 2603::/20 Deny Cloud
@@ -180,8 +180,8 @@ Tag: OVH Systems
 
 
 # ASN 27823 ("Dattatec.com").
-# %Listed, Google Malware Dashboard: 1.46%.
-# Updated: 2016.04.18
+# %Listed, Google Malware Dashboard: 1.42%.
+# Updated: 2016.04.18 / Checked: 2016.11.03
 
 2800:6c0::/32 Deny Cloud
 Tag: Dattatec.com
@@ -3064,5 +3064,15 @@ Tag: Nexeon Technologies
 2a04:c900:1000::/36 Deny Cloud
 2a04:c900:3000::/36 Deny Cloud
 Tag: OOO IT-Grad
+
+
+# ASN 30475 ("Handy Networks, LLC").
+# %Listed, Google Malware Dashboard: 1.21%.
+# Updated: 2016.11.03
+
+2602:fff6:d::/48 Deny Cloud
+2606:6680:6::/48 Deny Cloud
+2607:fc88::/32 Deny Cloud
+Tag: Handy Networks
 
 

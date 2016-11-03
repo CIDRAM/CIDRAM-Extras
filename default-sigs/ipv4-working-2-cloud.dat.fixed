@@ -835,8 +835,8 @@ Tag: CloudFlare, Inc
 
 
 # ASN 12824 ("home.pl").
-# %Listed, Google Malware Dashboard: 4.40%.
-# Updated: 2016.04.18
+# %Listed, Google Malware Dashboard: 5.18%.
+# Updated: 2016.04.18 / Checked: 2016.11.03
 
 46.41.128.0/18 Deny Cloud
 46.242.128.0/17 Deny Cloud
@@ -849,8 +849,8 @@ Tag: home.pl
 
 
 # ASN 25532 ("Masterhost").
-# %Listed, Google Malware Dashboard: 1.67%.
-# Updated: 2016.04.18
+# %Listed, Google Malware Dashboard: 1.99%.
+# Updated: 2016.04.18 / Checked: 2016.11.03
 
 83.222.0.0/19 Deny Cloud
 84.252.128.0/18 Deny Cloud
@@ -861,8 +861,8 @@ Tag: Masterhost
 
 
 # ASN 26496 ("GoDaddy.com, LLC").
-# %Listed, Google Malware Dashboard: 2.78%.
-# Updated: 2016.04.18
+# %Listed, Google Malware Dashboard: 3.83%.
+# Updated: 2016.11.03
 
 23.229.128.0/17 Deny Cloud
 37.148.200.0/21 Deny Cloud
@@ -880,9 +880,10 @@ Tag: Masterhost
 104.238.64.0/18 Deny Cloud
 107.180.0.0/17 Deny Cloud
 118.139.160.0/19 Deny Cloud
-132.148.0.0/21 Deny Cloud
+132.148.0.0/19 Deny Cloud
+132.148.64.0/21 Deny Cloud
 146.255.32.0/20 Deny Cloud
-148.72.232.0/22 Deny Cloud
+148.72.224.0/19 Deny Cloud
 160.153.0.0/16 Deny Cloud
 166.62.0.0/17 Deny Cloud
 173.201.0.0/16 Deny Cloud
@@ -1035,12 +1036,13 @@ Tag: Unified Layer
 
 
 # ASN 27823 ("Dattatec.com").
-# %Listed, Google Malware Dashboard: 1.46%.
-# Updated: 2016.04.18
+# %Listed, Google Malware Dashboard: 1.42%.
+# Updated: 2016.11.03
 
 138.36.236.0/22 Deny Cloud
 138.219.40.0/22 Deny Cloud
-168.181.184.0/23 Deny Cloud
+168.181.184.0/22 Deny Cloud
+168.197.48.0/22 Deny Cloud
 179.43.112.0/20 Deny Cloud
 200.58.96.0/19 Deny Cloud
 Tag: Dattatec.com
@@ -6364,21 +6366,21 @@ Tag: Comvive Servidores
 # %Listed, Google Malware Dashboard: 1.03%.
 # Updated: 2016.11.02
 
-# 37.247.48.0/21
-# 185.34.136.0/22
-# 185.136.176.0/22
-# 188.164.128.0/21
-# 192.71.245.0/24
-# 192.165.67.0/24
-# 193.182.16.0/23
-# 193.183.98.0/23
-# 193.234.224.0/23
-# 194.14.179.0/24
-# 194.68.40.0/22
-# 194.71.9.0/24
-# 194.71.95.0/24
-# 194.71.224.0/23
-# 195.88.4.0/23
+37.247.48.0/21 Deny Cloud
+185.34.136.0/22 Deny Cloud
+185.136.176.0/22 Deny Cloud
+188.164.128.0/21 Deny Cloud
+192.71.245.0/24 Deny Cloud
+192.165.67.0/24 Deny Cloud
+193.182.16.0/23 Deny Cloud
+193.183.98.0/23 Deny Cloud
+193.234.224.0/23 Deny Cloud
+194.14.179.0/24 Deny Cloud
+194.68.40.0/22 Deny Cloud
+194.71.9.0/24 Deny Cloud
+194.71.95.0/24 Deny Cloud
+194.71.224.0/23 Deny Cloud
+195.88.4.0/23 Deny Cloud
 Tag: Daniela Agro
 
 
@@ -6584,10 +6586,10 @@ Tag: AS61102
 # %Listed, Google Malware Dashboard: 0.29%.
 # Updated: 2016.11.02
 
-# 104.36.116.0/22
-# 192.34.52.0/22
-# 199.167.128.0/22
-# 199.182.128.0/22
+104.36.116.0/22 Deny Cloud
+192.34.52.0/22 Deny Cloud
+199.167.128.0/22 Deny Cloud
+199.182.128.0/22 Deny Cloud
 Tag: Media-Hosts Inc
 
 
@@ -11183,6 +11185,16 @@ Tag: OOO IT-Grad
 144.48.240.0/22 Deny Cloud
 203.160.52.0/22 Deny Cloud
 Tag: Cloudie Limited
+
+
+# ASN 30475 ("Handy Networks, LLC").
+# %Listed, Google Malware Dashboard: 1.21%.
+# Updated: 2016.11.03
+
+5.8.63.0/24 Deny Cloud
+66.11.121.0/24 Deny Cloud
+208.78.35.0/24 Deny Cloud
+Tag: Handy Networks
 
 
 # ---

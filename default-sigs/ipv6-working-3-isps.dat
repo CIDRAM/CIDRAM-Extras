@@ -30,12 +30,14 @@ Tag: Aruba S.p.A
 
 
 # ASN 29182 ("ISPsystem").
-# %Listed, Google Malware Dashboard: 3.48%.
-# Updated: 2016.04.18
+# %Listed, Google Malware Dashboard: 0.08%.
+# Updated: 2016.11.03
 
-2a01:230::/47 Deny Generic
+2a01:230::/48 Deny Generic
 2a01:230:2::/48 Deny Generic
-2a07:500::/29 Deny Generic
+2a06:2dc0::/29 Deny Generic
+2a06:dc40::/29 Deny Generic
+2a07:bdc0::/29 Deny Generic
 Tag: ISPsystem
 
 
