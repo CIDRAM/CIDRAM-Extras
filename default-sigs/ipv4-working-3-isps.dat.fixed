@@ -1695,8 +1695,8 @@ recaptcha:
 
 # ASN 47155 ("ViaEuropa i Lund AB").
 # Refer stopforumspam.com/forum/viewtopic.php?id=4676
-# %Listed, Google Malware Dashboard: 20.69%.
-# Updated: 2016.04.17
+# %Listed, Google Malware Dashboard: 15.79%.
+# Updated: 2016.04.17 / Checked: 2016.11.02
 
 93.182.128.0/18 Deny Spam
 185.123.228.0/22 Deny Spam
@@ -1706,7 +1706,7 @@ Tag: ViaEuropa
 # ASN 43700 ("UAB CONSILIUM OPTIMUM").
 # Vulnerability scanner.
 # %Listed, Google Malware Dashboard: 0%.
-# Updated: 2016.04.17
+# Updated: 2016.04.17 / Checked: 2016.11.02
 
 78.158.0.0/19 Deny Generic
 Tag: AS43700

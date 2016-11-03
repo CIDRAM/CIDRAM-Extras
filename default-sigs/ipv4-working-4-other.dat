@@ -117,19 +117,16 @@ Tag: Packet Flip
 
 # ---
 # Adapted from ZeuS tracker IPs.
-# Updated: 2016.10.01
+# Updated: 2016.11.03
 # Refer zeustracker.abuse.ch/blocklist.php?download=ipblocklist
 
-5.56.133.98/32 Deny Generic
-5.196.249.163/32 Deny Generic
 5.199.129.244/32 Deny Generic
+31.7.58.148/32 Deny Generic
 31.7.63.146/32 Deny Generic
-37.48.125.119/32 Deny Generic
+37.48.125.105/32 Deny Generic
 37.123.99.188/32 Deny Generic
 37.143.11.189/32 Deny Generic
-45.59.114.131/32 Deny Generic
 46.4.150.111/32 Deny Generic
-46.18.32.75/32 Deny Generic
 46.151.52.48/32 Deny Generic
 46.151.52.61/32 Deny Generic
 46.151.52.191/32 Deny Generic
@@ -149,24 +146,24 @@ Tag: Packet Flip
 65.182.101.221/32 Deny Generic
 66.45.245.150/32 Deny Generic
 66.85.147.27/32 Deny Generic
+69.73.130.134/32 Deny Generic
 78.46.222.241/32 Deny Generic
 78.138.104.167/32 Deny Generic
+78.142.63.63/32 Deny Generic
 80.65.93.241/32 Deny Generic
 81.177.140.251/32 Deny Generic
 82.196.3.245/32 Deny Generic
 83.15.254.242/32 Deny Generic
 83.69.233.121/32 Deny Generic
 83.212.117.233/32 Deny Generic
+85.159.66.62/32 Deny Generic
 87.98.146.77/32 Deny Generic
 87.236.210.110/32 Deny Generic
 87.236.210.124/32 Deny Generic
 87.237.198.245/32 Deny Generic
 87.246.143.242/32 Deny Generic
 87.254.167.37/32 Deny Generic
-89.40.181.101/32 Deny Generic
 91.108.176.118/32 Deny Generic
-91.121.240.97/32 Deny Generic
-91.121.240.111/32 Deny Generic
 91.224.141.11/32 Deny Generic
 91.236.75.11/32 Deny Generic
 91.236.213.74/32 Deny Generic
@@ -177,7 +174,7 @@ Tag: Packet Flip
 94.103.36.55/32 Deny Generic
 95.211.153.134/32 Deny Generic
 98.124.243.32/32 Deny Generic
-98.126.6.83/32 Deny Generic
+98.124.243.41/32 Deny Generic
 98.131.185.136/32 Deny Generic
 101.200.81.187/32 Deny Generic
 103.4.52.150/32 Deny Generic
@@ -186,39 +183,38 @@ Tag: Packet Flip
 103.26.128.84/32 Deny Generic
 103.230.84.239/32 Deny Generic
 103.241.0.100/32 Deny Generic
+104.31.72.61/32 Deny Generic
 104.238.158.106/32 Deny Generic
-107.191.46.4/32 Deny Generic
 108.174.157.123/32 Deny Generic
 109.127.8.242/32 Deny Generic
 109.229.36.65/32 Deny Generic
 109.229.210.250/32 Deny Generic
+109.248.33.243/32 Deny Generic
+112.78.2.74/32 Deny Generic
 113.29.230.24/32 Deny Generic
+115.31.153.51/32 Deny Generic
 116.193.77.118/32 Deny Generic
-120.25.63.2/32 Deny Generic
 120.31.134.133/32 Deny Generic
 120.63.157.195/32 Deny Generic
 123.30.129.179/32 Deny Generic
 124.110.195.160/32 Deny Generic
 128.210.157.251/32 Deny Generic
 141.8.224.93/32 Deny Generic
-149.202.242.81/32 Deny Generic
-151.80.52.45/32 Deny Generic
-151.80.52.47/32 Deny Generic
 151.80.76.202/32 Deny Generic
 151.97.190.239/32 Deny Generic
 157.7.170.62/32 Deny Generic
 160.97.52.229/32 Deny Generic
 162.218.235.225/32 Deny Generic
 162.223.94.56/32 Deny Generic
-173.233.77.122/32 Deny Generic
-176.123.0.55/32 Deny Generic
+172.245.9.50/32 Deny Generic
 177.4.23.159/32 Deny Generic
 180.182.234.200/32 Deny Generic
 184.168.221.43/32 Deny Generic
+185.15.245.74/32 Deny Generic
 185.25.117.49/32 Deny Generic
 185.25.119.84/32 Deny Generic
 185.35.138.22/32 Deny Generic
-185.99.133.163/32 Deny Generic
+185.112.248.190/32 Deny Generic
 186.64.120.104/32 Deny Generic
 186.202.127.132/32 Deny Generic
 186.250.243.100/32 Deny Generic
@@ -247,7 +243,6 @@ Tag: Packet Flip
 193.146.210.69/32 Deny Generic
 193.189.117.56/32 Deny Generic
 193.201.227.142/32 Deny Generic
-194.58.56.149/32 Deny Generic
 194.109.64.131/32 Deny Generic
 195.20.40.123/32 Deny Generic
 195.20.41.233/32 Deny Generic
@@ -261,26 +256,23 @@ Tag: Packet Flip
 199.187.129.193/32 Deny Generic
 199.201.121.185/32 Deny Generic
 201.149.83.183/32 Deny Generic
-202.9.36.111/32 Deny Generic
 202.29.22.38/32 Deny Generic
 202.29.230.198/32 Deny Generic
 202.67.13.107/32 Deny Generic
 202.75.53.11/32 Deny Generic
 202.144.144.195/32 Deny Generic
-202.191.62.226/32 Deny Generic
 203.170.193.23/32 Deny Generic
 209.164.84.70/32 Deny Generic
 210.4.76.221/32 Deny Generic
-210.211.108.215/32 Deny Generic
 212.44.64.202/32 Deny Generic
-212.83.190.47/32 Deny Generic
+212.109.217.71/32 Deny Generic
 213.147.67.20/32 Deny Generic
 216.176.100.240/32 Deny Generic
 216.176.184.21/32 Deny Generic
 216.215.112.149/32 Deny Generic
 222.29.197.232/32 Deny Generic
 Tag: ZeuS C&C
-Expires: 2017.01.01
+Expires: 2017.02.03
 
 
 # ---
@@ -288,11 +280,10 @@ Expires: 2017.01.01
 # The DROP/EDROP text lists are copyrighted to Spamhaus.org; Spamhaus DROP/EDROP as plain text lists are free for
 # commercial and non-commercial usage. If you want to redistribute one of the plain text feeds please ensure that you
 # name Spamhaus as source of the data. (For example, include the copyright statement at the top of the list).
-# Updated: 2016.10.01
+# Updated: 2016.11.03
 # Refer spamhaus.org/drop/drop.txt
 # Refer spamhaus.org/drop/edrop.txt
 
-1.4.0.0/17 Deny Generic
 1.10.16.0/20 Deny Generic
 1.32.128.0/18 Deny Generic
 1.116.0.0/14 Deny Generic
@@ -310,7 +301,6 @@ Expires: 2017.01.01
 23.251.224.0/19 Deny Generic
 24.51.0.0/19 Deny Generic
 24.233.0.0/19 Deny Generic
-27.111.48.0/20 Deny Generic
 27.112.32.0/19 Deny Generic
 27.122.32.0/20 Deny Generic
 27.126.160.0/20 Deny Generic
@@ -344,7 +334,6 @@ Expires: 2017.01.01
 41.138.172.0/23 Deny Generic
 41.138.175.0/24 Deny Generic
 41.138.176.0/20 Deny Generic
-41.190.240.0/22 Deny Generic
 41.198.80.0/20 Deny Generic
 41.198.224.0/20 Deny Generic
 41.242.132.0/22 Deny Generic
@@ -370,6 +359,7 @@ Expires: 2017.01.01
 43.252.152.0/22 Deny Generic
 43.252.180.0/22 Deny Generic
 45.64.88.0/22 Deny Generic
+45.114.224.0/22 Deny Generic
 45.117.208.0/22 Deny Generic
 45.119.164.0/22 Deny Generic
 45.121.204.0/22 Deny Generic
@@ -395,8 +385,6 @@ Expires: 2017.01.01
 61.14.224.0/22 Deny Generic
 61.45.251.0/24 Deny Generic
 62.112.16.0/21 Deny Generic
-63.141.34.0/23 Deny Generic
-63.141.36.0/22 Deny Generic
 64.57.48.0/20 Deny Generic
 65.99.128.0/18 Deny Generic
 66.231.64.0/20 Deny Generic
@@ -475,12 +463,9 @@ Expires: 2017.01.01
 103.49.248.0/22 Deny Generic
 103.55.28.0/22 Deny Generic
 103.57.248.0/22 Deny Generic
-103.70.12.0/22 Deny Generic
 103.73.156.0/23 Deny Generic
-103.195.54.0/23 Deny Generic
 103.200.116.0/22 Deny Generic
 103.204.176.0/22 Deny Generic
-103.205.72.0/22 Deny Generic
 103.205.84.0/22 Deny Generic
 103.206.84.0/22 Deny Generic
 103.207.160.0/22 Deny Generic
@@ -507,7 +492,6 @@ Expires: 2017.01.01
 104.245.40.0/21 Deny Generic
 104.245.188.0/22 Deny Generic
 104.245.248.0/21 Deny Generic
-104.254.124.0/22 Deny Generic
 104.255.56.0/21 Deny Generic
 108.166.224.0/19 Deny Generic
 110.172.64.0/18 Deny Generic
@@ -594,7 +578,6 @@ Expires: 2017.01.01
 138.249.0.0/16 Deny Generic
 139.5.116.0/22 Deny Generic
 139.45.0.0/16 Deny Generic
-139.99.0.0/16 Deny Generic
 139.136.0.0/16 Deny Generic
 139.188.0.0/16 Deny Generic
 140.143.128.0/17 Deny Generic
@@ -657,7 +640,6 @@ Expires: 2017.01.01
 153.52.0.0/14 Deny Generic
 153.85.0.0/16 Deny Generic
 153.93.0.0/16 Deny Generic
-154.65.56.0/22 Deny Generic
 154.119.34.0/23 Deny Generic
 155.11.0.0/16 Deny Generic
 155.40.0.0/16 Deny Generic
@@ -688,6 +670,7 @@ Expires: 2017.01.01
 159.229.0.0/16 Deny Generic
 160.14.0.0/16 Deny Generic
 160.21.0.0/16 Deny Generic
+160.117.0.0/16 Deny Generic
 160.180.0.0/15 Deny Generic
 160.200.0.0/16 Deny Generic
 160.235.0.0/16 Deny Generic
@@ -776,7 +759,6 @@ Expires: 2017.01.01
 185.112.80.0/24 Deny Generic
 185.112.102.0/24 Deny Generic
 185.127.24.0/22 Deny Generic
-185.130.4.0/22 Deny Generic
 185.133.20.0/22 Deny Generic
 185.135.184.0/22 Deny Generic
 185.137.219.0/24 Deny Generic
@@ -857,11 +839,9 @@ Expires: 2017.01.01
 193.9.158.0/24 Deny Generic
 193.25.48.0/20 Deny Generic
 193.26.64.0/19 Deny Generic
-193.104.41.0/24 Deny Generic
 193.107.16.0/22 Deny Generic
 193.138.244.0/22 Deny Generic
 193.139.0.0/16 Deny Generic
-193.150.120.0/24 Deny Generic
 193.177.64.0/18 Deny Generic
 193.189.116.0/23 Deny Generic
 193.243.0.0/17 Deny Generic
@@ -1043,7 +1023,6 @@ Expires: 2017.01.01
 204.128.180.0/24 Deny Generic
 204.130.16.0/20 Deny Generic
 204.130.167.0/24 Deny Generic
-204.143.24.0/21 Deny Generic
 204.147.64.0/21 Deny Generic
 204.155.128.0/20 Deny Generic
 204.187.155.0/24 Deny Generic
@@ -1146,7 +1125,6 @@ Expires: 2017.01.01
 212.56.214.0/24 Deny Generic
 212.95.144.0/22 Deny Generic
 216.47.96.0/20 Deny Generic
-216.151.128.0/19 Deny Generic
 216.152.240.0/20 Deny Generic
 216.183.208.0/20 Deny Generic
 220.154.0.0/16 Deny Generic
@@ -1157,12 +1135,12 @@ Expires: 2017.01.01
 223.201.0.0/16 Deny Generic
 223.254.0.0/16 Deny Generic
 Tag: Spamhaus DROP/EDROP
-Expires: 2017.01.01
+Expires: 2017.02.03
 
 
 # ---
 # Toxic IP numbers in CIDR format from Stop Forum Spam.
-# Updated: 2016.10.01
+# Updated: 2016.11.03
 # Refer stopforumspam.com/downloads/toxic_ip_cidr.txt
 
 5.39.216.0/21 Deny Spam

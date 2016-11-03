@@ -9,8 +9,8 @@ Tag: Sharktech
 
 
 # ASN 35916 ("MULTACOM CORPORATION").
-# %Listed, Google Malware Dashboard: 43.02%.
-# Updated: 2016.03.17 / Checked: 2016.04.19
+# %Listed, Google Malware Dashboard: 37.38%.
+# Updated: 2016.03.17 / Checked: 2016.11.03
 
 2607:9a00::/32 Deny Cloud
 2607:f130::/32 Deny Cloud
@@ -664,8 +664,8 @@ Tag: WestHost, Inc
 
 
 # ASN 32097 ("WholeSale Internet, Inc").
-# %Listed, Google Malware Dashboard: 25.78%.
-# Updated: 2016.01.20 / Checked: 2016.05.21
+# %Listed, Google Malware Dashboard: 29.45%.
+# Updated: 2016.01.20 / Checked: 2016.11.03
 
 2001:4858::/32 Deny Cloud
 2604:4300::/32 Deny Cloud
@@ -1091,9 +1091,10 @@ Tag: K SERVERS LTD
 
 
 # ASN 18978 ("Enzu Inc").
-# %Listed, Google Malware Dashboard: 9.84%.
-# Updated: 2016.04.19 / Checked: 2016.05.24
+# %Listed, Google Malware Dashboard: 30.86%.
+# Updated: 2016.11.03
 
+2602:ffc5:cd4::/47 Deny Cloud
 2605:f700:10::/48 Deny Cloud
 2605:f700:40::/44 Deny Cloud
 2605:f700:80::/44 Deny Cloud
@@ -1131,13 +1132,12 @@ Tag: AS30083
 Tag: ONLINE S.A.S
 
 
-# ASN 174 ("Cogent Communications"): "Big Hosting Plus", "Blue Box Group", "DME Hosting LLC", "EGIHosting",
-# "FDCservers.net", "High Point Host", "Lunanode Hosting Inc.", "Nexeon Technologies", "New Dream Network",
-# "Pleasant Hosting", "QuadraNet", "Power Up Hosting, Inc.", "Rica Costa Hosting RCH, S.A.",
-# "Sovremennie Techologii Biznesa", "FORTUNIX NETWORKS L.P." (this list of names may change as time passes, and may
-# need continual adjustments in the future). Updated: 2016.04.10
+# ASN 174 ("Cogent Communications"): "DME Hosting LLC", "EGIHosting", "FDCservers.net", "High Point Host", "LogicWeb",
+# "Lunanode Hosting", "Netstack Cloud Services", "New Dream Network", "Pleasant Hosting", "Power Up Hosting",
+# "Rica Costa Hosting RCH", "Sovremennie Techologii Biznesa" (this list of names may change as time passes, and may
+# need continual adjustments in the future). Updated: 2016.11.02
 
-# %Listed, Google Malware Dashboard: 0.87%.
+# %Listed, Google Malware Dashboard: 1.29%.
 
 # Myself and others have seen and experienced a significant amount of unwanted traffic from their ASN in the past (hack
 # attempts, spamming, scraping, various forms of general malicious activity, etc), and IPs sending out this type of
@@ -1156,93 +1156,85 @@ Tag: ONLINE S.A.S
 # Refer spambotsecurity.com/forum/viewtopic.php?f=14&t=3014
 # Refer spambotsecurity.com/forum/viewtopic.php?f=7&t=1966
 
-2001:550::/32 Deny Cloud
-2001:978::/32 Deny Cloud
-2001:49f0:1::/48 Deny Cloud
+2001:49f0::/47 Deny Cloud
+2001:49f0:a::/48 Deny Cloud
 2001:49f0:100d::/48 Deny Cloud
 2001:49f0:1010::/48 Deny Cloud
+2001:49f0:101d::/48 Deny Cloud
+2001:49f0:101e::/48 Deny Cloud
+2001:49f0:1023::/48 Deny Cloud
+2001:49f0:1024::/47 Deny Cloud
 2001:49f0:2001::/48 Deny Cloud
 2001:49f0:2002::/47 Deny Cloud
-2001:49f0:2004::/46 Deny Cloud
-2001:49f0:2008::/45 Deny Cloud
-2001:49f0:2010::/44 Deny Cloud
+2001:49f0:2004::/47 Deny Cloud
+2001:49f0:2008::/47 Deny Cloud
+2001:49f0:200a::/48 Deny Cloud
+2001:49f0:200c::/46 Deny Cloud
+2001:49f0:2010::/47 Deny Cloud
+2001:49f0:2012::/48 Deny Cloud
+2001:49f0:2014::/46 Deny Cloud
+2001:49f0:2018::/46 Deny Cloud
+2001:49f0:201c::/47 Deny Cloud
+2001:49f0:201f::/48 Deny Cloud
 2001:49f0:2020::/46 Deny Cloud
-2001:49f0:2024::/48 Deny Cloud
-2001:49f0:2027::/48 Deny Cloud
-2001:49f0:2028::/45 Deny Cloud
-2001:49f0:2030::/45 Deny Cloud
-2001:49f0:2039::/48 Deny Cloud
+2001:49f0:2024::/47 Deny Cloud
+2001:49f0:2028::/46 Deny Cloud
+2001:49f0:202d::/48 Deny Cloud
+2001:49f0:202e::/47 Deny Cloud
+2001:49f0:2031::/48 Deny Cloud
+2001:49f0:2032::/47 Deny Cloud
+2001:49f0:2034::/48 Deny Cloud
+2001:49f0:2036::/48 Deny Cloud
 2001:49f0:203a::/47 Deny Cloud
 2001:49f0:203c::/46 Deny Cloud
-2001:49f0:2040::/44 Deny Cloud
+2001:49f0:2040::/47 Deny Cloud
+2001:49f0:2043::/48 Deny Cloud
+2001:49f0:2044::/46 Deny Cloud
+2001:49f0:2048::/46 Deny Cloud
+2001:49f0:204c::/47 Deny Cloud
+2001:49f0:204e::/48 Deny Cloud
+2001:49f0:2920::/48 Deny Cloud
 2001:49f0:3000::/45 Deny Cloud
 2001:49f0:30a0::/48 Deny Cloud
+2001:49f0:4000::/48 Deny Cloud
 2001:49f0:4021::/48 Deny Cloud
 2001:49f0:5000::/48 Deny Cloud
-2001:49f0:6000::/48 Deny Cloud
-2001:49f0:7001::/48 Deny Cloud
+2001:49f0:6000::/46 Deny Cloud
+2001:49f0:6004::/47 Deny Cloud
+2001:49f0:7000::/47 Deny Cloud
 2001:49f0:7002::/48 Deny Cloud
-2001:49f0:a007::/48 Deny Cloud
-2001:49f0:a00b::/48 Deny Cloud
-2001:49f0:a00d::/48 Deny Cloud
-2001:49f0:a011::/48 Deny Cloud
-2001:49f0:a012::/47 Deny Cloud
-2001:49f0:a015::/48 Deny Cloud
-2001:49f0:a016::/47 Deny Cloud
-2001:49f0:a018::/48 Deny Cloud
-2001:49f0:a01a::/48 Deny Cloud
-2001:49f0:a01f::/48 Deny Cloud
-2001:49f0:a022::/47 Deny Cloud
-2001:49f0:a024::/48 Deny Cloud
-2001:49f0:a027::/48 Deny Cloud
-2001:49f0:a030::/48 Deny Cloud
-2001:49f0:a032::/48 Deny Cloud
-2001:49f0:a038::/48 Deny Cloud
-2001:49f0:a03a::/48 Deny Cloud
-2001:49f0:a03d::/48 Deny Cloud
-2001:49f0:a03e::/48 Deny Cloud
-2001:49f0:a046::/48 Deny Cloud
-2001:49f0:a049::/48 Deny Cloud
-2001:49f0:a04b::/48 Deny Cloud
-2001:49f0:a050::/48 Deny Cloud
-2001:49f0:a052::/48 Deny Cloud
-2001:49f0:a054::/48 Deny Cloud
-2001:49f0:a058::/48 Deny Cloud
-2001:49f0:a05a::/48 Deny Cloud
-2001:49f0:a05c::/48 Deny Cloud
-2001:49f0:a05e::/47 Deny Cloud
-2001:49f0:a062::/47 Deny Cloud
-2001:49f0:a06a::/48 Deny Cloud
+2001:49f0:a000::/36 Deny Cloud
+2001:49f0:d000::/47 Deny Cloud
+2001:49f0:d002::/48 Deny Cloud
 2001:49f0:d004::/46 Deny Cloud
-2001:49f0:d008::/47 Deny Cloud
-2001:49f0:d00a::/48 Deny Cloud
-2001:49f0:d00c::/48 Deny Cloud
-2001:49f0:d00e::/47 Deny Cloud
+2001:49f0:d008::/45 Deny Cloud
 2001:49f0:d010::/45 Deny Cloud
 2001:49f0:d018::/48 Deny Cloud
 2001:49f0:d01a::/48 Deny Cloud
-2001:49f0:d01c::/46 Deny Cloud
+2001:49f0:d01d::/48 Deny Cloud
+2001:49f0:d01e::/47 Deny Cloud
 2001:49f0:d020::/44 Deny Cloud
 2001:49f0:d030::/46 Deny Cloud
-2001:49f0:d034::/47 Deny Cloud
-2001:49f0:d036::/48 Deny Cloud
-2001:49f0:d038::/48 Deny Cloud
-2001:49f0:d03f::/48 Deny Cloud
-2001:49f0:d040::/45 Deny Cloud
-2001:49f0:d048::/47 Deny Cloud
+2001:49f0:d036::/47 Deny Cloud
+2001:49f0:d038::/45 Deny Cloud
+2001:49f0:d040::/46 Deny Cloud
+2001:49f0:d044::/47 Deny Cloud
+2001:49f0:d046::/48 Deny Cloud
 2001:49f0:d04b::/48 Deny Cloud
 2001:49f0:d04c::/47 Deny Cloud
-2001:49f0:d050::/46 Deny Cloud
-2001:49f0:d054::/47 Deny Cloud
+2001:49f0:d050::/44 Deny Cloud
+2001:49f0:d060::/44 Deny Cloud
+2001:49f0:d070::/45 Deny Cloud
+2001:49f0:d079::/48 Deny Cloud
+2001:49f0:d07b::/48 Deny Cloud
 2602:ffb6::/36 Deny Cloud
-2a01:8640:4::/48 Deny Cloud
 2607:f700::/32 Deny Cloud
 Tag: Cogent
 
 
 # ASN 59711 ("HZ Hosting Ltd").
-# %Listed, Google Malware Dashboard: 2.53%.
-# Updated: 2016.02.10 / Checked: 2016.05.24
+# %Listed, Google Malware Dashboard: 1.46%.
+# Updated: 2016.02.10 / Checked: 2016.11.02
 
 2a01:8640::/48 Deny Cloud
 2a01:8640:2::/48 Deny Cloud
@@ -1800,64 +1792,65 @@ Tag: CariNet, Inc
 
 
 # ASN 29141 ("Bradler & Krantz GmbH & Co. KG").
-# %Listed, Google Malware Dashboard: 1.62%.
-# Updated: 2016.04.10
+# %Listed, Google Malware Dashboard: 2.61%.
+# Updated: 2016.04.10 / Checked: 2016.11.02
 
 2a02:e00::/32 Deny Cloud
 Tag: Bradler & Krantz
 
 
 # ASN 39234 ("Stone Internet Services bvba").
-# %Listed, Google Malware Dashboard: 0.94%.
-# Updated: 2016.04.10
+# %Listed, Google Malware Dashboard: 2.34%.
+# Updated: 2016.04.10 / Checked: 2016.11.02
 
 2a00:7000::/32 Deny Cloud
 Tag: Stone Internet
 
 
 # ASN 39020 ("Comvive Servidores S.L").
-# %Listed, Google Malware Dashboard: 2.07%.
-# Updated: 2016.04.10
+# %Listed, Google Malware Dashboard: 2.51%.
+# Updated: 2016.04.10 / Checked: 2016.11.02
 
 2a00:1d70::/32 Deny Cloud
 Tag: Comvive Servidores
 
 
 # ASN 34971 ("Prometeus di Daniela Agro").
-# %Listed, Google Malware Dashboard: 1.11%.
-# Updated: 2016.04.10
+# %Listed, Google Malware Dashboard: 1.03%.
+# Updated: 2016.11.02
 
 2a00:dcc0::/32 Deny Cloud
-2a00:dcc7:1a00::/40 Deny Cloud
 2a00:dcc7:d000::/38 Deny Cloud
 2a06:fdc0::/32 Deny Cloud
 Tag: Daniela Agro
 
 
 # ASN 52173 ("Makonix SIA").
-# %Listed, Google Malware Dashboard: 3.55%.
-# Updated: 2016.04.10
+# %Listed, Google Malware Dashboard: 5.53%.
+# Updated: 2016.04.10 / Checked: 2016.11.02
 
 2a02:7aa0::/34 Deny Cloud
 Tag: Makonix SIA
 
 
 # ASN 57169 ("EDIS GmbH").
-# %Listed, Google Malware Dashboard: 1.10%.
-# Updated: 2016.04.10
+# %Listed, Google Malware Dashboard: 3.04%.
+# Updated: 2016.11.02
 
 2a03:f80:852::/48 Deny Cloud
+2a03:f80:ad15::/48 Deny Cloud
 2a03:f80:ed15::/48 Deny Cloud
 2a03:f80:ed16::/47 Deny Cloud
 2a03:f81::/32 Deny Cloud
 2a03:f83::/32 Deny Cloud
 2a03:f84::/32 Deny Cloud
+2a03:f87:ffff::/48 Deny Cloud
 Tag: EDIS GmbH
 
 
 # ASN 8426 ("ClaraNET LTD").
-# %Listed, Google Malware Dashboard: 1.65%.
-# Updated: 2016.04.10
+# %Listed, Google Malware Dashboard: 1.36%.
+# Updated: 2016.11.02
 
 2001:67c:1088::/47 Deny Cloud
 2001:67c:27dc::/48 Deny Cloud
@@ -1874,12 +1867,14 @@ Tag: EDIS GmbH
 2a03:73c0::/48 Deny Cloud
 2a03:8bc0:33::/48 Deny Cloud
 2a03:9c80::/32 Deny Cloud
+2a06:79c0::/29 Deny Cloud
+2a07:4f40::/29 Deny Cloud
 Tag: ClaraNET LTD
 
 
 # ASN 43289 ("Trabia-Network S.R.L").
-# %Listed, Google Malware Dashboard: 0.81%.
-# Updated: 2016.04.10
+# %Listed, Google Malware Dashboard: 0.01%.
+# Updated: 2016.04.10 / Checked: 2016.11.02
 
 2403:280::/32 Deny Cloud
 2a00:1dc0::/29 Deny Cloud
@@ -1887,8 +1882,8 @@ Tag: Trabia-Network
 
 
 # ASN 29691 ("Nine Internet Solutions AG").
-# %Listed, Google Malware Dashboard: 0.52%.
-# Updated: 2016.04.10
+# %Listed, Google Malware Dashboard: 0.44%.
+# Updated: 2016.04.10 / Checked: 2016.11.02
 
 2a02:418::/29 Deny Cloud
 2a05:9a80::/29 Deny Cloud
@@ -1896,8 +1891,8 @@ Tag: Nine Internet
 
 
 # ASN 61102 ("Interhost Communication Solutions Ltd").
-# %Listed, Google Malware Dashboard: 1.06%.
-# Updated: 2016.04.10
+# %Listed, Google Malware Dashboard: 0.48%.
+# Updated: 2016.04.10 / Checked: 2016.11.02
 
 2a03:f80:972::/48 Deny Cloud
 2a03:ff40::/32 Deny Cloud
@@ -1905,8 +1900,8 @@ Tag: AS61102
 
 
 # ASN 14442 ("Media-Hosts Inc").
-# %Listed, Google Malware Dashboard: 1.98%.
-# Updated: 2016.04.10
+# %Listed, Google Malware Dashboard: 0.29%.
+# Updated: 2016.04.10 / Checked: 2016.11.02
 
 2605:2100::/36 Deny Cloud
 Tag: Media-Hosts Inc
@@ -1926,8 +1921,8 @@ Tag: FranTech Solutions
 
 
 # ASN 29527 ("Astutium Limited").
-# %Listed, Google Malware Dashboard: 0.62%.
-# Updated: 2016.04.10
+# %Listed, Google Malware Dashboard: 0.60%.
+# Updated: 2016.04.10 / Checked: 2016.11.02
 
 2001:4bf0:1::/48 Deny Cloud
 Tag: Astutium Limited
@@ -1943,8 +1938,8 @@ Tag: Krypt Technologies
 
 
 # ASN 31815 ("Media Temple, Inc").
-# %Listed, Google Malware Dashboard: 2.63%.
-# Updated: 2016.04.17
+# %Listed, Google Malware Dashboard: 5.92%.
+# Updated: 2016.04.17 / Checked: 2016.11.02
 
 2606:2300::/32 Deny Cloud
 2607:f211:1::/48 Deny Cloud
@@ -2027,6 +2022,8 @@ Tag: OJSC RTComm.RU
 # %Listed, Google Malware Dashboard: 4.09%.
 # Updated: 2016.04.23
 
+2001:978:2305::/48 Deny Cloud
+2001:978:3400::/48 Deny Cloud
 2001:ac8::/32 Deny Cloud
 2a00:b320::/48 Deny Cloud
 2a01:300::/29 Deny Cloud
@@ -2644,8 +2641,8 @@ Tag: Web Wiz Ltd
 
 
 # ASN 22653 ("Cyber Wurx LLC").
-# %Listed, Google Malware Dashboard: 28.79%.
-# Updated: 2016.06.09
+# %Listed, Google Malware Dashboard: 30.74%.
+# Updated: 2016.06.09 / Checked: 2016.11.03
 
 2607:1a00::/32 Deny Cloud
 Tag: Cyber Wurx LLC
@@ -2886,8 +2883,8 @@ Tag: comtrance GmbH
 
 
 # ASN 132422 ("Hong Kong Telecom Global Data Centre").
-# %Listed, Google Malware Dashboard: 31.82%.
-# Updated: 2016.09.09
+# %Listed, Google Malware Dashboard: 33.75%.
+# Updated: 2016.09.09 / Checked: 2016.11.03
 
 2401:2c80::/32 Deny Cloud
 Tag: AS132422 Data Centre
@@ -2927,5 +2924,45 @@ Tag: iu.nl
 2001:460:80::/46 Deny Cloud
 2001:460:90::/46 Deny Cloud
 Tag: SAVVIS
+
+
+# ASN 49282 ("Ficolo Oy").
+# %Listed, Google Malware Dashboard: 0.76%.
+# Updated: 2016.11.02
+
+2a03:e580::/29 Deny Cloud
+Tag: Ficolo Oy
+
+
+# ASNs 25484, 31400 ("Accelerated IT Services GmbH").
+# (Careful when updating; Some non-cloud endpoints possibly mixed in with these ASNs).
+# %Listed, Google Malware Dashboard: 0% (AS25484), 2.44% (AS31400).
+# Updated: 2016.11.02
+
+2001:67c:2c58::/48 Deny Cloud
+2001:1608::/32 Deny Cloud
+2001:1638::/32 Deny Cloud
+2a00:5080::/32 Deny Cloud
+2a03:2902::/32 Deny Cloud
+2a03:ebc0:1000::/36 Deny Cloud
+Tag: Accelerated IT
+
+
+# ASN 20278 ("Nexeon Technologies, Inc").
+# %Listed, Google Malware Dashboard: 4.03%.
+# Updated: 2016.11.02
+
+2401:f500:4::/48 Deny Cloud
+2602:ffc8::/32 Deny Cloud
+Tag: Nexeon Technologies
+
+
+# ASN 48096 ("OOO IT-Grad").
+# %Listed, Google Malware Dashboard: 26.79%.
+# Updated: 2016.11.03
+
+2a04:c900:1000::/36 Deny Cloud
+2a04:c900:3000::/36 Deny Cloud
+Tag: OOO IT-Grad
 
 
