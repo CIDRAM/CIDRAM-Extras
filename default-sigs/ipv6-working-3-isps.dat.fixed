@@ -50,8 +50,8 @@ Tag: CIZGI TELEKOM
 
 
 # ASN 25504 ("Vautron Rechenzentrum AG").
-# %Listed, Google Malware Dashboard: 2.17%.
-# Updated: 2016.01.18 / Checked: 2016.04.18
+# %Listed, Google Malware Dashboard: 3.32%.
+# Updated: 2016.01.18 / Checked: 2016.11.03
 
 2001:67c:2394::/48 Deny Generic
 2a00:19e0::/29 Deny Generic
@@ -59,8 +59,8 @@ Tag: Vautron Rech. AG
 
 
 # ASN 38955 ("World4You Internet Services").
-# %Listed, Google Malware Dashboard: 1.79%.
-# Updated: 2016.01.18 / Checked: 2016.04.18
+# %Listed, Google Malware Dashboard: 3.02%.
+# Updated: 2016.01.18 / Checked: 2016.11.03
 
 2a00:1a68::/32 Deny Generic
 Tag: World4You
@@ -85,11 +85,12 @@ Tag: AS12880
 
 
 # ASNs 24940, 37153 ("Hetzner Online GmbH").
-# %Listed, Google Malware Dashboard: 1.15% (AS24940), 1.39% (AS37153).
-# Updated: 2016.05.21
+# %Listed, Google Malware Dashboard: 1.31% (AS24940), 1.50% (AS37153).
+# Updated: 2016.11.04
 
 2a01:4f8::/29 Deny Generic
 2a06:be80::/29 Deny Generic
+2c0f:f300::/48 Deny Generic
 2c0f:fce8::/33 Deny Generic
 Tag: Hetzner Online GmbH
 

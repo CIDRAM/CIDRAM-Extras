@@ -476,8 +476,8 @@ Tag: CIZGI TELEKOM
 
 
 # ASN 25504 ("Vautron Rechenzentrum AG").
-# %Listed, Google Malware Dashboard: 2.17%.
-# Updated: 2016.01.18 / Checked: 2016.04.18
+# %Listed, Google Malware Dashboard: 3.32%.
+# Updated: 2016.01.18 / Checked: 2016.11.03
 
 46.151.160.0/21 Deny Generic
 46.175.56.0/21 Deny Generic
@@ -502,12 +502,13 @@ Tag: Vautron Rech. AG
 
 
 # ASN 38955 ("World4You Internet Services").
-# %Listed, Google Malware Dashboard: 1.39%.
-# Updated: 2016.01.18 / Checked: 2016.05.21
+# %Listed, Google Malware Dashboard: 3.02%.
+# Updated: 2016.11.03
 
 81.19.144.0/20 Deny Generic
 178.23.80.0/21 Deny Generic
 185.16.190.0/24 Deny Generic
+185.164.4.0/22 Deny Generic
 Tag: World4You
 
 
@@ -854,8 +855,8 @@ Tag: AS12880
 
 
 # ASNs 24940, 37153 ("Hetzner Online GmbH").
-# %Listed, Google Malware Dashboard: 1.15% (AS24940), 1.39% (AS37153).
-# Updated: 2016.05.12 / Checked: 2016.05.21
+# %Listed, Google Malware Dashboard: 1.31% (AS24940), 1.50% (AS37153).
+# Updated: 2016.11.04
 
 5.9.0.0/16 Deny Generic
 41.72.128.0/19 Deny Generic
@@ -864,6 +865,7 @@ Tag: AS12880
 46.4.0.0/16 Deny Generic
 78.46.0.0/15 Deny Generic
 85.10.192.0/18 Deny Generic
+88.99.0.0/16 Deny Generic
 88.198.0.0/16 Deny Generic
 91.220.49.0/24 Deny Generic
 91.233.8.0/22 Deny Generic
@@ -883,7 +885,9 @@ Tag: AS12880
 185.50.120.0/23 Deny Generic
 185.107.52.0/22 Deny Generic
 185.126.28.0/22 Deny Generic
+185.136.140.0/23 Deny Generic
 185.141.200.0/24 Deny Generic
+185.141.202.0/24 Deny Generic
 188.40.0.0/16 Deny Generic
 192.96.96.0/24 Deny Generic
 193.25.170.0/23 Deny Generic
@@ -898,6 +902,7 @@ Tag: AS12880
 196.22.136.0/21 Deny Generic
 196.28.5.0/24 Deny Generic
 196.40.96.0/20 Deny Generic
+196.223.48.0/21 Deny Generic
 197.189.192.0/18 Deny Generic
 197.221.0.0/18 Deny Generic
 197.242.64.0/19 Deny Generic

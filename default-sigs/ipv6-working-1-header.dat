@@ -105,10 +105,3 @@
 # INCLUDED DEFAULT IPV6 SIGNATURES ARE BELOW THIS LINE.
 
 
-# ---
-# Some basic greylisting to avoid problems with the local network being blocked by some of the bogon CIDR signatures
-# that appear further down into the signature files.
-
-0::/8 Greylist
-
-

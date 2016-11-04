@@ -105,12 +105,3 @@
 # INCLUDED DEFAULT IPV4 SIGNATURES ARE BELOW THIS LINE.
 
 
-# ---
-# Some basic greylisting to avoid problems with the local network being blocked by some of the bogon CIDR signatures
-# that appear further down into the signature files.
-
-10.0.0.0/8 Greylist
-127.0.0.0/8 Greylist
-192.168.0.0/16 Greylist
-
-

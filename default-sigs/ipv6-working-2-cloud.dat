@@ -2013,17 +2013,28 @@ Tag: Media Temple, Inc
 
 
 # ASN 12586 ("GHOSTnet GmbH").
-# %Listed, Google Malware Dashboard: 1.76%.
-# Updated: 2016.04.19
+# %Listed, Google Malware Dashboard: 2.82%.
+# Updated: 2016.11.03
 
 2001:67c:2f84::/48 Deny Cloud
-2a00:12d8::/32 Deny Cloud
+2a00:12d8::/29 Deny Cloud
 2a00:1890::/29 Deny Cloud
 2a00:1910::/29 Deny Cloud
+2a00:19d0::/29 Deny Cloud
 2a00:cdc0::/32 Deny Cloud
-2a00:d1a0::/32 Deny Cloud
+2a01:bd40::/29 Deny Cloud
 2a02:2fc0::/29 Deny Cloud
 Tag: GHOSTnet GmbH
+
+
+# ASNs 21859, 62610 ("Zenlayer Inc").
+# %Listed, Google Malware Dashboard: 26.88% (AS21859), 0% (AS62610).
+# Updated: 2016.11.04
+
+2602:ffe4::/36 Deny Cloud
+2604:980::/32 Deny Cloud
+2607:a400::/32 Deny Cloud
+Tag: Zenlayer Inc
 
 
 # ASN 22923 ("Yesup Ecommerce Solutions Inc").
@@ -2035,24 +2046,22 @@ Tag: Yesup Ecommerce
 
 
 # ASN 30475 ("Handy Networks, LLC").
-# %Listed, Google Malware Dashboard: 0.74%.
-# Updated: 2016.04.19
+# %Listed, Google Malware Dashboard: 1.21%.
+# Updated: 2016.11.03
 
 2602:fff6:d::/48 Deny Cloud
+2606:6680:6::/48 Deny Cloud
 2607:fc88::/32 Deny Cloud
-Tag: Handy Networks, LLC
+Tag: Handy Networks
 
 
 # ASN 31863 ("Centrilogic, Inc").
-# %Listed, Google Malware Dashboard: 1.59%.
-# Updated: 2016.04.19
+# %Listed, Google Malware Dashboard: 1.66%.
+# Updated: 2016.11.03
 
 2602:ff96:3::/48 Deny Cloud
 2602:ff96:7::/48 Deny Cloud
-2606:1e80:dace::/48 Deny Cloud
 2607:5600::/32 Deny Cloud
-2a00:a700::/48 Deny Cloud
-2a00:a700:a::/48 Deny Cloud
 Tag: Centrilogic
 
 
@@ -2067,11 +2076,11 @@ Tag: VegasNAP, LLC
 
 
 # ASN 54290 ("Hostwinds LLC").
-# %Listed, Google Malware Dashboard: 1.97%.
-# Updated: 2016.04.19
+# %Listed, Google Malware Dashboard: 6.58%.
+# Updated: 2016.11.03
 
-2607:5500::/32 Deny Cloud
-2607:5501::/32 Deny Cloud
+2607:5500::/31 Deny Cloud
+2620:4c:8080::/48 Deny Cloud
 2a06:4700::/29 Deny Cloud
 Tag: Hostwinds LLC
 
@@ -3064,15 +3073,5 @@ Tag: Nexeon Technologies
 2a04:c900:1000::/36 Deny Cloud
 2a04:c900:3000::/36 Deny Cloud
 Tag: OOO IT-Grad
-
-
-# ASN 30475 ("Handy Networks, LLC").
-# %Listed, Google Malware Dashboard: 1.21%.
-# Updated: 2016.11.03
-
-2602:fff6:d::/48 Deny Cloud
-2606:6680:6::/48 Deny Cloud
-2607:fc88::/32 Deny Cloud
-Tag: Handy Networks
 
 
