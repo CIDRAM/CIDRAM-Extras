@@ -1179,18 +1179,19 @@ Tag: MediaFire, LLC
 
 
 # ASN 6870 ("H1 LLC").
-# %Listed, Google Malware Dashboard: 1.17%.
-# Updated: 2016.03.02 / Checked: 2016.05.15
+# %Listed, Google Malware Dashboard: 2.92%.
+# Updated: 2016.11.18
 
+5.45.80.0/22 Deny Generic
 37.252.0.0/23 Deny Generic
 91.105.232.0/21 Deny Generic
 91.212.106.0/24 Deny Generic
-91.212.150.0/24 Deny Generic
 93.170.76.0/24 Deny Generic
 95.47.161.0/24 Deny Generic
 146.120.110.0/24 Deny Generic
 185.4.64.0/22 Deny Generic
 188.64.168.0/21 Deny Generic
+194.1.152.0/24 Deny Generic
 194.31.59.0/24 Deny Generic
 194.33.180.0/24 Deny Generic
 Tag: H1 LLC
@@ -1957,8 +1958,8 @@ Tag: GREEN FLASH TRADING
 
 
 # ASN 62454 ("Zyztm Research Division 10 B.V").
-# %Listed, Google Malware Dashboard: 0.42%.
-# Updated: 2016.04.23
+# %Listed, Google Malware Dashboard: 0%.
+# Updated: 2016.04.23 / Checked: 2016.11.18
 
 185.35.136.0/22 Deny Generic
 Tag: Zyztm

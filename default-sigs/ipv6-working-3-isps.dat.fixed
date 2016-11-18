@@ -150,8 +150,8 @@ Tag: AS31080
 
 
 # ASN 6870 ("H1 LLC").
-# %Listed, Google Malware Dashboard: 1.17%.
-# Updated: 2016.01.18 / Checked: 2016.04.23
+# %Listed, Google Malware Dashboard: 2.92%.
+# Updated: 2016.01.18 / Checked: 2016.11.18
 
 2a00:1f70::/32 Deny Generic
 Tag: H1 LLC
@@ -368,8 +368,8 @@ Tag: GREEN FLASH TRADING
 
 
 # ASN 62454 ("Zyztm Research Division 10 B.V").
-# %Listed, Google Malware Dashboard: 0.42%.
-# Updated: 2016.04.23
+# %Listed, Google Malware Dashboard: 0%.
+# Updated: 2016.04.23 / Checked: 2016.11.18
 
 2a01:54c0::/32 Deny Generic
 Tag: Zyztm
