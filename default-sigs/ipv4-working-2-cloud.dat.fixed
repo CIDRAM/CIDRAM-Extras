@@ -498,8 +498,8 @@ Tag: PEG TECH INC
 
 
 # ASN 25653 ("FortressITX").
-# %Listed, Google Malware Dashboard: 1.35%.
-# Updated: 2016.03.20 / Checked: 2016.04.27
+# %Listed, Google Malware Dashboard: 2.79%.
+# Updated: 2016.11.29
 
 50.60.0.0/15 Deny Cloud
 63.140.0.0/21 Deny Cloud
@@ -521,7 +521,6 @@ Tag: PEG TECH INC
 208.116.0.0/18 Deny Cloud
 209.140.128.0/18 Deny Cloud
 216.67.224.0/19 Deny Cloud
-216.74.96.0/19 Deny Cloud
 Tag: FortressITX
 
 
@@ -2771,9 +2770,8 @@ Tag: A2B IP B.V
 
 
 # ASNs 20860, 21130 ("IOMart").
-# Crimeware friendly ISP; Warnings about them at the hpHosts Blog.
-# %Listed, Google Malware Dashboard: 0.91% (AS20860), 0% (AS21130).
-# Updated: 2016.04.25
+# %Listed, Google Malware Dashboard: 1.74% (AS20860), 0% (AS21130).
+# Updated: 2016.11.29
 
 5.62.4.0/23 Deny Cloud
 5.62.8.0/21 Deny Cloud
@@ -2788,6 +2786,7 @@ Tag: A2B IP B.V
 37.247.116.0/23 Deny Cloud
 46.20.236.0/24 Deny Cloud
 46.102.106.0/24 Deny Cloud
+62.100.204.0/22 Deny Cloud
 62.128.192.0/19 Deny Cloud
 62.233.64.0/18 Deny Cloud
 64.64.123.0/24 Deny Cloud
@@ -2837,8 +2836,7 @@ Tag: A2B IP B.V
 149.255.96.0/20 Deny Cloud
 159.255.208.0/21 Deny Cloud
 172.93.122.0/24 Deny Cloud
-172.111.165.0/24 Deny Cloud
-172.111.166.0/24 Deny Cloud
+172.111.212.0/24 Deny Cloud
 182.54.237.0/24 Deny Cloud
 185.17.148.0/22 Deny Cloud
 185.19.16.0/22 Deny Cloud
@@ -2851,17 +2849,17 @@ Tag: A2B IP B.V
 185.35.79.0/24 Deny Cloud
 185.37.178.0/23 Deny Cloud
 185.57.188.0/22 Deny Cloud
+185.73.114.0/24 Deny Cloud
 185.91.76.0/22 Deny Cloud
 185.116.212.0/22 Deny Cloud
-185.131.8.0/24 Deny Cloud
 185.141.192.0/24 Deny Cloud
-185.145.156.0/24 Deny Cloud
+185.161.16.0/22 Deny Cloud
+185.162.108.0/22 Deny Cloud
 188.208.111.0/24 Deny Cloud
 188.210.255.0/24 Deny Cloud
 188.214.198.0/24 Deny Cloud
 188.215.32.0/24 Deny Cloud
 192.121.166.0/23 Deny Cloud
-192.253.244.0/24 Deny Cloud
 193.200.98.0/23 Deny Cloud
 193.201.200.0/23 Deny Cloud
 194.1.150.0/24 Deny Cloud
@@ -2870,6 +2868,7 @@ Tag: A2B IP B.V
 195.62.10.0/23 Deny Cloud
 195.177.192.0/23 Deny Cloud
 206.187.52.0/22 Deny Cloud
+206.187.56.0/22 Deny Cloud
 212.38.160.0/19 Deny Cloud
 212.84.160.0/19 Deny Cloud
 217.19.1.0/24 Deny Cloud
@@ -3046,7 +3045,7 @@ Tag: Root SA
 
 # ASN 27524 ("XEEX").
 # %Listed, Google Malware Dashboard: 0%.
-# Updated: 2016.03.07 / Checked: 2016.04.25
+# Updated: 2016.03.07 / Checked: 2016.11.29
 
 69.26.160.0/19 Deny Cloud
 113.212.64.0/19 Deny Cloud
@@ -3058,7 +3057,7 @@ Tag: XEEX
 
 # ASN 25643 ("ColoGuys").
 # %Listed, Google Malware Dashboard: 0%.
-# Updated: 2016.01.19 / Checked: 2016.04.25
+# Updated: 2016.01.19 / Checked: 2016.11.29
 
 64.209.56.0/21 Deny Cloud
 64.209.68.0/22 Deny Cloud
@@ -7438,11 +7437,12 @@ Tag: WebNX, Inc
 
 
 # ASN 198068 ("FASTVPS EESTI OU").
-# %Listed, Google Malware Dashboard: 4.86%.
-# Updated: 2016.04.25
+# %Listed, Google Malware Dashboard: 1.14%.
+# Updated: 2016.11.29
 
 5.45.112.0/20 Deny Cloud
 5.101.112.0/20 Deny Cloud
+5.101.176.0/20 Deny Cloud
 46.36.216.0/21 Deny Cloud
 159.253.16.0/21 Deny Cloud
 185.4.72.0/22 Deny Cloud
@@ -8173,8 +8173,8 @@ Tag: Shenzhen Tencent
 
 
 # ASN 44112 ("SpaceWeb Ltd").
-# %Listed, Google Malware Dashboard: 1.73%.
-# Updated: 2016.04.29
+# %Listed, Google Malware Dashboard: 1.68%.
+# Updated: 2016.04.29 / Checked: 2016.11.29
 
 77.222.40.0/22 Deny Cloud
 77.222.50.0/23 Deny Cloud
@@ -8184,10 +8184,11 @@ Tag: SpaceWeb Ltd
 
 
 # ASN 43391 ("Netdirekt A.S").
-# %Listed, Google Malware Dashboard: 2.46%.
-# Updated: 2016.04.29
+# %Listed, Google Malware Dashboard: 2.83%.
+# Updated: 2016.11.29
 
 77.223.128.0/20 Deny Cloud
+77.223.148.0/23 Deny Cloud
 77.223.152.0/23 Deny Cloud
 77.223.156.0/24 Deny Cloud
 77.223.158.0/24 Deny Cloud
@@ -8204,8 +8205,7 @@ Tag: SpaceWeb Ltd
 185.131.208.0/22 Deny Cloud
 195.244.32.0/23 Deny Cloud
 195.244.35.0/24 Deny Cloud
-195.244.36.0/23 Deny Cloud
-195.244.38.0/24 Deny Cloud
+195.244.36.0/22 Deny Cloud
 195.244.41.0/24 Deny Cloud
 195.244.42.0/24 Deny Cloud
 195.244.55.0/24 Deny Cloud
@@ -8223,8 +8223,8 @@ Tag: Netdirekt A.S
 
 
 # ASN 42730 ("EVANZO e-commerce GmbH").
-# %Listed, Google Malware Dashboard: 2.23%.
-# Updated: 2016.04.29
+# %Listed, Google Malware Dashboard: 4.64%.
+# Updated: 2016.11.29
 
 87.238.192.0/21 Deny Cloud
 178.254.0.0/19 Deny Cloud
@@ -8233,6 +8233,7 @@ Tag: Netdirekt A.S
 178.254.50.0/23 Deny Cloud
 178.254.52.0/22 Deny Cloud
 178.254.56.0/22 Deny Cloud
+178.254.61.0/24 Deny Cloud
 178.254.62.0/24 Deny Cloud
 195.90.193.0/24 Deny Cloud
 195.90.194.0/23 Deny Cloud
@@ -8383,7 +8384,7 @@ Tag: Areti/Alentus
 
 # ASN 31251 ("Falco Networks B.V").
 # %Listed, Google Malware Dashboard: 0%.
-# Updated: 2016.04.30
+# Updated: 2016.04.30 / Checked: 2016.11.29
 
 85.203.0.0/18 Deny Cloud
 Tag: Falco Networks B.V
@@ -11271,6 +11272,59 @@ Tag: REGION40 LLC
 192.231.255.0/24 Deny Cloud
 199.231.92.0/22 Deny Cloud
 Tag: Webline Services Inc
+
+
+# ASN 34549 ("meerfarbig GmbH & Co. KG").
+# %Listed, Google Malware Dashboard: 1.25%.
+# Updated: 2016.11.29
+
+5.1.64.0/19 Deny Cloud
+31.47.232.0/21 Deny Cloud
+80.77.16.0/20 Deny Cloud
+83.243.40.0/21 Deny Cloud
+94.247.40.0/21 Deny Cloud
+178.251.224.0/22 Deny Cloud
+178.251.230.0/23 Deny Cloud
+185.37.144.0/22 Deny Cloud
+185.44.104.0/22 Deny Cloud
+185.90.160.0/22 Deny Cloud
+185.150.96.0/22 Deny Cloud
+185.153.150.0/24 Deny Cloud
+185.166.84.0/22 Deny Cloud
+185.174.156.0/22 Deny Cloud
+193.17.221.0/24 Deny Cloud
+195.10.195.0/24 Deny Cloud
+Tag: meerfarbig
+
+
+# ASN 29066 ("velia.net Internetdienste GmbH").
+# %Listed, Google Malware Dashboard: 0.32%.
+# Updated: 2016.11.29
+
+5.44.100.0/23 Deny Cloud
+5.44.104.0/22 Deny Cloud
+43.224.153.0/24 Deny Cloud
+85.195.64.0/18 Deny Cloud
+103.35.180.0/23 Deny Cloud
+146.0.224.0/19 Deny Cloud
+149.154.159.0/24 Deny Cloud
+151.236.15.0/24 Deny Cloud
+151.236.17.0/24 Deny Cloud
+158.255.214.0/24 Deny Cloud
+185.19.216.0/22 Deny Cloud
+185.94.19.0/24 Deny Cloud
+185.146.64.0/22 Deny Cloud
+192.121.22.0/23 Deny Cloud
+193.17.17.0/24 Deny Cloud
+193.138.96.0/24 Deny Cloud
+193.151.89.0/24 Deny Cloud
+193.151.90.0/23 Deny Cloud
+193.200.150.0/24 Deny Cloud
+194.50.187.0/24 Deny Cloud
+195.69.240.0/22 Deny Cloud
+195.93.182.0/23 Deny Cloud
+195.182.58.0/24 Deny Cloud
+Tag: velia.net
 
 
 # ---
