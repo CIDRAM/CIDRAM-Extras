@@ -181,8 +181,8 @@ Tag: INFOBOX
 
 
 # ASN 49335 ("Mir Telematiki Ltd").
-# %Listed, Google Malware Dashboard: 0.28%.
-# Updated: 2016.04.27
+# %Listed, Google Malware Dashboard: 0.15%.
+# Updated: 2016.04.27 / Checked: 2016.12.04
 
 2a05:b80::/29 Deny Spam
 Tag: Mir Telematiki Ltd
@@ -261,8 +261,8 @@ Tag: Xirra GmbH
 
 
 # ASN 35804 ("PP SKS-LUGAN").
-# %Listed, Google Malware Dashboard: 3.31%.
-# Updated: 2016.03.30 / Checked: 2016.04.25
+# %Listed, Google Malware Dashboard: 1.09%.
+# Updated: 2016.03.30 / Checked: 2016.12.04
 
 2a00:ede0::/32 Deny Generic
 Tag: PP SKS-LUGAN
@@ -376,19 +376,12 @@ Tag: Zyztm
 
 
 # ASN 201848 ("Trader soft LLC").
-# %Listed, Google Malware Dashboard: 5.01%.
-# Updated: 2016.04.25
+# %Listed, Google Malware Dashboard: 2.52%.
+# Updated: 2016.12.04
 
 2a04:ac00:1::/48 Deny Generic
+2a04:ac00:4::/48 Deny Generic
 Tag: Trader soft LLC
-
-
-# ASN 198068 ("FASTVPS EESTI OU").
-# %Listed, Google Malware Dashboard: 4.86%.
-# Updated: 2016.04.25
-
-2a03:f480:1::/48 Deny Generic
-Tag: FASTVPS EESTI OU
 
 
 # ASN 43260 ("DGN TEKNOLOJI BILISIM YAYINCILIK SANAYI VE LIMITED SIRKETI").

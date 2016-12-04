@@ -1289,8 +1289,8 @@ Tag: INFOBOX
 
 
 # ASN 49335 ("Mir Telematiki Ltd").
-# %Listed, Google Malware Dashboard: 0.28%.
-# Updated: 2016.04.27
+# %Listed, Google Malware Dashboard: 0.15%.
+# Updated: 2016.12.04
 
 31.192.104.0/22 Deny Spam
 31.192.108.0/24 Deny Spam
@@ -1302,10 +1302,9 @@ Tag: INFOBOX
 91.210.104.0/22 Deny Spam
 91.218.112.0/22 Deny Spam
 91.218.244.0/22 Deny Spam
-91.237.249.0/24 Deny Spam
 94.177.123.0/24 Deny Spam
-111.90.159.0/24 Deny Spam
 141.105.64.0/21 Deny Spam
+155.254.166.0/23 Deny Spam
 158.255.0.0/21 Deny Spam
 185.42.100.0/24 Deny Spam
 185.42.102.0/23 Deny Spam
@@ -1734,7 +1733,7 @@ Tag: Xirra GmbH
 
 # ASN 35804 ("PP SKS-LUGAN").
 # %Listed, Google Malware Dashboard: 1.03%.
-# Updated: 2016.03.30 / Checked: 2016.06.09
+# Updated: 2016.03.30 / Checked: 2016.12.04
 
 91.200.12.0/22 Deny Generic
 91.202.212.0/22 Deny Generic
@@ -1966,16 +1965,17 @@ Tag: Zyztm
 
 
 # ASN 201848 ("Trader soft LLC").
-# %Listed, Google Malware Dashboard: 5.01%.
-# Updated: 2016.04.25
+# %Listed, Google Malware Dashboard: 2.52%.
+# Updated: 2016.12.04
 
 85.143.208.0/20 Deny Generic
+89.223.24.0/21 Deny Generic
 Tag: Trader soft LLC
 
 
 # ASN 197712 ("10dencehispahard, S.L").
-# %Listed, Google Malware Dashboard: 3.23%.
-# Updated: 2016.04.25
+# %Listed, Google Malware Dashboard: 8.14%.
+# Updated: 2016.04.25 / Checked: 2016.12.04
 
 46.16.56.0/21 Deny Generic
 134.0.8.0/21 Deny Generic
