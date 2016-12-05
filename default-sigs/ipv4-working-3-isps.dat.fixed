@@ -1762,46 +1762,41 @@ Tag: Drake Holdings LLC
 
 
 # ASN 45753 ("Unit 1205-1207").
-# %Listed, Google Malware Dashboard: 2.95%.
-# Updated: 2016.04.29
+# %Listed, Google Malware Dashboard: 4.15%.
+# Updated: 2016.12.05
 
 43.225.196.0/22 Deny Generic
-45.121.104.0/22 Deny Generic
-45.125.4.0/22 Deny Generic
+45.121.140.0/22 Deny Generic
 69.176.88.0/21 Deny Generic
 96.43.96.0/24 Deny Generic
 103.1.224.0/22 Deny Generic
 103.31.8.0/22 Deny Generic
 103.42.104.0/22 Deny Generic
 103.44.160.0/22 Deny Generic
-103.57.108.0/22 Deny Generic
-103.61.184.0/22 Deny Generic
 103.61.240.0/22 Deny Generic
-103.193.132.0/22 Deny Generic
+103.70.76.0/23 Deny Generic
+103.71.252.0/23 Deny Generic
+103.194.184.0/22 Deny Generic
 103.199.104.0/22 Deny Generic
 103.203.48.0/22 Deny Generic
 103.212.96.0/22 Deny Generic
-103.249.196.0/22 Deny Generic
+103.240.40.0/22 Deny Generic
 106.3.86.0/24 Deny Generic
 110.173.48.0/20 Deny Generic
 111.68.0.0/20 Deny Generic
 112.121.160.0/19 Deny Generic
 116.213.36.0/22 Deny Generic
+118.91.240.0/20 Deny Generic
 119.42.144.0/21 Deny Generic
 137.59.20.0/22 Deny Generic
 139.5.200.0/22 Deny Generic
 175.41.16.0/20 Deny Generic
-180.87.114.0/24 Deny Generic
 180.178.32.0/19 Deny Generic
-182.16.0.0/18 Deny Generic
-182.16.64.0/21 Deny Generic
-182.16.72.0/22 Deny Generic
-182.16.76.0/24 Deny Generic
-182.16.96.0/24 Deny Generic
-182.16.120.0/24 Deny Generic
+182.16.0.0/17 Deny Generic
+183.182.12.0/22 Deny Generic
 216.83.40.0/21 Deny Generic
 216.83.56.0/21 Deny Generic
-Tag: AS45753
+Tag: Unit 1205-1207
 
 
 # ASN 43260 ("DGN TEKNOLOJI BILISIM YAYINCILIK SANAYI VE LIMITED SIRKETI").

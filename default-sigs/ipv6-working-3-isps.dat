@@ -384,6 +384,14 @@ Tag: Zyztm
 Tag: Trader soft LLC
 
 
+# ASN 45753 ("Unit 1205-1207").
+# %Listed, Google Malware Dashboard: 4.15%.
+# Updated: 2016.12.05
+
+2401:4c00::/32 Deny Generic
+Tag: Unit 1205-1207
+
+
 # ASN 43260 ("DGN TEKNOLOJI BILISIM YAYINCILIK SANAYI VE LIMITED SIRKETI").
 # Caught trying to DDoS SFS.
 # %Listed, Google Malware Dashboard: 1.82%.
