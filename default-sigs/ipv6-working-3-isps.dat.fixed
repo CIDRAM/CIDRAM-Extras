@@ -240,11 +240,24 @@ Tag: Trend Micro
 
 
 # ASN 8551 ("Bezeq International-Ltd").
-# %Listed, Google Malware Dashboard: 1.55%.
-# Updated: 2016.01.20 / Checked: 2016.09.20
+# %Listed, Google Malware Dashboard: 1.68%.
+# Updated: 2016.12.10
 
 2001:4cd0::/32 Deny Generic
+2a02:26f0:8000::/48 Deny Generic
 Tag: Bezeq International
+---
+recaptcha:
+ enabled: true
+
+
+# ASNs 5486, 9116 ("012 Smile Communications LTD").
+# Spam emitters; Subsidiary of Bezeq International.
+# %Listed, Google Malware Dashboard: 0% (AS5486), 1.86% (AS9116).
+# Updated: 2016.12.10
+
+2001:40a8::/32 Deny Spam
+Tag: 012 Smile
 ---
 recaptcha:
  enabled: true
