@@ -968,35 +968,32 @@ Tag: H1 LLC
 
 
 # ASN 3223 ("Voxility LLC").
-# %Listed, Google Malware Dashboard: 1.43%.
-# Updated: 2016.05.15
+# %Listed, Google Malware Dashboard: 2.48%.
+# Updated: 2016.12.24
 
-5.254.64.0/20 Deny Generic
-5.254.84.0/23 Deny Generic
-5.254.86.0/24 Deny Generic
-5.254.88.0/21 Deny Generic
+5.254.64.0/19 Deny Generic
 5.254.96.0/20 Deny Generic
 5.254.112.0/21 Deny Generic
 5.254.122.0/23 Deny Generic
 5.254.124.0/24 Deny Generic
 5.254.126.0/23 Deny Generic
-31.220.31.0/24 Deny Generic
 37.156.32.0/23 Deny Generic
 37.221.160.0/20 Deny Generic
+43.255.190.0/24 Deny Generic
 45.74.58.0/24 Deny Generic
 45.74.63.0/24 Deny Generic
 46.8.37.0/24 Deny Generic
-46.232.0.0/19 Deny Generic
 77.81.164.0/23 Deny Generic
+85.122.114.0/24 Deny Generic
 86.105.187.0/24 Deny Generic
 86.105.215.0/24 Deny Generic
+86.106.89.0/24 Deny Generic
 89.32.130.0/23 Deny Generic
-89.34.26.0/24 Deny Generic
+89.37.101.0/24 Deny Generic
 89.40.16.0/22 Deny Generic
 89.40.104.0/23 Deny Generic
 89.40.233.0/24 Deny Generic
 89.45.89.0/24 Deny Generic
-89.46.222.0/23 Deny Generic
 91.217.232.0/24 Deny Generic
 92.114.32.0/24 Deny Generic
 93.114.40.0/21 Deny Generic
@@ -1006,34 +1003,24 @@ Tag: H1 LLC
 103.249.70.0/24 Deny Generic
 104.152.44.0/22 Deny Generic
 107.181.167.0/24 Deny Generic
-107.189.2.0/24 Deny Generic
 109.163.224.0/20 Deny Generic
 128.0.46.0/23 Deny Generic
-162.245.0.0/24 Deny Generic
-162.245.2.0/23 Deny Generic
-178.156.202.0/24 Deny Generic
+172.111.201.0/24 Deny Generic
+172.111.234.0/24 Deny Generic
 185.5.172.0/24 Deny Generic
 185.5.174.0/23 Deny Generic
 185.23.16.0/23 Deny Generic
-185.72.176.0/24 Deny Generic
-185.92.192.0/24 Deny Generic
+185.82.99.0/24 Deny Generic
 185.96.160.0/23 Deny Generic
-185.151.16.0/22 Deny Generic
+185.124.160.0/22 Deny Generic
 188.213.19.0/24 Deny Generic
 188.213.22.0/24 Deny Generic
 188.213.212.0/24 Deny Generic
 188.213.216.0/24 Deny Generic
-188.214.104.0/23 Deny Generic
 188.215.36.0/24 Deny Generic
-188.241.73.0/24 Deny Generic
 188.241.187.0/24 Deny Generic
-192.133.80.0/24 Deny Generic
 193.105.21.0/24 Deny Generic
-193.105.213.0/24 Deny Generic
 195.60.76.0/23 Deny Generic
-198.251.80.0/21 Deny Generic
-198.251.88.0/23 Deny Generic
-209.141.38.0/23 Deny Generic
 Tag: Voxility LLC
 
 
@@ -1755,11 +1742,9 @@ Tag: AS43700
 
 # ASN 37254 ("GREEN FLASH TRADING").
 # %Listed, Google Malware Dashboard: 0%.
-# Updated: 2016.05.12
+# Updated: 2016.12.24
 
 41.76.216.0/21 Deny Spam
-154.73.248.0/22 Deny Spam
-161.123.0.0/17 Deny Spam
 Tag: GREEN FLASH TRADING
 
 
@@ -1840,55 +1825,58 @@ Tag: Unit 1205-1207
 
 # ASN 43260 ("DGN TEKNOLOJI BILISIM YAYINCILIK SANAYI VE LIMITED SIRKETI").
 # Caught trying to DDoS SFS.
-# %Listed, Google Malware Dashboard: 1.82%.
-# Updated: 2016.05.13
+# %Listed, Google Malware Dashboard: 2.27%.
+# Updated: 2016.12.24
 
+31.14.52.0/24 Deny Generic
 31.210.152.0/21 Deny Generic
 31.214.129.0/24 Deny Generic
 31.214.152.0/24 Deny Generic
+37.156.246.0/24 Deny Generic
 37.247.96.0/22 Deny Generic
 37.247.100.0/24 Deny Generic
 37.247.102.0/23 Deny Generic
 37.247.104.0/21 Deny Generic
+45.123.116.0/22 Deny Generic
 46.20.0.0/21 Deny Generic
 46.20.8.0/23 Deny Generic
 46.20.11.0/24 Deny Generic
 46.20.14.0/23 Deny Generic
-89.43.78.0/24 Deny Generic
+89.45.94.0/24 Deny Generic
 89.107.224.0/21 Deny Generic
+93.113.96.0/24 Deny Generic
 93.114.130.0/24 Deny Generic
-93.115.10.0/24 Deny Generic
+93.190.216.0/24 Deny Generic
 95.130.168.0/22 Deny Generic
 95.130.172.0/23 Deny Generic
 95.130.175.0/24 Deny Generic
+103.51.140.0/23 Deny Generic
+103.51.143.0/24 Deny Generic
 109.230.196.0/24 Deny Generic
 109.235.248.0/21 Deny Generic
 134.255.199.0/24 Deny Generic
-154.16.107.0/24 Deny Generic
-154.16.165.0/24 Deny Generic
-181.215.195.0/24 Deny Generic
-181.215.253.0/24 Deny Generic
-185.28.60.0/23 Deny Generic
-185.28.62.0/24 Deny Generic
-185.29.120.0/22 Deny Generic
-185.42.172.0/22 Deny Generic
-185.78.84.0/22 Deny Generic
-185.81.152.0/22 Deny Generic
+185.28.60.0/22 Deny Generic
+185.29.120.0/24 Deny Generic
+185.29.122.0/23 Deny Generic
+185.32.13.0/24 Deny Generic
+185.78.84.0/23 Deny Generic
+185.78.86.0/24 Deny Generic
 185.82.220.0/22 Deny Generic
 185.85.72.0/22 Deny Generic
 185.85.188.0/24 Deny Generic
 185.85.236.0/24 Deny Generic
 185.86.4.0/24 Deny Generic
 185.86.6.0/23 Deny Generic
-185.86.12.0/22 Deny Generic
+185.86.12.0/24 Deny Generic
+185.86.14.0/23 Deny Generic
 185.86.80.0/22 Deny Generic
 185.86.152.0/22 Deny Generic
 185.87.24.0/24 Deny Generic
 185.87.120.0/24 Deny Generic
 185.88.172.0/22 Deny Generic
 185.90.240.0/22 Deny Generic
-185.92.0.0/22 Deny Generic
-185.93.52.0/22 Deny Generic
+185.93.52.0/23 Deny Generic
+185.93.55.0/24 Deny Generic
 185.93.68.0/22 Deny Generic
 185.95.120.0/22 Deny Generic
 185.98.61.0/24 Deny Generic
@@ -1899,18 +1887,33 @@ Tag: Unit 1205-1207
 185.119.83.0/24 Deny Generic
 185.122.200.0/22 Deny Generic
 185.124.84.0/22 Deny Generic
-185.128.112.0/22 Deny Generic
-185.132.124.0/22 Deny Generic
+185.128.113.0/24 Deny Generic
+185.128.114.0/23 Deny Generic
+185.132.124.0/24 Deny Generic
 185.136.204.0/22 Deny Generic
 185.141.32.0/22 Deny Generic
-191.96.118.0/24 Deny Generic
-191.96.254.0/24 Deny Generic
+185.154.64.0/22 Deny Generic
+185.160.28.0/22 Deny Generic
+185.162.146.0/23 Deny Generic
+185.174.68.0/22 Deny Generic
+213.238.164.0/24 Deny Generic
+213.238.167.0/24 Deny Generic
+213.238.177.0/24 Deny Generic
 Tag: DGN TEKNOLOJI
 
 
+# ASN 42868 ("Niobe Bilisim Teknolojileri Yazilim San. Tic. Ltd. Sti").
+# Caught trying to DDoS SFS.
+# %Listed, Google Malware Dashboard: 4.59%.
+# Updated: 2016.05.13 / Checked: 2016.12.24
+
+77.245.144.0/20 Deny Generic
+Tag: Niobe Bilisim
+
+
 # ASN 38731 ("Vietel - CHT Compamy Ltd").
-# %Listed, Google Malware Dashboard: 1.81%.
-# Updated: 2016.05.13
+# %Listed, Google Malware Dashboard: 2.99%.
+# Updated: 2016.12.24
 
 45.117.160.0/22 Deny Generic
 103.1.208.0/22 Deny Generic

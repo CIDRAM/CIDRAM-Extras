@@ -158,17 +158,17 @@ Tag: H1 LLC
 
 
 # ASN 3223 ("Voxility LLC").
-# %Listed, Google Malware Dashboard: 1.43%.
-# Updated: 2016.05.15
+# %Listed, Google Malware Dashboard: 2.48%.
+# Updated: 2016.12.24
 
-2404:8080::/32 Deny Generic
+2001:67c:1334::/61 Deny Generic
+2001:67c:1334:8::/63 Deny Generic
 2602:ff84:8::/48 Deny Generic
-2a02:13f0:8100::/48 Deny Generic
 2a03:5180::/46 Deny Generic
 2a03:5180:4::/47 Deny Generic
-2a05:3a40:2::/48 Deny Generic
-2a06:1700::/48 Deny Generic
-2a07:7500::/29 Deny Generic
+2a03:5180:6:3::/64 Deny Generic
+2a03:5180:6:4::/64 Deny Generic
+2a06:b380::/29 Deny Generic
 Tag: Voxility LLC
 
 
@@ -374,7 +374,7 @@ recaptcha:
 
 # ASN 37254 ("GREEN FLASH TRADING").
 # %Listed, Google Malware Dashboard: 0%.
-# Updated: 2016.05.12
+# Updated: 2016.05.12 / Checked: 2016.12.24
 
 2c0f:f4a8::/32 Deny Spam
 Tag: GREEN FLASH TRADING
@@ -407,35 +407,27 @@ Tag: Unit 1205-1207
 
 # ASN 43260 ("DGN TEKNOLOJI BILISIM YAYINCILIK SANAYI VE LIMITED SIRKETI").
 # Caught trying to DDoS SFS.
-# %Listed, Google Malware Dashboard: 1.82%.
-# Updated: 2016.05.13
+# %Listed, Google Malware Dashboard: 2.27%.
+# Updated: 2016.12.24
 
 2402:1780:1::/48 Deny Generic
-2a04:4280:10::/48 Deny Generic
-2a04:4280:100::/47 Deny Generic
+2a04:3880::/30 Deny Generic
+2a04:4280::/29 Deny Generic
+2a04:8340::/29 Deny Generic
+2a05:abc0::/29 Deny Generic
 2a05:b700::/29 Deny Generic
 2a05:bf00::/29 Deny Generic
+2a05:f740::/29 Deny Generic
 2a06:9140::/29 Deny Generic
 Tag: DGN TEKNOLOJI
 
 
-# ASN 42868 ("Niobe Bilisim Teknolojileri Yazilim San. Tic. Ltd. Sti").
-# Caught trying to DDoS SFS.
-# %Listed, Google Malware Dashboard: 2.70%.
-# Updated: 2016.05.13
-
-77.245.144.0/20 Deny Generic
-Tag: Niobe Bilisim
-
-
 # ASN 38731 ("Vietel - CHT Compamy Ltd").
-# %Listed, Google Malware Dashboard: 1.81%.
-# Updated: 2016.05.13
+# %Listed, Google Malware Dashboard: 2.99%.
+# Updated: 2016.12.24
 
-2401:5f80::/36 Deny Generic
-2401:5f80:1001::/48 Deny Generic
-2401:5f80:2000::/35 Deny Generic
-2401:5f80:5000::/36 Deny Generic
+2401:5f80::/34 Deny Generic
+2401:5f80:4000::/35 Deny Generic
 Tag: Vietel
 ---
 recaptcha:
