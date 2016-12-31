@@ -30,8 +30,9 @@ module_extras.php:
   vi: Cung cấp một số bảo vệ hạn chế chống vectơ tấn công khác nhau thường được sử dụng trong các yêu cầu.
   zh: 提供一些有限的保护针对各种攻击向量常用于请求。
   zh-tw: 提供一些有限的保護針對各種攻擊向量常用於請求。
- Version: 2016.12.31-BETA
+ Version: 2016.12.31-BETA2
  Minimum Required: 0.7.0-DEV
+ Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
@@ -40,6 +41,6 @@ module_extras.php:
   To:
    - module_extras.php
   Checksum:
-   - ce5745608f1aafea1e25656081cb03f9:4829
+   - e20361c80cc7e9da5d6d45e752a8060a:4716
  Reannotate: components.dat
 

@@ -45,8 +45,6 @@ $Trigger = function ($Condition, $ReasonShort, $ReasonLong = '', $DefineOptions 
     return true;
 };
 
-// $Trigger(true, 'test block 2', 'wgat the whatever lollol', array('foobar' => array('logfile' => 'asdasd')));
-
 /* Directory traversal protection (2016.12.31). */
 $Trigger(
     preg_match("\x01" . '(?:(/|%5[cf])\.+(/|%5[cf])|(/|%5[cf]){3,})' . "\x01i", str_replace("\\", '/', $CIDRAM['BlockInfo']['rURI'])),
