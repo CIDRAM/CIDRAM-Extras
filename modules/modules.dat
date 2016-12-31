@@ -42,5 +42,5 @@ module_extras.php:
    - module_extras.php
   Checksum:
    - e20361c80cc7e9da5d6d45e752a8060a:4716
- Reannotate: components.dat
+ Reannotate: modules.dat
 
