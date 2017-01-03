@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional cookie scanner module (last modified: 2017.01.02).
+ * This file: Optional cookie scanner module (last modified: 2017.01.03).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2) and its
  * cookie scanner module, which the cookie scanner module for CIDRAM is based
@@ -26,7 +26,7 @@ $Trigger = function ($Condition, $ReasonShort, $ReasonLong = '', $DefineOptions 
         return false;
     }
     if (!$ReasonLong) {
-        $ReasonLong = $ReasonShort;
+        $ReasonLong = $CIDRAM['lang']['denied'];
     }
     if (is_array($DefineOptions) && !empty($DefineOptions)) {
         while (($Cat = each($DefineOptions)) !== false) {
@@ -49,8 +49,12 @@ $Trigger = function ($Condition, $ReasonShort, $ReasonLong = '', $DefineOptions 
     return true;
 };
 
+/** Options for instantly banning (sets tracking time to 1 year and infraction count to 999). */
+$InstaBan = array('Options' => array('TrackTime' => 31536000, 'TrackCount' => 999));
+
 $Cookies = count($_COOKIE);
 
+/** Signatures start from here. */
 if (!$Trigger($Cookies > 30, 'Cookie flood', 'Cookie flood detected!') && $Cookies) {
     array_walk($_COOKIE, function($Value, $Key) use (&$CIDRAM, &$Trigger) {
         $KeyLC = strtolower($Key);
@@ -96,8 +100,8 @@ if (!$Trigger($Cookies > 30, 'Cookie flood', 'Cookie flood detected!') && $Cooki
 
         $Trigger(preg_match('/\'(?:uploadedfile|move_uploaded_file|tmp_name)\'/', $ThisPairN), 'Probe attempt detected'); // 2017.01.02
 
-        $Trigger(strpos($ThisPairN, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Shell upload attempt'); // 2017.01.02
-        $Trigger(strpos($ThisPairN, 'linkirc') !== false, 'Shell upload attempt'); // 2017.01.02
+        $Trigger(strpos($ThisPairN, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Shell upload attempt', '', $InstaBan); // 2017.01.02
+        $Trigger(strpos($ThisPairN, 'linkirc') !== false, 'Shell upload attempt', '', $InstaBan); // 2017.01.02
 
         $Trigger($Key === 'SESSUNIVUCADIACOOKIE', 'Hotlinking detected', 'Hotlinking not allowed!'); // 2017.01.02
 
@@ -107,19 +111,19 @@ if (!$Trigger($Cookies > 30, 'Cookie flood', 'Cookie flood detected!') && $Cooki
         $Trigger($Key === 'ja_edenite_tpl', 'Bad cookie'); // 2017.01.02
         $Trigger($Key === 'phpbb3_1fh61_', 'Bad cookie'); // 2017.01.02
 
-        $Trigger($Key === '()' || $Value === '()', 'Bash/Shellshock attempt'); // 2017.01.02
+        $Trigger($Key === '()' || $Value === '()', 'Bash/Shellshock attempt', '', $InstaBan); // 2017.01.02
 
         $Trigger((
             ($Key == 'CUSTOMER' || $Key == 'CUSTOMER_INFO' || $Key == 'NEWMESSAGE') &&
             strpos($ThisPairN, 'deleted') !== false
         ), 'Hack attempt detected'); // 2017.01.02
 
-        $Trigger($KeyLC === 'rm -rf' || $ValueLC === 'rm -rf', 'Hack attempt detected'); // 2017.01.02
+        $Trigger($KeyLC === 'rm -rf' || $ValueLC === 'rm -rf', 'Hack attempt detected', '', $InstaBan); // 2017.01.02
 
         $Trigger((
             ($Value == -1 || $Value == '-1') &&
             ($Key == 'ASP_NET_SessionId' || $Key == 'CID' || $Key == 'SID' || $Key == 'NID')
-        ), 'ASP.NET hack detected'); // 2017.01.02
+        ), 'ASP.NET hack detected', '', $InstaBan); // 2017.01.02
 
     });
 }

@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2017.01.02).
+ * This file: Optional security extras module (last modified: 2017.01.03).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -26,7 +26,7 @@ $Trigger = function ($Condition, $ReasonShort, $ReasonLong = '', $DefineOptions 
         return false;
     }
     if (!$ReasonLong) {
-        $ReasonLong = $ReasonShort;
+        $ReasonLong = $CIDRAM['lang']['denied'];
     }
     if (is_array($DefineOptions) && !empty($DefineOptions)) {
         while (($Cat = each($DefineOptions)) !== false) {
@@ -49,13 +49,16 @@ $Trigger = function ($Condition, $ReasonShort, $ReasonLong = '', $DefineOptions 
     return true;
 };
 
-/* Directory traversal protection (2016.12.31). */
+/** Options for instantly banning (sets tracking time to 1 year and infraction count to 999). */
+$InstaBan = array('Options' => array('TrackTime' => 31536000, 'TrackCount' => 999));
+
+/** Directory traversal protection (2016.12.31). */
 $Trigger(
     preg_match("\x01" . '(?:(/|%5[cf])\.+(/|%5[cf])|(/|%5[cf]){3,})' . "\x01i", str_replace("\\", '/', $CIDRAM['BlockInfo']['rURI'])),
     'Traversal attack'
 );
 
-/* Some checks against the query. */
+/** Query-based signatures start from here. */
 if (!empty($_SERVER['QUERY_STRING'])) {
     $Query = strtolower(urldecode($_SERVER['QUERY_STRING']));
     $QueryNoSpace = preg_replace('/\s/', '', $Query);
@@ -109,11 +112,13 @@ if (!empty($_SERVER['QUERY_STRING'])) {
 
     $Trigger(strpos($Query, 'rm -rf') !== false, 'Hack attempt detected'); // 2017.01.02
 
+    $Trigger(preg_match('/[\'"`]\+[\'"`]/', $QueryNoSpace), 'XSS attack'); // 2017.01.03
+
     $Trigger(count($_REQUEST) >= 500, 'Hack attempt', 'Too many request variables sent!'); // 2017.01.01
 
 }
 
-/* Some checks against the UA (user agent). */
+/** UA-based signatures start from here (UA = User Agent). */
 if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) > 4096, 'Bad UA', 'User agent string is too long!')) {
     $UA = strtolower(urldecode($CIDRAM['BlockInfo']['UA']));
     $UANoSpace = preg_replace('/\s/', '', $UA);
@@ -150,18 +155,20 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $Trigger(preg_match('/_(?:cookie|env|files|(ge|pos|reques)t|s(erver|ession))\[/', $UANoSpace), 'Global variable hack'); // 2017.01.02
     $Trigger(strpos($UANoSpace, 'globals['), 'Global variable hack'); // 2017.01.02
 
-    $Trigger(strpos($UANoSpace, '$_' . '[$' . '__') !== false, 'Shell upload attempt'); // 2017.01.02
-    $Trigger(strpos($UANoSpace, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Shell upload attempt'); // 2017.01.02
+    $Trigger(strpos($UANoSpace, '$_' . '[$' . '__') !== false, 'Shell upload attempt', '', $InstaBan); // 2017.01.02
+    $Trigger(strpos($UANoSpace, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Shell upload attempt', '', $InstaBan); // 2017.01.02
 
-    $Trigger(strpos($UANoSpace, '}__') !== false, 'Joomla hack UA'); // 2017.01.02
+    $Trigger(strpos($UANoSpace, '}__') !== false, 'Joomla hack UA', '', $InstaBan); // 2017.01.02
 
-    $Trigger(strpos($UA, 'rm -rf') !== false, 'Hack UA'); // 2017.01.02
-    $Trigger(strpos($UANoSpace, 'r00t') !== false, 'Hack UA'); // 2017.01.02
-    $Trigger(strpos($UANoSpace, 'shell_exec') !== false, 'Hack UA'); // 2017.01.02
+    $Trigger(strpos($UA, 'rm -rf') !== false, 'Hack UA', '', $InstaBan); // 2017.01.02
+    $Trigger(strpos($UANoSpace, 'r00t') !== false, 'Hack UA', '', $InstaBan); // 2017.01.02
+    $Trigger(strpos($UANoSpace, 'shell_exec') !== false, 'Hack UA', '', $InstaBan); // 2017.01.02
 
-    $Trigger(preg_match('/(?:x(rumer|pymep)|хрумер)/', $UANoSpace), 'Spam UA'); // 2017.01.02
+    $Trigger(preg_match('/(?:x(rumer|pymep)|хрумер)/', $UANoSpace), 'Spam UA', '', $InstaBan); // 2017.01.02
     $Trigger(preg_match('/[<\[](?:a|link|url)[ =>\]]/', $UA), 'Spam UA'); // 2017.01.02
     $Trigger(strpos($UANoSpace, 'start.exe') !== false, 'Spam UA'); // 2017.01.02
+
+    $Trigger(preg_match('/[\'"`]\+[\'"`]/', $UANoSpace), 'XSS attack'); // 2017.01.03
 
     $Trigger(strpos($UA, '   ') !== false, 'Bad UA'); // 2017.01.02
 
