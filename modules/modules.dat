@@ -30,7 +30,7 @@ module_cookies.php:
   vi: Cung cấp một số bảo vệ hạn chế chống vectơ tấn công khác nhau thường được sử dụng trong các yêu cầu.
   zh: 提供一些有限的保护针对各种攻击向量常用于请求。
   zh-tw: 提供一些有限的保護針對各種攻擊向量常用於請求。
- Version: 2017.01.03-BETA
+ Version: 2017.01.04-BETA
  Minimum Required: 0.7.0-DEV
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/modules/modules.dat
@@ -41,7 +41,7 @@ module_cookies.php:
   To:
    - module_cookies.php
   Checksum:
-   - 6b2f7512a0eaeb51f7a813118943236a:7205
+   - 5c7e87c7d73ac067d5f2381415551380:7217
  Reannotate: modules.dat
 module_extras.php:
  Name:
