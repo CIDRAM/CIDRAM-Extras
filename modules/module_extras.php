@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2017.01.03).
+ * This file: Optional security extras module (last modified: 2017.01.05).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -60,7 +60,7 @@ $Trigger(
 
 /** Query-based signatures start from here. */
 if (!empty($_SERVER['QUERY_STRING'])) {
-    $Query = strtolower(urldecode($_SERVER['QUERY_STRING']));
+    $Query = str_replace("\\", '/', strtolower(urldecode($_SERVER['QUERY_STRING'])));
     $QueryNoSpace = preg_replace('/\s/', '', $Query);
 
     $Trigger(preg_match('/\((?:["\']{2})?\)/', $QueryNoSpace), 'Command injection'); // 2016.12.31
@@ -94,12 +94,9 @@ if (!empty($_SERVER['QUERY_STRING'])) {
     ), 'Nesting attack'); // 2017.01.01
 
     $Trigger(
-        preg_match('/(?:<(\?|body|object|script)|(body|object|script)>)/', $QueryNoSpace),
+        preg_match('/(?:<(\?|body|i?frame|object|script)|(body|i?frame|object|script)>)/', $QueryNoSpace),
         'Script injection'
-    ); // 2017.01.01
-
-    $Trigger(strpos($QueryNoSpace, '1http:'), 'RFI'); // 2017.01.01
-    $Trigger(preg_match('/\|(?:include|require)/', $QueryNoSpace), 'RFI'); // 2017.01.01
+    ); // 2017.01.05
 
     $Trigger(preg_match('/_(?:cookie|env|files|(ge|pos|reques)t|s(erver|ession))\[/', $QueryNoSpace), 'Global variable hack'); // 2017.01.01
     $Trigger(strpos($QueryNoSpace, 'globals['), 'Global variable hack'); // 2017.01.01
@@ -110,7 +107,32 @@ if (!empty($_SERVER['QUERY_STRING'])) {
 
     $Trigger(strpos($QueryNoSpace, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Shell upload attempt'); // 2017.01.02
 
-    $Trigger(strpos($Query, 'rm -rf') !== false, 'Hack attempt detected'); // 2017.01.02
+    $Trigger(preg_match('/%(?:20\'|25[01u]|[46]1%[46]e%[46]4)/', $_SERVER['QUERY_STRING']), 'Hack attempt'); // 2017.01.05
+    $Trigger(preg_match('/\'%2[05]/', $_SERVER['QUERY_STRING']), 'Hack attempt'); // 2017.01.05
+    $Trigger(preg_match('/\|(?:include|require)/', $QueryNoSpace), 'Hack attempt'); // 2017.01.01
+    $Trigger(strpos($Query, 'rm ' . '-rf') !== false, 'Hack attempt', '', $InstaBan); // 2017.01.02
+    $Trigger(strpos($QueryNoSpace, "'='") !== false, 'Hack attempt'); // 2017.01.05
+    $Trigger(strpos($QueryNoSpace, '.php/login.php') !== false, 'Hack attempt'); // 2017.01.05
+    $Trigger(strpos($QueryNoSpace, '1http:') !== false, 'Hack attempt'); // 2017.01.01
+    $Trigger(strpos($QueryNoSpace, ';c' . 'hmod7' . '77') !== false, 'Hack attempt', '', $InstaBan); // 2017.01.05
+    $Trigger(strpos($_SERVER['QUERY_STRING'], '=-1%27') !== false, 'Hack attempt'); // 2017.01.05
+    $Trigger(substr($QueryNoSpace, 0, 1) === ';', 'Hack attempt'); // 2017.01.05
+    $Trigger(substr($QueryNoSpace, 0, 6) === 'pull[]', 'Hack attempt'); // 2017.01.05
+
+    $Trigger(substr($QueryNoSpace, 0, 2) === '()', 'Bash/Shellshock', '', $InstaBan); // 2017.01.05
+
+    $Trigger(strpos($QueryNoSpace, 'allow_url_include=on') !== false, 'Plesk hack'); // 2017.01.05
+    $Trigger(strpos($QueryNoSpace, 'auto_prepend_file=php://input') !== false, 'Plesk hack'); // 2017.01.05
+    $Trigger(strpos($QueryNoSpace, 'cgi.force_redirect=0') !== false, 'Plesk hack'); // 2017.01.05
+    $Trigger(strpos($QueryNoSpace, 'cgi.redirect_status_env=0') !== false, 'Plesk hack'); // 2017.01.05
+    $Trigger(strpos($QueryNoSpace, 'disable_functions=""') !== false, 'Plesk hack'); // 2017.01.05
+    $Trigger(strpos($QueryNoSpace, 'open_basedir=none') !== false, 'Plesk hack'); // 2017.01.05
+    $Trigger(strpos($QueryNoSpace, 'safe_mode=off') !== false, 'Plesk hack'); // 2017.01.05
+    $Trigger(strpos($QueryNoSpace, 'suhosin.simulation=on') !== false, 'Plesk hack'); // 2017.01.05
+
+    $Trigger(substr($QueryNoSpace, 0, 1) === '-', 'Probe attempt'); // 2017.01.05
+
+    $Trigger(strpos($_SERVER['QUERY_STRING'], '++++') !== false, 'Overflow attempt'); // 2017.01.05
 
     $Trigger(preg_match('/[\'"`]\+[\'"`]/', $QueryNoSpace), 'XSS attack'); // 2017.01.03
 
@@ -120,7 +142,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
 
 /** UA-based signatures start from here (UA = User Agent). */
 if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) > 4096, 'Bad UA', 'User agent string is too long!')) {
-    $UA = strtolower(urldecode($CIDRAM['BlockInfo']['UA']));
+    $UA = str_replace("\\", '/', strtolower(urldecode($CIDRAM['BlockInfo']['UA'])));
     $UANoSpace = preg_replace('/\s/', '', $UA);
 
     $Trigger(preg_match('/\((?:["\']{2})?\)/', $UANoSpace), 'Command injection'); // 2017.01.02
@@ -148,25 +170,36 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $Trigger(preg_match('/%(?:0[0-8bcef]|1)/i', $CIDRAM['BlockInfo']['UA']), 'Non-printable characters in UA'); // 2017.01.02
 
     $Trigger(
-        preg_match('/(?:<(\?|body|iframe|object|script)|(body|object|script)>)/', $UANoSpace),
+        preg_match('/(?:<(\?|body|i?frame|object|script)|(body|i?frame|object|script)>)/', $UANoSpace),
         'Script injection'
-    ); // 2017.01.02
+    ); // 2017.01.05
 
     $Trigger(preg_match('/_(?:cookie|env|files|(ge|pos|reques)t|s(erver|ession))\[/', $UANoSpace), 'Global variable hack'); // 2017.01.02
-    $Trigger(strpos($UANoSpace, 'globals['), 'Global variable hack'); // 2017.01.02
+    $Trigger(strpos($UANoSpace, 'globals[') !== false, 'Global variable hack'); // 2017.01.02
 
     $Trigger(strpos($UANoSpace, '$_' . '[$' . '__') !== false, 'Shell upload attempt', '', $InstaBan); // 2017.01.02
     $Trigger(strpos($UANoSpace, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Shell upload attempt', '', $InstaBan); // 2017.01.02
 
-    $Trigger(strpos($UANoSpace, '}__') !== false, 'Joomla hack UA', '', $InstaBan); // 2017.01.02
-
-    $Trigger(strpos($UA, 'rm -rf') !== false, 'Hack UA', '', $InstaBan); // 2017.01.02
-    $Trigger(strpos($UANoSpace, 'r00t') !== false, 'Hack UA', '', $InstaBan); // 2017.01.02
-    $Trigger(strpos($UANoSpace, 'shell_exec') !== false, 'Hack UA', '', $InstaBan); // 2017.01.02
+    $Trigger(strpos($UA, 'rm ' . '-rf') !== false, 'Hack UA', '', $InstaBan); // 2017.01.02
+    $Trigger(strpos($UANoSpace, 'fu' . 'ck') !== false, 'Hack UA', '', $InstaBan); // 2017.01.04
+    $Trigger(strpos($UANoSpace, 'r0' . '0t') !== false, 'Hack UA', '', $InstaBan); // 2017.01.02
+    $Trigger(strpos($UANoSpace, 'sh' . 'el' . 'l_' . 'ex' . 'ec') !== false, 'Hack UA', '', $InstaBan); // 2017.01.02
+    $Trigger(strpos($UANoSpace, '}__') !== false, 'Hack UA', '', $InstaBan); // 2017.01.02
 
     $Trigger(preg_match('/(?:x(rumer|pymep)|хрумер)/', $UANoSpace), 'Spam UA', '', $InstaBan); // 2017.01.02
     $Trigger(preg_match('/[<\[](?:a|link|url)[ =>\]]/', $UA), 'Spam UA'); // 2017.01.02
+    $Trigger(strpos($UANoSpace, '/how-') !== false, 'Spam UA'); // 2017.01.04
+    $Trigger(strpos($UANoSpace, '>click') !== false, 'Spam UA'); // 2017.01.04
     $Trigger(strpos($UANoSpace, 'start.exe') !== false, 'Spam UA'); // 2017.01.02
+    $Trigger(preg_match(
+        '/(?:avelox|b(dsm|ea?stiality|iloba)|c(ialis|igar|heap)|d(eltasone|r' .
+        'ugs)|eroti[ck]|forex|g(abapentin|eriforte|inkg?o|uestbook)|hentai|i' .
+        'n(cest|come|vestment)|k(amagra|eylog)|l(axative|esbian|evitra|exap|' .
+        'iker\.profile|ipitor|olita|uxury)|m(elaleuca|enthol)|n(eurontin|olv' .
+        'adex)|o(rgasm|utlet)|p(axil|harma|illz|lavix|orn|r(0n|opecia|osti))' .
+        '|r(eviewsx|ogaine)|s(ex[xy]|hemale|limy|terapred|ynthroid)|t(entacl' .
+        'e|op(less|sites))|vi(agra|olation|tol)|xanax)/',
+    $UANoSpace), 'Spam UA'); // 2017.01.05
 
     $Trigger(preg_match('/[\'"`]\+[\'"`]/', $UANoSpace), 'XSS attack'); // 2017.01.03
 

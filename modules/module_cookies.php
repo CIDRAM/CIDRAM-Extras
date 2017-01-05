@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional cookie scanner module (last modified: 2017.01.04).
+ * This file: Optional cookie scanner module (last modified: 2017.01.05).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2) and its
  * cookie scanner module, which the cookie scanner module for CIDRAM is based
@@ -98,7 +98,7 @@ if (!$Trigger($Cookies > 30, 'Cookie flood', 'Cookie flood detected!') && $Cooki
         $Trigger(preg_match('/posix_[a-z0-9_]{4,19}\(/', $ThisPairN), 'Function call detected in cookie'); // 2017.01.02
         $Trigger(preg_match('/proc_[a-z0-9_]{4,10}\(/', $ThisPairN), 'Function call detected in cookie'); // 2017.01.02
 
-        $Trigger(preg_match('/\'(?:uploadedfile|move_uploaded_file|tmp_name)\'/', $ThisPairN), 'Probe attempt detected'); // 2017.01.02
+        $Trigger(preg_match('/\'(?:uploadedfile|move_uploaded_file|tmp_name)\'/', $ThisPairN), 'Probe attempt'); // 2017.01.02
 
         $Trigger(strpos($ThisPairN, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Shell upload attempt', '', $InstaBan); // 2017.01.02
         $Trigger(strpos($ThisPairN, 'linkirc') !== false, 'Shell upload attempt', '', $InstaBan); // 2017.01.02
@@ -111,14 +111,14 @@ if (!$Trigger($Cookies > 30, 'Cookie flood', 'Cookie flood detected!') && $Cooki
         $Trigger($Key === 'ja_edenite_tpl', 'Bad cookie'); // 2017.01.02
         $Trigger($Key === 'phpbb3_1fh61_', 'Bad cookie'); // 2017.01.02
 
-        $Trigger($Key === '()' || $Value === '()', 'Bash/Shellshock attempt', '', $InstaBan); // 2017.01.02
+        $Trigger($Key === '()' || $Value === '()', 'Bash/Shellshock', '', $InstaBan); // 2017.01.02
 
         $Trigger((
             ($Key == 'CUSTOMER' || $Key == 'CUSTOMER_INFO' || $Key == 'NEWMESSAGE') &&
             strpos($ThisPairN, 'deleted') !== false
         ), 'Hack attempt detected'); // 2017.01.02
 
-        $Trigger($KeyLC === 'rm -rf' || $ValueLC === 'rm -rf', 'Hack attempt detected', '', $InstaBan); // 2017.01.02
+        $Trigger($KeyLC === 'rm ' . '-rf' || $ValueLC === 'rm ' . '-rf', 'Hack attempt detected', '', $InstaBan); // 2017.01.02
 
         $Trigger((
             ($Value == -1 || $Value == '-1') &&
