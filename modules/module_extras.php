@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2017.01.07).
+ * This file: Optional security extras module (last modified: 2017.01.08).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -206,11 +206,12 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $Trigger(preg_match('/(?:d(iavola|ragostea)|pentru|toata)/', $UANoSpace), 'Probe UA'); // 2017.01.06
     $Trigger(preg_match('/(?:(aihit|casper)bot|mamac(asper|yber))/', $UANoSpace), 'Probe UA', '', $InstaBan); // 2017.01.06
     $Trigger(preg_match(
-        '/(?:auto_?http|bigbrother|cybeye|de(epnet|xbot)|e(ak01ag9|catch)|i' .
-        '(chiro|ndylibrary|ntelium)|k(angen|mccrew)|libwww-pavuk|mo(get|zill' .
-        'axyz)|net(ants|comber)|p(atchone|aros|lanetwork|robethenet)|riddler' .
-        '|s(asqia|ledink|noopy|tingbot)|worio|xirio|you?dao|zmeu)/',
-    $UANoSpace), 'Probe UA'); // 2017.01.06
+        '/(?:auto_?http|bigbrother|cybeye|downloaddemon|e(ak01ag9|catch)|i(c' .
+        'hiro|ndylibrary|ntelium)|k(angen|mccrew)|libwww-pavuk|mo(get|zillax' .
+        'yz)|(msie6\.0.*deepnet)|net(ants|comber)|p(atchone|aros|lanetwork|r' .
+        'obethenet)|riddler|s(asqia|ledink|noopy|tingbot)|worio|xirio|you?da' .
+        'o|zmeu)/',
+    $UANoSpace), 'Probe UA'); // 2017.01.08
     $Trigger(strpos($UANoSpace, '-agent-') !== false, 'Probe UA'); // 2017.01.06
     $Trigger(substr($UANoSpace, 0, 3) === 'b55', 'Probe UA'); // 2017.01.06
 
@@ -261,9 +262,10 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $Trigger(strpos($UANoSpace, 'user-agent') !== false, 'Bad UA'); // 2017.01.06
 
     $Trigger(strpos($UANoSpace, 'reanimator') !== false, 'Abusive UA', '', $InstaBan); // 2017.01.06
+    $Trigger(strpos($UANoSpace, '(somename)') !== false, 'Abusive UA', '', $InstaBan); // 2017.01.08
 
+    $Trigger(preg_match('/(?:80legs|chinaclaw)/', $UANoSpace), 'Scraper UA', '', $InstaBan); // 2017.01.08
     $Trigger(preg_match('/^(?:abot|spider)/', $UANoSpace), 'Scraper UA'); // 2017.01.07
-    $Trigger(strpos($UANoSpace, '80legs') !== false, 'Scraper UA', '', $InstaBan); // 2017.01.06
     $Trigger(strpos($UANoSpace, 'fetch/') !== false, 'Scraper UA'); // 2017.01.06
     $Trigger(strpos($UANoSpace, 'vlc/') !== false, 'Possible/Suspected scraper UA'); // 2017.01.07
     $Trigger(preg_match(
@@ -271,24 +273,31 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
         'alyticsseo|pp3lewebkit|rtviper)|b(azqux|ender|inlar|itvo|nf.fr|ogah' .
         'n|oitho|pimagewalker)|c(cbot|entiverse|msworldmap|ommoncrawl|oversc' .
         'out|r4nk|rawlfire|uriousgeorge|ydral)|d(aylife|ebate|igext|(cp|isco' .
-        '|douban)bot|owjones|tsagent)|e((na|uro|xperi)bot|nvolk|vaal|zoom)|f' .
-        '(etch(er.0|or)|ibgen)|g(etty|eturl11|slfbot|urujibot)|h(arvest|erit' .
-        'rix|olmes|ttp(fetcher|unit)|ttrack)|i(mage(.fetcher|walker)|n(agist' .
-        '|docom|fluencebot)|track)|j(akarta|ike)|k(ey(wenbot|wordsearchtool)' .
-        '|imengi|kman)|l(arbin|ink(dex|walker)|iperhey|(t|ush)bot)|m(ahiti|a' .
-        'honie|attters|iabot|lbot|ormor|ot-v980|rchrome|ulticrawler)|n(eofon' .
-        'ie|etseer|ewsbot|ineconnections)|p(age(fetch|gett|_verifi)er|anscie' .
-        'nt|ath2|ic(grabber|s|tsnapshot|turefinder)|i(pl|xmatch|xray)|oe-com' .
-        'ponent-client-|owermarks|roximic|(s|ure)bot|urity)|r(ankivabot|ebi-' .
-        'shoveler|everseget|ganalytics|ocketcrawler)|s(afeassign|bider|bl[.-' .
-        ']bot|crape|emrush|eo(eng|profiler|stat)|istrix|ite(bot|intel)|n[iy]' .
-        'per|olomono|pbot|pyder|search|webot)|t(-h-u-n|agsdir|ineye|opseo|ra' .
-        'umacadx|urnitinbot)|up(downer|ictobot)|v(bseo|isbot|oyager)|w(areba' .
-        'y|auuu|bsearchbot|eb(alta|capture|download|ripper)|ikio|indows(3|se' .
-        'ven)|inhttp|khtmlto|orldbot|otbox)|xtractorpro|yoofind)/',
-    $UANoSpace), 'Scraper UA'); // 2017.01.07
+        '|ouban|ownload)bot|owjones|tsagent)|e((na|uro|xperi)bot|nvolk|vaal|' .
+        'zoom)|f(dm|etch(er.0|or)|ibgen)|g(alaxydownloads|et(download\.ws|ty' .
+        '|url11)|slfbot|urujibot)|h(arvest|eritrix|olmes|ttp(fetcher|unit)|t' .
+        'track)|i(mage(.fetcher|walker)|n(agist|docom|fluencebot)|track)|j(a' .
+        'karta|ike)|k(ey(wenbot|wordsearchtool)|imengi|kman)|l(arbin|ink(dex' .
+        '|walker)|iperhey|(t|ush)bot)|m(a(hiti|honie|ttters)|iabot|lbot|ormo' .
+        'r|ot-v980|rchrome|ulticrawler)|n(e(ofonie|tseer|wsbot)|ineconnectio' .
+        'ns)|offlinenavigator|p(age(fetch|gett|_verifi)er|anscient|ath2|ic(g' .
+        'rabber|s|tsnapshot|turefinder)|i(pl|xmatch|xray)|oe-component-clien' .
+        't-|owermarks|roximic|(s|ure)bot|urity)|qqdownload|r(ankivabot|ebi-s' .
+        'hoveler|everseget|ganalytics|ocketcrawler)|s(afeassign|bider|bl[.-]' .
+        'bot|crape|emrush|eo(eng|profiler|stat)|istrix|ite(bot|intel)|n[iy]p' .
+        'er|olomono|pbot|pyder|search|webot)|t(-h-u-n|agsdir|ineye|opseo|rau' .
+        'macadx|urnitinbot)|up(downer|ictobot)|v(bseo|isbot|oyager)|w(arebay' .
+        '|auuu|bsearchbot|eb(alta|capture|download|ripper)|ikio|indows(3|sev' .
+        'en)|inhttp|khtmlto|orldbot|otbox)|xtractorpro|yoofind)/',
+    $UANoSpace), 'Scraper UA'); // 2017.01.08
     $Trigger(preg_match(
         '/(?:c(hilkat|copyright)|flipboard|g(ooglealerts|rub)|python)/',
     $UANoSpace), 'Possible/Suspected scraper UA'); // 2017.01.07
+
+    $Trigger(preg_match(
+        '/(?:cncdialer|d(esktopsmiley|s_juicyaccess)|foxy.1|genieo|hotbar|ic' .
+        'afe|m(utant|yway)|o(otkit|ssproxy)|qqpinyinsetup|si(cent|mbar)|tenc' .
+        'enttraveler|z(eus))/',
+    $UANoSpace), 'Malware UA'); // 2017.01.08
 
 }
