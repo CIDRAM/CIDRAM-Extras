@@ -221,8 +221,8 @@ recaptcha:
 
 
 # ASN 26658 ("HT").
-# %Listed, Google Malware Dashboard: 19.58%.
-# Updated: 2016.05.20
+# %Listed, Google Malware Dashboard: 11.77%.
+# Updated: 2017.01.09
 
 14.192.20.0/22 Deny Generic
 27.0.156.0/22 Deny Generic
@@ -234,8 +234,10 @@ recaptcha:
 45.43.224.0/20 Deny Generic
 45.120.204.0/22 Deny Generic
 45.125.108.0/22 Deny Generic
+45.126.76.0/22 Deny Generic
 45.126.228.0/22 Deny Generic
 45.127.160.0/22 Deny Generic
+45.250.172.0/22 Deny Generic
 59.152.48.0/22 Deny Generic
 59.153.48.0/22 Deny Generic
 59.153.144.0/22 Deny Generic
@@ -247,6 +249,9 @@ recaptcha:
 103.35.76.0/22 Deny Generic
 103.35.184.0/22 Deny Generic
 103.61.20.0/22 Deny Generic
+103.69.120.0/22 Deny Generic
+103.72.152.0/22 Deny Generic
+103.75.240.0/22 Deny Generic
 103.193.244.0/22 Deny Generic
 103.195.116.0/22 Deny Generic
 103.196.100.0/22 Deny Generic
@@ -268,6 +273,8 @@ recaptcha:
 103.207.116.0/22 Deny Generic
 103.208.8.0/22 Deny Generic
 103.212.72.0/22 Deny Generic
+103.219.80.0/22 Deny Generic
+103.236.216.0/22 Deny Generic
 104.232.64.0/20 Deny Generic
 104.232.96.0/20 Deny Generic
 104.243.128.0/20 Deny Generic
@@ -283,6 +290,7 @@ recaptcha:
 202.160.152.0/22 Deny Generic
 203.76.232.0/21 Deny Generic
 203.82.28.0/22 Deny Generic
+203.88.108.0/22 Deny Generic
 203.176.124.0/22 Deny Generic
 210.16.96.0/22 Deny Generic
 216.12.160.0/20 Deny Generic
@@ -296,8 +304,8 @@ recaptcha:
 
 
 # ASN 133618 ("Trellian Pty. Limited").
-# %Listed, Google Malware Dashboard: 16.11%.
-# Updated: 2016.03.16 / Checked: 2016.05.20
+# %Listed, Google Malware Dashboard: 8.25%.
+# Updated: 2016.03.16 / Checked: 2017.01.09
 
 103.224.182.0/23 Deny Generic
 103.224.212.0/23 Deny Generic
@@ -478,26 +486,48 @@ Tag: World4You
 Tag: Quasi Networks LTD
 
 
-# ASN 40034 ("Confluence Networks Inc").
-# %Listed, Google Malware Dashboard: 1.42%.
-# Updated: 2016.05.21
+# ASNs 40034, 394695 ("Confluence Networks Inc").
+# %Listed, Google Malware Dashboard: 1.52% (AS40034), 0.84% (AS394695).
+# Updated: 2017.01.09
 
-5.100.152.0/22 Deny Generic
-5.100.158.0/23 Deny Generic
+5.100.152.0/21 Deny Generic
+43.225.52.0/22 Deny Generic
+45.113.120.0/22 Deny Generic
 50.58.197.0/24 Deny Generic
+72.46.24.0/24 Deny Generic
+103.21.58.0/23 Deny Generic
+103.50.160.0/22 Deny Generic
+103.53.40.0/22 Deny Generic
+103.76.228.0/22 Deny Generic
+103.79.52.0/22 Deny Generic
+103.195.184.0/22 Deny Generic
+103.211.216.0/22 Deny Generic
+103.224.22.0/23 Deny Generic
 104.254.96.0/22 Deny Generic
+111.118.212.0/22 Deny Generic
+119.18.52.0/24 Deny Generic
+119.18.54.0/23 Deny Generic
+119.18.57.0/24 Deny Generic
+119.18.58.0/23 Deny Generic
+119.18.60.0/22 Deny Generic
+137.59.148.0/22 Deny Generic
 141.8.224.0/21 Deny Generic
 162.210.68.0/22 Deny Generic
-162.215.252.0/22 Deny Generic
+162.215.224.0/20 Deny Generic
+162.215.240.0/23 Deny Generic
+162.215.252.0/23 Deny Generic
+162.215.254.0/24 Deny Generic
 162.222.224.0/22 Deny Generic
 162.251.80.0/21 Deny Generic
 199.79.60.0/22 Deny Generic
 199.191.50.0/23 Deny Generic
+203.13.40.0/24 Deny Generic
 204.11.56.0/22 Deny Generic
 207.174.212.0/22 Deny Generic
 208.73.208.0/22 Deny Generic
 208.91.196.0/22 Deny Generic
-209.99.17.0/24 Deny Generic
+209.99.16.0/23 Deny Generic
+209.99.40.0/24 Deny Generic
 209.99.45.0/24 Deny Generic
 209.99.64.0/23 Deny Generic
 Tag: Confluence
@@ -687,12 +717,13 @@ Tag: Hetzner Online GmbH
 
 
 # ASN 51559 ("Server Internet Bilisim ve Bilgisayar Hizmetleri").
-# %Listed, Google Malware Dashboard: 2.43%.
-# Updated: 2016.05.21
+# %Listed, Google Malware Dashboard: 2.47%.
+# Updated: 2017.01.09
 # Refer spambotsecurity.com/forum/viewtopic.php?f=7&t=3553
 
 31.192.208.0/21 Deny Generic
 89.43.28.0/22 Deny Generic
+89.43.64.0/22 Deny Generic
 91.227.4.0/23 Deny Generic
 91.227.6.0/24 Deny Generic
 91.229.35.0/24 Deny Generic
@@ -703,7 +734,7 @@ Tag: Hetzner Online GmbH
 185.83.144.0/22 Deny Generic
 185.95.84.0/22 Deny Generic
 185.106.208.0/22 Deny Generic
-185.126.216.0/23 Deny Generic
+185.126.216.0/22 Deny Generic
 185.146.88.0/22 Deny Generic
 185.149.100.0/22 Deny Generic
 Tag: AS51559
@@ -1591,17 +1622,22 @@ recaptcha:
 
 
 # ASN 49981 ("WorldStream").
-# %Listed, Google Malware Dashboard: 1.89%.
-# Updated: 2016.05.21
+# %Listed, Google Malware Dashboard: 9.04%.
+# Updated: 2017.01.09
 
+5.188.232.0/24 Deny Generic
+62.112.8.0/22 Deny Generic
 86.105.18.0/24 Deny Generic
 89.42.212.0/24 Deny Generic
+91.191.184.0/24 Deny Generic
 91.193.75.0/24 Deny Generic
 91.212.229.0/24 Deny Generic
+91.223.18.0/24 Deny Generic
 91.226.31.0/24 Deny Generic
 91.227.154.0/23 Deny Generic
 91.229.23.0/24 Deny Generic
 91.232.105.0/24 Deny Generic
+92.63.195.0/24 Deny Generic
 93.119.123.0/24 Deny Generic
 93.170.77.0/24 Deny Generic
 93.190.136.0/21 Deny Generic
@@ -1610,19 +1646,22 @@ recaptcha:
 103.44.75.0/24 Deny Generic
 109.236.80.0/20 Deny Generic
 154.16.17.0/24 Deny Generic
+154.16.37.0/24 Deny Generic
+154.16.195.0/24 Deny Generic
 176.61.129.0/24 Deny Generic
 185.2.80.0/22 Deny Generic
+185.21.60.0/22 Deny Generic
 185.28.38.0/24 Deny Generic
 185.73.112.0/24 Deny Generic
 185.81.98.0/24 Deny Generic
 185.94.29.0/24 Deny Generic
 185.105.192.0/22 Deny Generic
-185.119.254.0/24 Deny Generic
+185.145.45.0/24 Deny Generic
+185.162.9.0/24 Deny Generic
+185.169.235.0/24 Deny Generic
 191.101.243.0/24 Deny Generic
 191.101.250.0/23 Deny Generic
 192.71.151.0/24 Deny Generic
-192.76.138.0/24 Deny Generic
-193.30.245.0/24 Deny Generic
 193.200.164.0/24 Deny Generic
 195.128.184.0/23 Deny Generic
 198.105.117.0/24 Deny Generic
@@ -1640,16 +1679,16 @@ Tag: INFOKOM Ltd
 
 
 # ASN 13030 ("Init7").
-# %Listed, Google Malware Dashboard: 0.42%.
-# Updated: 2016.01.18 / Checked: 2016.05.21
+# %Listed, Google Malware Dashboard: 1.14%.
+# Updated: 2017.01.09
 # Refer spambotsecurity.com/forum/viewtopic.php?f=15&t=3740
 
 37.17.232.0/21 Deny Generic
-64.35.8.0/22 Deny Generic
 77.109.128.0/18 Deny Generic
+80.253.88.0/21 Deny Generic
+81.6.32.0/20 Deny Generic
 82.197.160.0/19 Deny Generic
-85.195.208.0/20 Deny Generic
-85.195.224.0/19 Deny Generic
+85.195.192.0/18 Deny Generic
 87.239.208.0/21 Deny Generic
 91.198.8.0/24 Deny Generic
 91.198.154.0/24 Deny Generic
@@ -1657,10 +1696,14 @@ Tag: INFOKOM Ltd
 91.238.144.0/24 Deny Generic
 178.250.128.0/21 Deny Generic
 185.35.28.0/22 Deny Generic
+185.72.64.0/22 Deny Generic
 185.78.120.0/24 Deny Generic
 185.78.122.0/24 Deny Generic
 185.85.248.0/22 Deny Generic
+185.137.172.0/22 Deny Generic
+185.164.184.0/24 Deny Generic
 193.47.153.0/24 Deny Generic
+193.202.106.0/24 Deny Generic
 193.222.255.0/24 Deny Generic
 193.223.80.0/20 Deny Generic
 195.8.117.0/24 Deny Generic
@@ -1669,15 +1712,15 @@ Tag: INFOKOM Ltd
 195.211.32.0/22 Deny Generic
 212.51.128.0/19 Deny Generic
 213.144.128.0/19 Deny Generic
-216.185.39.0/24 Deny Generic
 Tag: Init7
 
 
-# ASN 24700 ("Yes Networks Unlimited Ltd").
-# %Listed, Google Malware Dashboard: 0%.
-# Updated: 2016.01.25 / Checked: 2016.05.24
+# ASNs 24700, 61316 ("Yes Networks Unlimited Ltd").
+# Updated: 2017.01.09
 
 46.174.190.0/23 Deny Generic
+185.10.208.0/22 Deny Generic
+193.33.212.0/23 Deny Generic
 Tag: Yes Networks
 
 
@@ -1806,7 +1849,7 @@ Tag: 10dencehispahard
 
 
 # ASN 62540 ("Drake Holdings LLC").
-# Updated: 2016.04.25 / Checked: 2016.05.22
+# Updated: 2016.04.25 / Checked: 2017.01.09
 
 192.92.196.0/24 Deny Generic
 204.79.180.0/24 Deny Generic

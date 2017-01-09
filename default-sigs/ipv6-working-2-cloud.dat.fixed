@@ -1,10 +1,16 @@
 # ---
 # ASN 46844 ("Sharktech").
-# %Listed, Google Malware Dashboard: 29.29%.
-# Updated: 2016.03.27 / Checked: 2016.05.20
+# %Listed, Google Malware Dashboard: 2.34%.
+# Updated: 2017.01.09
 
 2001:67c:2f08::/48 Deny Cloud
-2610:150::/32 Deny Cloud
+2610:150::/34 Deny Cloud
+2610:150:8000::/33 Deny Cloud
+2a00:c2c0:ffff::/48 Deny Cloud
+2a05:2d01:9000::/48 Deny Cloud
+2a05:2d01:ffff::/48 Deny Cloud
+2a05:2d02::/48 Deny Cloud
+2a05:2d06::/48 Deny Cloud
 Tag: Sharktech
 
 
@@ -17,17 +23,9 @@ Tag: Sharktech
 Tag: Multacom Corp
 
 
-# ASN 16138 ("INTERIA.PL Sp z.o.o").
-# %Listed, Google Malware Dashboard: 2.94%.
-# Updated: 2016.03.17 / Checked: 2016.05.20
-
-2a00:1308::/32 Deny Cloud
-Tag: INTERIA
-
-
 # ASN 7497 ("Computer Network Information Center").
-# %Listed, Google Malware Dashboard: 10.03%.
-# Updated: 2016.03.20 / Checked: 2016.05.20
+# %Listed, Google Malware Dashboard: 0.64%.
+# Updated: 2016.03.20 / Checked: 2017.01.09
 
 2400:dd00::/28 Deny Cloud
 2401:de00::/32 Deny Cloud
@@ -35,8 +33,8 @@ Tag: CST-NET
 
 
 # ASN 46573 ("Global Frag Networks").
-# %Listed, Google Malware Dashboard: 10.77%.
-# Updated: 2016.03.20 / Checked: 2016.05.20
+# %Listed, Google Malware Dashboard: 9.55%.
+# Updated: 2016.03.20 / Checked: 2017.01.09
 
 2604:d180::/32 Deny Cloud
 Tag: Global Frag Networks
@@ -171,8 +169,8 @@ Tag: GoDaddy.com, LLC
 
 
 # ASN 8560 ("1&1 Internet SE").
-# %Listed, Google Malware Dashboard: 0.24%.
-# Updated: 2016.03.17 / Checked: 2016.05.20
+# %Listed, Google Malware Dashboard: 1.60%.
+# Updated: 2016.03.17 / Checked: 2017.01.09
 
 2001:8d8::/32 Deny Cloud
 2001:ba0::/32 Deny Cloud
@@ -326,8 +324,8 @@ Tag: eServer.ru
 
 
 # ASN 35415 ("Webzilla B.V").
-# %Listed, Google Malware Dashboard: 1.16%.
-# Updated: 2016.09.27
+# %Listed, Google Malware Dashboard: 0.32%.
+# Updated: 2016.09.27 / Checked: 2017.01.09
 
 2803:8700:5::/48 Deny Cloud
 2803:8700:45::/48 Deny Cloud
