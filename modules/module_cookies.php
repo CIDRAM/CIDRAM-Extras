@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional cookie scanner module (last modified: 2017.01.05).
+ * This file: Optional cookie scanner module (last modified: 2017.01.12).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2) and its
  * cookie scanner module, which the cookie scanner module for CIDRAM is based
@@ -57,6 +57,12 @@ $Cookies = count($_COOKIE);
 /** Signatures start from here. */
 if (!$Trigger($Cookies > 30, 'Cookie flood', 'Cookie flood detected!') && $Cookies) {
     array_walk($_COOKIE, function($Value, $Key) use (&$CIDRAM, &$Trigger, &$InstaBan) {
+
+        /** MyBB fix (skip iteration if value/key are unexpected types). */
+        if (is_array($Key) || is_array($Value) || is_object($Key) || is_object($Value)) {
+            return;
+        }
+
         $KeyLC = strtolower($Key);
         $ValueLC = strtolower($Value);
         $ThisPair = $Key . '->' . $Value;
