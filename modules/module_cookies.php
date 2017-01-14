@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional cookie scanner module (last modified: 2017.01.12).
+ * This file: Optional cookie scanner module (last modified: 2017.01.13).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2) and its
  * cookie scanner module, which the cookie scanner module for CIDRAM is based
@@ -20,38 +20,13 @@ if (!defined('CIDRAM')) {
     die('[CIDRAM] This should not be accessed directly.');
 }
 
-/** Required for handling all signature triggers in this file. */
-$Trigger = function ($Condition, $ReasonShort, $ReasonLong = '', $DefineOptions = array()) use (&$CIDRAM) {
-    if (!$Condition) {
-        return false;
-    }
-    if (!$ReasonLong) {
-        $ReasonLong = $CIDRAM['lang']['denied'];
-    }
-    if (is_array($DefineOptions) && !empty($DefineOptions)) {
-        while (($Cat = each($DefineOptions)) !== false) {
-            while (($Option = each($Cat[1])) !== false) {
-                $CIDRAM['Config'][$Cat[0]][$Option[0]] = $Option[1];
-            }
-        }
-    }
-    $CIDRAM['BlockInfo']['ReasonMessage'] = $ReasonLong;
-    if (!empty($CIDRAM['BlockInfo']['WhyReason'])) {
-        $CIDRAM['BlockInfo']['WhyReason'] .= ', ';
-    }
-    $CIDRAM['BlockInfo']['WhyReason'] .= $ReasonShort;
-    if (!empty($CIDRAM['BlockInfo']['Signatures'])) {
-        $CIDRAM['BlockInfo']['Signatures'] .= ', ';
-    }
-    $Debug = debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT | DEBUG_BACKTRACE_IGNORE_ARGS, 1)[0];
-    $CIDRAM['BlockInfo']['Signatures'] .= basename($Debug['file']) . ':L' . $Debug['line'];
-    $CIDRAM['BlockInfo']['SignatureCount']++;
-    return true;
-};
+/** Inherit trigger closure (see functions.php). */
+$Trigger = $CIDRAM['Trigger'];
 
-/** Options for instantly banning (sets tracking time to 1 year and infraction count to 999). */
-$InstaBan = array('Options' => array('TrackTime' => 31536000, 'TrackCount' => 999));
+/** Options for instantly banning (sets tracking time to 1 year and infraction count to 1000). */
+$InstaBan = array('Options' => array('TrackTime' => 31536000, 'TrackCount' => 1000));
 
+/** Count cookies. */
 $Cookies = count($_COOKIE);
 
 /** Signatures start from here. */
