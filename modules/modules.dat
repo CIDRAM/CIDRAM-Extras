@@ -17,21 +17,21 @@ module_cookies.php:
   zh: 可选cookie扫描器模块
   zh-tw: 可選cookie掃描器模塊
  Extended Description:
-  en: Provides some limited protections against various attack vectors commonly used in requests.
-  ar: يوفر بعض الحماية محدودة ضد مختلف ناقلات هجوم تستخدم عادة في طلبات.
-  de: Bietet einige begrenzte Schutzmaßnahmen gegen verschiedene Angriffsvektoren häufig in Anfragen verwendet.
-  es: Proporciona algunas protecciones limitadas contra varios vectores de ataque comúnmente utilizado en las solicitudes.
-  fr: Fournit quelques protections limitées contre divers vecteurs d'attaque communément utilisé dans les demandes.
-  id: Memberikan beberapa perlindungan terbatas terhadap berbagai vektor serangan umum digunakan dalam permintaan.
-  it: Fornisce alcune protezioni limitate contro i vari vettori di attacco comunemente usata nelle richieste.
-  ja: リクエストでよく使用される攻撃経路に対して、いくつかの制限された保護を提供します。
-  ko: 요청에서 자주 사용되는 공격 경로에 대해 몇 가지 제한된 보호를 제공합니다.
-  nl: Biedt een beperkte bescherming tegen verschillende aanvalsvectoren vaak gebruikt in aanvragen.
-  pt: Fornece algumas proteções limitadas contra vários vectores de ataque comumente usado em solicitações.
-  ru: Обеспечивает некоторые ограниченные средства защиты против различных векторов атак обычно используются в запросах.
-  vi: Cung cấp một số bảo vệ hạn chế chống vectơ tấn công khác nhau thường được sử dụng trong các yêu cầu.
-  zh: 提供一些有限的保护针对各种攻击向量常用于请求。
-  zh-tw: 提供一些有限的保護針對各種攻擊向量常用於請求。
+  en: Provides some limited protections against various attack vectors commonly used in requests.<br /><em>Used with: <code>signatures-&gt;modules</code>.</em>
+  ar: يوفر بعض الحماية محدودة ضد مختلف ناقلات هجوم تستخدم عادة في طلبات.<br /><em>استخدامها مع: <code>signatures-&gt;modules</code>.</em>
+  de: Bietet einige begrenzte Schutzmaßnahmen gegen verschiedene Angriffsvektoren häufig in Anfragen verwendet.<br /><em>Benutzt mit: <code>signatures-&gt;modules</code>.</em>
+  es: Proporciona algunas protecciones limitadas contra varios vectores de ataque comúnmente utilizado en las solicitudes.<br /><em>Usado con: <code>signatures-&gt;modules</code>.</em>
+  fr: Fournit quelques protections limitées contre divers vecteurs d'attaque communément utilisé dans les demandes.<br /><em>Utilisé avec: <code>signatures-&gt;modules</code>.</em>
+  id: Memberikan beberapa perlindungan terbatas terhadap berbagai vektor serangan umum digunakan dalam permintaan.<br /><em>Digunakan dengan: <code>signatures-&gt;modules</code>.</em>
+  it: Fornisce alcune protezioni limitate contro i vari vettori di attacco comunemente usata nelle richieste.<br /><em>Utilizzato con: <code>signatures-&gt;modules</code>.</em>
+  ja: リクエストでよく使用される攻撃経路に対して、いくつかの制限された保護を提供します。<br /><em>オプション： <code>signatures-&gt;modules</code>.</em>
+  ko: 요청에서 자주 사용되는 공격 경로에 대해 몇 가지 제한된 보호를 제공합니다.<br /><em>옵션: <code>signatures-&gt;modules</code>.</em>
+  nl: Biedt een beperkte bescherming tegen verschillende aanvalsvectoren vaak gebruikt in aanvragen.<br /><em>Gebruikt met: <code>signatures-&gt;modules</code>.</em>
+  pt: Fornece algumas proteções limitadas contra vários vectores de ataque comumente usado em solicitações.<br /><em>Usado com: <code>signatures-&gt;modules</code>.</em>
+  ru: Обеспечивает некоторые ограниченные средства защиты против различных векторов атак обычно используются в запросах.<br /><em>Используется с: <code>signatures-&gt;modules</code>.</em>
+  vi: Cung cấp một số bảo vệ hạn chế chống vectơ tấn công khác nhau thường được sử dụng trong các yêu cầu.<br /><em>Được sử dụng với: <code>signatures-&gt;modules</code>.</em>
+  zh: 提供一些有限的保护针对各种攻击向量常用于请求。<br /><em>使用： <code>signatures-&gt;modules</code>.</em>
+  zh-tw: 提供一些有限的保護針對各種攻擊向量常用於請求。<br /><em>使用： <code>signatures-&gt;modules</code>.</em>
  Version: 2017.01.13
  Minimum Required: 0.7.0-DEV
  Minimum Required PHP: 5.4.0
@@ -63,21 +63,21 @@ module_extras.php:
   zh: 可选安全附加模块（<div class="txtRd">早期beta</div>）
   zh-tw: 可選安全附加模塊（<div class="txtRd">早期beta</div>）
  Extended Description:
-  en: Provides some limited protections against various attack vectors commonly used in requests.
-  ar: يوفر بعض الحماية محدودة ضد مختلف ناقلات هجوم تستخدم عادة في طلبات.
-  de: Bietet einige begrenzte Schutzmaßnahmen gegen verschiedene Angriffsvektoren häufig in Anfragen verwendet.
-  es: Proporciona algunas protecciones limitadas contra varios vectores de ataque comúnmente utilizado en las solicitudes.
-  fr: Fournit quelques protections limitées contre divers vecteurs d'attaque communément utilisé dans les demandes.
-  id: Memberikan beberapa perlindungan terbatas terhadap berbagai vektor serangan umum digunakan dalam permintaan.
-  it: Fornisce alcune protezioni limitate contro i vari vettori di attacco comunemente usata nelle richieste.
-  ja: リクエストでよく使用される攻撃経路に対して、いくつかの制限された保護を提供します。
-  ko: 요청에서 자주 사용되는 공격 경로에 대해 몇 가지 제한된 보호를 제공합니다.
-  nl: Biedt een beperkte bescherming tegen verschillende aanvalsvectoren vaak gebruikt in aanvragen.
-  pt: Fornece algumas proteções limitadas contra vários vectores de ataque comumente usado em solicitações.
-  ru: Обеспечивает некоторые ограниченные средства защиты против различных векторов атак обычно используются в запросах.
-  vi: Cung cấp một số bảo vệ hạn chế chống vectơ tấn công khác nhau thường được sử dụng trong các yêu cầu.
-  zh: 提供一些有限的保护针对各种攻击向量常用于请求。
-  zh-tw: 提供一些有限的保護針對各種攻擊向量常用於請求。
+  en: Provides some limited protections against various attack vectors commonly used in requests.<br /><em>Used with: <code>signatures-&gt;modules</code>.</em>
+  ar: يوفر بعض الحماية محدودة ضد مختلف ناقلات هجوم تستخدم عادة في طلبات.<br /><em>استخدامها مع: <code>signatures-&gt;modules</code>.</em>
+  de: Bietet einige begrenzte Schutzmaßnahmen gegen verschiedene Angriffsvektoren häufig in Anfragen verwendet.<br /><em>Benutzt mit: <code>signatures-&gt;modules</code>.</em>
+  es: Proporciona algunas protecciones limitadas contra varios vectores de ataque comúnmente utilizado en las solicitudes.<br /><em>Usado con: <code>signatures-&gt;modules</code>.</em>
+  fr: Fournit quelques protections limitées contre divers vecteurs d'attaque communément utilisé dans les demandes.<br /><em>Utilisé avec: <code>signatures-&gt;modules</code>.</em>
+  id: Memberikan beberapa perlindungan terbatas terhadap berbagai vektor serangan umum digunakan dalam permintaan.<br /><em>Digunakan dengan: <code>signatures-&gt;modules</code>.</em>
+  it: Fornisce alcune protezioni limitate contro i vari vettori di attacco comunemente usata nelle richieste.<br /><em>Utilizzato con: <code>signatures-&gt;modules</code>.</em>
+  ja: リクエストでよく使用される攻撃経路に対して、いくつかの制限された保護を提供します。<br /><em>オプション： <code>signatures-&gt;modules</code>.</em>
+  ko: 요청에서 자주 사용되는 공격 경로에 대해 몇 가지 제한된 보호를 제공합니다.<br /><em>옵션: <code>signatures-&gt;modules</code>.</em>
+  nl: Biedt een beperkte bescherming tegen verschillende aanvalsvectoren vaak gebruikt in aanvragen.<br /><em>Gebruikt met: <code>signatures-&gt;modules</code>.</em>
+  pt: Fornece algumas proteções limitadas contra vários vectores de ataque comumente usado em solicitações.<br /><em>Usado com: <code>signatures-&gt;modules</code>.</em>
+  ru: Обеспечивает некоторые ограниченные средства защиты против различных векторов атак обычно используются в запросах.<br /><em>Используется с: <code>signatures-&gt;modules</code>.</em>
+  vi: Cung cấp một số bảo vệ hạn chế chống vectơ tấn công khác nhau thường được sử dụng trong các yêu cầu.<br /><em>Được sử dụng với: <code>signatures-&gt;modules</code>.</em>
+  zh: 提供一些有限的保护针对各种攻击向量常用于请求。<br /><em>使用： <code>signatures-&gt;modules</code>.</em>
+  zh-tw: 提供一些有限的保護針對各種攻擊向量常用於請求。<br /><em>使用： <code>signatures-&gt;modules</code>.</em>
  Version: 2017.01.13-BETA
  Minimum Required: 0.7.0-DEV
  Minimum Required PHP: 5.4.0
@@ -90,5 +90,97 @@ module_extras.php:
    - module_extras.php
   Checksum:
    - 019b4fb1b2851441bfd3dfa614b39d5f:20208
+ Reannotate: modules.dat
+module_baidublocker.php:
+ Name:
+  en: Baidu blocker module
+  ar: بايدو وحدة مانع
+  de: Baidu Blocker-Modul
+  es: Módulo bloqueador de Baidu
+  fr: Module de blocage pour Baidu
+  id: Modul blocker Baidu
+  it: Modulo bloccante di Baidu
+  ja: Baiduブロッカーモジュール
+  ko: Baidu 차단기 모듈
+  nl: Baidu blokker module
+  pt: Módulo bloqueador de Baidu
+  ru: Модуль блокатор Baidu
+  vi: Mô-đun cho chặn Baidu
+  zh: 百度阻塞模块
+  zh-tw: 百度阻塞模塊
+ Extended Description:
+  en: <em>Used with: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  ar: <em>استخدامها مع: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  de: <em>Benutzt mit: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  es: <em>Usado con: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  fr: <em>Utilisé avec: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  id: <em>Digunakan dengan: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  it: <em>Utilizzato con: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  ja: <em>オプション： <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  ko: <em>옵션: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  nl: <em>Gebruikt met: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  pt: <em>Usado com: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  ru: <em>Используется с: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  vi: <em>Được sử dụng với: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  zh: <em>使用： <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  zh-tw: <em>使用： <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+ Version: 2017.01.16
+ Minimum Required: 0.7.0-DEV
+ Minimum Required PHP: 5.4.0
+ Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/modules/modules.dat
+ Uninstallable: true
+ Files:
+  From:
+   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/modules/module_extras.php
+  To:
+   - module_baidublocker.php
+  Checksum:
+   - a318ac456a95b01acda5690a5255c575:2506
+ Reannotate: modules.dat
+module_yandexblocker.php:
+ Name:
+  en: Yandex blocker module
+  ar: بايدو وحدة مانع
+  de: Yandex Blocker-Modul
+  es: Módulo bloqueador de Yandex
+  fr: Module de blocage pour Yandex
+  id: Modul blocker Yandex
+  it: Modulo bloccante di Yandex
+  ja: Yandexブロッカーモジュール
+  ko: Yandex 차단기 모듈
+  nl: Yandex blokker module
+  pt: Módulo bloqueador de Yandex
+  ru: Модуль блокатор Яндекс
+  vi: Mô-đun cho chặn Yandex
+  zh: Yandex阻塞模块
+  zh-tw: Yandex阻塞模塊
+ Extended Description:
+  en: <em>Used with: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  ar: <em>استخدامها مع: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  de: <em>Benutzt mit: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  es: <em>Usado con: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  fr: <em>Utilisé avec: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  id: <em>Digunakan dengan: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  it: <em>Utilizzato con: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  ja: <em>オプション： <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  ko: <em>옵션: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  nl: <em>Gebruikt met: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  pt: <em>Usado com: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  ru: <em>Используется с: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  vi: <em>Được sử dụng với: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  zh: <em>使用： <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+  zh-tw: <em>使用： <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.</em>
+ Version: 2017.01.16
+ Minimum Required: 0.7.0-DEV
+ Minimum Required PHP: 5.4.0
+ Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/modules/modules.dat
+ Uninstallable: true
+ Files:
+  From:
+   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/modules/module_extras.php
+  To:
+   - module_yandexblocker.php
+  Checksum:
+   - fc08294a5047ea30c9e4b31e1b08ccbc:3096
  Reannotate: modules.dat
 
