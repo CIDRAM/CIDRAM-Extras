@@ -166,10 +166,10 @@ $InstaBan = array('Options' => array('TrackTime' => 31536000, 'TrackCount' => 10
 // closures, and that you're not using something else entirely to handle your
 // signatures.
 
-// Note that *any* variables defined by CIDRAM, and any variables which exist
-// within the current memory instance, can be accessed, leveraged and modified
-// by modules. The most common variables which you're likely to ever be using
-// are these:
+// Note that almost any variable defined by CIDRAM, and almost any variable
+// that exists within the current memory instance, can be accessed, leveraged
+// and modified by modules. The most common variables that you're likely to
+// ever be using are these (and of course, you can define your own, too):
 
 // $_POST       - See: http://php.net/manual/en/reserved.variables.post.php
 // $_GET        - See: http://php.net/manual/en/reserved.variables.get.php
@@ -236,7 +236,7 @@ if (empty($CIDRAM['Hostname'])) {
 // Example 1: Block any UA (user agent) which contains the word "Foobar".
 $Trigger(strpos($CIDRAM['BlockInfo']['UA'], 'Foobar') !== false, 'No-Foobar-001', 'No foobar here. Foobar not here.');
 
-// However, there's a problem: "$CIDRAM['BlockInfo']['UA']" is case sensitive!
+// However, there's a problem: "$CIDRAM['BlockInfo']['UA']" is case-sensitive!
 // Therefore.. Example 2: Block any UA which contains the word "foobar",
 // irrespective of case:
 $Trigger(strpos($CIDRAM['BlockInfo']['UALC'], 'Foobar') !== false, 'No-Foobar-001-MkII', 'No foobar here. Foobar not here.');
