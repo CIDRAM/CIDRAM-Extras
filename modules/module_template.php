@@ -239,7 +239,7 @@ $Trigger(strpos($CIDRAM['BlockInfo']['UA'], 'Foobar') !== false, 'No-Foobar-001'
 // However, there's a problem: "$CIDRAM['BlockInfo']['UA']" is case-sensitive!
 // Therefore.. Example 2: Block any UA which contains the word "foobar",
 // irrespective of case:
-$Trigger(strpos($CIDRAM['BlockInfo']['UALC'], 'Foobar') !== false, 'No-Foobar-001-MkII', 'No foobar here. Foobar not here.');
+$Trigger(strpos($CIDRAM['BlockInfo']['UALC'], 'foobar') !== false, 'No-Foobar-001-MkII', 'No foobar here. Foobar not here.');
 
 // But what if someone decides to split it up with random spaces..? Let's make
 // our own custom variable to account for this, which we can then use to write
@@ -248,7 +248,7 @@ $Trigger(strpos($CIDRAM['BlockInfo']['UALC'], 'Foobar') !== false, 'No-Foobar-00
 $UANoSpace = preg_replace('/\s/', '', $CIDRAM['BlockInfo']['UALC']);
 
 // Example 3: Now we can catch things like "f o o b a r":
-$Trigger(strpos($UANoSpace, 'Foobar') !== false, 'No-Foobar-001-MkIII', 'No foobar here. Foobar not here.');
+$Trigger(strpos($UANoSpace, 'foobar') !== false, 'No-Foobar-001-MkIII', 'No foobar here. Foobar not here.');
 
 // But what if they start doing things like using "leetspeak"/"13375934k"(/etc)
 // to hide their true intended UA? Well.. We can use regular expressions to
