@@ -10,24 +10,30 @@
  *
  * This file: Template module file for CIDRAM (last modified: 2017.01.16).
  */
- 
- // To distinguish comments which would normally exist in modules, from
- // comments which are intended to exist only in this template for the
- // purpose of guiding you towards making your own custom module, those
- // comments which would normally exist in modules will be represented like
- // "/** this */", whereas comments which are intended to exist only in this
- // template for the purpose of guiding you towards making your own custom
- // module, will be represented like "// this".
- 
- // It is recommended to remove all comments like "// this" prior to publishing
- // your own custom module.
- 
- // Towards the top of this file, you'll see a line which beings with
- // "* This file". You should edit the information contained therein whenever
- // you modify your custom module, in order to accurately reflect your custom
- // mdule and the information about it.
- 
- // The following block "Prevents execution from ..." should NOT be modified.
+
+// To distinguish comments which would normally exist in modules, from
+// comments which are intended to exist only in this template for the
+// purpose of guiding you towards making your own custom module, those
+// comments which would normally exist in modules will be represented like
+// "/** this */", whereas comments which are intended to exist only in this
+// template for the purpose of guiding you towards making your own custom
+// module, will be represented like "// this".
+
+// It is recommended to remove all comments like "// this" prior to publishing
+// your own custom module.
+
+// Towards the top of this file, you'll see a line which beings with
+// "* This file". You should edit the information contained therein whenever
+// you modify your custom module, in order to accurately reflect your custom
+// module and the information about it.
+
+// Note: For the sake of clarity, in the context of this document, a "block"
+// refers to block of text, a block of code, or a comment block within this
+// document, whose boundaries are defined by surrounding two or more
+// consecutive linebreaks (adjoining lines with one or less linebreaks are
+// considered to exist within the same block).
+
+// The following block "Prevents execution from ..." should NOT be modified.
 
 /** Prevents execution from outside of CIDRAM. */
 if (!defined('CIDRAM')) {
@@ -36,11 +42,11 @@ if (!defined('CIDRAM')) {
 
 // If you're intending to write a standard module, which uses the normal,
 // default syntax for signatures, keep the "Inherit trigger closure ..." block
-// in the file and remove the "$CIDRAM['Trigger']" block which follows.
-// Otherwise, if you want to use different syntax, or modify the way in which
+// in the file and remove the "$Trigger = function ($ ..." block which follows.
+// Otherwise, if you want to use different syntax, or modify the way that
 // triggers work, get rid of the "Inherit trigger closure ..." block, and
-// instead, modify the "$CIDRAM['Trigger']" block to suit your needs and keep
-// that instead. Or, if you're feeling confident, get rid of both and just
+// instead, modify the "$Trigger = function ($ ..." block as per your needs and
+// keep that instead. Or, if you're feeling confident, get rid of both and just
 // write something entirely from scratch yourself (but in any case, *don't*
 // keep *both*). :-)
 
