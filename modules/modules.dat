@@ -32,7 +32,7 @@ module_cookies.php:
   vi: Cung cấp một số bảo vệ hạn chế chống vectơ tấn công khác nhau thường được sử dụng trong các yêu cầu.<br /><em>Được sử dụng với: <code>signatures-&gt;modules</code>.</em>
   zh: 提供一些有限的保护针对各种攻击向量常用于请求。<br /><em>使用： <code>signatures-&gt;modules</code>.</em>
   zh-tw: 提供一些有限的保護針對各種攻擊向量常用於請求。<br /><em>使用： <code>signatures-&gt;modules</code>.</em>
- Version: 2017.01.13
+ Version: 2017.01.20
  Minimum Required: 0.7.0-DEV
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/modules/modules.dat
@@ -43,7 +43,7 @@ module_cookies.php:
   To:
    - module_cookies.php
   Checksum:
-   - cb93c176d8bdd91807e0be8b1b889763:6344
+   - 99b80e224f211e4e34de76f53bdc21db:6462
  Reannotate: modules.dat
 module_extras.php:
  Name:
@@ -78,7 +78,7 @@ module_extras.php:
   vi: Cung cấp một số bảo vệ hạn chế chống vectơ tấn công khác nhau thường được sử dụng trong các yêu cầu.<br /><em>Được sử dụng với: <code>signatures-&gt;modules</code>.</em>
   zh: 提供一些有限的保护针对各种攻击向量常用于请求。<br /><em>使用： <code>signatures-&gt;modules</code>.</em>
   zh-tw: 提供一些有限的保護針對各種攻擊向量常用於請求。<br /><em>使用： <code>signatures-&gt;modules</code>.</em>
- Version: 2017.01.13-BETA
+ Version: 2017.01.20-BETA
  Minimum Required: 0.7.0-DEV
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/modules/modules.dat
@@ -89,7 +89,7 @@ module_extras.php:
   To:
    - module_extras.php
   Checksum:
-   - 019b4fb1b2851441bfd3dfa614b39d5f:20208
+   - 44bbbaf4539642703a1d31a736ec5bf7:20219
  Reannotate: modules.dat
 module_baidublocker.php:
  Name:

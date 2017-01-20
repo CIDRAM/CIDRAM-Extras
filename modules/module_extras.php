@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2017.01.13).
+ * This file: Optional security extras module (last modified: 2017.01.20).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -115,9 +115,9 @@ if (!empty($_SERVER['QUERY_STRING'])) {
     $Trigger(substr($QueryNoSpace, 0, 1) === '-', 'Probe attempt'); // 2017.01.05
 
     $Trigger(preg_match(
-        '/\[(?:0|[alrw]\]|classes|file|itemid|l(astrss_ap_enabled|oadfile|oc' .
-        'alserverfile)|pth|src)/',
-    $QueryNoSpace), 'Probe attempt'); // 2017.01.08
+        '/\[(?:[alrw]\]|classes|file|itemid|l(astrss_ap_enabled|oadfile|ocal' .
+        'serverfile)|pth|src)/',
+    $QueryNoSpace), 'Probe attempt'); // 2017.01.17
 
     $Trigger(strpos($QueryNoSpace, '+result:') !== false, 'Spam attempt'); // 2017.01.08
     $Trigger(strpos($QueryNoSpace, 'result:+\\') !== false, 'Spam attempt'); // 2017.01.08
@@ -144,8 +144,8 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
         '/(?:_once|able|as(c|hes|sert)|c(hr|ode|ontents)|e(cho|regi|scape|va' .
         'l)|ex(ec|ists)?|f(ile|late|unction)|get(c|csv|ss?)?|i(f|nclude)|len' .
         '(gth)?|open|p(ress|lace|lode|uts)|print(f|_r)?|re(ad|place|quire|st' .
-        'ore)|rot13|s(tart|ystem)|w(hile|rite))["\':(\[{<$]/',
-    $UANoSpace), 'Command injection'); // 2017.01.02
+        'ore)|rot13|s(tart|ystem)|w(hil|rit)e)["\':(\[{<$]/',
+    $UANoSpace), 'Command injection'); // 2017.01.20
     $Trigger(preg_match(
         '/\$(?:globals|_(cookie|env|files|get|post|request|se(rver|ssion)))/',
     $UANoSpace), 'Command injection'); // 2017.01.13
@@ -174,6 +174,7 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $Trigger(strpos($UANoSpace, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Shell upload attempt', '', $InstaBan); // 2017.01.02
 
     $Trigger(preg_match('/0wn[3e]d/', $UANoSpace), 'Hack UA', '', $InstaBan); // 2017.01.06
+    $Trigger(preg_match('/:(\{[a-z]:|[a-z0-9][;:]\})/', $UANoSpace), 'Hack UA', '', $InstaBan); // 2017.01.20
     $Trigger(preg_match('/h[4a]c' . 'k(?:e[dr]|ing|t([3e][4a]m|[0o]{2}l))/', $UANoSpace), 'Hack UA', '', $InstaBan); // 2017.01.06
     $Trigger(preg_match('/Y[EI]$/', $CIDRAM['BlockInfo']['UA']), 'Possible/Suspected hack UA'); // 2017.01.06
     $Trigger(strpos($UA, 'rm ' . '-rf') !== false, 'Hack UA', '', $InstaBan); // 2017.01.02
@@ -243,24 +244,19 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $UANoSpace), 'Email havester'); // 2017.01.07
     $Trigger(strpos($UANoSpace, 'email') !== false, 'Possible/Suspected email havester'); // 2017.01.06
 
-    $Trigger($UA === '-', 'Bad UA'); // 2017.01.06
-    $Trigger($UANoSpace === 'foo', 'Bad UA'); // 2017.01.06
     $Trigger(preg_match('/%(?:[01][0-9a-f]|2[257]|3[ce]|[57][bd]|[7f]f)/', $UANoSpace), 'Bad UA'); // 2017.01.06
-
     $Trigger(preg_match(
         '/(?:3mir|a(dmantx|lphaserver|thens|ttache)|collect|d(igout4uagent|s' .
         'arobot)|f(astlwspider|loodgate)|irgrabber|m(agnet|(ajestic|j)12)|nu' .
         'tch|p(ackrat|cbrowser|surf)|r(eaper|sync)|s(hai|[iy]phon)|takeout|v' .
         'isaduhoc|wolf)/',
     $UANoSpace), 'Bad UA'); // 2017.01.13
-
     $Trigger(preg_match(
         '/(?:re-?animator|webster)/',
     $UANoSpace), 'Bad UA', '', $InstaBan); // 2017.01.08
-
     $Trigger(preg_match('/test\'?$/', $UANoSpace), 'Bad UA'); // 2017.01.06
+    $Trigger(preg_match('/^(?:\'?test|-|default|foo)/', $UANoSpace), 'Bad UA'); // 2017.01.19
     $Trigger(preg_match('/^[\'"].*[\'"]$/', $UANoSpace), 'Bad UA'); // 2017.01.06
-    $Trigger(preg_match('/^\'?test/', $UANoSpace), 'Bad UA'); // 2017.01.06
     $Trigger(strpos($UA, '   ') !== false, 'Bad UA'); // 2017.01.02
     $Trigger(strpos($UANoSpace, '(somename)') !== false, 'Bad UA', '', $InstaBan); // 2017.01.08
     $Trigger(strpos($UANoSpace, 'mfibot') !== false, 'Bad UA'); // 2017.01.06

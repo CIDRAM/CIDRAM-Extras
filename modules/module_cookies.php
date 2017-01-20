@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional cookie scanner module (last modified: 2017.01.13).
+ * This file: Optional cookie scanner module (last modified: 2017.01.20).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2) and its
  * cookie scanner module, which the cookie scanner module for CIDRAM is based
@@ -50,18 +50,18 @@ if (!$Trigger($Cookies > 30, 'Cookie flood', 'Cookie flood detected!') && $Cooki
             '/(?:_once|able|as(c|hes|sert)|c(hr|ode|ontents)|e(cho|regi|scape|va' .
             'l)|ex(ec|ists)?|f(ile|late|unction)|hex2bin|get(c|csv|ss?)?|i(f|ncl' .
             'ude)|len(gth)?|nt|open|p(ress|lace|lode|uts)|print(f|_r)?|re(ad|pla' .
-            'ce|quire|store)|rot13|s(tart|ystem)|w(hile|rite))["\':(\[{<$]/i',
+            'ce|quire|store)|rot13|s(tart|ystem)|w(hil|rit)e)["\':(\[{<$]/i',
         $ThisPairN), 'Command injection'); // 2017.01.02
         $Trigger(
-            preg_match('/\$(?:globals|_cookie|_env|_files|_get|_post|_request|_server|_session)/i', $ThisPairN),
+            preg_match('/\$(?:globals|_(cookie|env|files|get|post|request|se(rver|ssion)))/', $ThisPairN),
             'Command injection'
-        ); // 2017.01.02
+        ); // 2017.01.20
         $Trigger(preg_match('/add(?:handler|type|inputfilter)/', $ThisPairN), 'Command injection'); // 2017.01.02
         $Trigger(preg_match('/http_(?:cmd|sum)/', $ThisPairN), 'Command injection'); // 2017.01.02
         $Trigger(preg_match('/pa(?:rse_ini_file|ssthru)/', $ThisPairN), 'Command injection'); // 2017.01.02
         $Trigger(preg_match('/rewrite(?:cond|rule)/', $ThisPairN), 'Command injection'); // 2017.01.02
-        $Trigger(preg_match('/set(?:handler|inputfilter)/', $ThisPairN), 'Command injection'); // 2017.01.02
-        $Trigger(preg_match('/u(?:nserialize|ploadedfile)/', $ThisPairN), 'Command injection'); // 2017.01.02
+        $Trigger(preg_match('/set(?:handl|inputfilt)er/', $ThisPairN), 'Command injection'); // 2017.01.20
+        $Trigger(preg_match('/u(?:nserializ|ploadedfil)e/', $ThisPairN), 'Command injection'); // 2017.01.20
         $Trigger(strpos($ThisPairN, '$http_raw_post_data') !== false, 'Command injection'); // 2017.01.02
         $Trigger(strpos($ThisPairN, 'dotnet_load') !== false, 'Command injection'); // 2017.01.02
         $Trigger(strpos($ThisPairN, 'execcgi') !== false, 'Command injection'); // 2017.01.02
@@ -100,6 +100,7 @@ if (!$Trigger($Cookies > 30, 'Cookie flood', 'Cookie flood detected!') && $Cooki
         ), 'Hack attempt detected'); // 2017.01.02
 
         $Trigger($KeyLC === 'rm ' . '-rf' || $ValueLC === 'rm ' . '-rf', 'Hack attempt detected', '', $InstaBan); // 2017.01.02
+        $Trigger(preg_match('/:(\{[a-z]:|[a-z0-9][;:]\})/', $ThisPairN), 'Hack attempt detected', '', $InstaBan); // 2017.01.20
 
         $Trigger((
             ($Value == -1 || $Value == '-1') &&
