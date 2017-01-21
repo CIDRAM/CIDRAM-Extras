@@ -98,7 +98,7 @@ module_baidublocker.php:
   de: Baidu Blocker-Modul
   es: Módulo bloqueador de Baidu
   fr: Module de blocage pour Baidu
-  id: Modul blocker Baidu
+  id: Pemblokir modul untuk Baidu
   it: Modulo bloccante di Baidu
   ja: Baiduブロッカーモジュール
   ko: Baidu 차단기 모듈
@@ -144,7 +144,7 @@ module_yandexblocker.php:
   de: Yandex Blocker-Modul
   es: Módulo bloqueador de Yandex
   fr: Module de blocage pour Yandex
-  id: Modul blocker Yandex
+  id: Pemblokir modul untuk Yandex
   it: Modulo bloccante di Yandex
   ja: Yandexブロッカーモジュール
   ko: Yandex 차단기 모듈
@@ -182,5 +182,51 @@ module_yandexblocker.php:
    - module_yandexblocker.php
   Checksum:
    - fc08294a5047ea30c9e4b31e1b08ccbc:3096
+ Reannotate: modules.dat
+module_badhosts.php:
+ Name:
+  en: Bad hosts blocker module (<div class="txtRd">early beta</div>)
+  ar: سيئة المضيفين وحدة مانع (<div class="txtRd">beta في وقت مبكر</div>)
+  de: Schlechte Hosts Blocker-Modul (<div class="txtRd">Frühen Beta</div>)
+  es: Módulo bloqueador de hosts defectuosos (<div class="txtRd">beta temprana</div>)
+  fr: Module de blocage pour les hôtes mauvais (<div class="txtRd">bêta précoce</div>)
+  id: Pemblokir modul untuk host buruk (<div class="txtRd">beta awal</div>)
+  it: Modulo bloccante di cattivi host (<div class="txtRd">versione beta</div>)
+  ja: 危険なホスト・ブロッカーモジュール（<div class="txtRd">初期ベータ</div>）
+  ko: 위험한 호스트 차단 모듈 (<div class="txtRd">초기 베타</div>)
+  nl: Slechte hosts blokker module (<div class="txtRd">vroege beta</div>)
+  pt: Módulo bloqueador de hosts perigosos (<div class="txtRd">beta precoce</div>)
+  ru: Модуль блокатор для плохие хосты (<div class="txtRd">ранняя бета</div>)
+  vi: Mô-đun cho chặn các host xấu (<div class="txtRd">phiên bản beta</div>)
+  zh: 坏主机阻塞模块（<div class="txtRd">早期beta</div>）
+  zh-tw: 壞主機阻塞模塊（<div class="txtRd">早期beta</div>）
+ Extended Description:
+  en: <em>Used with: <code>signatures-&gt;modules</code>.</em>
+  ar: <em>استخدامها مع: <code>signatures-&gt;modules</code>.</em>
+  de: <em>Benutzt mit: <code>signatures-&gt;modules</code>.</em>
+  es: <em>Usado con: <code>signatures-&gt;modules</code>.</em>
+  fr: <em>Utilisé avec: <code>signatures-&gt;modules</code>.</em>
+  id: <em>Digunakan dengan: <code>signatures-&gt;modules</code>.</em>
+  it: <em>Utilizzato con: <code>signatures-&gt;modules</code>.</em>
+  ja: <em>オプション： <code>signatures-&gt;modules</code>.</em>
+  ko: <em>옵션: <code>signatures-&gt;modules</code>.</em>
+  nl: <em>Gebruikt met: <code>signatures-&gt;modules</code>.</em>
+  pt: <em>Usado com: <code>signatures-&gt;modules</code>.</em>
+  ru: <em>Используется с: <code>signatures-&gt;modules</code>.</em>
+  vi: <em>Được sử dụng với: <code>signatures-&gt;modules</code>.</em>
+  zh: <em>使用： <code>signatures-&gt;modules</code>.</em>
+  zh-tw: <em>使用： <code>signatures-&gt;modules</code>.</em>
+ Version: 2017.01.21-BETA
+ Minimum Required: 0.7.0-DEV
+ Minimum Required PHP: 5.4.0
+ Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/modules/modules.dat
+ Uninstallable: true
+ Files:
+  From:
+   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/modules/module_badhosts.php
+  To:
+   - module_badhosts.php
+  Checksum:
+   - 3490c4effce9266032c5db53020b8e35:8268
  Reannotate: modules.dat
 
