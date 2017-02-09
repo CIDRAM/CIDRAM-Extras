@@ -216,7 +216,7 @@ module_badhosts.php:
   vi: <em>Được sử dụng với: <code>signatures-&gt;modules</code>.</em>
   zh: <em>使用： <code>signatures-&gt;modules</code>.</em>
   zh-tw: <em>使用： <code>signatures-&gt;modules</code>.</em>
- Version: 2017.02.06-BETA
+ Version: 2017.02.09-BETA
  Minimum Required: 0.7.0-DEV
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/modules/modules.dat
@@ -227,6 +227,6 @@ module_badhosts.php:
   To:
    - module_badhosts.php
   Checksum:
-   - 39422ce96006af089454a2ab52a12890:11817
+   - 147f6e76abb6a18b71a83bdaeff8453c:12529
  Reannotate: modules.dat
 
