@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2017.02.03).
+ * This file: Optional security extras module (last modified: 2017.02.14).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -328,18 +328,19 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $UANoSpace), 'SEO UA'); // 2017.02.02
 
     $Trigger(preg_match(
-        '/(?:a(bonti|ccserver|cme.spider|nyevent-http)|b(igbozz|lackbird|log' .
-        'search|logbot|salsa)|c(atexplorador|liqzbot|ontextad|orporama|rowsn' .
-        'est|yberpatrol)|d(le_spider|omainappender|umprendertree)|flightdeck' .
-        'reportsbot|g(imme60|ooglebenjojo)|http-agent|isitwp|k(2spider|emvi)' .
-        '|lexxebot|joc|livelapbot|m(acinroyprivacyauditors|asscan|etaintelli' .
-        'gence)|n(ettrapport|mapscriptingengine|rsbot)|p(4bot|4load|acrawler' .
-        '|ageglimpse|egasusmonitoring|hpcrawl|ingdom|rlog)|r(arelyused|obo(c' .
-        'op|spider))|s(creener|itedomain|mut|nap(preview)?bot|oapclient|ocia' .
-        'layer|pyglass|quider)|urlappendbot|w(asalive|atchmouse|eb(-monitori' .
-        'ng|masteraid|money|thumbnail)|hatweb|ikiapiary|in(http|inet)|maid\.' .
-        'com|sr-agent|wwtype)|xenu|xovi|yeti|zibber|zurichfinancialservices)/',
-    $UANoSpace), 'Unauthorised'); // 2017.02.03
+        '/(?:a(bonti|ccserver|cme.spider|nyevent-http|ppengine)|b(igbozz|lac' .
+        'kbird|logsearch|logbot|salsa)|c(atexplorador|liqzbot|ontextad|orpor' .
+        'ama|rowsnest|yberpatrol)|d(le_spider|omainappender|umprendertree)|f' .
+        'lightdeckreportsbot|g(imme60|ooglebenjojo)|http-agent|isitwp|k(2spi' .
+        'der|emvi)|lexxebot|joc|livelapbot|m(acinroyprivacyauditors|asscan|e' .
+        'taintelligence)|n(ettrapport|mapscriptingengine|rsbot)|p(4bot|4load' .
+        '|acrawler|ageglimpse|egasusmonitoring|hpcrawl|ingdom|rlog)|r(arelyu' .
+        'sed|obo(cop|spider))|s(creener|itedomain|mut|nap(preview)?bot|oapcl' .
+        'ient|ocialayer|pyglass|quider)|urlappendbot|w(asalive|atchmouse|eb(' .
+        '-monitoring|masteraid|money|thumbnail)|hatweb|ikiapiary|in(http|ine' .
+        't)|maid\.com|sr-agent|wwtype)|xenu|xovi|yeti|zibber|zurichfinancial' .
+        'services)/',
+    $UANoSpace), 'Unauthorised'); // 2017.02.14
 
     $Trigger(preg_match(
         '/(?:^(bot|java|msie|windows-live-social-object-extractor)|\((java|[' .
