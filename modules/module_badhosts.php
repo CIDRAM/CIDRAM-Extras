@@ -40,9 +40,11 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
     $Trigger(substr($HN, 0, 2) === '()', 'Bash/Shellshock', '', $InstaBan); // 2017.01.21
 
     $Trigger(preg_match(
-        '/(?:0wn[3e]d|:(\{[a-z]:|[a-z0-9][;:]\})|h[4a]c' . 'k(e[dr]|ing|t([3' .
-        'e][4a]m|[0o]{2}l))|%(0[0-8bcef]|1)|[`\'"])/',
-    $HN), 'Banned hostname', '', $InstaBan); // 2017.02.06
+        '/(?:0wn[3e]d|:(\{[a-z]:|[a-z0-9][;:]\})|h[4a]ck(e[dr]|ing|[7t]([3e]' .
+        '[4a]m|[0o]{2}l))|%(0[0-8bcef]|1)|[`\'"]|^[-.:]|[-.:]$|[.:][a-z\d-]{' .
+        '64,}[.:])/',
+    $HN), 'Banned hostname', '', $InstaBan); // 2017.02.14
+
     $Trigger(strpos($CIDRAM['Hostname'], 'rm ' . '-rf') !== false, 'Banned hostname', '', $InstaBan); // 2017.01.21
     $Trigger(strpos($HN, 'sh' . 'el' . 'l_' . 'ex' . 'ec') !== false, 'Banned hostname', '', $InstaBan); // 2017.01.21
 
@@ -67,6 +69,7 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
         'kingtopics|uysellsales)|c(eptro|heapseovps|yber-uslugi)|jackwellsmu' .
         'sic|s(mileweb\.com\.ua|quider|tartdedicated\.)|(exa|we|youdao)bot)/',
     $HN), 'SEO/Bothost/Scraper/Spamhost'); // 2017.01.31
+
     $Trigger(preg_match(
         '/(?:prking\.com\.au$|(23gb|35up|accelovation|bestprice|mantraonline' .
         '|onlinehome-server\.myforexvps)\.com$|(2dayhost|inkjetrefillink)\.c' .
@@ -74,9 +77,12 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
         'onara|onlinehome-server|pool\.ukrtel)\.net$|mail\.ru$|fibersunucu\.' .
         'com\.tr|drugstore|l(iwio\.|uxuryhandbag))/',
     $HN), 'Spamhost'); // 2017.02.09
+
     $Trigger(preg_match(
         '/(?:rumer|pymep|румер)/',
     $HN), 'Spamhost', '', $InstaBan); // 2017.01.21
+
+    $Trigger(preg_match('/(?:cjh-law\.com$)/', $HN), 'Phisher / Phishing Host'); // 2017.02.14
 
     $Trigger(preg_match(
         '/(?:^(damage|moon|test)\.|anahaqq|core\.youtu\.me|hosted-(by|in)|no' .
@@ -125,58 +131,66 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
         'pp|documents|suite|topia)|wrelic|wservers)|ionex|irvanix|ovatium|sc' .
         'aled)|o(co-inc|nelogin|npathtech|penqrm|psource)|p(ara(scal|tur)e|h' .
         'atservers|i(emontetv|nqidentity|votlink)|luraprocessing)|q(layer|ri' .
-        'mp|uanti(vo|x-uk))|r(ackspace(cloud)?|e(di2|ductivelabs|liacloud|sp' .
-        'onsys)|ight(now|scale)|ollbase|omania-webhosting|path)|s(alesforce|' .
-        'avvis|ertifi|kytap|martservercontrol|naplogic|oasta|pringcm|tax|tre' .
-        'etsmarts|uccessmetrics|wifttrim|ymplified|yncplicity)|t(aleo|err[ae' .
-        ']mark|h(eprocessfactory|inkgos|oughtexpress)|rustsaas)|utilitystatu' .
-        's|v(aultscape|ertica|mware|ordel)|web(hosting\.uk|scalesolutions)|x' .
-        '(actlycorp|lhost|ythos)|z(embly|imory|manda|oho|uora))\.com$|(artis' .
-        'ticgoals|host(gator|ingprod)|instantdedicated|khavarzamin|missiondi' .
-        'sh|newslettersrus|profninja|se(curityspace|rve(path|rbuddies))|vira' .
-        'l-customers)\.com|((\.|kunden)server|clanmoi|fastwebserver|optimal)' .
-        '\.de$|your-server\.de|eucalyptus\.cs\.uscb\.edu$|candycloud\.eu$|ad' .
-        'sinmedia\.co\.in$|iam\.net\.ma$|starnet\.md$|(\.(bhsrv|box|propagat' .
-        'ion|voxel)|1978th|collab|enkiconsulting|host\.caracastelecom)\.net$' .
-        '|re(liablesite|plyingst)\.net|hitech-hosting\.nl|(\.terracotta|beow' .
-        'ulf|iboss|memcached|opennebula|xen)\.org$|mor\.ph$|vampire\.pl$|(cy' .
-        'ber-host|slaskdatacenter)\.pl|(tkvprok|vympelstroy)\.ru|g\.ho\.st$|' .
-        '(webfusion|xcalibre)\.co\.uk$|bergdorf-group|cloudsigma|dreamhost|i' .
-        'pxserver|linode|money(mattersnow|tech\.mg)|productsnetworksx|psychz' .
-        '|scopehosts|s(p?lice|teep)host)/',
+        'mp|uanti(vo|x-uk))|r(ackspace(cloud)?|e(di2|ductivelabs|lia(blehost' .
+        'ing|cloud)|sponsys)|ight(now|scale)|ollbase|omania-webhosting|path)' .
+        '|s(alesforce|avvis|ertifi|kytap|martservercontrol|naplogic|oasta|pr' .
+        'ingcm|tax|treetsmarts|uccessmetrics|wifttrim|ymplified|yncplicity)|' .
+        't(aleo|err[ae]mark|h(eprocessfactory|inkgos|oughtexpress)|rustsaas)' .
+        '|utilitystatus|v(aultscape|ertica|mware|ordel)|web(hosting\.uk|scal' .
+        'esolutions)|x(actlycorp|lhost|ythos)|z(embly|imory|manda|oho|uora))' .
+        '\.com$|(artisticgoals|host(gator|ingprod)|instantdedicated|khavarza' .
+        'min|missiondish|newslettersrus|profninja|se(curityspace|rve(path|rb' .
+        'uddies))|viral-customers)\.com|((\.|kunden)server|clanmoi|fastwebse' .
+        'rver|optimal|server4you)\.de$|your-server\.de|eucalyptus\.cs\.uscb' .
+        '\.edu$|candycloud\.eu$|adsinmedia\.co\.in$|server\.lu$|iam\.net\.ma' .
+        '$|starnet\.md$|(\.(bhsrv|box|propagation|voxel)|1978th|collab|enkic' .
+        'onsulting|host\.caracastelecom)\.net$|re(liablesite|plyingst)\.net|' .
+        'hitech-hosting\.nl|(\.terracotta|beowulf|iboss|memcached|opennebula' .
+        '|xen)\.org$|mor\.ph$|(ogicom|vampire)\.pl$|(cyber-host|slaskdatacen' .
+        'ter)\.pl|rivreg\.ru$|(tkvprok|vympelstroy)\.ru|g\.ho\.st$|(webfusio' .
+        'n|xcalibre)\.co\.uk$|bergdorf-group|cloudsigma|dreamhost|ipxserver|' .
+        'linode|money(mattersnow|tech\.mg)|productsnetworksx|psychz|scopehos' .
+        'ts|s(p?lice|teep)host)/',
     $HN), 'Cloud Service / Server Farm'); // 2017.02.14
 
     $Trigger(empty($CIDRAM['Ignore']['Agava Ltd']) && preg_match('/agava\.net$/', $HN), 'Agava Ltd'); // 2017.02.06 (ASN 43146)
     $Trigger(empty($CIDRAM['Ignore']['AltusHost B.V']) && preg_match('/altushost\.com$/', $HN), 'AltusHost B.V'); // 2017.02.09 (ASN 51430)
+    $Trigger(empty($CIDRAM['Ignore']['Bezeq International']) && preg_match('/bezeqint\.net$/', $HN), 'Bezeq International'); // 2017.02.09 (ASN 8551)
     $Trigger(empty($CIDRAM['Ignore']['Bharti Airtel']) && preg_match('/\.airtelbroadband\.in$/', $HN), 'Bharti Airtel'); // 2017.02.06 (ASNs 9498, 24560, 45514, 45609)
     $Trigger(empty($CIDRAM['Ignore']['ColoCrossing']) && strpos($HN, 'colocrossing.com') !== false, 'ColoCrossing'); // 2017.01.30 (ASN 36352)
     $Trigger(empty($CIDRAM['Ignore']['GorillaServers, Inc']) && strpos($HN, 'gorillaservers') !== false, 'GorillaServers, Inc'); // 2017.02.06 (ASN 53850)
     $Trigger(empty($CIDRAM['Ignore']['Host Europe GmbH']) && strpos($HN, 'hosteurope') !== false, 'Host Europe GmbH'); // 2017.01.30 (numerous ASNs)
     $Trigger(empty($CIDRAM['Ignore']['Kyivstar']) && strpos($HN, 'kyivstar') !== false, 'Kyivstar'); // 2017.01.21 (ASNs 12530, 15895, 35081)
     $Trigger(empty($CIDRAM['Ignore']['Leaseweb']) && strpos($HN, 'leaseweb') !== false, 'Leaseweb'); // 2017.02.06 (numerous ASNs)
+    $Trigger(empty($CIDRAM['Ignore']['QuadraNet, Inc']) && preg_match('/quadranet\.com$/', $HN), 'QuadraNet, Inc'); // 2017.02.14 (ASNs 8100, 29761, 62639)
     $Trigger(empty($CIDRAM['Ignore']['Seznam.cz']) && strpos($HN, 'seznam.cz') !== false, 'Seznam.cz'); // 2017.01.21 (ASNs 43037, 200600)
     $Trigger(empty($CIDRAM['Ignore']['SISTRIX GmbH']) && strpos($HN, 'sistrix') !== false, 'SISTRIX GmbH'); // 2017.01.21 (no ASN)
+    $Trigger(empty($CIDRAM['Ignore']['Versaweb, LLC']) && strpos($HN, 'versaweb') !== false, 'Versaweb, LLC'); // 2017.02.14 (ASN 36114)
     $Trigger(empty($CIDRAM['Ignore']['Voxility LLC']) && strpos($HN, 'voxility.net') !== false, 'Voxility LLC'); // 2017.02.06 (ASN 3223)
     $Trigger(empty($CIDRAM['Ignore']['XEEX']) && strpos($HN, 'xeex') !== false, 'XEEX'); // 2017.01.21 (ASN 27524)
-    $Trigger(empty($CIDRAM['Ignore']['Bezeq International']) && preg_match('/bezeqint\.net$/', $HN), 'Bezeq International'); // 2017.02.09 (ASN 8551)
 
     $Trigger(preg_match(
-        '/(?:(akpackaging|shared-server|jkserv)\.net|(academicedge|aramenet|' .
-        'dailyrazor|dinaserver|ibuzytravel|phishmongers|server306|web(factio' .
-        'n|hostinghub|sitewelcome)|\.siteprotect)\.com|(acetrophies|\.pomser' .
-        've2)\.co\.uk|webhostserver\.biz|\.haremo\.de|webcreators\.nl|rockwe' .
-        'llmuseum\.org|skyware\.pl|(timeweb|vpsnow)\.ru)/',
-    $HN), 'Probe/Scanner'); // 2017.01.21
+        '/(?:(\.above|shared-server|jkserv)\.net$|akpackaging\.net|(academic' .
+        'edge|dailyrazor|ibuzytravel|server306|webfaction|\.siteprotect)\.co' .
+        'm$|(aramenet|dinaserver|phishmongers|web(hostinghub|sitewelcome))\.' .
+        'com|acetrophies\.co\.uk$|\.pomserve2\.co\.uk|webhostserver\.biz$|\.' .
+        'haremo\.de$|webcreators\.nl|rockwellmuseum\.org|skyware\.pl$|vpsnow' .
+        '\.ru$|timeweb\.ru)/',
+    $HN), 'Probe/Scanner'); // 2017.02.14
 
     $Trigger(preg_match(
         '/(?:(\.oroxy|anonine)\.com$|thefreevpn|vpn(999\.com|gate)|public-net)/',
     $HN), 'Risky/Proxy/VPN Host'); // 2017.02.09
 
     $Trigger(preg_match(
-        '/(?:(d(imenoc|umpyourbitch)|hostenko|i(nternetserviceteam|predat(e|' .
-        'or))|webandnetworksolutions|xcelmg)\.com|doctore\.sk|hostnoc\.net|i' .
-        's74\.ru|prohibitivestuff)$/',
-    $HN), 'Dangerous Host'); // 2017.01.30
+        '/(?:(dimenoc|dumpyourbitch|hostenko|internetserviceteam|ipredat(e|o' .
+        'r)|krypt|webandnetworksolutions|xcelmg)\.com|mbox\.kz|chello\.pl|do' .
+        'ctore\.sk|hostnoc\.net|(\.host|ertelecom|is74)\.ru)$/',
+    $HN), 'Dangerous Host'); // 2017.02.14
+
+    $Trigger(preg_match(
+        '/(?:45ru\.net\.au|dedipower|p(rohibitivestuff|wn)|triolan)/',
+    $HN), 'Dangerous Host'); // 2017.02.14
 
     $Trigger(preg_match('/zetta\.net$/', $HN) && !preg_match('/ssg-corp\.zetta\.net$/', $HN), 'Cloud Service / Server Farm'); // 2017.02.14
     $Trigger(preg_match('/veloxzone\.com\.br$/', $HN) && !preg_match('/\.user\.veloxzone\.com\.br$/', $HN), 'Cloud Service / Server Farm'); // 2017.02.14
