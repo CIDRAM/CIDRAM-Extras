@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2017.02.14).
+ * This file: Bad hosts blocker module (last modified: 2017.02.15).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -160,8 +160,10 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
     $Trigger(empty($CIDRAM['Ignore']['ColoCrossing']) && strpos($HN, 'colocrossing.com') !== false, 'ColoCrossing'); // 2017.01.30 (ASN 36352)
     $Trigger(empty($CIDRAM['Ignore']['GorillaServers, Inc']) && strpos($HN, 'gorillaservers') !== false, 'GorillaServers, Inc'); // 2017.02.06 (ASN 53850)
     $Trigger(empty($CIDRAM['Ignore']['Host Europe GmbH']) && strpos($HN, 'hosteurope') !== false, 'Host Europe GmbH'); // 2017.01.30 (numerous ASNs)
+    $Trigger(empty($CIDRAM['Ignore']['HOSTKEY B.V']) && preg_match('/hostkey\.ru$/', $HN), 'HOSTKEY B.V'); // 2017.02.15 (ASN 57043)
     $Trigger(empty($CIDRAM['Ignore']['Kyivstar']) && strpos($HN, 'kyivstar') !== false, 'Kyivstar'); // 2017.01.21 (ASNs 12530, 15895, 35081)
     $Trigger(empty($CIDRAM['Ignore']['Leaseweb']) && strpos($HN, 'leaseweb') !== false, 'Leaseweb'); // 2017.02.06 (numerous ASNs)
+    $Trigger(empty($CIDRAM['Ignore']['Nobis/Ubiquity']) && preg_match('/(?:nobis|ubiquity)/', $HN), 'Nobis/Ubiquity'); // 2017.02.15 (ASN 15003)
     $Trigger(empty($CIDRAM['Ignore']['QuadraNet, Inc']) && preg_match('/quadranet\.com$/', $HN), 'QuadraNet, Inc'); // 2017.02.14 (ASNs 8100, 29761, 62639)
     $Trigger(empty($CIDRAM['Ignore']['Seznam.cz']) && strpos($HN, 'seznam.cz') !== false, 'Seznam.cz'); // 2017.01.21 (ASNs 43037, 200600)
     $Trigger(empty($CIDRAM['Ignore']['SISTRIX GmbH']) && strpos($HN, 'sistrix') !== false, 'SISTRIX GmbH'); // 2017.01.21 (no ASN)
@@ -187,6 +189,10 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
         'r)|krypt|webandnetworksolutions|xcelmg)\.com|mbox\.kz|chello\.pl|do' .
         'ctore\.sk|hostnoc\.net|(\.host|ertelecom|is74)\.ru)$/',
     $HN), 'Dangerous Host'); // 2017.02.14
+
+    $Trigger(preg_match(
+        '/(?:(iweb|privatedns)\.com$|iweb\.ca$|^(www\.)?iweb)/',
+    $HN), 'Domain Snipers'); // 2017.02.15
 
     $Trigger(preg_match(
         '/(?:45ru\.net\.au|dedipower|p(rohibitivestuff|wn)|triolan)/',
