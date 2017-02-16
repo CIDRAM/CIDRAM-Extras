@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2017.02.15).
+ * This file: Bad hosts blocker module (last modified: 2017.02.16).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -62,13 +62,16 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
     $Trigger(preg_match('/(?:captch|dbcapi\.me)/', $HN), 'CAPTCHA cracker host'); // 2017.01.21
 
     $Trigger(preg_match(
-        '/(?:(barefruit|colo\.iinet|detangled|kimsufi|lightspeedsystems|netc' .
-        'omber|page-store|technicolor|\.(giga-dns|oodle|pointandchange|solid' .
-        'seo(dedicated|vps)|vadino))\.com$|poneytelecom\.eu$|buyurl\.net$|se' .
-        'omoz\.org$|itrack\.ru$|(2kom|solomono)\.ru|awcheck|b(oardreader|rea' .
-        'kingtopics|uysellsales)|c(eptro|heapseovps|yber-uslugi)|jackwellsmu' .
-        'sic|s(mileweb\.com\.ua|quider|tartdedicated\.)|(exa|we|youdao)bot)/',
-    $HN), 'SEO/Bothost/Scraper/Spamhost'); // 2017.01.31
+        '/(?:(qvt|telsp)\.net\.br$|(\.(giga-dns|oodle|pointandchange|solidse' .
+        'o(dedicated|vps)?|topsy|vadino)|barefruit|colo\.iinet|detangled|kim' .
+        'sufi|lightspeedsystems|netcomber|page-store|setooz|technicolor)\.co' .
+        'm$|poneytelecom\.eu$|\.cnr\.it$|kiyosho\.jp$|(\.pldt|buyurl|isnet|m' .
+        'fnx)\.net$|seomoz\.org$|\.rdsnet\.ro$|(itrack|rulinki)\.ru$|(2kom|s' .
+        'olomono)\.ru|\.v4\.ngi\.it|awcheck|b(oardreader|reakingtopics|uysel' .
+        'lsales)|c(eptro|heapseovps|yber-uslugi)|jackwellsmusic|s(emalt|mile' .
+        'web\.com\.ua|quider|tartdedicated\.)|(exa|fulltextro|we|you?dao)bot' .
+        ')/',
+    $HN), 'SEO/Bothost/Scraper/Spamhost'); // 2017.02.16
 
     $Trigger(preg_match(
         '/(?:prking\.com\.au$|(23gb|35up|accelovation|bestprice|mantraonline' .
@@ -83,6 +86,8 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
     $HN), 'Spamhost', '', $InstaBan); // 2017.01.21
 
     $Trigger(preg_match('/(?:cjh-law\.com$)/', $HN), 'Phisher / Phishing Host'); // 2017.02.14
+
+    $Trigger(preg_match('/(?:exatt\.net$|unpef\.org$)/', $HN), 'Pornobot/Pornhost'); // 2017.02.16
 
     $Trigger(preg_match(
         '/(?:^(damage|moon|test)\.|anahaqq|core\.youtu\.me|hosted-(by|in)|no' .
@@ -100,7 +105,7 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
     $HN), 'Hostile/esonicspider'); // 2017.02.06
 
     $Trigger(preg_match(
-        '/(?:ideastack\.com$|megacom\.biz$|controlyourself\.online|seeweb\.it)/',
+        '/(?:megacom\.biz$|ideastack\.com$|dotnetdotcom\.org$|controlyourself\.online|seeweb\.it)/',
     $HN), 'Hostile/Unauthorised'); // 2017.02.14
 
     $Trigger(preg_match(
@@ -235,6 +240,12 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
             strpos($CIDRAM['BlockInfo']['UA'], 'like Chrome/') !== false
         )
     ), 'Amazon Web Services'); // 2017.02.14
+
+    $Trigger((
+        empty($CIDRAM['Ignore']['OVH Systems']) &&
+        preg_match('/ovh\.net$/', $HN) &&
+        strpos($UANoSpace, 'paperlibot') === false
+    ), 'OVH Systems'); // 2017.02.16
 
     $Trigger(preg_match('/\.local$/', $HN), 'Spoofed/Fake Hostname'); // 2017.02.06
 
