@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2017.02.16).
+ * This file: Bad hosts blocker module (last modified: 2017.02.17).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -22,6 +22,9 @@ if (!defined('CIDRAM')) {
 
 /** Inherit trigger closure (see functions.php). */
 $Trigger = $CIDRAM['Trigger'];
+
+/** Inherit trigger closure (see functions.php). */
+$Bypass = $CIDRAM['Bypass'];
 
 /** Options for instantly banning (sets tracking time to 1 year and infraction count to 1000). */
 $InstaBan = array('Options' => array('TrackTime' => 31536000, 'TrackCount' => 1000));
@@ -250,3 +253,10 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
     $Trigger(preg_match('/\.local$/', $HN), 'Spoofed/Fake Hostname'); // 2017.02.06
 
 }
+
+/** WordPress cronjob bypass. */
+$Bypass(
+    (($CIDRAM['BlockInfo']['SignatureCount'] - $Infractions) > 0) &&
+    preg_match('~//wp-cron\.php\?doing_wp_cron=[0-9]+\.[0-9]+$~', $_SERVER['REQUEST_URI']) &&
+    defined('DOING_CRON'),
+'WordPress cronjob bypass');
