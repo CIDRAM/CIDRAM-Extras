@@ -50,6 +50,6 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
 /** WordPress cronjob bypass. */
 $Bypass(
     (($CIDRAM['BlockInfo']['SignatureCount'] - $Infractions) > 0) &&
-    preg_match('~//wp-cron\.php\?doing_wp_cron=[0-9]+\.[0-9]+$~', $_SERVER['REQUEST_URI']) &&
+    preg_match('~^/wp-cron\.php\?doing_wp_cron=[0-9]+\.[0-9]+$~', $_SERVER['REQUEST_URI']) &&
     defined('DOING_CRON'),
 'WordPress cronjob bypass');

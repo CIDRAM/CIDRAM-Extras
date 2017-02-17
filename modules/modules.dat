@@ -227,7 +227,7 @@ module_badhosts.php:
   To:
    - module_badhosts.php
   Checksum:
-   - 3c66f87924dc9f6db7fcc6ab144c97ad:15203
+   - 31a619859ab9f0fbd23e8469066f9536:15203
  Reannotate: modules.dat
 module_badhosts_isps.php:
  Name:
@@ -273,6 +273,6 @@ module_badhosts_isps.php:
   To:
    - module_badhosts_isps.php
   Checksum:
-   - b6cd40595aa5f72e29605902dbb9f4e3:1926
+   - 29ce2a5b1064a3e7983d3758ace293fe:1926
  Reannotate: modules.dat
 
