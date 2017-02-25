@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2017.02.17).
+ * This file: Bad hosts blocker module (last modified: 2017.02.25).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -250,6 +250,9 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
         strpos($UANoSpace, 'paperlibot') === false
     ), 'OVH Systems'); // 2017.02.16
 
+    $Trigger(preg_match('/^localhost$/', $HN) && (
+        !preg_match('/^(?:1(27|92\.168)(\.1?[0-9]{1,2}|\.2[0-4][0-9]|\.25[0-5]){2,3}|\:\:1)$/', $CIDRAM['BlockInfo']['IPAddr'])
+    ), 'Spoofed/Fake Hostname', '', $InstaBan); // 2017.02.25
     $Trigger(preg_match('/\.local$/', $HN), 'Spoofed/Fake Hostname'); // 2017.02.06
 
 }

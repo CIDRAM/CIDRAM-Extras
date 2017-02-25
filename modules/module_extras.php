@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2017.02.14).
+ * This file: Optional security extras module (last modified: 2017.02.25).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -94,7 +94,9 @@ if (!empty($_SERVER['QUERY_STRING'])) {
     $Trigger(strpos($QueryNoSpace, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Shell upload attempt'); // 2017.01.02
 
     $Trigger(preg_match('/%(?:20\'|25[01u]|[46]1%[46]e%[46]4)/', $_SERVER['QUERY_STRING']), 'Hack attempt'); // 2017.01.05
+    $Trigger(preg_match('/&arrs[12]\[\]=/', $QueryNoSpace), 'Hack attempt'); // 2017.02.25
     $Trigger(preg_match('/p(?:ath|ull)\[?\]/', $QueryNoSpace), 'Hack attempt'); // 2017.01.06
+    $Trigger(preg_match('/user_login,\w{4},user_(?:pass|email|activation_key)/', $QueryNoSpace), 'WP hack attempt'); // 2017.02.18
     $Trigger(preg_match('/\'%2[05]/', $_SERVER['QUERY_STRING']), 'Hack attempt'); // 2017.01.05
     $Trigger(preg_match('/\|(?:include|require)/', $QueryNoSpace), 'Hack attempt'); // 2017.01.01
     $Trigger(strpos($Query, 'rm ' . '-rf') !== false, 'Hack attempt', '', $InstaBan); // 2017.01.02
@@ -102,6 +104,10 @@ if (!empty($_SERVER['QUERY_STRING'])) {
     $Trigger(strpos($QueryNoSpace, '.php/login.php') !== false, 'Hack attempt'); // 2017.01.05
     $Trigger(strpos($QueryNoSpace, '1http:') !== false, 'Hack attempt'); // 2017.01.01
     $Trigger(strpos($QueryNoSpace, ';c' . 'hmod7' . '77') !== false, 'Hack attempt', '', $InstaBan); // 2017.01.05
+    $Trigger(strpos($QueryNoSpace, 'id=\'') !== false, 'Hack attempt'); // 2017.02.18
+    $Trigger(strpos($QueryNoSpace, 'name=lobex21.php') !== false, 'Hack attempt'); // 2017.02.18
+    $Trigger(strpos($QueryNoSpace, 'php://') !== false, 'Hack attempt'); // 2017.02.18
+    $Trigger(strpos($QueryNoSpace, 'tmunblock.cgi') !== false, 'Hack attempt'); // 2017.02.18
     $Trigger(strpos($_SERVER['QUERY_STRING'], '=-1%27') !== false, 'Hack attempt'); // 2017.01.05
     $Trigger(substr($QueryNoSpace, 0, 1) === ';', 'Hack attempt'); // 2017.01.05
 
@@ -116,7 +122,9 @@ if (!empty($_SERVER['QUERY_STRING'])) {
     $Trigger(strpos($QueryNoSpace, 'safe_mode=off') !== false, 'Plesk hack'); // 2017.01.05
     $Trigger(strpos($QueryNoSpace, 'suhosin.simulation=on') !== false, 'Plesk hack'); // 2017.01.05
 
+    $Trigger(preg_match('/dg[cd]=1/', $QueryNoSpace), 'Probe attempt'); // 2017.02.25
     $Trigger(preg_match('/pag(?:e|ina)=-/', $QueryNoSpace), 'Probe attempt'); // 2017.01.08
+    $Trigger(preg_match('~/r[ks]=~', $QueryNoSpace), 'Probe attempt'); // 2017.02.25
     $Trigger(substr($QueryNoSpace, 0, 1) === '-', 'Probe attempt'); // 2017.01.05
 
     $Trigger(preg_match(
@@ -127,10 +135,21 @@ if (!empty($_SERVER['QUERY_STRING'])) {
     $Trigger(strpos($QueryNoSpace, '+result:') !== false, 'Spam attempt'); // 2017.01.08
     $Trigger(strpos($QueryNoSpace, 'result:+\\') !== false, 'Spam attempt'); // 2017.01.08
 
-    $Trigger(strpos($_SERVER['QUERY_STRING'], '++++') !== false, 'Overflow attempt'); // 2017.01.05
+    $Trigger(preg_match('/(?:["\'];|[;=]\|)/', $QueryNoSpace), 'Execution attempt'); // 2017.01.13
+    $Trigger(preg_match('/[\'"`]sysadmin[\'"`]/', $QueryNoSpace), 'Generic attack attempt'); // 2017.02.25
     $Trigger(preg_match('/[\'"`]\+[\'"`]/', $QueryNoSpace), 'XSS attack'); // 2017.01.03
     $Trigger(preg_match('/[\'"`]|[\'"`]/', $QueryNoSpace), 'Pipe detected'); // 2017.01.08
-    $Trigger(preg_match('/(?:["\'];|[;=]\|)/', $QueryNoSpace), 'Execution attempt'); // 2017.01.13
+    $Trigger(strpos($QueryNoSpace, 'num_replies=77777') !== false, 'Overflow attempt'); // 2017.02.25
+    $Trigger(strpos($_SERVER['QUERY_STRING'], '++++') !== false, 'Overflow attempt'); // 2017.01.05
+    $Trigger(strpos($_SERVER['QUERY_STRING'], '->') !== false, 'Generic attack attempt'); // 2017.02.25
+
+    $Trigger(strpos($QueryNoSpace, 'src=http:') !== false, 'RFI'); // 2017.02.18
+    $Trigger(strpos($QueryNoSpace, 'path]=') !== false, 'Path hack'); // 2017.02.18
+
+    $Trigger(strpos($QueryNoSpace, 'e9xmkgg5h6') !== false, 'Query error'); // 2017.02.18
+    $Trigger(strpos($QueryNoSpace, '5889d40edd5da7597dfc6d1357d98696') !== false, 'Query error'); // 2017.02.18
+
+    $Trigger(preg_match('/(?:keywords|query|searchword|terms)=%d8%b3%d9%83%d8%b3/', $QueryNoSpace), 'Unauthorised'); // 2017.02.18
 
     $Trigger(count($_REQUEST) >= 500, 'Hack attempt', 'Too many request variables sent!'); // 2017.01.01
 
@@ -198,22 +217,23 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
         '/(?:cha0s|f(hscan|uck)|jdatabasedrivermysqli|morfeus|urldumper|xmlset_roodkcable|zollard)/',
     $UANoSpace), 'Hack UA', '', $InstaBan); // 2017.02.03
 
+    $Trigger(strpos($UA, 'select ') !== false, 'UASQLi'); // 2017.02.25
+
     $Trigger(strpos($UANoSpace, 'captch') !== false, 'CAPTCHA cracker UA'); // 2017.01.08
 
-    $Trigger(preg_match('/(?:(aihit|casper)bot|mamac(asper|yber))/', $UANoSpace), 'Probe UA', '', $InstaBan); // 2017.01.06
+    $Trigger(preg_match('~(?:(aihit|casper)bot|mamac(asper|yber)|mozilla/0)~', $UANoSpace), 'Probe UA', '', $InstaBan); // 2017.02.25
 
     $Trigger(preg_match(
-        '/(?:^b55|-agent-|auto_?http|bigbrother|cybeye|d((iavol|ragoste)a|ow' .
+        '~(?:^b55|-agent-|auto_?http|bigbrother|cybeye|d((iavol|ragoste)a|ow' .
         'nloaddemon)|e(ak01ag9|catch)|i(chiro|ndylibrary|ntelium)|k(angen|mc' .
-        'crew)|libwww-pavuk|m(o(get|zillaxyz)|sie6\.0.*deepnet)|net(ants|com' .
-        'ber)|p(atchone|aros|entru|lanetwork|robethenet)|riddler|s(asqia|led' .
-        'ink|noopy|tingbot)|toata|updown_tester|w(hitehataviator|orio)|xirio' .
-        '|you?dao|zmeu)/',
-    $UANoSpace), 'Probe UA'); // 2017.02.02
+        'crew)|libwww-pavuk|m(o(get|zillaxyz)|sie6\.0.*deepnet)|n(et(ants|co' .
+        'mber)|s8/0\.9\.6)|p(atchone|aros|entru|lanetwork|robe)|riddler|s(as' .
+        'qia|ledink|noopy|tingbot)|toata|updown_tester|w(hitehataviator|orio' .
+        ')|xirio|you?dao|zmeu)~',
+    $UANoSpace), 'Probe UA'); // 2017.02.25
 
-    $Trigger(preg_match(
-        '/(?: obot|ie 5\.5 compatible browser)/',
-    $UA), 'Probe UA'); // 2017.02.02
+    $Trigger(preg_match('/(?: obot|ie 5\.5 compatible browser)/', $UA), 'Probe UA'); // 2017.02.02
+    $Trigger(preg_match('~(?:p(hoton/|ogs/2\.0))~', $UANoSpace), 'Probe UA'); // 2017.02.25
 
     $Trigger(strpos($UANoSpace, 'wopbot') !== false, 'Bash/Shellshock UA', '', $InstaBan); // 2017.01.06
 
@@ -256,8 +276,8 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $Trigger(preg_match('/%(?:[01][0-9a-f]|2[257]|3[ce]|[57][bd]|[7f]f)/', $UANoSpace), 'Bad UA'); // 2017.01.06
 
     $Trigger(preg_match(
-        '/(?:re-?animator|webster)/',
-    $UANoSpace), 'Banned UA', '', $InstaBan); // 2017.02.02
+        '/(?:loadimpact|re-?animator|root|webster)/',
+    $UANoSpace), 'Banned UA', '', $InstaBan); // 2017.02.25
 
     $Trigger(preg_match('/test\'?$/', $UANoSpace), 'Banned UA'); // 2017.02.02
     $Trigger(preg_match('/^(?:\'?test|-|default|foo)/', $UANoSpace), 'Banned UA'); // 2017.02.02
@@ -266,12 +286,19 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $Trigger(strpos($UANoSpace, '(somename)') !== false, 'Banned UA', '', $InstaBan); // 2017.02.02
 
     $Trigger(preg_match(
-        '/(?:3mir|a(dmantx|lphaserver|thens|ttache)|blogsnowbot|collect|d(at' .
-        'acha|igout4uagent|sarobot)|exabot|f(astlwspider|indlinks|loodgate)|' .
-        'irgrabber|m(agnet|(ajestic|j)12|fibot)|nutch|p(ackrat|cbrowser|surf' .
-        ')|r(eaper|sync)|s(alad|hai|[iy]phon|upport\.wordpress\.com)|t(akeou' .
-        't|weetmeme)|user-agent|visaduhoc|wolf)/',
-    $UANoSpace), 'Banned UA'); // 2017.02.03
+        '/(?:_sitemapper|3mir|a(boundex|dmantx|dnormcrawler|dvbot|lphaserver' .
+        '|thens|ttache)|bl(ekko|ogsnowbot)|c(mscrawler|o(ccoc|llect|modo-web' .
+        'inspector-crawler|mpspy)|rawler4j)|d(atacha|igout4uagent|ioscout|ki' .
+        'mrepbot|sarobot)|e(asou|xabot)|f(astenterprisecrawler|astlwspider|i' .
+        'nd?bot|indlinks|loodgate|r[_-]?crawler)|grapeshot|h(rcrawler|ubspot' .
+        ')|i(mrbot|ntegromedb|p-?web-?crawler|rcsearch|rgrabber)|jadynavebot' .
+        '|komodiabot|lin(guee|kpad)|m((ajestic|j)12|agnet|eanpath|entormate|' .
+        'fibot|ignify)|nutch|omgilibot|p(ackrat|cbrowser|lukkie|surf)|r(eape' .
+        'r|sync)|s(aidwot|alad|crapy|cspider|ees\.co|hai|iteexplorer|[iy]pho' .
+        'n|truct\.it|upport\.wordpress\.com)|t(akeout|asapspider|weetmeme)|u' .
+        'ser-agent|v(isaduhoc|onchimpenfurlr)|w(ebtarantula|olf)|y(acy|isous' .
+        'pider|[ry]spider|un(rang|yun)))/',
+    $UANoSpace), 'Banned UA'); // 2017.02.25
 
     $Trigger(preg_match('/(?:80legs|chinaclaw)/', $UANoSpace), 'Scraper UA', '', $InstaBan); // 2017.01.08
     $Trigger(preg_match('/^(?:abot|spider)/', $UANoSpace), 'Scraper UA'); // 2017.01.07
@@ -328,32 +355,48 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $UANoSpace), 'SEO UA'); // 2017.02.02
 
     $Trigger(preg_match(
-        '/(?:a(bonti|ccserver|cme.spider|nyevent-http|ppengine)|b(igbozz|lac' .
+        '~(?:a(bonti|ccserver|cme.spider|nyevent-http|ppengine)|b(igbozz|lac' .
         'kbird|logsearch|logbot|salsa)|c(atexplorador|liqzbot|ontextad|orpor' .
-        'ama|rowsnest|yberpatrol)|d(le_spider|omainappender|umprendertree)|f' .
-        'lightdeckreportsbot|g(imme60|ooglebenjojo)|http-agent|isitwp|k(2spi' .
-        'der|emvi)|lexxebot|joc|livelapbot|m(acinroyprivacyauditors|asscan|e' .
-        'taintelligence)|n(ettrapport|mapscriptingengine|rsbot)|p(4bot|4load' .
-        '|acrawler|ageglimpse|egasusmonitoring|hpcrawl|ingdom|rlog)|r(arelyu' .
-        'sed|obo(cop|spider))|s(creener|itedomain|mut|nap(preview)?bot|oapcl' .
-        'ient|ocialayer|pyglass|quider)|urlappendbot|w(asalive|atchmouse|eb(' .
-        '-monitoring|masteraid|money|thumbnail)|hatweb|ikiapiary|in(http|ine' .
-        't)|maid\.com|sr-agent|wwtype)|xenu|xovi|yeti|zibber|zurichfinancial' .
-        'services)/',
-    $UANoSpace), 'Unauthorised'); // 2017.02.14
+        'ama|rowsnest|yberpatrol)|d(bot/|le_spider|omainappender|umprendertr' .
+        'ee)|flightdeckreportsbot|g(imme60|ooglebenjojo)|http-?(agent|client' .
+        ')|i(ps-agent|sitwp)|k(2spider|emvi)|l(exxebot|ivelapbot|wp)|m(acinr' .
+        'oyprivacyauditors|asscan|etaintelligence)|n(aver|ettrapport|icebot|' .
+        'mapscriptingengine|rsbot)|p(4bot|4load|acrawler|ageglimpse|arsijoo|' .
+        'egasusmonitoring|hantomjs|hpcrawl|ingdom|rlog)|r(arelyused|obo(cop|' .
+        'spider)|yze)|s(creener|itedomain|mut|nap(preview)?bot|oapclient|oci' .
+        'al(ayer|searcher)|ogou|ohuagent|oso|pyglass|quider|ynapse)|urlappen' .
+        'dbot|w(asalive|atchmouse|eb(-monitoring|bot|masteraid|money|thumbna' .
+        'il)|hatweb|ikiapiary|in(http|inet)|maid\.com|sr-agent|wwtype)|xenu|' .
+        'xovi|yeti|zibber|zurichfinancialservices|^m$)~',
+    $UANoSpace), 'Unauthorised'); // 2017.02.25
 
     $Trigger(preg_match(
         '/(?:^(bot|java|msie|windows-live-social-object-extractor)|\((java|[' .
         'a-z]\:[0-9]{2,}))/',
     $UANoSpace), 'Unauthorised'); // 2017.02.03
 
+    $Trigger(preg_match('~(?:[^a-z]|^)(?:cu|pe)rl(?:[^a-z]|$)~', $UANoSpace), 'Unauthorised'); // 2017.02.25
+
     $Trigger(preg_match(
         '/(?:^(go 1)|m(ovable type|msie 999\.1))/',
     $UA), 'Unauthorised'); // 2017.02.03
 
-    $Trigger(preg_match(
-        '/(?:internet explorer)/',
-    $UA), 'Fake IE'); // 2017.02.03
+    $Trigger(preg_match('/(?:internet explorer)/', $UA), 'Hostile / Fake IE'); // 2017.02.03
+    $Trigger(preg_match('/(?:MSIECrawler)/', $CIDRAM['BlockInfo']['UA']), 'Hostile / Fake IE', '', $InstaBan); // 2017.02.25
+
+    $Trigger(preg_match('~opera/[0-8]\.~', $UA), 'Bot UA'); // 2017.02.25
+    $Trigger(strpos($UA, 'http://www.mozilla/') !== false, 'Abusive UA'); // 2017.02.25
+    $Trigger(strpos($UA, 'movabletype/3.3') !== false, 'Bot UA'); // 2017.02.25
+    $Trigger(strpos($UA, 'mozilla 4.0') !== false, 'Bot UA'); // 2017.02.25
+    $Trigger(strpos($UA, 'mozilla/0.') !== false, 'Bot UA'); // 2017.02.25
+    $Trigger(strpos($UA, 'mozilla/1.') !== false, 'Bot UA'); // 2017.02.25
+    $Trigger(strpos($UA, 'mozilla/2.0 (compatible; ask/teoma)') !== false, 'Bot UA'); // 2017.02.25
+    $Trigger(strpos($UA, 'mozilla/3.0 (compatible;)') !== false, 'Bot UA'); // 2017.02.25
+    $Trigger(strpos($UA, 'mozilla/4.0 (compatible; ics 1.2.105)') !== false, 'Bot UA'); // 2017.02.25
+    $Trigger(strpos($UA, 'mozilla/4.0 (compatible; msie 6.0; windows xp)') !== false, 'Bad UA'); // 2017.02.25
+    $Trigger(strpos($UA, 'mozilla/4.0+(compatible;+') !== false, 'Bot UA'); // 2017.02.25
+    $Trigger(strpos($UA, 'mozilla/4.76 [ru] (x11; U; sunos 5.7 sun4u)') !== false, 'Bot UA'); // 2017.02.25
+    $Trigger(strpos($UA, 'php /') !== false, 'Bot UA'); // 2017.02.25
 
     $Trigger(preg_match(
         '/(?:drop ?table|(_table|assert|co(de|ntents)|dotnet_load|e(cho|regi' .
@@ -363,6 +406,8 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $UA), 'UAEX'); // 2017.02.02
 
     $Trigger(preg_match("\x01" . '(?:[./]seo|seo/)' . "\x01", $UANoSpace), 'SEO UA'); // 2017.01.08
+
+    $Trigger(strpos($UA, 'bittorrent') !== false, 'Bad context (not a bittorrent hub)'); // 2017.02.25
 
     $Trigger(empty($CIDRAM['Ignore']['Seznam.cz']) && strpos($UANoSpace, 'seznambot') !== false, 'Seznam.cz'); // 2017.02.02 (ASNs 43037, 200600)
 
