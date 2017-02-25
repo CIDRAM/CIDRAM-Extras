@@ -255,6 +255,8 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
     ), 'Spoofed/Fake Hostname', '', $InstaBan); // 2017.02.25
     $Trigger(preg_match('/\.local$/', $HN), 'Spoofed/Fake Hostname'); // 2017.02.06
 
+    $Trigger($HN === '.', 'DNS error', '', $InstaBan); // 2017.02.25
+
 }
 
 /** WordPress cronjob bypass. */

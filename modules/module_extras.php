@@ -71,6 +71,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
     $Trigger(preg_match('/%(?:0[0-8bcef]|1)/i', $_SERVER['QUERY_STRING']), 'Non-printable characters in query'); // 2016.12.31
 
     $Trigger(preg_match('/(?:amp(;|%3b)){2,}/', $QueryNoSpace), 'Nesting attack'); // 2016.12.31
+    $Trigger(preg_match('/\?(?:&|cmd=)/', $QueryNoSpace), 'Nesting attack'); // 2017.02.25
 
     $Trigger((
         strpos($CIDRAM['BlockInfo']['rURI'], '/ucp.php?mode=login') === false &&
@@ -111,6 +112,10 @@ if (!empty($_SERVER['QUERY_STRING'])) {
     $Trigger(strpos($_SERVER['QUERY_STRING'], '=-1%27') !== false, 'Hack attempt'); // 2017.01.05
     $Trigger(substr($QueryNoSpace, 0, 1) === ';', 'Hack attempt'); // 2017.01.05
 
+    $Trigger(preg_match(
+        '~(?:(/%e2%80%a6x|shrift)\.php|/get?(fwversion|mac))~',
+    strtolower($CIDRAM['BlockInfo']['rURI'])), 'Hack attempt', '', $InstaBan); // 2017.02.25
+
     $Trigger(substr($QueryNoSpace, 0, 2) === '()', 'Bash/Shellshock', '', $InstaBan); // 2017.01.05
 
     $Trigger(strpos($QueryNoSpace, 'allow_url_include=on') !== false, 'Plesk hack'); // 2017.01.05
@@ -122,10 +127,8 @@ if (!empty($_SERVER['QUERY_STRING'])) {
     $Trigger(strpos($QueryNoSpace, 'safe_mode=off') !== false, 'Plesk hack'); // 2017.01.05
     $Trigger(strpos($QueryNoSpace, 'suhosin.simulation=on') !== false, 'Plesk hack'); // 2017.01.05
 
-    $Trigger(preg_match('/dg[cd]=1/', $QueryNoSpace), 'Probe attempt'); // 2017.02.25
-    $Trigger(preg_match('/pag(?:e|ina)=-/', $QueryNoSpace), 'Probe attempt'); // 2017.01.08
-    $Trigger(preg_match('~/r[ks]=~', $QueryNoSpace), 'Probe attempt'); // 2017.02.25
-    $Trigger(substr($QueryNoSpace, 0, 1) === '-', 'Probe attempt'); // 2017.01.05
+    $Trigger(preg_match('~(?:^-|/r[ks]=|dg[cd]=1|pag(?:e|ina)=-)~', $QueryNoSpace), 'Probe attempt'); // 2017.02.25
+    $Trigger(strpos($QueryNoSpace, '0x31303235343830303536') !== false, 'Probe attempt', '', $InstaBan); // 2017.02.25
 
     $Trigger(preg_match(
         '/\[(?:[alrw]\]|classes|file|itemid|l(astrss_ap_enabled|oadfile|ocal' .
@@ -151,7 +154,13 @@ if (!empty($_SERVER['QUERY_STRING'])) {
 
     $Trigger(preg_match('/(?:keywords|query|searchword|terms)=%d8%b3%d9%83%d8%b3/', $QueryNoSpace), 'Unauthorised'); // 2017.02.18
 
+    $Trigger(strpos($_SERVER['QUERY_STRING'], '??') !== false, 'Bad query'); // 2017.02.25
+    $Trigger(strpos($_SERVER['QUERY_STRING'], ',0x') !== false, 'Bad query'); // 2017.02.25
+    $Trigger(strpos($_SERVER['QUERY_STRING'], ',\'\',') !== false, 'Bad query'); // 2017.02.25
+
     $Trigger(count($_REQUEST) >= 500, 'Hack attempt', 'Too many request variables sent!'); // 2017.01.01
+
+    $Trigger(preg_match('/(?:(modez|osc|tasya)=|=((bot|scanner|shell)z|psybnc))/', $QueryNoSpace), 'Common shell/bot command', '', $InstaBan); // 2017.02.25
 
 }
 
@@ -214,8 +223,8 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $Trigger(strpos($UANoSpace, '}__') !== false, 'Hack UA', '', $InstaBan); // 2017.01.02
 
     $Trigger(preg_match(
-        '/(?:cha0s|f(hscan|uck)|jdatabasedrivermysqli|morfeus|urldumper|xmlset_roodkcable|zollard)/',
-    $UANoSpace), 'Hack UA', '', $InstaBan); // 2017.02.03
+        '/(?:cha0s|f(hscan|uck)|havij|jdatabasedrivermysqli|morfeus|urldumper|xmlset_roodkcable|zollard)/',
+    $UANoSpace), 'Hack UA', '', $InstaBan); // 2017.02.25
 
     $Trigger(strpos($UA, 'select ') !== false, 'UASQLi'); // 2017.02.25
 

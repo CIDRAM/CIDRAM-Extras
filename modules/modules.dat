@@ -78,7 +78,7 @@ module_extras.php:
   vi: Cung cấp một số bảo vệ hạn chế chống vectơ tấn công khác nhau thường được sử dụng trong các yêu cầu.<br /><em>Được sử dụng với: <code>signatures-&gt;modules</code>.</em>
   zh: 提供一些有限的保护针对各种攻击向量常用于请求。<br /><em>使用： <code>signatures-&gt;modules</code>.</em>
   zh-tw: 提供一些有限的保護針對各種攻擊向量常用於請求。<br /><em>使用： <code>signatures-&gt;modules</code>.</em>
- Version: 2017.02.25
+ Version: 2017.02.26
  Minimum Required: 0.7.0-DEV
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/modules/modules.dat
@@ -89,7 +89,7 @@ module_extras.php:
   To:
    - module_extras.php
   Checksum:
-   - ad4f3bde6251f94fdbf4ba2f7c937db7:25149
+   - 75ccfa5576a8dd23acede1af9dcb5663:25756
  Reannotate: modules.dat
 module_baidublocker.php:
  Name:
@@ -216,7 +216,7 @@ module_badhosts.php:
   vi: <em>Được sử dụng với: <code>signatures-&gt;modules</code>.</em>
   zh: <em>使用： <code>signatures-&gt;modules</code>.</em>
   zh-tw: <em>使用： <code>signatures-&gt;modules</code>.</em>
- Version: 2017.02.25
+ Version: 2017.02.26
  Minimum Required: 0.7.0-DEV
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/modules/modules.dat
@@ -227,7 +227,7 @@ module_badhosts.php:
   To:
    - module_badhosts.php
   Checksum:
-   - 1499a5358ede34aa4ac8becd289b4db4:15444
+   - 28ec6ef13ee4236fd83f9fc712b95cdf:15514
  Reannotate: modules.dat
 module_badhosts_isps.php:
  Name:
