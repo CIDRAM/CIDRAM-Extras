@@ -455,7 +455,7 @@ if ($RawInput) {
         'name|method(call|name)|params?|value>)~i',
     $RawInputSafe), 'POST RFI'); // 2017.03.01
 
-    $Trigger(preg_match('~(?:=\[\\\\|%5C\]|\(\)|=%5Bphp%5D|=[php]|\\\\\]|=\[\\\\|%5C\]|=\[%5C|`)~i', $RawInput), 'POST BBCESC/BBCEX/EX'); // 2017.03.01
+    $Trigger(preg_match('~(?:=\[\\\\|%5C\]|\(\)|=%5Bphp%5D|=\[php\]|\\\\\]|=\[%5C|`)~i', $RawInput), 'POST BBCESC/BBCEX/EX'); // 2017.03.01
     $Trigger(preg_match('~/â\\x80¦x\.php~i', $RawInput), 'Probe attempt', '', $InstaBan); // 2017.03.01
     $Trigger(preg_match('~\([\'"](?:zwnobyai|awyoznvu)~', $RawInputSafe), 'Injection attempt', '', $InstaBan); // 2017.03.01
     $Trigger(preg_match('~^/\?-~', $RawInput), 'Hack attempt', '', $InstaBan); // 2017.03.01
