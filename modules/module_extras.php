@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2017.02.25).
+ * This file: Optional security extras module (last modified: 2017.03.01).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -92,7 +92,8 @@ if (!empty($_SERVER['QUERY_STRING'])) {
     $Trigger(substr($_SERVER['QUERY_STRING'], -4) === '%000', 'Null truncation attempt'); // 2016.12.31
     $Trigger(substr($_SERVER['QUERY_STRING'], -5) === '%0000', 'Null truncation attempt'); // 2016.12.31
 
-    $Trigger(strpos($QueryNoSpace, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Shell upload attempt'); // 2017.01.02
+    $Trigger(strpos($QueryNoSpace, '$_' . '[$' . '__') !== false, 'Shell upload attempt', '', $InstaBan); // 2017.03.01
+    $Trigger(strpos($QueryNoSpace, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Shell upload attempt', '', $InstaBan); // 2017.03.01
 
     $Trigger(preg_match('/%(?:20\'|25[01u]|[46]1%[46]e%[46]4)/', $_SERVER['QUERY_STRING']), 'Hack attempt'); // 2017.01.05
     $Trigger(preg_match('/&arrs[12]\[\]=/', $QueryNoSpace), 'Hack attempt'); // 2017.02.25
@@ -157,6 +158,15 @@ if (!empty($_SERVER['QUERY_STRING'])) {
     $Trigger(strpos($_SERVER['QUERY_STRING'], '??') !== false, 'Bad query'); // 2017.02.25
     $Trigger(strpos($_SERVER['QUERY_STRING'], ',0x') !== false, 'Bad query'); // 2017.02.25
     $Trigger(strpos($_SERVER['QUERY_STRING'], ',\'\',') !== false, 'Bad query'); // 2017.02.25
+
+    $Trigger(preg_match('/id=.*(?:benchmark\(|id[xy]=|sleep\()/', $QueryNoSpace), 'SQLi'); // 2017.03.01
+    $Trigger(preg_match(
+        '/(?:(from|union|where).*select|then.*else|(o[nr]|where).*is null|(i' .
+        'nner|left|outer|right) join)/',
+    $QueryNoSpace), 'SQLi'); // 2017.03.01
+
+    /** This signature under probation. May be removed upon any reports of false positives. */
+    $Trigger(preg_match('~\?author=\d+~i', $CIDRAM['BlockInfo']['rURI']), 'Phishing for WordPress username'); // 2017.03.01
 
     $Trigger(count($_REQUEST) >= 500, 'Hack attempt', 'Too many request variables sent!'); // 2017.01.01
 
@@ -419,5 +429,52 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $Trigger(strpos($UA, 'bittorrent') !== false, 'Bad context (not a bittorrent hub)'); // 2017.02.25
 
     $Trigger(empty($CIDRAM['Ignore']['Seznam.cz']) && strpos($UANoSpace, 'seznambot') !== false, 'Seznam.cz'); // 2017.02.02 (ASNs 43037, 200600)
+
+}
+
+$Handle = fopen('php://input', 'rb');
+$RawInput = fread($Handle, 1048576);
+fclose($Handle);
+
+/**
+ * Signatures based on raw input start from here.
+ * Please report all false positives to https://github.com/Maikuolan/CIDRAM/issues
+ */
+if ($RawInput) {
+    $RawInputSafe = strtolower(preg_replace('/[\s\x00-\x1f\x7f-\xff]/', '', $RawInput));
+
+    $Trigger(preg_match('/[\x00-\x1f\x7f-\xff"#\'-);<>\[\]]/', $RawInput), 'Non-escaped characters in POST'); // 2017.03.01
+    $Trigger(preg_match('/charcode\(88,83,83\)/', $RawInputSafe), 'XSS attempt'); // 2017.03.01
+    $Trigger(
+        strpos($RawInputSafe, '<?xml') !== false && strpos($RawInputSafe, '<!doctype') !== false && strpos($RawInputSafe, '<!entity') !== false,
+    'Suspicious request'); // 2017.03.01
+    $Trigger(strpos($RawInputSafe, 'inputbody:action=update&mfbfw') !== false, 'FancyBox exploit attempt'); // 2017.03.01
+
+    $Trigger(preg_match(
+        '~(?:(lwp-download|fetch)ftp://|(fetch|lwp-download|wget)https?://|<' .
+        'name|method(call|name)|params?|value>)~i',
+    $RawInputSafe), 'POST RFI'); // 2017.03.01
+
+    $Trigger(preg_match('~(?:=\[\\\\|%5C\]|\(\)|=%5Bphp%5D|=[php]|\\\\\]|=\[\\\\|%5C\]|=\[%5C|`)~i', $RawInput), 'POST BBCESC/BBCEX/EX'); // 2017.03.01
+    $Trigger(preg_match('~/â\\x80¦x\.php~i', $RawInput), 'Probe attempt', '', $InstaBan); // 2017.03.01
+    $Trigger(preg_match('~\([\'"](?:zwnobyai|awyoznvu)~', $RawInputSafe), 'Injection attempt', '', $InstaBan); // 2017.03.01
+    $Trigger(preg_match('~^/\?-~', $RawInput), 'Hack attempt', '', $InstaBan); // 2017.03.01
+    $Trigger(strpos($RawInputSafe, '$_' . '[$' . '__') !== false, 'Shell upload attempt', '', $InstaBan); // 2017.03.01
+    $Trigger(strpos($RawInputSafe, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Shell upload attempt', '', $InstaBan); // 2017.03.01
+    $Trigger(preg_match('~&author_name=(?:%5b|\[)~', $RawInputSafe), 'Bot detection', '', $InstaBan); // 2017.03.01
+
+    $Trigger(preg_match(
+        '~(?:%61%(6c%6c%6f%77%5f%75%72%6c%5f%69%6e%63%6c%75%64%65%3d%6f%6e|7' .
+        '5%74%6f%5f%70%72%65%70%65%6e%64%5f%66%69%6c%65%3d%70%68%70%3a%2f%2f' .
+        '%69%6e%70%75%74)|%63%67%69%2e%(66%6f%72%63%65%5f%72%65%64%69%72%65%' .
+        '63%74%3d%30|72%65%64%69%72%65%63%74%5f%73%74%61%74%75%73%5f%65%6e%7' .
+        '6%3d%30)|%64%69%73%61%62%6c%65%5f%66%75%6e%63%74%69%6f%6e%73%3d%22%' .
+        '22|%6f%70%65%6e%5f%62%61%73%65%64%69%72%3d%6e%6f%6e%65|%73%(61%66%6' .
+        '5%5f%6d%6f%64%65%3d%6f%66%66|75%68%6f%73%69%6e%2e%73%69%6d%75%6c%61' .
+        '%74%69%6f%6e%3d%6f%6e))~',
+    $RawInputSafe), 'Plesk attack'); // 2017.03.01
+
+    $Trigger(preg_match('~(?:6\D*1\D*6\D*6\D*9\D*4\D*7\D*8\D*5)~i', $RawInput), 'Spam attempt'); // 2017.03.01
+    $Trigger(preg_match('~//dail' . 'ydigita' . 'ldeals' . '\.info/~i', $RawInput), 'Spam attempt'); // 2017.03.01
 
 }

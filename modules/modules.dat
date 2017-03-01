@@ -78,7 +78,7 @@ module_extras.php:
   vi: Cung cấp một số bảo vệ hạn chế chống vectơ tấn công khác nhau thường được sử dụng trong các yêu cầu.<br /><em>Được sử dụng với: <code>signatures-&gt;modules</code>.</em>
   zh: 提供一些有限的保护针对各种攻击向量常用于请求。<br /><em>使用： <code>signatures-&gt;modules</code>.</em>
   zh-tw: 提供一些有限的保護針對各種攻擊向量常用於請求。<br /><em>使用： <code>signatures-&gt;modules</code>.</em>
- Version: 2017.02.26
+ Version: 2017.03.01
  Minimum Required: 0.7.0-DEV
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/modules/modules.dat
@@ -89,7 +89,7 @@ module_extras.php:
   To:
    - module_extras.php
   Checksum:
-   - 75ccfa5576a8dd23acede1af9dcb5663:25756
+   - d4d6f37269e9bbb0ebc30cfef8a01067:29245
  Reannotate: modules.dat
 module_baidublocker.php:
  Name:
