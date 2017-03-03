@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2017.03.01).
+ * This file: Optional security extras module (last modified: 2017.03.03).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -165,8 +165,9 @@ if (!empty($_SERVER['QUERY_STRING'])) {
         'nner|left|outer|right) join)/',
     $QueryNoSpace), 'SQLi'); // 2017.03.01
 
-    /** This signature under probation. May be removed upon any reports of false positives. */
     $Trigger(preg_match('~\?author=\d+~i', $CIDRAM['BlockInfo']['rURI']), 'Phishing for WordPress username'); // 2017.03.01
+
+    $Trigger(preg_match('~uploads.wso\.php~i', $CIDRAM['BlockInfo']['rURI']), 'Phishing for WSO not allowed'); // 2017.03.03
 
     $Trigger(count($_REQUEST) >= 500, 'Hack attempt', 'Too many request variables sent!'); // 2017.01.01
 
@@ -366,12 +367,12 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $Trigger(preg_match('/(?:360se|theworld)\)/', $UANoSpace), 'Malware UA'); // 2017.01.13
 
     $Trigger(preg_match(
-        '/(?:200please|a(nalyzer|wcheck)|blex|c(entric|omment|razywebcrawler' .
-        ')|d(ataprovider|ot(bot|comdotnet|netdotcom))|mo(reover|z\.com)|next' .
-        'gensearchbot|p(agesinventory|rofiler)|r(6_|adian6|ogerbot)|s(earchm' .
-        'etricsbot|eo(hunt|kicks|mon|tool)|phider)|v(agabondo|bseo\.com)|w(e' .
-        'bm(astercoffee|eup)|ise-guys))/',
-    $UANoSpace), 'SEO UA'); // 2017.02.02
+        '/(?:200please|analyzer|awcheck|blex|c(entric|omment|razywebcrawler)' .
+        '|d(ataprovider|ot(bot|comdotnet|netdotcom))|m(egaindex|oreover|oz\.' .
+        'com)|nextgensearchbot|pagesinventory|profiler|r(6_|adian6|ogerbot)|' .
+        's(earchmetricsbot|eo(hunt|kicks|mon|tool)|phider)|vagabondo|vbseo\.' .
+        'com|w(ebm(astercoffee|eup)|ise-guys))/',
+    $UANoSpace), 'SEO UA'); // 2017.03.03
 
     $Trigger(preg_match(
         '~(?:a(bonti|ccserver|cme.spider|nyevent-http|ppengine)|b(igbozz|lac' .
