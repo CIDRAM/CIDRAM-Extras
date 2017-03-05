@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2017.03.03).
+ * This file: Optional security extras module (last modified: 2017.03.05).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -129,6 +129,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
     $Trigger(strpos($QueryNoSpace, 'suhosin.simulation=on') !== false, 'Plesk hack'); // 2017.01.05
 
     $Trigger(preg_match('~(?:^-|/r[ks]=|dg[cd]=1|pag(?:e|ina)=-)~', $QueryNoSpace), 'Probe attempt'); // 2017.02.25
+    $Trigger(preg_match('~yt=phpinfo~', $QueryNoSpace), 'Probe attempt'); // 2017.03.05
     $Trigger(strpos($QueryNoSpace, '0x31303235343830303536') !== false, 'Probe attempt', '', $InstaBan); // 2017.02.25
 
     $Trigger(preg_match(
@@ -477,5 +478,9 @@ if ($RawInput) {
 
     $Trigger(preg_match('~(?:6\D*1\D*6\D*6\D*9\D*4\D*7\D*8\D*5)~i', $RawInput), 'Spam attempt'); // 2017.03.01
     $Trigger(preg_match('~//dail' . 'ydigita' . 'ldeals' . '\.info/~i', $RawInput), 'Spam attempt'); // 2017.03.01
+
+    $Trigger((
+        strpos($RawInput, 'C6y1F2EA' . '7217PBTL' . '1FlcH98s' . 'Opfo/r1Z' . '76/OKFae') !== false
+    ), 'Compromised API key used in brute-force attacks.'); // 2017.03.04
 
 }
