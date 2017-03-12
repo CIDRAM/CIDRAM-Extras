@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Yandex blocker module (last modified: 2017.01.16).
+ * This file: Yandex blocker module (last modified: 2017.03.12).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -54,7 +54,7 @@ IPv4 Signatures (ASNs 13238, 43247, 202611, 207207):
 130.193.32.0/19 Deny Яндекс запретили здесь
 141.8.128.0/18 Deny Яндекс запретили здесь
 178.154.128.0/17 Deny Яндекс запретили здесь
-185.32.184.0/23 Deny Яндекс запретили здесь
+185.32.185.0/24 Deny Яндекс запретили здесь
 185.32.186.0/24 Deny Яндекс запретили здесь
 185.71.76.0/22 Deny Яндекс запретили здесь
 199.21.96.0/22 Deny Яндекс запретили здесь
@@ -67,8 +67,9 @@ Options:
  TrackCount: 1000
 
 ---
-IPv6 Signatures (ASNs 13238, 43247):
+IPv6 Signatures (ASNs 13238, 43247, 207207):
 
+2001:678:384::/48 Deny Яндекс запретили здесь
 2620:10f:d000::/44 Deny Яндекс запретили здесь
 2a02:6b8::/32 Deny Яндекс запретили здесь
 2a02:5180::/32 Deny Яндекс запретили здесь
