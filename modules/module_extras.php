@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2017.03.05).
+ * This file: Optional security extras module (last modified: 2017.03.22).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -166,9 +166,9 @@ if (!empty($_SERVER['QUERY_STRING'])) {
         'nner|left|outer|right) join)/',
     $QueryNoSpace), 'SQLi'); // 2017.03.01
 
-    $Trigger(preg_match('~\?author=\d+~i', $CIDRAM['BlockInfo']['rURI']), 'Phishing for WordPress username'); // 2017.03.01
-
-    $Trigger(preg_match('~uploads.wso\.php~i', $CIDRAM['BlockInfo']['rURI']), 'Phishing for WSO not allowed'); // 2017.03.03
+    $Trigger(preg_match('~author=\d+~i', $CIDRAM['BlockInfo']['rURI']), 'WordPress user enumeration not allowed'); // 2017.03.22
+    $Trigger(preg_match('~[\x5c/]wso\.php~i', $CIDRAM['BlockInfo']['rURI']), 'WSO not allowed'); // 2017.03.22
+    $Trigger(preg_match('~\.(?:bak|cgi|php)\.suspected~i', $CIDRAM['BlockInfo']['rURI']), 'Accessing quarantined files not allowed'); // 2017.03.22
 
     $Trigger(count($_REQUEST) >= 500, 'Hack attempt', 'Too many request variables sent!'); // 2017.01.01
 
