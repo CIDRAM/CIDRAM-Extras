@@ -124,7 +124,7 @@ module_baidublocker.php:
   vi: Có sẵn bởi vì các yêu cầu. Cảnh báo: Sẽ phá hủy PR Baidu (xếp hạng trang) cho trang web của bạn. Các trang web dành cho người dùng nói tiếng Trung Quốc nên tránh mô-đun này.<br /><em>Được sử dụng với: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.<br />Nguy cơ sai tích cực: <span class="txtGn">Thấp</span>.</em>
   zh: 可用由于请求。 警告：将销毁百度网页排名为您的网站。 中文用户的网站应避免使用此模块。<br /><em>使用： <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.<br />假阳性风险：<span class="txtGn">低</span>。</em>
   zh-tw: 可用由於請求。 警告：將銷毀百度網頁排名為您的網站。 中文用戶的網站應避免使用此模塊。<br /><em>使用： <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.<br />假陽性風險：<span class="txtGn">低</span>。</em>
- Version: 2017.71.795
+ Version: 2017.107.204
  Minimum Required: 0.7.0-DEV
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/modules/modules.dat
@@ -135,7 +135,7 @@ module_baidublocker.php:
   To:
    - module_baidublocker.php
   Checksum:
-   - d297cc8c9ae05e0ccc3f78dc11600e9b:2550
+   - ae2895a146bb20a03ee8cb51d0b222e6:2370
  Reannotate: modules.dat
 module_yandexblocker.php:
  Name:
