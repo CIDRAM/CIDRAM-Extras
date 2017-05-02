@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2017.03.22).
+ * This file: Optional security extras module (last modified: 2017.05.02).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -277,8 +277,8 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
         '|r(0n|opecia|osti))|r(eviewsx|ogaine)|s(ex[xy]|hemale|ickseo|limy|p' .
         'utnik|tart\.exe|terapred|ynthroid)|t(entacle|[0o]p(hack|less|sites)' .
         ')|u(01-2|nlock)|v((aluation|oila)bot|arifort|[1i](agra|olation|tol)' .
-        ')|xanax|zdorov)/',
-    $UANoSpace), 'Spam UA'); // 2017.02.02
+        ')|warifort|xanax|zdorov)/',
+    $UANoSpace), 'Spam UA'); // 2017.05.02
 
     $Trigger(preg_match(
         '/(?: (audit|href|mra |quibids )|\(build 5339\))/',
@@ -315,7 +315,7 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
         ')|i(mrbot|ntegromedb|p-?web-?crawler|rcsearch|rgrabber)|jadynavebot' .
         '|komodiabot|lin(guee|kpad)|m((ajestic|j)12|agnet|eanpath|entormate|' .
         'fibot|ignify)|nutch|omgilibot|p(ackrat|cbrowser|lukkie|surf)|r(eape' .
-        'r|sync)|s(aidwot|alad|crapy|cspider|ees\.co|hai|iteexplorer|[iy]pho' .
+        'r|sync)|s(aidwot|alad|cspider|ees\.co|hai|iteexplorer|[iy]pho' .
         'n|truct\.it|upport\.wordpress\.com)|t(akeout|asapspider|weetmeme)|u' .
         'ser-agent|v(isaduhoc|onchimpenfurlr)|w(ebtarantula|olf)|y(acy|isous' .
         'pider|[ry]spider|un(rang|yun)))/',
@@ -330,25 +330,26 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
         '/(?:3(60spider|d-ftp)|a(6-indexer|ccelo|ffinity|ghaven|href|ipbot|n' .
         'alyticsseo|pp3lewebkit|r(chivebot|tviper))|b(azqux|ender|i(nlar|tvo' .
         '|xo)|nf.fr|ogahn|oitho|pimagewalker)|c(cbot|entiverse|msworldmap|om' .
-        'moncrawl|overscout|r4nk|rawlfire|uriousgeorge|ydral)|d(aylife|ebate' .
-        '|igext|(cp|isco|ouban|ownload)bot|owjones|tsagent)|e((na|uro|xperi)' .
-        'bot|nvolk|vaal|zoom)|f(dm|etch(er.0|or)|ibgen)|g(alaxydownloads|et(' .
-        'download\.ws|ty|url11)|slfbot|urujibot)|h(arvest|eritrix|olmes|ttp(' .
-        'fetcher|unit)|ttrack)|i(mage(.fetcher|walker)|linkscrawler|n(agist|' .
-        'docom|fluencebot)|track)|j(akarta|ike)|k(ey(wenbot|wordsearchtool)|' .
-        'imengi|kman)|l(arbin|ink(dex|walker)|iperhey|(t|ush)bot)|m(a(hiti|h' .
-        'onie|ttters)|iabot|lbot|ormor|ot-v980|rchrome|ulticrawler)|n(e(ofon' .
-        'ie|tseer|wsbot)|ineconnections)|o(fflinenavigator|odlebot)|p(age(fe' .
-        'tch|gett|_verifi)er|anscient|ath2|ic(grabber|s|tsnapshot|turefinder' .
-        ')|i(pl|xmatch|xray)|oe-component-client-|owermarks|roximic|(s|ure)b' .
-        'ot|urity)|qqdownload|r(ankivabot|ebi-shoveler|everseget|ganalytics|' .
-        'ocketcrawler|ulinki)|s(afeassign|bider|bl[.-]bot|crape|emrush|eo(en' .
-        'g|profiler|stat)|istrix|ite(bot|intel)|n[iy]per|olomono|pbot|pyder|' .
-        'search|webot)|t(-h-u-n|agsdir|ineye|opseo|raumacadx|urnitinbot)|u(1' .
-        '2bot|p(downer|ictobot))|v(bseo|isbot|oyager)|w(arebay|auuu|bsearchb' .
-        'ot|eb(alta|capture|download|ripper)|ikio|indows(3|seven)|inhttp|kht' .
-        'mlto|orldbot|otbox)|xtractorpro|yoofind)/',
-    $UANoSpace), 'Scraper UA'); // 2017.01.13
+        'moncrawl|overscout|r4nk|rawlfire|uriousgeorge|ydral)|d(atenbank|ayl' .
+        'ife|ebate|igext|(cp|isco|ouban|ownload)bot|owjones|tsagent)|e((na|u' .
+        'ro|xperi)bot|nvolk|vaal|zoom)|f(dm|etch(er.0|or)|ibgen)|g(alaxydown' .
+        'loads|et(download\.ws|ty|url11)|slfbot|urujibot)|h(arvest|eritrix|o' .
+        'lmes|ttp(fetcher|unit)|ttrack)|i(mage(.fetcher|walker)|linkscrawler' .
+        '|n(agist|docom|fluencebot)|track)|j(akarta|ike)|k(ey(wenbot|wordsea' .
+        'rchtool)|imengi|kman)|l(arbin|ink(dex|walker)|iperhey|(t|ush)bot)|m' .
+        '(a(hiti|honie|ttters)|iabot|lbot|ormor|ot-v980|rchrome|ulticrawler)' .
+        '|n(e(ofonie|testate|tseer|wsbot)|ineconnections)|o(afcrawl|fflinena' .
+        'vigator|odlebot)|p(age(fetch|gett|_verifi)er|anscient|ath2|ic(grabb' .
+        'er|s|tsnapshot|turefinder)|i(pl|xmatch|xray)|oe-component-client-|o' .
+        'wermarks|roximic|(s|ure)bot|urity)|qqdownload|r(ankivabot|ebi-shove' .
+        'ler|everseget|ganalytics|ocketcrawler|sscrawl|ulinki)|s(afeassign|b' .
+        'ider|bl[.-]bot|crap[ey]|emrush|eo(eng|profiler|stat)|istrix|ite(bot' .
+        '|intel)|n[iy]per|olomono|pbot|pyder|search|webot)|t(-h-u-n|agsdir|i' .
+        'neye|opseo|raumacadx|urnitinbot)|u(12bot|p(downer|ictobot))|v(bseo|' .
+        'isbot|oyager)|w(arebay|auuu|bsearchbot|eb(alta|capture|download|rip' .
+        'per)|ikio|indows(3|seven)|inhttp|khtmlto|orldbot|otbox)|xtractorpro' .
+        '|yoofind)/',
+    $UANoSpace), 'Scraper UA'); // 2017.05.02
 
     $Trigger(preg_match(
         '/(?:c(hilkat|copyright)|flipboard|g(ooglealerts|rub)|python)/',
