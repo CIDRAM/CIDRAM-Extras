@@ -6,6 +6,7 @@ module_cookies.php:
   de: Optionales Cookie-Scanner-Modul
   es: Escáner de cookies módulo opcional
   fr: Module optionnel pour l'analyse des cookies
+  hi: वैकल्पिक कुकी स्कैनर मॉड्यूल
   id: Modul scanner cookie opsional
   it: Modulo opzionale per l'analisi dei cookies
   ja: オプショナル・クッキー・スキャナ・モジュール
@@ -13,6 +14,9 @@ module_cookies.php:
   nl: Optionele cookie-scanner module
   pt: Módulo opcional para análise de cookies
   ru: Куки сканер модуль необязательный
+  th: โมดูลสแกนเนอร์คุกกี้ตัวเลือก
+  tr: İsteğe bağlı çerez tarayıcı modülü
+  ur: اختیاری کوکی سکینر ماڈیول
   vi: Mô-đun tùy chọn cho cookie quét
   zh: 可选cookie扫描器模块
   zh-tw: 可選cookie掃描器模塊
@@ -52,12 +56,16 @@ module_extras.php:
   de: Optionales Sicherheits-Extras-Modul
   es: Extras de seguridad módulo opcional
   fr: Module optionnel pour la sécurité supplémentaire
+  hi: वैकल्पिक सुरक्षा एक्स्ट्रा मॉड्यूल
   id: Modul tambahan keamanan opsional
   it: Modulo opzionale per gli extra di sicurezza
   ja: オプショナル・セキュリティ・エクストラス・モジュール
   ko: 선택적 보안 엑스트라 스 모듈
   nl: Optionele beveiliging extra module
   pt: Módulo de extras de segurança opcional
+  th: โมดูลเสริมความปลอดภัยเพิ่มเติม
+  tr: İsteğe bağlı güvenlik ekstrası modülü
+  ur: اختیاری سیکورٹی مع اضافہ جات ماڈیول
   ru: Модуль необязательный дополнительные безопасности
   vi: Mô-đun tùy chọn cho bảo mật tính năng bổ sung
   zh: 可选安全附加模块
@@ -78,7 +86,7 @@ module_extras.php:
   vi: Cung cấp một số bảo vệ hạn chế chống vectơ tấn công khác nhau thường được sử dụng trong các yêu cầu.<br /><em>Được sử dụng với: <code>signatures-&gt;modules</code>.<br />Nguy cơ sai tích cực: <span class="txtOe">Trung bình</span>.</em>
   zh: 提供一些有限的保护针对各种攻击向量常用于请求。<br /><em>使用： <code>signatures-&gt;modules</code>.<br />假阳性风险：<span class="txtOe">中等</span>。</em>
   zh-tw: 提供一些有限的保護針對各種攻擊向量常用於請求。<br /><em>使用： <code>signatures-&gt;modules</code>.<br />假陽性風險：<span class="txtOe">中等</span>。</em>
- Version: 2017.121.566
+ Version: 2017.129.362
  Minimum Required: 0.7.0-DEV
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/modules/modules.dat
@@ -89,7 +97,7 @@ module_extras.php:
   To:
    - module_extras.php
   Checksum:
-   - 40f7fbd60c20fa30feef80299e7a39a3:29739
+   - 84827ee5bfcae9f8c3bd65f7a60481cb:30100
  Reannotate: modules.dat
 module_baidublocker.php:
  Name:
@@ -98,12 +106,16 @@ module_baidublocker.php:
   de: Baidu Blocker-Modul
   es: Módulo bloqueador de Baidu
   fr: Module de blocage pour Baidu
+  hi: Baidu अवरोधक मॉड्यूल
   id: Pemblokir modul untuk Baidu
   it: Modulo bloccante di Baidu
   ja: Baiduブロッカーモジュール
   ko: Baidu 차단기 모듈
   nl: Baidu blokker module
   pt: Módulo bloqueador de Baidu
+  th: โมดูลป้องกัน Baidu
+  tr: Baidu engelleyici modülü
+  ur: بیدو بلاکر ماڈیول
   ru: Модуль блокатор Baidu
   vi: Mô-đun cho chặn Baidu
   zh: 百度阻塞模块
@@ -144,12 +156,16 @@ module_yandexblocker.php:
   de: Yandex Blocker-Modul
   es: Módulo bloqueador de Yandex
   fr: Module de blocage pour Yandex
+  hi: Yandex अवरोधक मॉड्यूल
   id: Pemblokir modul untuk Yandex
   it: Modulo bloccante di Yandex
   ja: Yandexブロッカーモジュール
   ko: Yandex 차단기 모듈
   nl: Yandex blokker module
   pt: Módulo bloqueador de Yandex
+  th: โมดูลป้องกัน Yandex
+  tr: Yandex engelleyici modülü
+  ur: Yandex کی بلاکر ماڈیول
   ru: Модуль блокатор Яндекс
   vi: Mô-đun cho chặn Yandex
   zh: Yandex阻塞模块
@@ -190,12 +206,16 @@ module_badhosts.php:
   de: Schlechte Hosts Blocker-Modul
   es: Módulo bloqueador de hosts defectuosos
   fr: Module de blocage pour les hôtes mauvais
+  hi: खराब होस्ट ब्लॉकर मॉड्यूल
   id: Pemblokir modul untuk host buruk
   it: Modulo bloccante di cattivi host
   ja: 危険なホスト・ブロッカーモジュール
   ko: 위험한 호스트 차단 모듈
   nl: Slechte hosts blokker module
   pt: Módulo bloqueador de hosts perigosos
+  th: โมดูลป้องกันโฮสต์ที่เป็นอันตราย
+  tr: Kötü ana engelleyici modülü
+  ur: برا میزبانوں بلاکر ماڈیول
   ru: Модуль блокатор для плохие хосты
   vi: Mô-đun cho chặn các host xấu
   zh: 坏主机阻塞模块
@@ -236,12 +256,16 @@ module_badhosts_isps.php:
   de: Schlechte Hosts Blocker-Modul (ISPs)
   es: Módulo bloqueador de hosts defectuosos (ISPs)
   fr: Module de blocage pour les hôtes mauvais (ISPs)
+  hi: खराब होस्ट ब्लॉकर मॉड्यूल (इंटरनेट सेवा प्रदाताओं)
   id: Pemblokir modul untuk host buruk (ISP)
   it: Modulo bloccante di cattivi host (ISP)
   ja: 危険なホスト・ブロッカーモジュール （ＩＳＰ）
   ko: 위험한 호스트 차단 모듈 (ISP)
   nl: Slechte hosts blokker module (ISPs)
   pt: Módulo bloqueador de hosts perigosos (ISPs)
+  th: โมดูลป้องกันโฮสต์ที่เป็นอันตราย (ผู้ให้บริการอินเทอร์เน็ต)
+  tr: Kötü ana engelleyici modülü (ISS'ler)
+  ur: برا میزبانوں بلاکر ماڈیول (ISPs)
   ru: Модуль блокатор для плохие хосты (ISPs)
   vi: Mô-đun cho chặn các host xấu (ISP)
   zh: 坏主机阻塞模块（ISP）

@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2017.05.02).
+ * This file: Optional security extras module (last modified: 2017.05.10).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -457,6 +457,13 @@ if ($RawInput) {
         '~(?:(lwp-download|fetch)ftp://|(fetch|lwp-download|wget)https?://|<' .
         'name|method(call|name)|params?|value>)~i',
     $RawInputSafe), 'POST RFI'); // 2017.03.01
+
+    /** Joomla plugins update bypass (POST RFI conflict). */
+    $Bypass(
+        ($CIDRAM['BlockInfo']['SignatureCount'] - $Infractions) > 0 &&
+        strpos($_SERVER['REQUEST_URI'], 'administrator/') !== false &&
+        strpos($CIDRAM['BlockInfo']['WhyReason'], 'POST RFI') !== false,
+    'Joomla plugins update bypass (POST RFI conflict)'); // 2017.05.10
 
     $Trigger(preg_match('~(?:=\[\\\\|%5C\]|\(\)|=%5Bphp%5D|=\[php\]|\\\\\]|=\[%5C|`)~i', $RawInput), 'POST BBCESC/BBCEX/EX'); // 2017.03.01
     $Trigger(preg_match('~/â\\x80¦x\.php~i', $RawInput), 'Probe attempt', '', $InstaBan); // 2017.03.01
