@@ -236,7 +236,7 @@ module_badhosts.php:
   vi: <em>Được sử dụng với: <code>signatures-&gt;modules</code>.<br />Nguy cơ sai tích cực: <span class="txtOe">Trung bình</span>.</em>
   zh: <em>使用： <code>signatures-&gt;modules</code>.<br />假阳性风险：<span class="txtOe">中等</span>。</em>
   zh-tw: <em>使用： <code>signatures-&gt;modules</code>.<br />假陽性風險：<span class="txtOe">中等</span>。</em>
- Version: 2017.130.457
+ Version: 2017.136.432
  Minimum Required: 0.7.0-DEV
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/modules/modules.dat
@@ -247,7 +247,7 @@ module_badhosts.php:
   To:
    - module_badhosts.php
   Checksum:
-   - 28ec6ef13ee4236fd83f9fc712b95cdf:15514
+   - 624aaaeb8a9307c7283486249777ba96:15527
  Reannotate: modules.dat
 module_badhosts_isps.php:
  Name:

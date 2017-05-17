@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2017.02.25).
+ * This file: Bad hosts blocker module (last modified: 2017.05.17).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -181,12 +181,12 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
 
     $Trigger(preg_match(
         '/(?:(\.above|shared-server|jkserv)\.net$|akpackaging\.net|(academic' .
-        'edge|dailyrazor|ibuzytravel|server306|webfaction|\.siteprotect)\.co' .
-        'm$|(aramenet|dinaserver|phishmongers|web(hostinghub|sitewelcome))\.' .
-        'com|acetrophies\.co\.uk$|\.pomserve2\.co\.uk|webhostserver\.biz$|\.' .
-        'haremo\.de$|webcreators\.nl|rockwellmuseum\.org|skyware\.pl$|vpsnow' .
-        '\.ru$|timeweb\.ru)/',
-    $HN), 'Probe/Scanner'); // 2017.02.14
+        'edge|cyber-freaks|dailyrazor|ibuzytravel|server306|webfaction|\.sit' .
+        'eprotect)\.com$|(aramenet|dinaserver|phishmongers|web(hostinghub|si' .
+        'tewelcome))\.com|acetrophies\.co\.uk$|\.pomserve2\.co\.uk|webhostse' .
+        'rver\.biz$|\.haremo\.de$|webcreators\.nl|rockwellmuseum\.org|skywar' .
+        'e\.pl$|vpsnow\.ru$|timeweb\.ru)/',
+    $HN), 'Probe/Scanner'); // 2017.05.17
 
     $Trigger(preg_match(
         '/(?:(\.oroxy|anonine)\.com$|thefreevpn|vpn(999\.com|gate)|public-net)/',
