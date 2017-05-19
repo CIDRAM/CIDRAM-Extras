@@ -14,8 +14,8 @@ theme/rbi:
    - template_rbi.html
    - fe_assets/rbi/frontend.css
   Checksum:
-   - a0b2e0b089e67a8d7546bb5c7d4ab00b:3306
-   - 906615fe33fd813a728348da94f48618:3178
+   - df662a9468a8e46db3fa1d335b0766ef:3295
+   - 615eb9d445cec05227d12e9bf555125c:3167
  Reannotate: themes.dat
 theme/slate:
  Name: Theme: Slate
@@ -36,9 +36,9 @@ theme/slate:
    - fe_assets/slate/frontend.css
    - fe_assets/slate/frontend.html
   Checksum:
-   - a0b2e0b089e67a8d7546bb5c7d4ab00b:3306
-   - 906615fe33fd813a728348da94f48618:3178
-   - a0b2e0b089e67a8d7546bb5c7d4ab00b:3306
-   - 906615fe33fd813a728348da94f48618:3178
+   - 7bd87589167ad83486e336b5eaea0822:3333
+   - 1f18846662c3053009f13311416f7cca:452
+   - 6606574159f007a8e790053b73f96321:3178
+   - 28e7fbcf57996c642c6e3f49e6a39c15:989
  Reannotate: themes.dat
 
