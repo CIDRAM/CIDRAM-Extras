@@ -15,7 +15,7 @@ textarea.half{height:75px}
 textarea{height:150px}
 a:link,a:visited{color:#832}
 a:hover{color:#f64}
-a:active,a:focus{color:blue}
+a:active,a:focus{color:red}
 .bNav,.gen,.nav,.s,.tip,.txtGn,.txtOe,.txtRd,.spanner,a,input,select,textarea{font-weight:700}
 .bNav,.gen,.spanner{text-align:{FE_Align_Reverse}}
 .bNav{height:64px}

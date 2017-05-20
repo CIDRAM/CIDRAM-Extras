@@ -3,7 +3,7 @@ body,input,select,textarea,.idx{font-size:12px}
 body{font-family:'Merriweather','PT Serif',sans-serif,'Lucida Grande',Tahoma,Verdana,Arial;letter-spacing:1px;text-decoration:none;border-style:none;margin:0;padding:0;white-space:normal;background-color:#212121;color:#ddd}
 code{font-family:monospace}
 hr{border-style:solid none none;border-width:1px;margin:5px 2px 0;padding:2px;color:#999}
-img.ico{width:16px;height:16px;border:0}
+img.ico{width:16px;height:16px;border:0;filter: grayscale(60%) hue-rotate(45deg) brightness(0.8)}
 input,select,textarea{background-color:#2f2f2f;border:1px solid #999;color:#ccc;margin:2px;padding:2px}
 input,select{width:150px;background-repeat:no-repeat;background-position:top {FE_Align_Reverse}}
 input.auto,select.auto{width:auto;padding-left:10px;padding-right:10px}
