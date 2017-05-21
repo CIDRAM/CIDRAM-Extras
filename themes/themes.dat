@@ -2,7 +2,7 @@
 theme/rbi:
  Name: Theme: Red-Blue Inverted
  Extended Description: Exactly the same as the default theme, but with some of the colours swapped around. No big changes.<br /><em>Author: Caleb M / Maikuolan</em>
- Version: 2017.139.586
+ Version: 2017.140.801
  Minimum Required: 1.0.0-DEV
  Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -14,13 +14,13 @@ theme/rbi:
    - template_rbi.html
    - fe_assets/rbi/frontend.css
   Checksum:
-   - df662a9468a8e46db3fa1d335b0766ef:3295
-   - fe64fda5130ad5ee6407361e60b54d59:3166
+   - 1aee8e4a6ed3a706a3f14a09ef1f4a4e:3288
+   - cb4407bb6b48d9cb5fc2892acd175cfa:3156
  Reannotate: themes.dat
 theme/slate:
  Name: Theme: Slate
  Extended Description: Simple layout; Gentle, darker colours.<br /><em>Author: Caleb M / Maikuolan</em>
- Version: 2017.139.586
+ Version: 2017.140.801
  Minimum Required: 1.0.0-DEV
  Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -40,7 +40,7 @@ theme/slate:
   Checksum:
    - 7bd87589167ad83486e336b5eaea0822:3333
    - 1f18846662c3053009f13311416f7cca:452
-   - 3a8df25dd39d7fa758e346a191edb009:3235
+   - 44f4f41b31e768eb6f603a2e00fd5a9d:3224
    - 28e7fbcf57996c642c6e3f49e6a39c15:989
    - 02daeeb44ebc18d681582140e32a5b22:928
  Reannotate: themes.dat
