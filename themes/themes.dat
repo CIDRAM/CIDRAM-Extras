@@ -20,7 +20,7 @@ theme/rbi:
 theme/slate:
  Name: Theme: Slate
  Extended Description: Simple layout; Gentle, darker colours.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2017.140.801
+ Version: 2017.143.625
  Minimum Required: 1.0.0-DEV
  Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -41,13 +41,13 @@ theme/slate:
    - 7bd87589167ad83486e336b5eaea0822:3333
    - 1f18846662c3053009f13311416f7cca:452
    - 44f4f41b31e768eb6f603a2e00fd5a9d:3224
-   - 28e7fbcf57996c642c6e3f49e6a39c15:989
+   - f9f1f0063a1812068df29aa1b4fd86d6:1003
    - 02daeeb44ebc18d681582140e32a5b22:928
  Reannotate: themes.dat
 theme/bluemetal:
  Name: Theme: Blue Metal
  Extended Description: Simple blue/black colour scheme with gentle tones.<br /><em>Author: Caleb M (Maikuolan), based on previous work by Daniel R.</em>
- Version: 2017.143.302
+ Version: 2017.143.625
  Minimum Required: 1.0.0-DEV
  Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -68,13 +68,13 @@ theme/bluemetal:
    - 71a04e978fc4641508afb4144fa8cb65:3455
    - 1f18846662c3053009f13311416f7cca:452
    - ecd00e21cd42d5d5b00f32eb979d480b:3348
-   - 28e7fbcf57996c642c6e3f49e6a39c15:989
+   - f9f1f0063a1812068df29aa1b4fd86d6:1003
    - ead687645779f014329f685e73703f60:895
  Reannotate: themes.dat
 theme/moss:
  Name: Theme: Moss
  Extended Description: Inspired by the colours of nature.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2017.143.302
+ Version: 2017.143.625
  Minimum Required: 1.0.0-DEV
  Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -92,10 +92,10 @@ theme/moss:
    - fe_assets/moss/frontend.css
    - fe_assets/moss/frontend.html
   Checksum:
-   - f3fead6ae40b26b75ed0ec3538a7a795:3323
+   - 09bf925ad4c1a8a25b69b47757f7602f:3337
    - 1f18846662c3053009f13311416f7cca:452
    - 5182ba869b16c040409cf39980173d9c:17804
-   - 452d8714db072a2d972012a129463b60:3402
-   - 28e7fbcf57996c642c6e3f49e6a39c15:989
+   - f6612f817082a3f4b19a63c5def46ecd:3430
+   - f9f1f0063a1812068df29aa1b4fd86d6:1003
  Reannotate: themes.dat
 
