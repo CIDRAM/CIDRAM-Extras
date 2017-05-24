@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="{xmlLang}" xml:lang="{xmlLang}" dir="{textDir}">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" /><!-- WebFont Begin -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather|PT+Serif" /><!-- WebFont End -->
+    <link rel="shortcut icon" type="image/gif" href="data:image/gif;base64,{favicon}" />
+    <title>CIDRAM</title>{recaptcha_api_include}
+    <style>
+#wrapper{border-style:solid;border-color:#678;background-color:#678;width:98%;margin:auto;padding:2px}
+body,#wrapper{text-align:center}
+hr,#wrapper{border-width:1px}
+input{background-color:#345;border:1px solid #999;color:#ccc;margin:2px;padding:2px}
+#wrapper_inner{width:96%;margin:auto;padding:2px}
+#denied,#footer_inner,#detected,#textBlock,input{font-weight:700}
+#denied,#ScriptIdent,input{color:#921}
+#denied{font-size:20px}
+#footer_inner,input{font-family:'Merriweather','PT Serif',sans-serif,Verdana,Arial,Helvetica}
+#footer_inner{font-size:12px;letter-spacing:0px;white-space:nowrap;text-align:right}
+#generated_by{color:#111}
+#textBlock{{textBlockAlign}}
+#generated_by,#ScriptIdent{display:inline}
+.textLabel{{textBlockFloat}color:#321;white-space:pre}
+body{font-family:'Merriweather','PT Serif',sans-serif,'Lucida Grande',Tahoma,Verdana,Arial;font-size:12px;letter-spacing:1px;text-decoration:none;border-style:none;white-space:normal;background-color:#333;color:#222;background-image:url(data:image/gif;base64,R0lGODdhAwADAIACADMzM1VicCwAAAAAAwADAAACBIQRBwUAOw==);background-attachment:fixed}
+hr{border-style:solid none none;margin:5px 2px 0;padding:2px;color:#89b}
+#results{margin:10px;padding:2px}
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="wrapper_inner">
+            <hr />
+            <div id="results">
+                <div id="denied">{denied}</div>
+            </div>
+            <div id="detected">{ReasonMessage}</div>
+            <div id="mailsupport">{EmailAddr}</div>{recaptcha_div_include}
+            <hr />
+            <div id="textBlock">
+                <span class="textLabel">{field_id}</span>{Counter}<br />
+                <span class="textLabel">{field_scriptversion}</span>{ScriptIdent}<br />
+                <span class="textLabel">{field_datetime}</span>{DateTime}<br />
+                <span class="textLabel">{field_ipaddr}</span>{IPAddr}<br />
+                <span class="textLabel">{field_query}</span>{Query}<br />
+                <span class="textLabel">{field_referrer}</span>{Referrer}<br />
+                <span class="textLabel">{field_sigcount}</span>{SignatureCount}<br />
+                <span class="textLabel">{field_sigref}</span>{Signatures}<br />
+                <span class="textLabel">{field_whyreason}</span>{WhyReason}!<br />
+                <span class="textLabel">{field_ua}</span>{UA}<br />
+                <span class="textLabel">{field_rURI}</span>{rURI}<br />
+                <span class="textLabel">{field_reCAPTCHA_state}</span>{reCAPTCHA}<br />
+            </div>
+            <hr />
+            <div id="footer">
+                <div id="footer_inner">
+                    <div id="generated_by">{generated_by} </div>
+                    <div id="ScriptIdent">{ScriptIdent}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

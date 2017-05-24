@@ -1,7 +1,7 @@
 ---
 theme/rbi:
  Name: Theme: Red-Blue Inverted
- Extended Description: Exactly the same as the default theme, but with some of the colours swapped around. No big changes.<br /><em>Author: Caleb M / Maikuolan</em>
+ Extended Description: Exactly the same as the default theme, but with some of the colours swapped around. No big changes.<br /><em>Author: Caleb M (Maikuolan)</em>
  Version: 2017.140.801
  Minimum Required: 1.0.0-DEV
  Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/themes.dat
@@ -19,7 +19,7 @@ theme/rbi:
  Reannotate: themes.dat
 theme/slate:
  Name: Theme: Slate
- Extended Description: Simple layout; Gentle, darker colours.<br /><em>Author: Caleb M / Maikuolan</em>
+ Extended Description: Simple layout; Gentle, darker colours.<br /><em>Author: Caleb M (Maikuolan)</em>
  Version: 2017.140.801
  Minimum Required: 1.0.0-DEV
  Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/themes.dat
@@ -43,5 +43,59 @@ theme/slate:
    - 44f4f41b31e768eb6f603a2e00fd5a9d:3224
    - 28e7fbcf57996c642c6e3f49e6a39c15:989
    - 02daeeb44ebc18d681582140e32a5b22:928
+ Reannotate: themes.dat
+theme/bluemetal:
+ Name: Theme: Blue Metal
+ Extended Description: Simple blue/black colour scheme with gentle tones.<br /><em>Author: Caleb M (Maikuolan), based on previous work by Daniel R.</em>
+ Version: 2017.143.302
+ Minimum Required: 1.0.0-DEV
+ Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/themes.dat
+ Uninstallable: true
+ Files:
+  From:
+   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/template_bluemetal.html
+   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/bluemetal/_login.html
+   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/bluemetal/frontend.css
+   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/bluemetal/frontend.html
+   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/bluemetal/pips.php
+  To:
+   - template_bluemetal.html
+   - fe_assets/bluemetal/_login.html
+   - fe_assets/bluemetal/frontend.css
+   - fe_assets/bluemetal/frontend.html
+   - fe_assets/bluemetal/pips.php
+  Checksum:
+   - 71a04e978fc4641508afb4144fa8cb65:3455
+   - 1f18846662c3053009f13311416f7cca:452
+   - ecd00e21cd42d5d5b00f32eb979d480b:3348
+   - 28e7fbcf57996c642c6e3f49e6a39c15:989
+   - ead687645779f014329f685e73703f60:895
+ Reannotate: themes.dat
+theme/moss:
+ Name: Theme: Moss
+ Extended Description: Inspired by the colours of nature.<br /><em>Author: Caleb M (Maikuolan)</em>
+ Version: 2017.143.302
+ Minimum Required: 1.0.0-DEV
+ Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/themes.dat
+ Uninstallable: true
+ Files:
+  From:
+   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/template_moss.html
+   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/moss/_login.html
+   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/moss/bg.png
+   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/moss/frontend.css
+   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/moss/frontend.html
+  To:
+   - template_moss.html
+   - fe_assets/moss/_login.html
+   - fe_assets/moss/bg.png
+   - fe_assets/moss/frontend.css
+   - fe_assets/moss/frontend.html
+  Checksum:
+   - f3fead6ae40b26b75ed0ec3538a7a795:3323
+   - 1f18846662c3053009f13311416f7cca:452
+   - 5182ba869b16c040409cf39980173d9c:17804
+   - 452d8714db072a2d972012a129463b60:3402
+   - 28e7fbcf57996c642c6e3f49e6a39c15:989
  Reannotate: themes.dat
 
