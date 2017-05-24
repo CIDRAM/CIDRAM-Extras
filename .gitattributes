@@ -8,3 +8,6 @@
 * text eol=lf
 *.ini text eol=crlf
 *.dat binary
+*.png binary
+*.jpg binary
+*.gif binary
