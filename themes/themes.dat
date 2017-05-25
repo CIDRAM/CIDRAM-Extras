@@ -47,7 +47,7 @@ theme/slate:
 theme/bluemetal:
  Name: Theme: Blue Metal
  Extended Description: Simple blue/black colour scheme with gentle tones.<br /><em>Author: Caleb M (Maikuolan), based on previous work by Daniel R.</em>
- Version: 2017.143.625
+ Version: 2017.144.811
  Minimum Required: 1.0.0-DEV
  Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -67,14 +67,14 @@ theme/bluemetal:
   Checksum:
    - 71a04e978fc4641508afb4144fa8cb65:3455
    - 1f18846662c3053009f13311416f7cca:452
-   - ecd00e21cd42d5d5b00f32eb979d480b:3348
+   - 2853f648875c43045f5b3321991169c9:3463
    - f9f1f0063a1812068df29aa1b4fd86d6:1003
    - ead687645779f014329f685e73703f60:895
  Reannotate: themes.dat
 theme/moss:
  Name: Theme: Moss
  Extended Description: Inspired by the colours of nature.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2017.143.625
+ Version: 2017.144.811
  Minimum Required: 1.0.0-DEV
  Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -95,7 +95,7 @@ theme/moss:
    - 09bf925ad4c1a8a25b69b47757f7602f:3337
    - 1f18846662c3053009f13311416f7cca:452
    - 5182ba869b16c040409cf39980173d9c:17804
-   - f6612f817082a3f4b19a63c5def46ecd:3430
+   - 3281cca5787d1c055974b07369c33c37:3508
    - f9f1f0063a1812068df29aa1b4fd86d6:1003
  Reannotate: themes.dat
 
