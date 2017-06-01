@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Slate theme pips handler (last modified: 2017.05.20).
+ * This file: Full moon theme pips handler (last modified: 2017.06.01).
  */
 
 /** Prevents execution from outside of CIDRAM. */
