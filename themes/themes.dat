@@ -2,14 +2,14 @@
 theme/rbi:
  Name: Theme: Red-Blue Inverted
  Extended Description: Exactly the same as the default theme, but with some of the colours swapped around. No big changes.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2017.140.801
+ Version: 2017.153.874
  Minimum Required: 1.0.0-DEV
- Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/themes.dat
+ Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
  Files:
   From:
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/template_rbi.html
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/rbi/frontend.css
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/template_rbi.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/rbi/frontend.css
   To:
    - template_rbi.html
    - fe_assets/rbi/frontend.css
@@ -20,17 +20,17 @@ theme/rbi:
 theme/slate:
  Name: Theme: Slate
  Extended Description: Simple layout; Gentle, darker colours.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2017.143.625
+ Version: 2017.153.874
  Minimum Required: 1.0.0-DEV
- Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/themes.dat
+ Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
  Files:
   From:
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/template_slate.html
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/slate/_login.html
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/slate/frontend.css
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/slate/frontend.html
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/slate/pips.php
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/template_slate.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/slate/_login.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/slate/frontend.css
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/slate/frontend.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/slate/pips.php
   To:
    - template_slate.html
    - fe_assets/slate/_login.html
@@ -42,22 +42,22 @@ theme/slate:
    - 1f18846662c3053009f13311416f7cca:452
    - 44f4f41b31e768eb6f603a2e00fd5a9d:3224
    - f9f1f0063a1812068df29aa1b4fd86d6:1003
-   - 02daeeb44ebc18d681582140e32a5b22:928
+   - 5f16c202907ed38a482b51829ea51695:875
  Reannotate: themes.dat
 theme/bluemetal:
  Name: Theme: Blue Metal
  Extended Description: Simple blue/black colour scheme with gentle tones.<br /><em>Author: Caleb M (Maikuolan), based on previous work by Daniel R.</em>
- Version: 2017.151.363
+ Version: 2017.153.874
  Minimum Required: 1.0.0-DEV
- Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/themes.dat
+ Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
  Files:
   From:
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/template_bluemetal.html
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/bluemetal/_login.html
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/bluemetal/frontend.css
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/bluemetal/frontend.html
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/bluemetal/pips.php
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/template_bluemetal.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/bluemetal/_login.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/bluemetal/frontend.css
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/bluemetal/frontend.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/bluemetal/pips.php
   To:
    - template_bluemetal.html
    - fe_assets/bluemetal/_login.html
@@ -69,22 +69,22 @@ theme/bluemetal:
    - 1f18846662c3053009f13311416f7cca:452
    - 2853f648875c43045f5b3321991169c9:3463
    - f9f1f0063a1812068df29aa1b4fd86d6:1003
-   - a6da43cdd6f1daebc719f74e5cc784cf:901
+   - ff7469437076c374622bb1aecc02fc67:848
  Reannotate: themes.dat
 theme/moss:
  Name: Theme: Moss
  Extended Description: Inspired by the colours of nature.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2017.144.811
+ Version: 2017.153.874
  Minimum Required: 1.0.0-DEV
- Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/themes.dat
+ Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
  Files:
   From:
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/template_moss.html
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/moss/_login.html
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/moss/bg.png
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/moss/frontend.css
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/moss/frontend.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/template_moss.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/moss/_login.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/moss/bg.png
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/moss/frontend.css
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/moss/frontend.html
   To:
    - template_moss.html
    - fe_assets/moss/_login.html
@@ -101,30 +101,30 @@ theme/moss:
 theme/fullmoon:
  Name: Theme: Full Moon
  Extended Description: Darker, semi-transparent colours; Navigation shifted to the top; No special fonts; Full moon backdrop.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2017.151.363
+ Version: 2017.153.874
  Minimum Required: 1.0.0-DEV
- Remote: https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/themes.dat
+ Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
  Files:
   From:
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/fullmoon/_accounts.html
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/fullmoon/_cidr_calc.html
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/fullmoon/_config.html
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/fullmoon/_files.html
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/fullmoon/_files_edit.html
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/fullmoon/_files_rename.html
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/fullmoon/_home.html
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/fullmoon/_ip_test.html
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/fullmoon/_ip_tracking.html
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/fullmoon/_login.html
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/fullmoon/_logs.html
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/fullmoon/_nav_complete_access.html
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/fullmoon/_nav_logs_access_only.html
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/fullmoon/_updates.html
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/fullmoon/frontend.css
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/fullmoon/frontend.html
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/fullmoon/moon.jpg
-   - https://raw.githubusercontent.com/Maikuolan/CIDRAM-Extras/master/themes/fullmoon/pips.php
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_accounts.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_cidr_calc.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_config.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_files.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_files_edit.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_files_rename.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_home.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_ip_test.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_ip_tracking.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_login.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_logs.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_nav_complete_access.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_nav_logs_access_only.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_updates.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/frontend.css
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/frontend.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/moon.jpg
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/pips.php
   To:
    - fe_assets/fullmoon/_accounts.html
    - fe_assets/fullmoon/_cidr_calc.html
@@ -156,12 +156,12 @@ theme/fullmoon:
    - ec20b03fc42db6777cd436c57b697e9d:389
    - 1f18846662c3053009f13311416f7cca:452
    - bbba9d87ed5ce2f792236372578e9327:68
-   - 63af7ac3929289e0714a40f166ccf8e6:630
-   - 3ba9a908bee0c1acf5df79356bc08263:244
+   - 1b5e5c3b3ccba01da01ae8b10240e87b:611
+   - a4714e44586817e2b23d47e7821d1c69:225
    - 8a78352ab4f8dc7ef0b2b79031d4c0bb:758
    - 2df82d6d611d2d9763f00f21bf0de59d:3257
    - d318d3acb85999a98e1b0de27f013792:777
    - 322a7aca4a6209ebeec668571d26ed98:34088
-   - efcd0d940023b775a5970796aff9f55c:932
+   - d77d6230dd53ccb57fd6292526135306:879
  Reannotate: themes.dat
 
