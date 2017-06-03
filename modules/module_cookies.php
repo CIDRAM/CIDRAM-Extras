@@ -1,14 +1,14 @@
 <?php
 /**
- * This file is a part of the CIDRAM package, and can be downloaded for free
- * from {@link https://github.com/Maikuolan/CIDRAM/ GitHub}.
+ * This file is a part of the CIDRAM package.
+ * Homepage: https://cidram.github.io/
  *
  * CIDRAM COPYRIGHT 2016 and beyond by Caleb Mazalevskis (Maikuolan).
  *
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional cookie scanner module (last modified: 2017.01.20).
+ * This file: Optional cookie scanner module (last modified: 2017.06.03).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2) and its
  * cookie scanner module, which the cookie scanner module for CIDRAM is based

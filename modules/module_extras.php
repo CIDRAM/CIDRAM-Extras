@@ -1,14 +1,14 @@
 <?php
 /**
- * This file is a part of the CIDRAM package, and can be downloaded for free
- * from {@link https://github.com/Maikuolan/CIDRAM/ GitHub}.
+ * This file is a part of the CIDRAM package.
+ * Homepage: https://cidram.github.io/
  *
  * CIDRAM COPYRIGHT 2016 and beyond by Caleb Mazalevskis (Maikuolan).
  *
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2017.06.01).
+ * This file: Optional security extras module (last modified: 2017.06.03).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -41,7 +41,7 @@ str_replace("\\", '/', $CIDRAM['BlockInfo']['rURI'])), 'Bad request'); // 2017.0
 
 /**
  * Query-based signatures start from here.
- * Please report all false positives to https://github.com/Maikuolan/CIDRAM/issues
+ * Please report all false positives to https://github.com/CIDRAM/CIDRAM/issues
  */
 if (!empty($_SERVER['QUERY_STRING'])) {
     $Query = str_replace("\\", '/', strtolower(urldecode($_SERVER['QUERY_STRING'])));
@@ -189,7 +189,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
 
 /**
  * UA-based signatures start from here (UA = User Agent).
- * Please report all false positives to https://github.com/Maikuolan/CIDRAM/issues
+ * Please report all false positives to https://github.com/CIDRAM/CIDRAM/issues
  */
 if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) > 4096, 'Bad UA', 'User agent string is too long!')) {
     $UA = str_replace("\\", '/', strtolower(urldecode($CIDRAM['BlockInfo']['UA'])));
@@ -452,7 +452,7 @@ fclose($Handle);
 
 /**
  * Signatures based on raw input start from here.
- * Please report all false positives to https://github.com/Maikuolan/CIDRAM/issues
+ * Please report all false positives to https://github.com/CIDRAM/CIDRAM/issues
  */
 if ($RawInput) {
     $RawInputSafe = strtolower(preg_replace('/[\s\x00-\x1f\x7f-\xff]/', '', $RawInput));

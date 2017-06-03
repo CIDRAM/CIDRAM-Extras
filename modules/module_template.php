@@ -1,14 +1,14 @@
 <?php
 /**
- * This file is a part of the CIDRAM package, and can be downloaded for free
- * from {@link https://github.com/Maikuolan/CIDRAM/ GitHub}.
+ * This file is a part of the CIDRAM package.
+ * Homepage: https://cidram.github.io/
  *
  * CIDRAM COPYRIGHT 2016 and beyond by Caleb Mazalevskis (Maikuolan).
  *
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Template module file for CIDRAM (last modified: 2017.01.16).
+ * This file: Template module file for CIDRAM (last modified: 2017.06.03).
  */
 
 // To distinguish comments which would normally exist in modules, from
@@ -319,13 +319,3 @@ $Trigger(preg_match('/(?:foob(ar|ot)\.com|ex[4a]mpl[3e]\.tld)/i', $CIDRAM['Block
 // - Modules won't do anything if they're not being called by the script! Don't
 //   forget to actually reference them in the modules directive of the
 //   configuration ("signatures->modules").
-
-// [Maikuolan, 2017.01.16]: This is the very, very first edition/revision/draft
-// of this template file, and it's quite likely that there'll be changes in the
-// future, and that there's things which I would've forgotten to have put in
-// here, and it's quite likely that there'll be things which, either now or in
-// the future, will need improvement/revision. Fear not! Let me know, make
-// suggestions and so on, and any changes required can be easily implemented.
-// Alternatively, if you don't want to wait for me to do it myself, just fork
-// the Github repository where this file is hosted, make the changes yourself,
-// and send in a pull request. :-)
