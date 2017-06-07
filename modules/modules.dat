@@ -86,7 +86,7 @@ module_extras.php:
   vi: Cung cấp một số bảo vệ hạn chế chống vectơ tấn công khác nhau thường được sử dụng trong các yêu cầu.<br /><em>Được sử dụng với: <code>signatures-&gt;modules</code>.<br />Nguy cơ sai tích cực: <span class="txtOe">Trung bình</span>.</em>
   zh: 提供一些有限的保护针对各种攻击向量常用于请求。<br /><em>使用： <code>signatures-&gt;modules</code>.<br />假阳性风险：<span class="txtOe">中等</span>。</em>
   zh-tw: 提供一些有限的保護針對各種攻擊向量常用於請求。<br /><em>使用： <code>signatures-&gt;modules</code>.<br />假陽性風險：<span class="txtOe">中等</span>。</em>
- Version: 2017.153.874
+ Version: 2017.157.547
  Minimum Required: 0.7.0-DEV
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -97,7 +97,7 @@ module_extras.php:
   To:
    - module_extras.php
   Checksum:
-   - 25819f89cc6fb81b94eac191c694e8fa:30560
+   - be16e53295123b5626cb31d34d9d8650:30559
  Reannotate: modules.dat
 module_baidublocker.php:
  Name:
@@ -136,18 +136,18 @@ module_baidublocker.php:
   vi: Có sẵn bởi vì các yêu cầu. Cảnh báo: Sẽ phá hủy PR Baidu (xếp hạng trang) cho trang web của bạn. Các trang web dành cho người dùng nói tiếng Trung Quốc nên tránh mô-đun này.<br /><em>Được sử dụng với: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.<br />Nguy cơ sai tích cực: <span class="txtGn">Thấp</span>.</em>
   zh: 可用由于请求。 警告：将销毁百度网页排名为您的网站。 中文用户的网站应避免使用此模块。<br /><em>使用： <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.<br />假阳性风险：<span class="txtGn">低</span>。</em>
   zh-tw: 可用由於請求。 警告：將銷毀百度網頁排名為您的網站。 中文用戶的網站應避免使用此模塊。<br /><em>使用： <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.<br />假陽性風險：<span class="txtGn">低</span>。</em>
- Version: 2017.153.874
+ Version: 2017.157.547
  Minimum Required: 0.7.0-DEV
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
   From:
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_extras.php
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_baidublocker.php
   To:
    - module_baidublocker.php
   Checksum:
-   - 540036be512b4aa75e3ee4722c2c5d28:2317
+   - 251fcacbe21afce155b505a1e5f7b554:1998
  Reannotate: modules.dat
 module_yandexblocker.php:
  Name:
@@ -186,18 +186,18 @@ module_yandexblocker.php:
   vi: Có sẵn bởi vì các yêu cầu. Cảnh báo: Sẽ phá hủy PR Yandex (xếp hạng trang) cho trang web của bạn. Các trang web dành cho người dùng nói tiếng Nga nên tránh mô-đun này.<br /><em>Được sử dụng với: <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.<br />Nguy cơ sai tích cực: <span class="txtGn">Thấp</span>.</em>
   zh: 可用由于请求。 警告：将销毁Yandex网页排名为您的网站。 俄文用户的网站应避免使用此模块。<br /><em>使用： <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.<br />假阳性风险：<span class="txtGn">低</span>。</em>
   zh-tw: 可用由於請求。 警告：將銷毀Yandex網頁排名為您的網站。 俄文用戶的網站應避免使用此模塊。<br /><em>使用： <code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code>.<br />假陽性風險：<span class="txtGn">低</span>。</em>
- Version: 2017.153.874
+ Version: 2017.157.547
  Minimum Required: 0.7.0-DEV
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
   From:
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_extras.php
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_yandexblocker.php
   To:
    - module_yandexblocker.php
   Checksum:
-   - fc39653454f98b0fbab431b9de485c44:3117
+   - e9335152a0179c79c580fe2fbe200cf3:3117
  Reannotate: modules.dat
 module_badhosts.php:
  Name:
@@ -236,7 +236,7 @@ module_badhosts.php:
   vi: <em>Được sử dụng với: <code>signatures-&gt;modules</code>.<br />Nguy cơ sai tích cực: <span class="txtOe">Trung bình</span>.</em>
   zh: <em>使用： <code>signatures-&gt;modules</code>.<br />假阳性风险：<span class="txtOe">中等</span>。</em>
   zh-tw: <em>使用： <code>signatures-&gt;modules</code>.<br />假陽性風險：<span class="txtOe">中等</span>。</em>
- Version: 2017.153.874
+ Version: 2017.157.547
  Minimum Required: 0.7.0-DEV
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -247,7 +247,7 @@ module_badhosts.php:
   To:
    - module_badhosts.php
   Checksum:
-   - a82842fd58adf6894f91e1bd590ef3b0:15474
+   - 4e440b2bb48e34ffe07515fd765310a1:15473
  Reannotate: modules.dat
 module_badhosts_isps.php:
  Name:
@@ -286,7 +286,7 @@ module_badhosts_isps.php:
   vi: <em>Được sử dụng với: <code>signatures-&gt;modules</code>.<br />Nguy cơ sai tích cực: <span class="txtRd">Cao</span>.</em>
   zh: <em>使用： <code>signatures-&gt;modules</code>.<br />假阳性风险：<span class="txtRd">高</span>。</em>
   zh-tw: <em>使用： <code>signatures-&gt;modules</code>.<br />假陽性風險：<span class="txtRd">高</span>。</em>
- Version: 2017.153.874
+ Version: 2017.157.547
  Minimum Required: 0.7.0-DEV
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -297,6 +297,60 @@ module_badhosts_isps.php:
   To:
    - module_badhosts_isps.php
   Checksum:
-   - 856b8e840d456cc0b4dfacbe176233e5:1873
+   - baca477d6df3b6b7b281a304fd381fde:1872
+ Reannotate: modules.dat
+module_sfs.php:
+ Name:
+  en: Stop Forum Spam module
+  ar: Stop Forum Spam وحدة
+  de: Stop Forum Spam Modul
+  es: Módulo Stop Forum Spam
+  fr: Module Stop Forum Spam
+  hi: Stop Forum Spam मॉड्यूल
+  id: Modul Stop Forum Spam
+  it: Modulo Stop Forum Spam
+  ja: Stop Forum Spam モジュール
+  ko: Stop Forum Spam 모듈
+  nl: Stop Forum Spam module
+  pt: Módulo Stop Forum Spam
+  th: โมดูล Stop Forum Spam
+  tr: Stop Forum Spam modülü
+  ur: Stop Forum Spam ماڈیول
+  ru: Модуль Stop Forum Spam
+  vi: Mô-đun Stop Forum Spam
+  zh: Stop Forum Spam 模块
+  zh-tw: Stop Forum Spam 模塊
+ Extended Description:
+  ar: يحمي تسجيل صفحات ضد عناوين IP المدرجة من قبل SFS.<br /><em>استخدامها مع: <code>signatures-&gt;modules</code>.<br />خطر إيجابية كاذبة: <span class="txtGn">قليل</span>.</em>
+  de: Schützt die Registrierung und die Anmeldeseiten vor den von SFS aufgelisteten IPs.<br /><em>Benutzt mit: <code>signatures-&gt;modules</code>.<br />Falsch-Positive Risiko: <span class="txtGn">Niedriges</span>.</em>
+  en: Protects registration and login pages against IPs listed by SFS.<br /><em>Used with: <code>signatures-&gt;modules</code>.<br />False positive risk: <span class="txtGn">Low</span>.</em>
+  es: Protege las páginas de registro y de inicio de sesión de las IP listadas por SFS.<br /><em>Usado con: <code>signatures-&gt;modules</code>.<br />Riesgo de falsos positivos: <span class="txtGn">Bajo</span>.</em>
+  fr: Protège l'enregistrement et les pages de connexion contre les adresses IP répertoriées par SFS.<br /><em>Utilisé avec: <code>signatures-&gt;modules</code>.<br />Risque de faux positifs: <span class="txtGn">Faible</span>.</em>
+  hi: एसएफएस द्वारा सूचीबद्ध IP पते से पंजीकरण और लॉगिन पृष्ठ की सुरक्षा करता है।<br /><em>साथ उपयोग करना: <code>signatures-&gt;modules</code>।<br />झूठी सकारात्मक जोखिम: <span class="txtGn">कम</span>।</em>
+  id: Melindungi halaman pendaftaran dan login terhadap IP yang terdaftar oleh SFS.<br /><em>Digunakan dengan: <code>signatures-&gt;modules</code>.<br />Risiko positif palsu: <span class="txtGn">Rendah</span>.</em>
+  it: Protegge le pagine di registrazione e di accesso agli IP elencati da SFS.<br /><em>Utilizzato con: <code>signatures-&gt;modules</code>.<br />Rischio di falsi positivi: <span class="txtGn">A basso</span>.</em>
+  ja: ＳＦＳによってリストされたＩＰに対して登録ページとログインページを保護します。<br /><em>オプション： <code>signatures-&gt;modules</code>.<br />偽陽性のリスク： <span class="txtGn">低い</span>。</em>
+  ko: SFS가 나열한 IP에 대한 등록 및 로그인 페이지를 보호합니다.<br /><em>옵션: <code>signatures-&gt;modules</code>.<br />거짓 양성 위험: <span class="txtGn">낮은</span>.</em>
+  nl: Beschermt registratie en login tegen IP's die door SFS worden vermeld.<br /><em>Gebruikt met: <code>signatures-&gt;modules</code>.<br />Vals positieve risico: <span class="txtGn">Laag</span>.</em>
+  pt: Protege as páginas de registro e login contra IPs listados pelo SFS.<br /><em>Usado com: <code>signatures-&gt;modules</code>.<br />Risco de falsos positivos: <span class="txtGn">Baixo</span>.</em>
+  ru: Защищает страницы регистрации и входа в систему от IP-адресов, перечисленных в SFS.<br /><em>Используется с: <code>signatures-&gt;modules</code>.<br />Риск ложноположительный: <span class="txtGn">Низкий</span>.</em>
+  th: ปกป้องหน้าการลงทะเบียนและเข้าสู่ระบบต่อต้าน IP ที่ระบุโดย SFS.<br /><em>ใช้กับ: <code>signatures-&gt;modules</code>.<br />ความเสี่ยงสำหรับการบวกเท็จ: <span class="txtGn">ต่ำ</span>.</em>
+  tr: SFS tarafından listelenen IP'lere karşı kayıt ve oturum açma sayfalarını korur.<br /><em>Ile kullanılan: <code>signatures-&gt;modules</code>.<br />Yalancı pozitif risk: <span class="txtGn">Düşük</span>.</em>
+  ur: SFS سے گنا آئی پی ایس کے خلاف رجسٹریشن اور لاگ ان صفحات کی حفاظت کرتا ہے.<br /><em>استعمال: <code>signatures-&gt;modules</code>.<br />غلط مثبت خطرہ: <span class="txtGn">کم</span>.</em>
+  vi: Bảo vệ các trang đăng ký và đăng nhập đối với các địa chỉ IP do SFS liệt kê.<br /><em>Được sử dụng với: <code>signatures-&gt;modules</code>.<br />Nguy cơ sai tích cực: <span class="txtGn">Thấp</span>.</em>
+  zh-tw: 防止通過SFS列出的IP地址訪問註冊和登錄頁面。<br /><em>使用： <code>signatures-&gt;modules</code>.<br />假陽性風險：<span class="txtGn">低</span>。</em>
+  zh: 防止通过SFS列出的IP地址访问注册和登录页面。<br /><em>使用： <code>signatures-&gt;modules</code>.<br />假阳性风险：<span class="txtGn">低</span>。</em>
+ Version: 2017.157.547
+ Minimum Required: 0.7.0-DEV
+ Minimum Required PHP: 5.4.0
+ Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
+ Uninstallable: true
+ Files:
+  From:
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_sfs.php
+  To:
+   - module_sfs.php
+  Checksum:
+   - 4719d27ee9af9c579e855cba1d7c544f:3186
  Reannotate: modules.dat
 

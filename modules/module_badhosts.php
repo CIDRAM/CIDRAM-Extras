@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2017.06.03).
+ * This file: Bad hosts blocker module (last modified: 2017.06.05).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -23,7 +23,7 @@ if (!defined('CIDRAM')) {
 /** Inherit trigger closure (see functions.php). */
 $Trigger = $CIDRAM['Trigger'];
 
-/** Inherit trigger closure (see functions.php). */
+/** Inherit bypass closure (see functions.php). */
 $Bypass = $CIDRAM['Bypass'];
 
 /** Options for instantly banning (sets tracking time to 1 year and infraction count to 1000). */
