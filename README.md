@@ -4,6 +4,6 @@ CIDRAM (Classless Inter-Domain Routing Access Manager) is a PHP script designed 
 
 ## **What's this repository for?**
 
-This repository, "__[CIDRAM-Extras](https://github.com/Maikuolan/CIDRAM-Extras)__", is a repository for any extras for CIDRAM that don't belong in the __[core CIDRAM repository](https://github.com/Maikuolan/CIDRAM)__.
+This repository, "__[CIDRAM-Extras](https://github.com/CIDRAM/CIDRAM-Extras)__", is a repository for any extras for CIDRAM that don't belong in the __[core CIDRAM repository](https://github.com/CIDRAM/CIDRAM)__.
 
-*This file, "README.md", last edited: 29th July 2016 (2016.07.29).*
+*This file, "README.md", last edited: 29th June 2017 (2017.06.12).*
