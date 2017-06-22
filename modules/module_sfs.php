@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Stop Forum Spam module (last modified: 2017.06.07).
+ * This file: Stop Forum Spam module (last modified: 2017.06.21).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -26,7 +26,7 @@ $LCURI = preg_replace('/\s/', '', strtolower($CIDRAM['BlockInfo']['rURI']));
 if (preg_match(
     '~(?:/(comprofiler|user)/(login|register)|=(activate|login|regist(er|rat' .
     'ion)|signup)|act(ion)?=(edit|reg)|(activate|confirm|login|newuser|reg(i' .
-    'st(er|ration))?|sign(in|up))(\.php|=)|Special:UserLogin&|verifyemail|wp' .
+    'st(er|ration))?|sign(in|up))(\.php|=)|special:userlogin&|verifyemail|wp' .
     '-comments-post)~',
 $LCURI)) {
 
