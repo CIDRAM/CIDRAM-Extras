@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Template module file for CIDRAM (last modified: 2017.06.03).
+ * This file: Template module file for CIDRAM (last modified: 2017.06.29).
  */
 
 // To distinguish comments which would normally exist in modules, from
@@ -78,9 +78,11 @@ $Trigger = function ($Condition, $ReasonShort, $ReasonLong = '', $DefineOptions 
         $ReasonLong = $CIDRAM['lang']['denied'];
     }
     if (is_array($DefineOptions) && !empty($DefineOptions)) {
-        while (($Cat = each($DefineOptions)) !== false) {
-            while (($Option = each($Cat[1])) !== false) {
-                $CIDRAM['Config'][$Cat[0]][$Option[0]] = $Option[1];
+        foreach ($DefineOptions as $CatKey => $CatValue) {
+            if (is_array($CatValue) && !empty($CatValue)) {
+                foreach ($CatValue as $OptionKey => $OptionValue) {
+                    $CIDRAM['Config'][$CatKey][$OptionKey] = $OptionValue;
+                }
             }
         }
     }
@@ -125,9 +127,11 @@ $Bypass = function ($Condition, $ReasonShort, $DefineOptions = array()) use (&$C
         return false;
     }
     if (is_array($DefineOptions) && !empty($DefineOptions)) {
-        while (($Cat = each($DefineOptions)) !== false) {
-            while (($Option = each($Cat[1])) !== false) {
-                $CIDRAM['Config'][$Cat[0]][$Option[0]] = $Option[1];
+        foreach ($DefineOptions as $CatKey => $CatValue) {
+            if (is_array($CatValue) && !empty($CatValue)) {
+                foreach ($CatValue as $OptionKey => $OptionValue) {
+                    $CIDRAM['Config'][$CatKey][$OptionKey] = $OptionValue;
+                }
             }
         }
     }
