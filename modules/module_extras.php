@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2017.06.05).
+ * This file: Optional security extras module (last modified: 2017.07.21).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -349,18 +349,18 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
         '|n(agist|docom|fluencebot)|track)|j(akarta|ike)|k(ey(wenbot|wordsea' .
         'rchtool)|imengi|kman)|l(arbin|ink(dex|walker)|iperhey|(t|ush)bot)|m' .
         '(a(hiti|honie|ttters)|iabot|lbot|ormor|ot-v980|rchrome|ulticrawler)' .
-        '|n(e(ofonie|testate|tseer|wsbot)|ineconnections)|o(afcrawl|fflinena' .
-        'vigator|odlebot)|p(age(fetch|gett|_verifi)er|anscient|ath2|ic(grabb' .
-        'er|s|tsnapshot|turefinder)|i(pl|xmatch|xray)|oe-component-client-|o' .
-        'wermarks|roximic|(s|ure)bot|urity)|qqdownload|r(ankivabot|ebi-shove' .
-        'ler|everseget|ganalytics|ocketcrawler|sscrawl|ulinki)|s(afeassign|b' .
-        'ider|bl[.-]bot|crap[ey]|emrush|eo(eng|profiler|stat)|istrix|ite(bot' .
-        '|intel)|n[iy]per|olomono|pbot|pyder|search|webot)|t(-h-u-n|agsdir|i' .
-        'neye|opseo|raumacadx|urnitinbot)|u(12bot|p(downer|ictobot))|v(bseo|' .
-        'isbot|oyager)|w(arebay|auuu|bsearchbot|eb(alta|capture|download|rip' .
-        'per)|ikio|indows(3|seven)|inhttp|khtmlto|orldbot|otbox)|xtractorpro' .
-        '|yoofind)/',
-    $UANoSpace), 'Scraper UA'); // 2017.05.02
+        '|n(e(ofonie|testate|wsbot)|ineconnections)|o(afcrawl|fflinenavigato' .
+        'r|odlebot)|p(age(fetch|gett|_verifi)er|anscient|ath2|ic(grabber|s|t' .
+        'snapshot|turefinder)|i(pl|xmatch|xray)|oe-component-client-|owermar' .
+        'ks|roximic|(s|ure)bot|urity)|qqdownload|r(ankivabot|ebi-shoveler|ev' .
+        'erseget|ganalytics|ocketcrawler|sscrawl|ulinki)|s(afeassign|bider|b' .
+        'l[.-]bot|crap[ey]|emrush|eo(eng|profiler|stat)|istrix|ite(bot|intel' .
+        ')|n[iy]per|olomono|pbot|pyder|search|webot)|t(-h-u-n|agsdir|ineye|o' .
+        'pseo|raumacadx|urnitinbot)|u(12bot|p(downer|ictobot))|v(bseo|isbot|' .
+        'oyager)|w(arebay|auuu|bsearchbot|eb(alta|capture|download|ripper)|i' .
+        'kio|indows(3|seven)|inhttp|khtmlto|orldbot|otbox)|xtractorpro|yoofi' .
+        'nd)/',
+    $UANoSpace), 'Scraper UA'); // 2017.07.21
 
     $Trigger(preg_match(
         '/(?:c(hilkat|copyright)|flipboard|g(ooglealerts|rub)|python)/',
@@ -499,7 +499,8 @@ if ($RawInput) {
     $Trigger(preg_match('~//dail' . 'ydigita' . 'ldeals' . '\.info/~i', $RawInput), 'Spam attempt'); // 2017.03.01
 
     $Trigger((
-        strpos($RawInput, 'C6y1F2EA' . '7217PBTL' . '1FlcH98s' . 'Opfo/r1Z' . '76/OKFae') !== false
-    ), 'Compromised API key used in brute-force attacks.'); // 2017.03.04
+        strpos($RawInput, 'C6y1F2EA' . '7217PBTL' . '1FlcH98s' . 'Opfo/r1Z' . '76/OKFae') !== false || // 2017.03.04
+        strpos($RawInput, 'C4i1F1EA' . '7217PBDF' . '5FlcH77s' . '0pfo/S1t' . '15/13ga') !== false // 2017.07.21
+    ), 'Compromised API key used in brute-force attacks.');
 
 }

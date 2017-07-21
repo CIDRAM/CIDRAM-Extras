@@ -86,7 +86,7 @@ module_extras.php:
   vi: Cung cấp một số bảo vệ hạn chế chống vectơ tấn công khác nhau thường được sử dụng trong các yêu cầu.<br /><em>Được sử dụng với: <code>signatures-&gt;modules</code>.<br />Nguy cơ sai tích cực: <span class="txtOe">Trung bình</span>.</em>
   zh: 提供一些有限的保护针对各种攻击向量常用于请求。<br /><em>使用：<code>signatures-&gt;modules</code>。<br />假阳性风险：<span class="txtOe">中等</span>。​</em>
   zh-tw: 提供一些有限的保護針對各種攻擊向量常用於請求。<br /><em>使用：<code>signatures-&gt;modules</code>。<br />假陽性風險：<span class="txtOe">中等</span>。​</em>
- Version: 2017.157.547
+ Version: 2017.201.250
  Minimum Required: 0.7.0-DEV
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -97,7 +97,7 @@ module_extras.php:
   To:
    - module_extras.php
   Checksum:
-   - be16e53295123b5626cb31d34d9d8650:30559
+   - 7c99e5770a74091f9164910f30022a27:30669
  Reannotate: modules.dat
 module_baidublocker.php:
  Name:
