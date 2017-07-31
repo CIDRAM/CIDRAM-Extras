@@ -2,7 +2,7 @@
 theme/rbi:
  Name: Theme: Red-Blue Inverted
  Extended Description: Exactly the same as the default theme, but with some of the colours swapped around. No big changes.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2017.153.874
+ Version: 2017.211.314
  Minimum Required: 1.0.0-DEV
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -14,13 +14,13 @@ theme/rbi:
    - template_rbi.html
    - fe_assets/rbi/frontend.css
   Checksum:
-   - 1aee8e4a6ed3a706a3f14a09ef1f4a4e:3288
-   - cb4407bb6b48d9cb5fc2892acd175cfa:3156
+   - ececb1236e0a6d6331bb0a739c238ff0:3384
+   - 1c7dddd4d71457506682b419547a6ffe:3286
  Reannotate: themes.dat
 theme/slate:
  Name: Theme: Slate
  Extended Description: Simple layout; Gentle, darker colours.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2017.153.874
+ Version: 2017.211.314
  Minimum Required: 1.0.0-DEV
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -38,16 +38,16 @@ theme/slate:
    - fe_assets/slate/frontend.html
    - fe_assets/slate/pips.php
   Checksum:
-   - 7bd87589167ad83486e336b5eaea0822:3333
+   - db2c8c75f1e7999cecf4e5046065e5a9:3405
    - 1f18846662c3053009f13311416f7cca:452
-   - 44f4f41b31e768eb6f603a2e00fd5a9d:3224
+   - dd27568ccd2d7672595956f56399394f:3354
    - f9f1f0063a1812068df29aa1b4fd86d6:1003
    - 5f16c202907ed38a482b51829ea51695:875
  Reannotate: themes.dat
 theme/bluemetal:
  Name: Theme: Blue Metal
  Extended Description: Simple blue/black colour scheme with gentle tones.<br /><em>Author: Caleb M (Maikuolan), based on previous work by Daniel R.</em>
- Version: 2017.153.874
+ Version: 2017.211.314
  Minimum Required: 1.0.0-DEV
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -65,16 +65,16 @@ theme/bluemetal:
    - fe_assets/bluemetal/frontend.html
    - fe_assets/bluemetal/pips.php
   Checksum:
-   - 71a04e978fc4641508afb4144fa8cb65:3455
+   - 610a77d7e1d0f1c24f6d12765fb0ee43:3527
    - 1f18846662c3053009f13311416f7cca:452
-   - 2853f648875c43045f5b3321991169c9:3463
+   - f1d7f0d35a92c02e77b6d1ecc6c514f4:3593
    - f9f1f0063a1812068df29aa1b4fd86d6:1003
    - ff7469437076c374622bb1aecc02fc67:848
  Reannotate: themes.dat
 theme/moss:
  Name: Theme: Moss
  Extended Description: Inspired by the colours of nature.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2017.153.874
+ Version: 2017.211.314
  Minimum Required: 1.0.0-DEV
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -92,16 +92,16 @@ theme/moss:
    - fe_assets/moss/frontend.css
    - fe_assets/moss/frontend.html
   Checksum:
-   - 09bf925ad4c1a8a25b69b47757f7602f:3337
+   - bc3822d9c79358013b85f94feaae157f:3433
    - 1f18846662c3053009f13311416f7cca:452
    - 5182ba869b16c040409cf39980173d9c:17804
-   - 3281cca5787d1c055974b07369c33c37:3508
+   - 0b86ef1b84926c765913c00926a2d8cd:3641
    - f9f1f0063a1812068df29aa1b4fd86d6:1003
  Reannotate: themes.dat
 theme/fullmoon:
  Name: Theme: Full Moon
  Extended Description: Darker, semi-transparent colours; Navigation shifted to the top; No special fonts; Full moon backdrop.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2017.204.471
+ Version: 2017.211.314
  Minimum Required: 1.0.0-DEV
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -147,11 +147,11 @@ theme/fullmoon:
   Checksum:
    - 33334cfee2d0249de258d9de25339682:1747
    - 779f746967f1bc98a4f7a85d8fa81840:494
-   - 4ed7230380d6b4006f3e8d035318fa1d:878
+   - c5479df05fcdc86ac2a4d0e378179d4b:638
    - 099c9f006aba72acdb2322987cbb1a62:674
    - 8a69c3a7b2ec66a5dc89d7a5a4a29ff1:623
    - c8d758db2ebf33aeccdd827ccb6b63d7:539
-   - 712fdf593a0e09c8409fe7973a574ee3:374
+   - 47b7d1b3d36cebf4c826572f160f53d3:837
    - 5e1afd28c93c208d24843aec0a10ce26:513
    - ec20b03fc42db6777cd436c57b697e9d:389
    - 1f18846662c3053009f13311416f7cca:452
@@ -159,7 +159,7 @@ theme/fullmoon:
    - 1b5e5c3b3ccba01da01ae8b10240e87b:611
    - a4714e44586817e2b23d47e7821d1c69:225
    - 8a78352ab4f8dc7ef0b2b79031d4c0bb:758
-   - 2df82d6d611d2d9763f00f21bf0de59d:3257
+   - 9a224d041fd69d7f569a01850014e919:3363
    - d318d3acb85999a98e1b0de27f013792:777
    - 322a7aca4a6209ebeec668571d26ed98:34088
    - d77d6230dd53ccb57fd6292526135306:879

@@ -1,5 +1,5 @@
 *{vertical-align:text-top}
-body,input,select,textarea,.idx{font-size:12px}
+body,input,select,textarea,.idx{font-size:calc(12px * {Magnification})}
 body{font-family:'Merriweather','PT Serif',sans-serif,'Lucida Grande',Tahoma,Verdana,Arial;letter-spacing:1px;text-decoration:none;border-style:none;margin:0;padding:0;white-space:normal;background-color:#212121;color:#ddd}
 code{font-family:monospace}
 hr{border-style:solid none none;border-width:1px;margin:5px 2px 0;padding:2px;color:#999}
@@ -32,12 +32,13 @@ a:hover,a:active,a:focus{color:#fc6}
 .h1,.h3,.spanner{background-color:#555}
 .h2,.h4,code{background-color:#444}
 .h3,.h3f,.h4,.h4f{width:50%}
-.nav{font-size:14px;width:20%}
+.nav{font-size:calc(14px * {Magnification});width:20%}
 .ng1,.h1f,.h3f{background:linear-gradient({Gradient_Degree}deg,#555,#3c3c3c)}
 .ng2,.h2f,.h4f{background:linear-gradient({Gradient_Degree}deg,#444,#363636)}
 .r{background-color:#c63}
 .rf{background:linear-gradient({Gradient_Degree}deg,#c63,#e97)}
 .right{padding:20px;width:80%}
+.branchline{border-style:none none solid none;border-width:1px;border-color:#999}
 .txtBl{color:#ddd}
 .txtGn{color:#4d6}
 .txtOe{color:#f90}

@@ -1,5 +1,5 @@
 *{vertical-align:text-top}
-body,input,select,textarea,.idx{font-size:12px}
+body,input,select,textarea,.idx{font-size:calc(12px * {Magnification})}
 body{font-family:'Merriweather','PT Serif',sans-serif,'Lucida Grande',Tahoma,Verdana,Arial;letter-spacing:1px;text-decoration:none;border-style:none;margin:0;padding:0;white-space:normal;background-color:#789048;background-image:url('?cidram-asset=bg.png&theme={theme}');background-repeat:no-repeat;background-attachment:fixed;background-position:left bottom;color:#303c24}
 code{font-family:monospace}
 hr{border-style:solid none none;border-width:1px;margin:5px 2px 0;padding:2px;color:#604848}
@@ -32,12 +32,13 @@ a:hover,a:active,a:focus{color:#866}
 .h1,.h3,.spanner{background-color:rgba(192,216,96,0.6)}
 .h2,.h4,code{background-color:rgba(144,162,72,0.6)}
 .h3,.h3f,.h4,.h4f{width:50%}
-.nav{font-size:14px;width:20%}
+.nav{font-size:calc(14px * {Magnification});width:20%}
 .ng1,.h1f,.h3f{background:linear-gradient({Gradient_Degree}deg,rgba(192,216,96,0.6),#a8bd54)}
 .ng2,.h2f,.h4f{background:linear-gradient({Gradient_Degree}deg,rgba(144,162,72,0.6),#78873c)}
 .r{background-color:rgba(216,192,96,0.6)}
 .rf{background:linear-gradient({Gradient_Degree}deg,rgba(216,192,96,0.6),#bda854)}
 .right{padding:20px;width:80%}
+.branchline{border-style:none none solid none;border-width:1px;border-color:#604848}
 .txtBl{color:#604848}
 .txtGn{color:#48a048}
 .txtOe{color:#7F4400}
