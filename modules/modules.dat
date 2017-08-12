@@ -353,4 +353,54 @@ module_sfs.php:
   Checksum:
    - b049264e1476827ca38343a93285b11a:3186
  Reannotate: modules.dat
+module_ua.php:
+ Name:
+  en: Empty UA blocker module
+  ar: فارغة وحدة مانع وا
+  de: Leeres UA-Blocker-Modul
+  es: Módulo de bloqueador UA vacío
+  fr: Module bloqueur UA vide
+  hi: खाली UA अवरोधक मॉड्यूल
+  id: Modul pemblokir UA kosong
+  it: Modulo blocco UA vuoto
+  ja: 空のＵＡブロッカー・モジュール
+  ko: 빈 UA 차단기 모듈
+  nl: Lege UA blocker module
+  pt: Módulo de bloqueador de UA vazio
+  th: โมดูลตัวบล็อก UA ที่ว่างเปล่า
+  tr: Boş UA engelleyici modülü
+  ur: خالی UA بلاکر ماڈیول
+  ru: Модуль блокировки UA пустой
+  vi: Mô-đun chặn UA trống
+  zh: 空UA阻塞模块
+  zh-tw: 空UA阻塞模塊
+ Extended Description:
+  en: <em>Used with: <code>signatures-&gt;modules</code>.<br />False positive risk: <span class="txtGn">Low</span>.</em>
+  ar: <em>استخدامها مع: <code>signatures-&gt;modules</code>.<br />خطر إيجابية كاذبة: <span class="txtGn">قليل</span>.</em>
+  de: <em>Benutzt mit: <code>signatures-&gt;modules</code>.<br />Falsch-Positive Risiko: <span class="txtGn">Niedriges</span>.</em>
+  es: <em>Usado con: <code>signatures-&gt;modules</code>.<br />Riesgo de falsos positivos: <span class="txtGn">Bajo</span>.</em>
+  fr: <em>Utilisé avec : <code>signatures-&gt;modules</code>.<br />Risque de faux positifs : <span class="txtGn">Faible</span>.</em>
+  id: <em>Digunakan dengan: <code>signatures-&gt;modules</code>.<br />Risiko positif palsu: <span class="txtGn">Rendah</span>.</em>
+  it: <em>Utilizzato con: <code>signatures-&gt;modules</code>.<br />Rischio di falsi positivi: <span class="txtGn">A basso</span>.</em>
+  ja: <em>オプション： <code>signatures-&gt;modules</code>。<br />偽陽性のリスク： <span class="txtGn">低い</span>。​</em>
+  ko: <em>옵션: <code>signatures-&gt;modules</code>.<br />거짓 양성 위험: <span class="txtGn">낮은</span>.</em>
+  nl: <em>Gebruikt met: <code>signatures-&gt;modules</code>.<br />Vals positieve risico: <span class="txtGn">Laag</span>.</em>
+  pt: <em>Usado com: <code>signatures-&gt;modules</code>.<br />Risco de falsos positivos: <span class="txtGn">Baixo</span>.</em>
+  ru: <em>Используется с: <code>signatures-&gt;modules</code>.<br />Риск ложноположительный: <span class="txtGn">Низкий</span>.</em>
+  vi: <em>Được sử dụng với: <code>signatures-&gt;modules</code>.<br />Nguy cơ sai tích cực: <span class="txtGn">Thấp</span>.</em>
+  zh: <em>使用：<code>signatures-&gt;modules</code>。<br />假阳性风险：<span class="txtGn">低</span>。​</em>
+  zh-tw: <em>使用：<code>signatures-&gt;modules</code>。<br />假陽性風險：<span class="txtGn">低</span>。​</em>
+ Version: 2017.223.627
+ Minimum Required: 0.7.0-DEV
+ Minimum Required PHP: 5.4.0
+ Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
+ Uninstallable: true
+ Files:
+  From:
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_ua.php
+  To:
+   - module_ua.php
+  Checksum:
+   - fddc15d1c0bc22d8d30ced3fa9d2cc47:638
+ Reannotate: modules.dat
 
