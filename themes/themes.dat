@@ -101,7 +101,7 @@ theme/moss:
 theme/fullmoon:
  Name: Theme: Full Moon
  Extended Description: Darker, semi-transparent colours; Navigation shifted to the top; No special fonts; Full moon backdrop.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2017.260.258
+ Version: 2017.261.829
  Minimum Required: 1.0.0-DEV
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -114,6 +114,7 @@ theme/fullmoon:
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_files_edit.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_files_rename.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_home.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_ip_aggregator.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_ip_test.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_ip_tracking.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_login.html
@@ -133,6 +134,7 @@ theme/fullmoon:
    - fe_assets/fullmoon/_files_edit.html
    - fe_assets/fullmoon/_files_rename.html
    - fe_assets/fullmoon/_home.html
+   - fe_assets/fullmoon/_ip_aggregator.html
    - fe_assets/fullmoon/_ip_test.html
    - fe_assets/fullmoon/_ip_tracking.html
    - fe_assets/fullmoon/_login.html
@@ -152,11 +154,12 @@ theme/fullmoon:
    - 8a69c3a7b2ec66a5dc89d7a5a4a29ff1:623
    - c8d758db2ebf33aeccdd827ccb6b63d7:539
    - 47b7d1b3d36cebf4c826572f160f53d3:837
+   - 9e594a5ed848f5564dfcad0c72be3a2d:557
    - 5e1afd28c93c208d24843aec0a10ce26:513
    - 2eacee7bfe8454b049f09801165a25af:877
    - 1f18846662c3053009f13311416f7cca:452
    - bbba9d87ed5ce2f792236372578e9327:68
-   - 1b5e5c3b3ccba01da01ae8b10240e87b:611
+   - 613b0d9158413a4d1ac0c2a55c25a7ab:679
    - a4714e44586817e2b23d47e7821d1c69:225
    - 2614aa2df76aa3bf185b66b5650bb0b7:744
    - 9a224d041fd69d7f569a01850014e919:3363
