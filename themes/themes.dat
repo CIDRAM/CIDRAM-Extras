@@ -101,7 +101,7 @@ theme/moss:
 theme/fullmoon:
  Name: Theme: Full Moon
  Extended Description: Darker, semi-transparent colours; Navigation shifted to the top; No special fonts; Full moon backdrop.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2017.269.519
+ Version: 2017.277.433
  Minimum Required: 1.0.0-DEV
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -121,6 +121,7 @@ theme/fullmoon:
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_logs.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_nav_complete_access.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_nav_logs_access_only.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_statistics.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_updates.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/frontend.css
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/frontend.html
@@ -141,6 +142,7 @@ theme/fullmoon:
    - fe_assets/fullmoon/_logs.html
    - fe_assets/fullmoon/_nav_complete_access.html
    - fe_assets/fullmoon/_nav_logs_access_only.html
+   - fe_assets/fullmoon/_statistics.html
    - fe_assets/fullmoon/_updates.html
    - fe_assets/fullmoon/frontend.css
    - fe_assets/fullmoon/frontend.html
@@ -150,7 +152,7 @@ theme/fullmoon:
    - 33334cfee2d0249de258d9de25339682:1747
    - 779f746967f1bc98a4f7a85d8fa81840:494
    - c5479df05fcdc86ac2a4d0e378179d4b:638
-   - c9dd461b9d4efc9a0bda55275793276d:943
+   - e068f93faf8b50d84257e778e3ee4153:943
    - 75244828b0188cc6077bbdbb162e070d:615
    - f0e80941a3a5470b8994f9f96b8fdd7a:531
    - 47b7d1b3d36cebf4c826572f160f53d3:837
@@ -158,9 +160,10 @@ theme/fullmoon:
    - 5e1afd28c93c208d24843aec0a10ce26:513
    - 2eacee7bfe8454b049f09801165a25af:877
    - 1f18846662c3053009f13311416f7cca:452
-   - bbba9d87ed5ce2f792236372578e9327:68
-   - 613b0d9158413a4d1ac0c2a55c25a7ab:679
+   - 4e128ebf827ec9790bb9634cb71fbefa:119
+   - e95d1bc507e9fdb81153b3e3c9fb4c22:737
    - a4714e44586817e2b23d47e7821d1c69:225
+   - 944481a2c863e9ee2e02ef9d1c41ecc1:2502
    - 2614aa2df76aa3bf185b66b5650bb0b7:744
    - 9a224d041fd69d7f569a01850014e919:3363
    - 74225f91676ba01890824bbcbfb030ce:797
