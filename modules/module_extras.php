@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2017.07.21).
+ * This file: Optional security extras module (last modified: 2017.10.07).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -29,15 +29,43 @@ $Bypass = $CIDRAM['Bypass'];
 /** Options for instantly banning (sets tracking time to 1 year and infraction count to 1000). */
 $InstaBan = array('Options' => array('TrackTime' => 31536000, 'TrackCount' => 1000));
 
-/** Directory traversal protection. */
-$Trigger(preg_match(
-    "\x01" . '(?:/|%5[cf])\.{2,}(?:/|%5[cf])' . "\x01i",
-str_replace("\\", '/', $CIDRAM['BlockInfo']['rURI'])), 'Traversal attack'); // 2017.01.13
+$Trigger(count($_REQUEST) >= 500, 'Hack attempt', 'Too many request variables sent!'); // 2017.01.01
 
-/** Detect bad/dangerous/malformed requests. */
-$Trigger(preg_match(
-    "\x01" . '(?:(/|%5[cf])\.(/|%5[cf])|(/|%5[cf]){3,}|[\x00-\x1f\x7f])' . "\x01i",
-str_replace("\\", '/', $CIDRAM['BlockInfo']['rURI'])), 'Bad request'); // 2017.01.13
+/**
+ * Signatures based on the reconstructed URI start from here.
+ * Please report all false positives to https://github.com/CIDRAM/CIDRAM/issues
+ */
+if ($CIDRAM['BlockInfo']['rURI']) {
+    $LCNrURI = str_replace("\\", '/', strtolower($CIDRAM['BlockInfo']['rURI']));
+
+    /** Directory traversal protection. */
+    $Trigger(preg_match('~(?:/|%5[cf])\.{2,}(?:/|%5[cf])~i', $LCNrURI), 'Traversal attack'); // 2017.01.13
+
+    /** Detect bad/dangerous/malformed requests. */
+    $Trigger(preg_match('~(?:(/|%5[cf])\.(/|%5[cf])|(/|%5[cf]){3,}|[\x00-\x1f\x7f])~i', $LCNrURI), 'Bad request'); // 2017.01.13
+
+    $Trigger(preg_match('~(?:(/%e2%80%a6x|shrift)\.php|/get?(fwversion|mac))~', $LCNrURI), 'Hack attempt', '', $InstaBan); // 2017.02.25
+
+    $Trigger(preg_match('~author=\d+~i', $LCNrURI), 'WordPress user enumeration not allowed'); // 2017.03.22
+
+    /** Joomla image inserting tool bypass (WordPress user enumeration conflict). */
+    $Bypass(
+        ($CIDRAM['BlockInfo']['SignatureCount'] - $Infractions) > 0 &&
+        strpos($LCNrURI, 'administrator/') !== false &&
+        strpos($CIDRAM['BlockInfo']['WhyReason'], 'WordPress user enumeration not allowed') !== false,
+    'Joomla image inserting tool bypass (WordPress user enumeration conflict)'); // 2017.06.01
+
+    $Trigger((
+        strpos($LCNrURI, 'wp-print.php?script=1') !== false || // 2017.10.07
+        strpos($LCNrURI, 'css/newgolden.php') !== false // 2017.10.07
+    ), 'WP hack attempt');
+
+    /** WSO is a common PHP backdoor/trojan. */
+    $Trigger(preg_match('~[\x5c/]wso\.php~i', $LCNrURI), 'WSO not allowed'); // 2017.03.22
+
+    $Trigger(preg_match('~\.(?:bak|cgi|php)\.suspected~i', $LCNrURI), 'Accessing quarantined files not allowed'); // 2017.03.22
+
+}
 
 /**
  * Query-based signatures start from here.
@@ -116,10 +144,6 @@ if (!empty($_SERVER['QUERY_STRING'])) {
     $Trigger(strpos($_SERVER['QUERY_STRING'], '=-1%27') !== false, 'Hack attempt'); // 2017.01.05
     $Trigger(substr($QueryNoSpace, 0, 1) === ';', 'Hack attempt'); // 2017.01.05
 
-    $Trigger(preg_match(
-        '~(?:(/%e2%80%a6x|shrift)\.php|/get?(fwversion|mac))~',
-    strtolower($CIDRAM['BlockInfo']['rURI'])), 'Hack attempt', '', $InstaBan); // 2017.02.25
-
     $Trigger(substr($QueryNoSpace, 0, 2) === '()', 'Bash/Shellshock', '', $InstaBan); // 2017.01.05
 
     $Trigger(strpos($QueryNoSpace, 'allow_url_include=on') !== false, 'Plesk hack'); // 2017.01.05
@@ -168,20 +192,6 @@ if (!empty($_SERVER['QUERY_STRING'])) {
         '/(?:(from|union|where).*select|then.*else|(o[nr]|where).*is null|(i' .
         'nner|left|outer|right) join)/',
     $QueryNoSpace), 'SQLi'); // 2017.03.01
-
-    $Trigger(preg_match('~author=\d+~i', $CIDRAM['BlockInfo']['rURI']), 'WordPress user enumeration not allowed'); // 2017.03.22
-
-    /** Joomla image inserting tool bypass (WordPress user enumeration conflict). */
-    $Bypass(
-        ($CIDRAM['BlockInfo']['SignatureCount'] - $Infractions) > 0 &&
-        strpos($_SERVER['REQUEST_URI'], 'administrator/') !== false &&
-        strpos($CIDRAM['BlockInfo']['WhyReason'], 'WordPress user enumeration not allowed') !== false,
-    'Joomla image inserting tool bypass (WordPress user enumeration conflict)'); // 2017.06.01
-
-    $Trigger(preg_match('~[\x5c/]wso\.php~i', $CIDRAM['BlockInfo']['rURI']), 'WSO not allowed'); // 2017.03.22
-    $Trigger(preg_match('~\.(?:bak|cgi|php)\.suspected~i', $CIDRAM['BlockInfo']['rURI']), 'Accessing quarantined files not allowed'); // 2017.03.22
-
-    $Trigger(count($_REQUEST) >= 500, 'Hack attempt', 'Too many request variables sent!'); // 2017.01.01
 
     $Trigger(preg_match('/(?:(modez|osc|tasya)=|=((bot|scanner|shell)z|psybnc))/', $QueryNoSpace), 'Common shell/bot command', '', $InstaBan); // 2017.02.25
 
@@ -472,7 +482,7 @@ if ($RawInput) {
     /** Joomla plugins update bypass (POST RFI conflict). */
     $Bypass(
         ($CIDRAM['BlockInfo']['SignatureCount'] - $Infractions) > 0 &&
-        strpos($_SERVER['REQUEST_URI'], 'administrator/') !== false &&
+        strpos($CIDRAM['BlockInfo']['rURI'], 'administrator/') !== false &&
         strpos($CIDRAM['BlockInfo']['WhyReason'], 'POST RFI') !== false,
     'Joomla plugins update bypass (POST RFI conflict)'); // 2017.05.10
 
@@ -500,7 +510,8 @@ if ($RawInput) {
 
     $Trigger((
         strpos($RawInput, 'C6y1F2EA' . '7217PBTL' . '1FlcH98s' . 'Opfo/r1Z' . '76/OKFae') !== false || // 2017.03.04
-        strpos($RawInput, 'C4i1F1EA' . '7217PBDF' . '5FlcH77s' . '0pfo/S1t' . '15/13ga') !== false // 2017.07.21
+        strpos($RawInput, 'C4i1F1EA' . '7217PBDF' . '5FlcH77s' . '0pfo/S1t' . '15/13ga') !== false || // 2017.07.21
+        strpos($RawInput, 'C6y1F2EA' . '7217PBTL' . '1FlcH98s' . 'Opfo%2Fr' . '1Z76%2FO' . 'KFae') !== false // 2017.10.07
     ), 'Compromised API key used in brute-force attacks.');
 
 }
