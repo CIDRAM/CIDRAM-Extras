@@ -22,7 +22,7 @@
 // It is recommended to remove all comments like "// this" prior to publishing
 // your own custom module.
 
-// Towards the top of this file, you'll see a line which beings with
+// Towards the top of this file, you'll see a line which begins with
 // "* This file". You should edit the information contained therein whenever
 // you modify your custom module, in order to accurately reflect your custom
 // module and the information about it.
