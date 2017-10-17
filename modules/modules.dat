@@ -139,7 +139,7 @@ module_baidublocker.php:
   zh: 可用由于请求。​警告：将销毁百度网页排名为您的网站。​中文用户的网站应避免使用此模块。<br /><em>使用：<code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>.
   zh-tw: 可用由於請求。​警告：將銷毀百度網頁排名為您的網站。​中文用戶的網站應避免使用此模塊。<br /><em>使用：<code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>.
  False Positive Risk: Low
- Version: 2017.157.547
+ Version: 2017.289.651
  Minimum Required: 0.7.0-DEV
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -150,7 +150,7 @@ module_baidublocker.php:
   To:
    - module_baidublocker.php
   Checksum:
-   - 251fcacbe21afce155b505a1e5f7b554:1998
+   - c59ebc125c5c77c0e771e73a1fbce996:1998
  Reannotate: modules.dat
 module_yandexblocker.php:
  Name:
@@ -190,7 +190,7 @@ module_yandexblocker.php:
   zh: 可用由于请求。​警告：将销毁Yandex网页排名为您的网站。​俄文用户的网站应避免使用此模块。<br /><em>使用：<code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>.
   zh-tw: 可用由於請求。​警告：將銷毀Yandex網頁排名為您的網站。​俄文用戶的網站應避免使用此模塊。<br /><em>使用：<code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>.
  False Positive Risk: Low
- Version: 2017.157.547
+ Version: 2017.289.651
  Minimum Required: 0.7.0-DEV
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -201,7 +201,7 @@ module_yandexblocker.php:
   To:
    - module_yandexblocker.php
   Checksum:
-   - e9335152a0179c79c580fe2fbe200cf3:3117
+   - 58f498f383bb50e165764fe6aa191de0:3053
  Reannotate: modules.dat
 module_badhosts.php:
  Name:
