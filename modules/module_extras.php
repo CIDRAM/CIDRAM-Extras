@@ -32,7 +32,7 @@ $InstaBan = array('Options' => array('TrackTime' => 31536000, 'TrackCount' => 10
 $Trigger(count($_REQUEST) >= 500, 'Hack attempt', 'Too many request variables sent!'); // 2017.01.01
 
 /** Needed for some bypasses specific to WordPress (detects whether we're running as a WordPress plugin). */
-$is_WP_plugin = (strtolower(str_replace("\\", '/', substr(__DIR__, -31))) === 'wp-content/plugins/cidram/vault');
+$is_WP_plugin = (defined('ABSPATH') || strtolower(str_replace("\\", '/', substr(__DIR__, -31))) === 'wp-content/plugins/cidram/vault');
 
 /**
  * Signatures based on the reconstructed URI start from here.
@@ -470,7 +470,11 @@ fclose($Handle);
 if ($RawInput) {
     $RawInputSafe = strtolower(preg_replace('/[\s\x00-\x1f\x7f-\xff]/', '', $RawInput));
 
-    $Trigger(preg_match('/[\x00-\x1f\x7f-\xff"#\'-);<>\[\]]/', $RawInput), 'Non-escaped characters in POST'); // 2017.03.01
+    $Trigger(
+        !$is_WP_plugin && preg_match('/[\x00-\x1f\x7f-\xff"#\'-);<>\[\]]/', $RawInput),
+        'Non-escaped characters in POST'
+    ); // 2017.10.23
+
     $Trigger(preg_match('/charcode\(88,83,83\)/', $RawInputSafe), 'XSS attempt'); // 2017.03.01
     $Trigger(
         strpos($RawInputSafe, '<?xml') !== false && strpos($RawInputSafe, '<!doctype') !== false && strpos($RawInputSafe, '<!entity') !== false,
@@ -478,9 +482,9 @@ if ($RawInput) {
     $Trigger(strpos($RawInputSafe, 'inputbody:action=update&mfbfw') !== false, 'FancyBox exploit attempt'); // 2017.03.01
 
     $Trigger(!$is_WP_plugin && preg_match(
-        '~(?:(lwp-download|fetch)ftp://|(fetch|lwp-download|wget)https?://|<' .
-        'name|method(call|name)|params?|value>)~i',
-    $RawInputSafe), 'POST RFI'); // 2017.03.01 (modified 2017.10.23 due to WordPress false positives)
+        '~(?:(lwp-download|fetch)ftp://|(fetch|lwp-download|wget)https?://|<name|method(call|name)|value>)~i',
+        $RawInputSafe
+    ), 'POST RFI'); // 2017.10.23
 
     /** Joomla plugins update bypass (POST RFI conflict). */
     $Bypass(
