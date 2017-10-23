@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2017.10.07).
+ * This file: Optional security extras module (last modified: 2017.10.23).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -30,6 +30,9 @@ $Bypass = $CIDRAM['Bypass'];
 $InstaBan = array('Options' => array('TrackTime' => 31536000, 'TrackCount' => 1000));
 
 $Trigger(count($_REQUEST) >= 500, 'Hack attempt', 'Too many request variables sent!'); // 2017.01.01
+
+/** Needed for some bypasses specific to WordPress (detects whether we're running as a WordPress plugin). */
+$is_WP_plugin = (strtolower(str_replace("\\", '/', substr(__DIR__, -31))) === 'wp-content/plugins/cidram/vault');
 
 /**
  * Signatures based on the reconstructed URI start from here.
@@ -474,10 +477,10 @@ if ($RawInput) {
     'Suspicious request'); // 2017.03.01
     $Trigger(strpos($RawInputSafe, 'inputbody:action=update&mfbfw') !== false, 'FancyBox exploit attempt'); // 2017.03.01
 
-    $Trigger(preg_match(
+    $Trigger(!$is_WP_plugin && preg_match(
         '~(?:(lwp-download|fetch)ftp://|(fetch|lwp-download|wget)https?://|<' .
         'name|method(call|name)|params?|value>)~i',
-    $RawInputSafe), 'POST RFI'); // 2017.03.01
+    $RawInputSafe), 'POST RFI'); // 2017.03.01 (modified 2017.10.23 due to WordPress false positives)
 
     /** Joomla plugins update bypass (POST RFI conflict). */
     $Bypass(
