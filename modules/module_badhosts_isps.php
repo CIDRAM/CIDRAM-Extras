@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2017.06.05).
+ * This file: Bad hosts blocker module (last modified: 2017.10.27).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -27,7 +27,7 @@ $Trigger = $CIDRAM['Trigger'];
 $Bypass = $CIDRAM['Bypass'];
 
 /** Enables reCAPTCHA option for ISPs. */
-$reCAPTCHA = array('recaptcha' => array('enabled' => true));
+$reCAPTCHA = ['recaptcha' => ['enabled' => true]];
 
 /** Fetch hostname. */
 if (empty($CIDRAM['Hostname'])) {

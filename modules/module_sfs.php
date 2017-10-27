@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Stop Forum Spam module (last modified: 2017.06.21).
+ * This file: Stop Forum Spam module (last modified: 2017.10.27).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -32,7 +32,7 @@ $LCURI)) {
 
     /** Build local SFS cache if it doesn't already exist. */
     if (!isset($CIDRAM['Cache']['SFS'])) {
-        $CIDRAM['Cache']['SFS'] = array();
+        $CIDRAM['Cache']['SFS'] = [];
     }
 
     /** Local SFS cache entry expiry time (successful lookups). */
@@ -57,15 +57,15 @@ $LCURI)) {
         if (!isset($CIDRAM['Cache']['SFS'][$_SERVER[$CIDRAM['Config']['general']['ipaddr']]])) {
 
             /** Perform SFS lookup. */
-            $Lookup = $CIDRAM['Request']('http://www.stopforumspam.com/api', array(
+            $Lookup = $CIDRAM['Request']('http://www.stopforumspam.com/api', [
                 'ip' => $_SERVER[$CIDRAM['Config']['general']['ipaddr']],
                 'f' => 'serial'
-            ));
+            ]);
 
             /** Generate local SFS cache entry. */
             $CIDRAM['Cache']['SFS'][$_SERVER[$CIDRAM['Config']['general']['ipaddr']]] = (
                 strpos($Lookup, 's:7:"success";') !== false && strpos($Lookup, 's:2:"ip";') !== false
-            ) ? array('Listed' => (strpos($Lookup, '"appears";i:1;') !== false), 'Time' => $Expiry) : array('Listed' => false, 'Time' => $ExpiryFailed);
+            ) ? ['Listed' => (strpos($Lookup, '"appears";i:1;') !== false), 'Time' => $Expiry] : ['Listed' => false, 'Time' => $ExpiryFailed];
 
             /** Cache has been modified. */
             $CIDRAM['CacheModified'] = true;

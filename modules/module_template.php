@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Template module file for CIDRAM (last modified: 2017.06.29).
+ * This file: Template module file for CIDRAM (last modified: 2017.10.27).
  */
 
 // To distinguish comments which would normally exist in modules, from
@@ -70,7 +70,7 @@ $Trigger = $CIDRAM['Trigger'];
  * @return bool Returns true if the signature was triggered, and false if it
  *      wasn't. Should correspond to the truthiness of $Condition.
  */
-$Trigger = function ($Condition, $ReasonShort, $ReasonLong = '', $DefineOptions = array()) use (&$CIDRAM) {
+$Trigger = function ($Condition, $ReasonShort, $ReasonLong = '', $DefineOptions = []) use (&$CIDRAM) {
     if (!$Condition) {
         return false;
     }
@@ -122,7 +122,7 @@ $Bypass = $CIDRAM['Bypass'];
  * @return bool Returns true if the bypass was triggered, and false if it
  *      wasn't. Should correspond to the truthiness of $Condition.
  */
-$Bypass = function ($Condition, $ReasonShort, $DefineOptions = array()) use (&$CIDRAM) {
+$Bypass = function ($Condition, $ReasonShort, $DefineOptions = []) use (&$CIDRAM) {
     if (!$Condition) {
         return false;
     }
@@ -163,7 +163,7 @@ $Bypass = function ($Condition, $ReasonShort, $DefineOptions = array()) use (&$C
 // signature is triggered.
 
 /** Options for instantly banning (sets tracking time to 1 year and infraction count to 1000). */
-$InstaBan = array('Options' => array('TrackTime' => 31536000, 'TrackCount' => 1000));
+$InstaBan = ['Options' => ['TrackTime' => 31536000, 'TrackCount' => 1000]];
 
 // All the following examples and guidelines are based on the assumption that
 // you've not modified the default signature trigger or signature bypass

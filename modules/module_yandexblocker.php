@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Yandex blocker module (last modified: 2017.10.17).
+ * This file: Yandex blocker module (last modified: 2017.10.27).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -20,7 +20,7 @@ if (!defined('CIDRAM')) {
 $Trigger = $CIDRAM['Trigger'];
 
 /** Options for instantly banning (sets tracking time to 1 year and infraction count to 1000). */
-$InstaBan = array('Options' => array('TrackTime' => 31536000, 'TrackCount' => 1000));
+$InstaBan = ['Options' => ['TrackTime' => 31536000, 'TrackCount' => 1000]];
 
 /** Set flag to ignore validation. */
 $CIDRAM['Flag-Bypass-Yandex-Check'] = true;

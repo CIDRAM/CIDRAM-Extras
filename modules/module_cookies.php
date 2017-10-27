@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional cookie scanner module (last modified: 2017.06.03).
+ * This file: Optional cookie scanner module (last modified: 2017.10.27).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2) and its
  * cookie scanner module, which the cookie scanner module for CIDRAM is based
@@ -24,7 +24,7 @@ if (!defined('CIDRAM')) {
 $Trigger = $CIDRAM['Trigger'];
 
 /** Options for instantly banning (sets tracking time to 1 year and infraction count to 1000). */
-$InstaBan = array('Options' => array('TrackTime' => 31536000, 'TrackCount' => 1000));
+$InstaBan = ['Options' => ['TrackTime' => 31536000, 'TrackCount' => 1000]];
 
 /** Count cookies. */
 $Cookies = count($_COOKIE);

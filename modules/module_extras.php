@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2017.10.23).
+ * This file: Optional security extras module (last modified: 2017.10.27).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -27,7 +27,7 @@ $Trigger = $CIDRAM['Trigger'];
 $Bypass = $CIDRAM['Bypass'];
 
 /** Options for instantly banning (sets tracking time to 1 year and infraction count to 1000). */
-$InstaBan = array('Options' => array('TrackTime' => 31536000, 'TrackCount' => 1000));
+$InstaBan = ['Options' => ['TrackTime' => 31536000, 'TrackCount' => 1000]];
 
 $Trigger(count($_REQUEST) >= 500, 'Hack attempt', 'Too many request variables sent!'); // 2017.01.01
 
