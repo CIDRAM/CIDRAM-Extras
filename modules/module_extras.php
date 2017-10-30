@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2017.10.27).
+ * This file: Optional security extras module (last modified: 2017.10.31).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -173,7 +173,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
     $Trigger(preg_match('/(?:["\'];|[;=]\|)/', $QueryNoSpace), 'Execution attempt'); // 2017.01.13
     $Trigger(preg_match('/[\'"`]sysadmin[\'"`]/', $QueryNoSpace), 'Generic attack attempt'); // 2017.02.25
     $Trigger(preg_match('/[\'"`]\+[\'"`]/', $QueryNoSpace), 'XSS attack'); // 2017.01.03
-    $Trigger(preg_match('/[\'"`]|[\'"`]/', $QueryNoSpace), 'Pipe detected'); // 2017.01.08
+    $Trigger(preg_match('/[\'"`]\|[\'"`]/', $QueryNoSpace), 'Pipe detected'); // 2017.01.08, modified 2017.10.31 (bugged)
     $Trigger(strpos($QueryNoSpace, 'num_replies=77777') !== false, 'Overflow attempt'); // 2017.02.25
     $Trigger(strpos($_SERVER['QUERY_STRING'], '++++') !== false, 'Overflow attempt'); // 2017.01.05
     $Trigger(strpos($_SERVER['QUERY_STRING'], '->') !== false, 'Generic attack attempt'); // 2017.02.25
