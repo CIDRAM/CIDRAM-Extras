@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Stop Forum Spam module (last modified: 2017.10.27).
+ * This file: Stop Forum Spam module (last modified: 2017.11.23).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -50,20 +50,20 @@ $LCURI)) {
      */
     if (
         !$CIDRAM['BlockInfo']['SignatureCount'] &&
-        filter_var($_SERVER[$CIDRAM['Config']['general']['ipaddr']], FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) !== false
+        filter_var($_SERVER[$CIDRAM['IPAddr']], FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) !== false
     ) {
 
         /** Executed if there aren't any cache entries corresponding to the IP of the request. */
-        if (!isset($CIDRAM['Cache']['SFS'][$_SERVER[$CIDRAM['Config']['general']['ipaddr']]])) {
+        if (!isset($CIDRAM['Cache']['SFS'][$_SERVER[$CIDRAM['IPAddr']]])) {
 
             /** Perform SFS lookup. */
             $Lookup = $CIDRAM['Request']('http://www.stopforumspam.com/api', [
-                'ip' => $_SERVER[$CIDRAM['Config']['general']['ipaddr']],
+                'ip' => $_SERVER[$CIDRAM['IPAddr']],
                 'f' => 'serial'
             ]);
 
             /** Generate local SFS cache entry. */
-            $CIDRAM['Cache']['SFS'][$_SERVER[$CIDRAM['Config']['general']['ipaddr']]] = (
+            $CIDRAM['Cache']['SFS'][$_SERVER[$CIDRAM['IPAddr']]] = (
                 strpos($Lookup, 's:7:"success";') !== false && strpos($Lookup, 's:2:"ip";') !== false
             ) ? ['Listed' => (strpos($Lookup, '"appears";i:1;') !== false), 'Time' => $Expiry] : ['Listed' => false, 'Time' => $ExpiryFailed];
 
@@ -74,7 +74,7 @@ $LCURI)) {
 
         /** Block the request if the IP is listed by SFS. */
         $Trigger(
-            !empty($CIDRAM['Cache']['SFS'][$_SERVER[$CIDRAM['Config']['general']['ipaddr']]]['Listed']),
+            !empty($CIDRAM['Cache']['SFS'][$_SERVER[$CIDRAM['IPAddr']]]['Listed']),
             'SFS Lookup',
             $CIDRAM['lang']['ReasonMessage_Banned']
         );

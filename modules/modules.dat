@@ -347,7 +347,7 @@ module_sfs.php:
   zh-tw: 防止通過SFS列出的IP地址訪問註冊和登錄頁面。<br /><em>使用：<code>signatures-&gt;modules</code></em>.
   zh: 防止通过SFS列出的IP地址访问注册和登录页面。<br /><em>使用：<code>signatures-&gt;modules</code></em>.
  False Positive Risk: Low
- Version: 2017.299.278
+ Version: 2017.326.621
  Minimum Required: 0.7.0-DEV
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -358,7 +358,7 @@ module_sfs.php:
   To:
    - module_sfs.php
   Checksum:
-   - bcfd9664b4f57d6df28ff87b126a07d0:3166
+   - 07eda19882a0e5465daddfa67b3ec62a:3061
  Reannotate: modules.dat
 module_ua.php:
  Name:
