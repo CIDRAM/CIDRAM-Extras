@@ -16,11 +16,8 @@ if (!defined('CIDRAM')) {
     die('[CIDRAM] This should not be accessed directly.');
 }
 
-/** Fetch user agent. */
-$UA = strtolower(urldecode($CIDRAM['BlockInfo']['UA']));
-
 /** Is it claiming to be Pinterest? */
-if (strpos($UA, 'pinterest') !== false) {
+if (strpos($CIDRAM['BlockInfo']['UALC'], 'pinterest') !== false) {
 
     /** Preserve trackable. */
     $Trackable = $CIDRAM['Trackable'];
@@ -30,10 +27,10 @@ if (strpos($UA, 'pinterest') !== false) {
      * Verify it.
      * See: https://help.pinterest.com/en/articles/about-pinterest-crawler-0
      */
-    $CIDRAM['DNS-Reverse-Forward'](['.pinterest.com'], 'Pinterest');
+    $Success = $CIDRAM['DNS-Reverse-Forward'](['.pinterest.com'], 'Pinterest');
 
     /** Whitelist if necessary and restore trackable. */
-    if (!$CIDRAM['Trackable']) {
+    if (!$CIDRAM['Trackable'] || (!$Success && substr($CIDRAM['BlockInfo']['IPAddr'], 0, 7) === '54.236.')) {
         $CIDRAM['Whitelisted'] = true;
         $CIDRAM['BlockInfo']['Signatures'] = $CIDRAM['BlockInfo']['ReasonMessage'] = $CIDRAM['BlockInfo']['WhyReason'] = '';
         $CIDRAM['BlockInfo']['SignatureCount'] = 0;

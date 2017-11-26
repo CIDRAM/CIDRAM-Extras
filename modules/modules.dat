@@ -369,10 +369,18 @@ module_ua.php:
 module_pinterest.php:
  Name:
   en: Pinterest verifier
+  es: Verificador de Pinterest
+  fr: Pinterest vérificateur
+  it: Pinterest verificatore
+  pt: Verificador Pinterest
  Extended Description:
   en: Verifies requests from bots claiming to be Pinterest. Genuine Pinterest bots will be whitelisted. Fake Pinterest bots will be blocked. <em><code>signatures-&gt;modules</code></em>
+  es: Verifica las solicitudes de bots que afirman ser Pinterest. Los bots de Pinterest genuinos se incluirán en la lista blanca. Los bots falsos de Pinterest serán bloqueados. <em><code>signatures-&gt;modules</code></em>
+  fr: Vérifie les demandes des robots prétendant être Pinterest. Les véritables robots de Pinterest seront ajoutés à la liste blanche. Les faux robots de Pinterest seront bloqués. <em><code>signatures-&gt;modules</code></em>
+  it: Verifica le richieste da parte di bot che dichiarano di essere Pinterest. I robot di Pinterest autentici saranno autorizzati nella whitelist. I bot di Pinterest falsi saranno bloccati. <em><code>signatures-&gt;modules</code></em>
+  pt: Verifica pedidos de bots que afirmam ser Pinterest. Os robôs genuínos de Pinterest serão classificados na lista branca. Os robôs Fake Pinterest serão bloqueados. <em><code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
- Version: 2017.328.765
+ Version: 2017.329.430
  Minimum Required: 1.3.0-DEV
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -383,7 +391,7 @@ module_pinterest.php:
   To:
    - module_pinterest.php
   Checksum:
-   - 5ec18edd9c94f3039f31fa4254d2bb23:1229
+   - 591c8fa912e1e694c41b04d3999ad6b9:1259
  Reannotate: modules.dat
 Chart.js:
  Name: Chart.js
