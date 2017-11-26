@@ -369,7 +369,8 @@ module_ua.php:
 module_pinterest.php:
  Name:
   en: Pinterest verifier
- Extended Description: <em><code>signatures-&gt;modules</code></em>
+ Extended Description:
+  en: Verifies requests from bots claiming to be Pinterest. Genuine Pinterest bots will be whitelisted. Fake Pinterest bots will be blocked. <em><code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
  Version: 2017.328.765
  Minimum Required: 1.3.0-DEV
