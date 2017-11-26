@@ -47,7 +47,7 @@ theme/slate:
 theme/bluemetal:
  Name: Theme: Blue Metal
  Extended Description: Simple blue/black colour scheme with gentle tones.<br /><em>Author: Caleb M (Maikuolan), based on previous work by Daniel R.</em>
- Version: 2017.329.396
+ Version: 2017.329.397
  Minimum Required: 1.0.0-DEV
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -67,7 +67,7 @@ theme/bluemetal:
   Checksum:
    - cc86846fce32d989c393915827374b20:2659
    - fe825b7dee48063c9654edca9b0f5908:520
-   - f1d7f0d35a92c02e77b6d1ecc6c514f4:3593
+   - b4ace1f20ddd50c91c5f1c8a3a6db124:3599
    - 1e6b55f2fcb52c044e501b1b68c2b632:1068
    - ff7469437076c374622bb1aecc02fc67:848
  Reannotate: themes.dat
