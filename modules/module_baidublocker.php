@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Baidu blocker module (last modified: 2017.10.27).
+ * This file: Baidu blocker module (last modified: 2017.12.03).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -30,7 +30,7 @@ $Trigger(strpos(strtolower($CIDRAM['BlockInfo']['UA']), 'baidu') !== false, 'Bai
 
 /** Fetch hostname. */
 if (empty($CIDRAM['Hostname'])) {
-    $CIDRAM['Hostname'] = $CIDRAM['DNS-Reverse-IPv4']($CIDRAM['BlockInfo']['IPAddr']);
+    $CIDRAM['Hostname'] = $CIDRAM['DNS-Reverse']($CIDRAM['BlockInfo']['IPAddr']);
 }
 
 /** Block based on hostname. */
@@ -43,8 +43,9 @@ IPv4 Signatures (ASNs 38365, 38627, 55967):
 63.243.252.0/24 Deny 百度被禁止从这里
 103.235.44.0/22 Deny 百度被禁止从这里
 104.193.88.0/23 Deny 百度被禁止从这里
-104.193.91.0/24 Deny 百度被禁止从这里
+104.193.90.0/24 Deny 百度被禁止从这里
 106.12.0.0/16 Deny 百度被禁止从这里
+119.63.192.0/21 Deny 百度被禁止从这里
 119.75.208.0/20 Deny 百度被禁止从这里
 131.161.8.0/22 Deny 百度被禁止从这里
 180.76.0.0/16 Deny 百度被禁止从这里

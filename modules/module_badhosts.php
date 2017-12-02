@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2017.10.27).
+ * This file: Bad hosts blocker module (last modified: 2017.12.03).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -31,7 +31,7 @@ $InstaBan = ['Options' => ['TrackTime' => 31536000, 'TrackCount' => 1000]];
 
 /** Fetch hostname. */
 if (empty($CIDRAM['Hostname'])) {
-    $CIDRAM['Hostname'] = $CIDRAM['DNS-Reverse-IPv4']($CIDRAM['BlockInfo']['IPAddr']);
+    $CIDRAM['Hostname'] = $CIDRAM['DNS-Reverse']($CIDRAM['BlockInfo']['IPAddr']);
 }
 
 /** Signatures start here. */

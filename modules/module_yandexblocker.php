@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Yandex blocker module (last modified: 2017.10.27).
+ * This file: Yandex blocker module (last modified: 2017.12.03).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -30,7 +30,7 @@ $Trigger(strpos(strtolower($CIDRAM['BlockInfo']['UA']), 'yandex') !== false, 'Ya
 
 /** Fetch hostname. */
 if (empty($CIDRAM['Hostname'])) {
-    $CIDRAM['Hostname'] = $CIDRAM['DNS-Reverse-IPv4']($CIDRAM['BlockInfo']['IPAddr']);
+    $CIDRAM['Hostname'] = $CIDRAM['DNS-Reverse']($CIDRAM['BlockInfo']['IPAddr']);
 }
 
 /** Block based on hostname. */
@@ -56,7 +56,6 @@ IPv4 Signatures (ASNs 13238, 43247, 202611, 207207):
 185.32.185.0/24 Deny Яндекс запретили здесь
 185.32.186.0/24 Deny Яндекс запретили здесь
 185.71.76.0/22 Deny Яндекс запретили здесь
-199.21.96.0/22 Deny Яндекс запретили здесь
 199.36.240.0/22 Deny Яндекс запретили здесь
 213.180.192.0/19 Deny Яндекс запретили здесь
 Tag: Yandex CIDRs

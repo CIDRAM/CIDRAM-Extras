@@ -139,7 +139,7 @@ module_baidublocker.php:
   zh: 可用由于请求。​警告：将销毁百度网页排名为您的网站。​中文用户的网站应避免使用此模块。<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
   zh-tw: 可用由於請求。​警告：將銷毀百度網頁排名為您的網站。​中文用戶的網站應避免使用此模塊。<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
- Version: 2017.299.278
+ Version: 2017.335.943
  Minimum Required: 0.7.0-DEV
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -150,7 +150,7 @@ module_baidublocker.php:
   To:
    - module_baidublocker.php
   Checksum:
-   - cac99cf2cd320031ba45cb201fbd1fe9:1988
+   - 6afe39f3c44ccce826ab5060f9ce56a2:2029
  Reannotate: modules.dat
 module_yandexblocker.php:
  Name:
@@ -190,7 +190,7 @@ module_yandexblocker.php:
   zh: 可用由于请求。​警告：将销毁Yandex网页排名为您的网站。​俄文用户的网站应避免使用此模块。<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
   zh-tw: 可用由於請求。​警告：將銷毀Yandex網頁排名為您的網站。​俄文用戶的網站應避免使用此模塊。<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
- Version: 2017.299.278
+ Version: 2017.335.943
  Minimum Required: 0.7.0-DEV
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -201,7 +201,7 @@ module_yandexblocker.php:
   To:
    - module_yandexblocker.php
   Checksum:
-   - 1d1d73b4f2c831db6c6f32daa559cbfc:3043
+   - 6700831abaae937fb73a889bd9aac892:2975
  Reannotate: modules.dat
 module_badhosts.php:
  Name:
@@ -226,7 +226,7 @@ module_badhosts.php:
   zh-tw: 壞主機阻塞模塊
  Extended Description: <em><code>signatures-&gt;modules</code></em>
  False Positive Risk: Medium
- Version: 2017.299.278
+ Version: 2017.335.943
  Minimum Required: 0.7.0-DEV
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -237,7 +237,7 @@ module_badhosts.php:
   To:
    - module_badhosts.php
   Checksum:
-   - 02f9476d934ddf6b3490bc2f1e170914:15463
+   - 155d20c0e0580c56462e49f6a0cca319:15458
  Reannotate: modules.dat
 module_badhosts_isps.php:
  Name:
@@ -262,7 +262,7 @@ module_badhosts_isps.php:
   zh-tw: 壞主機阻塞模塊（ISP）
  Extended Description: <em><code>signatures-&gt;modules</code></em>
  False Positive Risk: High
- Version: 2017.299.278
+ Version: 2017.335.943
  Minimum Required: 0.7.0-DEV
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -273,7 +273,7 @@ module_badhosts_isps.php:
   To:
    - module_badhosts_isps.php
   Checksum:
-   - 1edd389112706b0389b5f0264d12694f:1862
+   - f64a85d22037469812ef2798edf265a7:1857
  Reannotate: modules.dat
 module_sfs.php:
  Name:

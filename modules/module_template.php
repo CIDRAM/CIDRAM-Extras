@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Template module file for CIDRAM (last modified: 2017.10.27).
+ * This file: Template module file for CIDRAM (last modified: 2017.12.03).
  */
 
 // To distinguish comments which would normally exist in modules, from
@@ -216,7 +216,7 @@ $InstaBan = ['Options' => ['TrackTime' => 31536000, 'TrackCount' => 1000]];
 
 /** Fetch hostname. */
 if (empty($CIDRAM['Hostname'])) {
-    $CIDRAM['Hostname'] = $CIDRAM['DNS-Reverse-IPv4']($CIDRAM['BlockInfo']['IPAddr']);
+    $CIDRAM['Hostname'] = $CIDRAM['DNS-Reverse']($CIDRAM['BlockInfo']['IPAddr']);
 }
 
 // As per the docBlock comments included earlier in this document pertaining to
