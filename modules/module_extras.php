@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2017.10.31).
+ * This file: Optional security extras module (last modified: 2017.12.07).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -520,5 +520,15 @@ if ($RawInput) {
         strpos($RawInput, 'C4i1F1EA' . '7217PBDF' . '5FlcH77s' . '0pfo/S1t' . '15/13ga') !== false || // 2017.07.21
         strpos($RawInput, 'C6y1F2EA' . '7217PBTL' . '1FlcH98s' . 'Opfo%2Fr' . '1Z76%2FO' . 'KFae') !== false // 2017.10.07
     ), 'Compromised API key used in brute-force attacks.');
+
+}
+
+/**
+ * Referrer-based signatures start from here.
+ * Please report all false positives to https://github.com/CIDRAM/CIDRAM/issues
+ */
+if ($CIDRAM['BlockInfo']['Referrer']) {
+
+    $Trigger(preg_match('~trafers\.com~i', $CIDRAM['BlockInfo']['Referrer']), 'Trafers not permitted here'); // 2017.12.07
 
 }
