@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2017.12.07).
+ * This file: Optional security extras module (last modified: 2017.12.14).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -345,6 +345,10 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
         'pider|[ry]spider|un(rang|yun)))/',
     $UANoSpace), 'Banned UA'); // 2017.02.25
 
+    $Trigger(preg_match(
+        '/^wp-iphone$/',
+    $UANoSpace), 'Banned UA'); // 2017.12.14
+
     $Trigger(preg_match('/(?:80legs|chinaclaw)/', $UANoSpace), 'Scraper UA', '', $InstaBan); // 2017.01.08
     $Trigger(preg_match('/^(?:abot|spider)/', $UANoSpace), 'Scraper UA'); // 2017.01.07
     $Trigger(strpos($UANoSpace, 'fetch/') !== false, 'Scraper UA'); // 2017.01.06
@@ -385,12 +389,10 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $Trigger(preg_match('/(?:anonymous|vpngate)/', $UANoSpace), 'Proxy UA'); // 2017.01.13
 
     $Trigger(preg_match(
-        '/(?:cncdialer|d(esktopsmiley|s_juicyaccess)|foxy.1|genieo|hotbar|ic' .
-        'afe|m(utant|yway)|o(otkit|ssproxy)|qqpinyinsetup|si(cent|mbar)|tenc' .
-        'enttraveler|wsr-agent|zeus)/',
-    $UANoSpace), 'Malware UA'); // 2017.01.13
-
-    $Trigger(preg_match('/(?:360se|theworld)\)/', $UANoSpace), 'Malware UA'); // 2017.01.13
+        '/(?:360se|cncdialer|d(esktopsmiley|s_juicyaccess)|foxy.1|genieo|hot' .
+        'bar|icafe|m(agicbrowser|utant|yway)|o(otkit|ssproxy)|qqpinyinsetup|' .
+        'si(cent|mbar)|t(encenttraveler|heworld)|wsr-agent|zeus)/',
+    $UANoSpace), 'Malware UA'); // 2017.12.14
 
     $Trigger(preg_match(
         '/(?:200please|analyzer|awcheck|blex|c(entric|omment|razywebcrawler)' .
