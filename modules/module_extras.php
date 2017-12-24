@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2017.12.14).
+ * This file: Optional security extras module (last modified: 2017.12.20).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -361,7 +361,7 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
         'moncrawl|overscout|r4nk|rawlfire|uriousgeorge|ydral)|d(atenbank|ayl' .
         'ife|ebate|igext|(cp|isco|ouban|ownload)bot|owjones|tsagent)|e((na|u' .
         'ro|xperi)bot|nvolk|vaal|zoom)|f(dm|etch(er.0|or)|ibgen)|g(alaxydown' .
-        'loads|et(download\.ws|ty|url11)|slfbot|urujibot)|h(arvest|eritrix|o' .
+        'loads|et(download\.ws|ty|url11)|slfbot|umgum|urujibot)|h(arvest|eritrix|o' .
         'lmes|ttp(fetcher|unit)|ttrack)|i(mage(.fetcher|walker)|linkscrawler' .
         '|n(agist|docom|fluencebot)|track)|j(akarta|ike)|k(ey(wenbot|wordsea' .
         'rchtool)|imengi|kman)|l(arbin|ink(dex|walker)|iperhey|(t|ush)bot)|m' .
@@ -377,7 +377,7 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
         'oyager)|w(arebay|auuu|bsearchbot|eb(alta|capture|download|ripper)|i' .
         'kio|indows(3|seven)|inhttp|khtmlto|orldbot|otbox)|xtractorpro|yoofi' .
         'nd)/',
-    $UANoSpace), 'Scraper UA'); // 2017.07.21
+    $UANoSpace), 'Scraper UA'); // 2017.12.20
 
     $Trigger(preg_match(
         '/(?:c(hilkat|copyright)|flipboard|g(ooglealerts|rub)|python)/',
