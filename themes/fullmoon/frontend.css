@@ -33,7 +33,7 @@ a:hover,a:active,a:focus{color:#fff7bc}
 code,.nav{font-family:'Courier New',Courier,'Lucida Grande',Arial}
 .ng1,.h1f,.h3f{background:linear-gradient({Gradient_Degree}deg,rgba(103,106,109,0.5),#555)}
 .ng2,.h2f,.h4f{background:linear-gradient({Gradient_Degree}deg,rgba(86,89,92,0.5),#444)}
-.r{background-color:rgba(120,89,92,0.5)}
+.hFd:hover,.r{background-color:rgba(120,89,92,0.5)}
 .rf{background:linear-gradient({Gradient_Degree}deg,rgba(120,89,92,0.5),#644)}
 .branchline{border-style:none none solid none;border-width:1px;border-color:#aaa}
 .txtBl{color:#000}
@@ -54,3 +54,5 @@ a[href="?cidram-page=logout"]:hover,a[href="?cidram-page=logout"]:active,a[href=
   .h1,.h1f,.h2,.h2f,.r,.rf{width:50%}
   .extend{width:100%}
 }
+.hB{background-color:rgba(0,0,0,0.125)}
+.hW{background-color:rgba(255,255,255,0.125)}
