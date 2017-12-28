@@ -275,6 +275,23 @@ module_badhosts_isps.php:
   Checksum:
    - f64a85d22037469812ef2798edf265a7:1857
  Reannotate: modules.dat
+module_badtlds.php:
+ Name: Bad TLDs blocker module
+ Extended Description: <em><code>signatures-&gt;modules</code></em>
+ False Positive Risk: Low
+ Version: 2017.361.167
+ Minimum Required: 1.0.0
+ Minimum Required PHP: 5.4.0
+ Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
+ Uninstallable: true
+ Files:
+  From:
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_badtlds.php
+  To:
+   - module_badtlds.php
+  Checksum:
+   - 6ff538056dcb127d99b68c7d9086568a:1109
+ Reannotate: modules.dat
 module_sfs.php:
  Name:
   en: Stop Forum Spam module
