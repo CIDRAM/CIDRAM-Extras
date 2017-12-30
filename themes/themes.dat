@@ -20,7 +20,7 @@ theme/rbi:
 theme/slate:
  Name: Theme: Slate
  Extended Description: Simple layout; Gentle, darker colours.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2017.358.026
+ Version: 2017.363.503
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -41,13 +41,13 @@ theme/slate:
    - 0109b9762fb2f754b691b123c4f44bdd:2537
    - fe825b7dee48063c9654edca9b0f5908:520
    - db50e0017ef9196573295a48c6cd88df:3457
-   - 1e6b55f2fcb52c044e501b1b68c2b632:1068
+   - 77b6f6811f33778f61977a261e0b5fa4:1079
    - 5f16c202907ed38a482b51829ea51695:875
  Reannotate: themes.dat
 theme/bluemetal:
  Name: Theme: Blue Metal
  Extended Description: Simple blue/black colour scheme with gentle tones.<br /><em>Author: Caleb M (Maikuolan), based on previous work by Daniel R.</em>
- Version: 2017.358.026
+ Version: 2017.363.503
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -68,13 +68,13 @@ theme/bluemetal:
    - cc86846fce32d989c393915827374b20:2659
    - fe825b7dee48063c9654edca9b0f5908:520
    - 01d8f29964e71be5e38ea2786bc842f6:3696
-   - 1e6b55f2fcb52c044e501b1b68c2b632:1068
+   - 77b6f6811f33778f61977a261e0b5fa4:1079
    - ff7469437076c374622bb1aecc02fc67:848
  Reannotate: themes.dat
 theme/moss:
  Name: Theme: Moss
  Extended Description: Inspired by the colours of nature.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2017.358.026
+ Version: 2017.363.503
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -96,12 +96,12 @@ theme/moss:
    - fe825b7dee48063c9654edca9b0f5908:520
    - 5182ba869b16c040409cf39980173d9c:17804
    - 308ee76e9d4e297f2aad07006cbc749f:3744
-   - 1e6b55f2fcb52c044e501b1b68c2b632:1068
+   - 77b6f6811f33778f61977a261e0b5fa4:1079
  Reannotate: themes.dat
 theme/fullmoon:
  Name: Theme: Full Moon
  Extended Description: Darker, semi-transparent colours; Navigation shifted to the top; No special fonts; Full moon backdrop.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2017.358.026
+ Version: 2017.363.503
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -166,7 +166,7 @@ theme/fullmoon:
    - 944481a2c863e9ee2e02ef9d1c41ecc1:2502
    - 2614aa2df76aa3bf185b66b5650bb0b7:744
    - b6bb769ceb4d9c9bc43f49fcbe0726d5:3466
-   - 3fad14554ebe2957c2009af301409cee:842
+   - 68f7f52a0faf4a3dda521ac038a47f45:853
    - 322a7aca4a6209ebeec668571d26ed98:34088
    - d77d6230dd53ccb57fd6292526135306:879
  Reannotate: themes.dat
