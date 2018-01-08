@@ -433,7 +433,7 @@ Chart.js:
 flags.css:
  Name: Flags CSS
  Extended Description: Adds flag support to the front-end logs page.
- Version: 2017.363.501
+ Version: 2018.7.753
  Minimum Required: 1.3.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -444,6 +444,6 @@ flags.css:
   To:
    - fe_assets/flags.css
   Checksum:
-   - ee9c10555966f40fc34f1a0eb086682f:193985
+   - 2883f0515c7cf8bd52f727b53c590703:190767
  Reannotate: modules.dat
 
