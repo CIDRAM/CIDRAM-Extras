@@ -8,11 +8,10 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2017.12.20).
+ * This file: Optional security extras module (last modified: 2018.01.11).
  *
- * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
- * the community behind it (Spambot Security) for inspiring/developing many of
- * the signatures contained within this module.
+ * Many thanks to the Spambot Security community for the research, inspiration,
+ * and development behind many of the signatures provided by this module.
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -339,10 +338,10 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
         ')|i(mrbot|ntegromedb|p-?web-?crawler|rcsearch|rgrabber)|jadynavebot' .
         '|komodiabot|lin(guee|kpad)|m((ajestic|j)12|agnet|eanpath|entormate|' .
         'fibot|ignify)|nutch|omgilibot|p(ackrat|cbrowser|lukkie|surf)|r(eape' .
-        'r|sync)|s(aidwot|alad|cspider|ees\.co|hai|iteexplorer|[iy]pho' .
-        'n|truct\.it|upport\.wordpress\.com)|t(akeout|asapspider|weetmeme)|u' .
-        'ser-agent|v(isaduhoc|onchimpenfurlr)|w(ebtarantula|olf)|y(acy|isous' .
-        'pider|[ry]spider|un(rang|yun)))/',
+        'r|sync)|s(aidwot|alad|cspider|ees\.co|hai|iteexplorer|[iy]phon|truc' .
+        't\.it|upport\.wordpress\.com)|t(akeout|asapspider|weetmeme)|user-ag' .
+        'ent|v(isaduhoc|onchimpenfurlr)|w(ebtarantula|olf)|y(acy|isouspider|' .
+        '[ry]spider|un(rang|yun)))/',
     $UANoSpace), 'Banned UA'); // 2017.02.25
 
     $Trigger(preg_match(
@@ -361,22 +360,22 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
         'moncrawl|overscout|r4nk|rawlfire|uriousgeorge|ydral)|d(atenbank|ayl' .
         'ife|ebate|igext|(cp|isco|ouban|ownload)bot|owjones|tsagent)|e((na|u' .
         'ro|xperi)bot|nvolk|vaal|zoom)|f(dm|etch(er.0|or)|ibgen)|g(alaxydown' .
-        'loads|et(download\.ws|ty|url11)|slfbot|umgum|urujibot)|h(arvest|eritrix|o' .
-        'lmes|ttp(fetcher|unit)|ttrack)|i(mage(.fetcher|walker)|linkscrawler' .
-        '|n(agist|docom|fluencebot)|track)|j(akarta|ike)|k(ey(wenbot|wordsea' .
-        'rchtool)|imengi|kman)|l(arbin|ink(dex|walker)|iperhey|(t|ush)bot)|m' .
-        '(a(hiti|honie|ttters)|iabot|lbot|ormor|ot-v980|rchrome|ulticrawler)' .
-        '|n(e(ofonie|testate|wsbot)|ineconnections)|o(afcrawl|fflinenavigato' .
-        'r|odlebot)|p(age(fetch|gett|_verifi)er|anscient|ath2|ic(grabber|s|t' .
-        'snapshot|turefinder)|i(pl|xmatch|xray)|oe-component-client-|owermar' .
-        'ks|roximic|(s|ure)bot|urity)|qqdownload|r(ankivabot|ebi-shoveler|ev' .
-        'erseget|ganalytics|ocketcrawler|sscrawl|ulinki)|s(afeassign|bider|b' .
-        'l[.-]bot|crap[ey]|emrush|eo(eng|profiler|stat)|istrix|ite(bot|intel' .
-        ')|n[iy]per|olomono|pbot|pyder|search|webot)|t(-h-u-n|agsdir|ineye|o' .
-        'pseo|raumacadx|urnitinbot)|u(12bot|p(downer|ictobot))|v(bseo|isbot|' .
-        'oyager)|w(arebay|auuu|bsearchbot|eb(alta|capture|download|ripper)|i' .
-        'kio|indows(3|seven)|inhttp|khtmlto|orldbot|otbox)|xtractorpro|yoofi' .
-        'nd)/',
+        'loads|et(download\.ws|ty|url11)|slfbot|umgum|urujibot)|h(arvest|eri' .
+        'trix|olmes|ttp(fetcher|unit)|ttrack)|i(mage(.fetcher|walker)|linksc' .
+        'rawler|n(agist|docom|fluencebot)|track)|j(akarta|ike)|k(ey(wenbot|w' .
+        'ordsearchtool)|imengi|kman)|l(arbin|ink(dex|walker)|iperhey|(t|ush)' .
+        'bot)|m(a(hiti|honie|ttters)|iabot|lbot|ormor|ot-v980|rchrome|ulticr' .
+        'awler)|n(e(ofonie|testate|wsbot)|ineconnections)|o(afcrawl|fflinena' .
+        'vigator|odlebot)|p(age(fetch|gett|_verifi)er|anscient|ath2|ic(grabb' .
+        'er|s|tsnapshot|turefinder)|i(pl|xmatch|xray)|oe-component-client-|o' .
+        'wermarks|roximic|(s|ure)bot|urity)|qqdownload|r(ankivabot|ebi-shove' .
+        'ler|everseget|ganalytics|ocketcrawler|sscrawl|ulinki)|s(afeassign|b' .
+        'ider|bl[.-]bot|crap[ey]|emrush|eo(eng|profiler|stat)|istrix|ite(bot' .
+        '|intel)|n[iy]per|olomono|pbot|pyder|search|webot)|t(-h-u-n|agsdir|i' .
+        'neye|opseo|raumacadx|urnitinbot)|u(12bot|p(downer|ictobot))|v(bseo|' .
+        'isbot|oyager)|w(arebay|auuu|bsearchbot|eb(alta|capture|download|rip' .
+        'per)|ikio|indows(3|seven)|inhttp|khtmlto|orldbot|otbox)|xtractorpro' .
+        '|yoofind)/',
     $UANoSpace), 'Scraper UA'); // 2017.12.20
 
     $Trigger(preg_match(
@@ -408,15 +407,15 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
         'ama|rowsnest|yberpatrol)|d(bot/|le_spider|omainappender|umprendertr' .
         'ee)|flightdeckreportsbot|g(imme60|ooglebenjojo)|http-?(agent|client' .
         ')|i(ps-agent|sitwp)|k(2spider|emvi)|l(exxebot|ivelapbot|wp)|m(acinr' .
-        'oyprivacyauditors|asscan|etaintelligence)|n(aver|ettrapport|icebot|' .
-        'mapscriptingengine|rsbot)|p(4bot|4load|acrawler|ageglimpse|arsijoo|' .
-        'egasusmonitoring|hantomjs|hpcrawl|ingdom|rlog)|r(arelyused|obo(cop|' .
-        'spider)|yze)|s(creener|itedomain|mut|nap(preview)?bot|oapclient|oci' .
-        'al(ayer|searcher)|ogou|ohuagent|oso|pyglass|quider|ynapse)|urlappen' .
-        'dbot|w(asalive|atchmouse|eb(-monitoring|bot|masteraid|money|thumbna' .
-        'il)|hatweb|ikiapiary|in(http|inet)|maid\.com|sr-agent|wwtype)|xenu|' .
-        'xovi|yeti|zibber|zurichfinancialservices|^m$)~',
-    $UANoSpace), 'Unauthorised'); // 2017.02.25
+        'oyprivacyauditors|asscan|etaintelligence)|n(aver|et(craft|trapport)' .
+        '|icebot|mapscriptingengine|rsbot)|p(4bot|4load|acrawler|ageglimpse|' .
+        'arsijoo|egasusmonitoring|hantomjs|hpcrawl|ingdom|rlog)|r(arelyused|' .
+        'obo(cop|spider)|yze)|s(creener|itedomain|mut|nap(preview)?bot|oapcl' .
+        'ient|ocial(ayer|searcher)|ogou|ohuagent|oso|pyglass|quider|ynapse)|' .
+        'urlappendbot|w(asalive|atchmouse|eb(-monitoring|bot|masteraid|money' .
+        '|thumbnail)|hatweb|ikiapiary|in(http|inet)|maid\.com|sr-agent|wwtyp' .
+        'e)|xenu|xovi|yeti|zibber|zurichfinancialservices|^m$)~',
+    $UANoSpace), 'Unauthorised'); // 2018.01.11
 
     $Trigger(preg_match(
         '/(?:^(bot|java|msie|windows-live-social-object-extractor)|\((java|[' .
