@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2017.12.03).
+ * This file: Bad hosts blocker module (last modified: 2018.02.02).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
  * the community behind it (Spambot Security) for inspiring/developing many of
@@ -161,22 +161,28 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
         'ts|s(p?lice|teep)host)/',
     $HN), 'Cloud Service / Server Farm'); // 2017.02.14
 
+    $Trigger(preg_match(
+        '/(?:alxagency|capellahealthcare|link88\.seo|ser\.servidor-sainet)\.com/',
+    $HN), 'Cloud Service / Server Farm'); // 2018.02.02
+
     $Trigger(empty($CIDRAM['Ignore']['Agava Ltd']) && preg_match('/agava\.net$/', $HN), 'Agava Ltd'); // 2017.02.06 (ASN 43146)
     $Trigger(empty($CIDRAM['Ignore']['AltusHost B.V']) && preg_match('/altushost\.com$/', $HN), 'AltusHost B.V'); // 2017.02.09 (ASN 51430)
     $Trigger(empty($CIDRAM['Ignore']['Bezeq International']) && preg_match('/bezeqint\.net$/', $HN), 'Bezeq International'); // 2017.02.09 (ASN 8551)
     $Trigger(empty($CIDRAM['Ignore']['Bharti Airtel']) && preg_match('/\.airtelbroadband\.in$/', $HN), 'Bharti Airtel'); // 2017.02.06 (ASNs 9498, 24560, 45514, 45609)
     $Trigger(empty($CIDRAM['Ignore']['ColoCrossing']) && strpos($HN, 'colocrossing.com') !== false, 'ColoCrossing'); // 2017.01.30 (ASN 36352)
     $Trigger(empty($CIDRAM['Ignore']['GorillaServers, Inc']) && strpos($HN, 'gorillaservers') !== false, 'GorillaServers, Inc'); // 2017.02.06 (ASN 53850)
-    $Trigger(empty($CIDRAM['Ignore']['Host Europe GmbH']) && strpos($HN, 'hosteurope') !== false, 'Host Europe GmbH'); // 2017.01.30 (numerous ASNs)
     $Trigger(empty($CIDRAM['Ignore']['HOSTKEY B.V']) && preg_match('/hostkey\.ru$/', $HN), 'HOSTKEY B.V'); // 2017.02.15 (ASN 57043)
+    $Trigger(empty($CIDRAM['Ignore']['Host Europe GmbH']) && strpos($HN, 'hosteurope') !== false, 'Host Europe GmbH'); // 2017.01.30 (numerous ASNs)
+    $Trigger(empty($CIDRAM['Ignore']['Hostmaster, Ltd']) && strpos($HN, 'fcsrv.net') !== false, 'Hostmaster, Ltd'); // 2018.02.02 (ASN 50968)
     $Trigger(empty($CIDRAM['Ignore']['Kyivstar']) && strpos($HN, 'kyivstar') !== false, 'Kyivstar'); // 2017.01.21 (ASNs 12530, 15895, 35081)
     $Trigger(empty($CIDRAM['Ignore']['Leaseweb']) && strpos($HN, 'leaseweb') !== false, 'Leaseweb'); // 2017.02.06 (numerous ASNs)
     $Trigger(empty($CIDRAM['Ignore']['Nobis/Ubiquity']) && preg_match('/(?:nobis|ubiquity)/', $HN), 'Nobis/Ubiquity'); // 2017.02.15 (ASN 15003)
     $Trigger(empty($CIDRAM['Ignore']['QuadraNet, Inc']) && preg_match('/quadranet\.com$/', $HN), 'QuadraNet, Inc'); // 2017.02.14 (ASNs 8100, 29761, 62639)
-    $Trigger(empty($CIDRAM['Ignore']['Seznam.cz']) && strpos($HN, 'seznam.cz') !== false, 'Seznam.cz'); // 2017.01.21 (ASNs 43037, 200600)
     $Trigger(empty($CIDRAM['Ignore']['SISTRIX GmbH']) && strpos($HN, 'sistrix') !== false, 'SISTRIX GmbH'); // 2017.01.21 (no ASN)
+    $Trigger(empty($CIDRAM['Ignore']['Seznam.cz']) && strpos($HN, 'seznam.cz') !== false, 'Seznam.cz'); // 2017.01.21 (ASNs 43037, 200600)
     $Trigger(empty($CIDRAM['Ignore']['Versaweb, LLC']) && strpos($HN, 'versaweb') !== false, 'Versaweb, LLC'); // 2017.02.14 (ASN 36114)
     $Trigger(empty($CIDRAM['Ignore']['Voxility LLC']) && strpos($HN, 'voxility.net') !== false, 'Voxility LLC'); // 2017.02.06 (ASN 3223)
+    $Trigger(empty($CIDRAM['Ignore']['Wowrack.com']) && strpos($HN, 'wowrack.com') !== false, 'Wowrack.com'); // 2018.02.02 (ASN 23033)
     $Trigger(empty($CIDRAM['Ignore']['XEEX']) && strpos($HN, 'xeex') !== false, 'XEEX'); // 2017.01.21 (ASN 27524)
 
     $Trigger(preg_match(
@@ -254,6 +260,11 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
         !preg_match('/^(?:1(27|92\.168)(\.1?[0-9]{1,2}|\.2[0-4][0-9]|\.25[0-5]){2,3}|\:\:1)$/', $CIDRAM['BlockInfo']['IPAddr'])
     ), 'Spoofed/Fake Hostname', '', $InstaBan); // 2017.02.25
     $Trigger(preg_match('/\.local$/', $HN), 'Spoofed/Fake Hostname'); // 2017.02.06
+
+    $Trigger(preg_match(
+        '/shodan.\io|(?:serverprofi24|aspadmin|project25499)\./',
+    $HN), 'AutoSploit Host'); // 2018.02.02
+    // See: http://zb-block.net/zbf/showthread.php?t=25
 
     $Trigger($HN === '.', 'DNS error', '', $InstaBan); // 2017.02.25
 

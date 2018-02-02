@@ -226,7 +226,7 @@ module_badhosts.php:
   zh-tw: 壞主機阻塞模塊
  Extended Description: <em><code>signatures-&gt;modules</code></em>
  False Positive Risk: Medium
- Version: 2017.335.943
+ Version: 2018.32.521
  Minimum Required: 1.0.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -237,7 +237,7 @@ module_badhosts.php:
   To:
    - module_badhosts.php
   Checksum:
-   - 155d20c0e0580c56462e49f6a0cca319:15458
+   - a6e5eea9083041ca2d217f11834a28f2:16093
  Reannotate: modules.dat
 module_badhosts_isps.php:
  Name:
