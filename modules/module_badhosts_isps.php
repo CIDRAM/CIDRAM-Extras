@@ -8,11 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2017.12.03).
- *
- * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2), and to
- * the community behind it (Spambot Security) for inspiring/developing many of
- * the signatures contained within this module.
+ * This file: Bad hosts blocker module (last modified: 2018.02.05).
  */
 
 /** Prevents execution from outside of CIDRAM. */

@@ -8,10 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2018.01.11).
- *
- * Many thanks to the Spambot Security community for the research, inspiration,
- * and development behind many of the signatures provided by this module.
+ * This file: Optional security extras module (last modified: 2018.02.05).
  */
 
 /** Prevents execution from outside of CIDRAM. */
