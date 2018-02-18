@@ -10,7 +10,7 @@ The entire front-end, Packagist/Composer support, CLI support, Cronable support,
 
 This package has been made available by special request of some specific users. As this is intended to be a "lite" version of CIDRAM, it is highly unlikely that any additional features will be added in the future. New versions prepared on an as needed basis only. As this package has only been made available by special request, and as it isn't a primary goal of the CIDRAM project, support and development are both likely to be limited. CIDRAM-L had already been marked as legacy, and then deprecated in the past, then made unavailable. As it is now available again, future versions could thus effectively be considered "legacy", but I'll attempt to continue providing support where and when possible.
 
-CIDRAM-L is mostly used in the same way as CIDRAM, except that instead of calling the "loader.php", you'll call the "cidram-l.phar" file in your require statements. Unzip the CIDRAM-L package archive (cidram-l.zip) in the same way you'd normally unzip the CIDRAM package archive, and follow generally the same installation instructions provided for CIDRAM. If you need help, just ask.
+CIDRAM-L is mostly used in the same way as CIDRAM, except that instead of calling the "loader.php" file, you'll call the "cidram-l.phar" file in your require statements. Unzip the CIDRAM-L package archive (cidram-l.zip) in the same way you'd normally unzip the CIDRAM package archive, and follow generally the same installation instructions provided for CIDRAM. If you need help, just ask.
 
 The currently available version of CIDRAM-L is "1.4.1".
 
