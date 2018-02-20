@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2018.02.05).
+ * This file: Optional security extras module (last modified: 2018.02.20).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -193,6 +193,8 @@ if (!empty($_SERVER['QUERY_STRING'])) {
     $QueryNoSpace), 'SQLi'); // 2017.03.01
 
     $Trigger(preg_match('/(?:(modez|osc|tasya)=|=((bot|scanner|shell)z|psybnc))/', $QueryNoSpace), 'Common shell/bot command', '', $InstaBan); // 2017.02.25
+
+    $Trigger(preg_match('/cpis_.*i0seclab@intermal\.com/', $QueryNoSpace), 'Hack attempt'); // 2018.02.20
 
 }
 
