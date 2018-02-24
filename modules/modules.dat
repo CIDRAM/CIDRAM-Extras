@@ -88,7 +88,7 @@ module_extras.php:
   zh: 提供一些有限的保护针对各种攻击向量常用于请求。<br /><em><code>signatures-&gt;modules</code></em>
   zh-tw: 提供一些有限的保護針對各種攻擊向量常用於請求。<br /><em><code>signatures-&gt;modules</code></em>
  False Positive Risk: Medium
- Version: 2018.50.704
+ Version: 2018.52.375
  Minimum Required: 1.0.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -99,7 +99,7 @@ module_extras.php:
   To:
    - module_extras.php
   Checksum:
-   - e446442cc7fad46db5c2007029a297b6:31631
+   - 003b6b00d3f16c0c27aa6fdb196b472c:31651
  Reannotate: modules.dat
 module_baidublocker.php:
  Name:

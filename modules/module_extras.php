@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2018.02.20).
+ * This file: Optional security extras module (last modified: 2018.02.22).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -340,8 +340,8 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
         'r|sync)|s(aidwot|alad|cspider|ees\.co|hai|iteexplorer|[iy]phon|truc' .
         't\.it|upport\.wordpress\.com)|t(akeout|asapspider|weetmeme)|user-ag' .
         'ent|v(isaduhoc|onchimpenfurlr)|w(ebtarantula|olf)|y(acy|isouspider|' .
-        '[ry]spider|un(rang|yun)))/',
-    $UANoSpace), 'Banned UA'); // 2017.02.25
+        '[ry]spider|un(rang|yun))|zoominfobot)/',
+    $UANoSpace), 'Banned UA'); // 2018.02.22
 
     $Trigger(preg_match(
         '/^wp-iphone$/',
@@ -402,7 +402,7 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
 
     $Trigger(preg_match(
         '~(?:a(bonti|ccserver|cme.spider|nyevent-http|ppengine)|b(igbozz|lac' .
-        'kbird|logsearch|logbot|salsa)|c(atexplorador|liqzbot|ontextad|orpor' .
+        'kbird|logsearch|logbot|salsa)|c(atexplorador|lickagy|liqzbot|ontextad|orpor' .
         'ama|rowsnest|yberpatrol)|d(bot/|le_spider|omainappender|umprendertr' .
         'ee)|flightdeckreportsbot|g(imme60|ooglebenjojo)|http-?(agent|client' .
         ')|i(ps-agent|sitwp)|k(2spider|emvi)|l(exxebot|ivelapbot|wp)|m(acinr' .
@@ -414,7 +414,7 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
         'urlappendbot|w(asalive|atchmouse|eb(-monitoring|bot|masteraid|money' .
         '|thumbnail)|hatweb|ikiapiary|in(http|inet)|maid\.com|sr-agent|wwtyp' .
         'e)|xenu|xovi|yeti|zibber|zurichfinancialservices|^m$)~',
-    $UANoSpace), 'Unauthorised'); // 2018.01.11
+    $UANoSpace), 'Unauthorised'); // 2018.02.22
 
     $Trigger(preg_match(
         '/(?:^(bot|java|msie|windows-live-social-object-extractor)|\((java|[' .
