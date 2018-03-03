@@ -101,13 +101,14 @@ theme/moss:
 theme/fullmoon:
  Name: Theme: Full Moon
  Extended Description: Darker, semi-transparent colours; Navigation shifted to the top; No special fonts; Full moon backdrop.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2018.45.232
+ Version: 2018.61.313
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
  Files:
   From:
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_accounts.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_cache.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_cidr_calc.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_config.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_files.html
@@ -130,6 +131,7 @@ theme/fullmoon:
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/pips.php
   To:
    - fe_assets/fullmoon/_accounts.html
+   - fe_assets/fullmoon/_cache.html
    - fe_assets/fullmoon/_cidr_calc.html
    - fe_assets/fullmoon/_config.html
    - fe_assets/fullmoon/_files.html
@@ -152,6 +154,7 @@ theme/fullmoon:
    - fe_assets/fullmoon/pips.php
   Checksum:
    - fc46b11bb59f4859f4e09718194d6a89:1831
+   - 7f4023a573ea35cefc0ecd5060893030:48
    - 779f746967f1bc98a4f7a85d8fa81840:494
    - c6acb5faaabf489bc382f9110bdc8791:639
    - e068f93faf8b50d84257e778e3ee4153:943
@@ -163,7 +166,7 @@ theme/fullmoon:
    - 7086d64caba8156191f260ef1c8a7e01:891
    - fe825b7dee48063c9654edca9b0f5908:520
    - 73727ee908663fe2b40035b247656db3:131
-   - c771bc4236205fcfc0c2ed161239bf69:796
+   - d2dfce20a6b5f469606d1e918dade2ea:854
    - a4714e44586817e2b23d47e7821d1c69:225
    - d320db4bed9805431e3eb79a84554f9a:43
    - 944481a2c863e9ee2e02ef9d1c41ecc1:2502
