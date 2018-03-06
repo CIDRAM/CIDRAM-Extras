@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2018.02.05).
+ * This file: Bad hosts blocker module (last modified: 2018.03.06).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -61,24 +61,20 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
     $Trigger(preg_match('/(?:captch|dbcapi\.me)/', $HN), 'CAPTCHA cracker host'); // 2017.01.21
 
     $Trigger(preg_match(
-        '/(?:(qvt|telsp)\.net\.br$|(\.(giga-dns|oodle|pointandchange|solidse' .
-        'o(dedicated|vps)?|topsy|vadino)|barefruit|colo\.iinet|detangled|kim' .
-        'sufi|lightspeedsystems|netcomber|page-store|setooz|technicolor)\.co' .
-        'm$|poneytelecom\.eu$|\.cnr\.it$|kiyosho\.jp$|(\.pldt|buyurl|isnet|m' .
-        'fnx)\.net$|seomoz\.org$|\.rdsnet\.ro$|(itrack|rulinki)\.ru$|(2kom|s' .
-        'olomono)\.ru|\.v4\.ngi\.it|awcheck|b(oardreader|reakingtopics|uysel' .
-        'lsales)|c(eptro|heapseovps|yber-uslugi)|jackwellsmusic|s(emalt|mile' .
-        'web\.com\.ua|quider|tartdedicated\.)|(exa|fulltextro|we|you?dao)bot' .
-        ')/',
-    $HN), 'SEO/Bothost/Scraper/Spamhost'); // 2017.02.16
-
-    $Trigger(preg_match(
-        '/(?:prking\.com\.au$|(23gb|35up|accelovation|bestprice|mantraonline' .
-        '|onlinehome-server\.myforexvps)\.com$|(2dayhost|inkjetrefillink)\.c' .
-        'om|(4u|onlinehome-server)\.info$|mobilemarketingaid\.info|(3fn|drag' .
-        'onara|onlinehome-server|pool\.ukrtel)\.net$|mail\.ru$|fibersunucu\.' .
-        'com\.tr|drugstore|l(iwio\.|uxuryhandbag))/',
-    $HN), 'Spamhost'); // 2017.02.09
+        '/(?:prking\.com\.au$|(?:qvt|telsp)\.net\.br$|(?:\.(?:giga-dns|oodle' .
+        '|pointandchange|solidseo(?:dedicated|vps)?|topsy|vadino)|23gb|35up|' .
+        'accelovation|barefruit|bestprice|colo\.iinet|detangled|kimsufi|ligh' .
+        'tspeedsystems|mantraonline|netcomber|onlinehome-server\.myforexvps|' .
+        'page-store|setooz|technicolor)\.com$|(?:2dayhost|inkjetrefillink)\.' .
+        'com|poneytelecom\.eu$|(?:4u|onlinehome-server)\.info$|mobilemarketi' .
+        'ngaid\.info|\.cnr\.it$|kiyosho\.jp$|(?:\.pldt|3fn|buyurl|dragonara|' .
+        'isnet|mfnx|onlinehome-server|pool\.ukrtel)\.net$|seomoz\.org$|\.rds' .
+        'net\.ro$|(?:dimargroup|itrack|mail|rulinki)\.ru$|(?:2kom|solomono)' .
+        '\.ru|\.v4\.ngi\.it|fibersunucu\.com\.tr|awcheck|b(?:oardreader|reak' .
+        'ingtopics|uysellsales)|c(?:eptro|heapseovps|yber-uslugi)|drugstore|' .
+        'jackwellsmusic|liwio\.|luxuryhandbag|s(?:emalt|mileweb\.com\.ua|qui' .
+        'der|tartdedicated\.)|(?:exa|fulltextro|we|you?dao)bot)/',
+    $HN), 'SEO/Bothost/Scraper/Spamhost'); // 2018.03.06
 
     $Trigger(preg_match(
         '/(?:rumer|pymep|румер)/',
@@ -197,8 +193,8 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
     $Trigger(preg_match(
         '/(?:(dimenoc|dumpyourbitch|hostenko|internetserviceteam|ipredat(e|o' .
         'r)|krypt|webandnetworksolutions|xcelmg)\.com|mbox\.kz|chello\.pl|do' .
-        'ctore\.sk|hostnoc\.net|(\.host|ertelecom|is74)\.ru)$/',
-    $HN), 'Dangerous Host'); // 2017.02.14
+        'ctore\.sk|hostnoc\.net|(\.host|\.spheral|ertelecom|is74)\.ru)$/',
+    $HN), 'Dangerous Host'); // 2018.03.06
 
     $Trigger(preg_match(
         '/(?:(iweb|privatedns)\.com$|iweb\.ca$|^(www\.)?iweb)/',
