@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2018.02.22).
+ * This file: Optional security extras module (last modified: 2018.03.13).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -530,5 +530,9 @@ if ($RawInput) {
 if ($CIDRAM['BlockInfo']['Referrer']) {
 
     $Trigger(preg_match('~trafers\.com~i', $CIDRAM['BlockInfo']['Referrer']), 'Trafers not permitted here'); // 2017.12.07
+
+    $RefLC = strtolower($CIDRAM['BlockInfo']['Referrer']);
+
+    $Trigger($RefLC === '(null)', 'Illegal referrer'); // 2018.03.13
 
 }
