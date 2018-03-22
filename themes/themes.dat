@@ -116,7 +116,7 @@ theme/moss:
 theme/fullmoon:
  Name: Theme: Full Moon
  Extended Description: Darker, semi-transparent colours; Navigation shifted to the top; No special fonts; Full moon backdrop.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2018.61.313
+ Version: 2018.79.870
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -137,6 +137,8 @@ theme/fullmoon:
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_logs.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_nav_complete_access.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_nav_logs_access_only.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_range.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_range_row.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_sections.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_statistics.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_updates.html
@@ -160,6 +162,8 @@ theme/fullmoon:
    - fe_assets/fullmoon/_logs.html
    - fe_assets/fullmoon/_nav_complete_access.html
    - fe_assets/fullmoon/_nav_logs_access_only.html
+   - fe_assets/fullmoon/_range.html
+   - fe_assets/fullmoon/_range_row.html
    - fe_assets/fullmoon/_sections.html
    - fe_assets/fullmoon/_statistics.html
    - fe_assets/fullmoon/_updates.html
@@ -170,7 +174,7 @@ theme/fullmoon:
   Checksum:
    - fc46b11bb59f4859f4e09718194d6a89:1831
    - 7f4023a573ea35cefc0ecd5060893030:48
-   - 779f746967f1bc98a4f7a85d8fa81840:494
+   - aaa7e3a754e7c732179517b98f5dcbd6:494
    - c6acb5faaabf489bc382f9110bdc8791:639
    - e068f93faf8b50d84257e778e3ee4153:943
    - 75244828b0188cc6077bbdbb162e070d:615
@@ -181,8 +185,10 @@ theme/fullmoon:
    - 7086d64caba8156191f260ef1c8a7e01:891
    - fe825b7dee48063c9654edca9b0f5908:520
    - 73727ee908663fe2b40035b247656db3:131
-   - d2dfce20a6b5f469606d1e918dade2ea:854
+   - 2b74e37775254f839aa92cccce5c4f3e:902
    - a4714e44586817e2b23d47e7821d1c69:225
+   - 89e24c89a392f8d628d359fadfc00d35:570
+   - f4987b803003b547363df96f064ab395:180
    - d320db4bed9805431e3eb79a84554f9a:43
    - 944481a2c863e9ee2e02ef9d1c41ecc1:2502
    - 2614aa2df76aa3bf185b66b5650bb0b7:744
