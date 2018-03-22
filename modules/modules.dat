@@ -226,7 +226,7 @@ module_badhosts.php:
   zh-tw: 壞主機阻塞模塊
  Extended Description: <em><code>signatures-&gt;modules</code></em>
  False Positive Risk: Medium
- Version: 2018.64.470
+ Version: 2018.80.642
  Minimum Required: 1.0.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -237,7 +237,7 @@ module_badhosts.php:
   To:
    - module_badhosts.php
   Checksum:
-   - 521d632efee1d480645efc9da9b7f844:15829
+   - 107c2c9a8a9ce8465e1a8d47acf7390a:15916
  Reannotate: modules.dat
 module_badhosts_isps.php:
  Name:
@@ -445,5 +445,36 @@ flags.css:
    - fe_assets/flags.css
   Checksum:
    - 12b2c37874b93d61829dffc51b8ce56a:189841
+ Reannotate: modules.dat
+compat_bunnycdn.php:
+ Name:
+  en: BunnyCDN compatibility module
+  de: BunnyCDN Kompatibilitätsmodul
+  es: BunnyCDN módulo de compatibilidad
+  fr: BunnyCDN module de compatibilité
+  id: Modul kompatibilitas BunnyCDN
+  it: BunnyCDN modulo di compatibilità
+  ja: BunnyCDN互換モジュール
+  ko: BunnyCDN 호환성 모듈
+  nl: BunnyCDN compatibiliteitsmodule
+  pt: BunnyCDN módulo de compatibilidade
+  ru: Модуль совместимости BunnyCDN
+  vi: Mô đun tương thích BunnyCDN
+  zh: BunnyCDN兼容模块
+  zh-tw: BunnyCDN兼容模塊
+ Extended Description: <em><code>signatures-&gt;modules</code></em>
+ False Positive Risk: Low
+ Version: 2018.80.642
+ Minimum Required: 1.4.1
+ Minimum Required PHP: 5.4.0
+ Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
+ Uninstallable: true
+ Files:
+  From:
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/compat_bunnycdn.php
+  To:
+   - compat_bunnycdn.php
+  Checksum:
+   - 8705626e2502203ef9f267a1472a4c46:1533
  Reannotate: modules.dat
 
