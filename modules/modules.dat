@@ -37,7 +37,7 @@ module_cookies.php:
   zh: 提供一些有限的保护针对各种攻击向量常用于请求。<br /><em><code>signatures-&gt;modules</code></em>
   zh-tw: 提供一些有限的保護針對各種攻擊向量常用於請求。<br /><em><code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
- Version: 2017.299.278
+ Version: 2018.83.382
  Minimum Required: 1.0.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -48,7 +48,7 @@ module_cookies.php:
   To:
    - module_cookies.php
   Checksum:
-   - 2aaec22d2aad80bdca02c5e6efa99bdd:6399
+   - ca395af6cb6830123c446dbd9d433223:6400
  Reannotate: modules.dat
 module_extras.php:
  Name:
