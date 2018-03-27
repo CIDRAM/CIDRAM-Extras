@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2018.03.22).
+ * This file: Bad hosts blocker module (last modified: 2018.03.27).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -193,10 +193,13 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
     $HN), 'Risky/Proxy/VPN Host'); // 2017.02.09
 
     $Trigger(preg_match(
-        '/(?:(dimenoc|dumpyourbitch|hostenko|internetserviceteam|ipredat(e|o' .
-        'r)|krypt|webandnetworksolutions|xcelmg)\.com|mbox\.kz|chello\.pl|do' .
-        'ctore\.sk|hostnoc\.net|(\.host|\.spheral|ertelecom|is74)\.ru)$/',
-    $HN), 'Dangerous Host'); // 2018.03.06
+        '/(?:(?:dimenoc|dumpyourbitch|hostenko|internetserviceteam|ipredat(?' .
+        ':e|or)|krypt|webandnetworksolutions|xcelmg)\.com|mbox\.kz|chello\.p' .
+        'l|doctore\.sk|hostnoc\.net|\.(?:host|\.spheral)\.ru)$/',
+    $HN), 'Dangerous Host'); // 2018.03.27
+
+    $Trigger(empty($CIDRAM['Ignore']['is74.ru']) && preg_match('/is74\.ru$/', $HN), 'Dangerous Host'); // 2018.03.27 (ASNs 8369, 198675, 199619)
+    $Trigger(empty($CIDRAM['Ignore']['ER-Telecom Holding']) && preg_match('/ertelecom\.ru$/', $HN), 'Dangerous Host'); // 2018.03.27 (ASNs 42682, 51570)
 
     $Trigger(preg_match(
         '/(?:(iweb|privatedns)\.com$|iweb\.ca$|^(www\.)?iweb)/',

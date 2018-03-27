@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2018.02.05).
+ * This file: Bad hosts blocker module (last modified: 2018.03.27).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -35,12 +35,12 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
     $HN = preg_replace('/\s/', '', str_replace("\\", '/', strtolower(urldecode($CIDRAM['Hostname']))));
 
     $Trigger(preg_match(
-        '/(?:\.telecom\.net\.ar$|brasiltelecom\.net\.br$|(hgc|sunnetwork)\.c' .
-        'om\.hk$|\.duo\.carnet\.hr$|\.pool-xxx\.hcm\.fpt$|(\.cnr|retail\.tel' .
-        'ecomitalia|tiscali)\.it$|kiyosho\.jp$|(hinet|vtr)\.net$|vip-net\.pl' .
-        '$)/',
-    $HN), 'Spammy ISP', '', $reCAPTCHA); // 2017.02.16
+        '/(?:\.telecom\.net\.ar$|brasiltelecom\.net\.br$|hgc\.com\.hk$|\.duo' .
+        '\.carnet\.hr$|\.pool-xxx\.hcm\.fpt$|kiyosho\.jp$|(?:hinet|vtr)\.net' .
+        '$|vip-net\.pl$)/',
+    $HN), 'Spammy ISP', '', $reCAPTCHA); // 2018.03.27
 
+    $Trigger(empty($CIDRAM['Ignore']['Sun Network HK']) && preg_match('/sunnetwork\.com\.hk$/', $HN), 'Spammy ISP'); // 2018.03.27 (ASN 38197)
 }
 
 /** WordPress cronjob bypass. */
