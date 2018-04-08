@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2018.03.27).
+ * This file: Bad hosts blocker module (last modified: 2018.04.08).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -110,50 +110,53 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
     $HN), 'Hostile/SLAPP'); // 2017.02.06
 
     $Trigger(preg_match(
-        '/(?:andersdenken\.at$|i(g|nsite)\.com\.br$|terra\.cl$|(\.(appian|bc' .
-        '\.googleusercontent|c(loud|tera)|dyn|emc|f(orce|sfreeware)|g(nip|ri' .
-        'dlayer)|hosting|icims|pa(norama|rallels)|quest|thegridlayer|v(oda|u' .
-        'ltr)|w(ebzilla|orkday))|10gen|12designer|3leafsystems|3tera|a(ccent' .
-        'rainc|conex|dvologix|gathon|ltornetworks|mericanforeclosures|mitive' .
-        '|pp(irio|istry|jet|nexus|renda|spot|zero)|ptana|r(iasystems|juna|to' .
-        'fdefence)|sterdata|syanka|uthenticnetworks|zati)|b(alticservers|eam' .
-        '4d|hivesoft|irtondemand|linklogic|lue(host|lock|wolf)|oomi|ucketexp' .
-        'lorer|ungeeconnect)|c(a(dinor|msolutionsinc|s(pio|satt|tiron))|l(ar' .
-        'ioanalytics|ickability|oud(42|9analytics|computingchina|control|era' .
-        '|foundry|kick|scale|status|switch|works)|usterseven)|o(ghead|hesive' .
-        'ft|ldlightsolutions|ncur|ntroltier)|tinets)|d(ata(line|sisar|synaps' .
-        ')|edicatedpanel|irectlaw|ns-safe|oclanding|ropbox|ynamsoft)|e(last(' .
-        'ichosts|ra)|n(gineyard|omalism|stratus)|telos|ucalyptus|vapt|vionet' .
-        ')|f(athomdb|lexiscale|ollowmeoffice)|g(emstone|igaspaces|ogrid|roup' .
-        'cross)|h(eroku|exagrid|olhost|ost(acy|cats|ing24)|ubspan|yperic)|i(' .
-        'cloud|modrive|nfo(bright|rmatica)|tricityhosting)|j(oyent|u(mpbox|n' .
-        'glebox|sthost))|k(2analytics|aavo|eynote|nowledgetree)|l(ayeredtech' .
-        '|inkneo|iveops|oadstorm|ogixml|ongjump|tdomains)|m(o(derro|jsite|rp' .
-        'hexchange|sso|zy)|idphase|turk|ulesoft)|n(asstar|e(ointeractiva|t(a' .
-        'pp|documents|suite|topia)|wrelic|wservers)|ionex|irvanix|ovatium|sc' .
-        'aled)|o(co-inc|nelogin|npathtech|penqrm|psource)|p(ara(scal|tur)e|h' .
-        'atservers|i(emontetv|nqidentity|votlink)|luraprocessing)|q(layer|ri' .
-        'mp|uanti(vo|x-uk))|r(ackspace(cloud)?|e(di2|ductivelabs|lia(blehost' .
-        'ing|cloud)|sponsys)|ight(now|scale)|ollbase|omania-webhosting|path)' .
-        '|s(alesforce|avvis|ertifi|kytap|martservercontrol|naplogic|oasta|pr' .
-        'ingcm|tax|treetsmarts|uccessmetrics|wifttrim|ymplified|yncplicity)|' .
-        't(aleo|err[ae]mark|h(eprocessfactory|inkgos|oughtexpress)|rustsaas)' .
-        '|utilitystatus|v(aultscape|ertica|mware|ordel)|web(hosting\.uk|scal' .
-        'esolutions)|x(actlycorp|lhost|ythos)|z(embly|imory|manda|oho|uora))' .
-        '\.com$|(artisticgoals|host(gator|ingprod)|instantdedicated|khavarza' .
-        'min|missiondish|newslettersrus|profninja|se(curityspace|rve(path|rb' .
-        'uddies))|viral-customers)\.com|((\.|kunden)server|clanmoi|fastwebse' .
-        'rver|optimal|server4you)\.de$|your-server\.de|eucalyptus\.cs\.uscb' .
-        '\.edu$|candycloud\.eu$|adsinmedia\.co\.in$|server\.lu$|iam\.net\.ma' .
-        '$|starnet\.md$|(\.(bhsrv|box|propagation|voxel)|1978th|collab|enkic' .
-        'onsulting|host\.caracastelecom)\.net$|re(liablesite|plyingst)\.net|' .
-        'hitech-hosting\.nl|(\.terracotta|beowulf|iboss|memcached|opennebula' .
-        '|xen)\.org$|mor\.ph$|(ogicom|vampire)\.pl$|(cyber-host|slaskdatacen' .
-        'ter)\.pl|rivreg\.ru$|(tkvprok|vympelstroy)\.ru|g\.ho\.st$|(webfusio' .
-        'n|xcalibre)\.co\.uk$|bergdorf-group|cloudsigma|dreamhost|ipxserver|' .
-        'linode|money(mattersnow|tech\.mg)|productsnetworksx|psychz|scopehos' .
-        'ts|s(p?lice|teep)host)/',
-    $HN), 'Cloud Service / Server Farm'); // 2017.02.14
+        '/(?:andersdenken\.at$|i(?:g|nsite)\.com\.br$|terra\.cl$|(?:\.(?:app' .
+        'ian|bc\.googleusercontent|cloud|ctera|dyn|emc|force|fsfreeware|gnip' .
+        '|gridlayer|hosting|icims|panorama|parallels|quest|thegridlayer|voda' .
+        '|vultr|webzilla|workday)|10gen|12designer|3leafsystems|3tera|a(?:cc' .
+        'entrainc|conex|dvologix|gathon|ltornetworks|mericanforeclosures|mit' .
+        'ive|pp(?:irio|istry|jet|nexus|renda|spot|zero)|ptana|riasystems|rju' .
+        'na|rtofdefence|sterdata|syanka|uthenticnetworks|zati)|b(?:alticserv' .
+        'ers|eam4d|hivesoft|irtondemand|linklogic|lue(?:host|lock|wolf)|oomi' .
+        '|ucketexplorer|ungeeconnect)|c(?:a(?:dinor|msolutionsinc|spio|ssatt' .
+        '|stiron)|l(?:arioanalytics|ickability|oud(?:42|9analytics|computing' .
+        'china|control|era|foundry|kick|scale|status|switch|works)|usterseve' .
+        'n)|o(?:ghead|hesiveft|ldlightsolutions|ncur|ntroltier)|tinets)|d(?:' .
+        'ata(?:line|sisar|synaps)|edicatedpanel|irectlaw|ns-safe|oclanding|r' .
+        'opbox|ynamsoft)|e(?:last(?:ichosts|ra)|n(?:gineyard|omalism|stratus' .
+        ')|telos|ucalyptus|vapt|vionet)|fathomdb|flexiscale|followmeoffice|g' .
+        '(?:emstone|enerositycool|igaspaces|ogrid|roupcross)|h(?:eroku|exagr' .
+        'id|olhost|ost(?:acy|cats|ing24)|ubspan|yperic)|i(?:cloud|modrive|nf' .
+        'o(?:bright|rmatica)|tricityhosting)|j(?:oyent|umpbox|unglebox|ustho' .
+        'st)|k(?:2analytics|aavo|eynote|nowledgetree)|l(?:ayeredtech|inkneo|' .
+        'iveops|oadstorm|ogixml|ongjump|tdomains)|m(?:o(?:derro|jsite|rphexc' .
+        'hange|sso|zy)|idphase|turk|ulesoft)|n(?:asstar|e(?:ointeractiva|t(?' .
+        ':app|documents|suite|topia)|wrelic|wservers)|ionex|irvanix|ovatium|' .
+        'scaled)|o(?:co-inc|nelogin|npathtech|penqrm|psource)|p(?:ara(?:scal' .
+        '|tur)e|hatservers|iemontetv|inqidentity|ivotlink|luraprocessing)|q(' .
+        '?:layer|rimp|uanti(?:vo|x-uk))|r(?:ackspace(?:cloud)?|e(?:di2|ducti' .
+        'velabs|lia(?:blehosting|cloud)|sponsys)|ight(?:now|scale)|ollbase|o' .
+        'mania-webhosting|path)|s(?:alesforce|avvis|ertifi|huilinchi|kytap|m' .
+        'artservercontrol|naplogic|oasta|pringcm|tax|treetsmarts|uccessmetri' .
+        'cs|wifttrim|ymplified|yncplicity)|t(?:aleo|err[ae]mark|h(?:eprocess' .
+        'factory|inkgos|oughtexpress)|rustsaas)|utilitystatus|v(?:aultscape|' .
+        'ertica|mware|ordel)|web(?:hosting\.uk|scalesolutions)|xactlycorp|xl' .
+        'host|xythos|z(?:embly|imory|manda|oho|uora))\.com$|(?:artisticgoals' .
+        '|host(?:gator|ingprod)|instantdedicated|khavarzamin|missiondish|new' .
+        'slettersrus|profninja|se(?:curityspace|rve(?:path|rbuddies))|viral-' .
+        'customers)\.com|(?:(?:\.|kunden)server|clanmoi|fastwebserver|optima' .
+        'l|server4you)\.de$|your-server\.de|eucalyptus\.cs\.uscb\.edu$|candy' .
+        'cloud\.eu$|adsinmedia\.co\.in$|server\.lu$|iam\.net\.ma$|starnet\.m' .
+        'd$|(?:\.(?:bhsrv|box|propagation|voxel)|1978th|collab|emcytown|enki' .
+        'consulting|host\.caracastelecom|phicallyon|techajans|visualpleasure' .
+        's)\.net$|re(?:liablesite|plyingst)\.net|hitech-hosting\.nl|(?:\.ter' .
+        'racotta|beowulf|iboss|memcached|opennebula|xen)\.org$|mor\.ph$|(?:o' .
+        'gicom|vampire)\.pl$|(?:cyber-host|slaskdatacenter)\.pl|rivreg\.ru$|' .
+        '(?:tkvprok|vympelstroy)\.ru|g\.ho\.st$|(?:webfusion|xcalibre)\.co\.' .
+        'uk$|bergdorf-group|cloudsigma|dreamhost|ipxserver|linode|money(?:ma' .
+        'ttersnow|tech\.mg)|productsnetworksx|psychz|requestedoffers|scopeho' .
+        'sts|s(?:p?lice|teep)host|happyoffer\.club$)/',
+    $HN), 'Cloud Service / Server Farm'); // 2018.04.08
 
     $Trigger(preg_match(
         '/(?:alxagency|capellahealthcare|link88\.seo|ser\.servidor-sainet)\.com/',
@@ -168,6 +171,7 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
     $Trigger(empty($CIDRAM['Ignore']['HOSTKEY B.V']) && preg_match('/hostkey\.ru$/', $HN), 'HOSTKEY B.V'); // 2017.02.15 (ASN 57043)
     $Trigger(empty($CIDRAM['Ignore']['Host Europe GmbH']) && strpos($HN, 'hosteurope') !== false, 'Host Europe GmbH'); // 2017.01.30 (numerous ASNs)
     $Trigger(empty($CIDRAM['Ignore']['Hostmaster, Ltd']) && strpos($HN, 'fcsrv.net') !== false, 'Hostmaster, Ltd'); // 2018.02.02 (ASN 50968)
+    $Trigger(empty($CIDRAM['Ignore']['IDEAL HOSTING']) && strpos($HN, 'idealhosting.net.tr') !== false, 'IDEAL HOSTING'); // 2018.04.08 (ASN 29262)
     $Trigger(empty($CIDRAM['Ignore']['Kyivstar']) && strpos($HN, 'kyivstar') !== false, 'Kyivstar'); // 2017.01.21 (ASNs 12530, 15895, 35081)
     $Trigger(empty($CIDRAM['Ignore']['Leaseweb']) && strpos($HN, 'leaseweb') !== false, 'Leaseweb'); // 2017.02.06 (numerous ASNs)
     $Trigger(empty($CIDRAM['Ignore']['Nobis/Ubiquity']) && preg_match('/(?:nobis|ubiquity)/', $HN), 'Nobis/Ubiquity'); // 2017.02.15 (ASN 15003)

@@ -226,7 +226,7 @@ module_badhosts.php:
   zh-tw: 壞主機阻塞模塊
  Extended Description: <em><code>signatures-&gt;modules</code></em>
  False Positive Risk: Medium
- Version: 2018.85.593
+ Version: 2018.97.416
  Minimum Required: 1.0.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -237,7 +237,7 @@ module_badhosts.php:
   To:
    - module_badhosts.php
   Checksum:
-   - a0ef90af75ccf6f408cb3bfbc88d2842:16206
+   - 29f767fb2cf5638eec11967b31b292f4:16616
  Reannotate: modules.dat
 module_badhosts_isps.php:
  Name:
@@ -279,7 +279,7 @@ module_badtlds.php:
  Name: Bad TLDs blocker module
  Extended Description: <em><code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
- Version: 2017.361.167
+ Version: 2018.97.416
  Minimum Required: 1.0.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -290,7 +290,7 @@ module_badtlds.php:
   To:
    - module_badtlds.php
   Checksum:
-   - 6ff538056dcb127d99b68c7d9086568a:1109
+   - 79c33bf2f5be84bcf81a3da1bab23367:1276
  Reannotate: modules.dat
 module_sfs.php:
  Name:
