@@ -1,43 +1,9 @@
 ---
 module_cookies.php:
- Name:
-  en: Optional cookie scanner module
-  ar: كوكي الماسح الضوئي
-  de: Optionales Cookie-Scanner-Modul
-  es: Escáner de cookies módulo opcional
-  fr: Module optionnel pour l'analyse des cookies
-  hi: वैकल्पिक कुकी स्कैनर मॉड्यूल
-  id: Modul scanner cookie opsional
-  it: Modulo opzionale per l'analisi dei cookies
-  ja: オプショナル・クッキー・スキャナ・モジュール
-  ko: 선택적 쿠키 스캐너 모듈
-  nl: Optionele cookie-scanner module
-  pt: Módulo opcional para análise de cookies
-  ru: Куки сканер модуль необязательный
-  th: โมดูลสแกนเนอร์คุกกี้ตัวเลือก
-  tr: İsteğe bağlı çerez tarayıcı modülü
-  ur: اختیاری کوکی سکینر ماڈیول
-  vi: Mô-đun tùy chọn cho cookie quét
-  zh: 可选cookie扫描器模块
-  zh-tw: 可選cookie掃描器模塊
- Extended Description:
-  en: Provides some limited protections against various attack vectors commonly used in requests.<br /><em><code>signatures-&gt;modules</code></em>
-  ar: يوفر بعض الحماية محدودة ضد مختلف ناقلات هجوم تستخدم عادة في طلبات.<br /><em><code>signatures-&gt;modules</code></em>
-  de: Bietet einige begrenzte Schutzmaßnahmen gegen verschiedene Angriffsvektoren häufig in Anfragen verwendet.<br /><em><code>signatures-&gt;modules</code></em>
-  es: Proporciona algunas protecciones limitadas contra varios vectores de ataque comúnmente utilizado en las solicitudes.<br /><em><code>signatures-&gt;modules</code></em>
-  fr: Fournit quelques protections limitées contre divers vecteurs d'attaque communément utilisé dans les demandes.<br /><em><code>signatures-&gt;modules</code></em>
-  id: Memberikan beberapa perlindungan terbatas terhadap berbagai vektor serangan umum digunakan dalam permintaan.<br /><em><code>signatures-&gt;modules</code></em>
-  it: Fornisce alcune protezioni limitate contro i vari vettori di attacco comunemente usata nelle richieste.<br /><em><code>signatures-&gt;modules</code></em>
-  ja: リクエストでよく使用される攻撃経路に対して、​いくつかの制限された保護を提供します。<br /><em><code>signatures-&gt;modules</code></em>
-  ko: 요청에서 자주 사용되는 공격 경로에 대해 몇 가지 제한된 보호를 제공합니다.<br /><em><code>signatures-&gt;modules</code></em>
-  nl: Biedt een beperkte bescherming tegen verschillende aanvalsvectoren vaak gebruikt in aanvragen.<br /><em><code>signatures-&gt;modules</code></em>
-  pt: Fornece algumas proteções limitadas contra vários vectores de ataque comumente usado em solicitações.<br /><em><code>signatures-&gt;modules</code></em>
-  ru: Обеспечивает некоторые ограниченные средства защиты против различных векторов атак обычно используются в запросах.<br /><em><code>signatures-&gt;modules</code></em>
-  vi: Cung cấp một số bảo vệ hạn chế chống vectơ tấn công khác nhau thường được sử dụng trong các yêu cầu.<br /><em><code>signatures-&gt;modules</code></em>
-  zh: 提供一些有限的保护针对各种攻击向量常用于请求。<br /><em><code>signatures-&gt;modules</code></em>
-  zh-tw: 提供一些有限的保護針對各種攻擊向量常用於請求。<br /><em><code>signatures-&gt;modules</code></em>
+ Name: Optional cookie scanner module
+ Extended Description: Provides some limited protections against dangerous cookies.
  False Positive Risk: Low
- Version: 2018.83.382
+ Version: 2018.107.740
  Minimum Required: 1.0.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -49,46 +15,13 @@ module_cookies.php:
    - module_cookies.php
   Checksum:
    - ca395af6cb6830123c446dbd9d433223:6400
+ Used with: modules
  Reannotate: modules.dat
 module_extras.php:
- Name:
-  en: Optional security extras module
-  ar: وحدة اشياء الأمن اختياري
-  de: Optionales Sicherheits-Extras-Modul
-  es: Extras de seguridad módulo opcional
-  fr: Module optionnel pour la sécurité supplémentaire
-  hi: वैकल्पिक सुरक्षा एक्स्ट्रा मॉड्यूल
-  id: Modul tambahan keamanan opsional
-  it: Modulo opzionale per gli extra di sicurezza
-  ja: オプショナル・セキュリティ・エクストラス・モジュール
-  ko: 선택적 보안 엑스트라 스 모듈
-  nl: Optionele beveiliging extra module
-  pt: Módulo de extras de segurança opcional
-  th: โมดูลเสริมความปลอดภัยเพิ่มเติม
-  tr: İsteğe bağlı güvenlik ekstrası modülü
-  ur: اختیاری سیکورٹی مع اضافہ جات ماڈیول
-  ru: Модуль необязательный дополнительные безопасности
-  vi: Mô-đun tùy chọn cho bảo mật tính năng bổ sung
-  zh: 可选安全附加模块
-  zh-tw: 可選安全附加模塊
- Extended Description:
-  en: Provides some limited protections against various attack vectors commonly used in requests.<br /><em><code>signatures-&gt;modules</code></em>
-  ar: يوفر بعض الحماية محدودة ضد مختلف ناقلات هجوم تستخدم عادة في طلبات.<br /><em><code>signatures-&gt;modules</code></em>
-  de: Bietet einige begrenzte Schutzmaßnahmen gegen verschiedene Angriffsvektoren häufig in Anfragen verwendet.<br /><em><code>signatures-&gt;modules</code></em>
-  es: Proporciona algunas protecciones limitadas contra varios vectores de ataque comúnmente utilizado en las solicitudes.<br /><em><code>signatures-&gt;modules</code></em>
-  fr: Fournit quelques protections limitées contre divers vecteurs d'attaque communément utilisé dans les demandes.<br /><em><code>signatures-&gt;modules</code></em>
-  id: Memberikan beberapa perlindungan terbatas terhadap berbagai vektor serangan umum digunakan dalam permintaan.<br /><em><code>signatures-&gt;modules</code></em>
-  it: Fornisce alcune protezioni limitate contro i vari vettori di attacco comunemente usata nelle richieste.<br /><em><code>signatures-&gt;modules</code></em>
-  ja: リクエストでよく使用される攻撃経路に対して、​いくつかの制限された保護を提供します。<br /><em><code>signatures-&gt;modules</code></em>
-  ko: 요청에서 자주 사용되는 공격 경로에 대해 몇 가지 제한된 보호를 제공합니다.<br /><em><code>signatures-&gt;modules</code></em>
-  nl: Biedt een beperkte bescherming tegen verschillende aanvalsvectoren vaak gebruikt in aanvragen.<br /><em><code>signatures-&gt;modules</code></em>
-  pt: Fornece algumas proteções limitadas contra vários vectores de ataque comumente usado em solicitações.<br /><em><code>signatures-&gt;modules</code></em>
-  ru: Обеспечивает некоторые ограниченные средства защиты против различных векторов атак обычно используются в запросах.<br /><em><code>signatures-&gt;modules</code></em>
-  vi: Cung cấp một số bảo vệ hạn chế chống vectơ tấn công khác nhau thường được sử dụng trong các yêu cầu.<br /><em><code>signatures-&gt;modules</code></em>
-  zh: 提供一些有限的保护针对各种攻击向量常用于请求。<br /><em><code>signatures-&gt;modules</code></em>
-  zh-tw: 提供一些有限的保護針對各種攻擊向量常用於請求。<br /><em><code>signatures-&gt;modules</code></em>
+ Name: Optional security extras module
+ Extended Description: Provides some limited protections against various attack vectors commonly used in requests.
  False Positive Risk: Medium
- Version: 2018.78.329
+ Version: 2018.107.740
  Minimum Required: 1.0.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -100,28 +33,10 @@ module_extras.php:
    - module_extras.php
   Checksum:
    - 6396d91119fab9aeb41dc19dc4c50698:31859
+ Used with: modules
  Reannotate: modules.dat
 module_baidublocker.php:
- Name:
-  en: Baidu blocker module
-  ar: بايدو وحدة مانع
-  de: Baidu Blocker-Modul
-  es: Módulo bloqueador de Baidu
-  fr: Module de blocage pour Baidu
-  hi: Baidu अवरोधक मॉड्यूल
-  id: Pemblokir modul untuk Baidu
-  it: Modulo bloccante di Baidu
-  ja: Baiduブロッカーモジュール
-  ko: Baidu 차단기 모듈
-  nl: Baidu blokker module
-  pt: Módulo bloqueador de Baidu
-  th: โมดูลป้องกัน Baidu
-  tr: Baidu engelleyici modülü
-  ur: بیدو بلاکر ماڈیول
-  ru: Модуль блокатор Baidu
-  vi: Mô-đun cho chặn Baidu
-  zh: 百度阻塞模块
-  zh-tw: 百度阻塞模塊
+ Name: Baidu blocker module
  Extended Description:
   en: Made available due to requests. Warning: Will destroy Baidu PR (page rank) for your website. Websites targeting Chinese speaking users should avoid this module.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
   ar: تتاح بسبب الطلبات. تحذير: وسوف تدمر بايدو رانك الخاص بك.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
@@ -139,7 +54,7 @@ module_baidublocker.php:
   zh: 可用由于请求。​警告：将销毁百度网页排名为您的网站。​中文用户的网站应避免使用此模块。<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
   zh-tw: 可用由於請求。​警告：將銷毀百度網頁排名為您的網站。​中文用戶的網站應避免使用此模塊。<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
- Version: 2017.335.943
+ Version: 2018.107.740
  Minimum Required: 1.0.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -150,29 +65,10 @@ module_baidublocker.php:
   To:
    - module_baidublocker.php
   Checksum:
-   - 6afe39f3c44ccce826ab5060f9ce56a2:2029
+   - 16e2224fc3dc10977c1862410f5c842b:2152
  Reannotate: modules.dat
 module_yandexblocker.php:
- Name:
-  en: Yandex blocker module
-  ar: بايدو وحدة مانع
-  de: Yandex Blocker-Modul
-  es: Módulo bloqueador de Yandex
-  fr: Module de blocage pour Yandex
-  hi: Yandex अवरोधक मॉड्यूल
-  id: Pemblokir modul untuk Yandex
-  it: Modulo bloccante di Yandex
-  ja: Yandexブロッカーモジュール
-  ko: Yandex 차단기 모듈
-  nl: Yandex blokker module
-  pt: Módulo bloqueador de Yandex
-  th: โมดูลป้องกัน Yandex
-  tr: Yandex engelleyici modülü
-  ur: Yandex کی بلاکر ماڈیول
-  ru: Модуль блокатор Яндекс
-  vi: Mô-đun cho chặn Yandex
-  zh: Yandex阻塞模块
-  zh-tw: Yandex阻塞模塊
+ Name: Yandex blocker module
  Extended Description:
   en: Made available due to requests. Warning: Will destroy Yandex PR (page rank) for your website. Websites targeting Russian speaking users should avoid this module.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
   ar: تتاح بسبب الطلبات. تحذير: وسوف تدمر ياندكس رانك الخاص بك.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
@@ -190,7 +86,7 @@ module_yandexblocker.php:
   zh: 可用由于请求。​警告：将销毁Yandex网页排名为您的网站。​俄文用户的网站应避免使用此模块。<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
   zh-tw: 可用由於請求。​警告：將銷毀Yandex網頁排名為您的網站。​俄文用戶的網站應避免使用此模塊。<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
- Version: 2017.335.943
+ Version: 2018.107.740
  Minimum Required: 1.0.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -201,32 +97,13 @@ module_yandexblocker.php:
   To:
    - module_yandexblocker.php
   Checksum:
-   - 6700831abaae937fb73a889bd9aac892:2975
+   - 1fc853f30b34470f5787f2ae56933d24:3083
  Reannotate: modules.dat
 module_badhosts.php:
- Name:
-  en: Bad hosts blocker module
-  ar: سيئة المضيفين وحدة مانع
-  de: Schlechte Hosts Blocker-Modul
-  es: Módulo bloqueador de hosts defectuosos
-  fr: Module de blocage pour les hôtes mauvais
-  hi: खराब होस्ट ब्लॉकर मॉड्यूल
-  id: Pemblokir modul untuk host buruk
-  it: Modulo bloccante di cattivi host
-  ja: 危険なホスト・ブロッカーモジュール
-  ko: 위험한 호스트 차단 모듈
-  nl: Slechte hosts blokker module
-  pt: Módulo bloqueador de hosts perigosos
-  th: โมดูลป้องกันโฮสต์ที่เป็นอันตราย
-  tr: Kötü ana engelleyici modülü
-  ur: برا میزبانوں بلاکر ماڈیول
-  ru: Модуль блокатор для плохие хосты
-  vi: Mô-đun cho chặn các host xấu
-  zh: 坏主机阻塞模块
-  zh-tw: 壞主機阻塞模塊
+ Name: Bad hosts blocker module
  Extended Description: <em><code>signatures-&gt;modules</code></em>
  False Positive Risk: Medium
- Version: 2018.97.416
+ Version: 2018.107.740
  Minimum Required: 1.0.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -238,31 +115,13 @@ module_badhosts.php:
    - module_badhosts.php
   Checksum:
    - 29f767fb2cf5638eec11967b31b292f4:16616
+ Used with: modules
  Reannotate: modules.dat
 module_badhosts_isps.php:
- Name:
-  en: Bad hosts blocker module (ISPs)
-  ar: سيئة المضيفين وحدة مانع (ISP)
-  de: Schlechte Hosts Blocker-Modul (ISPs)
-  es: Módulo bloqueador de hosts defectuosos (ISPs)
-  fr: Module de blocage pour les hôtes mauvais (ISPs)
-  hi: खराब होस्ट ब्लॉकर मॉड्यूल (इंटरनेट सेवा प्रदाताओं)
-  id: Pemblokir modul untuk host buruk (ISP)
-  it: Modulo bloccante di cattivi host (ISP)
-  ja: 危険なホスト・ブロッカーモジュール （ＩＳＰ）
-  ko: 위험한 호스트 차단 모듈 (ISP)
-  nl: Slechte hosts blokker module (ISPs)
-  pt: Módulo bloqueador de hosts perigosos (ISPs)
-  th: โมดูลป้องกันโฮสต์ที่เป็นอันตราย (ผู้ให้บริการอินเทอร์เน็ต)
-  tr: Kötü ana engelleyici modülü (ISS'ler)
-  ur: برا میزبانوں بلاکر ماڈیول (ISPs)
-  ru: Модуль блокатор для плохие хосты (ISPs)
-  vi: Mô-đun cho chặn các host xấu (ISP)
-  zh: 坏主机阻塞模块（ISP）
-  zh-tw: 壞主機阻塞模塊（ISP）
+ Name: Bad hosts blocker module (ISPs)
  Extended Description: <em><code>signatures-&gt;modules</code></em>
  False Positive Risk: High
- Version: 2018.85.593
+ Version: 2018.107.740
  Minimum Required: 1.0.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -274,12 +133,13 @@ module_badhosts_isps.php:
    - module_badhosts_isps.php
   Checksum:
    - efdb8e29b9e0e7021d0621421da2a911:1724
+ Used with: modules
  Reannotate: modules.dat
 module_badtlds.php:
  Name: Bad TLDs blocker module
  Extended Description: <em><code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
- Version: 2018.97.416
+ Version: 2018.107.740
  Minimum Required: 1.0.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -291,50 +151,13 @@ module_badtlds.php:
    - module_badtlds.php
   Checksum:
    - 79c33bf2f5be84bcf81a3da1bab23367:1276
+ Used with: modules
  Reannotate: modules.dat
 module_sfs.php:
- Name:
-  en: Stop Forum Spam module
-  ar: Stop Forum Spam وحدة
-  de: Stop Forum Spam Modul
-  es: Módulo Stop Forum Spam
-  fr: Module Stop Forum Spam
-  hi: Stop Forum Spam मॉड्यूल
-  id: Modul Stop Forum Spam
-  it: Modulo Stop Forum Spam
-  ja: Stop Forum Spam モジュール
-  ko: Stop Forum Spam 모듈
-  nl: Stop Forum Spam module
-  pt: Módulo Stop Forum Spam
-  th: โมดูล Stop Forum Spam
-  tr: Stop Forum Spam modülü
-  ur: Stop Forum Spam ماڈیول
-  ru: Модуль Stop Forum Spam
-  vi: Mô-đun Stop Forum Spam
-  zh: Stop Forum Spam 模块
-  zh-tw: Stop Forum Spam 模塊
- Extended Description:
-  ar: يحمي تسجيل صفحات ضد عناوين IP المدرجة من قبل SFS.<br /><em><code>signatures-&gt;modules</code></em>
-  de: Schützt die Registrierung und die Anmeldeseiten vor den von SFS aufgelisteten IPs.<br /><em><code>signatures-&gt;modules</code></em>
-  en: Protects registration and login pages against IPs listed by SFS.<br /><em><code>signatures-&gt;modules</code></em>
-  es: Protege las páginas de registro y de inicio de sesión de las IP listadas por SFS.<br /><em><code>signatures-&gt;modules</code></em>
-  fr: Protège l'enregistrement et les pages de connexion contre les adresses IP répertoriées par SFS.<br /><em><code>signatures-&gt;modules</code></em>
-  hi: एसएफएस द्वारा सूचीबद्ध IP पते से पंजीकरण और लॉगिन पृष्ठ की सुरक्षा करता है।<br /><em><code>signatures-&gt;modules</code></em>
-  id: Melindungi halaman pendaftaran dan login terhadap IP yang terdaftar oleh SFS.<br /><em><code>signatures-&gt;modules</code></em>
-  it: Protegge le pagine di registrazione e di accesso agli IP elencati da SFS.<br /><em><code>signatures-&gt;modules</code></em>
-  ja: ＳＦＳによってリストされたＩＰに対して登録ページとログインページを保護します。<br /><em><code>signatures-&gt;modules</code></em>
-  ko: SFS가 나열한 IP에 대한 등록 및 로그인 페이지를 보호합니다.<br /><em><code>signatures-&gt;modules</code></em>
-  nl: Beschermt registratie en login tegen IP's die door SFS worden vermeld.<br /><em><code>signatures-&gt;modules</code></em>
-  pt: Protege as páginas de registro e login contra IPs listados pelo SFS.<br /><em><code>signatures-&gt;modules</code></em>
-  ru: Защищает страницы регистрации и входа в систему от IP-адресов, перечисленных в SFS.<br /><em><code>signatures-&gt;modules</code></em>
-  th: ปกป้องหน้าการลงทะเบียนและเข้าสู่ระบบต่อต้าน IP ที่ระบุโดย SFS.<br /><em><code>signatures-&gt;modules</code></em>
-  tr: SFS tarafından listelenen IP'lere karşı kayıt ve oturum açma sayfalarını korur.<br /><em><code>signatures-&gt;modules</code></em>
-  ur: SFS سے گنا آئی پی ایس کے خلاف رجسٹریشن اور لاگ ان صفحات کی حفاظت کرتا ہے.<br /><em><code>signatures-&gt;modules</code></em>
-  vi: Bảo vệ các trang đăng ký và đăng nhập đối với các địa chỉ IP do SFS liệt kê.<br /><em><code>signatures-&gt;modules</code></em>
-  zh-tw: 防止通過SFS列出的IP地址訪問註冊和登錄頁面。<br /><em><code>signatures-&gt;modules</code></em>
-  zh: 防止通过SFS列出的IP地址访问注册和登录页面。<br /><em><code>signatures-&gt;modules</code></em>
+ Name: Stop Forum Spam module
+ Extended Description: Protects registration and login pages against IPs listed by SFS.
  False Positive Risk: Low
- Version: 2017.326.621
+ Version: 2018.107.740
  Minimum Required: 1.0.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -346,6 +169,7 @@ module_sfs.php:
    - module_sfs.php
   Checksum:
    - 07eda19882a0e5465daddfa67b3ec62a:3061
+ Used with: modules
  Reannotate: modules.dat
 module_ua.php:
  Name:
