@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2018.03.19).
+ * This file: Optional security extras module (last modified: 2018.04.23).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -310,9 +310,9 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $Trigger(strpos($UANoSpace, '`') !== false, 'Execution attempt'); // 2017.01.13
 
     $Trigger(preg_match(
-        '/(?:digger|e((mail)?collector|mail(ex|search|spider|siphon)|xtract(' .
-        'ion|or))|iscsystems|microsofturl|oozbot|psycheclone)/',
-    $UANoSpace), 'Email havester'); // 2017.01.07
+        '/(?:digger|e(?:mail)?collector|email(?:ex|search|spider|siphon)|ext' .
+        'ract(?:ion|or)|iscsystems|microsofturl|oozbot|psycheclone)/',
+    $UANoSpace), 'Email havester'); // 2018.04.23
 
     $Trigger(strpos($UANoSpace, 'email') !== false, 'Possible/Suspected email havester'); // 2017.01.06
 
@@ -329,19 +329,20 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $Trigger(strpos($UANoSpace, '(somename)') !== false, 'Banned UA', '', $InstaBan); // 2017.02.02
 
     $Trigger(preg_match(
-        '/(?:_sitemapper|3mir|a(boundex|dmantx|dnormcrawler|dvbot|lphaserver' .
-        '|thens|ttache)|bl(ekko|ogsnowbot)|c(mscrawler|o(ccoc|llect|modo-web' .
-        'inspector-crawler|mpspy)|rawler4j)|d(atacha|igout4uagent|ioscout|ki' .
-        'mrepbot|sarobot)|e(asou|xabot)|f(astenterprisecrawler|astlwspider|i' .
-        'nd?bot|indlinks|loodgate|r[_-]?crawler)|grapeshot|h(rcrawler|ubspot' .
-        ')|i(mrbot|ntegromedb|p-?web-?crawler|rcsearch|rgrabber)|jadynavebot' .
-        '|komodiabot|lin(guee|kpad)|m((ajestic|j)12|agnet|eanpath|entormate|' .
-        'fibot|ignify)|nutch|omgilibot|p(ackrat|cbrowser|lukkie|surf)|r(eape' .
-        'r|sync)|s(aidwot|alad|cspider|ees\.co|hai|iteexplorer|[iy]phon|truc' .
-        't\.it|upport\.wordpress\.com)|t(akeout|asapspider|weetmeme)|user-ag' .
-        'ent|v(isaduhoc|onchimpenfurlr)|w(ebtarantula|olf)|y(acy|isouspider|' .
-        '[ry]spider|un(rang|yun))|zoominfobot)/',
-    $UANoSpace), 'Banned UA'); // 2018.02.22
+        '/(?:_sitemapper|3mir|a(?:boundex|dmantx|dnormcrawler|dvbot|lphaserv' .
+        'er|thens|ttache)|blekko|blogsnowbot|cmscrawler|co(?:ccoc|llect|modo' .
+        '-webinspector-crawler|mpspy)|crawler(?:4j|\.feedback)|d(?:atacha|ig' .
+        'out4uagent|ioscout|kimrepbot|sarobot)|easou|exabot|f(?:astenterpris' .
+        'ecrawler|astlwspider|ind?bot|indlinks|loodgate|r[_-]?crawler)|grape' .
+        'shot|hrcrawler|hubspot|i(?:mrbot|ntegromedb|p-?web-?crawler|rcsearc' .
+        'h|rgrabber)|jadynavebot|komodiabot|linguee|linkpad|m(?:ajestic12|ag' .
+        'net|auibot|eanpath|entormate|fibot|ignify|j12)|nutch|omgilibot|p(?:' .
+        'ackrat|cbrowser|lukkie|surf)|reaper|rsync|s(?:aidwot|alad|cspider|e' .
+        'es\.co|hai|iteexplorer|[iy]phon|truct\.it|upport\.wordpress\.com)|t' .
+        'akeout|tasapspider|tweetmeme|user-agent|visaduhoc|vonchimpenfurlr|w' .
+        'ebtarantula|wolf|y(?:acy|isouspider|[ry]spider|unrang|unyun)|zoomin' .
+        'fobot)/',
+    $UANoSpace), 'Banned UA'); // 2018.04.23
 
     $Trigger(preg_match(
         '/^wp-iphone$/',
@@ -378,8 +379,8 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $UANoSpace), 'Scraper UA'); // 2017.12.20
 
     $Trigger(preg_match(
-        '/(?:c(hilkat|copyright)|flipboard|g(ooglealerts|rub)|python)/',
-    $UANoSpace), 'Possible/Suspected scraper UA'); // 2017.01.07
+        '/(?:chilkat|ccopyright|flipboard|googlealerts|grub|indeedbot|python)/',
+    $UANoSpace), 'Possible/Suspected scraper UA'); // 2017.04.23
 
     $Trigger(preg_match('/(?:brandwatch|magpie)/', $UANoSpace), 'Snoop UA', '', $InstaBan); // 2017.01.13
     $Trigger(strpos($UANoSpace, 'catch') !== false, 'Risky UA'); // 2017.01.13
@@ -387,18 +388,18 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $Trigger(preg_match('/(?:anonymous|vpngate)/', $UANoSpace), 'Proxy UA'); // 2017.01.13
 
     $Trigger(preg_match(
-        '/(?:360se|cncdialer|d(esktopsmiley|s_juicyaccess)|foxy.1|genieo|hot' .
-        'bar|icafe|m(agicbrowser|utant|yway)|o(otkit|ssproxy)|qqpinyinsetup|' .
-        'si(cent|mbar)|t(encenttraveler|heworld)|wsr-agent|zeus)/',
-    $UANoSpace), 'Malware UA'); // 2017.12.14
+        '/(?:360se|cncdialer|desktopsmiley|ds_juicyaccess|foxy.1|genieo|hotb' .
+        'ar|icafe|magicbrowser|mutant|myway|ootkit|ossproxy|qqpinyinsetup|si' .
+        'cent|simbar|tencenttraveler|theworld|wsr-agent|zeus)/',
+    $UANoSpace), 'Malware UA'); // 2017.04.23
 
     $Trigger(preg_match(
-        '/(?:200please|analyzer|awcheck|blex|c(entric|omment|razywebcrawler)' .
-        '|d(ataprovider|ot(bot|comdotnet|netdotcom))|m(egaindex|oreover|oz\.' .
-        'com)|nextgensearchbot|pagesinventory|profiler|r(6_|adian6|ogerbot)|' .
-        's(earchmetricsbot|eo(hunt|kicks|mon|tool)|phider)|vagabondo|vbseo\.' .
-        'com|w(ebm(astercoffee|eup)|ise-guys))/',
-    $UANoSpace), 'SEO UA'); // 2017.03.03
+        '/(?:200please|analyzer|awcheck|blex|centric|comment|crawlerbotalpha' .
+        '|crazywebcrawler|dataprovider|dot(?:bot|comdotnet|netdotcom)|megain' .
+        'dex|moreover|moz\.com|nextgensearchbot|pagesinventory|profiler|r6_|' .
+        'radian6|rogerbot|searchmetricsbot|seo(?:bulls|hunt|kicks|mon|tool)|' .
+        'sphider|vagabondo|vbseo\.com|webm(?:astercoffee|eup)|ise-guys)/',
+    $UANoSpace), 'SEO UA'); // 2017.04.23
 
     $Trigger(preg_match(
         '~(?:a(?:bonti|ccserver|cme.spider|nyevent-http|ppengine)|b(?:igbozz' .
