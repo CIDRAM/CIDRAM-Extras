@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2018.04.23).
+ * This file: Optional security extras module (last modified: 2018.05.01).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -267,13 +267,13 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $Trigger(preg_match('~(?:(aihit|casper)bot|mamac(asper|yber)|mozilla/0)~', $UANoSpace), 'Probe UA', '', $InstaBan); // 2017.02.25
 
     $Trigger(preg_match(
-        '~(?:^b55|-agent-|auto_?http|bigbrother|cybeye|d((iavol|ragoste)a|ow' .
-        'nloaddemon)|e(ak01ag9|catch)|i(chiro|ndylibrary|ntelium)|k(angen|mc' .
-        'crew)|libwww-pavuk|m(o(get|zillaxyz)|sie6\.0.*deepnet)|n(et(ants|co' .
-        'mber)|s8/0\.9\.6)|p(atchone|aros|entru|lanetwork|robe)|riddler|s(as' .
-        'qia|ledink|noopy|tingbot)|toata|updown_tester|w(hitehataviator|orio' .
-        ')|xirio|you?dao|zmeu)~',
-    $UANoSpace), 'Probe UA'); // 2017.02.25
+        '~(?:^b55|-agent-|auto_?http|bigbrother|cybeye|d(?:(?:iavol|ragoste)' .
+        'a|ownloaddemon)|e(?:ak01ag9|catch)|i(?:chiro|ndylibrary|ntelium)|k(' .
+        '?:angen|mccrew)|libwww-pavuk|m(?:o(?:get|zillaxyz)|sie6\.0.*deepnet' .
+        ')|n(?:et(?:ants|comber)|s8/0\.9\.6)|p(?:atchone|aros|entru|lanetwor' .
+        'k|robe)|riddler|s(?:asqia|ledink|noopy|tingbot)|toata|updown_tester' .
+        '|w(?:hitehataviator|orio)|xirio|you?dao|zmeu)~',
+    $UANoSpace), 'Probe UA'); // 2018.05.01
 
     $Trigger(preg_match('/(?: obot|ie 5\.5 compatible browser)/', $UA), 'Probe UA'); // 2017.02.02
     $Trigger(preg_match('~(?:p(hoton/|ogs/2\.0))~', $UANoSpace), 'Probe UA'); // 2017.02.25
@@ -288,19 +288,19 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $Trigger(strpos($UANoSpace, 'ruru)') !== false, 'Spam UA'); // 2017.01.07
 
     $Trigger(preg_match(
-        '/(?:a(btasty|dwords|llsubmitter|velox)|b(acklink|ad-neighborhood|ds' .
-        'm|ea?stiality|iloba|ork-edition|uyessay)|c(asino|ialis|igar|heap|ou' .
-        'rsework)|d(eltasone|issertation|rugs)|e(ditionyx|roti[ck]|stimatewe' .
-        'bstats)|f(orex|unbot)|g(abapentin|erifort|inkg?o|uestbook)|h(entai|' .
-        'rbot)|in(cest|come|vestment)|jailbreak|k(amagra|eylog)|l(axative|e(' .
-        'sbian|vitra|xap)|i(ker\.profile|nk(ba|che)ck|pitor)|olita|uxury|yco' .
-        'sa\.se)|m(ail\.ru|e(laleuca|nthol)|ixrank|rie8pack)|n(e(rdybot|tzch' .
-        'eckbot|urontin)|olvadex)|o(rgasm|utlet)|p(axil|harma|illz|lavix|orn' .
-        '|r(0n|opecia|osti))|r(eviewsx|ogaine)|s(ex[xy]|hemale|ickseo|limy|p' .
-        'utnik|tart\.exe|terapred|ynthroid)|t(entacle|[0o]p(hack|less|sites)' .
-        ')|u(01-2|nlock)|v((aluation|oila)bot|arifort|[1i](agra|olation|tol)' .
-        ')|warifort|xanax|zdorov)/',
-    $UANoSpace), 'Spam UA'); // 2017.05.02
+        '/(?:a(?:btasty|dwords|llsubmitter|velox)|b(?:acklink|ad-neighborhoo' .
+        'd|dsm|ea?stiality|iloba|ork-edition|uyessay)|c(?:asino|ialis|igar|h' .
+        'eap|oursework)|d(?:eltasone|issertation|rugs)|e(?:ditionyx|roti[ck]' .
+        '|stimatewebstats)|forex|funbot|g(?:abapentin|erifort|inkg?o|uestboo' .
+        'k)|hentai|hrbot|in(?:cest|come|vestment)|jailbreak|kamagra|keylog|l' .
+        '(?:axative|esbian|evitra|exap|i(?:ker\.profile|nk(?:ba|che)ck|pitor' .
+        ')|olita|uxury|ycosa\.se)|m(?:ail\.ru|e(?:laleuca|nthol)|ixrank|rie8' .
+        'pack)|n(?:erdybot|etzcheckbot|eurontin|olvadex)|orgasm|outlet|p(?:a' .
+        'xil|harma|illz|lavix|orn|r0n|ropecia|rosti)|reviewsx|rogaine|s(?:ex' .
+        '[xy]|hemale|ickseo|limy|putnik|tart\.exe|terapred|ynthroid)|t(?:ent' .
+        'acle|[0o]p(?:hack|less|sites))|u(?:01-2|nlock)|v(?:(?:aluation|oila' .
+        ')bot|arifort|[1i](?:agra|olation|tol))|warifort|xanax|zdorov)/',
+    $UANoSpace), 'Spam UA'); // 2018.05.01
 
     $Trigger(preg_match(
         '/(?: (audit|href|mra |quibids )|\(build 5339\))/',
@@ -354,29 +354,30 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $Trigger(strpos($UANoSpace, 'vlc/') !== false, 'Possible/Suspected scraper UA'); // 2017.01.07
 
     $Trigger(preg_match(
-        '/(?:3(60spider|d-ftp)|a(6-indexer|ccelo|ffinity|ghaven|href|ipbot|n' .
-        'alyticsseo|pp3lewebkit|r(chivebot|tviper))|b(azqux|ender|i(nlar|tvo' .
-        '|xo)|nf.fr|ogahn|oitho|pimagewalker)|c(cbot|entiverse|msworldmap|om' .
-        'moncrawl|overscout|r4nk|rawlfire|uriousgeorge|ydral)|d(atenbank|ayl' .
-        'ife|ebate|igext|(cp|isco|ouban|ownload)bot|owjones|tsagent)|e((na|u' .
-        'ro|xperi)bot|nvolk|vaal|zoom)|f(dm|etch(er.0|or)|ibgen)|g(alaxydown' .
-        'loads|et(download\.ws|ty|url11)|slfbot|umgum|urujibot)|h(arvest|eri' .
-        'trix|olmes|ttp(fetcher|unit)|ttrack)|i(mage(.fetcher|walker)|linksc' .
-        'rawler|n(agist|docom|fluencebot)|track)|j(akarta|ike)|k(ey(wenbot|w' .
-        'ordsearchtool)|imengi|kman)|l(arbin|ink(dex|walker)|iperhey|(t|ush)' .
-        'bot)|m(a(hiti|honie|ttters)|iabot|lbot|ormor|ot-v980|rchrome|ulticr' .
-        'awler)|n(e(ofonie|testate|wsbot)|ineconnections)|o(afcrawl|fflinena' .
-        'vigator|odlebot)|p(age(fetch|gett|_verifi)er|anscient|ath2|ic(grabb' .
-        'er|s|tsnapshot|turefinder)|i(pl|xmatch|xray)|oe-component-client-|o' .
-        'wermarks|roximic|(s|ure)bot|urity)|qqdownload|r(ankivabot|ebi-shove' .
-        'ler|everseget|ganalytics|ocketcrawler|sscrawl|ulinki)|s(afeassign|b' .
-        'ider|bl[.-]bot|crap[ey]|emrush|eo(eng|profiler|stat)|istrix|ite(bot' .
-        '|intel)|n[iy]per|olomono|pbot|pyder|search|webot)|t(-h-u-n|agsdir|i' .
-        'neye|opseo|raumacadx|urnitinbot)|u(12bot|p(downer|ictobot))|v(bseo|' .
-        'isbot|oyager)|w(arebay|auuu|bsearchbot|eb(alta|capture|download|rip' .
-        'per)|ikio|indows(3|seven)|inhttp|khtmlto|orldbot|otbox)|xtractorpro' .
-        '|yoofind)/',
-    $UANoSpace), 'Scraper UA'); // 2017.12.20
+        '/360spider|3d-ftp|a(?:6-indexer|ccelo|ffinity|ghaven|href|ipbot|nal' .
+        'yticsseo|pp3lewebkit|rchivebot|rtviper)|b(?:azqux|ender|inlar|itvo|' .
+        'ixo|nf.fr|ogahn|oitho|pimagewalker)|c(?:cbot|entiverse|msworldmap|o' .
+        'mmoncrawl|overscout|r4nk|rawlfire|uriousgeorge|ydral)|d(?:atenbank|' .
+        'aylife|ebate|igext|(?:cp|isco|ouban|ownload)bot|owjones|tsagent)|e(' .
+        '?:(?:na|uro|xperi)bot|nvolk|vaal|zoom)|f(?:dm|etch(?:er.0|or)|ibgen' .
+        ')|g(?:alaxydownloads|et(?:download\.ws|ty|url11)|slfbot|umgum|uruji' .
+        'bot)|h(?:arvest|eritrix|olmes|ttp(?:fetcher|unit)|ttrack)|i(?:mage(' .
+        '?:.fetcher|walker)|linkscrawler|nagist|ndocom|nfluencebot|track)|ja' .
+        'karta|jike|k(?:ey(?:wenbot|wordsearchtool)|imengi|kman)|l(?:arbin|i' .
+        'nk(?:dex|walker)|iperhey|(?:t|ush)bot)|m(?:ahiti|ahonie|attters|iab' .
+        'ot|lbot|ormor|ot-v980|rchrome|ulticrawler)|n(?:eofonie|etestate|ews' .
+        'bot|ineconnections)|o(?:afcrawl|fflinenavigator|odlebot)|p(?:age(?:' .
+        'fetch|gett|_verifi)er|anscient|ath2|ic(?:grabber|s|tsnapshot|turefi' .
+        'nder)|i(?:pl|xmatch|xray)|oe-component-client-|owermarks|roximic|(?' .
+        ':s|ure)bot|urity)|qqdownload|r(?:ankivabot|ebi-shoveler|everseget|g' .
+        'analytics|ocketcrawler|sscrawl|ulinki)|s(?:afeassign|bider|bl[.-]bo' .
+        't|crap[ey]|emrush|eo(?:eng|profiler|stat)|istrix|ite(?:bot|intel)|n' .
+        '[iy]per|olomono|pbot|pyder|search|webot)|t(?:-h-u-n|agsdir|ineye|op' .
+        'seo|raumacadx|urnitinbot)|u(?:12bot|p(?:downer|ictobot))|v(?:bseo|i' .
+        'sbot|oyager)|w(?:arebay|auuu|bsearchbot|eb(?:alta|capture|download|' .
+        'ripper)|ikio|indows(?:3|seven)|inhttp|khtmlto|orldbot|otbox)|xtract' .
+        'orpro|yoofind)/',
+    $UANoSpace), 'Scraper UA'); // 2018.05.01
 
     $Trigger(preg_match(
         '/(?:chilkat|ccopyright|flipboard|googlealerts|grub|indeedbot|python)/',
@@ -398,25 +399,26 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
         '|crazywebcrawler|dataprovider|dot(?:bot|comdotnet|netdotcom)|megain' .
         'dex|moreover|moz\.com|nextgensearchbot|pagesinventory|profiler|r6_|' .
         'radian6|rogerbot|searchmetricsbot|seo(?:bulls|hunt|kicks|mon|tool)|' .
-        'sphider|vagabondo|vbseo\.com|webm(?:astercoffee|eup)|ise-guys)/',
+        'sphider|vagabondo|vbseo\.com|webm(?:astercoffee|eup)|wise-guys)/',
     $UANoSpace), 'SEO UA'); // 2017.04.23
 
     $Trigger(preg_match(
-        '~(?:a(?:bonti|ccserver|cme.spider|nyevent-http|ppengine)|b(?:igbozz' .
-        '|lackbird|logsearch|logbot|salsa)|c(?:atexplorador|lickagy|liqzbot|' .
-        'ontextad|orporama|rowsnest|yberpatrol)|d(?:bot/|le_spider|omainappe' .
-        'nder|umprendertree)|flightdeckreportsbot|g(?:imme60|ooglebenjojo)|h' .
-        'ttp-?(?:agent|client)|i(?:nternetcensus|ps-agent|sitwp)|k(?:2spider' .
-        '|emvi)|l(?:exxebot|ivelapbot|wp)|m(?:acinroyprivacyauditors|asscan|' .
-        'etaintelligence)|n(?:aver|et(?:craft|trapport)|icebot|mapscriptinge' .
-        'ngine|rsbot)|p(?:4bot|4load|acrawler|ageglimpse|arsijoo|egasusmonit' .
-        'oring|hantomjs|hpcrawl|ingdom|rlog)|r(?:arelyused|obo(?:cop|spider)' .
-        '|yze)|s(?:can\.lol|creener|itedomain|mut|nap(?:preview)?bot|oapclie' .
-        'nt|ocial(?:ayer|searcher)|ogou|ohuagent|oso|pyglass|quider|ynapse)|' .
-        'urlappendbot|w(?:asalive|atchmouse|eb(?:-monitoring|bot|masteraid|m' .
-        'oney|thumbnail)|hatweb|ikiapiary|in(?:http|inet)|maid\.com|sr-agent' .
-        '|wwtype)|xenu|xovi|yeti|zibber|zurichfinancialservices|^m$)~',
-    $UANoSpace), 'Unauthorised'); // 2018.03.19
+        '~(?:\.buzz|a(?:bonti|ccserver|cme.spider|nyevent-http|ppengine)|b(?' .
+        ':igbozz|lackbird|logsearch|logbot|salsa)|c(?:atexplorador|lickagy|l' .
+        'iqzbot|ontextad|orporama|rowsnest|yberpatrol)|d(?:bot/|le_spider|om' .
+        'ainappender|umprendertree)|flightdeckreportsbot|g(?:imme60|oogleben' .
+        'jojo)|http-?(?:agent|client)|i(?:nternetcensus|ps-agent|sitwp)|k(?:' .
+        '2spider|emvi)|l(?:exxebot|ivelapbot|wp)|m(?:acinroyprivacyauditors|' .
+        'asscan|etaintelligence)|n(?:aver|et(?:craft|trapport)|icebot|mapscr' .
+        'iptingengine|rsbot)|p(?:4bot|4load|acrawler|ageglimpse|arsijoo|egas' .
+        'usmonitoring|hantomjs|hpcrawl|ingdom|rlog)|r(?:arelyused|obo(?:cop|' .
+        'spider)|yze)|s(?:can\.lol|creener|itedomain|mut|nap(?:preview)?bot|' .
+        'oapclient|ocial(?:ayer|searcher)|ogou|ohuagent|oso|pyglass|quider|t' .
+        'reetbot|ynapse)|urlappendbot|w(?:asalive|atchmouse|eb(?:-monitoring' .
+        '|bot|masteraid|money|thumbnail)|hatweb|ikiapiary|in(?:http|inet)|ma' .
+        'id\.com|sr-agent|wwtype)|xenu|xovi|yeti|zibber|zurichfinancialservi' .
+        'ces|^m$)~',
+    $UANoSpace), 'Unauthorised'); // 2018.05.01
 
     $Trigger(preg_match(
         '/(?:^(bot|java|msie|windows-live-social-object-extractor)|\((java|[' .
