@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2018.05.01).
+ * This file: Optional security extras module (last modified: 2018.05.02).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -77,11 +77,12 @@ if (!empty($_SERVER['QUERY_STRING'])) {
     $Trigger(preg_match('/\((?:["\']{2})?\)/', $QueryNoSpace), 'Command injection'); // 2016.12.31
 
     $Trigger(preg_match(
-        '/(?:_once|able|as(c|hes|sert)|c(hr|ode|ontents)|e(cho|regi|scape|va' .
-        'l)|ex(ec|ists)?|f(ile|late|unction)|get(c|csv|ss?)?|i(f|nclude)|len' .
-        '(gth)?|nt|open|p(ress|lace|lode|uts)|print(f|_r)?|re(ad|place|quire' .
-        '|store)|rot13|s(tart|ystem)|w(hil|rit)e)["\':(\[{<$]/',
-    $QueryNoSpace), 'Command injection'); // 2017.01.13
+        '/(?:_once|able|as(?:c|hes|sert)|c(?:hr|ode|ontents)|e(?:cho|regi|sc' .
+        'ape|val)|ex(?:ec|ists)?|f(?:ile|late|unction)|get(?:c|csv|ss?)?|i(?' .
+        ':f|nclude)|len(?:gth)?|nt|open|p(?:ress|lace|lode|uts)|print(?:f|_r' .
+        ')?|re(?:ad|place|quire|store)|rot13|s(?:tart|ystem)|w(?:hil|rit)e)[' .
+        '"\':(?:\[{<$]/',
+    $QueryNoSpace), 'Command injection'); // 2018.05.02
 
     $Trigger(preg_match(
         '/\$(?:globals|_(cookie|env|files|get|post|request|se(rver|ssion)))/',
@@ -354,30 +355,30 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $Trigger(strpos($UANoSpace, 'vlc/') !== false, 'Possible/Suspected scraper UA'); // 2017.01.07
 
     $Trigger(preg_match(
-        '/360spider|3d-ftp|a(?:6-indexer|ccelo|ffinity|ghaven|href|ipbot|nal' .
-        'yticsseo|pp3lewebkit|rchivebot|rtviper)|b(?:azqux|ender|inlar|itvo|' .
-        'ixo|nf.fr|ogahn|oitho|pimagewalker)|c(?:cbot|entiverse|msworldmap|o' .
-        'mmoncrawl|overscout|r4nk|rawlfire|uriousgeorge|ydral)|d(?:atenbank|' .
-        'aylife|ebate|igext|(?:cp|isco|ouban|ownload)bot|owjones|tsagent)|e(' .
-        '?:(?:na|uro|xperi)bot|nvolk|vaal|zoom)|f(?:dm|etch(?:er.0|or)|ibgen' .
-        ')|g(?:alaxydownloads|et(?:download\.ws|ty|url11)|slfbot|umgum|uruji' .
-        'bot)|h(?:arvest|eritrix|olmes|ttp(?:fetcher|unit)|ttrack)|i(?:mage(' .
-        '?:.fetcher|walker)|linkscrawler|nagist|ndocom|nfluencebot|track)|ja' .
-        'karta|jike|k(?:ey(?:wenbot|wordsearchtool)|imengi|kman)|l(?:arbin|i' .
-        'nk(?:dex|walker)|iperhey|(?:t|ush)bot)|m(?:ahiti|ahonie|attters|iab' .
-        'ot|lbot|ormor|ot-v980|rchrome|ulticrawler)|n(?:eofonie|etestate|ews' .
-        'bot|ineconnections)|o(?:afcrawl|fflinenavigator|odlebot)|p(?:age(?:' .
-        'fetch|gett|_verifi)er|anscient|ath2|ic(?:grabber|s|tsnapshot|turefi' .
-        'nder)|i(?:pl|xmatch|xray)|oe-component-client-|owermarks|roximic|(?' .
-        ':s|ure)bot|urity)|qqdownload|r(?:ankivabot|ebi-shoveler|everseget|g' .
-        'analytics|ocketcrawler|sscrawl|ulinki)|s(?:afeassign|bider|bl[.-]bo' .
-        't|crap[ey]|emrush|eo(?:eng|profiler|stat)|istrix|ite(?:bot|intel)|n' .
-        '[iy]per|olomono|pbot|pyder|search|webot)|t(?:-h-u-n|agsdir|ineye|op' .
-        'seo|raumacadx|urnitinbot)|u(?:12bot|p(?:downer|ictobot))|v(?:bseo|i' .
-        'sbot|oyager)|w(?:arebay|auuu|bsearchbot|eb(?:alta|capture|download|' .
-        'ripper)|ikio|indows(?:3|seven)|inhttp|khtmlto|orldbot|otbox)|xtract' .
-        'orpro|yoofind)/',
-    $UANoSpace), 'Scraper UA'); // 2018.05.01
+        '/(?:360spider|3d-ftp|a(?:6-indexer|ccelo|ffinity|ghaven|href|ipbot|' .
+        'nalyticsseo|pp3lewebkit|rchivebot|rtviper)|b(?:azqux|ender|inlar|it' .
+        'vo|ixo|nf.fr|ogahn|oitho|pimagewalker)|c(?:cbot|entiverse|msworldma' .
+        'p|ommoncrawl|overscout|r4nk|rawlfire|uriousgeorge|ydral)|d(?:atenba' .
+        'nk|aylife|ebate|igext|(?:cp|isco|ouban|ownload)bot|owjones|tsagent)' .
+        '|e(?:(?:na|uro|xperi)bot|nvolk|vaal|zoom)|f(?:dm|etch(?:er.0|or)|ib' .
+        'gen)|g(?:alaxydownloads|et(?:download\.ws|ty|url11)|slfbot|umgum|ur' .
+        'ujibot)|h(?:arvest|eritrix|olmes|ttp(?:fetcher|unit)|ttrack)|i(?:ma' .
+        'ge(?:.fetcher|walker)|linkscrawler|nagist|ndocom|nfluencebot|track)' .
+        '|jakarta|jike|k(?:ey(?:wenbot|wordsearchtool)|imengi|kman)|l(?:arbi' .
+        'n|ink(?:dex|walker)|iperhey|(?:t|ush)bot)|m(?:ahiti|ahonie|attters|' .
+        'iabot|lbot|ormor|ot-v980|rchrome|ulticrawler)|n(?:eofonie|etestate|' .
+        'ewsbot|ineconnections)|o(?:afcrawl|fflinenavigator|odlebot)|p(?:age' .
+        '(?:fetch|gett|_verifi)er|anscient|ath2|ic(?:grabber|s|tsnapshot|tur' .
+        'efinder)|i(?:pl|xmatch|xray)|oe-component-client-|owermarks|roximic' .
+        '|(?:s|ure)bot|urity)|qqdownload|r(?:ankivabot|ebi-shoveler|eversege' .
+        't|ganalytics|ocketcrawler|sscrawl|ulinki)|s(?:afeassign|bider|bl[.-' .
+        ']bot|crap[ey]|emrush|eo(?:eng|profiler|stat)|istrix|ite(?:bot|intel' .
+        ')|n[iy]per|olomono|pbot|pyder|search|webot)|t(?:-h-u-n|agsdir|ineye' .
+        '|opseo|raumacadx|urnitinbot)|u(?:12bot|p(?:downer|ictobot))|v(?:bse' .
+        'o|isbot|oyager)|w(?:arebay|auuu|bsearchbot|eb(?:alta|capture|downlo' .
+        'ad|ripper)|ikio|indows(?:3|seven)|inhttp|khtmlto|orldbot|otbox)|xtr' .
+        'actorpro|yoofind)/',
+    $UANoSpace), 'Scraper UA'); // 2018.05.02
 
     $Trigger(preg_match(
         '/(?:chilkat|ccopyright|flipboard|googlealerts|grub|indeedbot|python)/',
