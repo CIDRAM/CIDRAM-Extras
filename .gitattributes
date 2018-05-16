@@ -2,13 +2,19 @@
 # CIDRAM repository can be found here:
 # https://github.com/CIDRAM/CIDRAM/
 
-# Written based on the .gitattributes guide available from:
+# Refer to:
 # https://help.github.com/articles/dealing-with-line-endings/
 
 * text eol=lf
 *.ini text eol=crlf
 *.dat binary
-*.png binary
-*.jpg binary
 *.gif binary
+*.jpg binary
+*.png binary
 *.zip binary
+
+# Refer to:
+# https://github.com/github/linguist
+
+modules/modules.dat linguist-language=YAML
+themes/themes.dat linguist-language=YAML
