@@ -18,5 +18,6 @@ The currently available version of CIDRAM-L is "1.6.0".
 - Apr 10, 2018: Synced to v1.5.0.
 - May 5, 2018: Synced to v1.5.1.
 - May 25, 2018: Synced to v1.6.0.
+- Jun 8, 2018: CIDRAM-L v1.6.1 released ahead of CIDRAM v1.6.0 due to discovery of a small bug specific to CIDRAM-L.
 
-*Last modified: 17 February 2018 (2018.05.25).*
+*Last modified: Jun 8, 2018 (2018.05.25).*
