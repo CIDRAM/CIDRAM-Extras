@@ -103,7 +103,7 @@ module_badhosts.php:
  Name: Bad hosts blocker module
  Extended Description: <em><code>signatures-&gt;modules</code></em>
  False Positive Risk: Medium
- Version: 2018.107.740
+ Version: 2018.163.279
  Minimum Required: 1.0.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -114,14 +114,14 @@ module_badhosts.php:
   To:
    - module_badhosts.php
   Checksum:
-   - 29f767fb2cf5638eec11967b31b292f4:16616
+   - e0ac98e9afb39a14580611b96101edc7:16813
  Used with: modules
  Reannotate: modules.dat
 module_badhosts_isps.php:
  Name: Bad hosts blocker module (ISPs)
  Extended Description: <em><code>signatures-&gt;modules</code></em>
  False Positive Risk: High
- Version: 2018.107.740
+ Version: 2018.163.279
  Minimum Required: 1.0.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -132,7 +132,7 @@ module_badhosts_isps.php:
   To:
    - module_badhosts_isps.php
   Checksum:
-   - efdb8e29b9e0e7021d0621421da2a911:1724
+   - 00ec1db30ad946b688b888916d7fe1e4:1921
  Used with: modules
  Reannotate: modules.dat
 module_badtlds.php:

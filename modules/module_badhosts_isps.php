@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2018.03.27).
+ * This file: Bad hosts blocker module (last modified: 2018.06.13).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -30,8 +30,13 @@ if (empty($CIDRAM['Hostname'])) {
     $CIDRAM['Hostname'] = $CIDRAM['DNS-Reverse']($CIDRAM['BlockInfo']['IPAddr']);
 }
 
+/** Safety mechanism against false positives caused by failed lookups. */
+if ($CIDRAM['Hostname'] === 'b.in-addr-servers.nstldianaorgxHp:') {
+    $DoNotContinue = true;
+}
+
 /** Signatures start here. */
-if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr']) {
+if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'] && empty($DoNotContinue)) {
     $HN = preg_replace('/\s/', '', str_replace("\\", '/', strtolower(urldecode($CIDRAM['Hostname']))));
 
     $Trigger(preg_match(
