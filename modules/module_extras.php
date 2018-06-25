@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2018.05.02).
+ * This file: Optional security extras module (last modified: 2018.06.24).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -245,7 +245,7 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $Trigger(strpos($UANoSpace, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Shell upload attempt', '', $InstaBan); // 2017.01.02
 
     $Trigger(preg_match('/0wn[3e]d/', $UANoSpace), 'Hack UA', '', $InstaBan); // 2017.01.06
-    $Trigger(preg_match('/:(\{[a-z]:|[a-z0-9][;:]\})/', $UANoSpace), 'Hack UA', '', $InstaBan); // 2017.01.20
+    $Trigger(preg_match('/:(\{[\w]:|[\w\d][;:]\})/', $UANoSpace), 'Hack UA', '', $InstaBan); // 2017.01.20
     $Trigger(preg_match('/h[4a]c' . 'k(?:e[dr]|ing|t([3e][4a]m|[0o]{2}l))/', $UANoSpace), 'Hack UA', '', $InstaBan); // 2017.01.06
     $Trigger(preg_match('/Y[EI]$/', $CIDRAM['BlockInfo']['UA']), 'Possible/Suspected hack UA'); // 2017.01.06
     $Trigger(strpos($UA, 'rm ' . '-rf') !== false, 'Hack UA', '', $InstaBan); // 2017.01.02
@@ -277,7 +277,7 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $UANoSpace), 'Probe UA'); // 2018.05.01
 
     $Trigger(preg_match('/(?: obot|ie 5\.5 compatible browser)/', $UA), 'Probe UA'); // 2017.02.02
-    $Trigger(preg_match('~(?:p(hoton/|ogs/2\.0))~', $UANoSpace), 'Probe UA'); // 2017.02.25
+    $Trigger(preg_match('~(?:photon/|pogs/2\.0)~', $UANoSpace), 'Probe UA'); // 2018.06.24
 
     $Trigger(strpos($UANoSpace, 'wopbot') !== false, 'Bash/Shellshock UA', '', $InstaBan); // 2017.01.06
 
@@ -317,7 +317,7 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
 
     $Trigger(strpos($UANoSpace, 'email') !== false, 'Possible/Suspected email havester'); // 2017.01.06
 
-    $Trigger(preg_match('/%(?:[01][0-9a-f]|2[257]|3[ce]|[57][bd]|[7f]f)/', $UANoSpace), 'Bad UA'); // 2017.01.06
+    $Trigger(preg_match('/%(?:[01][\da-f]|2[257]|3[ce]|[57][bd]|[7f]f)/', $UANoSpace), 'Bad UA'); // 2017.01.06
 
     $Trigger(preg_match(
         '/(?:loadimpact|re-?animator|root|webster)/',
@@ -422,11 +422,10 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $UANoSpace), 'Unauthorised'); // 2018.05.01
 
     $Trigger(preg_match(
-        '/(?:^(bot|java|msie|windows-live-social-object-extractor)|\((java|[' .
-        'a-z]\:[0-9]{2,}))/',
-    $UANoSpace), 'Unauthorised'); // 2017.02.03
+        '/(?:^(bot|java|msie|windows-live-social-object-extractor)|\((java|\w\:\d{2,}))/',
+    $UANoSpace), 'Unauthorised'); // 2018.06.24
 
-    $Trigger(preg_match('~(?:[^a-z]|^)(?:cu|pe)rl(?:[^a-z]|$)~', $UANoSpace), 'Unauthorised'); // 2017.02.25
+    $Trigger(preg_match('~(?:\W|^)(?:cu|pe)rl(?:\W|$)~', $UANoSpace), 'Unauthorised'); // 2018.06.24
 
     $Trigger(preg_match(
         '/(?:^(go 1)|m(ovable type|msie 999\.1))/',

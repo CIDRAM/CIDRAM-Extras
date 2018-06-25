@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2018.06.13).
+ * This file: Bad hosts blocker module (last modified: 2018.06.24).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -46,10 +46,10 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
     $Trigger(substr($HN, 0, 2) === '()', 'Bash/Shellshock', '', $InstaBan); // 2017.01.21
 
     $Trigger(preg_match(
-        '/(?:0wn[3e]d|:(\{[a-z]:|[a-z0-9][;:]\})|h[4a]ck(e[dr]|ing|[7t]([3e]' .
-        '[4a]m|[0o]{2}l))|%(0[0-8bcef]|1)|[`\'"]|^[-.:]|[-.:]$|[.:][a-z\d-]{' .
-        '64,}[.:])/',
-    $HN), 'Banned hostname', '', $InstaBan); // 2017.02.14
+        '/(?:0wn[3e]d|:(?:\{\w:|[\w\d][;:]\})|h[4a]ck(?:e[dr]|ing|[7t](?:[3e' .
+        '][4a]m|[0o]{2}l))|%(?:0[0-8bcef]|1)|[`\'"]|^[-.:]|[-.:]$|[.:][\w\d-' .
+        ']{64,}[.:])/i',
+    $HN), 'Banned hostname', '', $InstaBan); // 2018.06.24
 
     $Trigger(strpos($CIDRAM['Hostname'], 'rm ' . '-rf') !== false, 'Banned hostname', '', $InstaBan); // 2017.01.21
     $Trigger(strpos($HN, 'sh' . 'el' . 'l_' . 'ex' . 'ec') !== false, 'Banned hostname', '', $InstaBan); // 2017.01.21
@@ -263,8 +263,8 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
     ), 'OVH Systems'); // 2017.02.16
 
     $Trigger(preg_match('/^localhost$/', $HN) && (
-        !preg_match('/^(?:1(27|92\.168)(\.1?[0-9]{1,2}|\.2[0-4][0-9]|\.25[0-5]){2,3}|\:\:1)$/', $CIDRAM['BlockInfo']['IPAddr'])
-    ), 'Spoofed/Fake Hostname', '', $InstaBan); // 2017.02.25
+        !preg_match('/^(?:1(?:27|92\.168)(?:\.1?\d{1,2}|\.2[0-4]\d|\.25[0-5]){2,3}|\:\:1)$/', $CIDRAM['BlockInfo']['IPAddr'])
+    ), 'Spoofed/Fake Hostname', '', $InstaBan); // 2018.06.24
     $Trigger(preg_match('/\.local$/', $HN), 'Spoofed/Fake Hostname'); // 2017.02.06
 
     $Trigger(preg_match(
@@ -279,6 +279,6 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
 /** WordPress cronjob bypass. */
 $Bypass(
     (($CIDRAM['BlockInfo']['SignatureCount'] - $Infractions) > 0) &&
-    preg_match('~^/wp-cron\.php\?doing_wp_cron=[0-9]+\.[0-9]+$~', $_SERVER['REQUEST_URI']) &&
+    preg_match('~^/wp-cron\.php\?doing_wp_cron=\d+\.\d+$~', $_SERVER['REQUEST_URI']) &&
     defined('DOING_CRON'),
-'WordPress cronjob bypass');
+'WordPress cronjob bypass'); // 2018.06.24

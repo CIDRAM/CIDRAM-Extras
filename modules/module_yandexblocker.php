@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Yandex blocker module (last modified: 2018.04.18).
+ * This file: Yandex blocker module (last modified: 2018.06.24).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -37,7 +37,10 @@ if (empty($CIDRAM['Hostname'])) {
 $Trigger(strpos(strtolower($CIDRAM['Hostname']), 'yandex') !== false, 'Yandex Host', 'Яндекс запретили здесь', $InstaBan);
 
 /*
-IPv4 Signatures (ASNs 13238, 43247, 202611, 207207):
+ASNs 13238, 43247, 202611, 207207
+
+---
+IPv4 Signatures
 
 5.45.192.0/18 Deny Яндекс запретили здесь
 5.255.192.0/18 Deny Яндекс запретили здесь
@@ -68,7 +71,7 @@ Options:
  TrackCount: 1000
 
 ---
-IPv6 Signatures (ASNs 13238, 43247, 207207):
+IPv6 Signatures
 
 2001:678:384::/48 Deny Яндекс запретили здесь
 2a02:6b8::/32 Deny Яндекс запретили здесь

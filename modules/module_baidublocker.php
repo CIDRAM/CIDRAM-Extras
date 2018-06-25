@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Baidu blocker module (last modified: 2018.04.18).
+ * This file: Baidu blocker module (last modified: 2018.06.24).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -37,7 +37,10 @@ if (empty($CIDRAM['Hostname'])) {
 $Trigger(strpos(strtolower($CIDRAM['Hostname']), 'baidu') !== false, 'Baidu Host', '百度被禁止从这里', $InstaBan);
 
 /*
-IPv4 Signatures (ASNs 38365, 38627, 55967):
+ASNs 38365, 38627, 45076, 55967
+
+---
+IPv4 Signatures
 
 131.161.8.0/22 Deny 百度被禁止从这里
 Origin: BR
@@ -65,7 +68,7 @@ Options:
  TrackCount: 1000
 
 ---
-IPv6 Signatures (ASN 45076):
+IPv6 Signatures
 
 2400:da00::/32 Deny 百度被禁止从这里
 Origin: CN

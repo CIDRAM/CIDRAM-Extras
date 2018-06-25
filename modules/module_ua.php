@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Empty UA blocker module (last modified: 2017.08.12).
+ * This file: Empty UA blocker module (last modified: 2018.06.24).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -20,4 +20,4 @@ if (!defined('CIDRAM')) {
 $Trigger = $CIDRAM['Trigger'];
 
 /** Block blank/empty user agents. */
-$Trigger(preg_replace('~[^a-z0-9]~i', '', $CIDRAM['BlockInfo']['UA']) == '', 'Empty UA');
+$Trigger(preg_replace('~[^\w\d]~i', '', $CIDRAM['BlockInfo']['UA']) == '', 'Empty UA');

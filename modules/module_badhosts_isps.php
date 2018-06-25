@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2018.06.13).
+ * This file: Bad hosts blocker module (last modified: 2018.06.24).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -51,6 +51,6 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
 /** WordPress cronjob bypass. */
 $Bypass(
     (($CIDRAM['BlockInfo']['SignatureCount'] - $Infractions) > 0) &&
-    preg_match('~^/wp-cron\.php\?doing_wp_cron=[0-9]+\.[0-9]+$~', $_SERVER['REQUEST_URI']) &&
+    preg_match('~^/wp-cron\.php\?doing_wp_cron=\d+\.\d+$~', $_SERVER['REQUEST_URI']) &&
     defined('DOING_CRON'),
-'WordPress cronjob bypass');
+'WordPress cronjob bypass'); // 2018.06.24

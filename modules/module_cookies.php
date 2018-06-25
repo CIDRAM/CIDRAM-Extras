@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional cookie scanner module (last modified: 2018.03.25).
+ * This file: Optional cookie scanner module (last modified: 2018.06.24).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2) and its
  * cookie scanner module, which the cookie scanner module for CIDRAM is based
@@ -71,13 +71,13 @@ if (!$Trigger($Cookies > 30, 'Cookie flood', 'Cookie flood detected!') && $Cooki
         $Trigger(strpos($ThisPairN, 'tmp_name') !== false, 'Command injection'); // 2017.01.02
         $Trigger(strpos($ThisPairN, '_contents') !== false, 'Command injection'); // 2017.01.02
 
-        $Trigger(preg_match('/ap(?:ache_[a-z0-9_]{4,16}|c_[a-z0-9_]{3,16})\(/', $ThisPairN), 'Function call detected in cookie'); // 2017.01.02
-        $Trigger(preg_match('/curl_[a-z0-9_]{4,10}\(/', $ThisPairN), 'Function call detected in cookie'); // 2017.01.02
-        $Trigger(preg_match('/ftp_[a-z0-9_]{3,7}\(/', $ThisPairN), 'Function call detected in cookie'); // 2017.01.02
-        $Trigger(preg_match('/mysqli?(?:_|\:\:)[a-z0-9_]{4,9}\(/', $ThisPairN), 'Function call detected in cookie'); // 2017.01.02
-        $Trigger(preg_match('/phpads_[a-z0-9_]{4,12}\(/', $ThisPairN), 'Function call detected in cookie'); // 2017.01.02
-        $Trigger(preg_match('/posix_[a-z0-9_]{4,19}\(/', $ThisPairN), 'Function call detected in cookie'); // 2017.01.02
-        $Trigger(preg_match('/proc_[a-z0-9_]{4,10}\(/', $ThisPairN), 'Function call detected in cookie'); // 2017.01.02
+        $Trigger(preg_match('/ap(?:ache_[\w\d_]{4,16}|c_[\w\d_]{3,16})\(/', $ThisPairN), 'Function call detected in cookie'); // 2018.06.24
+        $Trigger(preg_match('/curl_[\w\d_]{4,10}\(/', $ThisPairN), 'Function call detected in cookie'); // 2018.06.24
+        $Trigger(preg_match('/ftp_[\w\d_]{3,7}\(/', $ThisPairN), 'Function call detected in cookie'); // 2018.06.24
+        $Trigger(preg_match('/mysqli?(?:_|\:\:)[\w\d_]{4,9}\(/', $ThisPairN), 'Function call detected in cookie'); // 2018.06.24
+        $Trigger(preg_match('/phpads_[\w\d_]{4,12}\(/', $ThisPairN), 'Function call detected in cookie'); // 2018.06.24
+        $Trigger(preg_match('/posix_[\w\d_]{4,19}\(/', $ThisPairN), 'Function call detected in cookie'); // 2018.06.24
+        $Trigger(preg_match('/proc_[\w\d_]{4,10}\(/', $ThisPairN), 'Function call detected in cookie'); // 2018.06.24
 
         $Trigger(preg_match('/\'(?:uploadedfile|move_uploaded_file|tmp_name)\'/', $ThisPairN), 'Probe attempt'); // 2017.01.02
 
@@ -100,7 +100,7 @@ if (!$Trigger($Cookies > 30, 'Cookie flood', 'Cookie flood detected!') && $Cooki
         ), 'Hack attempt detected'); // 2017.01.02
 
         $Trigger($KeyLC === 'rm ' . '-rf' || $ValueLC === 'rm ' . '-rf', 'Hack attempt detected', '', $InstaBan); // 2017.01.02
-        $Trigger(preg_match('/:(\{[a-z]:|[a-z0-9][;:]\})/', $ThisPairN), 'Hack attempt detected', '', $InstaBan); // 2017.01.20
+        $Trigger(preg_match('/:(?:\{\w:|[\w\d][;:]\})/', $ThisPairN), 'Hack attempt detected', '', $InstaBan); // 2018.06.24
 
         $Trigger((
             ($Value == -1 || $Value == '-1') &&
