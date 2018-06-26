@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2018.06.24).
+ * This file: Bad hosts blocker module (last modified: 2018.06.25).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -189,17 +189,17 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
     $Trigger(empty($CIDRAM['Ignore']['XEEX']) && strpos($HN, 'xeex') !== false, 'XEEX'); // 2017.01.21 (ASN 27524)
 
     $Trigger(preg_match(
-        '/(?:(\.above|shared-server|jkserv)\.net$|akpackaging\.net|(academic' .
-        'edge|cyber-freaks|dailyrazor|ibuzytravel|server306|webfaction|\.sit' .
-        'eprotect)\.com$|(aramenet|dinaserver|phishmongers|web(hostinghub|si' .
-        'tewelcome))\.com|acetrophies\.co\.uk$|\.pomserve2\.co\.uk|webhostse' .
-        'rver\.biz$|\.haremo\.de$|webcreators\.nl|rockwellmuseum\.org|skywar' .
-        'e\.pl$|vpsnow\.ru$|timeweb\.ru)/',
-    $HN), 'Probe/Scanner'); // 2017.05.17
+        '/(?:\.above|shared-server|jkserv)\.net$|akpackaging\.net|(?:academi' .
+        'cedge|cyber-freaks|dailyrazor|ibuzytravel|server306|webfaction|\.si' .
+        'teprotect)\.com$|(?:aramenet|dinaserver|phishmongers|web(?:hostingh' .
+        'ub|sitewelcome))\.com|acetrophies\.co\.uk$|\.pomserve2\.co\.uk|webh' .
+        'ostserver\.biz$|\.haremo\.de$|webcreators\.nl|rockwellmuseum\.org|s' .
+        'kyware\.pl$|vpsnow\.ru$|timeweb\.ru|dailyhealthtipsuk\.us$/',
+    $HN), 'Probe/Scanner'); // 2017.06.25
 
     $Trigger(preg_match(
-        '/(?:(\.oroxy|anonine)\.com$|thefreevpn|vpn(999\.com|gate)|public-net)/',
-    $HN), 'Risky/Proxy/VPN Host'); // 2017.02.09
+        '/(?:\.oroxy|anonine)\.com$|thefreevpn|vpn(?:999\.com|gate)|public-net/',
+    $HN), 'Risky/Proxy/VPN Host'); // 2017.06.25
 
     $Trigger(preg_match(
         '/(?:(?:dimenoc|dumpyourbitch|hostenko|internetserviceteam|ipredat(?' .
