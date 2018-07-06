@@ -288,7 +288,7 @@ compat_bunnycdn.php:
   zh-tw: BunnyCDN兼容模塊
  Extended Description: <em><code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
- Version: 2018.80.642
+ Version: 2018.182.270
  Minimum Required: 1.4.1
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -299,6 +299,6 @@ compat_bunnycdn.php:
   To:
    - compat_bunnycdn.php
   Checksum:
-   - 8705626e2502203ef9f267a1472a4c46:1533
+   - 9fac3593db8e249fbccee5ec1aa4d057:1554
  Reannotate: modules.dat
 

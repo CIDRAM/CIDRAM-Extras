@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: BunnyCDN compatibility module (last modified: 2018.03.22).
+ * This file: BunnyCDN compatibility module (last modified: 2018.07.02).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -43,7 +43,7 @@ $IPList = (substr($CIDRAM['Cache']['API']['BunnyCDN']['Data'], 0, 1) === '<') ? 
 $Bypass = $CIDRAM['Bypass'];
 
 /** Execute bypass for BunnyCDN IPs. */
-if ($CIDRAM['BlockInfo']['SignatureCount'] > 0) {
+if ($CIDRAM['BlockInfo']['SignatureCount'] > 0 && is_array($IPList)) {
     foreach ($IPList as $IP) {
         $Bypass($CIDRAM['BlockInfo']['IPAddr'] === $IP, 'BunnyCDN bypass');
     }
