@@ -21,7 +21,7 @@ module_extras.php:
  Name: Optional security extras module
  Extended Description: Provides some limited protections against various attack vectors commonly used in requests.
  False Positive Risk: Medium
- Version: 2018.175.060
+ Version: 2018.190.212
  Minimum Required: 1.0.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -32,7 +32,7 @@ module_extras.php:
   To:
    - module_extras.php
   Checksum:
-   - 9ceedd27edc240d777461d5e503a4b2d:32132
+   - 0e735561c834e6b07c4aa6b233a3916d:15788
  Used with: modules
  Reannotate: modules.dat
 module_baidublocker.php:
@@ -172,29 +172,9 @@ module_sfs.php:
  Used with: modules
  Reannotate: modules.dat
 module_ua.php:
- Name:
-  en: Empty UA blocker module
-  ar: فارغة وحدة مانع وا
-  de: Leeres UA-Blocker-Modul
-  es: Módulo de bloqueador UA vacío
-  fr: Module bloqueur UA vide
-  hi: खाली UA अवरोधक मॉड्यूल
-  id: Modul pemblokir UA kosong
-  it: Modulo blocco UA vuoto
-  ja: 空のＵＡブロッカー・モジュール
-  ko: 빈 UA 차단기 모듈
-  nl: Lege UA blocker module
-  pt: Módulo de bloqueador de UA vazio
-  th: โมดูลตัวบล็อก UA ที่ว่างเปล่า
-  tr: Boş UA engelleyici modülü
-  ur: خالی UA بلاکر ماڈیول
-  ru: Модуль блокировки UA пустой
-  vi: Mô-đun chặn UA trống
-  zh: 空UA阻塞模块
-  zh-tw: 空UA阻塞模塊
- Extended Description: <em><code>signatures-&gt;modules</code></em>
+ Name: Empty UA blocker module
  False Positive Risk: Low
- Version: 2018.175.060
+ Version: 2018.190.133
  Minimum Required: 1.0.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -206,33 +186,25 @@ module_ua.php:
    - module_ua.php
   Checksum:
    - 71599279a473ed381b3514d825a0d9a0:636
+ Used with: modules
  Reannotate: modules.dat
-module_pinterest.php:
- Name:
-  en: Pinterest verifier
-  es: Verificador de Pinterest
-  fr: Pinterest vérificateur
-  it: Pinterest verificatore
-  pt: Verificador Pinterest
- Extended Description:
-  en: Verifies requests from bots claiming to be Pinterest. Genuine Pinterest bots will be whitelisted. Fake Pinterest bots will be blocked. <em><code>signatures-&gt;modules</code></em>
-  es: Verifica las solicitudes de bots que afirman ser Pinterest. Los bots de Pinterest genuinos se incluirán en la lista blanca. Los bots falsos de Pinterest serán bloqueados. <em><code>signatures-&gt;modules</code></em>
-  fr: Vérifie les demandes des robots prétendant être Pinterest. Les véritables robots de Pinterest seront ajoutés à la liste blanche. Les faux robots de Pinterest seront bloqués. <em><code>signatures-&gt;modules</code></em>
-  it: Verifica le richieste da parte di bot che dichiarano di essere Pinterest. I robot di Pinterest autentici saranno autorizzati nella whitelist. I bot di Pinterest falsi saranno bloccati. <em><code>signatures-&gt;modules</code></em>
-  pt: Verifica pedidos de bots que afirmam ser Pinterest. Os robôs genuínos de Pinterest serão classificados na lista branca. Os robôs Fake Pinterest serão bloqueados. <em><code>signatures-&gt;modules</code></em>
- False Positive Risk: Low
- Version: 2017.329.430
- Minimum Required: 1.3.0-DEV
+module_botua.php:
+ Name: Optional user agents module
+ Extended Description: Blocks user agents associated with unwanted bots and nefarious activity.
+ False Positive Risk: Medium
+ Version: 2018.190.212
+ Minimum Required: 1.0.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
   From:
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_pinterest.php
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_botua.php
   To:
-   - module_pinterest.php
+   - module_botua.php
   Checksum:
-   - 591c8fa912e1e694c41b04d3999ad6b9:1259
+   - 41157fd527e8144c4a82ba722b1bfd93:16941
+ Used with: modules
  Reannotate: modules.dat
 Chart.js:
  Name: Chart.js
