@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2018.07.10).
+ * This file: Optional user agents module (last modified: 2018.07.16).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -206,6 +206,8 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
         'e|download|mastercoffee|meup|ripper)|ikio|indows(?:3|seven)|inhttp|' .
         'ise-guys|khtmlto|orldbot|otbox)|xtractorpro|yoofind)/',
     $UANoSpace), 'Backlink/SEO/Scraper UA'); // 2018.07.10
+
+    $Trigger(preg_match('/quick-crawler|scrapinghub/', $UANoSpace), 'Scraper UA'); // 2018.07.16
 
     $Trigger(preg_match(
         '/(?:chilkat|ccopyright|flipboard|googlealerts|grub|indeedbot|python)/',
