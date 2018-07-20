@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2018.07.16).
+ * This file: Optional user agents module (last modified: 2018.07.20).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -249,8 +249,8 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $Trigger(preg_match('~(?:\W|^)(?:cu|pe)rl(?:\W|$)~', $UANoSpace), 'Unauthorised'); // 2018.06.24
 
     $Trigger(preg_match(
-        '/(?:^(go 1)|m(ovable type|msie 999\.1))/',
-    $UA), 'Unauthorised'); // 2017.02.03
+        '~^go +\d|movable type|msie ?(?:\d{3,}|[2-9]\d|[0-4]\.)~i',
+    $UA), 'Unauthorised / Fake UA'); // 2017.07.20
 
     $Trigger(preg_match('/(?:internet explorer)/', $UA), 'Hostile / Fake IE'); // 2017.02.03
     $Trigger(preg_match('/(?:MSIECrawler)/', $CIDRAM['BlockInfo']['UA']), 'Hostile / Fake IE', '', $InstaBan); // 2017.02.25
