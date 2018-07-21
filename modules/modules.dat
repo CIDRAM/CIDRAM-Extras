@@ -192,7 +192,7 @@ module_botua.php:
  Name: Optional user agents module
  Extended Description: Blocks user agents associated with unwanted bots and nefarious activity.
  False Positive Risk: Medium
- Version: 2018.200.705
+ Version: 2018.201.493
  Minimum Required: 1.0.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -203,7 +203,7 @@ module_botua.php:
   To:
    - module_botua.php
   Checksum:
-   - 213c73654152b2891b92e1d139c7ffd1:17065
+   - 0dff7d1c2152202511a38dca915d7231:17075
  Used with: modules
  Reannotate: modules.dat
 Chart.js:

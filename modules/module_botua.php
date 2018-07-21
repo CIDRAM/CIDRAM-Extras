@@ -243,14 +243,14 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $UANoSpace), 'Unauthorised'); // 2018.05.01
 
     $Trigger(preg_match(
-        '/(?:^(bot|java|msie|windows-live-social-object-extractor)|\((java|\w\:\d{2,}))/',
-    $UANoSpace), 'Unauthorised'); // 2018.06.24
+        '~^(?:bot|java|msie|windows-live-social-object-extractor)|\((?:java|\w\:\d{2,})~',
+    $UANoSpace), 'Unauthorised / Fake UA'); // 2018.07.20
 
     $Trigger(preg_match('~(?:\W|^)(?:cu|pe)rl(?:\W|$)~', $UANoSpace), 'Unauthorised'); // 2018.06.24
 
     $Trigger(preg_match(
-        '~^go +\d|movable type|msie ?(?:\d{3,}|[2-9]\d|[0-4]\.)~i',
-    $UA), 'Unauthorised / Fake UA'); // 2017.07.20
+        '~^go +\d|movable type|msie ?(?:\d{3,}|[2-9]\d|[0-8]\.)~i',
+    $UA), 'Unauthorised / Fake UA'); // 2018.07.20
 
     $Trigger(preg_match('/(?:internet explorer)/', $UA), 'Hostile / Fake IE'); // 2017.02.03
     $Trigger(preg_match('/(?:MSIECrawler)/', $CIDRAM['BlockInfo']['UA']), 'Hostile / Fake IE', '', $InstaBan); // 2017.02.25
