@@ -210,20 +210,20 @@ Chart.js:
  Name: Chart.js
  Extended Description:
   en: Enables the front-end to generate pie charts.<br /><a href="https://github.com/chartjs/Chart.js">Chart.js</a> made available under the <a href="https://opensource.org/licenses/MIT">MIT license</a>.
- Version: 2.7.1
+ Version: 2.7.2
  Minimum Required: 1.2.0-DEV
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Provisional: true
  Files:
   From:
-   - https://raw.githubusercontent.com/Maikuolan/Chart.js-Common-Module/master/Chart.min.js
+   - https://github.com/chartjs/Chart.js/releases/download/v2.7.2/Chart.min.js
    - https://raw.githubusercontent.com/Maikuolan/Chart.js-Common-Module/master/_chartjs.html
   To:
    - fe_assets/Chart.min.js
    - fe_assets/_chartjs.html
   Checksum:
-   - 3b2fd01c6f541703143a6e67d20d72e6:157843
+   - f6c8efa65711e0cbbc99ba72997ecd0e:159638
    - bcb49fc1e80ffccd449023916a077d44:1356
  Reannotate: modules.dat
 flags.css:
@@ -272,5 +272,35 @@ compat_bunnycdn.php:
    - compat_bunnycdn.php
   Checksum:
    - 9fac3593db8e249fbccee5ec1aa4d057:1554
+ Used with: modules
+ Reannotate: modules.dat
+PHPMailer:
+ Name: PHPMailer
+ Extended Description:
+  en: Required for using any functionality that involves sending email.<br /><a href="https://github.com/PHPMailer/PHPMailer">PHPMailer</a> is available via the <a href="https://github.com/PHPMailer/PHPMailer/blob/master/LICENSE">GNU Lesser General Public License</a>.
+ Version: 6.0.5
+ Minimum Required: 1.7.0
+ Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
+ Uninstallable: true
+ Provisional: true
+ Files:
+  From:
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/cb3ea134d4d3729e7857737d5f320cce9caf4d32/src/Exception.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/cb3ea134d4d3729e7857737d5f320cce9caf4d32/src/OAuth.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/cb3ea134d4d3729e7857737d5f320cce9caf4d32/src/PHPMailer.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/cb3ea134d4d3729e7857737d5f320cce9caf4d32/src/POP3.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/cb3ea134d4d3729e7857737d5f320cce9caf4d32/src/SMTP.php
+  To:
+   - phpmailer/Exception.php
+   - phpmailer/OAuth.php
+   - phpmailer/PHPMailer.php
+   - phpmailer/POP3.php
+   - phpmailer/SMTP.php
+  Checksum:
+   - 0346c0eeff7eddf79107e177d18011b0:1253
+   - 20c1aa1a548c58946a0c28c723a410c4:3882
+   - 77c9a2c4ff951b2a905c22b609345242:158896
+   - e673d67aad8236ad6d9cd97ddc05c146:11450
+   - 7d2fa1c5d1c25f24e1f61070d1512c0b:44176
  Reannotate: modules.dat
 
