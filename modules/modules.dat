@@ -243,24 +243,10 @@ flags.css:
    - 437a452d763645ea38f65c09fc38516c:184055
  Reannotate: modules.dat
 compat_bunnycdn.php:
- Name:
-  en: BunnyCDN compatibility module
-  de: BunnyCDN Kompatibilitätsmodul
-  es: BunnyCDN módulo de compatibilidad
-  fr: BunnyCDN module de compatibilité
-  id: Modul kompatibilitas BunnyCDN
-  it: BunnyCDN modulo di compatibilità
-  ja: BunnyCDN互換モジュール
-  ko: BunnyCDN 호환성 모듈
-  nl: BunnyCDN compatibiliteitsmodule
-  pt: BunnyCDN módulo de compatibilidade
-  ru: Модуль совместимости BunnyCDN
-  vi: Mô đun tương thích BunnyCDN
-  zh: BunnyCDN兼容模块
-  zh-tw: BunnyCDN兼容模塊
+ Name: BunnyCDN compatibility module
  Extended Description: <em><code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
- Version: 2018.182.270
+ Version: 2018.219.607
  Minimum Required: 1.4.1
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -277,9 +263,10 @@ compat_bunnycdn.php:
 PHPMailer:
  Name: PHPMailer
  Extended Description:
-  en: Required for using any functionality that involves sending email.<br /><a href="https://github.com/PHPMailer/PHPMailer">PHPMailer</a> is available via the <a href="https://github.com/PHPMailer/PHPMailer/blob/master/LICENSE">GNU Lesser General Public License</a>.
+  en: Required for using any functionality that involves sending email.<br /><a href="https://github.com/PHPMailer/PHPMailer">PHPMailer</a> is available via the <a href="https://github.com/PHPMailer/PHPMailer/blob/master/LICENSE">LGPLv2.1</a> license.
  Version: 6.0.5
  Minimum Required: 1.7.0
+ Minimum Required PHP: 5.5.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Provisional: true
