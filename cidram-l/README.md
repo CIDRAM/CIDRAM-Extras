@@ -12,7 +12,7 @@ This package has been made available by special request of some specific users. 
 
 CIDRAM-L is mostly used in the same way as CIDRAM, except that instead of calling the "loader.php" file, you'll call the "cidram-l.phar" file in your require statements. Unzip the CIDRAM-L package archive (cidram-l.zip) in the same way you'd normally unzip the CIDRAM package archive, and follow generally the same installation instructions provided for CIDRAM. If you need help, just ask.
 
-The currently available version of CIDRAM-L is "1.7.0".
+The currently available version of CIDRAM-L is "1.7.1".
 
 - Feb 17, 2018: CIDRAM-L v1.4.1 is forked from CIDRAM v1.4.1, changes made as per the package description above, a new PHAR prepared, and the CIDRAM-L package is committed to GitHub. ALL previous versions of CIDRAM-L are EoL and WON'T be supported anymore under any circumstance.
 - Apr 10, 2018: Synced to v1.5.0.
@@ -20,5 +20,6 @@ The currently available version of CIDRAM-L is "1.7.0".
 - May 25, 2018: Synced to v1.6.0.
 - Jun 8, 2018: CIDRAM-L v1.6.1 released ahead of CIDRAM v1.6.1 due to discovery of a small bug specific to CIDRAM-L.
 - Jul 28, 2018: Synced to v1.7.0.
+- Aug 17, 2018: CIDRAM-L v1.7.1 released in response to a critical bug which only affects all previous CIDRAM-L versions (i.e., there won't be any CIDRAM v1.7.1 released).
 
-*Last Updated: 28 July 2018 (2018.07.28).*
+*Last Updated: 17 August 2018 (2018.08.17).*
