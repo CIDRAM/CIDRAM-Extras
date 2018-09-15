@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2018.06.25).
+ * This file: Bad hosts blocker module (last modified: 2018.09.15).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -71,17 +71,17 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
         '/(?:prking\.com\.au$|(?:qvt|telsp)\.net\.br$|(?:\.(?:giga-dns|oodle' .
         '|pointandchange|solidseo(?:dedicated|vps)?|topsy|vadino)|23gb|35up|' .
         'accelovation|barefruit|bestprice|colo\.iinet|detangled|kimsufi|ligh' .
-        'tspeedsystems|mantraonline|netcomber|onlinehome-server\.myforexvps|' .
-        'page-store|setooz|technicolor)\.com$|(?:2dayhost|inkjetrefillink)\.' .
-        'com|poneytelecom\.eu$|(?:4u|onlinehome-server)\.info$|mobilemarketi' .
-        'ngaid\.info|\.cnr\.it$|kiyosho\.jp$|(?:\.pldt|3fn|buyurl|dragonara|' .
-        'isnet|mfnx|onlinehome-server|pool\.ukrtel)\.net$|seomoz\.org$|\.rds' .
-        'net\.ro$|(?:dimargroup|itrack|mail|rulinki)\.ru$|(?:2kom|solomono)' .
-        '\.ru|\.v4\.ngi\.it|fibersunucu\.com\.tr|awcheck|b(?:oardreader|reak' .
-        'ingtopics|uysellsales)|c(?:eptro|heapseovps|yber-uslugi)|drugstore|' .
-        'jackwellsmusic|liwio\.|luxuryhandbag|s(?:emalt|mileweb\.com\.ua|qui' .
-        'der|tartdedicated\.)|(?:exa|fulltextro|we|you?dao)bot)/',
-    $HN), 'SEO/Bothost/Scraper/Spamhost'); // 2018.03.06
+        'tspeedsystems|lipperhey|mantraonline|netcomber|onlinehome-server\.m' .
+        'yforexvps|page-store|setooz|technicolor)\.com$|poneytelecom\.eu$|(?' .
+        ':4u|netadvert|onlinehome-server)\.info$|mobilemarketingaid\.info|\.' .
+        'cnr\.it$|kiyosho\.jp$|(?:\.pldt|3fn|buyurl|dragonara|isnet|mfnx|onl' .
+        'inehome-server|pool\.ukrtel)\.net$|seomoz\.org$|\.rdsnet\.ro$|(?:di' .
+        'margroup|itrack|mail|rulinki)\.ru$|(?:2kom|solomono)\.ru|\.v4\.ngi' .
+        '\.it|fibersunucu\.com\.tr|awcheck|b(?:oardreader|reakingtopics|uyse' .
+        'llsales)|c(?:eptro|heapseovps|yber-uslugi)|drugstore|liwio\.|luxury' .
+        'handbag|s(?:emalt|mileweb\.com\.ua|quider|tartdedicated\.)|(?:exa|f' .
+        'ulltextro|we|you?dao)bot)/',
+    $HN), 'SEO/Bothost/Scraper/Spamhost'); // 2018.09.15
 
     $Trigger(preg_match(
         '/(?:rumer|pymep|румер)/',
@@ -98,21 +98,18 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
     $HN), 'Questionable Host'); // 2017.01.30
 
     $Trigger(preg_match(
-        '/(?:\.(as13448|websense)\.|(bibbly|pulsepoint|zvelo)\.com|\.filespo' .
-        't\.com$|westdc\.net|propagation\.net$|m(ajestic|eanpath)|tag-trek)/',
-    $HN), 'Unauthorised'); // 2017.02.09
+        '~\.(?:as13448|websense)\.|(?:bibbly|pulsepoint|zvelo)\.com|(?:\.fil' .
+        'espot|cloudsystemnetworks)\.com$|westdc\.net|propagation\.net$|maje' .
+        'stic|meanpath|tag-trek~',
+    $HN), 'Unauthorised'); // 2018.09.15
 
-    $Trigger(preg_match(
-        '/(?:anchorfree|hotspotsheild|esonicspider\.com$)/',
-    $HN), 'Hostile/esonicspider'); // 2017.02.06
+    $Trigger(preg_match('~anchorfree|hotspotsheild|esonicspider\.com$~', $HN), 'Hostile/esonicspider'); // 2018.09.15
 
     $Trigger(preg_match(
         '/(?:megacom\.biz$|ideastack\.com$|dotnetdotcom\.org$|controlyourself\.online|seeweb\.it)/',
     $HN), 'Hostile/Unauthorised'); // 2017.02.14
 
-    $Trigger(preg_match(
-        '/(?:brandaffinity)/',
-    $HN), 'Hostile/SLAPP'); // 2017.02.06
+    $Trigger(preg_match('~brandaffinity~', $HN), 'Hostile/SLAPP'); // 2018.09.15
 
     $Trigger(preg_match(
         '/(?:andersdenken\.at$|i(?:g|nsite)\.com\.br$|terra\.cl$|(?:\.(?:app' .
@@ -185,7 +182,7 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
     $Trigger(empty($CIDRAM['Ignore']['Seznam.cz']) && strpos($HN, 'seznam.cz') !== false, 'Seznam.cz'); // 2017.01.21 (ASNs 43037, 200600)
     $Trigger(empty($CIDRAM['Ignore']['Versaweb, LLC']) && strpos($HN, 'versaweb') !== false, 'Versaweb, LLC'); // 2017.02.14 (ASN 36114)
     $Trigger(empty($CIDRAM['Ignore']['Voxility LLC']) && strpos($HN, 'voxility.net') !== false, 'Voxility LLC'); // 2017.02.06 (ASN 3223)
-    $Trigger(empty($CIDRAM['Ignore']['Wowrack.com']) && strpos($HN, 'wowrack.com') !== false, 'Wowrack.com'); // 2018.02.02 (ASN 23033)
+    $Trigger(empty($CIDRAM['Ignore']['Wowrack.com']) && preg_match('~themothership\.net|wowrack\.com~', $HN), 'Wowrack.com'); // 2018.09.15 (ASN 23033)
     $Trigger(empty($CIDRAM['Ignore']['XEEX']) && strpos($HN, 'xeex') !== false, 'XEEX'); // 2017.01.21 (ASN 27524)
 
     $Trigger(preg_match(
