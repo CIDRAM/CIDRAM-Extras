@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2018.09.15).
+ * This file: Bad hosts blocker module (last modified: 2018.09.17).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -76,12 +76,12 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
         ':4u|netadvert|onlinehome-server)\.info$|mobilemarketingaid\.info|\.' .
         'cnr\.it$|kiyosho\.jp$|(?:\.pldt|3fn|buyurl|dragonara|isnet|mfnx|onl' .
         'inehome-server|pool\.ukrtel)\.net$|seomoz\.org$|\.rdsnet\.ro$|(?:di' .
-        'margroup|itrack|mail|rulinki)\.ru$|(?:2kom|solomono)\.ru|\.v4\.ngi' .
-        '\.it|fibersunucu\.com\.tr|awcheck|b(?:oardreader|reakingtopics|uyse' .
-        'llsales)|c(?:eptro|heapseovps|yber-uslugi)|drugstore|liwio\.|luxury' .
-        'handbag|s(?:emalt|mileweb\.com\.ua|quider|tartdedicated\.)|(?:exa|f' .
-        'ulltextro|we|you?dao)bot)/',
-    $HN), 'SEO/Bothost/Scraper/Spamhost'); // 2018.09.15
+        'margroup|itrack|mail|rulinki|vipmailoffer)\.ru$|(?:2kom|solomono)\.' .
+        'ru|\.v4\.ngi\.it|fibersunucu\.com\.tr|awcheck|b(?:oardreader|reakin' .
+        'gtopics|uysellsales)|c(?:eptro|heapseovps|yber-uslugi)|drugstore|li' .
+        'wio\.|luxuryhandbag|s(?:emalt|mileweb\.com\.ua|quider|tartdedicated' .
+        '\.)|(?:exa|fulltextro|we|you?dao)bot)/',
+    $HN), 'SEO/Bothost/Scraper/Spamhost'); // 2018.09.17
 
     $Trigger(preg_match(
         '/(?:rumer|pymep|румер)/',
@@ -189,10 +189,11 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
         '/(?:\.above|shared-server|jkserv)\.net$|akpackaging\.net|(?:academi' .
         'cedge|cyber-freaks|dailyrazor|ibuzytravel|server306|webfaction|\.si' .
         'teprotect)\.com$|(?:aramenet|dinaserver|phishmongers|web(?:hostingh' .
-        'ub|sitewelcome))\.com|acetrophies\.co\.uk$|\.pomserve2\.co\.uk|webh' .
-        'ostserver\.biz$|\.haremo\.de$|webcreators\.nl|rockwellmuseum\.org|s' .
-        'kyware\.pl$|vpsnow\.ru$|timeweb\.ru|dailyhealthtipsuk\.us$/',
-    $HN), 'Probe/Scanner'); // 2017.06.25
+        'ub|sitewelcome))\.com|server4u\.cz$|acetrophies\.co\.uk$|\.pomserve' .
+        '2\.co\.uk|webhostserver\.biz$|\.haremo\.de$|webcreators\.nl|rockwel' .
+        'lmuseum\.org|skyware\.pl$|vpsnow\.ru$|timeweb\.ru|dailyhealthtipsuk' .
+        '\.us$/',
+    $HN), 'Probe/Scanner'); // 2018.09.17
 
     $Trigger(preg_match(
         '/(?:\.oroxy|anonine)\.com$|thefreevpn|vpn(?:999\.com|gate)|public-net/',
