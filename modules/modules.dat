@@ -210,7 +210,7 @@ Chart.js:
  Name: Chart.js
  Extended Description:
   en: Enables the front-end to generate pie charts.<br /><a href="https://github.com/chartjs/Chart.js">Chart.js</a> made available under the <a href="https://opensource.org/licenses/MIT">MIT license</a>.
- Version: 2.7.2
+ Version: 2.7.2+18263415
  Minimum Required: 1.2.0-DEV
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -224,7 +224,7 @@ Chart.js:
    - fe_assets/_chartjs.html
   Checksum:
    - f6c8efa65711e0cbbc99ba72997ecd0e:159638
-   - bcb49fc1e80ffccd449023916a077d44:1356
+   - edf8d7598dc6df1661c84c3717a31d34:1086
  Reannotate: modules.dat
 flags.css:
  Name: Flags CSS
