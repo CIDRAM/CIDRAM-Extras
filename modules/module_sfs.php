@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Stop Forum Spam module (last modified: 2017.11.23).
+ * This file: Stop Forum Spam module (last modified: 2018.09.22).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -57,7 +57,7 @@ $LCURI)) {
         if (!isset($CIDRAM['Cache']['SFS'][$_SERVER[$CIDRAM['IPAddr']]])) {
 
             /** Perform SFS lookup. */
-            $Lookup = $CIDRAM['Request']('http://www.stopforumspam.com/api', [
+            $Lookup = $CIDRAM['Request']('https://www.stopforumspam.com/api', [
                 'ip' => $_SERVER[$CIDRAM['IPAddr']],
                 'f' => 'serial'
             ]);

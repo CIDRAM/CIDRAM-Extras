@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2018.09.17).
+ * This file: Bad hosts blocker module (last modified: 2018.09.22).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -265,10 +265,8 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
     ), 'Spoofed/Fake Hostname', '', $InstaBan); // 2018.06.24
     $Trigger(preg_match('/\.local$/', $HN), 'Spoofed/Fake Hostname'); // 2017.02.06
 
-    $Trigger(preg_match(
-        '/shodan.\io|(?:serverprofi24|aspadmin|project25499)\./',
-    $HN), 'AutoSploit Host'); // 2018.02.02
-    // See: http://zb-block.net/zbf/showthread.php?t=25
+    // See: https://zb-block.net/zbf/showthread.php?t=25
+    $Trigger(preg_match('/shodan.\io|(?:serverprofi24|aspadmin|project25499)\./', $HN), 'AutoSploit Host'); // 2018.02.02
 
     $Trigger($HN === '.', 'DNS error', '', $InstaBan); // 2017.02.25
 

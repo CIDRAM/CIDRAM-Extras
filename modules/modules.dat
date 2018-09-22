@@ -21,7 +21,7 @@ module_extras.php:
  Name: Optional security extras module
  Extended Description: Provides some limited protections against various attack vectors commonly used in requests.
  False Positive Risk: Medium
- Version: 2018.190.212
+ Version: 2018.264.413
  Minimum Required: 1.0.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -32,7 +32,7 @@ module_extras.php:
   To:
    - module_extras.php
   Checksum:
-   - 0e735561c834e6b07c4aa6b233a3916d:15788
+   - 20c5109dd3abfb5f6e55e196c67bffa6:15815
  Used with: modules
  Reannotate: modules.dat
 module_baidublocker.php:
@@ -103,7 +103,7 @@ module_badhosts.php:
  Name: Bad hosts blocker module
  Extended Description: <em><code>signatures-&gt;modules</code></em>
  False Positive Risk: Medium
- Version: 2018.259.529
+ Version: 2018.264.413
  Minimum Required: 1.0.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -114,7 +114,7 @@ module_badhosts.php:
   To:
    - module_badhosts.php
   Checksum:
-   - 7578dc7e540bd8d0b852beee11c752db:16878
+   - 85646ea5fcbd114079940656f9daeb7f:16866
  Used with: modules
  Reannotate: modules.dat
 module_badhosts_isps.php:
@@ -157,7 +157,7 @@ module_sfs.php:
  Name: Stop Forum Spam module
  Extended Description: Protects registration and login pages against IPs listed by SFS.
  False Positive Risk: Low
- Version: 2018.107.740
+ Version: 2018.264.413
  Minimum Required: 1.0.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -168,7 +168,7 @@ module_sfs.php:
   To:
    - module_sfs.php
   Checksum:
-   - 07eda19882a0e5465daddfa67b3ec62a:3061
+   - 2597d0d0f6701cac2a0363d45e7bc484:3062
  Used with: modules
  Reannotate: modules.dat
 module_ua.php:
