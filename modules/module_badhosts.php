@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2018.09.22).
+ * This file: Bad hosts blocker module (last modified: 2018.09.23).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -187,13 +187,13 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
 
     $Trigger(preg_match(
         '/(?:\.above|shared-server|jkserv)\.net$|akpackaging\.net|(?:academi' .
-        'cedge|cyber-freaks|dailyrazor|ibuzytravel|server306|webfaction|\.si' .
-        'teprotect)\.com$|(?:aramenet|dinaserver|phishmongers|web(?:hostingh' .
-        'ub|sitewelcome))\.com|server4u\.cz$|acetrophies\.co\.uk$|\.pomserve' .
-        '2\.co\.uk|webhostserver\.biz$|\.haremo\.de$|webcreators\.nl|rockwel' .
-        'lmuseum\.org|skyware\.pl$|vpsnow\.ru$|timeweb\.ru|dailyhealthtipsuk' .
-        '\.us$/',
-    $HN), 'Probe/Scanner'); // 2018.09.17
+        'cedge|cyber-freaks|dailyrazor|gothamdating|ibuzytravel|server306|we' .
+        'bfaction|\.siteprotect)\.com$|(?:aramenet|dinaserver|phishmongers|w' .
+        'eb(?:hostinghub|sitewelcome))\.com|server4u\.cz$|acetrophies\.co\.u' .
+        'k$|\.pomserve2\.co\.uk|webhostserver\.biz$|\.haremo\.de$|webcreator' .
+        's\.nl|rockwellmuseum\.org|skyware\.pl$|vpsnow\.ru$|timeweb\.ru|dail' .
+        'yhealthtipsuk\.us$/',
+    $HN), 'Probe/Scanner'); // 2018.09.23
 
     $Trigger(preg_match(
         '/(?:\.oroxy|anonine)\.com$|thefreevpn|vpn(?:999\.com|gate)|public-net/',
