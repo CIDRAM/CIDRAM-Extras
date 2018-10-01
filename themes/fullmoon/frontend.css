@@ -43,6 +43,7 @@ code,.nav{font-family:'Courier New',Courier,'Lucida Grande',Arial}
 .ufts{width:220px}
 @keyframes idxAn{0%{background:rgba(120,89,92,0.5)}100%{background:rgba(86,89,92,0.5)}}
 @keyframes nAux{0%{opacity:1.0}100%{opacity:0.0}}
+@keyframes xAux{0%{opacity:0.0}100%{opacity:1.0}}
 .inv{opacity:0.0}
 .mob{display:none}
 a[href="?cidram-page=logout"]{padding-left:10px;background-image:url(data:image/gif;base64,{PIP_Key});background-repeat:no-repeat;background-position:0% 50%}
