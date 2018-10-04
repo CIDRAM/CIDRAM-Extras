@@ -116,7 +116,7 @@ theme/moss:
 theme/fullmoon:
  Name: Theme: Full Moon
  Extended Description: Darker, semi-transparent colours; Navigation shifted to the top; No special fonts; Full moon backdrop.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2018.273.100
+ Version: 2018.277.009
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -175,7 +175,7 @@ theme/fullmoon:
    - fe_assets/fullmoon/pips.php
   Checksum:
    - 117553b19bd54b60b17229b647f07d74:1749
-   - 81694b0e26fac9c9d2396b396adb9f66:3161
+   - 518c250debd38c6431e5e28b4d5ab738:2866
    - 7f4023a573ea35cefc0ecd5060893030:48
    - 2ec621c65d979dd77833541ed68ef046:494
    - 30183b4dbd0cfa39af75f0d7f6ccf47b:702
