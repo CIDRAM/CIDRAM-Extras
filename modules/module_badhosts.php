@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2018.09.23).
+ * This file: Bad hosts blocker module (last modified: 2018.11.26).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -148,7 +148,7 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
         'slettersrus|profninja|se(?:curityspace|rve(?:path|rbuddies))|viral-' .
         'customers)\.com|(?:(?:\.|kunden)server|clanmoi|fastwebserver|optima' .
         'l|server4you)\.de$|your-server\.de|eucalyptus\.cs\.uscb\.edu$|candy' .
-        'cloud\.eu$|adsinmedia\.co\.in$|server\.lu$|iam\.net\.ma$|starnet\.m' .
+        'cloud\.eu$|adsinmedia\.co\.in$|server\.lu$|starnet\.m' .
         'd$|(?:\.(?:bhsrv|box|propagation|voxel)|1978th|collab|emcytown|enki' .
         'consulting|host\.caracastelecom|phicallyon|techajans|visualpleasure' .
         's)\.net$|re(?:liablesite|plyingst)\.net|hitech-hosting\.nl|(?:\.ter' .
@@ -158,7 +158,7 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
         'uk$|bergdorf-group|cloudsigma|dreamhost|ipxserver|linode|money(?:ma' .
         'ttersnow|tech\.mg)|productsnetworksx|psychz|requestedoffers|scopeho' .
         'sts|s(?:p?lice|teep)host|happyoffer\.club$)/',
-    $HN), 'Cloud Service / Server Farm'); // 2018.04.08
+    $HN), 'Cloud Service / Server Farm'); // 2018.11.26
 
     $Trigger(preg_match(
         '/(?:alxagency|capellahealthcare|link88\.seo|ser\.servidor-sainet)\.com/',
