@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2018.07.20).
+ * This file: Optional user agents module (last modified: 2018.12.15).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -114,17 +114,17 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $Trigger(preg_match(
         '/(?:a(?:btasty|dwords|llsubmitter|velox)|b(?:acklink|ad-neighborhoo' .
         'd|dsm|ea?stiality|iloba|ork-edition|uyessay)|c(?:asino|ialis|igar|h' .
-        'eap|oursework)|d(?:eltasone|issertation|rugs)|e(?:ditionyx|roti[ck]' .
-        '|stimatewebstats)|forex|funbot|g(?:abapentin|erifort|inkg?o|uestboo' .
-        'k)|hentai|hrbot|in(?:cest|come|vestment)|jailbreak|kamagra|keylog|l' .
-        '(?:axative|esbian|evitra|exap|i(?:ker\.profile|nk(?:ba|che)ck|pitor' .
-        ')|olita|uxury|ycosa\.se)|m(?:ail\.ru|e(?:laleuca|nthol)|ixrank|rie8' .
-        'pack)|n(?:erdybot|etzcheckbot|eurontin|olvadex)|orgasm|outlet|p(?:a' .
-        'xil|harma|illz|lavix|orn|r0n|ropecia|rosti)|reviewsx|rogaine|s(?:ex' .
-        '[xy]|hemale|ickseo|limy|putnik|tart\.exe|terapred|ynthroid)|t(?:ent' .
-        'acle|[0o]p(?:hack|less|sites))|u(?:01-2|nlock)|v(?:(?:aluation|oila' .
-        ')bot|arifort|[1i](?:agra|olation|tol))|warifort|xanax|zdorov)/',
-    $UANoSpace), 'Spam UA'); // 2018.05.01
+        'eap|oursework)|deltasone|dissertation|drugs|editionyx|eroti[ck]|est' .
+        'imatewebstats|forex|funbot|g(?:abapentin|erifort|inkg?o|uestbook)|h' .
+        'entai|honeybee|hrbot|in(?:cest|come|vestment)|jailbreak|kamagra|key' .
+        'log|l(?:axative|esbian|evitra|exap|i(?:ker\.profile|nk(?:ba|che)ck|' .
+        'pitor)|olita|uxury|ycosa\.se)|m(?:ail\.ru|e(?:laleuca|nthol)|ixrank' .
+        '|rie8pack)|n(?:erdybot|etzcheckbot|eurontin|olvadex)|orgasm|outlet|' .
+        'p(?:axil|harma|illz|lavix|orn|r0n|ropecia|rosti)|reviewsx|rogaine|s' .
+        '(?:ex[xy]|hemale|ickseo|limy|putnik|tart\.exe|terapred|ynthroid)|t(' .
+        '?:entacle|[0o]p(?:hack|less|sites))|u(?:01-2|nlock)|v(?:(?:aluation' .
+        '|oila)bot|arifort|[1i](?:agra|olation|tol))|warifort|xanax|zdorov)/',
+    $UANoSpace), 'Spam UA'); // 2018.12.15
 
     $Trigger(preg_match(
         '/(?: (audit|href|mra |quibids )|\(build 5339\))/',
