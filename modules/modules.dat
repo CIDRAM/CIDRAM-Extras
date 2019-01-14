@@ -264,7 +264,7 @@ PHPMailer:
  Name: PHPMailer
  Extended Description:
   en: Required for using any functionality that involves sending email.<br /><a href="https://github.com/PHPMailer/PHPMailer">PHPMailer</a> is available via the <a href="https://github.com/PHPMailer/PHPMailer/blob/master/LICENSE">LGPLv2.1</a> license.
- Version: 6.0.5
+ Version: 6.0.6
  Minimum Required: 1.7.0
  Minimum Required PHP: 5.5.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -272,22 +272,22 @@ PHPMailer:
  Provisional: true
  Files:
   From:
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/cb3ea134d4d3729e7857737d5f320cce9caf4d32/src/Exception.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/cb3ea134d4d3729e7857737d5f320cce9caf4d32/src/OAuth.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/cb3ea134d4d3729e7857737d5f320cce9caf4d32/src/PHPMailer.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/cb3ea134d4d3729e7857737d5f320cce9caf4d32/src/POP3.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/cb3ea134d4d3729e7857737d5f320cce9caf4d32/src/SMTP.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/8190d73eb5def11a43cfb020b7f36db65330698c/src/Exception.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/8190d73eb5def11a43cfb020b7f36db65330698c/src/OAuth.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/8190d73eb5def11a43cfb020b7f36db65330698c/src/PHPMailer.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/8190d73eb5def11a43cfb020b7f36db65330698c/src/POP3.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/8190d73eb5def11a43cfb020b7f36db65330698c/src/SMTP.php
   To:
-   - phpmailer/Exception.php
-   - phpmailer/OAuth.php
-   - phpmailer/PHPMailer.php
-   - phpmailer/POP3.php
-   - phpmailer/SMTP.php
+   - classes/PHPMailer/Exception.php
+   - classes/PHPMailer/OAuth.php
+   - classes/PHPMailer/PHPMailer.php
+   - classes/PHPMailer/POP3.php
+   - classes/PHPMailer/SMTP.php
   Checksum:
-   - 89150e124021d4814e1456eb6290f3f3:1214
-   - 982ffd225fdc01a3b80a3c1fec2155a8:3744
-   - b771fddb588379917d54dee66bed3ed6:151000
-   - b751761c7421d3a0113725b2b1ab773c:11031
-   - 4fbdc1952dba7d7cb54e575515642af2:42788
+   - 22c136806acc12729f240dec9c575ca80ff008f6:1214
+   - b9b8a24c71c98923a1eabb73860d840fad9a8529:3744
+   - c078c32b05c4b6c997de9699292121cdd8062f11:155283
+   - a04799ac7fd57178ab7c4ba93b8b7fa9e8809e9d:11031
+   - 65ebbf7066a913d5d07df768568e339695c85562:42841
  Reannotate: modules.dat
 
