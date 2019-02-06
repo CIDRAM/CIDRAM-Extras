@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Template module file for CIDRAM (last modified: 2017.12.03).
+ * This file: Template module file for CIDRAM (last modified: 2019.02.06).
  */
 
 // To distinguish comments which would normally exist in modules, from
@@ -75,7 +75,7 @@ $Trigger = function ($Condition, $ReasonShort, $ReasonLong = '', $DefineOptions 
         return false;
     }
     if (!$ReasonLong) {
-        $ReasonLong = $CIDRAM['lang']['denied'];
+        $ReasonLong = $CIDRAM['L10N']->getString('denied');
     }
     if (is_array($DefineOptions) && !empty($DefineOptions)) {
         foreach ($DefineOptions as $CatKey => $CatValue) {

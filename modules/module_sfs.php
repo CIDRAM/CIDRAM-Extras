@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Stop Forum Spam module (last modified: 2018.09.22).
+ * This file: Stop Forum Spam module (last modified: 2019.02.06).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -76,7 +76,7 @@ $LCURI)) {
         $Trigger(
             !empty($CIDRAM['Cache']['SFS'][$_SERVER[$CIDRAM['IPAddr']]]['Listed']),
             'SFS Lookup',
-            $CIDRAM['lang']['ReasonMessage_Banned']
+            $CIDRAM['L10N']->getString('ReasonMessage_Banned')
         );
 
     }

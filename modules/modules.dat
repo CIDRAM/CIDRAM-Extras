@@ -157,7 +157,7 @@ module_sfs.php:
  Name: Stop Forum Spam module
  Extended Description: Protects registration and login pages against IPs listed by SFS.
  False Positive Risk: Low
- Version: 2018.264.413
+ Version: 2019.36.654
  Minimum Required: 1.0.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -168,7 +168,7 @@ module_sfs.php:
   To:
    - module_sfs.php
   Checksum:
-   - 2597d0d0f6701cac2a0363d45e7bc484:3062
+   - 2ce732e2a0e9b2464b90ad3f499be7fb:3073
  Used with: modules
  Reannotate: modules.dat
 module_ua.php:
