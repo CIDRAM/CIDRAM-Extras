@@ -14,7 +14,7 @@ module_cookies.php:
   To:
    - module_cookies.php
   Checksum:
-   - 54961f82e175b1ce189b2a37498656fc:6381
+   - bcec67fceba6a415cf7c5c52aa1e559b0c115145dbd2dafebf85277fe91bd37e:6381
  Used with: modules
  Reannotate: modules.dat
 module_extras.php:
@@ -32,7 +32,7 @@ module_extras.php:
   To:
    - module_extras.php
   Checksum:
-   - 20c5109dd3abfb5f6e55e196c67bffa6:15815
+   - 845117c246b5ce4be7fe6d5aa5232f4e2750aa0093061bac474ae27bbd79bdf2:15815
  Used with: modules
  Reannotate: modules.dat
 module_baidublocker.php:
@@ -54,7 +54,7 @@ module_baidublocker.php:
   zh: 可用由于请求。​<span class="txtRd">警告：将销毁百度网页排名为您的网站。​中文用户的网站应避免使用此模块。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
   zh-tw: 可用由於請求。​<span class="txtRd">警告：將銷毀百度網頁排名為您的網站。​中文用戶的網站應避免使用此模塊。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
- Version: 2018.175.060
+ Version: 2019.62.401
  Minimum Required: 1.10.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -65,7 +65,7 @@ module_baidublocker.php:
   To:
    - module_baidublocker.php
   Checksum:
-   - 2b96d4fdaa2c20b5a02c23361af6c72a:2148
+   - 8cf60802be1cc920ff1bd380893ea25cdd8b1390f8faee5d86d358771c8d6a7a:2139
  Reannotate: modules.dat
 module_yandexblocker.php:
  Name: Yandex blocker module
@@ -86,7 +86,7 @@ module_yandexblocker.php:
   zh: 可用由于请求。​<span class="txtRd">警告：将销毁Yandex网页排名为您的网站。​俄文用户的网站应避免使用此模块。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
   zh-tw: 可用由於請求。​<span class="txtRd">警告：將銷毀Yandex網頁排名為您的網站。​俄文用戶的網站應避免使用此模塊。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
- Version: 2018.175.060
+ Version: 2019.62.401
  Minimum Required: 1.10.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -97,13 +97,13 @@ module_yandexblocker.php:
   To:
    - module_yandexblocker.php
   Checksum:
-   - fe5bf4399cadf3853c961c734a44ceb5:3056
+   - ca8f3a554286e982b0535d3dd93f7a451139a7e8a731648e37206b543c2ee4e5:2928
  Reannotate: modules.dat
 module_badhosts.php:
  Name: Bad hosts blocker module
  Extended Description: <em><code>signatures-&gt;modules</code></em>
  False Positive Risk: Medium
- Version: 2019.45.724
+ Version: 2019.62.401
  Minimum Required: 1.10.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -114,7 +114,7 @@ module_badhosts.php:
   To:
    - module_badhosts.php
   Checksum:
-   - 8d192ff36e3f3daf2c2637e4e623ed24:16726
+   - c578d128cf11977db97def43789307fc3d85580326023277bacb2dfb2633a453:16760
  Used with: modules
  Reannotate: modules.dat
 module_badhosts_isps.php:
@@ -132,7 +132,7 @@ module_badhosts_isps.php:
   To:
    - module_badhosts_isps.php
   Checksum:
-   - 458665d827e0ea313e1b3b0bfb5c8009:1929
+   - b349ca0390152dfeafcef3c137f7749bdd1e2b2279d8061d64c10caa4a09ba1b:1929
  Used with: modules
  Reannotate: modules.dat
 module_badtlds.php:
@@ -150,7 +150,7 @@ module_badtlds.php:
   To:
    - module_badtlds.php
   Checksum:
-   - 79c33bf2f5be84bcf81a3da1bab23367:1276
+   - e5ecb09d8a467ede005fcff6341084eb9e1be801d80257683b03cf5a6a78676e:1276
  Used with: modules
  Reannotate: modules.dat
 module_sfs.php:
@@ -168,7 +168,7 @@ module_sfs.php:
   To:
    - module_sfs.php
   Checksum:
-   - 2ce732e2a0e9b2464b90ad3f499be7fb:3073
+   - 664353f8f2f64fbdab0aaaead46c131aa494554f34ed1b1a27f54bfd0a4d72c1:3073
  Used with: modules
  Reannotate: modules.dat
 module_ua.php:
@@ -185,14 +185,14 @@ module_ua.php:
   To:
    - module_ua.php
   Checksum:
-   - 71599279a473ed381b3514d825a0d9a0:636
+   - ea5525e353849a8532beb4e45b7dc9fb4e5ec8741fe67adba2c0e8d22f425373:636
  Used with: modules
  Reannotate: modules.dat
 module_botua.php:
  Name: Optional user agents module
  Extended Description: Blocks user agents associated with unwanted bots and nefarious activity.
  False Positive Risk: Medium
- Version: 2019.45.724
+ Version: 2019.62.401
  Minimum Required: 1.10.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -203,7 +203,7 @@ module_botua.php:
   To:
    - module_botua.php
   Checksum:
-   - 6d9277bd4ee6f087e9791f4d9fa3f6a7:16933
+   - c123330a8abe8c9f925419fdb5233778ccca521b55e20f52b1a1e0e80e82ff8a:16880
  Used with: modules
  Reannotate: modules.dat
 Chart.js:
@@ -240,7 +240,7 @@ flags.css:
   To:
    - fe_assets/flags.css
   Checksum:
-   - 437a452d763645ea38f65c09fc38516c:184055
+   - fa88a854dd01c9adf63c89189b3598e42b86dc8bd6b49f01766d59032d803dee:184055
  Reannotate: modules.dat
 compat_bunnycdn.php:
  Name: BunnyCDN compatibility module
@@ -257,7 +257,7 @@ compat_bunnycdn.php:
   To:
    - compat_bunnycdn.php
   Checksum:
-   - 9fac3593db8e249fbccee5ec1aa4d057:1554
+   - 349e9e593c7618f156e95725d0d07e04c0d4f7f6612b30c65ef6d7c6fd4623a1:1554
  Used with: modules
  Reannotate: modules.dat
 PHPMailer:

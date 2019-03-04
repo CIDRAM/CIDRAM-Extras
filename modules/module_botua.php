@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2019.02.14).
+ * This file: Optional user agents module (last modified: 2019.03.04).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -92,12 +92,12 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
 
     $Trigger(preg_match(
         '~(?:^b55|-agent-|auto_?http|bigbrother|cybeye|d(?:(?:iavol|ragoste)' .
-        'a|ownloaddemon)|e(?:ak01ag9|catch)|i(?:chiro|ndylibrary|ntelium)|k(' .
-        '?:angen|mccrew)|libwww-pavuk|m(?:o(?:get|zillaxyz)|sie6\.0.*deepnet' .
-        ')|n(?:et(?:ants|comber)|s8/0\.9\.6)|p(?:atchone|aros|entru|lanetwor' .
-        'k|robe)|riddler|s(?:asqia|ledink|noopy|tingbot)|toata|updown_tester' .
-        '|w(?:hitehataviator|orio)|xirio|you?dao|zmeu)~',
-    $UANoSpace), 'Probe UA'); // 2018.05.01
+        'a|ownloaddemon)|e(?:ak01ag9|catch)|i(?:ndylibrary|ntelium)|k(?:ange' .
+        'n|mccrew)|libwww-pavuk|m(?:o(?:get|zillaxyz)|sie6\.0.*deepnet)|n(?:' .
+        'et(?:ants|comber)|s8/0\.9\.6)|p(?:atchone|aros|entru|lanetwork|robe' .
+        ')|riddler|s(?:asqia|ledink|noopy|tingbot)|toata|updown_tester|w(?:h' .
+        'itehataviator|orio)|xirio|zmeu)~',
+    $UANoSpace), 'Probe UA'); // 2019.03.04
 
     $Trigger(preg_match('/(?: obot|ie 5\.5 compatible browser)/', $UA), 'Probe UA'); // 2017.02.02
     $Trigger(preg_match('~(?:photon/|pogs/2\.0)~', $UANoSpace), 'Probe UA'); // 2018.06.24
@@ -231,16 +231,15 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
         'ainappender|umprendertree)|flightdeckreportsbot|g(?:imme60|oogleben' .
         'jojo)|http-?(?:agent|client)|i(?:nternetcensus|ps-agent|sitwp)|k(?:' .
         '2spider|emvi)|l(?:exxebot|ivelapbot|wp)|m(?:acinroyprivacyauditors|' .
-        'asscan|etaintelligence)|n(?:aver|et(?:craft|trapport)|icebot|mapscr' .
-        'iptingengine|rsbot)|p(?:4bot|4load|acrawler|ageglimpse|arsijoo|egas' .
-        'usmonitoring|hantomjs|hpcrawl|ingdom|rlog)|r(?:arelyused|obo(?:cop|' .
-        'spider)|yze)|s(?:can\.lol|creener|itedomain|mut|nap(?:preview)?bot|' .
-        'oapclient|ocial(?:ayer|searcher)|ogou|ohuagent|oso|pyglass|quider|t' .
-        'reetbot|ynapse)|urlappendbot|w(?:asalive|atchmouse|eb(?:-monitoring' .
-        '|bot|masteraid|money|thumbnail)|hatweb|ikiapiary|in(?:http|inet)|ma' .
-        'id\.com|sr-agent|wwtype)|xenu|xovi|yeti|zibber|zurichfinancialservi' .
-        'ces|^m$)~',
-    $UANoSpace), 'Unauthorised'); // 2018.05.01
+        'asscan|etaintelligence)|n(?:etcraft|ettrapport|icebot|mapscriptinge' .
+        'ngine|rsbot)|p(?:4bot|4load|acrawler|ageglimpse|arsijoo|egasusmonit' .
+        'oring|hantomjs|hpcrawl|ingdom|rlog)|r(?:arelyused|obo(?:cop|spider)' .
+        '|yze)|s(?:can\.lol|creener|itedomain|mut|nap(?:preview)?bot|oapclie' .
+        'nt|ocial(?:ayer|searcher)|oso|pyglass|quider|treetbot|ynapse)|urlap' .
+        'pendbot|w(?:asalive|atchmouse|eb(?:-monitoring|bot|masteraid|money|' .
+        'thumbnail)|hatweb|ikiapiary|in(?:http|inet)|maid\.com|sr-agent|wwty' .
+        'pe)|xenu|xovi|zibber|zurichfinancialservices|^m$)~',
+    $UANoSpace), 'Unauthorised'); // 2019.03.04
 
     $Trigger(preg_match(
         '~^(?:bot|java|msie|windows-live-social-object-extractor)|\((?:java|\w\:\d{2,})~',
