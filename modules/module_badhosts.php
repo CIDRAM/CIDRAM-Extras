@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2019.03.04).
+ * This file: Bad hosts blocker module (last modified: 2019.03.11).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -81,7 +81,7 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
         'gtopics|uysellsales)|c(?:eptro|heapseovps|yber-uslugi)|drugstore|li' .
         'wio\.|luxuryhandbag|s(?:emalt|mileweb\.com\.ua|quider|tartdedicated' .
         '\.)|(?:exa|fulltextro|we)bot)/',
-    $HN), 'SEO/Bothost/Scraper/Spamhost'); // 2018.09.17
+    $HN), 'SEO/Bothost/Scraper/Spamhost'); // 2019.03.04
 
     $Trigger(preg_match(
         '/(?:rumer|pymep|румер)/',
@@ -205,7 +205,6 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
     $HN), 'Dangerous Host'); // 2019.03.04
 
     $Trigger(empty($CIDRAM['Ignore']['is74.ru']) && preg_match('/is74\.ru$/', $HN), 'Dangerous Host'); // 2018.03.27 (ASNs 8369, 198675, 199619)
-    $Trigger(empty($CIDRAM['Ignore']['ER-Telecom Holding']) && preg_match('/ertelecom\.ru$/', $HN), 'Dangerous Host'); // 2018.03.27 (ASNs 42682, 51570)
 
     $Trigger(preg_match(
         '/(?:(iweb|privatedns)\.com$|iweb\.ca$|^(www\.)?iweb)/',
