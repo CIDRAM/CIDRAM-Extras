@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2019.03.11).
+ * This file: Bad hosts blocker module (last modified: 2019.03.12).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -143,26 +143,23 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
         'cs|wifttrim|ymplified|yncplicity)|t(?:aleo|err[ae]mark|h(?:eprocess' .
         'factory|inkgos|oughtexpress)|rustsaas)|utilitystatus|v(?:aultscape|' .
         'ertica|mware|ordel)|web(?:hosting\.uk|scalesolutions)|xactlycorp|xl' .
-        'host|xythos|z(?:embly|imory|manda|oho|uora))\.com$|(?:artisticgoals' .
-        '|host(?:gator|ingprod)|instantdedicated|khavarzamin|missiondish|new' .
-        'slettersrus|profninja|se(?:curityspace|rve(?:path|rbuddies))|viral-' .
-        'customers)\.com|(?:(?:\.|kunden)server|clanmoi|fastwebserver|optima' .
-        'l|server4you)\.de$|your-server\.de|eucalyptus\.cs\.uscb\.edu$|candy' .
-        'cloud\.eu$|adsinmedia\.co\.in$|server\.lu$|starnet\.md$|(?:\.(?:bhs' .
-        'rv|box|propagation|voxel)|1978th|collab|emcytown|enkiconsulting|hos' .
-        't\.caracastelecom|phicallyon|techajans|visualpleasures)\.net$|re(?:' .
-        'liablesite|plyingst)\.net|hitech-hosting\.nl|(?:\.terracotta|beowul' .
-        'f|iboss|memcached|opennebula|xen)\.org$|mor\.ph$|(?:ogicom|vampire)' .
-        '\.pl$|(?:cyber-host|slaskdatacenter)\.pl|rivreg\.ru$|(?:tkvprok|vym' .
-        'pelstroy)\.ru|g\.ho\.st$|(?:webfusion|xcalibre)\.co\.uk$|bergdorf-g' .
-        'roup|cloudsigma|dreamhost|ipxserver|linode|money(?:mattersnow|tech' .
-        '\.mg)|productsnetworksx|psychz|requestedoffers|scopehosts|s(?:p?lic' .
-        'e|teep)host|happyoffer\.club$)/',
-    $HN), 'Cloud Service / Server Farm'); // 2018.11.26
-
-    $Trigger(preg_match(
-        '/(?:alxagency|capellahealthcare|link88\.seo|ser\.servidor-sainet)\.com/',
-    $HN), 'Cloud Service / Server Farm'); // 2018.02.02
+        'host|xythos|z(?:embly|imory|manda|oho|uora))\.com$|(?:alxagency|art' .
+        'isticgoals|capellahealthcare|host(?:gator|ingprod)|instantdedicated' .
+        '|khavarzamin|link88\.seo|missiondish|newslettersrus|profninja|secur' .
+        'ityspace|ser\.servidor-sainet|serve(?:path|rbuddies)|viral-customer' .
+        's)\.com|(?:(?:\.|kunden)server|clanmoi|fastwebserver|optimal|server' .
+        '4you)\.de$|your-server\.de|eucalyptus\.cs\.uscb\.edu$|candycloud\.e' .
+        'u$|adsinmedia\.co\.in$|server\.lu$|starnet\.md$|(?:\.(?:bhsrv|box|p' .
+        'ropagation|voxel)|1978th|collab|emcytown|enkiconsulting|host\.carac' .
+        'astelecom|phicallyon|techajans|visualpleasures)\.net$|re(?:liablesi' .
+        'te|plyingst)\.net|hitech-hosting\.nl|(?:\.terracotta|beowulf|iboss|' .
+        'memcached|opennebula|xen)\.org$|mor\.ph$|(?:ogicom|vampire)\.pl$|(?' .
+        ':cyber-host|slaskdatacenter)\.pl|(?:serverhub|rivreg)\.ru$|(?:tkvpr' .
+        'ok|vympelstroy)\.ru|g\.ho\.st$|(?:webfusion|xcalibre)\.co\.uk$|berg' .
+        'dorf-group|cloudsigma|dreamhost|ipxserver|linode|money(?:mattersnow' .
+        '|tech\.mg)|productsnetworksx|psychz|requestedoffers|scopehosts|s(?:' .
+        'p?lice|teep)host|happyoffer\.club$)/',
+    $HN), 'Cloud Service / Server Farm'); // 2019.03.12
 
     $Trigger(empty($CIDRAM['Ignore']['Agava Ltd']) && preg_match('/agava\.net$/', $HN), 'Agava Ltd'); // 2017.02.06 (ASN 43146)
     $Trigger(empty($CIDRAM['Ignore']['AltusHost B.V']) && preg_match('/altushost\.com$/', $HN), 'AltusHost B.V'); // 2017.02.09 (ASN 51430)
