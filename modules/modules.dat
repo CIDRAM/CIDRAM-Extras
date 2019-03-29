@@ -229,7 +229,7 @@ Chart.js:
 flags.css:
  Name: Flags CSS
  Extended Description: Adds flag support to the front-end logs page.
- Version: 2018.84.600
+ Version: 2019.87.342
  Minimum Required: 1.3.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -240,7 +240,7 @@ flags.css:
   To:
    - fe_assets/flags.css
   Checksum:
-   - fa88a854dd01c9adf63c89189b3598e42b86dc8bd6b49f01766d59032d803dee:184055
+   - 607ce003cb1fe06460b3dd992b63eb3038a922eabe858dab07bd6c3493fecd1f:183595
  Reannotate: modules.dat
 compat_bunnycdn.php:
  Name: BunnyCDN compatibility module
