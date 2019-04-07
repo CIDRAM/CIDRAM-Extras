@@ -157,8 +157,8 @@ module_sfs.php:
  Name: Stop Forum Spam module
  Extended Description: Protects registration and login pages against IPs listed by SFS.
  False Positive Risk: Low
- Version: 2019.36.654
- Minimum Required: 1.10.0
+ Version: 2019.93.533
+ Minimum Required: 1.12.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -168,7 +168,7 @@ module_sfs.php:
   To:
    - module_sfs.php
   Checksum:
-   - 664353f8f2f64fbdab0aaaead46c131aa494554f34ed1b1a27f54bfd0a4d72c1:3073
+   - 1b6e5e86223b1ed1f5945a00653585f33f17b0441cd1323fc1bb9727c7f079b4:2914
  Used with: modules
  Reannotate: modules.dat
 module_ua.php:
@@ -246,8 +246,8 @@ compat_bunnycdn.php:
  Name: BunnyCDN compatibility module
  Extended Description: <em><code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
- Version: 2018.219.607
- Minimum Required: 1.4.1
+ Version: 2019.93.533
+ Minimum Required: 1.12.0
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -257,7 +257,7 @@ compat_bunnycdn.php:
   To:
    - compat_bunnycdn.php
   Checksum:
-   - 349e9e593c7618f156e95725d0d07e04c0d4f7f6612b30c65ef6d7c6fd4623a1:1554
+   - 09968b58c4fb69a0abb876d23b21de9d5b99971e549e800ace174771c4086b71:1427
  Used with: modules
  Reannotate: modules.dat
 PHPMailer:

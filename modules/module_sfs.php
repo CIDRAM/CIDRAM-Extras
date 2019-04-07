@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Stop Forum Spam module (last modified: 2019.02.06).
+ * This file: Stop Forum Spam module (last modified: 2019.04.03).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -31,18 +31,13 @@ if (preg_match(
 $LCURI)) {
 
     /** Build local SFS cache if it doesn't already exist. */
-    if (!isset($CIDRAM['Cache']['SFS'])) {
-        $CIDRAM['Cache']['SFS'] = [];
-    }
+    $CIDRAM['InitialiseCacheSection']('SFS');
 
     /** Local SFS cache entry expiry time (successful lookups). */
     $Expiry = $CIDRAM['Now'] + 604800;
 
     /** Local SFS cache entry expiry time (failed lookups). */
     $ExpiryFailed = $CIDRAM['Now'] + 3600;
-
-    /** Clear outdated SFS cache entries. */
-    $CIDRAM['ClearFromCache']('SFS');
 
     /**
      * Only execute if not already blocked for some other reason, and if the IP is valid, and not from a private or
@@ -54,7 +49,7 @@ $LCURI)) {
     ) {
 
         /** Executed if there aren't any cache entries corresponding to the IP of the request. */
-        if (!isset($CIDRAM['Cache']['SFS'][$_SERVER[$CIDRAM['IPAddr']]])) {
+        if (!isset($CIDRAM['SFS'][$_SERVER[$CIDRAM['IPAddr']]])) {
 
             /** Perform SFS lookup. */
             $Lookup = $CIDRAM['Request']('https://www.stopforumspam.com/api', [
@@ -63,18 +58,18 @@ $LCURI)) {
             ]);
 
             /** Generate local SFS cache entry. */
-            $CIDRAM['Cache']['SFS'][$_SERVER[$CIDRAM['IPAddr']]] = (
+            $CIDRAM['SFS'][$_SERVER[$CIDRAM['IPAddr']]] = (
                 strpos($Lookup, 's:7:"success";') !== false && strpos($Lookup, 's:2:"ip";') !== false
             ) ? ['Listed' => (strpos($Lookup, '"appears";i:1;') !== false), 'Time' => $Expiry] : ['Listed' => false, 'Time' => $ExpiryFailed];
 
-            /** Cache has been modified. */
-            $CIDRAM['CacheModified'] = true;
+            /** Cache update flag. */
+            $CIDRAM['SFS-Modified'] = true;
 
         }
 
         /** Block the request if the IP is listed by SFS. */
         $Trigger(
-            !empty($CIDRAM['Cache']['SFS'][$_SERVER[$CIDRAM['IPAddr']]]['Listed']),
+            !empty($CIDRAM['SFS'][$_SERVER[$CIDRAM['IPAddr']]]['Listed']),
             'SFS Lookup',
             $CIDRAM['L10N']->getString('ReasonMessage_Banned')
         );

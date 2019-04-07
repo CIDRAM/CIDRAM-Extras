@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: BunnyCDN compatibility module (last modified: 2018.07.02).
+ * This file: BunnyCDN compatibility module (last modified: 2019.04.03).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -16,27 +16,22 @@ if (!defined('CIDRAM')) {
     die('[CIDRAM] This should not be accessed directly.');
 }
 
-/** Clear outdated API cache entries. */
-$CIDRAM['ClearFromCache']('API');
-
 /** Instantiate API cache. */
-if (!isset($CIDRAM['Cache']['API'])) {
-    $CIDRAM['Cache']['API'] = [];
-}
+$CIDRAM['InitialiseCacheSection']('API');
 
 /** Fetch BunnyCDN IP list. */
-if (!isset($CIDRAM['Cache']['API']['BunnyCDN']['Data'])) {
-    $CIDRAM['Cache']['API']['BunnyCDN'] = [
+if (!isset($CIDRAM['API']['BunnyCDN'], $CIDRAM['API']['BunnyCDN']['Data'])) {
+    $CIDRAM['API']['BunnyCDN'] = [
         'Data' => $CIDRAM['Request']('https://bunnycdn.com/api/system/edgeserverlist') ?: '',
         'Time' => $CIDRAM['Now'] + 345600
     ];
-    $CIDRAM['CacheModified'] = true;
+    $CIDRAM['API-Modified'] = true;
 }
 
-$IPList = (substr($CIDRAM['Cache']['API']['BunnyCDN']['Data'], 0, 1) === '<') ? array_filter(
-    explode('<>', preg_replace('~<[^<>]+>~', '<>', $CIDRAM['Cache']['API']['BunnyCDN']['Data']))
+$IPList = (substr($CIDRAM['API']['BunnyCDN']['Data'], 0, 1) === '<') ? array_filter(
+    explode('<>', preg_replace('~<[^<>]+>~', '<>', $CIDRAM['API']['BunnyCDN']['Data']))
 ) : (array_filter(
-    explode(',', preg_replace('~["\'\[\]]~', '', $CIDRAM['Cache']['API']['BunnyCDN']['Data']))
+    explode(',', preg_replace('~["\'\[\]]~', '', $CIDRAM['API']['BunnyCDN']['Data']))
 ) ?: '');
 
 /** Inherit bypass closure (see functions.php). */
