@@ -158,7 +158,7 @@ module_sfs.php:
  Extended Description: Protects registration and login pages against IPs listed by SFS.
  False Positive Risk: Low
  Version: 2019.93.533
- Minimum Required: 1.12.0
+ Minimum Required: 1.12.0-DEV+19096238
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -210,20 +210,20 @@ Chart.js:
  Name: Chart.js
  Extended Description:
   en: Enables the front-end to generate pie charts.<br /><a href="https://github.com/chartjs/Chart.js">Chart.js</a> made available under the <a href="https://opensource.org/licenses/MIT">MIT license</a>.
- Version: 2.7.3
+ Version: 2.8.0
  Minimum Required: 1.2.0-DEV
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Provisional: true
  Files:
   From:
-   - https://github.com/chartjs/Chart.js/releases/download/v2.7.3/Chart.min.js
+   - https://github.com/chartjs/Chart.js/releases/download/v2.8.0/Chart.min.js
    - https://raw.githubusercontent.com/Maikuolan/Chart.js-Common-Module/master/_chartjs.html
   To:
    - fe_assets/Chart.min.js
    - fe_assets/_chartjs.html
   Checksum:
-   - a1282d1420a61d644f43f2664783a86775e47b53f0e2fe74ba1ea92dcbbe7c87:158741
+   - 52ff41341b9cbc23e2a4a436352f706292668bc0d33847d303f9c7d9aa0900bc:156721
    - 47dee555745921badf2c055c6acbf585d7900bcbbddcb261bb6bae92793fd5e4:1086
  Reannotate: modules.dat
 flags.css:
@@ -247,7 +247,7 @@ compat_bunnycdn.php:
  Extended Description: <em><code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
  Version: 2019.93.533
- Minimum Required: 1.12.0
+ Minimum Required: 1.12.0-DEV+19096238
  Minimum Required PHP: 5.4.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
