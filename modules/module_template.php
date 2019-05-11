@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Template module file for CIDRAM (last modified: 2019.02.06).
+ * This file: Template module file for CIDRAM (last modified: 2019.05.10).
  */
 
 // To distinguish comments which would normally exist in modules, from
@@ -70,7 +70,7 @@ $Trigger = $CIDRAM['Trigger'];
  * @return bool Returns true if the signature was triggered, and false if it
  *      wasn't. Should correspond to the truthiness of $Condition.
  */
-$Trigger = function ($Condition, $ReasonShort, $ReasonLong = '', $DefineOptions = []) use (&$CIDRAM) {
+$Trigger = function ($Condition, $ReasonShort, $ReasonLong = '', array $DefineOptions = []) use (&$CIDRAM) {
     if (!$Condition) {
         return false;
     }
@@ -122,7 +122,7 @@ $Bypass = $CIDRAM['Bypass'];
  * @return bool Returns true if the bypass was triggered, and false if it
  *      wasn't. Should correspond to the truthiness of $Condition.
  */
-$Bypass = function ($Condition, $ReasonShort, $DefineOptions = []) use (&$CIDRAM) {
+$Bypass = function ($Condition, $ReasonShort, array $DefineOptions = []) use (&$CIDRAM) {
     if (!$Condition) {
         return false;
     }
