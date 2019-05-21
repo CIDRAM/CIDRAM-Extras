@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2019.03.04).
+ * This file: Optional user agents module (last modified: 2019.05.21).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -153,20 +153,20 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $Trigger(strpos($UANoSpace, '(somename)') !== false, 'Banned UA', '', $InstaBan); // 2017.02.02
 
     $Trigger(preg_match(
-        '/(?:_sitemapper|3mir|a(?:boundex|dmantx|dnormcrawler|dvbot|lphaserv' .
-        'er|thens|ttache)|blekko|blogsnowbot|cmscrawler|co(?:ccoc|llect|modo' .
-        '-webinspector-crawler|mpspy)|crawler(?:4j|\.feedback)|d(?:atacha|ig' .
-        'out4uagent|ioscout|kimrepbot|sarobot)|easou|exabot|f(?:astenterpris' .
-        'ecrawler|astlwspider|ind?bot|indlinks|loodgate|r[_-]?crawler)|grape' .
-        'shot|hrcrawler|hubspot|i(?:mrbot|ntegromedb|p-?web-?crawler|rcsearc' .
-        'h|rgrabber)|jadynavebot|komodiabot|linguee|linkpad|m(?:ajestic12|ag' .
-        'net|auibot|eanpath|entormate|fibot|ignify|j12)|nutch|omgilibot|p(?:' .
-        'ackrat|cbrowser|lukkie|surf)|reaper|rsync|s(?:aidwot|alad|cspider|e' .
-        'es\.co|hai|iteexplorer|[iy]phon|truct\.it|upport\.wordpress\.com)|t' .
-        'akeout|tasapspider|tweetmeme|user-agent|visaduhoc|vonchimpenfurlr|w' .
-        'ebtarantula|wolf|y(?:acy|isouspider|[ry]spider|unrang|unyun)|zoomin' .
-        'fobot)/',
-    $UANoSpace), 'Banned UA'); // 2018.04.23
+        '~_sitemapper|3mir|a(?:boundex|dmantx|dnormcrawler|dvbot|lphaserver|' .
+        'thens|ttache)|blekko|blogsnowbot|cmscrawler|co(?:ccoc|llect|modo-we' .
+        'binspector-crawler|mpspy)|crawler(?:4j|\.feedback)|d(?:atacha|igout' .
+        '4uagent|ioscout|kimrepbot|sarobot)|easou|exabot|f(?:astenterprisecr' .
+        'awler|astlwspider|ind?bot|indlinks|loodgate|r[_-]?crawler)|hrcrawle' .
+        'r|hubspot|i(?:mrbot|ntegromedb|p-?web-?crawler|rcsearch|rgrabber)|j' .
+        'adynavebot|komodiabot|lightspeed|linguee|linkpad|m(?:ajestic12|agne' .
+        't|auibot|eanpath|entormate|fibot|ignify|j12)|nutch|omgilibot|p(?:ac' .
+        'krat|cbrowser|lukkie|surf)|reaper|rsync|s(?:aidwot|alad|cspider|ees' .
+        '\.co|hai|iteexplorer|[iy]phon|truct\.it|upport\.wordpress\.com|yste' .
+        'mscrawler)|takeout|tasapspider|tweetmeme|user-agent|visaduhoc|vonch' .
+        'impenfurlr|webtarantula|wolf|y(?:acy|isouspider|[ry]spider|unrang|u' .
+        'nyun)|zoominfobot~',
+    $UANoSpace), 'Banned UA'); // 2019.05.21
 
     $Trigger(preg_match(
         '/^wp-iphone$/',
