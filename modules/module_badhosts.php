@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2019.03.12).
+ * This file: Bad hosts blocker module (last modified: 2019.05.25).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -264,6 +264,14 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
     $Trigger(preg_match('/shodan.\io|(?:serverprofi24|aspadmin|project25499)\./', $HN), 'AutoSploit Host'); // 2018.02.02
 
     $Trigger($HN === '.', 'DNS error', '', $InstaBan); // 2017.02.25
+
+    /**
+     * Only to be triggered if other signatures haven't already been triggered
+     * and if CIDRAM has been configured to block proxies.
+     */
+    if (!$CIDRAM['BlockInfo']['SignatureCount'] && $CIDRAM['Config']['signatures']['block_proxies']) {
+        $Trigger(preg_match('~(?<!\w)tor(?!\w)|anonym|proxy~i', $HN), 'Proxy host'); // 2019.05.25
+    }
 
 }
 
