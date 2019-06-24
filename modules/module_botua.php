@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2019.05.21).
+ * This file: Optional user agents module (last modified: 2019.06.23).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -81,8 +81,8 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $Trigger(strpos($UANoSpace, '}__') !== false, 'Hack UA', '', $InstaBan); // 2017.01.02
 
     $Trigger(preg_match(
-        '/(?:cha0s|f(hscan|uck)|havij|jdatabasedrivermysqli|morfeus|urldumper|xmlset_roodkcable|zollard)/',
-    $UANoSpace), 'Hack UA', '', $InstaBan); // 2017.02.25
+        '~cha0s|dkemdif.\d|fhscan|f' . 'uck|havij|jdatabasedrivermysqli|morfeus|urldumper|xmlset_roodkcable|zollard~',
+    $UANoSpace), 'Hack UA', '', $InstaBan); // 2019.06.23
 
     $Trigger(strpos($UA, 'select ') !== false, 'UASQLi'); // 2017.02.25
 
