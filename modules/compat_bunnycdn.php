@@ -38,10 +38,7 @@ $IPList = (substr($CIDRAM['API']['BunnyCDN']['Data'], 0, 1) === '<') ? array_fil
 $Bypass = $CIDRAM['Bypass'];
 
 /** Execute bypass for BunnyCDN IPs. */
-if ($CIDRAM['BlockInfo']['SignatureCount'] > 0 && is_array($IPList)) {
-    foreach ($IPList as $IP) {
-        if ($Bypass($CIDRAM['BlockInfo']['IPAddr'] === $IP, 'BunnyCDN bypass')) {
-            $CIDRAM['SkipVerification'] = true;
-        }
-    }
+if (is_array($IPList) && in_array($CIDRAM['BlockInfo']['IPAddr'], $IPList, true)) {
+    $CIDRAM['SkipVerification'] = true;
+    $Bypass($CIDRAM['BlockInfo']['SignatureCount'] > 0, 'BunnyCDN bypass');
 }

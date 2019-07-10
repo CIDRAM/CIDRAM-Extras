@@ -183,7 +183,7 @@ module_botua.php:
  Name: Optional user agents module
  Extended Description: Blocks user agents associated with unwanted bots and nefarious activity.
  False Positive Risk: Medium
- Version: 2019.180.337
+ Version: 2019.190.530
  Minimum Required: 1.10.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -193,7 +193,7 @@ module_botua.php:
   To:
    - module_botua.php
   Checksum:
-   - ce2df2558f77ba3e69d2888f250ea296b6a87c16a77fc2d3205906891a1ef9d9:16753
+   - 07d789f664655d27ef73497a8f013d72bb77d5717e5c6ecaf5c9b279b4902abb:16776
  Used with: modules
  Reannotate: modules.dat
 Chart.js:
@@ -236,7 +236,7 @@ compat_bunnycdn.php:
  Name: BunnyCDN compatibility module
  Extended Description: <em><code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
- Version: 2019.190.208
+ Version: 2019.190.530
  Minimum Required: 1.12.0-DEV+19096238
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -246,7 +246,7 @@ compat_bunnycdn.php:
   To:
    - compat_bunnycdn.php
   Checksum:
-   - 3755d39fd9bccf52794503b78a263803007a9b7b4ecce95620bb307b94f8d50d:1491
+   - 7e27e79a5e82b9131262b41d2e19d92c36d3979b30b81286d7c2a7da83f341fd:1443
  Used with: modules
  Reannotate: modules.dat
 PHPMailer:
