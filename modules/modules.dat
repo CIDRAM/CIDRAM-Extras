@@ -236,7 +236,7 @@ compat_bunnycdn.php:
  Name: BunnyCDN compatibility module
  Extended Description: <em><code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
- Version: 2019.93.533
+ Version: 2019.190.208
  Minimum Required: 1.12.0-DEV+19096238
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -246,7 +246,7 @@ compat_bunnycdn.php:
   To:
    - compat_bunnycdn.php
   Checksum:
-   - 09968b58c4fb69a0abb876d23b21de9d5b99971e549e800ace174771c4086b71:1427
+   - 3755d39fd9bccf52794503b78a263803007a9b7b4ecce95620bb307b94f8d50d:1491
  Used with: modules
  Reannotate: modules.dat
 PHPMailer:
