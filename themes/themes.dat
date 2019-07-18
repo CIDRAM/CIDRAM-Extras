@@ -35,7 +35,7 @@ theme/obscured:
 theme/slate:
  Name: Theme: Slate
  Extended Description: Simple layout; Gentle, darker colours.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2019.6.395
+ Version: 2019.198.378
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -54,7 +54,7 @@ theme/slate:
    - fe_assets/slate/pips.php
   Checksum:
    - 30c0b368259bcd2d8b5e1a47485d772c:2421
-   - ac5d1dc6a657b9bedb6c23b92257b303:508
+   - 2cbdbccafa229ba570f1db35d7a5b90bb1f0e5e2b3322e2ef6a8b780844fee54:564
    - 12479327abeef9842633867d44054af5:4118
    - 17d4e600ab0bf7c79f3efb71cf294ec3:1024
    - 5f16c202907ed38a482b51829ea51695:875
@@ -62,7 +62,7 @@ theme/slate:
 theme/bluemetal:
  Name: Theme: Blue Metal
  Extended Description: Simple blue/black colour scheme with gentle tones.<br /><em>Author: Caleb M (Maikuolan), based on previous work by Daniel R.</em>
- Version: 2019.6.395
+ Version: 2019.198.378
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -81,7 +81,7 @@ theme/bluemetal:
    - fe_assets/bluemetal/pips.php
   Checksum:
    - 1af4916db06e2f727e284f48e6a179a1:2543
-   - ac5d1dc6a657b9bedb6c23b92257b303:508
+   - 2cbdbccafa229ba570f1db35d7a5b90bb1f0e5e2b3322e2ef6a8b780844fee54:564
    - 746c022f9e64c37ca694ee261071243f:4357
    - 17d4e600ab0bf7c79f3efb71cf294ec3:1024
    - ff7469437076c374622bb1aecc02fc67:848
@@ -108,7 +108,7 @@ theme/moss:
    - fe_assets/moss/frontend.html
   Checksum:
    - b9a22083d8c8865a8d53f0ec8ad9fe18:2449
-   - ac5d1dc6a657b9bedb6c23b92257b303:508
+   - 2cbdbccafa229ba570f1db35d7a5b90bb1f0e5e2b3322e2ef6a8b780844fee54:564
    - 5182ba869b16c040409cf39980173d9c:17804
    - 150a2d96aeab9ce7ef565767aacc1c8a:4405
    - 17d4e600ab0bf7c79f3efb71cf294ec3:1024
@@ -116,7 +116,7 @@ theme/moss:
 theme/fullmoon:
  Name: Theme: Full Moon
  Extended Description: Darker, semi-transparent colours; Navigation shifted to the top; No special fonts; Full moon backdrop.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2019.195.565
+ Version: 2019.198.378
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -176,8 +176,8 @@ theme/fullmoon:
    - fe_assets/fullmoon/moon.jpg
    - fe_assets/fullmoon/pips.php
   Checksum:
-   - 117553b19bd54b60b17229b647f07d74:1749
-   - 7e36511cfbe8d07c8575277f6afe5f93:2922
+   - 7a996126ae2e45f2097349348740d9875adf591829a43255092fa1f002534102:1853
+   - 10a250990b745bfe4782ee1ef6d9dcd83efd5eb00cd398a457ce8f0adc3ccabf:2700
    - 7f4023a573ea35cefc0ecd5060893030:48
    - 2ec621c65d979dd77833541ed68ef046:494
    - 30183b4dbd0cfa39af75f0d7f6ccf47b:702
@@ -189,7 +189,7 @@ theme/fullmoon:
    - 7fa50eccec0b45ba715f71a2b415454a:846
    - 6765c2a5f886de10b3499264d01951f0f326199d6a27e92951a6b594e6966f23:1136
    - 4edb50409757eab62d651088ae05cc9f:924
-   - ac5d1dc6a657b9bedb6c23b92257b303:508
+   - 2cbdbccafa229ba570f1db35d7a5b90bb1f0e5e2b3322e2ef6a8b780844fee54:564
    - 73727ee908663fe2b40035b247656db3:131
    - b1ede12eb00648154b592280cf7407029f337269b6fc9b07b036f056e5ed83f9:994
    - a4714e44586817e2b23d47e7821d1c69:225
