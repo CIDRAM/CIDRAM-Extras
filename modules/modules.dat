@@ -52,7 +52,7 @@ module_baidublocker.php:
   zh: 可用由于请求。​<span class="txtRd">警告：将销毁百度网页排名为您的网站。​中文用户的网站应避免使用此模块。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
   zh-tw: 可用由於請求。​<span class="txtRd">警告：將銷毀百度網頁排名為您的網站。​中文用戶的網站應避免使用此模塊。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
- Version: 2019.62.401
+ Version: 2019.201.302
  Minimum Required: 1.10.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -62,7 +62,7 @@ module_baidublocker.php:
   To:
    - module_baidublocker.php
   Checksum:
-   - 8cf60802be1cc920ff1bd380893ea25cdd8b1390f8faee5d86d358771c8d6a7a:2139
+   - 5a4793338be650045a87f6d177a6410b54ce45a8e8f33a2912413f15ceb0ccd3:2485
  Reannotate: modules.dat
 module_yandexblocker.php:
  Name: Yandex blocker module
@@ -83,7 +83,7 @@ module_yandexblocker.php:
   zh: 可用由于请求。​<span class="txtRd">警告：将销毁Yandex网页排名为您的网站。​俄文用户的网站应避免使用此模块。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
   zh-tw: 可用由於請求。​<span class="txtRd">警告：將銷毀Yandex網頁排名為您的網站。​俄文用戶的網站應避免使用此模塊。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
- Version: 2019.62.401
+ Version: 2019.201.302
  Minimum Required: 1.10.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -93,7 +93,7 @@ module_yandexblocker.php:
   To:
    - module_yandexblocker.php
   Checksum:
-   - ca8f3a554286e982b0535d3dd93f7a451139a7e8a731648e37206b543c2ee4e5:2928
+   - 9cf78772f9f9c605cdb7303c9c911e61bcb0d4dda2edd324d376aebdc1861410:2917
  Reannotate: modules.dat
 module_badhosts.php:
  Name: Bad hosts blocker module

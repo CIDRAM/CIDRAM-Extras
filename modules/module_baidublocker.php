@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Baidu blocker module (last modified: 2019.03.04).
+ * This file: Baidu blocker module (last modified: 2019.07.21).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -43,8 +43,11 @@ ASNs 38365, 38627, 45076, 55967
 IPv4 Signatures
 
 106.12.0.0/15 Deny 百度被禁止从这里
+114.28.224.0/21 Deny 百度被禁止从这里
+114.28.238.0/23 Deny 百度被禁止从这里
 119.75.208.0/20 Deny 百度被禁止从这里
-150.242.123.0/24 Deny 百度被禁止从这里
+150.242.120.0/24 Deny 百度被禁止从这里
+150.242.122.0/23 Deny 百度被禁止从这里
 180.76.0.0/16 Deny 百度被禁止从这里
 182.61.0.0/16 Deny 百度被禁止从这里
 202.46.48.0/20 Deny 百度被禁止从这里
@@ -56,6 +59,9 @@ Origin: EU
 Origin: HK
 119.63.192.0/21 Deny 百度被禁止从这里
 Origin: JP
+154.85.32.0/21 Deny 百度被禁止从这里
+154.85.47.0/24 Deny 百度被禁止从这里
+Origin: SC
 63.243.252.0/24 Deny 百度被禁止从这里
 104.193.88.0/23 Deny 百度被禁止从这里
 104.193.90.0/24 Deny 百度被禁止从这里
@@ -70,7 +76,10 @@ Options:
 IPv6 Signatures
 
 2400:da00::/32 Deny 百度被禁止从这里
+240c:4000::/22 Deny 百度被禁止从这里
 Origin: CN
+2402:2b40:8000::/36 Deny 百度被禁止从这里
+Origin: HK
 Tag: Baidu IPv6
 ---
 Options:
