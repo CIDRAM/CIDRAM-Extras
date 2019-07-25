@@ -289,8 +289,8 @@ module_abuseipdb.php:
    - module_abuseipdb.php
    - module_abuseipdb.yaml
   Checksum:
-   - ba82e3a4639c7a21c46761fe0f15cce905071010bc8f7019757c592848d4b471:4302
-   - 7343d7eb07e8fffd1017ce0e803f5c47372bbed3d21fe9c4819cb94f0cd82223:868
+   - 5df70880bd5f522596d60d6ecf5321f8a0eed00c87c5bf7ed02f2499af6fa2e1:5134
+   - bd6fdb3842f81e5fa579be4eb2273a29472a4d271309b0fb777d5a43e000bbdb:1176
  Used with: modules
  Reannotate: modules.dat
 
