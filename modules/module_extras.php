@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2018.09.22).
+ * This file: Optional security extras module (last modified: 2019.07.25).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -74,7 +74,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
     $Query = str_replace("\\", '/', strtolower(urldecode($_SERVER['QUERY_STRING'])));
     $QueryNoSpace = preg_replace('/\s/', '', $Query);
 
-    $Trigger(preg_match('/\((?:["\']{2})?\)/', $QueryNoSpace), 'Command injection'); // 2016.12.31
+    $Trigger(preg_match('/\((?:["\']{2})?\)/', $QueryNoSpace), 'Query command injection'); // 2016.12.31
 
     $Trigger(preg_match(
         '/(?:_once|able|as(?:c|hes|sert)|c(?:hr|ode|ontents)|e(?:cho|regi|sc' .
@@ -82,22 +82,22 @@ if (!empty($_SERVER['QUERY_STRING'])) {
         ':f|nclude)|len(?:gth)?|nt|open|p(?:ress|lace|lode|uts)|print(?:f|_r' .
         ')?|re(?:ad|place|quire|store)|rot13|s(?:tart|ystem)|w(?:hil|rit)e)[' .
         '"\':(?:\[{<$]/',
-    $QueryNoSpace), 'Command injection'); // 2018.05.02
+    $QueryNoSpace), 'Query command injection'); // 2018.05.02
 
     $Trigger(preg_match(
         '/\$(?:globals|_(cookie|env|files|get|post|request|se(rver|ssion)))/',
-    $QueryNoSpace), 'Command injection'); // 2017.01.13
+    $QueryNoSpace), 'Query command injection'); // 2017.01.13
 
-    $Trigger(preg_match('/http_(?:cmd|sum)/', $QueryNoSpace), 'Command injection'); // 2017.01.02
-    $Trigger(preg_match('/pa(?:rse_ini_file|ssthru)/', $QueryNoSpace), 'Command injection'); // 2017.01.02
-    $Trigger(preg_match('/rewrite(?:cond|rule)/', $QueryNoSpace), 'Command injection'); // 2017.01.02
-    $Trigger(preg_match('/u(?:nserializ|ploadedfil)e/', $QueryNoSpace), 'Command injection'); // 2017.01.13
-    $Trigger(strpos($QueryNoSpace, 'dotnet_load') !== false, 'Command injection'); // 2016.12.31
-    $Trigger(strpos($QueryNoSpace, 'execcgi') !== false, 'Command injection'); // 2016.12.31
-    $Trigger(strpos($QueryNoSpace, 'move_uploaded_file') !== false, 'Command injection'); // 2016.12.31
-    $Trigger(strpos($QueryNoSpace, 'symlink') !== false, 'Command injection'); // 2016.12.31
-    $Trigger(strpos($QueryNoSpace, 'tmp_name') !== false, 'Command injection'); // 2016.12.31
-    $Trigger(strpos($QueryNoSpace, '_contents') !== false, 'Command injection'); // 2016.12.31
+    $Trigger(preg_match('/http_(?:cmd|sum)/', $QueryNoSpace), 'Query command injection'); // 2017.01.02
+    $Trigger(preg_match('/pa(?:rse_ini_file|ssthru)/', $QueryNoSpace), 'Query command injection'); // 2017.01.02
+    $Trigger(preg_match('/rewrite(?:cond|rule)/', $QueryNoSpace), 'Query command injection'); // 2017.01.02
+    $Trigger(preg_match('/u(?:nserializ|ploadedfil)e/', $QueryNoSpace), 'Query command injection'); // 2017.01.13
+    $Trigger(strpos($QueryNoSpace, 'dotnet_load') !== false, 'Query command injection'); // 2016.12.31
+    $Trigger(strpos($QueryNoSpace, 'execcgi') !== false, 'Query command injection'); // 2016.12.31
+    $Trigger(strpos($QueryNoSpace, 'move_uploaded_file') !== false, 'Query command injection'); // 2016.12.31
+    $Trigger(strpos($QueryNoSpace, 'symlink') !== false, 'Query command injection'); // 2016.12.31
+    $Trigger(strpos($QueryNoSpace, 'tmp_name') !== false, 'Query command injection'); // 2016.12.31
+    $Trigger(strpos($QueryNoSpace, '_contents') !== false, 'Query command injection'); // 2016.12.31
 
     $Trigger(preg_match('/%(?:0[0-8bcef]|1)/i', $_SERVER['QUERY_STRING']), 'Non-printable characters in query'); // 2016.12.31
 
@@ -111,13 +111,13 @@ if (!empty($_SERVER['QUERY_STRING'])) {
 
     $Trigger(preg_match(
         '/(?:<(\?|body|i?frame|object|script)|(body|i?frame|object|script)>)/',
-    $QueryNoSpace), 'Script injection'); // 2017.01.05
+    $QueryNoSpace), 'Query script injection'); // 2017.01.05
 
     $Trigger(preg_match(
         '/_(?:cookie|env|files|get|post|request|se(rver|ssion))\[/',
-    $QueryNoSpace), 'Global variable hack'); // 2017.01.13
+    $QueryNoSpace), 'Query global variable hack'); // 2017.01.13
 
-    $Trigger(strpos($QueryNoSpace, 'globals['), 'Global variable hack'); // 2017.01.01
+    $Trigger(strpos($QueryNoSpace, 'globals['), 'Query global variable hack'); // 2017.01.01
 
     $Trigger(substr($_SERVER['QUERY_STRING'], -3) === '%00', 'Null truncation attempt'); // 2016.12.31
     $Trigger(substr($_SERVER['QUERY_STRING'], -4) === '%000', 'Null truncation attempt'); // 2016.12.31
@@ -167,13 +167,13 @@ if (!empty($_SERVER['QUERY_STRING'])) {
     $Trigger(strpos($QueryNoSpace, '+result:') !== false, 'Spam attempt'); // 2017.01.08
     $Trigger(strpos($QueryNoSpace, 'result:+\\') !== false, 'Spam attempt'); // 2017.01.08
 
-    $Trigger(preg_match('/(?:["\'];|[;=]\|)/', $QueryNoSpace), 'Execution attempt'); // 2017.01.13
-    $Trigger(preg_match('/[\'"`]sysadmin[\'"`]/', $QueryNoSpace), 'Generic attack attempt'); // 2017.02.25
-    $Trigger(preg_match('/[\'"`]\+[\'"`]/', $QueryNoSpace), 'XSS attack'); // 2017.01.03
-    $Trigger(preg_match('/[\'"`]\|[\'"`]/', $QueryNoSpace), 'Pipe detected'); // 2017.01.08, modified 2017.10.31 (bugged)
+    $Trigger(preg_match('/(?:["\'];|[;=]\|)/', $QueryNoSpace), 'Query command injection'); // 2017.01.13
+    $Trigger(preg_match('/[\'"`]sysadmin[\'"`]/', $QueryNoSpace), 'Query command injection'); // 2017.02.25
+    $Trigger(preg_match('/[\'"`]\+[\'"`]/', $QueryNoSpace), 'Query command injection'); // 2017.01.03
+    $Trigger(preg_match('/[\'"`]\|[\'"`]/', $QueryNoSpace), 'Pipe hack'); // 2017.01.08, modified 2017.10.31 (bugged)
     $Trigger(strpos($QueryNoSpace, 'num_replies=77777') !== false, 'Overflow attempt'); // 2017.02.25
     $Trigger(strpos($_SERVER['QUERY_STRING'], '++++') !== false, 'Overflow attempt'); // 2017.01.05
-    $Trigger(strpos($_SERVER['QUERY_STRING'], '->') !== false, 'Generic attack attempt'); // 2017.02.25
+    $Trigger(strpos($_SERVER['QUERY_STRING'], '->') !== false, 'Hack attempt'); // 2017.02.25
 
     $Trigger(preg_match('~src=https?:~', $QueryNoSpace), 'RFI'); // 2017.02.18 mod 2018.09.22
     $Trigger(strpos($QueryNoSpace, 'path]=') !== false, 'Path hack'); // 2017.02.18
@@ -187,13 +187,13 @@ if (!empty($_SERVER['QUERY_STRING'])) {
     $Trigger(strpos($_SERVER['QUERY_STRING'], ',0x') !== false, 'Bad query'); // 2017.02.25
     $Trigger(strpos($_SERVER['QUERY_STRING'], ',\'\',') !== false, 'Bad query'); // 2017.02.25
 
-    $Trigger(preg_match('/id=.*(?:benchmark\(|id[xy]=|sleep\()/', $QueryNoSpace), 'SQLi'); // 2017.03.01
+    $Trigger(preg_match('/id=.*(?:benchmark\(|id[xy]=|sleep\()/', $QueryNoSpace), 'Query SQLi'); // 2017.03.01
     $Trigger(preg_match(
         '/(?:(from|union|where).*select|then.*else|(o[nr]|where).*is null|(i' .
         'nner|left|outer|right) join)/',
-    $QueryNoSpace), 'SQLi'); // 2017.03.01
+    $QueryNoSpace), 'Query SQLi'); // 2017.03.01
 
-    $Trigger(preg_match('/(?:(modez|osc|tasya)=|=((bot|scanner|shell)z|psybnc))/', $QueryNoSpace), 'Common shell/bot command', '', $InstaBan); // 2017.02.25
+    $Trigger(preg_match('/(?:(modez|osc|tasya)=|=((bot|scanner|shell)z|psybnc))/', $QueryNoSpace), 'Query command injection', '', $InstaBan); // 2017.02.25
 
     $Trigger(preg_match('/cpis_.*i0seclab@intermal\.com/', $QueryNoSpace), 'Hack attempt'); // 2018.02.20
 
@@ -215,7 +215,7 @@ if ($RawInput) {
         'Non-escaped characters in POST'
     ); // 2017.10.23
 
-    $Trigger(preg_match('/charcode\(88,83,83\)/', $RawInputSafe), 'XSS attempt'); // 2017.03.01
+    $Trigger(preg_match('/charcode\(88,83,83\)/', $RawInputSafe), 'Hack attempt'); // 2017.03.01
     $Trigger((
         strpos($RawInputSafe, '<?xml') !== false &&
         strpos($RawInputSafe, '<!doctype') !== false &&
@@ -252,7 +252,7 @@ if ($RawInput) {
         '22|%6f%70%65%6e%5f%62%61%73%65%64%69%72%3d%6e%6f%6e%65|%73%(61%66%6' .
         '5%5f%6d%6f%64%65%3d%6f%66%66|75%68%6f%73%69%6e%2e%73%69%6d%75%6c%61' .
         '%74%69%6f%6e%3d%6f%6e))~',
-    $RawInputSafe), 'Plesk attack'); // 2017.03.01
+    $RawInputSafe), 'Plesk hack'); // 2017.03.01
 
     $Trigger(preg_match('~(?:6\D*1\D*6\D*6\D*9\D*4\D*7\D*8\D*5)~i', $RawInput), 'Spam attempt'); // 2017.03.01
     $Trigger(preg_match('~//dail' . 'ydigita' . 'ldeals' . '\.info/~i', $RawInput), 'Spam attempt'); // 2017.03.01
@@ -265,13 +265,60 @@ if ($RawInput) {
 
 }
 
+/** Reporting. */
+if (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Accessing quarantined files not allowed') !== false) {
+    $CIDRAM['Reporter']->report([15], ['Unauthorised attempt to access quarantined files detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Compromised API key') !== false) {
+    $CIDRAM['Reporter']->report([15], ['Unauthorised use of known compromised API key detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'FancyBox exploit attempt') !== false) {
+    $CIDRAM['Reporter']->report([15, 21], ['FancyBox hack attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Hack attempt') !== false) {
+    $CIDRAM['Reporter']->report([15], ['Hack attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Nesting attack') !== false) {
+    $CIDRAM['Reporter']->report([15], ['Nesting attack detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Non-escaped characters in POST') !== false) {
+    $CIDRAM['Reporter']->report([19], ['Non-escaped characters in POST detected (bot indicator).'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Null truncation attempt') !== false) {
+    $CIDRAM['Reporter']->report([15], ['Null truncation attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Overflow attempt') !== false) {
+    $CIDRAM['Reporter']->report([15], ['Overflow attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'POST BBCESC/BBCEX/EX') !== false) {
+    $CIDRAM['Reporter']->report([15], ['POST BBCESC/BBCEX/EX detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Path hack') !== false) {
+    $CIDRAM['Reporter']->report([15], ['Path hack detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Pipe hack') !== false) {
+    $CIDRAM['Reporter']->report([15], ['Pipe hack detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Plesk hack') !== false) {
+    $CIDRAM['Reporter']->report([15, 21], ['Plesk hack attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Probe attempt') !== false) {
+    $CIDRAM['Reporter']->report([19], ['Probe detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Query SQLi') !== false) {
+    $CIDRAM['Reporter']->report([16], ['SQL injection attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Query command injection') !== false) {
+    $CIDRAM['Reporter']->report([15], ['Query command injection attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Query global variable hack') !== false) {
+    $CIDRAM['Reporter']->report([15], ['Query global variable hack attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Query script injection') !== false) {
+    $CIDRAM['Reporter']->report([15], ['Query script injection attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Shell upload attempt') !== false) {
+    $CIDRAM['Reporter']->report([15], ['Shell upload attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Spam attempt') !== false) {
+    $CIDRAM['Reporter']->report([10], ['Detected a spambot attempting to drop its payload.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Spam attempt') !== false) {
+    $CIDRAM['Reporter']->report([10, 19], ['Detected a spambot attempting to drop its payload.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'WP hack attempt') !== false) {
+    $CIDRAM['Reporter']->report([15, 21], ['WordPress hack attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+}
+
 /**
  * Referrer-based signatures start from here.
  * Please report all false positives to https://github.com/CIDRAM/CIDRAM/issues
  */
 if ($CIDRAM['BlockInfo']['Referrer']) {
 
-    $Trigger(preg_match('~trafers\.com~i', $CIDRAM['BlockInfo']['Referrer']), 'Trafers not permitted here'); // 2017.12.07
+    if ($Trigger(preg_match('~trafers\.com~i', $CIDRAM['BlockInfo']['Referrer']), 'Trafers not permitted here')) {
+        $CIDRAM['Reporter']->report([10], ['Referrer spam originating from this address detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } // 2017.12.07
 
     $RefLC = strtolower($CIDRAM['BlockInfo']['Referrer']);
 

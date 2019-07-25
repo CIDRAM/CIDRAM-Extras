@@ -43,7 +43,7 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
     $UA = str_replace("\\", '/', strtolower(urldecode($CIDRAM['BlockInfo']['UA'])));
     $UANoSpace = preg_replace('/\s/', '', $UA);
 
-    $Trigger(substr($HN, 0, 2) === '()', 'Bash/Shellshock', '', $InstaBan); // 2017.01.21
+    $Trigger(substr($HN, 0, 2) === '()', 'Banned hostname (Bash/Shellshock)', '', $InstaBan); // 2017.01.21
 
     $Trigger(preg_match(
         '/(?:0wn[3e]d|:(?:\{\w:|[\w\d][;:]\})|h[4a]ck(?:e[dr]|ing|[7t](?:[3e' .
@@ -51,19 +51,19 @@ if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr'
         ']{64,}[.:])/i',
     $HN), 'Banned hostname', '', $InstaBan); // 2018.06.24
 
-    $Trigger(strpos($CIDRAM['Hostname'], 'rm ' . '-rf') !== false, 'Banned hostname', '', $InstaBan); // 2017.01.21
+    $Trigger(strpos($HN, 'rm ' . '-rf') !== false, 'Banned hostname', '', $InstaBan); // 2017.01.21
     $Trigger(strpos($HN, 'sh' . 'el' . 'l_' . 'ex' . 'ec') !== false, 'Banned hostname', '', $InstaBan); // 2017.01.21
 
-    $Trigger(strpos($HN, '$_' . '[$' . '__') !== false, 'Shell upload attempt', '', $InstaBan); // 2017.01.21
-    $Trigger(strpos($HN, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Shell upload attempt', '', $InstaBan); // 2017.01.21
+    $Trigger(strpos($HN, '$_' . '[$' . '__') !== false, 'Banned hostname', '', $InstaBan); // 2017.01.21
+    $Trigger(strpos($HN, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Banned hostname', '', $InstaBan); // 2017.01.21
 
     $Trigger(preg_match(
         '/\$(?:globals|_(cookie|env|files|get|post|request|se(rver|ssion)))/',
-    $HN), 'Command injection'); // 2017.01.21
+    $HN), 'Banned hostname'); // 2017.01.21
 
     $Trigger(preg_match(
         '/(?:<(\?|body|i?frame|object|script)|(body|i?frame|object|script)>)/',
-    $HN), 'Script injection'); // 2017.01.21
+    $HN), 'Hostname script injection'); // 2017.01.21
 
     $Trigger(preg_match('/(?:captch|dbcapi\.me)/', $HN), 'CAPTCHA cracker host'); // 2017.01.21
 
@@ -281,3 +281,22 @@ $Bypass(
     preg_match('~^/wp-cron\.php\?doing_wp_cron=\d+\.\d+$~', $_SERVER['REQUEST_URI']) &&
     defined('DOING_CRON'),
 'WordPress cronjob bypass'); // 2018.06.24
+
+/** Conjunctive reporting. */
+if (preg_match('~Spoofed/Fake Hostname|Dangerous Host|Questionable Host|DNS error~i', $CIDRAM['BlockInfo']['WhyReason'])) {
+    $CIDRAM['Reporter']->report([20], [], $CIDRAM['BlockInfo']['IPAddr']);
+}
+if (preg_match('~(?:VPN|Proxy) Host~i', $CIDRAM['BlockInfo']['WhyReason'])) {
+    $CIDRAM['Reporter']->report([9, 13], [], $CIDRAM['BlockInfo']['IPAddr']);
+}
+
+/** Reporting. */
+if (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Banned hostname') !== false) {
+    $CIDRAM['Reporter']->report([15], ['Hack attempt via hostname detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Hostname script injection') !== false) {
+    $CIDRAM['Reporter']->report([15], ['Script injection via hostname detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'CAPTCHA cracker host') !== false) {
+    $CIDRAM['Reporter']->report([15], ['CAPTCHA cracker detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'esonicspider') !== false) {
+    $CIDRAM['Reporter']->report([21], ['esonicspider detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
+}

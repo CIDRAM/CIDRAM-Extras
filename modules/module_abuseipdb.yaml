@@ -1,0 +1,19 @@
+Config Defaults:
+ abuseipdb:
+  api_key:
+   type: "string"
+   default: ""
+  max_age_in_days:
+   type: "int"
+   default: 365
+  minimum_confidence_score:
+   type: "int"
+   default: 50
+  report_back:
+   type: "bool"
+   default: false
+L10N:
+ config_abuseipdb_api_key: "Please enter your API key here (if you don't already have an API key, you can get one from the AbuseIPDB website)."
+ config_abuseipdb_max_age_in_days: "The maximum age in days for which reports will be considered when performing lookups (must be a number between 1 and 365). Default = 365."
+ config_abuseipdb_minimum_confidence_score: "The minimum confidence score required in order for CIDRAM to block an IP address (must be a number between 1 and 100). Default = 50."
+ config_abuseipdb_report_back: "Allow CIDRAM to report detected bad behaviour back to AbuseIPDB using your API key? Default = False."

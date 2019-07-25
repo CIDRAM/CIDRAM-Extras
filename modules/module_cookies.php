@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional cookie scanner module (last modified: 2018.06.24).
+ * This file: Optional cookie scanner module (last modified: 2019.07.25).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2) and its
  * cookie scanner module, which the cookie scanner module for CIDRAM is based
@@ -45,31 +45,31 @@ if (!$Trigger($Cookies > 30, 'Cookie flood', 'Cookie flood detected!') && $Cooki
 
         $Trigger(preg_match('/(?:\+A(?:CI|D[sw4]|[FH][s0]|GA)-|U\+003[EC])/', $ThisPair), 'UTF-7 entities detected in cookie'); // 2017.01.02
 
-        $Trigger(preg_match('/\((?:["\']{2})?\)/', $ThisPairN), 'Command injection'); // 2017.01.02
+        $Trigger(preg_match('/\((?:["\']{2})?\)/', $ThisPairN), 'Command injection detected in cookie'); // 2017.01.02
         $Trigger(preg_match(
             '/(?:_once|able|as(c|hes|sert)|c(hr|ode|ontents)|e(cho|regi|scape|va' .
             'l)|ex(ec|ists)?|f(ile|late|unction)|hex2bin|get(c|csv|ss?)?|i(f|ncl' .
             'ude)|len(gth)?|nt|open|p(ress|lace|lode|uts)|print(f|_r)?|re(ad|pla' .
             'ce|quire|store)|rot13|s(tart|ystem)|w(hil|rit)e)["\':(\[{<$]/i',
-        $ThisPairN), 'Command injection'); // 2017.01.02
+        $ThisPairN), 'Command injection detected in cookie'); // 2017.01.02
         $Trigger(
             preg_match('/\$(?:globals|_(cookie|env|files|get|post|request|se(rver|ssion)))/', $ThisPairN),
-            'Command injection'
+            'Command injection detected in cookie'
         ); // 2017.01.20
-        $Trigger(preg_match('/add(?:handler|type|inputfilter)/', $ThisPairN), 'Command injection'); // 2017.01.02
-        $Trigger(preg_match('/http_(?:cmd|sum)/', $ThisPairN), 'Command injection'); // 2017.01.02
-        $Trigger(preg_match('/pa(?:rse_ini_file|ssthru)/', $ThisPairN), 'Command injection'); // 2017.01.02
-        $Trigger(preg_match('/rewrite(?:cond|rule)/', $ThisPairN), 'Command injection'); // 2017.01.02
-        $Trigger(preg_match('/set(?:handl|inputfilt)er/', $ThisPairN), 'Command injection'); // 2017.01.20
-        $Trigger(preg_match('/u(?:nserializ|ploadedfil)e/', $ThisPairN), 'Command injection'); // 2017.01.20
-        $Trigger(strpos($ThisPairN, '$http_raw_post_data') !== false, 'Command injection'); // 2017.01.02
-        $Trigger(strpos($ThisPairN, 'dotnet_load') !== false, 'Command injection'); // 2017.01.02
-        $Trigger(strpos($ThisPairN, 'execcgi') !== false, 'Command injection'); // 2017.01.02
-        $Trigger(strpos($ThisPairN, 'forcetype') !== false, 'Command injection'); // 2017.01.02
-        $Trigger(strpos($ThisPairN, 'move_uploaded_file') !== false, 'Command injection'); // 2017.01.02
-        $Trigger(strpos($ThisPairN, 'symlink') !== false, 'Command injection'); // 2017.01.02
-        $Trigger(strpos($ThisPairN, 'tmp_name') !== false, 'Command injection'); // 2017.01.02
-        $Trigger(strpos($ThisPairN, '_contents') !== false, 'Command injection'); // 2017.01.02
+        $Trigger(preg_match('/add(?:handler|type|inputfilter)/', $ThisPairN), 'Command injection detected in cookie'); // 2017.01.02
+        $Trigger(preg_match('/http_(?:cmd|sum)/', $ThisPairN), 'Command injection detected in cookie'); // 2017.01.02
+        $Trigger(preg_match('/pa(?:rse_ini_file|ssthru)/', $ThisPairN), 'Command injection detected in cookie'); // 2017.01.02
+        $Trigger(preg_match('/rewrite(?:cond|rule)/', $ThisPairN), 'Command injection detected in cookie'); // 2017.01.02
+        $Trigger(preg_match('/set(?:handl|inputfilt)er/', $ThisPairN), 'Command injection detected in cookie'); // 2017.01.20
+        $Trigger(preg_match('/u(?:nserializ|ploadedfil)e/', $ThisPairN), 'Command injection detected in cookie'); // 2017.01.20
+        $Trigger(strpos($ThisPairN, '$http_raw_post_data') !== false, 'Command injection detected in cookie'); // 2017.01.02
+        $Trigger(strpos($ThisPairN, 'dotnet_load') !== false, 'Command injection detected in cookie'); // 2017.01.02
+        $Trigger(strpos($ThisPairN, 'execcgi') !== false, 'Command injection detected in cookie'); // 2017.01.02
+        $Trigger(strpos($ThisPairN, 'forcetype') !== false, 'Command injection detected in cookie'); // 2017.01.02
+        $Trigger(strpos($ThisPairN, 'move_uploaded_file') !== false, 'Command injection detected in cookie'); // 2017.01.02
+        $Trigger(strpos($ThisPairN, 'symlink') !== false, 'Command injection detected in cookie'); // 2017.01.02
+        $Trigger(strpos($ThisPairN, 'tmp_name') !== false, 'Command injection detected in cookie'); // 2017.01.02
+        $Trigger(strpos($ThisPairN, '_contents') !== false, 'Command injection detected in cookie'); // 2017.01.02
 
         $Trigger(preg_match('/ap(?:ache_[\w\d_]{4,16}|c_[\w\d_]{3,16})\(/', $ThisPairN), 'Function call detected in cookie'); // 2018.06.24
         $Trigger(preg_match('/curl_[\w\d_]{4,10}\(/', $ThisPairN), 'Function call detected in cookie'); // 2018.06.24
@@ -81,8 +81,8 @@ if (!$Trigger($Cookies > 30, 'Cookie flood', 'Cookie flood detected!') && $Cooki
 
         $Trigger(preg_match('/\'(?:uploadedfile|move_uploaded_file|tmp_name)\'/', $ThisPairN), 'Probe attempt'); // 2017.01.02
 
-        $Trigger(strpos($ThisPairN, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Shell upload attempt', '', $InstaBan); // 2017.01.02
-        $Trigger(strpos($ThisPairN, 'linkirc') !== false, 'Shell upload attempt', '', $InstaBan); // 2017.01.02
+        $Trigger(strpos($ThisPairN, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Shell upload attempted via cookies', '', $InstaBan); // 2017.01.02
+        $Trigger(strpos($ThisPairN, 'linkirc') !== false, 'Shell upload attempted via cookies', '', $InstaBan); // 2017.01.02
 
         $Trigger($Key === 'SESSUNIVUCADIACOOKIE', 'Hotlinking detected', 'Hotlinking not allowed!'); // 2017.01.02
 
@@ -92,15 +92,15 @@ if (!$Trigger($Cookies > 30, 'Cookie flood', 'Cookie flood detected!') && $Cooki
         $Trigger($Key === 'ja_edenite_tpl', 'Bad cookie'); // 2017.01.02
         $Trigger($Key === 'phpbb3_1fh61_', 'Bad cookie'); // 2017.01.02
 
-        $Trigger($Key === '()' || $Value === '()', 'Bash/Shellshock', '', $InstaBan); // 2017.01.02
+        $Trigger($Key === '()' || $Value === '()', 'Cookie hack detected (Bash/Shellshock)', '', $InstaBan); // 2017.01.02
 
         $Trigger((
             ($Key == 'CUSTOMER' || $Key == 'CUSTOMER_INFO' || $Key == 'NEWMESSAGE') &&
             strpos($ThisPairN, 'deleted') !== false
-        ), 'Hack attempt detected'); // 2017.01.02
+        ), 'Cookie hack detected'); // 2017.01.02
 
-        $Trigger($KeyLC === 'rm ' . '-rf' || $ValueLC === 'rm ' . '-rf', 'Hack attempt detected', '', $InstaBan); // 2017.01.02
-        $Trigger(preg_match('/:(?:\{\w:|[\w\d][;:]\})/', $ThisPairN), 'Hack attempt detected', '', $InstaBan); // 2018.06.24
+        $Trigger($KeyLC === 'rm ' . '-rf' || $ValueLC === 'rm ' . '-rf', 'Cookie hack detected', '', $InstaBan); // 2017.01.02
+        $Trigger(preg_match('/:(?:\{\w:|[\w\d][;:]\})/', $ThisPairN), 'Cookie hack detected', '', $InstaBan); // 2018.06.24
 
         $Trigger((
             ($Value == -1 || $Value == '-1') &&
@@ -108,4 +108,17 @@ if (!$Trigger($Cookies > 30, 'Cookie flood', 'Cookie flood detected!') && $Cooki
         ), 'ASP.NET hack detected', '', $InstaBan); // 2017.01.02
 
     });
+}
+
+/** Reporting. */
+if (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Function call detected in cookie') !== false) {
+    $CIDRAM['Reporter']->report([15], ['Function call detected in cookie.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Command injection detected in cookie') !== false) {
+    $CIDRAM['Reporter']->report([15], ['Command injection detected in cookie.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Cookie hack detected') !== false) {
+    $CIDRAM['Reporter']->report([15], ['Cookie hack detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Shell upload attempted via cookies') !== false) {
+    $CIDRAM['Reporter']->report([15], ['Shell upload attempted via cookies.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Probe attempt') !== false) {
+    $CIDRAM['Reporter']->report([21], ['Probe attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
 }

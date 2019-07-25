@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2019.07.10).
+ * This file: Optional user agents module (last modified: 2019.07.25).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -30,42 +30,42 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $UA = str_replace("\\", '/', strtolower(urldecode($CIDRAM['BlockInfo']['UA'])));
     $UANoSpace = preg_replace('/\s/', '', $UA);
 
-    $Trigger(preg_match('/\((?:["\']{2})?\)/', $UANoSpace), 'Command injection'); // 2017.01.02
+    $Trigger(preg_match('/\((?:["\']{2})?\)/', $UANoSpace), 'UA command injection'); // 2017.01.02
 
     $Trigger(preg_match(
         '/(?:_once|able|as(c|hes|sert)|c(hr|ode|ontents)|e(cho|regi|scape|val)|ex' .
         '(ec|ists)?|f(ile|late|unction)|get(c|csv|ss?)?|i(f|nclude)|len(gth)?|ope' .
         'n|p(ress|lace|lode|uts)|print(f|_r)?|re(ad|place|quire|store)|rot13|s(ta' .
         'rt|ystem)|w(hil|rit)e)["\':(\[{<$]/',
-    $UANoSpace), 'Command injection'); // 2017.01.20
+    $UANoSpace), 'UA command injection'); // 2017.01.20
 
     $Trigger(preg_match(
         '/\$(?:globals|_(cookie|env|files|get|post|request|se(rver|ssion)))/',
-    $UANoSpace), 'Command injection'); // 2017.01.13
+    $UANoSpace), 'UA command injection'); // 2017.01.13
 
-    $Trigger(preg_match('/http_(?:cmd|sum)/', $UANoSpace), 'Command injection'); // 2017.01.02
-    $Trigger(preg_match('/pa(?:rse_ini_file|ssthru)/', $UANoSpace), 'Command injection'); // 2017.01.02
-    $Trigger(preg_match('/rewrite(?:cond|rule)/', $UANoSpace), 'Command injection'); // 2017.01.02
-    $Trigger(preg_match('/u(?:nserialize|ploadedfile)/', $UANoSpace), 'Command injection'); // 2017.01.02
-    $Trigger(strpos($UANoSpace, 'dotnet_load') !== false, 'Command injection'); // 2017.01.02
-    $Trigger(strpos($UANoSpace, 'execcgi') !== false, 'Command injection'); // 2017.01.02
-    $Trigger(strpos($UANoSpace, 'move_uploaded_file') !== false, 'Command injection'); // 2017.01.02
-    $Trigger(strpos($UANoSpace, 'symlink') !== false, 'Command injection'); // 2017.01.02
-    $Trigger(strpos($UANoSpace, 'tmp_name') !== false, 'Command injection'); // 2017.01.02
-    $Trigger(strpos($UANoSpace, '_contents') !== false, 'Command injection'); // 2017.01.02
+    $Trigger(preg_match('/http_(?:cmd|sum)/', $UANoSpace), 'UA command injection'); // 2017.01.02
+    $Trigger(preg_match('/pa(?:rse_ini_file|ssthru)/', $UANoSpace), 'UA command injection'); // 2017.01.02
+    $Trigger(preg_match('/rewrite(?:cond|rule)/', $UANoSpace), 'UA command injection'); // 2017.01.02
+    $Trigger(preg_match('/u(?:nserialize|ploadedfile)/', $UANoSpace), 'UA command injection'); // 2017.01.02
+    $Trigger(strpos($UANoSpace, 'dotnet_load') !== false, 'UA command injection'); // 2017.01.02
+    $Trigger(strpos($UANoSpace, 'execcgi') !== false, 'UA command injection'); // 2017.01.02
+    $Trigger(strpos($UANoSpace, 'move_uploaded_file') !== false, 'UA command injection'); // 2017.01.02
+    $Trigger(strpos($UANoSpace, 'symlink') !== false, 'UA command injection'); // 2017.01.02
+    $Trigger(strpos($UANoSpace, 'tmp_name') !== false, 'UA command injection'); // 2017.01.02
+    $Trigger(strpos($UANoSpace, '_contents') !== false, 'UA command injection'); // 2017.01.02
 
     $Trigger(preg_match('/%(?:0[0-8bcef]|1)/i', $CIDRAM['BlockInfo']['UA']), 'Non-printable characters in UA'); // 2017.01.02
 
     $Trigger(preg_match(
         '/(?:<(\?|body|i?frame|object|script)|(body|i?frame|object|script)>)/',
-    $UANoSpace), 'Script injection'); // 2017.01.08
+    $UANoSpace), 'UA script injection'); // 2017.01.08
 
     $Trigger(preg_match(
         '/(?:globals|_(cookie|env|files|get|post|request|se(rver|ssion)))\[/',
-    $UANoSpace), 'Global variable hack'); // 2017.01.13
+    $UANoSpace), 'UA global variable hack'); // 2017.01.13
 
-    $Trigger(strpos($UANoSpace, '$_' . '[$' . '__') !== false, 'Shell upload attempt', '', $InstaBan); // 2017.01.02
-    $Trigger(strpos($UANoSpace, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Shell upload attempt', '', $InstaBan); // 2017.01.02
+    $Trigger(strpos($UANoSpace, '$_' . '[$' . '__') !== false, 'UA shell upload attempt', '', $InstaBan); // 2017.01.02
+    $Trigger(strpos($UANoSpace, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'UA shell upload attempt', '', $InstaBan); // 2017.01.02
 
     $Trigger(preg_match('/0wn[3e]d/', $UANoSpace), 'Hack UA', '', $InstaBan); // 2017.01.06
     $Trigger(preg_match('/:(\{[\w]:|[\w\d][;:]\})/', $UANoSpace), 'Hack UA', '', $InstaBan); // 2017.01.20
@@ -273,5 +273,46 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     $Trigger(preg_match('~(?:[./]seo|seo/)~', $UANoSpace), 'SEO UA'); // 2018.07.10
 
     $Trigger(strpos($UA, 'bittorrent') !== false, 'Bad context (not a bittorrent hub)'); // 2017.02.25
+
+    /** Reporting. */
+    if (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UA command injection') !== false) {
+        $CIDRAM['Reporter']->report([15], ['Command injection detected in user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UA script injection') !== false) {
+        $CIDRAM['Reporter']->report([15], ['Script injection detected in user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UA global variable hack') !== false) {
+        $CIDRAM['Reporter']->report([15], ['Globvar hack detected in user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UA shell upload attempt') !== false) {
+        $CIDRAM['Reporter']->report([15], ['Shell upload attempt detected in user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Hack UA') !== false) {
+        $CIDRAM['Reporter']->report([15], ['Hack identifier detected in user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UASQLi') !== false) {
+        $CIDRAM['Reporter']->report([16], ['SQLi attempt detected in user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'CAPTCHA cracker UA') !== false) {
+        $CIDRAM['Reporter']->report([19], ['CAPTCHA cracker detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Probe UA') !== false) {
+        $CIDRAM['Reporter']->report([19], ['Probe detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Bash/Shellshock UA') !== false) {
+        $CIDRAM['Reporter']->report([16], ['Bash/Shellshock attempt detected via user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Spam UA') !== false) {
+        $CIDRAM['Reporter']->report([19], ['Spambot detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Email havester') !== false) {
+        $CIDRAM['Reporter']->report([19], ['Email havester detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Execution attempt') !== false) {
+        $CIDRAM['Reporter']->report([15], ['Attempted to push shell commands via user agent header.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'XSS attack') !== false) {
+        $CIDRAM['Reporter']->report([15], ['Attempted to push XSS via user agent header.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Banned UA') !== false) {
+        $CIDRAM['Reporter']->report([19], ['Misbehaving bot detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Scraper UA') !== false) {
+        $CIDRAM['Reporter']->report([19], ['Scraper detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Malware UA') !== false) {
+        $CIDRAM['Reporter']->report([19], ['User agent cited by malware detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Fake UA') !== false) {
+        $CIDRAM['Reporter']->report([19], ['Faked user agent detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UAEX') !== false) {
+        $CIDRAM['Reporter']->report([19], ['Detected command execution via user agent header.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'bittorrent') !== false) {
+        $CIDRAM['Reporter']->report([4, 19], ['BitTorrent user agent seen at HTTP server endpoint (possible flood/DDoS attempt).'], $CIDRAM['BlockInfo']['IPAddr']);
+    }
 
 }
