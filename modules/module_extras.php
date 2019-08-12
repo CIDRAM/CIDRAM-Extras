@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2019.07.25).
+ * This file: Optional security extras module (last modified: 2019.08.12).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -308,20 +308,46 @@ if (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Accessing quarantined files not a
     $CIDRAM['Reporter']->report([10, 19], ['Detected a spambot attempting to drop its payload.'], $CIDRAM['BlockInfo']['IPAddr']);
 } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'WP hack attempt') !== false) {
     $CIDRAM['Reporter']->report([15, 21], ['WordPress hack attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Traversal attack') !== false) {
+    $CIDRAM['Reporter']->report([15, 21], ['Traversal attack detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'WSO not allowed') !== false) {
+    $CIDRAM['Reporter']->report([20, 21], ['Unauthorised attempt to connect to WSO webshell detected (host might be compromised).'], $CIDRAM['BlockInfo']['IPAddr']);
 }
 
 /**
- * Referrer-based signatures start from here.
+ * Signatures based on the original REQUEST_URI start from here.
  * Please report all false positives to https://github.com/CIDRAM/CIDRAM/issues
  */
-if ($CIDRAM['BlockInfo']['Referrer']) {
+if (!empty($_SERVER['REQUEST_URI'])) {
+    $LCReqURI = str_replace("\\", '/', strtolower($_SERVER['REQUEST_URI']));
 
-    if ($Trigger(preg_match('~trafers\.com~i', $CIDRAM['BlockInfo']['Referrer']), 'Trafers not permitted here')) {
-        $CIDRAM['Reporter']->report([10], ['Referrer spam originating from this address detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } // 2017.12.07
+    /** Probing for webshells/backdoors. */
+    if ($Trigger(preg_match('~^/*(?:' .
+        'old/wp-admin/install\.php|' .
+        'test/wp-includes/wlwmanifest\.xml|' .
+        'vendor/phpunit/phpunit/src/Util/PHP/(?:eval-stdin|kill)\.php' .
+    ')~i', $LCReqURI) || preg_match(
+        '~(?:c9\d+|c10\d+|gh[0o]st|gzismexv|h6ss|icesword|itsec|php1|php_niu_\d+|' .
+        'php版iisspy|poison|php大马|session91|shell|silic|tk(?:_dencode_\d+)?|' .
+        'webshell-[a-z\d]+|wloymzuk|wso\d\.\d\.\d|xiaom|xw|zone_hackbar(?:_beutif' .
+        'y_other)?|pHp一句话(?:木马|扫描脚本程序)?)\.php$~i'
+    , $LCReqURI), 'Probing for webshells/backdoors')) {
+        $CIDRAM['Reporter']->report([15, 21], ['Caught probing for webshells/backdoors.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } // 2019.08.12
 
-    $RefLC = strtolower($CIDRAM['BlockInfo']['Referrer']);
+    /** Probing for exposed git data. */
+    if ($Trigger(preg_match('~^/*\.git~i', $LCReqURI), 'Probing for exposed git data')) {
+        $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed git data.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } // 2019.08.12
 
-    $Trigger($RefLC === '(null)', 'Illegal referrer'); // 2018.03.13
+    /** Probing for exposed git data. */
+    if ($Trigger(preg_match('~^/*\.ssh~i', $LCReqURI), 'Probing for exposed SSH data')) {
+        $CIDRAM['Reporter']->report([15, 22], ['Caught probing for exposed SSH data.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } // 2019.08.12
+
+    /** Probing for vulnerable routers. */
+    if ($Trigger(preg_match('~^/*HNAP1~i', $LCReqURI), 'Probing for vulnerable routers')) {
+        $CIDRAM['Reporter']->report([15, 23], ['Caught probing for vulnerable routers.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } // 2019.08.12
 
 }

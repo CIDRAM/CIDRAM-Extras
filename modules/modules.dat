@@ -20,7 +20,7 @@ module_extras.php:
  Name: Optional security extras module
  Extended Description: Provides some limited protections against various attack vectors commonly used in requests.
  False Positive Risk: Medium
- Version: 2019.205.785
+ Version: 2019.223.584
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -30,7 +30,7 @@ module_extras.php:
   To:
    - module_extras.php
   Checksum:
-   - 5ca91effbf169462bcd907635c16f34e97b617ddf0da7ce959497c724d64f6ab:20282
+   - b0e2222ca1cd45b77646533873a860c8ca707d51022c59dbf3171204ca201f9f:22052
  Used with: modules
  Reannotate: modules.dat
 module_baidublocker.php:
@@ -291,6 +291,23 @@ module_abuseipdb.php:
   Checksum:
    - 79f6b20d0dbea0ffdc96492bb4307cb2e98e12e2df1f3f2dddd5d00ddf435bd3:5379
    - bd6fdb3842f81e5fa579be4eb2273a29472a4d271309b0fb777d5a43e000bbdb:1176
+ Used with: modules
+ Reannotate: modules.dat
+module_refspam.php:
+ Name: Referrer spam module
+ Extended Description: Blocking based on referrer spam won't generally provide any meaningful security benefit, but in some cases, could be useful for some users, for gathering more information about requests, and for being able to report it.
+ False Positive Risk: Medium
+ Version: 2019.223.584
+ Minimum Required: 1.13.1-DEV+19205785
+ Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
+ Uninstallable: true
+ Files:
+  From:
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_refspam.php
+  To:
+   - module_refspam.php
+  Checksum:
+   - b50866dc18305094520121b5c0defdb7bda8c3643fca797c6d335ae61846919a:8679
  Used with: modules
  Reannotate: modules.dat
 
