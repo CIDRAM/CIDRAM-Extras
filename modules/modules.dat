@@ -277,7 +277,7 @@ module_abuseipdb.php:
  Name: AbuseIPDB module
  Extended Description: Blocks requests from IPs listed at AbuseIPDB.
  False Positive Risk: Medium
- Version: 2019.205.785
+ Version: 2019.223.377
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -289,7 +289,7 @@ module_abuseipdb.php:
    - module_abuseipdb.php
    - module_abuseipdb.yaml
   Checksum:
-   - 5df70880bd5f522596d60d6ecf5321f8a0eed00c87c5bf7ed02f2499af6fa2e1:5134
+   - 79f6b20d0dbea0ffdc96492bb4307cb2e98e12e2df1f3f2dddd5d00ddf435bd3:5379
    - bd6fdb3842f81e5fa579be4eb2273a29472a4d271309b0fb777d5a43e000bbdb:1176
  Used with: modules
  Reannotate: modules.dat

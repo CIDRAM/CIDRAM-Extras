@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: AbuseIPDB module (last modified: 2019.07.25).
+ * This file: AbuseIPDB module (last modified: 2019.08.12).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -79,6 +79,9 @@ $LCURI)) {
                     'Time' => $Expiry
                 ];
 
+                /** Check whether whitelisted. */
+                $CIDRAM['AbuseIPDB'][$CIDRAM['BlockInfo']['IPAddr']]['isWhitelisted'] = !empty($Lookup['data']['isWhitelisted']);
+
                 /** Cache update flag. */
                 $CIDRAM['AbuseIPDB-Modified'] = true;
 
@@ -87,11 +90,10 @@ $LCURI)) {
         }
 
         /** Block the request if the IP is listed by AbuseIPDB. */
-        $Trigger(
-            $CIDRAM['AbuseIPDB'][$CIDRAM['BlockInfo']['IPAddr']]['abuseConfidenceScore'] >= $CIDRAM['Config']['abuseipdb']['minimum_confidence_score'],
-            'AbuseIPDB Lookup',
-            $CIDRAM['L10N']->getString('ReasonMessage_Generic') . '<br />' . sprintf($CIDRAM['L10N']->getString('request_removal'), 'https://www.abuseipdb.com/check/' . $CIDRAM['BlockInfo']['IPAddr'])
-        );
+        $Trigger((
+            !$CIDRAM['AbuseIPDB'][$CIDRAM['BlockInfo']['IPAddr']]['isWhitelisted'] &&
+            $CIDRAM['AbuseIPDB'][$CIDRAM['BlockInfo']['IPAddr']]['abuseConfidenceScore'] >= $CIDRAM['Config']['abuseipdb']['minimum_confidence_score']
+        ), 'AbuseIPDB Lookup', $CIDRAM['L10N']->getString('ReasonMessage_Generic') . '<br />' . sprintf($CIDRAM['L10N']->getString('request_removal'), 'https://www.abuseipdb.com/check/' . $CIDRAM['BlockInfo']['IPAddr']));
 
     }
 
