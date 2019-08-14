@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Referrer spam module (last modified: 2019.08.12).
+ * This file: Referrer spam module (last modified: 2019.08.14).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -25,10 +25,12 @@ $Trigger = $CIDRAM['Trigger'];
  */
 if ($CIDRAM['BlockInfo']['Referrer']) {
 
+    /** Process to get the domain part. */
+    $Domain = preg_replace(['~^[a-z]+\:[\\/]*(?:www\d*\.)?~i', '~[\\/\:].*$~'], '', $CIDRAM['BlockInfo']['Referrer']);
+
     if (
-        $Trigger(preg_match('~trafers\.com~i', $CIDRAM['BlockInfo']['Referrer']), 'Trafers not permitted here') || // 2017.12.07
         $Trigger(preg_match(
-            '~(?:\d{1,8}[a-z]{1,2}|a(?:dviceforum|llknow|llwomen|rtdeko|vkzarabotok)|' .
+            '~(?:(?:\d{1,8}[a-z]{1,2}|a(?:dviceforum|llknow|llwomen|rtdeko|vkzarabotok)|' .
             'b(?:estoffer[a-z]{1,8}|if-ru|izru|luerobot|rillianty|uy-cheap-online)|ca' .
             'll-of-duty|earnian-money|f(?:inansov|or-marketersy|orsex|orum69|reenode|' .
             'reewlan)|get(?:-clickize|-more-free(?:er|ish)?-visitors|-your-social-but' .
@@ -57,10 +59,10 @@ if ($CIDRAM['BlockInfo']['Referrer']) {
             ':social-buttons\d?|traffic)|ilovevitaly|justprofit|law-(?:check-two|enfo' .
             'rcement-(?:bot-ff|check-three|ee)|six)|lsex|net-profits|one-a-plus|rusex' .
             'y|share-buttons|slow-website|social(?:-?buttons?-?.{0,2}|-traffic-\d+|-w' .
-            'idget)|traffic(?:[-2]cash|genius)|web-revenue)\.xyz~i',
-        $CIDRAM['BlockInfo']['Referrer']), 'Referrer spam detected') || // (info, site, top, tv, xn--p1ai, xyz) 2019.08.12
+            'idget)|traffic(?:[-2]cash|genius)|web-revenue)\.xyz)$~i',
+        $Domain), 'Referrer spam detected (' . $Domain . ')') || // (info, site, top, tv, xn--p1ai, xyz) 2019.08.14
         $Trigger(preg_match(
-            '~(?:(?:auto|-)seo-(?:services?|traffic)|3(?:-letter-domains|waynetworks)' .
+            '~(?:(?:(?:auto|-)seo-(?:services?|traffic)|3(?:-letter-domains|waynetworks)' .
             '?|\d-\d{0,4}(?:seo|best|free)(?:-?seo|-?best|-?free|-?share-buttons)|\d{' .
             '0,4}(?:-reasons-for-seo|dollars-seo|searchengines)|\d{1,2}(?:\D\D\d|-ste' .
             'ps-to-start-business|forex|inn|istoshop|kop|make-?money-?online|masterov' .
@@ -71,12 +73,12 @@ if ($CIDRAM['BlockInfo']['Referrer']) {
             'm|services-(?:b2b|wordpress)|smm)|top\d{0,4}-(?:seo|online)-(?:service|g' .
             'ames)|traffic(?:2cash|2money|monetizer?))\.(?:com|kz|ml|net|org|ru|ua)|(' .
             '?:auto|best)-?(?:deal-hdd|ping-service-usa|seo-?(?:offer|solution|tips))' .
-            '\.(?:blue|com|pro)~i',
-        $CIDRAM['BlockInfo']['Referrer']), 'Referrer spam detected') || // (Generic SEO/traffic refspam) 2019.08.12
+            '\.(?:blue|com|pro))$~i',
+        $Domain), 'Referrer spam detected (' . $Domain . ')') || // (Generic SEO/traffic refspam) 2019.08.14
         $Trigger(preg_match(
             '~(?:-blanca|-fulldrive|-zheleza|[a-z]{2,3}-lk-rt|dev-seo|kabinet-[-a-z\d' .
-            ']{1,16}|novosti-hi-tech|oklad|porn|ximoda)\.(?:blog|mobi|ru)~i',
-        $CIDRAM['BlockInfo']['Referrer']), 'Referrer spam detected') || // (blog, mobi, ru) 2019.08.12
+            ']{1,16}|novosti-hi-tech|oklad|porn|ximoda)\.(?:blog|mobi|ru)$~i',
+        $Domain), 'Referrer spam detected (' . $Domain . ')') || // (blog, mobi, ru) 2019.08.14
         $Trigger(preg_match(
             '~(?:(?:-kredit|xn--d1abj0abs9d)\.in|autoblog\.org|-dereva\.kiev)\.ua|(?:' .
             'ecommerce-seo|generalporn)\.org|-on-you\.ga|blog(?:\d+\.org|star\.fun|to' .
@@ -84,7 +86,7 @@ if ($CIDRAM['BlockInfo']['Referrer']) {
             'ive|hub-forum|slave)\.(?:com|ga|net|online|org|su|uni\.me)|scat\.porn|se' .
             'xyteens\.|topseoservices?\.co|xn--(?:--8sbarihbihxpxqgaf0g1e|e1agf4c)\.x' .
             'n--80adxhks|xn--.*\.su|xn--90acjmaltae3acm.xn--p1acf|xtraffic\.~i',
-        $CIDRAM['BlockInfo']['Referrer']), 'Referrer spam detected') || // (ua, su, porn refspam, etc) 2019.08.12
+        $Domain), 'Referrer spam detected (' . $Domain . ')') || // (ua, su, porn refspam, etc) 2019.08.12
         $Trigger(preg_match(
             '~(?:-v-krym|4-less|baixar-musicas-gratis|break-the-chains|buttons?-for-f' .
             'ree|cheaptraffic|doxysexy|fast-top|fb(?:ook)?-groups?-here|fix-website-e' .
@@ -93,15 +95,15 @@ if ($CIDRAM['BlockInfo']['Referrer']) {
             'no?(?:hub-ru|foradult|gig|nik|plen)|red-bracelets|sexyali|share-buttons|' .
             'success-seo|trusted-backlinks|video--production|wakeupseoconsultant|webm' .
             'aster-traffic|wordpress-start|xn--(?:--itbbudqejbfpg3l|80aanaardaperhcem' .
-            '4a6i|e1aaajzchnkg\.ru)|xtrafficplus|yes-do-now|youporn-ru)\.com~i',
-        $CIDRAM['BlockInfo']['Referrer']), 'Referrer spam detected') // (misc. other + more porn refspam) 2019.08.12
+            '4a6i|e1aaajzchnkg\.ru)|xtrafficplus|yes-do-now|youporn-ru)\.com$~i',
+        $Domain), 'Referrer spam detected (' . $Domain . ')') // (misc. other + more porn refspam) 2019.08.14
     ) {
-        $CIDRAM['Reporter']->report([10], ['Referrer spam originating from this address detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        $CIDRAM['Reporter']->report([10], ['Referrer spam originating from this address detected (' . $Domain . ').'], $CIDRAM['BlockInfo']['IPAddr']);
     }
 
     if ($Trigger(
-        preg_match('~delta-?search|vi-view\.com~i', $CIDRAM['BlockInfo']['Referrer']),
-        'Referrer spam detected'
+        preg_match('~delta-?search|vi-view\.com~i', $Domain),
+        'Referrer spam detected (' . $Domain . ')'
     )) {
         $CIDRAM['Reporter']->report(
             [10, 20],
@@ -111,22 +113,22 @@ if ($CIDRAM['BlockInfo']['Referrer']) {
     } // 2019.08.12
 
     if ($Trigger(preg_match(
-        '~[-b-df-hj-np-tv-z\d\.]{5}\.xyz|\.(?:country|cricket|gq|kim|link|party|r' .
-        'eview|science|work|xxx|xzone|zip)|powernetshop\.at|3w1\.eu|(?:cat-tree-h' .
-        'ouse|doctoryuval|justfree|netvibes|trafficfaker|webscutest)\.com|pyce\.i' .
-        'nfo|(?:bankinfodata|facialforum)\.net|icetv\.ru|dvd\d+\.com\.ua|(?:%d8%b' .
-        '3%d9%83%d8%b3|-24h\.|adultfriendfinder|aimtrust|cash-blog|eyeglassesonli' .
-        'neshop|filseclab|gayxzone|healingstartswithus||investblog|massagemiracle' .
-        '|mskhirakurves|myyogamassage|sobacos|typegetrich|web-ads|\.adult|\.box\.' .
-        'net|adult\.|avelox|bea?stiality|bestiality|c[1i]al[1i]s|deltasone|drugs(' .
-        '?:-|tore)|eroti[ck]|finddotcom|forex|gabapentin|geriforte|ginkg?o|hentai' .
-        '|incest|kamagra|laxative|lesbian|levitra|lexap|liker\.profile|lipitor|lo' .
-        'lita|meet-women|melaleuca|menthol|neurontin|nolvadex|paxil|pdfgen|pharma' .
-        '\.|pillz|plavix|propecia|prosti|rogaine|screenshot|shemale|sterapred|syn' .
-        'throid|tentacle|viagra|xanax)~i'
-    , $CIDRAM['BlockInfo']['Referrer']), 'Referrer spam detected')) {
-        $CIDRAM['Reporter']->report([10], ['Referrer spam originating from this address detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } // (Some of these are quite old and mightn't be relevant anymore) 2019.08.12
+        '~(?:[-b-df-hj-np-tv-z\d\.]{5}\.xyz|\.(?:country|cricket|gq|kim|link|part' .
+        'y|review|science|work|xxx|xzone|zip)|powernetshop\.at|3w1\.eu|(?:cat-tre' .
+        'e-house|doctoryuval|justfree|netvibes|traf(?:ers|ficfaker)|webscutest)\.' .
+        'com|pyce\.info|(?:bankinfodata|facialforum)\.net|icetv\.ru|dvd\d+\.com\.' .
+        'ua)$|(?:%d8%b3%d9%83%d8%b3|-24h\.|adultfriendfinder|aimtrust|cash-blog|e' .
+        'yeglassesonlineshop|filseclab|gayxzone|healingstartswithus||investblog|m' .
+        'assagemiracle|mskhirakurves|myyogamassage|sobacos|typegetrich|web-ads|\.' .
+        'adult|\.box\.net|adult\.|avelox|bea?stiality|bestiality|c[1i]al[1i]s|del' .
+        'tasone|drugs(?:-|tore)|eroti[ck]|finddotcom|forex|gabapentin|geriforte|g' .
+        'inkg?o|hentai|incest|kamagra|laxative|lesbian|levitra|lexap|liker\.profi' .
+        'le|lipitor|lolita|meet-women|melaleuca|menthol|neurontin|nolvadex|paxil|' .
+        'pdfgen|pharma\.|pillz|plavix|propecia|prosti|rogaine|screenshot|shemale|' .
+        'sterapred|synthroid|tentacle|viagra|xanax)~i'
+    , $Domain), 'Referrer spam detected (' . $Domain . ')')) {
+        $CIDRAM['Reporter']->report([10], ['Referrer spam originating from this address detected (' . $Domain . ').'], $CIDRAM['BlockInfo']['IPAddr']);
+    } // (Some of these are quite old and mightn't be relevant anymore) 2019.08.14
 
     $RefLC = strtolower($CIDRAM['BlockInfo']['Referrer']);
 
