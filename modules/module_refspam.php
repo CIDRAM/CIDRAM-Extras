@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Referrer spam module (last modified: 2019.08.14).
+ * This file: Referrer spam module (last modified: 2019.08.15).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -118,7 +118,7 @@ if ($CIDRAM['BlockInfo']['Referrer']) {
         'e-house|doctoryuval|justfree|netvibes|traf(?:ers|ficfaker)|webscutest)\.' .
         'com|pyce\.info|(?:bankinfodata|facialforum)\.net|icetv\.ru|dvd\d+\.com\.' .
         'ua)$|(?:%d8%b3%d9%83%d8%b3|-24h\.|adultfriendfinder|aimtrust|cash-blog|e' .
-        'yeglassesonlineshop|filseclab|gayxzone|healingstartswithus||investblog|m' .
+        'yeglassesonlineshop|filseclab|gayxzone|healingstartswithus|investblog|m' .
         'assagemiracle|mskhirakurves|myyogamassage|sobacos|typegetrich|web-ads|\.' .
         'adult|\.box\.net|adult\.|avelox|bea?stiality|bestiality|c[1i]al[1i]s|del' .
         'tasone|drugs(?:-|tore)|eroti[ck]|finddotcom|forex|gabapentin|geriforte|g' .
