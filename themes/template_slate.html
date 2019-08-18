@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{xmlLang}" xml:lang="{xmlLang}" dir="{textDir}">
+<html lang="{xmlLang}" xml:lang="{xmlLang}" dir="{Text Direction}">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="robots" content="noindex,nofollow" />
@@ -35,10 +35,10 @@ input{border:1px solid #999;color:#ccc;margin:2px;padding:2px}
     <div id="wrapper_inner">
       <hr />
       <div id="results">
-        <div id="denied">{denied}</div>
+        <div id="denied"{L10N-Lang-Attache}>{denied}</div>
       </div>
       <div id="detected">{ReasonMessage}</div>
-      <div id="mailsupport">{EmailAddr}</div>{recaptcha_div_include}
+      <div id="mailsupport"{L10N-Lang-Attache}>{EmailAddr}</div>{recaptcha_div_include}
       <hr />
       <div id="textBlock">
         {Output}
@@ -52,7 +52,7 @@ input{border:1px solid #999;color:#ccc;margin:2px;padding:2px}
       </div>
     </div>
   </div>
-  <div id="pp">{pp}</div>
+  <div id="pp"{L10N-Lang-Attache}>{pp}</div>
 </body>
 
 </html>
