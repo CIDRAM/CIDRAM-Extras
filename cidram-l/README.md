@@ -17,4 +17,4 @@ The currently available version of CIDRAM-L is "1.10.6".
 ---
 
 
-Last Updated: 5 June 2019 (2019.06.24).
+Last Updated: 24 June 2019 (2019.06.24).
