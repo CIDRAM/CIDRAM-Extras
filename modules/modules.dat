@@ -20,7 +20,7 @@ module_extras.php:
  Name: Optional security extras module
  Extended Description: Provides some limited protections against various attack vectors commonly used in requests.
  False Positive Risk: Medium
- Version: 2019.223.584
+ Version: 2019.256.236
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -30,7 +30,7 @@ module_extras.php:
   To:
    - module_extras.php
   Checksum:
-   - b0e2222ca1cd45b77646533873a860c8ca707d51022c59dbf3171204ca201f9f:22052
+   - 68921f73fafdd33280e7c64786bcbe0ad7500af669abdb4122f6d62494e8ff86:22018
  Used with: modules
  Reannotate: modules.dat
 module_baidublocker.php:

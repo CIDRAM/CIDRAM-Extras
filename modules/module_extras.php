@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2019.08.12).
+ * This file: Optional security extras module (last modified: 2019.09.14).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -45,14 +45,16 @@ if ($CIDRAM['BlockInfo']['rURI']) {
 
     $Trigger(preg_match('~(?:(/%e2%80%a6x|shrift)\.php|/get?(fwversion|mac))~', $LCNrURI), 'Hack attempt', '', $InstaBan); // 2017.02.25
 
-    $Trigger(preg_match('~author=\d+~i', $LCNrURI), 'WordPress user enumeration not allowed'); // 2017.03.22
-
-    /** Joomla image inserting tool bypass (WordPress user enumeration conflict). */
-    $Bypass(
-        ($CIDRAM['BlockInfo']['SignatureCount'] - $Infractions) > 0 &&
-        strpos($LCNrURI, 'administrator/') !== false &&
-        strpos($CIDRAM['BlockInfo']['WhyReason'], 'WordPress user enumeration not allowed') !== false,
-    'Joomla image inserting tool bypass (WordPress user enumeration conflict)'); // 2017.06.01
+    /** WordPress user enumeration (modified 2019.09.14). */
+    if ($Trigger(preg_match('~author=\d+~i', $LCNrURI), 'WordPress user enumeration not allowed')) {
+        $Bypass(
+            strpos($LCNrURI, 'administrator/') !== false,
+            'Joomla image inserting tool bypass (WordPress user enumeration conflict)'
+        ) || $Bypass(
+            strpos($LCNrURI, 'search.php?keywords=') !== false,
+            'phpBB search bypass (WordPress user enumeration conflict)'
+        );
+    }
 
     $Trigger((
         strpos($LCNrURI, 'wp-print.php?script=1') !== false || // 2017.10.07
