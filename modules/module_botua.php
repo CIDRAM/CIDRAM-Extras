@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2019.07.25).
+ * This file: Optional user agents module (last modified: 2019.10.01).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -154,7 +154,7 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
 
     $Trigger(preg_match(
         '~_sitemapper|3mir|a(?:boundex|dmantx|dnormcrawler|dvbot|lphaserver|thens' .
-        '|ttache)|blekko|blogsnowbot|cmscrawler|co(?:ccoc|llect|modo-webinspector' .
+        '|ttache)|blekko|blogsnowbot|bytespider|cmscrawler|co(?:ccoc|llect|modo-webinspector' .
         '-crawler|mpspy)|crawler(?:4j|\.feedback)|d(?:atacha|igout4uagent|ioscout' .
         '|kimrepbot|sarobot)|easou|exabot|f(?:astenterprisecrawler|astlwspider|in' .
         'd?bot|indlinks|loodgate|r[_-]?crawler)|hrcrawler|hubspot|i(?:mrbot|ntegr' .
@@ -165,7 +165,7 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
         't\.wordpress\.com|ystemscrawler)|takeout|tasapspider|tweetmeme|user-agen' .
         't|visaduhoc|vonchimpenfurlr|webtarantula|wolf|y(?:acy|isouspider|[ry]spi' .
         'der|unrang|unyun)|zoominfobot~',
-    $UANoSpace), 'Banned UA'); // 2019.05.21
+    $UANoSpace), 'Banned UA'); // 2019.10.01
 
     $Trigger(preg_match(
         '/^wp-iphone$/',

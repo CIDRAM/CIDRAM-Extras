@@ -176,7 +176,7 @@ module_ua.php:
 module_botua.php:
  Name: Optional user agents module
  False Positive Risk: Medium
- Version: 2019.205.785
+ Version: 2019.273.209
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -186,7 +186,7 @@ module_botua.php:
   To:
    - module_botua.php
   Checksum:
-   - e86d31659f5fc905dfa6db457bac50125ded1e94af232eb42323798db0b95045:20766
+   - 2087bd4470da94d8f6b4b2d4bb32228272fb387f4f2bd4c0668a9aaba1395214:20777
  Used with: modules
  Reannotate: modules.dat
 Chart.js:
