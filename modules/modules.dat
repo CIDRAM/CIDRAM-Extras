@@ -96,7 +96,7 @@ module_yandexblocker.php:
 module_badhosts.php:
  Name: Bad hosts blocker module
  False Positive Risk: Medium
- Version: 2019.205.785
+ Version: 2019.292.770
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -106,7 +106,7 @@ module_badhosts.php:
   To:
    - module_badhosts.php
   Checksum:
-   - 0260ede6e88f0d3339b60a72ad2a5d493ff4ca9346b4c5e185502002563a479a:18136
+   - 74721f885ce500b9aeb742d19f52c35190b45545fef969d5f3dc61bbbafdafd2:18437
  Used with: modules
  Reannotate: modules.dat
 module_badhosts_isps.php:
