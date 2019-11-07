@@ -16,6 +16,7 @@ Config Defaults:
    type: "bool"
    default: false
 L10N:
+ config_abuseipdb: "AbuseIPDB module configuration."
  config_abuseipdb_api_key: "Please enter your API key here (if you don't already have an API key, you can get one from the AbuseIPDB website)."
  config_abuseipdb_max_age_in_days: "The maximum age in days for which reports will be considered when performing lookups (must be a number between 1 and 365). Default = 365."
  config_abuseipdb_minimum_confidence_score: "The minimum confidence score required in order for CIDRAM to block an IP address (must be a number between 1 and 100). Default = 50."
