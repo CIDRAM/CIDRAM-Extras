@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Yandex blocker module (last modified: 2019.07.21).
+ * This file: Yandex blocker module (last modified: 2019.12.03).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -53,13 +53,15 @@ IPv4 Signatures
 95.108.128.0/17 Deny Яндекс запретили здесь
 109.235.160.0/21 Deny Яндекс запретили здесь
 141.8.128.0/18 Deny Яндекс запретили здесь
-178.154.128.0/17 Deny Яндекс запретили здесь
+178.154.128.0/18 Deny Яндекс запретили здесь
+178.154.192.0/19 Deny Яндекс запретили здесь
 185.32.185.0/24 Deny Яндекс запретили здесь
 185.32.186.0/23 Deny Яндекс запретили здесь
 185.71.76.0/22 Deny Яндекс запретили здесь
 213.180.192.0/19 Deny Яндекс запретили здесь
 Origin: RU
 100.43.64.0/19 Deny Яндекс запретили здесь
+199.21.96.0/22 Deny Яндекс запретили здесь
 199.36.240.0/22 Deny Яндекс запретили здесь
 Origin: US
 Tag: Yandex CIDRs
@@ -72,10 +74,11 @@ Options:
 IPv6 Signatures
 
 2001:678:384::/48 Deny Яндекс запретили здесь
-2620:10f:d000::/44 Deny Яндекс запретили здесь
 2a02:6b8::/29 Deny Яндекс запретили здесь
 2a02:5180::/32 Deny Яндекс запретили здесь
 Origin: RU
+2620:10f:d000::/44 Deny Яндекс запретили здесь
+Origin: US
 Tag: Yandex CIDRs
 ---
 Options:

@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad TLDs blocker module (last modified: 2018.04.08).
+ * This file: Bad TLDs blocker module (last modified: 2019.12.03).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -19,16 +19,23 @@ if (!defined('CIDRAM')) {
 /** Inherit trigger closure (see functions.php). */
 $Trigger = $CIDRAM['Trigger'];
 
-/** Inherit bypass closure (see functions.php). */
-$Bypass = $CIDRAM['Bypass'];
+/** Don't continue if compatibility indicators exist. */
+$DoNotContinue = (
+    strpos($CIDRAM['BlockInfo']['Signatures'], 'compat_bunnycdn.php') !== false
+);
 
 /** Fetch hostname. */
-if (empty($CIDRAM['Hostname'])) {
+if (!$DoNotContinue && empty($CIDRAM['Hostname'])) {
     $CIDRAM['Hostname'] = $CIDRAM['DNS-Reverse']($CIDRAM['BlockInfo']['IPAddr']);
 }
 
+/** Safety mechanism against false positives caused by failed lookups. */
+if (!$DoNotContinue && (!$CIDRAM['Hostname'] || preg_match('~^b\.in-addr-servers\.nstld~', $CIDRAM['Hostname']))) {
+    $DoNotContinue = true;
+}
+
 /** Signatures start here. */
-if ($CIDRAM['Hostname'] && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr']) {
+if (!$DoNotContinue && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr']) {
 
     $Trigger(preg_match(
         '~\.(?:bid|click|club?|country|cricket|date|diet|domain|download|fai' .

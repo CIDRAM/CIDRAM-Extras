@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2019.09.14).
+ * This file: Optional security extras module (last modified: 2019.12.03).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -30,11 +30,16 @@ $Trigger(count($_REQUEST) >= 500, 'Hack attempt', 'Too many request variables se
 /** Needed for some bypasses specific to WordPress (detects whether we're running as a WordPress plugin). */
 $is_WP_plugin = (defined('ABSPATH') || strtolower(str_replace("\\", '/', substr(__DIR__, -31))) === 'wp-content/plugins/cidram/vault');
 
+/** If enabled, block empty user agents. */
+if ($CIDRAM['Config']['extras']['block_empty_ua']) {
+    $Trigger(preg_replace('~[^\w\d]~i', '', $CIDRAM['BlockInfo']['UA']) === '', 'Empty UA');
+}
+
 /**
  * Signatures based on the reconstructed URI start from here.
  * Please report all false positives to https://github.com/CIDRAM/CIDRAM/issues
  */
-if ($CIDRAM['BlockInfo']['rURI']) {
+if ($CIDRAM['Config']['extras']['ruri'] && $CIDRAM['BlockInfo']['rURI']) {
     $LCNrURI = str_replace("\\", '/', strtolower($CIDRAM['BlockInfo']['rURI']));
 
     /** Directory traversal protection. */
@@ -72,7 +77,7 @@ if ($CIDRAM['BlockInfo']['rURI']) {
  * Query-based signatures start from here.
  * Please report all false positives to https://github.com/CIDRAM/CIDRAM/issues
  */
-if (!empty($_SERVER['QUERY_STRING'])) {
+if ($CIDRAM['Config']['extras']['query'] && !empty($_SERVER['QUERY_STRING'])) {
     $Query = str_replace("\\", '/', strtolower(urldecode($_SERVER['QUERY_STRING'])));
     $QueryNoSpace = preg_replace('/\s/', '', $Query);
 
@@ -201,15 +206,18 @@ if (!empty($_SERVER['QUERY_STRING'])) {
 
 }
 
-$Handle = fopen('php://input', 'rb');
-$RawInput = fread($Handle, 1048576);
-fclose($Handle);
+/** If enabled, fetch the first 1MB of raw input from the input stream. */
+if ($CIDRAM['Config']['extras']['raw']) {
+    $Handle = fopen('php://input', 'rb');
+    $RawInput = fread($Handle, 1048576);
+    fclose($Handle);
+}
 
 /**
  * Signatures based on raw input start from here.
  * Please report all false positives to https://github.com/CIDRAM/CIDRAM/issues
  */
-if ($RawInput) {
+if ($CIDRAM['Config']['extras']['raw'] && $RawInput) {
     $RawInputSafe = strtolower(preg_replace('/[\s\x00-\x1f\x7f-\xff]/', '', $RawInput));
 
     $Trigger(
@@ -320,7 +328,7 @@ if (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Accessing quarantined files not a
  * Signatures based on the original REQUEST_URI start from here.
  * Please report all false positives to https://github.com/CIDRAM/CIDRAM/issues
  */
-if (!empty($_SERVER['REQUEST_URI'])) {
+if ($CIDRAM['Config']['extras']['uri'] && !empty($_SERVER['REQUEST_URI'])) {
     $LCReqURI = str_replace("\\", '/', strtolower($_SERVER['REQUEST_URI']));
 
     /** Probing for webshells/backdoors. */

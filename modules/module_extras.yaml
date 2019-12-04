@@ -1,0 +1,36 @@
+##\
+# This file is a part of the CIDRAM package.
+# Homepage: https://cidram.github.io/
+#
+# CIDRAM COPYRIGHT 2016 and beyond by Caleb Mazalevskis (Maikuolan).
+#
+# License: GNU/GPLv2
+# @see LICENSE.txt
+#
+# This file: Optional security extras module configuration (last modified: 2019.12.03).
+##/
+
+Config Defaults:
+ extras:
+  block_empty_ua:
+   type: "bool"
+   default: true
+  ruri:
+   type: "bool"
+   default: true
+  query:
+   type: "bool"
+   default: true
+  raw:
+   type: "bool"
+   default: true
+  uri:
+   type: "bool"
+   default: true
+L10N:
+ config_extras: "Optional security extras module configuration."
+ config_extras_block_empty_ua: "Block empty user agents? Default = True."
+ config_extras_ruri: "Process signatures based on reconstructed URIs? Default = True."
+ config_extras_query: "Process signatures based on request queries? Default = True."
+ config_extras_raw: "Process signatures based on raw request input? Default = True."
+ config_extras_uri: "Process signatures based on request URIs? Default = True."

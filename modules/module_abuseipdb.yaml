@@ -1,3 +1,15 @@
+##\
+# This file is a part of the CIDRAM package.
+# Homepage: https://cidram.github.io/
+#
+# CIDRAM COPYRIGHT 2016 and beyond by Caleb Mazalevskis (Maikuolan).
+#
+# License: GNU/GPLv2
+# @see LICENSE.txt
+#
+# This file: AbuseIPDB module configuration (last modified: 2019.12.03).
+##/
+
 Config Defaults:
  abuseipdb:
   api_key:
