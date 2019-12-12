@@ -1,0 +1,32 @@
+>> fread>aggregate>fwrite=output.dat ipv4.dat,ipv4_bogons.dat,ipv4_isps.dat,ipv4_other.dat,ipv6.dat,ipv6_bogons.dat,ipv6_isps.dat,ipv6_other.dat
+
+Finished reading from ipv4.dat. <File: 720.27 KB> <RAM: 2.78 MB>
+Finished reading from ipv4_bogons.dat. <File: 438 bytes> <RAM: 2.78 MB>
+Finished reading from ipv4_isps.dat. <File: 294.56 KB> <RAM: 3.06 MB>
+Finished reading from ipv4_other.dat. <File: 37.85 KB> <RAM: 3.10 MB>
+Finished reading from ipv6.dat. <File: 176.33 KB> <RAM: 3.28 MB>
+Finished reading from ipv6_bogons.dat. <File: 629 bytes> <RAM: 3.28 MB>
+Finished reading from ipv6_isps.dat. <File: 57.58 KB> <RAM: 3.33 MB>
+Finished reading from ipv6_other.dat. <File: 5.97 KB> <RAM: 3.34 MB>
+
+IP Aggregator
+===
+
+Parse 1 ... 100.00% (Thu, 12 Dec 2019 15:21:26 +0800) <RAM: 5.29 MB>
+Parse 2 ... 100.00% (Thu, 12 Dec 2019 15:26:25 +0800) <RAM: 5.26 MB>
+Parse 3 ... 100.00% (Thu, 12 Dec 2019 15:26:29 +0800) <RAM: 5.72 MB>
+Parse 4 ... 100.00% (Thu, 12 Dec 2019 15:26:31 +0800) <RAM: 5.70 MB>
+Parse 5 ... 100.00% (Thu, 12 Dec 2019 15:26:33 +0800) <RAM: 5.69 MB>
+Parse 6 ... 100.00% (Thu, 12 Dec 2019 15:26:35 +0800) <RAM: 5.69 MB>
+Parse 7 ... 100.00% (Thu, 12 Dec 2019 15:26:37 +0800) <RAM: 5.69 MB>
+Parse 8 ... 100.00% (Thu, 12 Dec 2019 15:26:39 +0800) <RAM: 5.69 MB>
+Parse 9 ... 100.00% (Thu, 12 Dec 2019 15:26:41 +0800) <RAM: 5.69 MB>
+Parse 10 ... 100.00% (Thu, 12 Dec 2019 15:26:43 +0800) <RAM: 5.69 MB>
+Parse 11 ... 100.00% (Thu, 12 Dec 2019 15:26:45 +0800) <RAM: 5.69 MB>
+Parse 12 ... 100.00% (Thu, 12 Dec 2019 15:26:47 +0800) <RAM: 5.21 MB>
+
+Results (49,336 in – 12,849 rejected – 36,487 accepted – 5,540 merged – 30,947 out):
+
+Finished writing to output.dat. <File: 481.13 KB> <RAM: 4.90 MB>
+
+>>

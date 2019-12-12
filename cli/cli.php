@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: CLI for CIDRAM >= v2 (last modified: 2019.12.09).
+ * This file: CLI for CIDRAM >= v2 (last modified: 2019.12.12).
  */
 
 /** "CIDRAM" constant needed as sanity check for some required files. */
@@ -274,17 +274,22 @@ while (true) {
         $CIDRAM['Handle'] = fopen($CIDRAM['Vault'] . $CIDRAM['WriteTo'], 'wb');
         $CIDRAM['BlocksToDo'] = count($CIDRAM['Data']);
         $CIDRAM['ThisBlock'] = 0;
+        $CIDRAM['Filesize'] = 0;
         foreach ($CIDRAM['Data'] as $CIDRAM['ThisItem']) {
             $CIDRAM['ThisBlock']++;
+            $CIDRAM['Filesize'] += strlen($CIDRAM['ThisItem']);
             if ($CIDRAM['ThisBlock'] !== $CIDRAM['BlocksToDo']) {
                 $CIDRAM['ThisItem'] .= "\n";
+                $CIDRAM['Filesize']++;
             }
             fwrite($CIDRAM['Handle'], $CIDRAM['ThisItem']);
         }
-        echo "\r" . str_pad('Finished writing to ' . $CIDRAM['WriteTo'] . '.', 76, ' ') . "\n";
         fclose($CIDRAM['Handle']);
-        unset($CIDRAM['WriteTo'], $CIDRAM['Handle'], $CIDRAM['BlocksToDo'], $CIDRAM['ThisBlock']);
-        echo "\n";
+        $CIDRAM['MemoryUsage'] = memory_get_usage();
+        $CIDRAM['FormatFilesize']($CIDRAM['MemoryUsage']);
+        $CIDRAM['FormatFilesize']($CIDRAM['Filesize']);
+        echo 'Finished writing to ' . $CIDRAM['WriteTo'] . '. <' . $CIDRAM['L10N']->getString('field_file') . ': ' . $CIDRAM['Filesize'] . '> <RAM: ' . $CIDRAM['MemoryUsage'] . ">\n\n";
+        unset($CIDRAM['WriteTo'], $CIDRAM['Handle'], $CIDRAM['BlocksToDo'], $CIDRAM['ThisBlock'], $CIDRAM['MemoryUsage'], $CIDRAM['Filesize']);
         continue;
     }
 
@@ -304,6 +309,8 @@ while (true) {
                 }
             }
             $CIDRAM['ThisItemSize'] = filesize($CIDRAM['ThisItemTry']);
+            $CIDRAM['Filesize'] = $CIDRAM['ThisItemSize'];
+            $CIDRAM['FormatFilesize']($CIDRAM['Filesize']);
             $CIDRAM['ThisItemSize'] = $CIDRAM['ThisItemSize'] ? ceil($CIDRAM['ThisItemSize'] / 131072) : 0;
             if ($CIDRAM['ThisItemSize'] <= 0) {
                 echo "Failed to read " . $CIDRAM['ThisItem'] . "!\n";
@@ -315,10 +322,12 @@ while (true) {
                 $CIDRAM['Chain'] .= fread($CIDRAM['ThisItemTry'], 131072);
                 $CIDRAM['ThisItemCycle']++;
             }
-            echo "\r" . str_pad('Finished reading from ' . $CIDRAM['ThisItem'] . '.', 76, ' ') . "\n";
+            $CIDRAM['MemoryUsage'] = memory_get_usage();
+            $CIDRAM['FormatFilesize']($CIDRAM['MemoryUsage']);
+            echo 'Finished reading from ' . $CIDRAM['ThisItem'] . '. <' . $CIDRAM['L10N']->getString('field_file') . ': ' . $CIDRAM['Filesize'] . '> <RAM: ' . $CIDRAM['MemoryUsage'] . ">\n";
             fclose($CIDRAM['ThisItemTry']);
         }
-        unset($CIDRAM['ThisItemTry'], $CIDRAM['ThisItemSize'], $CIDRAM['ThisItemCycle']);
+        unset($CIDRAM['ThisItemTry'], $CIDRAM['ThisItemSize'], $CIDRAM['Filesize'], $CIDRAM['ThisItemCycle'], $CIDRAM['MemoryUsage']);
         echo "\n";
         continue;
     }
@@ -442,12 +451,41 @@ while (true) {
 
     /** Aggregate IPs/CIDRs. */
     if ($CIDRAM['cmd'] === 'aggregate' || substr($CIDRAM['cmd'], 0, 10) === 'aggregate=') {
+        echo $CIDRAM['L10N']->getString('link_ip_aggregator') . "\n===\n";
         $CIDRAM['OutputFormat'] = (substr($CIDRAM['cmd'], 10) === 'netmasks') ? 1 : 0;
         $CIDRAM['Aggregator'] = new \CIDRAM\Aggregator\Aggregator($CIDRAM, $CIDRAM['OutputFormat']);
         $CIDRAM['Data'] = implode($CIDRAM['Data'], "\n");
         $CIDRAM['Data'] = str_replace("\r", '', trim($CIDRAM['Data']));
-        $CIDRAM['Results'] = ['In' => 0, 'Rejected' => 0, 'Accepted' => 0, 'Merged' => 0, 'Out' => 0];
+        $CIDRAM['Results'] = ['In' => 0, 'Rejected' => 0, 'Accepted' => 0, 'Merged' => 0, 'Out' => 0, 'Parse' => 0, 'Tick' => 0, 'Measure' => 0];
+        $CIDRAM['Timer'] = 0;
+        $CIDRAM['Aggregator']->callbacks['newParse'] = function ($Measure) use (&$CIDRAM) {
+            if ($CIDRAM['Results']['Parse'] !== 0) {
+                $Memory = memory_get_usage();
+                $CIDRAM['FormatFilesize']($Memory);
+                echo "\rParse " . $CIDRAM['NumberFormatter']->format($CIDRAM['Results']['Parse']) . ' ... ' . $CIDRAM['NumberFormatter']->format(100, 2) . '% (' . $CIDRAM['TimeFormat'](time(), $CIDRAM['Config']['general']['time_format']) . ') <RAM: ' . $Memory . '>';
+            }
+            echo "\n";
+            $CIDRAM['Results']['Parse']++;
+            $CIDRAM['Results']['Tick'] = 0;
+            $CIDRAM['Results']['Timer'] = 0;
+            $CIDRAM['Results']['Measure'] = $Measure ?: $CIDRAM['Results']['In'];
+        };
+        $CIDRAM['Aggregator']->callbacks['newTick'] = function () use (&$CIDRAM) {
+            $CIDRAM['Results']['Tick']++;
+            $CIDRAM['Timer']++;
+            if ($CIDRAM['Results']['Tick'] >= $CIDRAM['Results']['Measure']) {
+                $CIDRAM['Results']['Measure']++;
+            }
+            if ($CIDRAM['Timer'] > 25) {
+                $CIDRAM['Timer'] = 0;
+                $Percent = $CIDRAM['NumberFormatter']->format(($CIDRAM['Results']['Tick'] / $CIDRAM['Results']['Measure']) * 100, 2);
+                echo "\rParse " . $CIDRAM['NumberFormatter']->format($CIDRAM['Results']['Parse']) . ' ... ' . $Percent . '%';
+            }
+        };
         $CIDRAM['Data'] = $CIDRAM['Aggregator']->aggregate($CIDRAM['Data']);
+        $CIDRAM['Results']['Memory'] = memory_get_usage();
+        $CIDRAM['FormatFilesize']($CIDRAM['Results']['Memory']);
+        echo "\rParse " . $CIDRAM['NumberFormatter']->format($CIDRAM['Results']['Parse']) . ' ... ' . $CIDRAM['NumberFormatter']->format(100, 2) . '% (' . $CIDRAM['TimeFormat'](time(), $CIDRAM['Config']['general']['time_format']) . ') <RAM: ' . $CIDRAM['Results']['Memory'] . ">\n\n";
         echo sprintf(
             $CIDRAM['L10N']->getString('label_results'),
             $CIDRAM['NumberFormatter']->format($CIDRAM['Results']['In']),
@@ -461,17 +499,46 @@ while (true) {
         } else {
             echo $CIDRAM['Data'] . "\n\n";
         }
-        unset($CIDRAM['Results'], $CIDRAM['Aggregator'], $CIDRAM['OutputFormat']);
+        unset($CIDRAM['Results'], $CIDRAM['Timer'], $CIDRAM['Aggregator'], $CIDRAM['OutputFormat']);
         continue;
     }
 
     /** Signature file fixer. */
     if ($CIDRAM['cmd'] === 'fix') {
+        echo $CIDRAM['L10N']->getString('link_fixer') . "\n===\n";
         $CIDRAM['Data'] = implode($CIDRAM['Data'], "\n");
         $CIDRAM['Fixer'] = [
             'Aggregator' => new \CIDRAM\Aggregator\Aggregator($CIDRAM),
-            'Before' => hash('sha256', $CIDRAM['Data']) . ':' . strlen($CIDRAM['Data'])
+            'Before' => hash('sha256', $CIDRAM['Data']) . ':' . strlen($CIDRAM['Data']),
+            'Timer' => 0,
+            'Parse' => 0,
+            'Tick' => 0,
+            'Measure' => 0,
         ];
+        $CIDRAM['Fixer']['Aggregator']->callbacks['newParse'] = function ($Measure) use (&$CIDRAM) {
+            if ($CIDRAM['Fixer']['Parse'] !== 0) {
+                $Memory = memory_get_usage();
+                $CIDRAM['FormatFilesize']($Memory);
+                echo "\rParse " . $CIDRAM['NumberFormatter']->format($CIDRAM['Fixer']['Parse']) . ' ... ' . $CIDRAM['NumberFormatter']->format(100, 2) . '% (' . $CIDRAM['TimeFormat'](time(), $CIDRAM['Config']['general']['time_format']) . ') <RAM: ' . $Memory . '>';
+            }
+            echo "\n";
+            $CIDRAM['Fixer']['Parse']++;
+            $CIDRAM['Fixer']['Tick'] = 0;
+            $CIDRAM['Fixer']['Timer'] = 0;
+            $CIDRAM['Fixer']['Measure'] = $Measure;
+        };
+        $CIDRAM['Fixer']['Aggregator']->callbacks['newTick'] = function () use (&$CIDRAM) {
+            $CIDRAM['Fixer']['Tick']++;
+            $CIDRAM['Fixer']['Timer']++;
+            if ($CIDRAM['Fixer']['Tick'] >= $CIDRAM['Fixer']['Measure']) {
+                $CIDRAM['Fixer']['Measure']++;
+            }
+            if ($CIDRAM['Fixer']['Timer'] > 25) {
+                $CIDRAM['Fixer']['Timer'] = 0;
+                $Percent = $CIDRAM['NumberFormatter']->format(($CIDRAM['Fixer']['Tick'] / $CIDRAM['Fixer']['Measure']) * 100, 2);
+                echo "\rParse " . $CIDRAM['NumberFormatter']->format($CIDRAM['Fixer']['Parse']) . ' ... ' . $Percent . '%';
+            }
+        };
         if (strpos($CIDRAM['Data'], "\r") !== false) {
             $CIDRAM['Data'] = str_replace("\r", '', $CIDRAM['Data']);
         }
@@ -541,6 +608,9 @@ while (true) {
             }
             return "\n" . $Data;
         }, true);
+        $CIDRAM['Fixer']['Memory'] = memory_get_usage();
+        $CIDRAM['FormatFilesize']($CIDRAM['Fixer']['Memory']);
+        echo "\rParse " . $CIDRAM['NumberFormatter']->format($CIDRAM['Fixer']['Parse']) . ' ... ' . $CIDRAM['NumberFormatter']->format(100, 2) . '% (' . $CIDRAM['TimeFormat'](time(), $CIDRAM['Config']['general']['time_format']) . ') <RAM: ' . $CIDRAM['Fixer']['Memory'] . ">\n\n";
         $CIDRAM['Data'] = trim($CIDRAM['Fixer']['StrObject']->recompile()) . "\n";
         $CIDRAM['Fixer']['After'] = hash('sha256', $CIDRAM['Data']) . ':' . strlen($CIDRAM['Data']);
         echo 'Checksum before: ' . $CIDRAM['Fixer']['Before'] . "\nChecksum after: " . $CIDRAM['Fixer']['After'] . "\n\n";
