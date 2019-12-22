@@ -116,7 +116,7 @@ theme/moss:
 theme/fullmoon:
  Name: Theme: Full Moon
  Extended Description: Darker, semi-transparent colours; Navigation shifted to the top; No special fonts; Full moon backdrop.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2019.312.697
+ Version: 2019.355.572
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -141,6 +141,7 @@ theme/fullmoon:
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_nav_logs_access_only.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_range.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_range_row.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_range_subtractor.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_sections.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_statistics.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_updates.html
@@ -168,6 +169,7 @@ theme/fullmoon:
    - fe_assets/fullmoon/_nav_logs_access_only.html
    - fe_assets/fullmoon/_range.html
    - fe_assets/fullmoon/_range_row.html
+   - fe_assets/fullmoon/_range_subtractor.html
    - fe_assets/fullmoon/_sections.html
    - fe_assets/fullmoon/_statistics.html
    - fe_assets/fullmoon/_updates.html
@@ -191,10 +193,11 @@ theme/fullmoon:
    - 840d57797d03ce8d6fd692bf5972262cd965032fda673958e733416b1b7ee5d3:924
    - 2cbdbccafa229ba570f1db35d7a5b90bb1f0e5e2b3322e2ef6a8b780844fee54:564
    - 5155593a44f63c1765a816f886cdecd700b337c29ef70568a200f2fedc43aad1:131
-   - b1ede12eb00648154b592280cf7407029f337269b6fc9b07b036f056e5ed83f9:994
+   - 827550ea28aa5bd91d79c4c0322289c5933ee3da96044409a9f4ababe02d2b65:1064
    - 83a45798ffccb8581ce0a19c0b362115377c8d20a7549bb75911f32d18637bcb:225
    - 490b65ddbbcb63678b608ba616ef14ad88e92fa0e9e10bfd42e5dc59d638114a:616
    - 1f85875ba371d03a1a7e359821b0c8be5d737fda00321439f290d95ada69d598:168
+   - 5dea8f0aef7eacf4ec44a1ecb61b82ff63225f675a5f0cac8b15bbd0187c5bf2:1036
    - 25926fe60915a4e511968d5d83e9b6f39e724575f2a4defb0bce17d95e5cc653:43
    - 6728dd99232fd822ab3128a0165de22befe83b47d8a791ab499b918225d0a7d7:2357
    - c1a761ff1c2f6a55b5a2b202b4bbe52481d9f96a49f212cf9883aa2fe7c93647:728
