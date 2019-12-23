@@ -292,4 +292,23 @@ module_refspam.php:
    - 74845a8df110433269c0e5a20b7519ab8c86d95ff5872d1206f270cd6cd9264a:10470
  Used with: modules
  Reannotate: modules.dat
+module_bgpview.php:
+ Name: BGPView module
+ False Positive Risk: Low
+ Version: 2019.356.390
+ Minimum Required: 2.2.0
+ Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
+ Uninstallable: true
+ Files:
+  From:
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_bgpview.php
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_bgpview.yaml
+  To:
+   - module_bgpview.php
+   - module_bgpview.yaml
+  Checksum:
+   - 9bb56cd5f0b2c18ce6694aaf8d3a45c049ac2593d419522c3153b5810050b5c6:4846
+   - 5fee4478bead1c859d27d56c6a756108276f6908dcf02bbd9687416426142584:1144
+ Used with: modules
+ Reannotate: modules.dat
 
