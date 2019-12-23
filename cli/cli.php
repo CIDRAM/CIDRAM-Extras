@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: CLI for CIDRAM >= v2 (last modified: 2019.12.12).
+ * This file: CLI for CIDRAM >= v2 (last modified: 2019.12.23).
  */
 
 /** "CIDRAM" constant needed as sanity check for some required files. */
@@ -59,7 +59,7 @@ if (
 }
 
 /** Show basic information. */
-echo "CIDRAM CLI mode (build 2019.342.383).
+echo "CIDRAM CLI mode (build 2019.356.436).
 
 To test whether an IP address is blocked by CIDRAM:
 >> test xxx.xxx.xxx.xxx
@@ -454,7 +454,7 @@ while (true) {
         echo $CIDRAM['L10N']->getString('link_ip_aggregator') . "\n===\n";
         $CIDRAM['OutputFormat'] = (substr($CIDRAM['cmd'], 10) === 'netmasks') ? 1 : 0;
         $CIDRAM['Aggregator'] = new \CIDRAM\Aggregator\Aggregator($CIDRAM, $CIDRAM['OutputFormat']);
-        $CIDRAM['Data'] = implode($CIDRAM['Data'], "\n");
+        $CIDRAM['Data'] = implode("\n", $CIDRAM['Data']);
         $CIDRAM['Data'] = str_replace("\r", '', trim($CIDRAM['Data']));
         $CIDRAM['Results'] = ['In' => 0, 'Rejected' => 0, 'Accepted' => 0, 'Merged' => 0, 'Out' => 0, 'Parse' => 0, 'Tick' => 0, 'Measure' => 0];
         $CIDRAM['Timer'] = 0;
@@ -506,7 +506,7 @@ while (true) {
     /** Signature file fixer. */
     if ($CIDRAM['cmd'] === 'fix') {
         echo $CIDRAM['L10N']->getString('link_fixer') . "\n===\n";
-        $CIDRAM['Data'] = implode($CIDRAM['Data'], "\n");
+        $CIDRAM['Data'] = implode("\n", $CIDRAM['Data']);
         $CIDRAM['Fixer'] = [
             'Aggregator' => new \CIDRAM\Aggregator\Aggregator($CIDRAM),
             'Before' => hash('sha256', $CIDRAM['Data']) . ':' . strlen($CIDRAM['Data']),
