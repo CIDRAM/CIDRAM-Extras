@@ -16,6 +16,9 @@ if (!defined('CIDRAM')) {
     die('[CIDRAM] This should not be accessed directly.');
 }
 
+/** Local BGPView cache entry expiry time (successful lookups). */
+$Expiry = $CIDRAM['Now'] + 604800;
+
 /** Build local BGPView cache if it doesn't already exist. */
 $CIDRAM['InitialiseCacheSection']('BGPView');
 
@@ -45,7 +48,7 @@ if (!$InCache) {
         substr($Lookup, 0, 63) === '{"status":"ok","status_message":"Query was successful","data":{' &&
         substr($Lookup, -2) === '}}'
     ) ? json_decode($Lookup, true) : false;
-    $CIDRAM['BGPView'][$CIDRAM['BlockInfo']['IPAddr'] . '/32'] = ['ASN' => -1, 'CC' => 'XX'];
+    $CIDRAM['BGPView'][$CIDRAM['BlockInfo']['IPAddr'] . '/32'] = ['ASN' => -1, 'CC' => 'XX', 'Time' => $Expiry];
     $CIDRAM['BGPView-Modified'] = true;
     if (isset($Lookup['data']['prefixes']) && is_array($Lookup['data']['prefixes'])) {
         foreach ($Lookup['data']['prefixes'] as $Prefix) {
@@ -53,7 +56,7 @@ if (!$InCache) {
             $ASN = isset($Prefix['asn']['asn']) ? $Prefix['asn']['asn'] : '';
             $CC = isset($Prefix['asn']['country_code']) ? $Prefix['asn']['country_code'] : '';
             if ($Factor && $ASN) {
-                $CIDRAM['BGPView'][$Factor] = ['ASN' => $ASN, 'CC' => $CC];
+                $CIDRAM['BGPView'][$Factor] = ['ASN' => $ASN, 'CC' => $CC, 'Time' => $Expiry];
             }
         }
     }
