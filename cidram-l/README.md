@@ -6,15 +6,15 @@
 
 CIDRAM-L, is a lightweight (or "lite") version of CIDRAM.
 
-The entire front-end, Packagist/Composer support, CLI support, Cronable support, and all language data (L10N data) other than English has been completely removed from the package. Front-end management, Packagist/Composer support, CLI support, Cronable support, and multilingual support are therefore not available in CIDRAM-L. If you need these things, use the standard CIDRAM package instead. All remaining files pertaining to the "core" component (or core operational files) of CIDRAM have been bundled into a PHAR file. Signature files and configuration remain separate (i.e., not in the PHAR file), as per the standard CIDRAM package. All other customisations (custom themes, modules, signature files, etc) that would otherwise be available in the standard CIDRAM package, remain available to the CIDRAM-L package. Because this is a separate package, all "CIDRAM" identifiers in the package have been changed to "CIDRAM-L" accordingly. Standard minimum requirements (PHP >= 5.4.0) remain the same. Configuration options remain the same (though some mightn't have any effect due to pertaining to things that've been removed from the package, such as front-end management and CLI support).
+The entire front-end, Packagist/Composer support, CLI support, Cronable support, and most L10N data has been completely removed from the package. Front-end management, Packagist/Composer support, CLI support, Cronable support, and multilingual support (to an extent) are therefore not available in CIDRAM-L. If you need these things, use the standard CIDRAM package instead. All remaining files pertaining to the "core" component (or core operational files) of CIDRAM have been bundled into a PHAR file. Signature files and configuration remain separate (i.e., not in the PHAR file), as per the standard CIDRAM package. All other customisations (custom themes, modules, signature files, etc) that would otherwise be available in the standard CIDRAM package, remain available to the CIDRAM-L package. Because this is a separate package, all "CIDRAM" identifiers in the package have been changed to "CIDRAM-L" accordingly. Standard minimum requirements per CIDRAM v1 (PHP >= 5.4.0) remain the same for CIDRAM-L v1. Configuration options remain the same (though some mightn't have any effect due to pertaining to things that've been removed from the package, such as front-end management and CLI support).
 
 This package has been made available by special request of some specific users. As this is intended to be a "lite" version of CIDRAM, it is highly unlikely that any additional features will be added in the future. New versions prepared on an as needed basis only. As this package has only been made available by special request, and as it isn't a primary goal of the CIDRAM project, support and development are both likely to be limited. CIDRAM-L had already been marked as legacy, and then deprecated in the past, then made unavailable. As it is now available again, future versions could thus effectively be considered "legacy", but I'll attempt to continue providing support where and when possible.
 
 CIDRAM-L is mostly used in the same way as CIDRAM, except that instead of calling the "loader.php" file, you'll call the "cidram-l.phar" file in your require statements. Unzip the CIDRAM-L package archive (cidram-l.zip) in the same way you'd normally unzip the CIDRAM package archive, and follow generally the same installation instructions provided for CIDRAM. If you need help, just ask.
 
-The currently available version of CIDRAM-L is "1.10.6".
+The currently available version of CIDRAM-L is "1.11.0".
 
 ---
 
 
-Last Updated: 24 June 2019 (2019.06.24).
+Last Updated: 23 December 2019 (2019.12.23).
