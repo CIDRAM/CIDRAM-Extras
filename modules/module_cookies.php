@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional cookie scanner module (last modified: 2019.07.25).
+ * This file: Optional cookie scanner module (last modified: 2020.01.11).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2) and its
  * cookie scanner module, which the cookie scanner module for CIDRAM is based
@@ -20,22 +20,34 @@ if (!defined('CIDRAM')) {
     die('[CIDRAM] This should not be accessed directly.');
 }
 
-/** Inherit trigger closure (see functions.php). */
-$Trigger = $CIDRAM['Trigger'];
+/** Safety. */
+if (!isset($CIDRAM['ModuleResCache'])) {
+    $CIDRAM['ModuleResCache'] = [];
+}
 
-/** Options for instantly banning (sets tracking time to 1 year and infraction count to 1000). */
-$InstaBan = ['Options' => ['TrackTime' => 31536000, 'TrackCount' => 1000]];
+/** Defining as closure for later recall (no params; no return value). */
+$CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
-/** Count cookies. */
-$Cookies = count($_COOKIE);
+    /** Inherit trigger closure (see functions.php). */
+    $Trigger = $CIDRAM['Trigger'];
 
-/** Signatures start from here. */
-if (!$Trigger($Cookies > 30, 'Cookie flood', 'Cookie flood detected!') && $Cookies) {
-    array_walk($_COOKIE, function ($Value, $Key) use (&$CIDRAM, &$Trigger, &$InstaBan) {
+    /** Count cookies. */
+    $Cookies = count($_COOKIE);
+
+    /** Guard and protection against flooding. */
+    if (!$Cookies || $Trigger($Cookies > 30, 'Cookie flood', 'Cookie flood detected!')) {
+        return;
+    }
+
+    /** Options for instantly banning (sets tracking time to 1 year and infraction count to 1000). */
+    $InstaBan = ['Options' => ['TrackTime' => 31536000, 'TrackCount' => 1000]];
+
+    /** Signatures start from here. */
+    foreach ($_COOKIE as $Key => $Value) {
 
         /** MyBB fix (skip iteration if value/key are unexpected types). */
         if (is_array($Key) || is_array($Value) || is_object($Key) || is_object($Value)) {
-            return;
+            continue;
         }
 
         $KeyLC = strtolower($Key);
@@ -106,19 +118,21 @@ if (!$Trigger($Cookies > 30, 'Cookie flood', 'Cookie flood detected!') && $Cooki
             ($Value == -1 || $Value == '-1') &&
             ($Key == 'ASP_NET_SessionId' || $Key == 'CID' || $Key == 'SID' || $Key == 'NID')
         ), 'ASP.NET hack detected', '', $InstaBan); // 2017.01.02
+    }
 
-    });
-}
+    /** Reporting. */
+    if (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Function call detected in cookie') !== false) {
+        $CIDRAM['Reporter']->report([15], ['Function call detected in cookie.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Command injection detected in cookie') !== false) {
+        $CIDRAM['Reporter']->report([15], ['Command injection detected in cookie.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Cookie hack detected') !== false) {
+        $CIDRAM['Reporter']->report([15], ['Cookie hack detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Shell upload attempted via cookies') !== false) {
+        $CIDRAM['Reporter']->report([15], ['Shell upload attempted via cookies.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Probe attempt') !== false) {
+        $CIDRAM['Reporter']->report([21], ['Probe attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+    }
+};
 
-/** Reporting. */
-if (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Function call detected in cookie') !== false) {
-    $CIDRAM['Reporter']->report([15], ['Function call detected in cookie.'], $CIDRAM['BlockInfo']['IPAddr']);
-} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Command injection detected in cookie') !== false) {
-    $CIDRAM['Reporter']->report([15], ['Command injection detected in cookie.'], $CIDRAM['BlockInfo']['IPAddr']);
-} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Cookie hack detected') !== false) {
-    $CIDRAM['Reporter']->report([15], ['Cookie hack detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Shell upload attempted via cookies') !== false) {
-    $CIDRAM['Reporter']->report([15], ['Shell upload attempted via cookies.'], $CIDRAM['BlockInfo']['IPAddr']);
-} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Probe attempt') !== false) {
-    $CIDRAM['Reporter']->report([21], ['Probe attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-}
+/** Execute closure. */
+$CIDRAM['ModuleResCache'][$Module]();

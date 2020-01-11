@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Referrer spam module (last modified: 2019.09.28).
+ * This file: Referrer spam module (last modified: 2020.01.11).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -16,18 +16,26 @@ if (!defined('CIDRAM')) {
     die('[CIDRAM] This should not be accessed directly.');
 }
 
-/** Inherit trigger closure (see functions.php). */
-$Trigger = $CIDRAM['Trigger'];
+/** Safety. */
+if (!isset($CIDRAM['ModuleResCache'])) {
+    $CIDRAM['ModuleResCache'] = [];
+}
 
-/**
- * Referrer-based signatures start from here.
- * Please report all false positives to https://github.com/CIDRAM/CIDRAM/issues
- */
-if ($CIDRAM['BlockInfo']['Referrer']) {
+/** Defining as closure for later recall (no params; no return value). */
+$CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
+
+    /** If the referrer isn't populated, exit early. */
+    if ($CIDRAM['BlockInfo']['Referrer'] === '') {
+        return;
+    }
+
+    /** Inherit trigger closure (see functions.php). */
+    $Trigger = $CIDRAM['Trigger'];
 
     /** Process to get the domain part. */
     $Domain = preg_replace(['~^[a-z]+\:[\\/]*(?:www\d*\.)?~i', '~[\\/\:].*$~'], '', $CIDRAM['BlockInfo']['Referrer']);
 
+    /** Signatures begin here. */
     if (
         $Trigger(preg_match(
             '~(?:(?:\d{1,8}[a-z]{1,2}|a(?:dviceforum|llknow|llwomen|rtdeko|vkzaraboto' .
@@ -157,5 +165,7 @@ if ($CIDRAM['BlockInfo']['Referrer']) {
     $RefLC = strtolower($CIDRAM['BlockInfo']['Referrer']);
 
     $Trigger($RefLC === '(null)', 'Illegal referrer'); // 2018.03.13
+};
 
-}
+/** Execute closure. */
+$CIDRAM['ModuleResCache'][$Module]();

@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Baidu blocker module (last modified: 2019.12.03).
+ * This file: Baidu blocker module (last modified: 2020.01.11).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -16,36 +16,46 @@ if (!defined('CIDRAM')) {
     die('[CIDRAM] This should not be accessed directly.');
 }
 
-/** Inherit trigger closure (see functions.php). */
-$Trigger = $CIDRAM['Trigger'];
-
-/** Options for instantly banning (sets tracking time to 1 year and infraction count to 1000). */
-$InstaBan = ['Options' => ['TrackTime' => 31536000, 'TrackCount' => 1000]];
-
-/** Set flag to ignore validation. */
-$CIDRAM['Flag-Bypass-Baidu-Check'] = true;
-
-/** Block based on UA. */
-$Trigger(strpos(strtolower($CIDRAM['BlockInfo']['UA']), 'baidu') !== false, 'Baidu UA', '百度被禁止从这里', $InstaBan);
-
-/** Fetch hostname. */
-if (empty($CIDRAM['Hostname'])) {
-    $CIDRAM['Hostname'] = $CIDRAM['DNS-Reverse']($CIDRAM['BlockInfo']['IPAddr']);
+/** Safety. */
+if (!isset($CIDRAM['ModuleResCache'])) {
+    $CIDRAM['ModuleResCache'] = [];
 }
 
-/** Block based on hostname. */
-$Trigger(strpos(strtolower($CIDRAM['Hostname']), 'baidu') !== false, 'Baidu Host', '百度被禁止从这里', $InstaBan);
+/** Defining as closure for later recall (no params; no return value). */
+$CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
+
+    /** Inherit trigger closure (see functions.php). */
+    $Trigger = $CIDRAM['Trigger'];
+
+    /** Options for instantly banning (sets tracking time to 1 year and infraction count to 1000). */
+    $InstaBan = ['Options' => ['TrackTime' => 31536000, 'TrackCount' => 1000]];
+
+    /** Set flag to ignore validation. */
+    $CIDRAM['Flag-Bypass-Baidu-Check'] = true;
+
+    /** Block based on UA. */
+    $Trigger(strpos(strtolower($CIDRAM['BlockInfo']['UA']), 'baidu') !== false, 'Baidu UA', '百度被禁止从这里', $InstaBan);
+
+    /** Fetch hostname. */
+    if (empty($CIDRAM['Hostname'])) {
+        $CIDRAM['Hostname'] = $CIDRAM['DNS-Reverse']($CIDRAM['BlockInfo']['IPAddr']);
+    }
+
+    /** Block based on hostname. */
+    $Trigger(strpos(strtolower($CIDRAM['Hostname']), 'baidu') !== false, 'Baidu Host', '百度被禁止从这里', $InstaBan);
+};
+
+/** Execute closure. */
+$CIDRAM['ModuleResCache'][$Module]();
 
 /*
-ASNs 38365, 38627, 45076, 55967
+ASNs 38365, 38627, 55967
 
 ---
 IPv4 Signatures
 
 106.12.0.0/15 Deny 百度被禁止从这里
 119.75.208.0/20 Deny 百度被禁止从这里
-150.242.120.0/24 Deny 百度被禁止从这里
-150.242.122.0/24 Deny 百度被禁止从这里
 180.76.0.0/16 Deny 百度被禁止从这里
 182.61.0.0/16 Deny 百度被禁止从这里
 202.46.48.0/20 Deny 百度被禁止从这里

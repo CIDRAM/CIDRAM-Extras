@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2019.12.03).
+ * This file: Bad hosts blocker module (last modified: 2020.01.11).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -16,32 +16,47 @@ if (!defined('CIDRAM')) {
     die('[CIDRAM] This should not be accessed directly.');
 }
 
-/** Inherit trigger closure (see functions.php). */
-$Trigger = $CIDRAM['Trigger'];
-
-/** Inherit bypass closure (see functions.php). */
-$Bypass = $CIDRAM['Bypass'];
-
-/** Options for instantly banning (sets tracking time to 1 year and infraction count to 1000). */
-$InstaBan = ['Options' => ['TrackTime' => 31536000, 'TrackCount' => 1000]];
-
-/** Don't continue if compatibility indicators exist. */
-$DoNotContinue = (
-    strpos($CIDRAM['BlockInfo']['Signatures'], 'compat_bunnycdn.php') !== false
-);
-
-/** Fetch hostname. */
-if (!$DoNotContinue && empty($CIDRAM['Hostname'])) {
-    $CIDRAM['Hostname'] = $CIDRAM['DNS-Reverse']($CIDRAM['BlockInfo']['IPAddr']);
+/** Safety. */
+if (!isset($CIDRAM['ModuleResCache'])) {
+    $CIDRAM['ModuleResCache'] = [];
 }
 
-/** Safety mechanism against false positives caused by failed lookups. */
-if (!$DoNotContinue && (!$CIDRAM['Hostname'] || preg_match('~^b\.in-addr-servers\.nstld~', $CIDRAM['Hostname']))) {
-    $DoNotContinue = true;
-}
+/**
+ * Defining as closure for later recall (one param; no return value).
+ *
+ * @param int $Infractions The number of infractions incurred thus far.
+ */
+$CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) {
 
-/** Signatures start here. */
-if (!$DoNotContinue && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr']) {
+    /** Don't continue if compatibility indicators exist. */
+    if (strpos($CIDRAM['BlockInfo']['Signatures'], 'compat_bunnycdn.php') !== false) {
+        return;
+    }
+
+    /** Fetch hostname. */
+    if (empty($CIDRAM['Hostname'])) {
+        $CIDRAM['Hostname'] = $CIDRAM['DNS-Reverse']($CIDRAM['BlockInfo']['IPAddr']);
+    }
+
+    /** Safety mechanism against false positives caused by failed lookups. */
+    if (
+        !$CIDRAM['Hostname'] ||
+        $CIDRAM['Hostname'] === $CIDRAM['BlockInfo']['IPAddr'] ||
+        preg_match('~^b\.in-addr-servers\.nstld~', $CIDRAM['Hostname'])
+    ) {
+        return;
+    }
+
+    /** Inherit trigger closure (see functions.php). */
+    $Trigger = $CIDRAM['Trigger'];
+
+    /** Inherit bypass closure (see functions.php). */
+    $Bypass = $CIDRAM['Bypass'];
+
+    /** Options for instantly banning (sets tracking time to 1 year and infraction count to 1000). */
+    $InstaBan = ['Options' => ['TrackTime' => 31536000, 'TrackCount' => 1000]];
+
+    /** Signatures start here. */
     $HN = preg_replace('/\s/', '', str_replace("\\", '/', strtolower(urldecode($CIDRAM['Hostname']))));
     $UA = str_replace("\\", '/', strtolower(urldecode($CIDRAM['BlockInfo']['UA'])));
     $UANoSpace = preg_replace('/\s/', '', $UA);
@@ -218,12 +233,10 @@ if (!$DoNotContinue && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr']) {
     $Trigger(preg_match('/veloxzone\.com\.br$/', $HN) && !preg_match('/\.user\.veloxzone\.com\.br$/', $HN), 'Cloud Service / Server Farm'); // 2017.02.14
 
     $Trigger(empty($CIDRAM['Ignore']['SoftLayer']) && preg_match('/softlayer\.com$/', $HN) && (
-        !substr_count($CIDRAM['BlockInfo']['UALC'], 'showyoubot') &&
         !substr_count($CIDRAM['BlockInfo']['UALC'], 'disqus') &&
-        !substr_count($CIDRAM['BlockInfo']['UA'], 'Feedspot http://www.feedspot.com') &&
         !substr_count($CIDRAM['BlockInfo']['UA'], 'Superfeedr bot/2.0') &&
         !substr_count($CIDRAM['BlockInfo']['UA'], 'Feedbot')
-    ), 'SoftLayer'); // 2017.01.21 (ASN 36351)
+    ), 'SoftLayer'); // 2017.01.21 (ASN 36351) modified 2020.01.11
 
     $Trigger(preg_match(
         '/(?:(starlogic|temka)\.biz$|ethymos\.com\.br$|(amplilogic|astranigh' .
@@ -243,14 +256,8 @@ if (!$DoNotContinue && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr']) {
             '/(?:alexa|postrank|twitt(urly|erfeed)|bitlybot|unwindfetchor|me' .
             'tauri|pinterest|silk-accelerated=true$)/',
         $UANoSpace) &&
-        substr($CIDRAM['BlockInfo']['UA'], -17) !== 'Digg Feed Fetcher' &&
-        substr($CIDRAM['BlockInfo']['UA'], -32) !== 'Feedspot http://www.feedspot.com' &&
-        substr($CIDRAM['BlockInfo']['UA'], 0, 18) !== 'NewRelicPinger/1.0' && !(
-            strpos($CIDRAM['BlockInfo']['UA'], '; KF') !== false &&
-            strpos($CIDRAM['BlockInfo']['UA'], 'Silk/') !== false &&
-            strpos($CIDRAM['BlockInfo']['UA'], 'like Chrome/') !== false
-        )
-    ), 'Amazon Web Services'); // 2017.02.14
+        substr($CIDRAM['BlockInfo']['UA'], -32) !== 'Feedspot http://www.feedspot.com'
+    ), 'Amazon Web Services'); // 2017.02.14 modified 2020.01.11
 
     $Trigger((
         empty($CIDRAM['Ignore']['OVH Systems']) &&
@@ -284,30 +291,32 @@ if (!$DoNotContinue && $CIDRAM['Hostname'] !== $CIDRAM['BlockInfo']['IPAddr']) {
         $Trigger(preg_match('~(?<!\w)tor(?!\w)|anonym|proxy~i', $HN), 'Proxy host'); // 2019.05.25
     }
 
-}
+    /** WordPress cronjob bypass. */
+    $Bypass(
+        (($CIDRAM['BlockInfo']['SignatureCount'] - $Infractions) > 0) &&
+        preg_match('~^/wp-cron\.php\?doing_wp_cron=\d+\.\d+$~', $_SERVER['REQUEST_URI']) &&
+        defined('DOING_CRON'),
+    'WordPress cronjob bypass'); // 2018.06.24
 
-/** WordPress cronjob bypass. */
-$Bypass(
-    (($CIDRAM['BlockInfo']['SignatureCount'] - $Infractions) > 0) &&
-    preg_match('~^/wp-cron\.php\?doing_wp_cron=\d+\.\d+$~', $_SERVER['REQUEST_URI']) &&
-    defined('DOING_CRON'),
-'WordPress cronjob bypass'); // 2018.06.24
+    /** Conjunctive reporting. */
+    if (preg_match('~Spoofed/Fake Hostname|Dangerous Host|Questionable Host|DNS error~i', $CIDRAM['BlockInfo']['WhyReason'])) {
+        $CIDRAM['Reporter']->report([20], [], $CIDRAM['BlockInfo']['IPAddr']);
+    }
+    if (preg_match('~(?:VPN|Proxy) Host~i', $CIDRAM['BlockInfo']['WhyReason'])) {
+        $CIDRAM['Reporter']->report([9, 13], [], $CIDRAM['BlockInfo']['IPAddr']);
+    }
 
-/** Conjunctive reporting. */
-if (preg_match('~Spoofed/Fake Hostname|Dangerous Host|Questionable Host|DNS error~i', $CIDRAM['BlockInfo']['WhyReason'])) {
-    $CIDRAM['Reporter']->report([20], [], $CIDRAM['BlockInfo']['IPAddr']);
-}
-if (preg_match('~(?:VPN|Proxy) Host~i', $CIDRAM['BlockInfo']['WhyReason'])) {
-    $CIDRAM['Reporter']->report([9, 13], [], $CIDRAM['BlockInfo']['IPAddr']);
-}
+    /** Reporting. */
+    if (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Banned hostname') !== false) {
+        $CIDRAM['Reporter']->report([15], ['Hack attempt via hostname detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Hostname script injection') !== false) {
+        $CIDRAM['Reporter']->report([15], ['Script injection via hostname detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'CAPTCHA cracker host') !== false) {
+        $CIDRAM['Reporter']->report([15], ['CAPTCHA cracker detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'esonicspider') !== false) {
+        $CIDRAM['Reporter']->report([21], ['esonicspider detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
+    }
+};
 
-/** Reporting. */
-if (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Banned hostname') !== false) {
-    $CIDRAM['Reporter']->report([15], ['Hack attempt via hostname detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
-} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Hostname script injection') !== false) {
-    $CIDRAM['Reporter']->report([15], ['Script injection via hostname detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
-} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'CAPTCHA cracker host') !== false) {
-    $CIDRAM['Reporter']->report([15], ['CAPTCHA cracker detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
-} elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'esonicspider') !== false) {
-    $CIDRAM['Reporter']->report([21], ['esonicspider detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
-}
+/** Execute closure. */
+$CIDRAM['ModuleResCache'][$Module]($Infractions);

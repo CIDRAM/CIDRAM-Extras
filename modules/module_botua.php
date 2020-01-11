@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2019.10.01).
+ * This file: Optional user agents module (last modified: 2020.01.11).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -16,17 +16,28 @@ if (!defined('CIDRAM')) {
     die('[CIDRAM] This should not be accessed directly.');
 }
 
-/** Inherit trigger closure (see functions.php). */
-$Trigger = $CIDRAM['Trigger'];
+/** Safety. */
+if (!isset($CIDRAM['ModuleResCache'])) {
+    $CIDRAM['ModuleResCache'] = [];
+}
 
-/** Options for instantly banning (sets tracking time to 1 year and infraction count to 1000). */
-$InstaBan = ['Options' => ['TrackTime' => 31536000, 'TrackCount' => 1000]];
+/** Defining as closure for later recall (no params; no return value). */
+$CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
-/**
- * UA-based signatures start from here (UA = User Agent).
- * Please report all false positives to https://github.com/CIDRAM/CIDRAM/issues
- */
-if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) > 4096, 'Bad UA', 'User agent string is too long!')) {
+    /** Inherit trigger closure (see functions.php). */
+    $Trigger = $CIDRAM['Trigger'];
+
+    /**
+     * UA-based signatures start from here (UA = User Agent).
+     * Please report all false positives to https://github.com/CIDRAM/CIDRAM/issues
+     */
+    if (!$CIDRAM['BlockInfo']['UA'] || $Trigger(strlen($CIDRAM['BlockInfo']['UA']) > 4096, 'Bad UA', 'User agent string is too long!')) {
+        return;
+    }
+
+    /** Options for instantly banning (sets tracking time to 1 year and infraction count to 1000). */
+    $InstaBan = ['Options' => ['TrackTime' => 31536000, 'TrackCount' => 1000]];
+
     $UA = str_replace("\\", '/', strtolower(urldecode($CIDRAM['BlockInfo']['UA'])));
     $UANoSpace = preg_replace('/\s/', '', $UA);
 
@@ -314,5 +325,7 @@ if ($CIDRAM['BlockInfo']['UA'] && !$Trigger(strlen($CIDRAM['BlockInfo']['UA']) >
     } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'bittorrent') !== false) {
         $CIDRAM['Reporter']->report([4, 19], ['BitTorrent user agent seen at HTTP server endpoint (possible flood/DDoS attempt).'], $CIDRAM['BlockInfo']['IPAddr']);
     }
+};
 
-}
+/** Execute closure. */
+$CIDRAM['ModuleResCache'][$Module]();

@@ -7,7 +7,7 @@
 # License: GNU/GPLv2
 # @see LICENSE.txt
 #
-# This file: BGPView module configuration (last modified: 2019.12.23).
+# This file: BGPView module configuration (last modified: 2020.01.11).
 ##/
 
 Config Defaults:
@@ -25,7 +25,7 @@ Config Defaults:
    type: "string"
    default: ""
 L10N:
- config_bgpview: "BGPView module configuration."
+ config_bgpview: "BGPView module configuration (provides an ASN and country code lookup facility for CIDRAM)."
  config_bgpview_blocked_asns: "A comma-separated list of ASNs to be blocked when matched by the BGPView module."
  config_bgpview_whitelisted_asns: "A comma-separated list of ASNs to be whitelisted when matched by the BGPView module."
  config_bgpview_blocked_ccs: "A comma-separated list of countries (identified by their ISO-3166 2-digit country codes) to be blocked when matched by the BGPView module."

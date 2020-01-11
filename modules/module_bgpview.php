@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: BGPView module (last modified: 2019.12.23).
+ * This file: BGPView module (last modified: 2020.01.11).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -16,103 +16,135 @@ if (!defined('CIDRAM')) {
     die('[CIDRAM] This should not be accessed directly.');
 }
 
-/** Local BGPView cache entry expiry time (successful lookups). */
-$Expiry = $CIDRAM['Now'] + 604800;
+/** Safety. */
+if (!isset($CIDRAM['ModuleResCache'])) {
+    $CIDRAM['ModuleResCache'] = [];
+}
 
-/** Build local BGPView cache if it doesn't already exist. */
-$CIDRAM['InitialiseCacheSection']('BGPView');
+/** Defining as closure for later recall (no params; no return value). */
+$CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
-$InCache = false;
+    /** Inherit trigger closure (see functions.php). */
+    $Trigger = $CIDRAM['Trigger'];
 
-/** Expand factors for this origin. */
-$Expanded = [$CIDRAM['ExpandIPv4']($CIDRAM['BlockInfo']['IPAddr']), $CIDRAM['ExpandIPv6']($CIDRAM['BlockInfo']['IPAddr'])];
+    /** Local BGPView cache entry expiry time (successful lookups). */
+    $Expiry = $CIDRAM['Now'] + 604800;
 
-/** Check whether we've already performed a lookup for this origin. */
-foreach ($Expanded as $Factors) {
-    if (!is_array($Factors)) {
-        continue;
-    }
-    foreach ($Factors as $Factor) {
-        if (!isset($CIDRAM['BGPView'][$Factor])) {
+    /** Build local BGPView cache if it doesn't already exist. */
+    $CIDRAM['InitialiseCacheSection']('BGPView');
+
+    $InCache = false;
+
+    /** Expand factors for this origin. */
+    $Expanded = [$CIDRAM['ExpandIPv4']($CIDRAM['BlockInfo']['IPAddr']), $CIDRAM['ExpandIPv6']($CIDRAM['BlockInfo']['IPAddr'])];
+
+    /** Check whether we've already performed a lookup for this origin. */
+    foreach ($Expanded as $Factors) {
+        if (!is_array($Factors)) {
             continue;
         }
-        $InCache = true;
-        break 2;
+        foreach ($Factors as $Factor) {
+            if (!isset($CIDRAM['BGPView'][$Factor])) {
+                continue;
+            }
+            $InCache = true;
+            break 2;
+        }
     }
-}
 
-/** Prepare to perform a new lookup if none for this origin have been cached yet. */
-if (!$InCache) {
-    $Lookup = $CIDRAM['Request']('https://api.bgpview.io/ip/' . $CIDRAM['BlockInfo']['IPAddr']);
-    $Lookup = (
-        substr($Lookup, 0, 63) === '{"status":"ok","status_message":"Query was successful","data":{' &&
-        substr($Lookup, -2) === '}}'
-    ) ? json_decode($Lookup, true) : false;
-    $CIDRAM['BGPView'][$CIDRAM['BlockInfo']['IPAddr'] . '/32'] = ['ASN' => -1, 'CC' => 'XX', 'Time' => $Expiry];
-    $CIDRAM['BGPView-Modified'] = true;
-    if (isset($Lookup['data']['prefixes']) && is_array($Lookup['data']['prefixes'])) {
-        foreach ($Lookup['data']['prefixes'] as $Prefix) {
-            $Factor = isset($Prefix['prefix']) ? $Prefix['prefix'] : '';
-            $ASN = isset($Prefix['asn']['asn']) ? $Prefix['asn']['asn'] : '';
-            $CC = isset($Prefix['asn']['country_code']) ? $Prefix['asn']['country_code'] : '';
-            if ($Factor && $ASN) {
-                $CIDRAM['BGPView'][$Factor] = ['ASN' => $ASN, 'CC' => $CC, 'Time' => $Expiry];
+    /** Prepare to perform a new lookup if none for this origin have been cached yet. */
+    if (!$InCache) {
+        $Lookup = $CIDRAM['Request']('https://api.bgpview.io/ip/' . $CIDRAM['BlockInfo']['IPAddr']);
+        $Lookup = (
+            substr($Lookup, 0, 63) === '{"status":"ok","status_message":"Query was successful","data":{' &&
+            substr($Lookup, -2) === '}}'
+        ) ? json_decode($Lookup, true) : false;
+        $CIDRAM['BGPView'][$CIDRAM['BlockInfo']['IPAddr'] . '/32'] = ['ASN' => -1, 'CC' => 'XX', 'Time' => $Expiry];
+        $CIDRAM['BGPView-Modified'] = true;
+        if (isset($Lookup['data']['prefixes']) && is_array($Lookup['data']['prefixes'])) {
+            foreach ($Lookup['data']['prefixes'] as $Prefix) {
+                $Factor = isset($Prefix['prefix']) ? $Prefix['prefix'] : false;
+                $ASN = isset($Prefix['asn']['asn']) ? $Prefix['asn']['asn'] : false;
+                $CC = isset($Prefix['asn']['country_code']) ? $Prefix['asn']['country_code'] : 'XX';
+                if ($Factor && $ASN) {
+                    $CIDRAM['BGPView'][$Factor] = ['ASN' => $ASN, 'CC' => $CC, 'Time' => $Expiry];
+                }
             }
         }
     }
-}
 
-/** Prepare to perform a new lookup if none for this origin have been cached yet. */
-foreach ($Expanded as $Factors) {
-    if (!is_array($Factors)) {
-        continue;
-    }
-    foreach ($Factors as $Factor) {
-        if (!isset($CIDRAM['BGPView'][$Factor])) {
+    /** Process lookup results for this origin and act as per configured. */
+    foreach ($Expanded as $Factors) {
+        if (!is_array($Factors)) {
             continue;
         }
+        foreach ($Factors as $Factor) {
+            if (!isset($CIDRAM['BGPView'][$Factor])) {
+                continue;
+            }
 
-        /** Act based on ASN. */
-        if (isset($CIDRAM['BGPView'][$Factor]['ASN'])) {
-            if ($CIDRAM['in_csv']($CIDRAM['BGPView'][$Factor]['ASN'], $CIDRAM['Config']['bgpview']['whitelisted_asns'])) {
+            /** Act based on ASN. */
+            if (isset($CIDRAM['BGPView'][$Factor]['ASN'])) {
+
+                /** Populate ASN lookup information. */
+                if ($CIDRAM['BGPView'][$Factor]['ASN'] > 0) {
+                    $CIDRAM['BlockInfo']['ASNLookup'] = $CIDRAM['BGPView'][$Factor]['ASN'];
+                }
+
                 /** Origin is whitelisted. */
-                $CIDRAM['ZeroOutBlockInfo'](true);
-                break 2;
-            } elseif ($CIDRAM['in_csv']($CIDRAM['BGPView'][$Factor]['ASN'], $CIDRAM['Config']['bgpview']['blocked_asns'])) {
+                if ($CIDRAM['in_csv']($CIDRAM['BGPView'][$Factor]['ASN'], $CIDRAM['Config']['bgpview']['whitelisted_asns'])) {
+                    $CIDRAM['ZeroOutBlockInfo'](true);
+                    break 2;
+                }
+
                 /** Origin is blocked. */
-                $CIDRAM['BlockInfo']['ReasonMessage'] = $CIDRAM['L10N']->getString('ReasonMessage_Generic');
-                if (!empty($CIDRAM['BlockInfo']['WhyReason'])) {
-                    $CIDRAM['BlockInfo']['WhyReason'] .= ', ';
+                if ($CIDRAM['in_csv']($CIDRAM['BGPView'][$Factor]['ASN'], $CIDRAM['Config']['bgpview']['blocked_asns'])) {
+                    $CIDRAM['BlockInfo']['ReasonMessage'] = $CIDRAM['L10N']->getString('ReasonMessage_Generic');
+                    if (!empty($CIDRAM['BlockInfo']['WhyReason'])) {
+                        $CIDRAM['BlockInfo']['WhyReason'] .= ', ';
+                    }
+                    $CIDRAM['BlockInfo']['WhyReason'] .= $CIDRAM['L10N']->getString('Short_Generic') . ' (BGPView)';
+                    if (!empty($CIDRAM['BlockInfo']['Signatures'])) {
+                        $CIDRAM['BlockInfo']['Signatures'] .= ', ';
+                    }
+                    $CIDRAM['BlockInfo']['Signatures'] .= $Factor;
+                    $CIDRAM['BlockInfo']['SignatureCount']++;
+
                 }
-                $CIDRAM['BlockInfo']['WhyReason'] .= $CIDRAM['L10N']->getString('Short_Generic') . ' (BGPView)';
-                if (!empty($CIDRAM['BlockInfo']['Signatures'])) {
-                    $CIDRAM['BlockInfo']['Signatures'] .= ', ';
+            }
+
+            /** Act based on CC. */
+            if (isset($CIDRAM['BGPView'][$Factor]['CC'])) {
+
+                /** Populate country code lookup information. */
+                if ($CIDRAM['BGPView'][$Factor]['CC'] !== 'XX') {
+                    $CIDRAM['BlockInfo']['CCLookup'] = $CIDRAM['BGPView'][$Factor]['CC'];
                 }
-                $CIDRAM['BlockInfo']['Signatures'] .= $Factor;
-                $CIDRAM['BlockInfo']['SignatureCount']++;
+
+                /** Origin is whitelisted. */
+                if ($CIDRAM['in_csv']($CIDRAM['BGPView'][$Factor]['CC'], $CIDRAM['Config']['bgpview']['whitelisted_ccs'])) {
+                    $CIDRAM['ZeroOutBlockInfo'](true);
+                    break 2;
+                }
+
+                /** Origin is blocked. */
+                if ($CIDRAM['in_csv']($CIDRAM['BGPView'][$Factor]['CC'], $CIDRAM['Config']['bgpview']['blocked_ccs'])) {
+                    $CIDRAM['BlockInfo']['ReasonMessage'] = 'No access allowed from ' . $CIDRAM['BGPView'][$Factor]['CC'] . '.';
+                    if (!empty($CIDRAM['BlockInfo']['WhyReason'])) {
+                        $CIDRAM['BlockInfo']['WhyReason'] .= ', ';
+                    }
+                    $CIDRAM['BlockInfo']['WhyReason'] .= 'CC (BGPView)';
+                    if (!empty($CIDRAM['BlockInfo']['Signatures'])) {
+                        $CIDRAM['BlockInfo']['Signatures'] .= ', ';
+                    }
+                    $CIDRAM['BlockInfo']['Signatures'] .= $Factor;
+                    $CIDRAM['BlockInfo']['SignatureCount']++;
+
+                }
             }
         }
-
-        /** Act based on CC. */
-        if (isset($CIDRAM['BGPView'][$Factor]['CC'])) {
-            if ($CIDRAM['in_csv']($CIDRAM['BGPView'][$Factor]['CC'], $CIDRAM['Config']['bgpview']['whitelisted_ccs'])) {
-                /** Origin is whitelisted. */
-                $CIDRAM['ZeroOutBlockInfo'](true);
-                break 2;
-            } elseif ($CIDRAM['in_csv']($CIDRAM['BGPView'][$Factor]['CC'], $CIDRAM['Config']['bgpview']['blocked_ccs'])) {
-                /** Origin is blocked. */
-                $CIDRAM['BlockInfo']['ReasonMessage'] = 'No access allowed from ' . $CIDRAM['BGPView'][$Factor]['CC'] . '.';
-                if (!empty($CIDRAM['BlockInfo']['WhyReason'])) {
-                    $CIDRAM['BlockInfo']['WhyReason'] .= ', ';
-                }
-                $CIDRAM['BlockInfo']['WhyReason'] .= 'CC (BGPView)';
-                if (!empty($CIDRAM['BlockInfo']['Signatures'])) {
-                    $CIDRAM['BlockInfo']['Signatures'] .= ', ';
-                }
-                $CIDRAM['BlockInfo']['Signatures'] .= $Factor;
-                $CIDRAM['BlockInfo']['SignatureCount']++;
-            }
-        }
-
     }
-}
+};
+
+/** Execute closure. */
+$CIDRAM['ModuleResCache'][$Module]();

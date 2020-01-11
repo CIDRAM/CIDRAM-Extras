@@ -2,7 +2,7 @@
 module_cookies.php:
  Name: Optional cookie scanner module
  False Positive Risk: Low
- Version: 2019.205.785
+ Version: 2020.10.562
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -12,13 +12,13 @@ module_cookies.php:
   To:
    - module_cookies.php
   Checksum:
-   - ae17c3c35b7c21124804c325d1a29d9ebfcb9137fd13dd9c288d6b96e02b8e0d:7781
+   - 07a6f89a828f9425b3a9af77a764e8a1351d0c535ff4650bcaf22ccf18739e5d:8187
  Used with: modules
  Reannotate: modules.dat
 module_extras.php:
  Name: Optional security extras module
  False Positive Risk: Medium
- Version: 2019.336.685
+ Version: 2020.10.562
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  When Update Succeeds:
@@ -34,7 +34,7 @@ module_extras.php:
    - module_extras.php
    - module_extras.yaml
   Checksum:
-   - 0c4f5907479137883be16280b236e672504a6c75cf35386531114c036069f050:22497
+   - 4dfee56fa137e95d3b304cf3d1b6a0b4b2ee4760d1fe5b3a65392161ff680727:24042
    - a794d27f0aaf79b3b37a9c53cbc9e05c91b7fc5fe6cebb9d491f9853efc9fed0:1017
  Used with: modules
  Reannotate: modules.dat
@@ -57,7 +57,7 @@ module_baidublocker.php:
   zh: 可用由于请求。​<span class="txtRd">警告：将销毁百度网页排名为您的网站。​中文用户的网站应避免使用此模块。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
   zh-tw: 可用由於請求。​<span class="txtRd">警告：將銷毀百度網頁排名為您的網站。​中文用戶的網站應避免使用此模塊。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
- Version: 2019.336.685
+ Version: 2020.10.562
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -67,7 +67,7 @@ module_baidublocker.php:
   To:
    - module_baidublocker.php
   Checksum:
-   - 0781a352d36c023efaf8f98153b5f3e9044f10539bcd14d1393cb798df386aa0:2443
+   - 3282c6d7ba69e7df3cbddefbf6b92b613bc25a481c1c3cda84132684f8c055ef:2700
  Reannotate: modules.dat
 module_yandexblocker.php:
  Name: Yandex blocker module
@@ -88,7 +88,7 @@ module_yandexblocker.php:
   zh: 可用由于请求。​<span class="txtRd">警告：将销毁Yandex网页排名为您的网站。​俄文用户的网站应避免使用此模块。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
   zh-tw: 可用由於請求。​<span class="txtRd">警告：將銷毀Yandex網頁排名為您的網站。​俄文用戶的網站應避免使用此模塊。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
- Version: 2019.336.685
+ Version: 2020.10.562
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -98,12 +98,12 @@ module_yandexblocker.php:
   To:
    - module_yandexblocker.php
   Checksum:
-   - 1665db729a56c7c8f3d186f4643d04fbedeeda97f8b0aa9923bc62401e872ae2:3056
+   - 5f263f4baad2479ec839008e2c1a4516ffe60c9bb072dfbd0c73f3358fe5b49c:3769
  Reannotate: modules.dat
 module_badhosts.php:
  Name: Bad hosts blocker module
  False Positive Risk: Medium
- Version: 2019.336.685
+ Version: 2020.10.562
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -113,13 +113,13 @@ module_badhosts.php:
   To:
    - module_badhosts.php
   Checksum:
-   - 8f896d3fe50438b3818af5e26ede0374de0cf65aee4582c712294c72563081dd:18548
+   - 923d564947a86d98b5573fda36656f072f50fbda15a3d875b8a108709c6ec535:18572
  Used with: modules
  Reannotate: modules.dat
 module_badhosts_isps.php:
  Name: Bad hosts blocker module (ISPs)
  False Positive Risk: High
- Version: 2019.336.685
+ Version: 2020.10.562
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -129,13 +129,13 @@ module_badhosts_isps.php:
   To:
    - module_badhosts_isps.php
   Checksum:
-   - 60e058c32b7fddc9ae76f32087d3360cba8488f064662bf48a27087d7a83bfe4:2127
+   - 02cf0f30b6b64448cb7f95b929eb4b5c58bf5afcaad92ed9799f1b427c2e3a2a:2547
  Used with: modules
  Reannotate: modules.dat
 module_badtlds.php:
  Name: Bad TLDs blocker module
  False Positive Risk: Low
- Version: 2019.336.685
+ Version: 2020.10.562
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -145,13 +145,13 @@ module_badtlds.php:
   To:
    - module_badtlds.php
   Checksum:
-   - 7eb6c5482b3e0b6ddd4aaad1027bc3411efd0c5560d51d5e8fdad0b413b915bb:1590
+   - a9db82283e5983e43da77dbae5a99c43ce775259ec9828993d1613bb73df699c:1861
  Used with: modules
  Reannotate: modules.dat
 module_sfs.php:
  Name: Stop Forum Spam module
  False Positive Risk: Low
- Version: 2019.205.785
+ Version: 2020.10.562
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -161,13 +161,13 @@ module_sfs.php:
   To:
    - module_sfs.php
   Checksum:
-   - b1a359fdd81dc066fcf61c5fe860092259f2f8e45888704eaf9c7f882639e296:3352
+   - 3d81266d38fa829b2047fa66bb98894a4cf590358eb0680c5827eec711e6ef6e:3647
  Used with: modules
  Reannotate: modules.dat
 module_botua.php:
  Name: Optional user agents module
  False Positive Risk: Medium
- Version: 2019.273.209
+ Version: 2020.10.562
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -177,7 +177,7 @@ module_botua.php:
   To:
    - module_botua.php
   Checksum:
-   - 2087bd4470da94d8f6b4b2d4bb32228272fb387f4f2bd4c0668a9aaba1395214:20777
+   - 9c9bd393720dd75dc2c37f3181caae3f308f87f404dccbf09bfb9dc53b6558d4:21135
  Used with: modules
  Reannotate: modules.dat
 Chart.js:
@@ -216,7 +216,7 @@ flags.css:
 compat_bunnycdn.php:
  Name: BunnyCDN compatibility module
  False Positive Risk: Low
- Version: 2019.205.785
+ Version: 2020.10.562
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -226,12 +226,12 @@ compat_bunnycdn.php:
   To:
    - compat_bunnycdn.php
   Checksum:
-   - 7e27e79a5e82b9131262b41d2e19d92c36d3979b30b81286d7c2a7da83f341fd:1443
+   - 37fedcdddcc5f9754c287afc03510e54dc92e31a9b15286fe891799a0dd657a1:1901
  Used with: modules
  Reannotate: modules.dat
 PHPMailer:
  Name: PHPMailer
- Version: 6.1.3
+ Version: 6.1.4
  Minimum Required: 1.13.1-DEV+19205785
  Minimum Required PHP: 5.5.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -239,11 +239,11 @@ PHPMailer:
  Provisional: true
  Files:
   From:
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/a25ae38e03de4ee4031725498a600012364787c7/src/Exception.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/a25ae38e03de4ee4031725498a600012364787c7/src/OAuth.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/a25ae38e03de4ee4031725498a600012364787c7/src/PHPMailer.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/a25ae38e03de4ee4031725498a600012364787c7/src/POP3.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/a25ae38e03de4ee4031725498a600012364787c7/src/SMTP.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/c5e61d0729507049cec9673aa1a679f9adefd683/src/Exception.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/c5e61d0729507049cec9673aa1a679f9adefd683/src/OAuth.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/c5e61d0729507049cec9673aa1a679f9adefd683/src/PHPMailer.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/c5e61d0729507049cec9673aa1a679f9adefd683/src/POP3.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/c5e61d0729507049cec9673aa1a679f9adefd683/src/SMTP.php
   To:
    - classes/PHPMailer/Exception.php
    - classes/PHPMailer/OAuth.php
@@ -253,14 +253,14 @@ PHPMailer:
   Checksum:
    - 07d400cf4967a0779579e5887aaddfa7ea084aab57ee7fdf95ce01cd67807cb7:1213
    - 1b16bd75677da1e3c7fc0a65708c9c9effb62732778d3638e23402cd84245994:3744
-   - 532e708a4829fb6019b14a3fe26a16814bafd18e4ed0cadfc15887d9cbb7254b:163737
-   - d2d3aafefba5e4ef69e6278ab515e911f9e12f9700f6f63cf82ab1f6c81a7b1a:11016
-   - 490da144b773ce8af031bf3a2510685457ccd02b4bbc669d8ebd7143edb43161:44192
+   - 72bbc4e1c7ae2559e3db15ecbb3faf58baccf425542db6e782d196769fabf112:164355
+   - c70a6a1a2f562fb619225b3e61841e4deb3f06a71b9e2fbba63ad4ce9de9b755:11016
+   - 0e9383495711a6424338183334a15252076eb2dfdbafba0df2eedefbef344946:44192
  Reannotate: modules.dat
 module_abuseipdb.php:
  Name: AbuseIPDB module
  False Positive Risk: Medium
- Version: 2019.336.685
+ Version: 2020.10.562
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -272,14 +272,14 @@ module_abuseipdb.php:
    - module_abuseipdb.php
    - module_abuseipdb.yaml
   Checksum:
-   - 79f6b20d0dbea0ffdc96492bb4307cb2e98e12e2df1f3f2dddd5d00ddf435bd3:5379
+   - 2e5ef336359bffc76584a407db5c44e1bd76241f3e0f12962bba76007f823764:5646
    - 994d871c42fc7f279d83d065b08dd7dd40cc4e54d7ae1a6d069e9d863c6ee1ba:1509
  Used with: modules
  Reannotate: modules.dat
 module_refspam.php:
  Name: Referrer spam module
  False Positive Risk: Medium
- Version: 2019.270.451
+ Version: 2020.10.562
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -289,13 +289,13 @@ module_refspam.php:
   To:
    - module_refspam.php
   Checksum:
-   - 74845a8df110433269c0e5a20b7519ab8c86d95ff5872d1206f270cd6cd9264a:10470
+   - e45e990d060525f752eeef37824f4cb47d49ca84dbf3b4a54f688cce3b4e817a:10766
  Used with: modules
  Reannotate: modules.dat
 module_bgpview.php:
  Name: BGPView module
  False Positive Risk: Low
- Version: 2019.356.390
+ Version: 2020.10.562
  Minimum Required: 2.2.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -307,8 +307,8 @@ module_bgpview.php:
    - module_bgpview.php
    - module_bgpview.yaml
   Checksum:
-   - 9bb56cd5f0b2c18ce6694aaf8d3a45c049ac2593d419522c3153b5810050b5c6:4846
-   - 5fee4478bead1c859d27d56c6a756108276f6908dcf02bbd9687416426142584:1144
+   - ae4726dc0fa749e2809126f334d19524fd556f980aba958277c77c81afcf0b75:6082
+   - dbc0c716197e502b93ad0e00963ed17d8b1cddef380f5a243c3dd587f1f6b151:1206
  Used with: modules
  Reannotate: modules.dat
 
