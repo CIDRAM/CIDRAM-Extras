@@ -18,7 +18,7 @@ module_cookies.php:
 module_extras.php:
  Name: Optional security extras module
  False Positive Risk: Medium
- Version: 2020.10.562
+ Version: 2020.18.258
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  When Update Succeeds:
@@ -34,7 +34,7 @@ module_extras.php:
    - module_extras.php
    - module_extras.yaml
   Checksum:
-   - 4dfee56fa137e95d3b304cf3d1b6a0b4b2ee4760d1fe5b3a65392161ff680727:24042
+   - f06058a305fc61a7dfc4b0ef9bcda68178a7371d08805524ae4c3320e74f34cb:24042
    - a794d27f0aaf79b3b37a9c53cbc9e05c91b7fc5fe6cebb9d491f9853efc9fed0:1017
  Used with: modules
  Reannotate: modules.dat
@@ -103,7 +103,7 @@ module_yandexblocker.php:
 module_badhosts.php:
  Name: Bad hosts blocker module
  False Positive Risk: Medium
- Version: 2020.10.562
+ Version: 2020.18.258
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -113,13 +113,13 @@ module_badhosts.php:
   To:
    - module_badhosts.php
   Checksum:
-   - 923d564947a86d98b5573fda36656f072f50fbda15a3d875b8a108709c6ec535:18572
+   - 6f6772a43ede49de803f6255efa7f47eb032d5f1b4f94b1204677c12bb1d30c4:18466
  Used with: modules
  Reannotate: modules.dat
 module_badhosts_isps.php:
  Name: Bad hosts blocker module (ISPs)
  False Positive Risk: High
- Version: 2020.10.562
+ Version: 2020.18.258
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -129,7 +129,7 @@ module_badhosts_isps.php:
   To:
    - module_badhosts_isps.php
   Checksum:
-   - 02cf0f30b6b64448cb7f95b929eb4b5c58bf5afcaad92ed9799f1b427c2e3a2a:2547
+   - 7c2a6cde6a6a0b3cad630e3d975c00fdf1623f89095618dcbd3d0db4801ae9b6:2514
  Used with: modules
  Reannotate: modules.dat
 module_badtlds.php:

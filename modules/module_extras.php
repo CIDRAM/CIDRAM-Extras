@@ -354,12 +354,12 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
             $CIDRAM['Reporter']->report([15, 21], ['Caught probing for webshells/backdoors.'], $CIDRAM['BlockInfo']['IPAddr']);
         } // 2019.08.12
 
-        /** Probing for exposed git data. */
+        /** Probing for exposed Git data. */
         if ($Trigger(preg_match('~^/*\.git~i', $LCReqURI), 'Probing for exposed git data')) {
             $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed git data.'], $CIDRAM['BlockInfo']['IPAddr']);
         } // 2019.08.12
 
-        /** Probing for exposed git data. */
+        /** Probing for exposed SSH data. */
         if ($Trigger(preg_match('~^/*\.ssh~i', $LCReqURI), 'Probing for exposed SSH data')) {
             $CIDRAM['Reporter']->report([15, 22], ['Caught probing for exposed SSH data.'], $CIDRAM['BlockInfo']['IPAddr']);
         } // 2019.08.12

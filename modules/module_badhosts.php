@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2020.01.11).
+ * This file: Bad hosts blocker module (last modified: 2020.01.17).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -282,11 +282,9 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
     if (
         !$CIDRAM['BlockInfo']['SignatureCount'] &&
         $CIDRAM['Config']['signatures']['block_proxies'] &&
-        !(
-            // Prevents matching against Google Translate requests (updated 2019.10.20).
-            preg_match('~^google-proxy-.*\.google\.com$~i', $HN) &&
-            strpos($CIDRAM['BlockInfo']['Referrer'], 'translate.googleusercontent.com') !== false
-        )
+
+        // Prevents matching against Google Translate and Google Webmasters requests (updated 2020.01.17).
+        !preg_match('~^google-proxy-.*\.google\.com$~i', $HN)
     ) {
         $Trigger(preg_match('~(?<!\w)tor(?!\w)|anonym|proxy~i', $HN), 'Proxy host'); // 2019.05.25
     }

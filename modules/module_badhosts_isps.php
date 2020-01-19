@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2020.01.11).
+ * This file: Bad hosts blocker module (last modified: 2020.01.17).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -59,10 +59,9 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
     $HN = preg_replace('/\s/', '', str_replace("\\", '/', strtolower(urldecode($CIDRAM['Hostname']))));
 
     $Trigger(preg_match(
-        '/(?:\.telecom\.net\.ar$|brasiltelecom\.net\.br$|hgc\.com\.hk$|\.duo' .
-        '\.carnet\.hr$|\.pool-xxx\.hcm\.fpt$|kiyosho\.jp$|(?:hinet|vtr)\.net' .
-        '$|vip-net\.pl$)/',
-    $HN), 'Spammy ISP', '', $reCAPTCHA); // 2018.03.27
+        '/(?:brasiltelecom\.net\.br$|hgc\.com\.hk$|\.duo\.carnet\.hr$|\.pool-xxx' .
+        '\.hcm\.fpt$|kiyosho\.jp$|(?:hinet|vtr)\.net$|vip-net\.pl$)/',
+    $HN), 'Spammy ISP', '', $reCAPTCHA); // 2020.01.17
 
     $Trigger(empty($CIDRAM['Ignore']['Sun Network HK']) && preg_match('/sunnetwork\.com\.hk$/', $HN), 'Spammy ISP'); // 2018.03.27 (ASN 38197)
 
