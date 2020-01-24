@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: CLI for CIDRAM >= v2 (last modified: 2019.12.23).
+ * This file: CLI for CIDRAM >= v2 (last modified: 2020.01.24).
  */
 
 /** "CIDRAM" constant needed as sanity check for some required files. */
@@ -59,7 +59,7 @@ if (
 }
 
 /** Show basic information. */
-echo "CIDRAM CLI mode (build 2019.356.436).
+echo "CIDRAM CLI mode (build 2020.023.590).
 
 To test whether an IP address is blocked by CIDRAM:
 >> test xxx.xxx.xxx.xxx
@@ -500,6 +500,27 @@ while (true) {
             echo $CIDRAM['Data'] . "\n\n";
         }
         unset($CIDRAM['Results'], $CIDRAM['Timer'], $CIDRAM['Aggregator'], $CIDRAM['OutputFormat']);
+        continue;
+    }
+
+    /** Create analysis matrix. */
+    if (class_exists('\Maikuolan\Common\Matrix') && function_exists('imagecreatetruecolor') && substr($CIDRAM['cmd'], 0, 7) === 'matrix=') {
+        if (empty($CIDRAM['Data']) || (count($CIDRAM['Data']) === 1 && empty($CIDRAM['Data'][0]))) {
+            echo "There's nothing to analyse, sorry.\n\n";
+            continue;
+        }
+        if ($CIDRAM['Chain']) {
+            echo "The matrix command can't be chained in that way, sorry.\n\n";
+            continue;
+        }
+        $CIDRAM['WriteTo'] = substr($CIDRAM['cmd'], 7);
+        if (is_dir($CIDRAM['Vault'] . $CIDRAM['WriteTo']) || !is_writable($CIDRAM['Vault'])) {
+            echo "I can't write to " . $CIDRAM['WriteTo'] . ", sorry.\n\n";
+            continue;
+        }
+        $CIDRAM['Data'] = implode("\n", $CIDRAM['Data']);
+        $CIDRAM['Matrix-Create']($CIDRAM['Data'], $CIDRAM['WriteTo'], true);
+        unset($CIDRAM['WriteTo']);
         continue;
     }
 
