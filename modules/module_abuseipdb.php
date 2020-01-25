@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: AbuseIPDB module (last modified: 2020.01.11).
+ * This file: AbuseIPDB module (last modified: 2020.01.25).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -77,7 +77,6 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
             /** Lookup limit has been exceeded. */
             $CIDRAM['AbuseIPDB']['429'] = ['Time' => $Expiry];
-
         } else {
 
             /** Validate or substitute. */
@@ -97,9 +96,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
             /** Cache update flag. */
             $CIDRAM['AbuseIPDB-Modified'] = true;
-
         }
-
     }
 
     /** Block the request if the IP is listed by AbuseIPDB. */

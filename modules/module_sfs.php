@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Stop Forum Spam module (last modified: 2020.01.11).
+ * This file: Stop Forum Spam module (last modified: 2020.01.25).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -74,7 +74,6 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
             /** Lookup limit has been exceeded. */
             $CIDRAM['SFS']['429'] = ['Time' => $Expiry];
-
         } else {
 
             /** Generate local SFS cache entry. */
@@ -84,9 +83,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
             /** Cache update flag. */
             $CIDRAM['SFS-Modified'] = true;
-
         }
-
     }
 
     /** Block the request if the IP is listed by SFS. */

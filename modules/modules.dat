@@ -151,7 +151,7 @@ module_badtlds.php:
 module_sfs.php:
  Name: Stop Forum Spam module
  False Positive Risk: Low
- Version: 2020.10.562
+ Version: 2020.24.366
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -161,7 +161,7 @@ module_sfs.php:
   To:
    - module_sfs.php
   Checksum:
-   - 3d81266d38fa829b2047fa66bb98894a4cf590358eb0680c5827eec711e6ef6e:3647
+   - 7f29081917d9512c76d541114d1260b5b16806a864932a112b5da283a69abeb9:3644
  Used with: modules
  Reannotate: modules.dat
 module_botua.php:
@@ -260,7 +260,7 @@ PHPMailer:
 module_abuseipdb.php:
  Name: AbuseIPDB module
  False Positive Risk: Medium
- Version: 2020.10.562
+ Version: 2020.24.366
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -272,7 +272,7 @@ module_abuseipdb.php:
    - module_abuseipdb.php
    - module_abuseipdb.yaml
   Checksum:
-   - 2e5ef336359bffc76584a407db5c44e1bd76241f3e0f12962bba76007f823764:5646
+   - 6b9b135d1680c9486e23b00c575c2131cd12198a2c0544481fd5d0fc22fd1f28:5643
    - 994d871c42fc7f279d83d065b08dd7dd40cc4e54d7ae1a6d069e9d863c6ee1ba:1509
  Used with: modules
  Reannotate: modules.dat
