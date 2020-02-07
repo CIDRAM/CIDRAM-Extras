@@ -103,7 +103,7 @@ module_yandexblocker.php:
 module_badhosts.php:
  Name: Bad hosts blocker module
  False Positive Risk: Medium
- Version: 2020.18.258
+ Version: 2020.37.290
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -113,7 +113,7 @@ module_badhosts.php:
   To:
    - module_badhosts.php
   Checksum:
-   - 6f6772a43ede49de803f6255efa7f47eb032d5f1b4f94b1204677c12bb1d30c4:18466
+   - f270f4ee8212be6e287074b3273f7aacf44731b29b028a354570e4958e5a0472:18603
  Used with: modules
  Reannotate: modules.dat
 module_badhosts_isps.php:
@@ -295,7 +295,7 @@ module_refspam.php:
 module_bgpview.php:
  Name: BGPView module
  False Positive Risk: Low
- Version: 2020.10.562
+ Version: 2020.37.290
  Minimum Required: 2.2.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -307,7 +307,7 @@ module_bgpview.php:
    - module_bgpview.php
    - module_bgpview.yaml
   Checksum:
-   - ae4726dc0fa749e2809126f334d19524fd556f980aba958277c77c81afcf0b75:6082
+   - 0224c579c3ee9ca1be7e31ee05cf472f4c0bccb79f9dec39e135613d8d9956a3:6168
    - dbc0c716197e502b93ad0e00963ed17d8b1cddef380f5a243c3dd587f1f6b151:1206
  Used with: modules
  Reannotate: modules.dat

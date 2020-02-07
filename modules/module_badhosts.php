@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2020.01.17).
+ * This file: Bad hosts blocker module (last modified: 2020.02.07).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -282,6 +282,9 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
     if (
         !$CIDRAM['BlockInfo']['SignatureCount'] &&
         $CIDRAM['Config']['signatures']['block_proxies'] &&
+
+        // Prevents matching against Facebook requests (updated 2020.02.07).
+        !preg_match('~^fwdproxy-.*\.fbsv\.net$~i', $HN) &&
 
         // Prevents matching against Google Translate and Google Webmasters requests (updated 2020.01.17).
         !preg_match('~^google-proxy-.*\.google\.com$~i', $HN)

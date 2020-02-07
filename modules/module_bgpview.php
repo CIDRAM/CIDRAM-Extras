@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: BGPView module (last modified: 2020.01.11).
+ * This file: BGPView module (last modified: 2020.02.06).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -59,7 +59,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             substr($Lookup, 0, 63) === '{"status":"ok","status_message":"Query was successful","data":{' &&
             substr($Lookup, -2) === '}}'
         ) ? json_decode($Lookup, true) : false;
-        $CIDRAM['BGPView'][$CIDRAM['BlockInfo']['IPAddr'] . '/32'] = ['ASN' => -1, 'CC' => 'XX', 'Time' => $Expiry];
+        $Low = strpos($CIDRAM['BlockInfo']['IPAddr'], ':') !== false ? 128 : 32;
+        $CIDRAM['BGPView'][$CIDRAM['BlockInfo']['IPAddr'] . '/' . $Low] = ['ASN' => -1, 'CC' => 'XX', 'Time' => $Expiry];
         $CIDRAM['BGPView-Modified'] = true;
         if (isset($Lookup['data']['prefixes']) && is_array($Lookup['data']['prefixes'])) {
             foreach ($Lookup['data']['prefixes'] as $Prefix) {
