@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2020.01.11).
+ * This file: Optional security extras module (last modified: 2020.03.02).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -282,6 +282,8 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
             strpos($RawInput, 'C4i1F1EA' . '7217PBDF' . '5FlcH77s' . '0pfo/S1t' . '15/13ga') !== false || // 2017.07.21
             strpos($RawInput, 'C6y1F2EA' . '7217PBTL' . '1FlcH98s' . 'Opfo%2Fr' . '1Z76%2FO' . 'KFae') !== false // 2017.10.07
         ), 'Compromised API key used in brute-force attacks.');
+
+        $Trigger(preg_match('~streaming\.live365\.com/~i', $RawInput), 'Spamvertised domain'); // 2020.03.02
     }
 
     /** Reporting. */

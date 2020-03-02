@@ -18,13 +18,9 @@ module_cookies.php:
 module_extras.php:
  Name: Optional security extras module
  False Positive Risk: Medium
- Version: 2020.18.258
+ Version: 2020.61.150
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
- When Update Succeeds:
-  - UpdatesHandler-Deactivate module_ua.php
-  - UpdatesHandler-Uninstall module_ua.php
-  - Message (After successfully updating the optional security extras module, if you see that the empty UA module has been deactivated and uninstalled immediately thereafter, that is expected behaviour. The optional security extras module can now block empty UAs by itself, so having a dedicated empty UA module isn't necessary anymore, and it has been deprecated accordingly. Check your CIDRAM configuration to enable/disable the option for blocking empty UAs according to your needs. This message will appear for a few weeks, whenever the optional security extras module is updated, after which, I'll remove this message from the update process. This is entirely automated, and no action is required on your part).
  Uninstallable: true
  Files:
   From:
@@ -34,7 +30,7 @@ module_extras.php:
    - module_extras.php
    - module_extras.yaml
   Checksum:
-   - f06058a305fc61a7dfc4b0ef9bcda68178a7371d08805524ae4c3320e74f34cb:24042
+   - 6d17b72df4ceac7b97035528b55a6abf283cc28585c0e0b9e5b7eab3bc2bdef6:24152
    - a794d27f0aaf79b3b37a9c53cbc9e05c91b7fc5fe6cebb9d491f9853efc9fed0:1017
  Used with: modules
  Reannotate: modules.dat
@@ -167,7 +163,7 @@ module_sfs.php:
 module_botua.php:
  Name: Optional user agents module
  False Positive Risk: Medium
- Version: 2020.10.562
+ Version: 2020.61.150
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -177,7 +173,7 @@ module_botua.php:
   To:
    - module_botua.php
   Checksum:
-   - 9c9bd393720dd75dc2c37f3181caae3f308f87f404dccbf09bfb9dc53b6558d4:21135
+   - a4c787f94f1448cd0d6361e6c65feb9565317e72e6ef3dc30d1933b02d0298b0:21123
  Used with: modules
  Reannotate: modules.dat
 Chart.js:

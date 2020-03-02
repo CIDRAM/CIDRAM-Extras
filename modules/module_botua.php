@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2020.01.11).
+ * This file: Optional user agents module (last modified: 2020.03.02).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -233,21 +233,21 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     $UANoSpace), 'Malware UA'); // 2017.04.23
 
     $Trigger(preg_match(
-        '~\.buzz|a(?:bonti|ccserver|cme.spider|nyevent-http|ppengine)|b(?:igbozz|' .
-        'lackbird|logsearch|logbot|salsa)|c(?:atexplorador|lickagy|liqzbot|ontext' .
-        'ad|orporama|rowsnest|yberpatrol)|d(?:bot/|le_spider|omainappender|umpren' .
-        'dertree)|flightdeckreportsbot|gimme60|googlebenjojo|http-?(?:agent|clien' .
-        't)|internetcensus|ips-agent|isitwp|k2spider|kemvi|lexxebot|livelapbot|lw' .
-        'p|macinroyprivacyauditors|masscan|metaintelligence|n(?:etcraft|ettrappor' .
-        't|icebot|mapscriptingengine|rsbot)|p(?:4bot|4load|acrawler|ageglimpse|ar' .
-        'sijoo|egasusmonitoring|hantomjs|hpcrawl|ingdom|rlog)|r(?:arelyused|obo(?' .
-        ':cop|spider)|yze)|s(?:can\.lol|creener|itedomain|mut|nap(?:preview)?bot|' .
-        'oapclient|ocial(?:ayer|searcher)|oso|pyglass|quider|treetbot|ynapse)|twe' .
-        'ezler|urlappendbot|w(?:asalive|atchmouse|eb(?:-monitoring|bot|masteraid|' .
-        'money|thumbnail)|hatweb|ikiapiary|in(?:http|inet)|maid\.com|sr-agent|wwt' .
-        'ype)|xenu|xovi|zibber|zurichfinancialservices|^m$|(?:\W|^)(?:cu|pe)rl(?:' .
-        '\W|$)~',
-    $UANoSpace), 'Unauthorised'); // 2019.06.30 (fixed typo 2019.07.10)
+        '~\.buzz|a(?:bonti|ccserver|cme.spider|nyevent-http|ppengine)|b(?:abbar\.' .
+        'tech|igbozz|lackbird|logsearch|logbot|salsa)|c(?:atexplorador|lickagy|li' .
+        'qzbot|ontextad|orporama|rowsnest|yberpatrol)|d(?:bot/|le_spider|omainapp' .
+        'ender|umprendertree)|flightdeckreportsbot|gimme60|googlebenjojo|http-?(?' .
+        ':agent|client)|internetcensus|ips-agent|isitwp|k2spider|kemvi|lexxebot|l' .
+        'ivelapbot|lwp|macinroyprivacyauditors|masscan|metaintelligence|n(?:etcra' .
+        'ft|ettrapport|icebot|mapscriptingengine|rsbot)|p(?:4bot|4load|acrawler|a' .
+        'geglimpse|arsijoo|egasusmonitoring|hantomjs|hpcrawl|ingdom|rlog)|r(?:are' .
+        'lyused|obo(?:cop|spider)|yze)|s(?:can\.lol|creener|itedomain|mut|nap(?:p' .
+        'review)?bot|oapclient|ocial(?:ayer|searcher)|oso|pyglass|quider|treetbot' .
+        '|ynapse)|tweezler|urlappendbot|w(?:asalive|atchmouse|eb(?:-monitoring|bo' .
+        't|masteraid|money|thumbnail)|hatweb|ikiapiary|in(?:http|inet)|maid\.com|' .
+        'sr-agent|wwtype)|xenu|xovi|zibber|zurichfinancialservices|^m$|(?:\W|^)(?' .
+        ':cu|pe)rl(?:\W|$)~',
+    $UANoSpace), 'Unauthorised'); // 2020.03.02
 
     $Trigger(preg_match(
         '~^(?:bot|java|msie|windows-live-social-object-extractor)|\((?:java|\w\:\d{2,})~',
