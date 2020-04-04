@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: BunnyCDN compatibility module (last modified: 2020.01.11).
+ * This file: BunnyCDN compatibility module (last modified: 2020.04.04).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -43,13 +43,29 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         explode(',', preg_replace('~["\'\[\]]~', '', $CIDRAM['API']['BunnyCDN']['Data']))
     ) ?: '');
 
-    /** Inherit bypass closure (see functions.php). */
-    $Bypass = $CIDRAM['Bypass'];
-
-    /** Execute bypass for BunnyCDN IPs. */
+    /** Execute configured action for positive matches against the BunnyCDN IP list. */
     if (is_array($IPList) && in_array($CIDRAM['BlockInfo']['IPAddr'], $IPList, true)) {
+
+        /** Prevents search engine and social media verification. */
         $CIDRAM['SkipVerification'] = true;
-        $Bypass($CIDRAM['BlockInfo']['SignatureCount'] > 0, 'BunnyCDN bypass');
+
+        /** Bypass the request. */
+        if ($CIDRAM['Config']['bunnycdn']['positive_action'] === 'bypass') {
+            $CIDRAM['Bypass']($CIDRAM['BlockInfo']['SignatureCount'] > 0, 'BunnyCDN bypass');
+            return;
+        }
+
+        /** Greylist the request. */
+        if ($CIDRAM['Config']['bunnycdn']['positive_action'] === 'greylist') {
+            $CIDRAM['ZeroOutBlockInfo']();
+            return;
+        }
+
+        /** Whitelist the request. */
+        if ($CIDRAM['Config']['bunnycdn']['positive_action'] === 'whitelist') {
+            $CIDRAM['ZeroOutBlockInfo'](true);
+            return;
+        }
     }
 };
 

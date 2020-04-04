@@ -1,0 +1,24 @@
+##\
+# This file is a part of the CIDRAM package.
+# Homepage: https://cidram.github.io/
+#
+# CIDRAM COPYRIGHT 2016 and beyond by Caleb Mazalevskis (Maikuolan).
+#
+# License: GNU/GPLv2
+# @see LICENSE.txt
+#
+# This file: BunnyCDN compatibility module configuration (last modified: 2020.04.04).
+##/
+
+Config Defaults:
+ bunnycdn:
+  positive_action:
+   type: "string"
+   default: "bypass"
+   choices:
+    bypass: "aux_actByp"
+    greylist: "aux_actGrl"
+    whitelist: "aux_actWhl"
+L10N:
+ config_bunnycdn: "BunnyCDN compatibility module configuration."
+ config_bunnycdn_positive_action: "Which action should CIDRAM perform when it encounters a request from BunnyCDN (i.e., for positive matches)? A bypass action deducts from the total signature count for the particular request (the total number of triggered bypasses is deducted from the total number of triggered signatures when calculating the signature count for a request, and if the signature count is less than one, the request won't be blocked). A bypass action is recommended in cases when you want the service to not be blocked by the main signature files, but want it to still be possible for requests from the service to be blocked by modules, auxiliary rules, etc. A greylist action clears all current block information for the particular request and sets the total signature count to zero, but it still remains possible for any subsequently triggered signatures (e.g., other modules, auxiliary rules, etc) to cause the particular request to be blocked. A whitelist action also clears all current block information for the particular request and sets the total signature count to zero, but unlike a greylist action, a whitelist action also terminates any further processing of modules, auxiliary rules, etc for the particular request, guaranteeing that it won't be blocked. A whitelist action is recommended in cases where preferences demand that the service must absolutely not be blocked, no matter the nature of the request, effectively disabling any and all protections that CIDRAM provides for requests orginating from the service. Search engine and social media verification won't occur for the particular request when a positive match is made, regardless of the configured action. Default action = Bypass."

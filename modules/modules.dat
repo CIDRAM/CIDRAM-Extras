@@ -212,22 +212,25 @@ flags.css:
 compat_bunnycdn.php:
  Name: BunnyCDN compatibility module
  False Positive Risk: Low
- Version: 2020.10.562
+ Version: 2020.94.527
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
   From:
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/compat_bunnycdn.php
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/compat_bunnycdn.yaml
   To:
    - compat_bunnycdn.php
+   - compat_bunnycdn.yaml
   Checksum:
-   - 37fedcdddcc5f9754c287afc03510e54dc92e31a9b15286fe891799a0dd657a1:1901
+   - 87eec262e5dc4610216b4be6751bb2d56f649e3cb9201574455e26bbcca7cff4:2469
+   - 2003fef71511cb96e1adceb26a3a466a7e8efe301eac3473b77db7415301a87b:2266
  Used with: modules
  Reannotate: modules.dat
 PHPMailer:
  Name: PHPMailer
- Version: 6.1.4
+ Version: 6.1.5
  Minimum Required: 1.13.1-DEV+19205785
  Minimum Required PHP: 5.5.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -235,11 +238,11 @@ PHPMailer:
  Provisional: true
  Files:
   From:
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/c5e61d0729507049cec9673aa1a679f9adefd683/src/Exception.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/c5e61d0729507049cec9673aa1a679f9adefd683/src/OAuth.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/c5e61d0729507049cec9673aa1a679f9adefd683/src/PHPMailer.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/c5e61d0729507049cec9673aa1a679f9adefd683/src/POP3.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/c5e61d0729507049cec9673aa1a679f9adefd683/src/SMTP.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/a8bf068f64a580302026e484ee29511f661b2ad3/src/Exception.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/a8bf068f64a580302026e484ee29511f661b2ad3/src/OAuth.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/a8bf068f64a580302026e484ee29511f661b2ad3/src/PHPMailer.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/a8bf068f64a580302026e484ee29511f661b2ad3/src/POP3.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/a8bf068f64a580302026e484ee29511f661b2ad3/src/SMTP.php
   To:
    - classes/PHPMailer/Exception.php
    - classes/PHPMailer/OAuth.php
@@ -249,9 +252,9 @@ PHPMailer:
   Checksum:
    - 07d400cf4967a0779579e5887aaddfa7ea084aab57ee7fdf95ce01cd67807cb7:1213
    - 1b16bd75677da1e3c7fc0a65708c9c9effb62732778d3638e23402cd84245994:3744
-   - 72bbc4e1c7ae2559e3db15ecbb3faf58baccf425542db6e782d196769fabf112:164355
-   - c70a6a1a2f562fb619225b3e61841e4deb3f06a71b9e2fbba63ad4ce9de9b755:11016
-   - 0e9383495711a6424338183334a15252076eb2dfdbafba0df2eedefbef344946:44192
+   - 9e8ad5d81443c75ee5a69d1b1ffa0cfb562f54eff32881242f3c3ae4c3876de0:165848
+   - 4b14647ae9111615c15695d1d26605fbaa21a6a52eaef3642495dec69b60a6a8:11058
+   - 47640009ab09973bfe2061853f44957b1de6c2a2db8186bd7539d2893e5165b4:44223
  Reannotate: modules.dat
 module_abuseipdb.php:
  Name: AbuseIPDB module
