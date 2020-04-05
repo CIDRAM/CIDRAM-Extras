@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2020.02.07).
+ * This file: Bad hosts blocker module (last modified: 2020.04.05).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -197,7 +197,6 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
     $Trigger(empty($CIDRAM['Ignore']['Versaweb, LLC']) && strpos($HN, 'versaweb') !== false, 'Versaweb, LLC'); // 2017.02.14 (ASN 36114)
     $Trigger(empty($CIDRAM['Ignore']['Voxility LLC']) && strpos($HN, 'voxility.net') !== false, 'Voxility LLC'); // 2017.02.06 (ASN 3223)
     $Trigger(empty($CIDRAM['Ignore']['Wowrack.com']) && preg_match('~themothership\.net|wowrack\.com~', $HN), 'Wowrack.com'); // 2018.09.15 (ASN 23033)
-    $Trigger(empty($CIDRAM['Ignore']['XEEX']) && strpos($HN, 'xeex') !== false, 'XEEX'); // 2017.01.21 (ASN 27524)
     $Trigger(empty($CIDRAM['Ignore']['OOO TimeWeb']) && strpos($HN, 'timeweb.ru') !== false, 'OOO TimeWeb'); // 2019.03.04 (ASN 9123)
 
     $Trigger(preg_match(
@@ -286,8 +285,13 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         // Prevents matching against Facebook requests (updated 2020.02.07).
         !preg_match('~^fwdproxy-.*\.fbsv\.net$~i', $HN) &&
 
-        // Prevents matching against Google Translate and Google Webmasters requests (updated 2020.01.17).
-        !preg_match('~^google-proxy-.*\.google\.com$~i', $HN)
+        /**
+         * Prevents matching against (updated 2020.04.05):
+         * - Google Translate
+         * - Google Webmasters
+         * - AdSense (Mediapartners)
+         */
+        !preg_match('~^(?:google|rate-limited)-proxy-.*\.google\.com$~i', $HN)
     ) {
         $Trigger(preg_match('~(?<!\w)tor(?!\w)|anonym|proxy~i', $HN), 'Proxy host'); // 2019.05.25
     }

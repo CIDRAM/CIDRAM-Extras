@@ -99,7 +99,7 @@ module_yandexblocker.php:
 module_badhosts.php:
  Name: Bad hosts blocker module
  False Positive Risk: Medium
- Version: 2020.37.290
+ Version: 2020.95.194
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -109,13 +109,13 @@ module_badhosts.php:
   To:
    - module_badhosts.php
   Checksum:
-   - f270f4ee8212be6e287074b3273f7aacf44731b29b028a354570e4958e5a0472:18603
+   - d1355c15a83dfd6b3a27f60b6b0592477d943200a02636586d32251cd92f572c:18579
  Used with: modules
  Reannotate: modules.dat
 module_badhosts_isps.php:
  Name: Bad hosts blocker module (ISPs)
  False Positive Risk: High
- Version: 2020.18.258
+ Version: 2020.95.194
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -125,7 +125,7 @@ module_badhosts_isps.php:
   To:
    - module_badhosts_isps.php
   Checksum:
-   - 7c2a6cde6a6a0b3cad630e3d975c00fdf1623f89095618dcbd3d0db4801ae9b6:2514
+   - 2e0856f1e85d54d6cbb22be24bf9b72c2c1870a5eb67aceadf410f824929a06b:2477
  Used with: modules
  Reannotate: modules.dat
 module_badtlds.php:
@@ -163,7 +163,7 @@ module_sfs.php:
 module_botua.php:
  Name: Optional user agents module
  False Positive Risk: Medium
- Version: 2020.61.150
+ Version: 2020.95.194
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -173,7 +173,7 @@ module_botua.php:
   To:
    - module_botua.php
   Checksum:
-   - a4c787f94f1448cd0d6361e6c65feb9565317e72e6ef3dc30d1933b02d0298b0:21123
+   - de95f66d547c908c7b86558b4b547dca16c5ef1a21fb21c83ae4434be7288329:20808
  Used with: modules
  Reannotate: modules.dat
 Chart.js:

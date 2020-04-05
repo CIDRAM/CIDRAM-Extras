@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2020.03.02).
+ * This file: Optional user agents module (last modified: 2020.04.05).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -183,9 +183,11 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     $UANoSpace), 'Banned UA'); // 2017.12.14
 
     $Trigger(preg_match('/(?:80legs|chinaclaw)/', $UANoSpace), 'Scraper UA', '', $InstaBan); // 2017.01.08
-    $Trigger(preg_match('/^(?:abot|spider)/', $UANoSpace), 'Scraper UA'); // 2017.01.07
-    $Trigger(strpos($UANoSpace, 'fetch/') !== false, 'Scraper UA'); // 2017.01.06
-    $Trigger(strpos($UANoSpace, 'vlc/') !== false, 'Possible/Suspected scraper UA'); // 2017.01.07
+
+    $Trigger(preg_match(
+        '~chilkat|ccopyright|fetch/|flipboard|googlealerts|grub|indeedbot|python|' .
+        'quick-crawler|scrapinghub|ttd-content|^(?:abot|spider)~',
+    $UANoSpace), 'Scraper UA'); // 2020.04.05
 
     $Trigger(preg_match(
         '/(?:007ac9|200please|360spider|3d-ftp|a(?:6-indexer|ccelo|ffinity|ghaven' .
@@ -214,12 +216,6 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         'ot|eb(?:alta|capture|download|mastercoffee|meup|ripper)|ikio|indows(?:3|' .
         'seven)|inhttp|ise-guys|khtmlto|orldbot|otbox)|xtractorpro|yoofind)/',
     $UANoSpace), 'Backlink/SEO/Scraper UA'); // 2018.07.10
-
-    $Trigger(preg_match('/quick-crawler|scrapinghub/', $UANoSpace), 'Scraper UA'); // 2018.07.16
-
-    $Trigger(preg_match(
-        '/(?:chilkat|ccopyright|flipboard|googlealerts|grub|indeedbot|python)/',
-    $UANoSpace), 'Possible/Suspected scraper UA'); // 2017.04.23
 
     $Trigger(preg_match('/(?:brandwatch|magpie)/', $UANoSpace), 'Snoop UA', '', $InstaBan); // 2017.01.13
     $Trigger(strpos($UANoSpace, 'catch') !== false, 'Risky UA'); // 2017.01.13
