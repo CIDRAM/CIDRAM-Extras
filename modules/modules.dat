@@ -278,17 +278,30 @@ module_abuseipdb.php:
 module_refspam.php:
  Name: Referrer spam module
  False Positive Risk: Medium
- Version: 2020.10.562
+ Version: 2020.103.453
  Minimum Required: 1.13.1-DEV+19205785
+ Minimum Required PHP: 5.5.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
   From:
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_refspam.php
+   - https://raw.githubusercontent.com/symfony/polyfill-intl-idn/47bd6aa45beb1cd7c6a16b7d1810133b728bdfcf/Idn.php
+   - https://raw.githubusercontent.com/symfony/polyfill-intl-idn/47bd6aa45beb1cd7c6a16b7d1810133b728bdfcf/bootstrap.php
+   - https://raw.githubusercontent.com/symfony/polyfill-mbstring/81ffd3a9c6d707be22e3012b827de1c9775fc5ac/Mbstring.php
+   - https://raw.githubusercontent.com/symfony/polyfill-mbstring/81ffd3a9c6d707be22e3012b827de1c9775fc5ac/bootstrap.php
   To:
    - module_refspam.php
+   - classes/Symfony/Idn.php
+   - classes/Symfony/Idn-bootstrap.php
+   - classes/Symfony/Mbstring.php
+   - classes/Symfony/Mbstring-bootstrap.php
   Checksum:
-   - e45e990d060525f752eeef37824f4cb47d49ca84dbf3b4a54f688cce3b4e817a:10766
+   - e43b030f2994891a6df5a1d8f86c6b4c140cd1647fa0a4e7d96dd102d1cb62f1:13049
+   - 77286add07cef16486f383b93e469443c68686973dc9fe6df04e7190d1d8a233:8721
+   - a26235aa68ab692ed0107ab6f9f11546851c3fefc55b9edd848f9b98a8d77214:2802
+   - 6a41fab9e7100d2ed6c8a49ca93d4c08489a11944b97bb95c9771913d10b84cb:28145
+   - 255519d9c9195ea4741a7758b82c52e4cf1e217705600431d8db11a1e723fa98:4903
  Used with: modules
  Reannotate: modules.dat
 module_bgpview.php:
