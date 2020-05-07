@@ -20,7 +20,7 @@ a:hover,a:active,a:focus{color:#fc6}
 .bNav{height:64px}
 .ci,.co,.gen,.center{margin:auto}
 .ci,.co,.ng1,.ng2,textarea,.txtf{width:98%}
-.ci{background-color:#333;border-style:solid;border-width:1px;border-color:#393939;text-align:{FE_Align};padding:12px}
+.ci{background-color:#333;border-style:solid;border-width:1px;border-color:#393939;text-align:{FE_Align};padding:12px;border-top-right-radius:24px}
 .co,body,.center{text-align:center}
 .co{padding:12}
 .dt,.s,.tip,.txtBl,.txtGn,.txtOe,.txtRd{display:inline}
@@ -46,7 +46,6 @@ a:hover,a:active,a:focus{color:#fc6}
 .ufts{width:220px}
 .vr{float:{FE_Align};width:1px;height:inherit;background-color:#999}
 @keyframes idxAn{0%{background:#603}100%{background:#ddd}}
-@keyframes nAux{0%{opacity:1.0}100%{opacity:0.0}}
 @keyframes xAux{0%{opacity:0.0}100%{opacity:1.0}}
 @keyframes rAux{0%{background:rgba(255,0,0,0.7)}100%{background:rgba(255,0,0,0.0)}}
 .inv{opacity:0.0}
@@ -54,6 +53,15 @@ a:hover,a:active,a:focus{color:#fc6}
 a[href="?cidram-page=logout"]{padding-left:10px;background-image:url(data:image/gif;base64,{PIP_Key});background-repeat:no-repeat;background-position:0% 50%}
 a[href="?cidram-page=logout"]:hover,a[href="?cidram-page=logout"]:active,a[href="?cidram-page=logout"]:focus{background-image:url(data:image/gif;base64,{PIP_Key2})}
 .textLabel{color:#f90;white-space:pre}
+.f400{width:400px}
+@media only all and (max-width:500px) {
+  .f400{width:98%}
+}
+.f500{width:500px}
+@media only all and (max-width:600px) {
+  .f500{width:98%}
+}
+.flong{width:auto}
 @media only all and (max-width:640px) {
   .big,.dt{display:none}
   .mob{display:block}
@@ -61,6 +69,7 @@ a[href="?cidram-page=logout"]:hover,a[href="?cidram-page=logout"]:active,a[href=
   .ufts{width:auto}
   .h1,.h1f,.h2,.h2f,.r,.rf{width:50%}
   .extend{width:100%}
+  .flong{width:98%}
 }
 .hB{background-color:rgba(0,0,0,0.125)}
 .hW{background-color:rgba(255,255,255,0.125)}
