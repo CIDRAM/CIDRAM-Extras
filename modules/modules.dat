@@ -230,7 +230,7 @@ compat_bunnycdn.php:
  Reannotate: modules.dat
 PHPMailer:
  Name: PHPMailer
- Version: 6.1.5
+ Version: 6.1.6
  Minimum Required: 1.13.1-DEV+19205785
  Minimum Required PHP: 5.5.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -238,11 +238,11 @@ PHPMailer:
  Provisional: true
  Files:
   From:
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/a8bf068f64a580302026e484ee29511f661b2ad3/src/Exception.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/a8bf068f64a580302026e484ee29511f661b2ad3/src/OAuth.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/a8bf068f64a580302026e484ee29511f661b2ad3/src/PHPMailer.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/a8bf068f64a580302026e484ee29511f661b2ad3/src/POP3.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/a8bf068f64a580302026e484ee29511f661b2ad3/src/SMTP.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/c2796cb1cb99d7717290b48c4e6f32cb6c60b7b3/src/Exception.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/c2796cb1cb99d7717290b48c4e6f32cb6c60b7b3/src/OAuth.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/c2796cb1cb99d7717290b48c4e6f32cb6c60b7b3/src/PHPMailer.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/c2796cb1cb99d7717290b48c4e6f32cb6c60b7b3/src/POP3.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/c2796cb1cb99d7717290b48c4e6f32cb6c60b7b3/src/SMTP.php
   To:
    - classes/PHPMailer/Exception.php
    - classes/PHPMailer/OAuth.php
@@ -252,9 +252,9 @@ PHPMailer:
   Checksum:
    - 07d400cf4967a0779579e5887aaddfa7ea084aab57ee7fdf95ce01cd67807cb7:1213
    - 1b16bd75677da1e3c7fc0a65708c9c9effb62732778d3638e23402cd84245994:3744
-   - 9e8ad5d81443c75ee5a69d1b1ffa0cfb562f54eff32881242f3c3ae4c3876de0:165848
-   - 4b14647ae9111615c15695d1d26605fbaa21a6a52eaef3642495dec69b60a6a8:11058
-   - 47640009ab09973bfe2061853f44957b1de6c2a2db8186bd7539d2893e5165b4:44223
+   - 05fbc083ca2c6d5f38a9b4631f2f20542be4f2535390620ebbec872db77fd802:165999
+   - eb23e4e37e60ce43400518591487c6974b5b57478cbcee8e1409771dab4a727b:11058
+   - ddc3d291b01e4b61e285b2e835323ed9a7a07251b22f052ed6afb3cb1c2628ef:44242
  Reannotate: modules.dat
 module_abuseipdb.php:
  Name: AbuseIPDB module
@@ -278,7 +278,7 @@ module_abuseipdb.php:
 module_refspam.php:
  Name: Referrer spam module
  False Positive Risk: Medium
- Version: 2020.104.738
+ Version: 2020.158.288
  Minimum Required: 1.13.1-DEV+19205785
  Minimum Required PHP: 5.5.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -286,10 +286,10 @@ module_refspam.php:
  Files:
   From:
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_refspam.php
-   - https://raw.githubusercontent.com/symfony/polyfill-intl-idn/47bd6aa45beb1cd7c6a16b7d1810133b728bdfcf/Idn.php
-   - https://raw.githubusercontent.com/symfony/polyfill-intl-idn/47bd6aa45beb1cd7c6a16b7d1810133b728bdfcf/bootstrap.php
-   - https://raw.githubusercontent.com/symfony/polyfill-mbstring/81ffd3a9c6d707be22e3012b827de1c9775fc5ac/Mbstring.php
-   - https://raw.githubusercontent.com/symfony/polyfill-mbstring/81ffd3a9c6d707be22e3012b827de1c9775fc5ac/bootstrap.php
+   - https://raw.githubusercontent.com/symfony/polyfill-intl-idn/3bff59ea7047e925be6b7f2059d60af31bb46d6a/Idn.php
+   - https://raw.githubusercontent.com/symfony/polyfill-intl-idn/3bff59ea7047e925be6b7f2059d60af31bb46d6a/bootstrap.php
+   - https://raw.githubusercontent.com/symfony/polyfill-mbstring/3ed80deaf77c304010e3f637bc1842c85fd6c485/Mbstring.php
+   - https://raw.githubusercontent.com/symfony/polyfill-mbstring/3ed80deaf77c304010e3f637bc1842c85fd6c485/bootstrap.php
   To:
    - module_refspam.php
    - classes/Symfony/Idn.php
@@ -298,10 +298,10 @@ module_refspam.php:
    - classes/Symfony/Mbstring-bootstrap.php
   Checksum:
    - e43b030f2994891a6df5a1d8f86c6b4c140cd1647fa0a4e7d96dd102d1cb62f1:13049
-   - 3f4c373eacae110dfcdd502f3d602284da7db68e29083a53883249fa5d33dbd4:8637
-   - a26235aa68ab692ed0107ab6f9f11546851c3fefc55b9edd848f9b98a8d77214:2802
+   - 5ef6df1cecc7cd468d1077c41e164c1155c5d84d5ac58193c43c930b18912e52:8750
+   - 149715bd93cc76d66f16b5430fb7ddff560875d9063fc8d6089b56496fd39164:4610
    - 6a41fab9e7100d2ed6c8a49ca93d4c08489a11944b97bb95c9771913d10b84cb:28145
-   - 255519d9c9195ea4741a7758b82c52e4cf1e217705600431d8db11a1e723fa98:4903
+   - d41ea1b39f5da2c767d9fbc220c4c50ef57158794572c27eb9fe5b5a929d44fb:6575
  Used with: modules
  Reannotate: modules.dat
 module_bgpview.php:
