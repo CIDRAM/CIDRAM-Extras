@@ -2,7 +2,7 @@
 module_cookies.php:
  Name: Optional cookie scanner module
  False Positive Risk: Low
- Version: 2020.10.562
+ Version: 2020.186.220
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -12,7 +12,7 @@ module_cookies.php:
   To:
    - module_cookies.php
   Checksum:
-   - 07a6f89a828f9425b3a9af77a764e8a1351d0c535ff4650bcaf22ccf18739e5d:8187
+   - de79ee66fc70fa2838c39ad7a938eb7fc36b5f5f4904b95c68e68883f04253c9:8196
  Used with: modules
  Reannotate: modules.dat
 module_extras.php:
@@ -53,7 +53,7 @@ module_baidublocker.php:
   zh: 可用由于请求。​<span class="txtRd">警告：将销毁百度网页排名为您的网站。​中文用户的网站应避免使用此模块。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
   zh-tw: 可用由於請求。​<span class="txtRd">警告：將銷毀百度網頁排名為您的網站。​中文用戶的網站應避免使用此模塊。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
- Version: 2020.10.562
+ Version: 2020.186.220
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -63,7 +63,7 @@ module_baidublocker.php:
   To:
    - module_baidublocker.php
   Checksum:
-   - 3282c6d7ba69e7df3cbddefbf6b92b613bc25a481c1c3cda84132684f8c055ef:2700
+   - 2f9f33483db726497538a57c70081fba6ea2885d902133f4f0ec927b090acfa0:3850
  Reannotate: modules.dat
 module_yandexblocker.php:
  Name: Yandex blocker module
@@ -84,7 +84,7 @@ module_yandexblocker.php:
   zh: 可用由于请求。​<span class="txtRd">警告：将销毁Yandex网页排名为您的网站。​俄文用户的网站应避免使用此模块。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
   zh-tw: 可用由於請求。​<span class="txtRd">警告：將銷毀Yandex網頁排名為您的網站。​俄文用戶的網站應避免使用此模塊。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
- Version: 2020.10.562
+ Version: 2020.186.220
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -94,7 +94,7 @@ module_yandexblocker.php:
   To:
    - module_yandexblocker.php
   Checksum:
-   - 5f263f4baad2479ec839008e2c1a4516ffe60c9bb072dfbd0c73f3358fe5b49c:3769
+   - 7d66a179e830e4197480519d9ce81cb9b89745341172eb20e3399ab7e69f038b:3898
  Reannotate: modules.dat
 module_badhosts.php:
  Name: Bad hosts blocker module

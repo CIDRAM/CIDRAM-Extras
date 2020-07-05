@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional cookie scanner module (last modified: 2020.01.11).
+ * This file: Optional cookie scanner module (last modified: 2020.07.04).
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2) and its
  * cookie scanner module, which the cookie scanner module for CIDRAM is based
@@ -107,7 +107,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         $Trigger($Key === '()' || $Value === '()', 'Cookie hack detected (Bash/Shellshock)', '', $InstaBan); // 2017.01.02
 
         $Trigger((
-            ($Key == 'CUSTOMER' || $Key == 'CUSTOMER_INFO' || $Key == 'NEWMESSAGE') &&
+            ($Key === 'CUSTOMER' || $Key === 'CUSTOMER_INFO' || $Key === 'NEWMESSAGE') &&
             strpos($ThisPairN, 'deleted') !== false
         ), 'Cookie hack detected'); // 2017.01.02
 
@@ -115,8 +115,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         $Trigger(preg_match('/:(?:\{\w:|[\w\d][;:]\})/', $ThisPairN), 'Cookie hack detected', '', $InstaBan); // 2018.06.24
 
         $Trigger((
-            ($Value == -1 || $Value == '-1') &&
-            ($Key == 'ASP_NET_SessionId' || $Key == 'CID' || $Key == 'SID' || $Key == 'NID')
+            ($Value === -1 || $Value === '-1') &&
+            ($Key === 'ASP_NET_SessionId' || $Key === 'CID' || $Key === 'SID' || $Key === 'NID')
         ), 'ASP.NET hack detected', '', $InstaBan); // 2017.01.02
     }
 

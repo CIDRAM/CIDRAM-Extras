@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Yandex blocker module (last modified: 2020.01.11).
+ * This file: Yandex blocker module (last modified: 2020.07.05).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -74,6 +74,8 @@ Origin: FI
 185.32.186.0/23 Deny Яндекс запретили здесь
 185.71.76.0/22 Deny Яндекс запретили здесь
 185.138.255.0/24 Deny Яндекс запретили здесь
+185.206.164.0/22 Deny Яндекс запретили здесь
+193.32.216.0/22 Deny Яндекс запретили здесь
 213.180.192.0/19 Deny Яндекс запретили здесь
 Origin: RU
 100.43.64.0/19 Deny Яндекс запретили здесь
