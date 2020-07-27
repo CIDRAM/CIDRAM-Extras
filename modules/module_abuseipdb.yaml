@@ -7,7 +7,7 @@
 # License: GNU/GPLv2
 # @see LICENSE.txt
 #
-# This file: AbuseIPDB module configuration (last modified: 2019.12.03).
+# This file: AbuseIPDB module configuration (last modified: 2020.07.27).
 ##/
 
 Config Defaults:
@@ -15,6 +15,8 @@ Config Defaults:
   api_key:
    type: "string"
    default: ""
+   See also:
+    Register - AbuseIPDB: "https://www.abuseipdb.com/register"
   max_age_in_days:
    type: "int"
    default: 365

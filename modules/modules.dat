@@ -259,7 +259,7 @@ PHPMailer:
 module_abuseipdb.php:
  Name: AbuseIPDB module
  False Positive Risk: Medium
- Version: 2020.24.366
+ Version: 2020.208.137
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -272,7 +272,7 @@ module_abuseipdb.php:
    - module_abuseipdb.yaml
   Checksum:
    - 6b9b135d1680c9486e23b00c575c2131cd12198a2c0544481fd5d0fc22fd1f28:5643
-   - 994d871c42fc7f279d83d065b08dd7dd40cc4e54d7ae1a6d069e9d863c6ee1ba:1509
+   - b8a798d0e0af643c2e45824732d375e9f15249ce83891223509afe7aaaef246b:1585
  Used with: modules
  Reannotate: modules.dat
 module_refspam.php:
