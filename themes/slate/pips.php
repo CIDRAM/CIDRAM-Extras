@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Slate theme pips handler (last modified: 2017.06.03).
+ * This file: Slate theme pips handler (last modified: 2020.08.04).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -19,4 +19,3 @@ if (!defined('CIDRAM')) {
 $CIDRAM['FE']['PIP_Left'] = 'R0lGODlhCAAIAKECAMrMyfv99P///////yH5BAEKAAEALAAAAAAIAAgAAAINjH+ga6vJIEDh0UmzKQA7';
 $CIDRAM['FE']['PIP_Right'] = 'R0lGODlhCAAIAKECAMrMyfv99P///////yH5BAEKAAEALAAAAAAIAAgAAAINjH+gmwvoUGBSSfOuKQA7';
 $CIDRAM['FE']['PIP_Key'] = 'R0lGODlhBwAJAKECAMrMyf3/+////////yH5BAEKAAEALAAAAAAHAAkAAAINjH+gyaaAAkQrznRbKAA7';
-$CIDRAM['FE']['PIP_Key2'] = 'R0lGODlhCAAFAKECAMzMzP3/+v///////yH5BAEKAAEALAAAAAAIAAUAAAILDIJ5l2YAo1uItQIAOw==';
