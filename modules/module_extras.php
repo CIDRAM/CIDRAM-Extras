@@ -8,7 +8,9 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2020.03.02).
+ * This file: Optional security extras module (last modified: 2020.08.08).
+ *
+ * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -277,11 +279,10 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         $Trigger(preg_match('~(?:6\D*1\D*6\D*6\D*9\D*4\D*7\D*8\D*5)~i', $RawInput), 'Spam attempt'); // 2017.03.01
         $Trigger(preg_match('~//dail' . 'ydigita' . 'ldeals' . '\.info/~i', $RawInput), 'Spam attempt'); // 2017.03.01
 
-        $Trigger((
-            strpos($RawInput, 'C6y1F2EA' . '7217PBTL' . '1FlcH98s' . 'Opfo/r1Z' . '76/OKFae') !== false || // 2017.03.04
-            strpos($RawInput, 'C4i1F1EA' . '7217PBDF' . '5FlcH77s' . '0pfo/S1t' . '15/13ga') !== false || // 2017.07.21
-            strpos($RawInput, 'C6y1F2EA' . '7217PBTL' . '1FlcH98s' . 'Opfo%2Fr' . '1Z76%2FO' . 'KFae') !== false // 2017.10.07
-        ), 'Compromised API key used in brute-force attacks.');
+        $Trigger(preg_match(
+            '~C[46][iy]1F[12]EA7217PB(?:DF|TL)[15]FlcH(?:77|98)s[0O]pf[0O](?:%2f' .
+            '|.)[Sr]1[Zt](?:15|76)(?:%2f|.)(?:13ga|OKFae)~',
+        $RawInput), 'Compromised API key used in brute-force attacks'); // 2020.08.08
 
         $Trigger(preg_match('~streaming\.live365\.com/~i', $RawInput), 'Spamvertised domain'); // 2020.03.02
     }

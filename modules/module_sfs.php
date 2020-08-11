@@ -8,7 +8,9 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Stop Forum Spam module (last modified: 2020.01.25).
+ * This file: Stop Forum Spam module (last modified: 2020.08.08).
+ *
+ * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  */
 
 /** Prevents execution from outside of CIDRAM. */

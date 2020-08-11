@@ -8,7 +8,9 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: AbuseIPDB module (last modified: 2020.01.25).
+ * This file: AbuseIPDB module (last modified: 2020.08.08).
+ *
+ * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
 
 /** Prevents execution from outside of CIDRAM. */

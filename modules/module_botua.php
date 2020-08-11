@@ -8,7 +8,9 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2020.04.05).
+ * This file: Optional user agents module (last modified: 2020.08.08).
+ *
+ * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
 
 /** Prevents execution from outside of CIDRAM. */

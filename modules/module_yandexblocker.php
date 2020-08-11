@@ -8,7 +8,12 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Yandex blocker module (last modified: 2020.07.05).
+ * This file: Yandex blocker module (last modified: 2020.08.08).
+ *
+ * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
+ *
+ * Warning: Will destroy your website's Yandex page rank!
+ * Websites targeting Russian speaking users should avoid this module.
  */
 
 /** Prevents execution from outside of CIDRAM. */

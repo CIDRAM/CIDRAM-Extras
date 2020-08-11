@@ -8,7 +8,9 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional cookie scanner module (last modified: 2020.07.04).
+ * This file: Optional cookie scanner module (last modified: 2020.08.08).
+ *
+ * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  *
  * Many thanks to Michael Hopkins, the creator of ZB Block (GNU/GPLv2) and its
  * cookie scanner module, which the cookie scanner module for CIDRAM is based

@@ -8,7 +8,9 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Referrer spam module (last modified: 2020.04.13).
+ * This file: Referrer spam module (last modified: 2020.08.08).
+ *
+ * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
 
 /** Prevents execution from outside of CIDRAM. */

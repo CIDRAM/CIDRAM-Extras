@@ -8,7 +8,12 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Baidu blocker module (last modified: 2020.07.05).
+ * This file: Baidu blocker module (last modified: 2020.08.08).
+ *
+ * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
+ *
+ * Warning: Will destroy your website's Baidu page rank!
+ * Websites targeting Chinese speaking users should avoid this module.
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -94,6 +99,7 @@ Origin: HK
 Origin: JP
 154.85.32.0/21 Deny 百度被禁止从这里
 154.85.46.0/23 Deny 百度被禁止从这里
+154.85.48.0/20 Deny 百度被禁止从这里
 Origin: SC
 63.243.252.0/24 Deny 百度被禁止从这里
 104.193.88.0/23 Deny 百度被禁止从这里

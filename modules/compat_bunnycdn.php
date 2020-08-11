@@ -8,7 +8,9 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: BunnyCDN compatibility module (last modified: 2020.04.04).
+ * This file: BunnyCDN compatibility module (last modified: 2020.08.08).
+ *
+ * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  */
 
 /** Prevents execution from outside of CIDRAM. */
