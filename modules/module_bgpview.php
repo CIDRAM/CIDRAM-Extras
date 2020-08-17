@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: BGPView module (last modified: 2020.08.08).
+ * This file: BGPView module (last modified: 2020.08.17).
  *
  * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  */
@@ -64,13 +64,27 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         $Low = strpos($CIDRAM['BlockInfo']['IPAddr'], ':') !== false ? 128 : 32;
         $CIDRAM['BGPView'][$CIDRAM['BlockInfo']['IPAddr'] . '/' . $Low] = ['ASN' => -1, 'CC' => 'XX', 'Time' => $Expiry];
         $CIDRAM['BGPView-Modified'] = true;
-        if (isset($Lookup['data']['prefixes']) && is_array($Lookup['data']['prefixes'])) {
-            foreach ($Lookup['data']['prefixes'] as $Prefix) {
-                $Factor = isset($Prefix['prefix']) ? $Prefix['prefix'] : false;
-                $ASN = isset($Prefix['asn']['asn']) ? $Prefix['asn']['asn'] : false;
-                $CC = isset($Prefix['asn']['country_code']) ? $Prefix['asn']['country_code'] : 'XX';
-                if ($Factor && $ASN) {
-                    $CIDRAM['BGPView'][$Factor] = ['ASN' => $ASN, 'CC' => $CC, 'Time' => $Expiry];
+        if (is_array($Lookup) && isset($Lookup['data'])) {
+            if (isset($Lookup['data']['prefixes']) && is_array($Lookup['data']['prefixes'])) {
+                foreach ($Lookup['data']['prefixes'] as $Prefix) {
+                    $Factor = isset($Prefix['prefix']) ? $Prefix['prefix'] : false;
+                    $ASN = isset($Prefix['asn']['asn']) ? $Prefix['asn']['asn'] : false;
+                    $CC = isset($Prefix['asn']['country_code']) ? $Prefix['asn']['country_code'] : 'XX';
+                    if ($Factor && $ASN) {
+                        $CIDRAM['BGPView'][$Factor] = ['ASN' => $ASN, 'CC' => $CC, 'Time' => $Expiry];
+                    }
+                }
+            }
+            if (
+                isset($Lookup['data']['rir_allocation']) &&
+                is_array($Lookup['data']['rir_allocation']) &&
+                isset($Lookup['data']['rir_allocation']['country_code'], $Lookup['data']['rir_allocation']['prefix'])
+            ) {
+                $Prefix = $Lookup['data']['rir_allocation']['prefix'];
+                if (isset($CIDRAM['BGPView'][$Prefix])) {
+                    $CIDRAM['BGPView'][$Prefix]['CC'] = $Lookup['data']['rir_allocation']['country_code'];
+                } else {
+                    $CIDRAM['BGPView'][$Prefix] = ['CC' => $Lookup['data']['rir_allocation']['country_code']];
                 }
             }
         }
@@ -87,8 +101,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             }
 
             /** Act based on ASN. */
-            if (isset($CIDRAM['BGPView'][$Factor]['ASN'])) {
-
+            if (!empty($CIDRAM['BGPView'][$Factor]['ASN'])) {
                 /** Populate ASN lookup information. */
                 if ($CIDRAM['BGPView'][$Factor]['ASN'] > 0) {
                     $CIDRAM['BlockInfo']['ASNLookup'] = $CIDRAM['BGPView'][$Factor]['ASN'];
@@ -106,22 +119,25 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
                     if (!empty($CIDRAM['BlockInfo']['WhyReason'])) {
                         $CIDRAM['BlockInfo']['WhyReason'] .= ', ';
                     }
-                    $CIDRAM['BlockInfo']['WhyReason'] .= $CIDRAM['L10N']->getString('Short_Generic') . ' (BGPView)';
+                    $CIDRAM['BlockInfo']['WhyReason'] .= sprintf(
+                        '%s (BGPView, "%d")',
+                        $CIDRAM['L10N']->getString('Short_Generic'),
+                        $CIDRAM['BGPView'][$Factor]['ASN']
+                    );
                     if (!empty($CIDRAM['BlockInfo']['Signatures'])) {
                         $CIDRAM['BlockInfo']['Signatures'] .= ', ';
                     }
                     $CIDRAM['BlockInfo']['Signatures'] .= $Factor;
                     $CIDRAM['BlockInfo']['SignatureCount']++;
-
                 }
             }
 
             /** Act based on CC. */
-            if (isset($CIDRAM['BGPView'][$Factor]['CC'])) {
-
+            if (!empty($CIDRAM['BGPView'][$Factor]['CC']) && empty($CCDone)) {
                 /** Populate country code lookup information. */
                 if ($CIDRAM['BGPView'][$Factor]['CC'] !== 'XX') {
                     $CIDRAM['BlockInfo']['CCLookup'] = $CIDRAM['BGPView'][$Factor]['CC'];
+                    $CCDone = true;
                 }
 
                 /** Origin is whitelisted. */
@@ -136,13 +152,12 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
                     if (!empty($CIDRAM['BlockInfo']['WhyReason'])) {
                         $CIDRAM['BlockInfo']['WhyReason'] .= ', ';
                     }
-                    $CIDRAM['BlockInfo']['WhyReason'] .= 'CC (BGPView)';
+                    $CIDRAM['BlockInfo']['WhyReason'] .= sprintf('CC (BGPView, "%s")', $CIDRAM['BGPView'][$Factor]['CC']);
                     if (!empty($CIDRAM['BlockInfo']['Signatures'])) {
                         $CIDRAM['BlockInfo']['Signatures'] .= ', ';
                     }
                     $CIDRAM['BlockInfo']['Signatures'] .= $Factor;
                     $CIDRAM['BlockInfo']['SignatureCount']++;
-
                 }
             }
         }
