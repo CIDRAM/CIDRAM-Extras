@@ -2,7 +2,7 @@
 theme/rbi:
  Name: Theme: Red-Blue Inverted
  Extended Description: <img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-rbi.png" alt="Preview" /><br />Exactly the same as the default theme, but with some of the colours swapped around. No big changes.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2020.234.325
+ Version: 2020.267.685
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -15,7 +15,7 @@ theme/rbi:
    - fe_assets/rbi/frontend.css
   Checksum:
    - 38d10d3913b777f344b2121e399637441bc3f3610d935f584ddc67109e5d1430:2546
-   - 77109c0595cac58bf6c19320c9c51a7ad581c1415ecbe58a38986ce3b0459ee6:5758
+   - 111f32f154a5bde20478d7a75378477061b20ea5840a812113b064e9b096f8a4:5776
  Reannotate: themes.dat
 theme/obscured:
  Name: Theme: Obscured
@@ -35,7 +35,7 @@ theme/obscured:
 theme/slate:
  Name: Theme: Slate
  Extended Description: <img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-slate.png" alt="Preview" /><br />Simple layout; Gentle, darker colours.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2020.234.325
+ Version: 2020.267.685
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -55,14 +55,14 @@ theme/slate:
   Checksum:
    - adccda9e9e3228519e2e9f79f2505c80b533751712b91d70690396b0679d8c24:2567
    - 97070e6f72ff5efdb728aba642849715e5532fb5b9baf8f451d3e263dafdaa8c:755
-   - 0c542443ea5c712856ff44da063a006a51a6cccfd6442266fc43366fd1734d35:5826
+   - 0b0a4359a6fdf75ce3738d3e209aba035fabb0a23f4076ef9c2ce0d55ed3b507:5844
    - 75c589be9cff52166d458dc6b84ae7a1789ef2be37a47c3dd4d3096403b7c6a9:983
    - 6f9cef332609d596d45a816ceea2a0f8dccd652b85defd5924da98ba5ef11f0f:763
  Reannotate: themes.dat
 theme/bluemetal:
  Name: Theme: Blue Metal
  Extended Description: <img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-bluemetal.png" alt="Preview" /><br />Simple blue/black colour scheme with gentle tones.<br /><em>Author: Caleb M (Maikuolan), based on previous work by Daniel R.</em>
- Version: 2020.234.325
+ Version: 2020.267.685
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -82,14 +82,14 @@ theme/bluemetal:
   Checksum:
    - 3ae6370c5cf0b7ee9ce9e0f39c62f8b75af1f8af81e091867b8e0d1a78f90f12:2689
    - 97070e6f72ff5efdb728aba642849715e5532fb5b9baf8f451d3e263dafdaa8c:755
-   - d86c04c2aa2780b1173ac1d699097f786e4726401678cba709cad959081ad016:6065
+   - a33fa5141be1fc060a1b04bc69a8fea688161e3b743db33c1be68a4e49bebf5e:6083
    - 75c589be9cff52166d458dc6b84ae7a1789ef2be37a47c3dd4d3096403b7c6a9:983
    - 991fa26b3e3f5743a2a6ad615ca12cf1dfa22b9a3e916a811f1f39682933427f:744
  Reannotate: themes.dat
 theme/moss:
  Name: Theme: Moss
  Extended Description: <img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-moss.png" alt="Preview" /><br />Inspired by the colours of nature.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2020.234.325
+ Version: 2020.267.685
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -110,13 +110,13 @@ theme/moss:
    - fc098f3af28dd29481dde82c64ed679b836c2758e72e05fb8fda633805687c36:2595
    - 97070e6f72ff5efdb728aba642849715e5532fb5b9baf8f451d3e263dafdaa8c:755
    - ceb4497bbae40d04a2a8ecb42086307bc57677235685ea07bedf98795dea780f:17804
-   - 79a82627b08b344d3c580a17d0798aef8a7f1d889fe8f38daa337448aec771f0:6116
+   - 4bfa64ae9a69417818e8ae6070f3870ebd2ddba66cfaede537cd00978bf34a00:6134
    - 75c589be9cff52166d458dc6b84ae7a1789ef2be37a47c3dd4d3096403b7c6a9:983
  Reannotate: themes.dat
 theme/fullmoon:
  Name: Theme: Full Moon
  Extended Description: <img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-fullmoon.png" alt="Preview" /><br />Darker, semi-transparent colours; Navigation shifted to the top; No special fonts; Full moon backdrop.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2020.267.651
+ Version: 2020.267.685
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -201,7 +201,7 @@ theme/fullmoon:
    - 25926fe60915a4e511968d5d83e9b6f39e724575f2a4defb0bce17d95e5cc653:43
    - 6728dd99232fd822ab3128a0165de22befe83b47d8a791ab499b918225d0a7d7:2357
    - a8a8726cef3d963c656f1b1ed2e70fb96f7c582492380eb085a933a2ffb8c4e4:727
-   - 6bf523f5b42e3afe38c1697e47c94a443409e81a464ff10852a2490e7aea2fe5:5255
+   - fc02ec1a0dbd0ac243297a9e68c81f76a85dbd3bf560b29a159bb10b18906c1a:5273
    - 358afec9047638b3269ac4048f8d36a0dcee435fc039f4838185f19d42c346a6:779
    - 17703149e6f8a4312527243bfaf369c2dfa73e56c50d4d2fdb2b9f8fa0b332c3:34088
    - 8303efe5267ff22717e51387e5e7d17fe33c885a50e9c7e11c98b3bb3d53bc0d:767
@@ -209,7 +209,7 @@ theme/fullmoon:
 theme/primer:
  Name: Theme: Primer
  Extended Description: <img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-primer.png" alt="Preview" /><br />Inspired by the "Primer Design System" (utilised by GitHub, Facebook, etc).
- Version: 2020.234.325
+ Version: 2020.267.685
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -233,7 +233,7 @@ theme/primer:
    - 97070e6f72ff5efdb728aba642849715e5532fb5b9baf8f451d3e263dafdaa8c:755
    - f7cf4e8c179e58dadd8409bdd4da7fc750f5438410d482ee83074e43434ccc6a:1751
    - 403716ded1fc57e7d49060c0af31cebfad0e9bd51fc2c5a0f822b3c84af95f47:604
-   - 7366f7bde9fc12eae77caf008ee6a95507123c4b13d25b8f3cc3a8b0be9b7b4d:5666
+   - 2790ae3625beacc3898dffe4f34d5058a84df026f403f3f8b0722e9b49d80905:5684
    - 10fc821e94f0940ec1dc494f9b1a0b6f1cac941f8b94e9f9c9cc6c6e4b883cb9:802
  Reannotate: themes.dat
 
