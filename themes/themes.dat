@@ -116,7 +116,7 @@ theme/moss:
 theme/fullmoon:
  Name: Theme: Full Moon
  Extended Description: <img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-fullmoon.png" alt="Preview" /><br />Darker, semi-transparent colours; Navigation shifted to the top; No special fonts; Full moon backdrop.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2020.282.219
+ Version: 2020.282.580
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -140,6 +140,7 @@ theme/fullmoon:
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_nav_complete_access.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_nav_logs_access_only.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_range.html
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_range_intersector.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_range_row.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_range_subtractor.html
    - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_sections.html
@@ -168,6 +169,7 @@ theme/fullmoon:
    - fe_assets/fullmoon/_nav_complete_access.html
    - fe_assets/fullmoon/_nav_logs_access_only.html
    - fe_assets/fullmoon/_range.html
+   - fe_assets/fullmoon/_range_intersector.html
    - fe_assets/fullmoon/_range_row.html
    - fe_assets/fullmoon/_range_subtractor.html
    - fe_assets/fullmoon/_sections.html
@@ -193,11 +195,12 @@ theme/fullmoon:
    - e3000217f637fab4f74c672f81effb20c9993f3929ee1e73aca04c7b73fe4546:919
    - 97070e6f72ff5efdb728aba642849715e5532fb5b9baf8f451d3e263dafdaa8c:755
    - 5155593a44f63c1765a816f886cdecd700b337c29ef70568a200f2fedc43aad1:131
-   - d75d2231b63c77b8398d8e464cb503bb1084809efdcd5137d19510568ecd147c:1294
+   - 6d0cd093b74f437646ec4afc088853f1e2a8591135ce4acac87599f400943595:1366
    - 15ae532b57c6c5adaf3c260f87bea48c8ce6b899faf6a071ac667df70d984502:353
    - 490b65ddbbcb63678b608ba616ef14ad88e92fa0e9e10bfd42e5dc59d638114a:616
+   - 08e462da1f0514f29b95fdf9b6b4756832f521cf577edc392ed0d8bb16650367:1026
    - 1f85875ba371d03a1a7e359821b0c8be5d737fda00321439f290d95ada69d598:168
-   - 5dea8f0aef7eacf4ec44a1ecb61b82ff63225f675a5f0cac8b15bbd0187c5bf2:1036
+   - e641661d60379dae0382e51c45d5a6cd9e8b68a19a5829b16a290f9233fcd651:1044
    - 25926fe60915a4e511968d5d83e9b6f39e724575f2a4defb0bce17d95e5cc653:43
    - 53ddb587183e76e4090d39546e25e2b7232a34b608bd876aa89b1cf199d72538:3510
    - a8a8726cef3d963c656f1b1ed2e70fb96f7c582492380eb085a933a2ffb8c4e4:727
@@ -231,7 +234,7 @@ theme/primer:
   Checksum:
    - db71901dcf4e3248fff0974256aae06d8521d9c0d19572f93143d79f1298c92d:3327
    - 97070e6f72ff5efdb728aba642849715e5532fb5b9baf8f451d3e263dafdaa8c:755
-   - f7cf4e8c179e58dadd8409bdd4da7fc750f5438410d482ee83074e43434ccc6a:1751
+   - ef53cd3b67e34e08f2b6726774f9a3b669c022995ae4e66792d08a817445ec79:1837
    - 403716ded1fc57e7d49060c0af31cebfad0e9bd51fc2c5a0f822b3c84af95f47:604
    - 86874745a6d8e20596715d94b0af8003e2633e5c59d7929c441e39e3bbdf2e03:6205
    - 10fc821e94f0940ec1dc494f9b1a0b6f1cac941f8b94e9f9c9cc6c6e4b883cb9:802
@@ -261,7 +264,7 @@ theme/primerdark:
   Checksum:
    - 178e32c3dfe6c27c192a3bbae21817b8e147cdce60f6d6cf64a47ae15eecfcee:3308
    - 97070e6f72ff5efdb728aba642849715e5532fb5b9baf8f451d3e263dafdaa8c:755
-   - f7cf4e8c179e58dadd8409bdd4da7fc750f5438410d482ee83074e43434ccc6a:1751
+   - ef53cd3b67e34e08f2b6726774f9a3b669c022995ae4e66792d08a817445ec79:1837
    - 403716ded1fc57e7d49060c0af31cebfad0e9bd51fc2c5a0f822b3c84af95f47:604
    - 1ea4471610631057341d76ff34aad94aafb1a95ad45584ad10a197feaefc23ac:6171
    - 10fc821e94f0940ec1dc494f9b1a0b6f1cac941f8b94e9f9c9cc6c6e4b883cb9:802
