@@ -1,5 +1,6 @@
 <div class="nav">{nav}</div>
 <hr />
+<div class="gen">(<a href="?cidram-page=aux">{label_aux_mode_view}</a> – <a href="?cidram-page=aux-edit">{label_aux_mode_edit}</a>)</div>
 <div class="s" id="stateMsg">{state_msg}</div>
 <ul class="pieul ng1">
 {Data}
@@ -56,7 +57,7 @@
       <li>
         <dl>
           <dt class="s">
-            <select id="act" name="act" class="auto" onchange="javascript:onAuxActionChange(this.value)">
+            <select id="act" name="act" class="auto" onchange="javascript:onAuxActionChange(this.value,'','')">
               <option value="actWhl">{optActWhl}</option>
               <option value="actGrl">{optActGrl}</option>
               <option value="actBlk" selected>{optActBlk}</option>
