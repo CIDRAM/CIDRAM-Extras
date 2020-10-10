@@ -112,3 +112,5 @@ sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
 input:not([type=submit]):not([type=reset]):not([type=button]){border:none;height:20px}
 textarea{border:none}
 select,input[type=submit],input[type=reset],input[type=button]{height:20px;padding-top:0;padding-bottom:0}
+select[class=auto]+select[class=auto]{margin-{FE_Align}:-3px;margin-{FE_Align_Reverse}:0}
+select+input[type=text][class=f400]{margin-{FE_Align}:-1px;margin-{FE_Align_Reverse}:0}
