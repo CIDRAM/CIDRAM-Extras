@@ -8,13 +8,13 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: BunnyCDN compatibility module (last modified: 2020.08.08).
+ * This file: BunnyCDN compatibility module (last modified: 2020.09.12).
  *
  * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  */
 
 /** Prevents execution from outside of CIDRAM. */
-if (!defined('CIDRAM')) {
+if (!defined('CIDRAM') && !defined('CIDRAM-L')) {
     die('[CIDRAM] This should not be accessed directly.');
 }
 
@@ -25,7 +25,6 @@ if (!isset($CIDRAM['ModuleResCache'])) {
 
 /** Defining as closure for later recall (no params; no return value). */
 $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
-
     /** Instantiate API cache. */
     $CIDRAM['InitialiseCacheSection']('API');
 

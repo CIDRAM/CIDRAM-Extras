@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Baidu blocker module (last modified: 2020.08.08).
+ * This file: Baidu blocker module (last modified: 2020.10.10).
  *
  * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  *
@@ -17,7 +17,7 @@
  */
 
 /** Prevents execution from outside of CIDRAM. */
-if (!defined('CIDRAM')) {
+if (!defined('CIDRAM') && !defined('CIDRAM-L')) {
     die('[CIDRAM] This should not be accessed directly.');
 }
 
@@ -28,7 +28,6 @@ if (!isset($CIDRAM['ModuleResCache'])) {
 
 /** Defining as closure for later recall (no params; no return value). */
 $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
-
     /** Inherit trigger closure (see functions.php). */
     $Trigger = $CIDRAM['Trigger'];
 
@@ -69,7 +68,36 @@ IPv4 Signatures
 106.13.192.0/19 Deny 百度被禁止从这里
 106.13.224.0/20 Deny 百度被禁止从这里
 106.13.240.0/22 Deny 百度被禁止从这里
+106.13.252.0/22 Deny 百度被禁止从这里
+114.110.65.0/24 Deny 百度被禁止从这里
+114.110.80.0/24 Deny 百度被禁止从这里
+114.110.96.0/24 Deny 百度被禁止从这里
+114.110.126.0/24 Deny 百度被禁止从这里
+114.111.1.0/24 Deny 百度被禁止从这里
+114.111.8.0/24 Deny 百度被禁止从这里
+114.111.16.0/24 Deny 百度被禁止从这里
+114.111.30.0/24 Deny 百度被禁止从这里
 119.75.208.0/20 Deny 百度被禁止从这里
+120.48.1.0/24 Deny 百度被禁止从这里
+120.48.32.0/24 Deny 百度被禁止从这里
+120.48.65.0/24 Deny 百度被禁止从这里
+120.48.96.0/24 Deny 百度被禁止从这里
+120.48.129.0/24 Deny 百度被禁止从这里
+120.48.160.0/24 Deny 百度被禁止从这里
+120.48.193.0/24 Deny 百度被禁止从这里
+120.48.224.0/24 Deny 百度被禁止从这里
+120.49.1.0/24 Deny 百度被禁止从这里
+120.49.32.0/24 Deny 百度被禁止从这里
+120.49.65.0/24 Deny 百度被禁止从这里
+120.49.96.0/24 Deny 百度被禁止从这里
+120.49.129.0/24 Deny 百度被禁止从这里
+120.49.160.0/24 Deny 百度被禁止从这里
+120.49.193.0/24 Deny 百度被禁止从这里
+120.49.224.0/24 Deny 百度被禁止从这里
+122.248.49.0/24 Deny 百度被禁止从这里
+122.248.52.0/24 Deny 百度被禁止从这里
+122.248.56.0/24 Deny 百度被禁止从这里
+122.248.62.0/24 Deny 百度被禁止从这里
 150.242.120.0/24 Deny 百度被禁止从这里
 150.242.122.0/23 Deny 百度被禁止从这里
 180.76.0.0/17 Deny 百度被禁止从这里
@@ -89,6 +117,10 @@ IPv4 Signatures
 182.61.216.0/21 Deny 百度被禁止从这里
 182.61.224.0/19 Deny 百度被禁止从这里
 202.46.48.0/20 Deny 百度被禁止从这里
+202.181.113.0/24 Deny 百度被禁止从这里
+202.181.116.0/24 Deny 百度被禁止从这里
+202.181.120.0/24 Deny 百度被禁止从这里
+202.181.126.0/24 Deny 百度被禁止从这里
 Origin: CN
 185.10.104.0/24 Deny 百度被禁止从这里
 Origin: EU

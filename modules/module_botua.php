@@ -8,13 +8,13 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2020.08.08).
+ * This file: Optional user agents module (last modified: 2020.09.20).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
 
 /** Prevents execution from outside of CIDRAM. */
-if (!defined('CIDRAM')) {
+if (!defined('CIDRAM') && !defined('CIDRAM-L')) {
     die('[CIDRAM] This should not be accessed directly.');
 }
 
@@ -25,7 +25,6 @@ if (!isset($CIDRAM['ModuleResCache'])) {
 
 /** Defining as closure for later recall (no params; no return value). */
 $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
-
     /** Inherit trigger closure (see functions.php). */
     $Trigger = $CIDRAM['Trigger'];
 
@@ -193,7 +192,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
     $Trigger(preg_match(
         '/(?:007ac9|200please|360spider|3d-ftp|a(?:6-indexer|ccelo|ffinity|ghaven' .
-        '|href|ipbot|naly(?:ticsseo|zer)|pp3lewebkit|rchivebot|rtviper|wcheck)|b(' .
+        '|href|ipbot|naly(?:ticsseo|zer)|pp3lewebkit|rtviper|wcheck)|b(' .
         '?:azqux|ender|inlar|itvo|ixo|lex|nf.fr|ogahn|oitho|pimagewalker)|c(?:cbo' .
         't|ent(?:iverse|ric)|ityreview|msworldmap|omment|ommoncrawl|overscout|r4n' .
         'k|rawl(?:erbotalpha|fire)|razywebcrawler|uriousgeorge|ydral)|d(?:ataprov' .
@@ -217,7 +216,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         'owner|ictobot))|v(?:agabondo|bseo|isbot|oyager)|w(?:arebay|auuu|bsearchb' .
         'ot|eb(?:alta|capture|download|mastercoffee|meup|ripper)|ikio|indows(?:3|' .
         'seven)|inhttp|ise-guys|khtmlto|orldbot|otbox)|xtractorpro|yoofind)/',
-    $UANoSpace), 'Backlink/SEO/Scraper UA'); // 2018.07.10
+    $UANoSpace), 'Backlink/SEO/Scraper UA'); // 2018.07.10 mod 2020.09.20
 
     $Trigger(preg_match('/(?:brandwatch|magpie)/', $UANoSpace), 'Snoop UA', '', $InstaBan); // 2017.01.13
     $Trigger(strpos($UANoSpace, 'catch') !== false, 'Risky UA'); // 2017.01.13

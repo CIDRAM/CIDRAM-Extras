@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Yandex blocker module (last modified: 2020.08.08).
+ * This file: Yandex blocker module (last modified: 2020.10.10).
  *
  * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  *
@@ -17,7 +17,7 @@
  */
 
 /** Prevents execution from outside of CIDRAM. */
-if (!defined('CIDRAM')) {
+if (!defined('CIDRAM') && !defined('CIDRAM-L')) {
     die('[CIDRAM] This should not be accessed directly.');
 }
 
@@ -28,7 +28,6 @@ if (!isset($CIDRAM['ModuleResCache'])) {
 
 /** Defining as closure for later recall (no params; no return value). */
 $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
-
     /** Inherit trigger closure (see functions.php). */
     $Trigger = $CIDRAM['Trigger'];
 
@@ -78,10 +77,10 @@ Origin: FI
 185.32.185.0/24 Deny Яндекс запретили здесь
 185.32.186.0/23 Deny Яндекс запретили здесь
 185.71.76.0/22 Deny Яндекс запретили здесь
-185.138.255.0/24 Deny Яндекс запретили здесь
 185.206.164.0/22 Deny Яндекс запретили здесь
 193.32.216.0/22 Deny Яндекс запретили здесь
 213.180.192.0/19 Deny Яндекс запретили здесь
+217.28.224.0/20 Deny Яндекс запретили здесь
 Origin: RU
 100.43.64.0/19 Deny Яндекс запретили здесь
 199.21.96.0/22 Deny Яндекс запретили здесь

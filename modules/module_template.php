@@ -8,11 +8,11 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Template module file for CIDRAM (last modified: 2020.01.11).
+ * This file: Template module file for CIDRAM (last modified: 2020.09.12).
  */
 
 /** Prevents execution from outside of CIDRAM. */
-if (!defined('CIDRAM')) {
+if (!defined('CIDRAM') && !defined('CIDRAM-L')) {
     die('[CIDRAM] This should not be accessed directly.');
 }
 
@@ -27,7 +27,6 @@ if (!isset($CIDRAM['ModuleResCache'])) {
  * @param int $Infractions The number of infractions incurred thus far.
  */
 $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) {
-
     // If you're intending to write a standard module, which uses the normal,
     // default syntax for signatures, keep the "Inherit trigger closure ..." block
     // in the file and remove the "$Trigger = function ($ ..." block which follows.
