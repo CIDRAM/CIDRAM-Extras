@@ -9,12 +9,12 @@ code{font-family:SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;font-
 img.ico{width:16px;height:16px;border:0}
 label{font-weight:600}
 table,.spanner{width:100%}
-textarea.half{height:75px}
 textarea{height:150px}
+textarea.half{height:75px}
 a:link,a:visited,a:active,a:focus{color:#fc0;text-decoration:none}
 a:hover{color:#fc0;text-decoration:underline}
 .ng2 a,.h2 a,.h2f a,.h4 a,.h4f a{filter:brightness(.5)}
-.cat,.exp,.bNav,.gen,.nav,.s,.tip,.txtGn,.txtOe,.txtRd,.spanner,a,textarea{font-weight:700}
+.cat,.exp,.bNav,.gen,.nav,.s,.tip,.txtGn,.txtOe,.txtRd,.spanner,a{font-weight:700}
 .bNav,.gen,.spanner{text-align:{FE_Align_Reverse}}
 .bNav{height:64px}
 .ci,.co,.gen,.center{margin:auto}
@@ -43,6 +43,9 @@ code{background-color:rgba(255,153,102,0.3)}
 .txtGn{color:#595}
 .txtOe{color:#f95}
 .txtRd{color:#955}
+code.txtGn{color:#7c7}
+code.txtOe{color:#fc7}
+code.txtRd{color:#c77}
 .ufts{width:220px}
 @keyframes idxAn{0%{background:#fe9}100%{background:#f96}}
 @keyframes xAux{0%{opacity:0.0}100%{opacity:1.0}}
@@ -114,3 +117,4 @@ textarea{border:none}
 select,input[type=submit],input[type=reset],input[type=button]{height:20px;padding-top:0;padding-bottom:0}
 select[class=auto]+select[class=auto]{margin-{FE_Align}:-3px;margin-{FE_Align_Reverse}:0}
 select+input[type=text][class=f400]{margin-{FE_Align}:-1px;margin-{FE_Align_Reverse}:0}
+#pgrad{width:16px;height:16px;display:inline-block;border-radius:16px;filter:blur(2px)}
