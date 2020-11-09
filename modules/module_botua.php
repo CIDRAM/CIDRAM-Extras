@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2020.09.20).
+ * This file: Optional user agents module (last modified: 2020.11.09).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -124,7 +124,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     $Trigger(strpos($UANoSpace, 'ruru)') !== false, 'Spam UA'); // 2017.01.07
 
     $Trigger(preg_match(
-        '/(?:a(?:btasty|dwords|llsubmitter|velox)|b(?:acklink|ad-neighborhood|dsm' .
+        '/(?:a(?:btasty|llsubmitter|velox)|b(?:acklink|ad-neighborhood|dsm' .
         '|ea?stiality|iloba|ork-edition|uyessay)|c(?:asino|ialis|igar|heap|oursew' .
         'ork)|deltasone|dissertation|drugs|editionyx|eroti[ck]|estimatewebstats|f' .
         'orex|funbot|g(?:abapentin|erifort|inkg?o|uestbook)|hentai|honeybee|hrbot' .
@@ -136,7 +136,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         '|terapred|ynthroid)|t(?:entacle|[0o]p(?:hack|less|sites))|u(?:01-2|nlock' .
         ')|v(?:(?:aluation|oila)bot|arifort|[1i](?:agra|olation|tol))|warifort|xa' .
         'nax|zdorov)/',
-    $UANoSpace), 'Spam UA'); // 2018.12.15
+    $UANoSpace), 'Spam UA'); // 2018.12.15 mod 2020.11.09
 
     $Trigger(preg_match(
         '/(?: (audit|href|mra |quibids )|\(build 5339\))/',
