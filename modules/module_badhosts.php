@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2020.09.12).
+ * This file: Bad hosts blocker module (last modified: 2020.11.09).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -111,16 +111,19 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
     $Trigger(preg_match('/(?:exatt\.net$|unpef\.org$)/', $HN), 'Pornobot/Pornhost'); // 2017.02.16
 
     $Trigger(preg_match(
-        '/(?:^(damage|moon|test)\.|anahaqq|core\.youtu\.me|hosted-(by|in)|no' .
-        '-(data|(reverse-)?r?dns)|qeas|spletnahisa|therewill\.be|unassigned|' .
-        'work\.from|yhost\.name)/',
-    $HN), 'Questionable Host'); // 2017.01.30
+        '~^(?:damage|moon|test)\.|anahaqq|core\.youtu\.me|hosted-(?:by|in)|n' .
+        'o-(?:data|(?:reverse-)?r?dns)|qeas|spletnahisa|therewill\.be|unassi' .
+        'gned|work\.from|yhost\.name~',
+    $HN), 'Questionable Host'); // 2017.01.30 mod 2020.11.09
 
     $Trigger(preg_match(
         '~\.(?:as13448|websense)\.|(?:bibbly|pulsepoint|zvelo)\.com|(?:\.fil' .
         'espot|cloudsystemnetworks)\.com$|westdc\.net|propagation\.net$|maje' .
         'stic|meanpath|tag-trek~',
     $HN), 'Unauthorised'); // 2018.09.15
+
+    // Caught attempting to brute-force WordPress logins.
+    $Trigger(preg_match('~\.domainserver\.ne\.jp$~', $HN), 'Cloud/Webhosting'); // 2020.11.09
 
     $Trigger(preg_match('~anchorfree|hotspotsheild|esonicspider\.com$~', $HN), 'Hostile/esonicspider'); // 2018.09.15
 
