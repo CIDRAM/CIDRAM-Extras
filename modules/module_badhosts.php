@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2020.11.09).
+ * This file: Bad hosts blocker module (last modified: 2020.11.15).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -92,15 +92,14 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         'accelovation|barefruit|bestprice|colo\.iinet|detangled|kimsufi|ligh' .
         'tspeedsystems|lipperhey|mantraonline|netcomber|onlinehome-server\.m' .
         'yforexvps|page-store|setooz|technicolor)\.com$|poneytelecom\.eu$|(?' .
-        ':4u|netadvert|onlinehome-server)\.info$|mobilemarketingaid\.info|\.' .
-        'cnr\.it$|kiyosho\.jp$|(?:\.pldt|3fn|buyurl|dragonara|isnet|mfnx|onl' .
-        'inehome-server|pool\.ukrtel)\.net$|seomoz\.org$|\.rdsnet\.ro$|(?:di' .
-        'margroup|itrack|mail|rulinki|vipmailoffer)\.ru$|(?:2kom|solomono)\.' .
-        'ru|\.v4\.ngi\.it|fibersunucu\.com\.tr|awcheck|b(?:oardreader|reakin' .
-        'gtopics|uysellsales)|c(?:eptro|heapseovps|yber-uslugi)|drugstore|li' .
-        'wio\.|luxuryhandbag|s(?:emalt|mileweb\.com\.ua|quider|tartdedicated' .
-        '\.)|(?:exa|fulltextro|we)bot)/',
-    $HN), 'SEO/Bothost/Scraper/Spamhost'); // 2019.03.04
+        ':4u|netadvert|onlinehome-server)\.info$|mobilemarketingaid\.info|(?' .
+        ':3fn|buyurl|dragonara|isnet|mfnx|onlinehome-server)\.net$|seomoz\.o' .
+        'rg$|(?:dimargroup|itrack|mail|rulinki|vipmailoffer)\.ru$|(?:2kom|so' .
+        'lomono)\.ru|\.v4\.ngi\.it|awcheck|b(?:oardreader|reakingtopics|uyse' .
+        'llsales)|c(?:eptro|heapseovps|yber-uslugi)|drugstore|liwio\.|luxury' .
+        'handbag|s(?:emalt|mileweb\.com\.ua|quider|tartdedicated\.)|(?:exa|f' .
+        'ulltextro|we)bot)/',
+    $HN), 'SEO/Bothost/Scraper/Spamhost'); // 2020.11.15
 
     $Trigger(preg_match(
         '/(?:rumer|pymep|румер)/',
