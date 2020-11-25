@@ -230,7 +230,7 @@ compat_bunnycdn.php:
  Reannotate: modules.dat
 PHPMailer:
  Name: PHPMailer
- Version: 6.1.8
+ Version: 6.2.0
  Minimum Required: 1.13.1-DEV+19205785
  Minimum Required PHP: 5.5.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -238,11 +238,11 @@ PHPMailer:
  Provisional: true
  Files:
   From:
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/917ab212fa00dc6eacbb26e8bc387ebe40993bc1/src/Exception.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/917ab212fa00dc6eacbb26e8bc387ebe40993bc1/src/OAuth.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/917ab212fa00dc6eacbb26e8bc387ebe40993bc1/src/PHPMailer.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/917ab212fa00dc6eacbb26e8bc387ebe40993bc1/src/POP3.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/917ab212fa00dc6eacbb26e8bc387ebe40993bc1/src/SMTP.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/e38888a75c070304ca5514197d4847a59a5c853f/src/Exception.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/e38888a75c070304ca5514197d4847a59a5c853f/src/OAuth.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/e38888a75c070304ca5514197d4847a59a5c853f/src/PHPMailer.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/e38888a75c070304ca5514197d4847a59a5c853f/src/POP3.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/e38888a75c070304ca5514197d4847a59a5c853f/src/SMTP.php
   To:
    - classes/PHPMailer/Exception.php
    - classes/PHPMailer/OAuth.php
@@ -250,11 +250,11 @@ PHPMailer:
    - classes/PHPMailer/POP3.php
    - classes/PHPMailer/SMTP.php
   Checksum:
-   - e32b89d05494a1d278f24bfa9a3430ff89479a4bb38a91eeaa45fcc747f369ce:1213
-   - bfa1471fb75e054197779e7d4376d37a2adeefc3d3ebcdff524a3043a12ad76a:3744
-   - f25b47c7dd6b0c281bbb7402d2b19ed978e7356b95c038c3078d4f96fa8295a8:166830
-   - 854bc1c6c521af947abbcbd737569ac5542916980efb20159122dfec6a9f952d:11058
-   - d1491fe18333dd0dd92bb2aba119217208f46ee2ba8b77921d3f30332ce84672:46067
+   - 67d962f239fc087bb48f7ba250cb301d354147f58b55ddebab0d6e49405e5e36:1214
+   - 98560ed0dc3ac8cea99fd7ee787eae3146ccf654bce97587a1682e49661d3031:3745
+   - 476f32ee5a1ca5442741daedbd6c5ec15664aac05b51d659f96ce5fb04eaea30:167338
+   - 615f927b3177392b7a9630e09a98e67d91440ec58951880fe933dc82b37cd98c:11769
+   - 6c30e7f52488a92787b69f72e8de2231f400ea2a7603ae4565ebcf4ebb77f4a1:46145
  Reannotate: modules.dat
 module_abuseipdb.php:
  Name: AbuseIPDB module
