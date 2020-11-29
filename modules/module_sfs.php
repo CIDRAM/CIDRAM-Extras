@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Stop Forum Spam module (last modified: 2020.09.12).
+ * This file: Stop Forum Spam module (last modified: 2020.11.29).
  *
  * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  */
@@ -34,7 +34,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         'ion)|signup)|act(ion)?=(edit|reg)|(activate|confirm|login|newuser|reg(i' .
         'st(er|ration))?|sign(in|up))(\.php|=)|special:userlogin&|verifyemail|wp' .
         '-comments-post)~',
-    $LCURI)) {
+        $LCURI
+    )) {
         return;
     }
 

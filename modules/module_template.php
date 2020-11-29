@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Template module file for CIDRAM (last modified: 2020.09.12).
+ * This file: Template module file for CIDRAM (last modified: 2020.11.29).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -253,8 +253,13 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
     // while blocking everything else which contains foobar, by doing something
     // like this (example 5):
     $Trigger(
-        $CIDRAM['BlockInfo']['UA'] !== 'FoobarBrowse/v1.0.0' && preg_match('/f[0o]{2}b[4a]r/', $UANoSpace
-    ), 'No-Foobar-001-MkIV', 'No foobar here. Foobar not here.');
+        $CIDRAM['BlockInfo']['UA'] !== 'FoobarBrowse/v1.0.0' && preg_match(
+            '/f[0o]{2}b[4a]r/',
+            $UANoSpace
+        ),
+        'No-Foobar-001-MkIV',
+        'No foobar here. Foobar not here.'
+    );
 
     // Alternatively.. If they've been blocked by a signature that exists in a
     // different module, or if, for whatever reason, they've already been blocked

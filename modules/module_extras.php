@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2020.09.12).
+ * This file: Optional security extras module (last modified: 2020.11.29).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -101,11 +101,13 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
             ':f|nclude)|len(?:gth)?|nt|open|p(?:ress|lace|lode|uts)|print(?:f|_r' .
             ')?|re(?:ad|place|quire|store)|rot13|s(?:tart|ystem)|w(?:hil|rit)e)[' .
             '"\':(?:\[{<$]/',
-        $QueryNoSpace), 'Query command injection'); // 2018.05.02
+            $QueryNoSpace
+        ), 'Query command injection'); // 2018.05.02
 
         $Trigger(preg_match(
             '/\$(?:globals|_(cookie|env|files|get|post|request|se(rver|ssion)))/',
-        $QueryNoSpace), 'Query command injection'); // 2017.01.13
+            $QueryNoSpace
+        ), 'Query command injection'); // 2017.01.13
 
         $Trigger(preg_match('/http_(?:cmd|sum)/', $QueryNoSpace), 'Query command injection'); // 2017.01.02
         $Trigger(preg_match('/pa(?:rse_ini_file|ssthru)/', $QueryNoSpace), 'Query command injection'); // 2017.01.02
@@ -130,11 +132,13 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
 
         $Trigger(preg_match(
             '/(?:<(\?|body|i?frame|object|script)|(body|i?frame|object|script)>)/',
-        $QueryNoSpace), 'Query script injection'); // 2017.01.05
+            $QueryNoSpace
+        ), 'Query script injection'); // 2017.01.05
 
         $Trigger(preg_match(
             '/_(?:cookie|env|files|get|post|request|se(rver|ssion))\[/',
-        $QueryNoSpace), 'Query global variable hack'); // 2017.01.13
+            $QueryNoSpace
+        ), 'Query global variable hack'); // 2017.01.13
 
         $Trigger(strpos($QueryNoSpace, 'globals['), 'Query global variable hack'); // 2017.01.01
 
@@ -179,9 +183,9 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         $Trigger(strpos($QueryNoSpace, '0x31303235343830303536') !== false, 'Probe attempt', '', $InstaBan); // 2017.02.25
 
         $Trigger(preg_match(
-            '/\[(?:[alrw]\]|classes|file|itemid|l(astrss_ap_enabled|oadfile|ocal' .
-            'serverfile)|pth|src)/',
-        $QueryNoSpace), 'Probe attempt'); // 2017.01.17
+            '/\[(?:[alrw]\]|classes|file|itemid|l(?:astrss_ap_enabled|oadfile|ocalserverfile)|pth|src)/',
+            $QueryNoSpace
+        ), 'Probe attempt'); // 2017.01.17 mod 2020.11.29
 
         $Trigger(strpos($QueryNoSpace, '+result:') !== false, 'Spam attempt'); // 2017.01.08
         $Trigger(strpos($QueryNoSpace, 'result:+\\') !== false, 'Spam attempt'); // 2017.01.08
@@ -189,7 +193,7 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         $Trigger(preg_match('/(?:["\'];|[;=]\|)/', $QueryNoSpace), 'Query command injection'); // 2017.01.13
         $Trigger(preg_match('/[\'"`]sysadmin[\'"`]/', $QueryNoSpace), 'Query command injection'); // 2017.02.25
         $Trigger(preg_match('/[\'"`]\+[\'"`]/', $QueryNoSpace), 'Query command injection'); // 2017.01.03
-        $Trigger(preg_match('/[\'"`]\|[\'"`]/', $QueryNoSpace), 'Pipe hack'); // 2017.01.08, modified 2017.10.31 (bugged)
+        $Trigger(preg_match('/[\'"`]\|[\'"`]/', $QueryNoSpace), 'Pipe hack'); // 2017.01.08 mod 2017.10.31 (bugged)
         $Trigger(strpos($QueryNoSpace, 'num_replies=77777') !== false, 'Overflow attempt'); // 2017.02.25
         $Trigger(strpos($_SERVER['QUERY_STRING'], '++++') !== false, 'Overflow attempt'); // 2017.01.05
         $Trigger(strpos($_SERVER['QUERY_STRING'], '->') !== false, 'Hack attempt'); // 2017.02.25
@@ -208,9 +212,9 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
 
         $Trigger(preg_match('/id=.*(?:benchmark\(|id[xy]=|sleep\()/', $QueryNoSpace), 'Query SQLi'); // 2017.03.01
         $Trigger(preg_match(
-            '/(?:(from|union|where).*select|then.*else|(o[nr]|where).*is null|(i' .
-            'nner|left|outer|right) join)/',
-        $QueryNoSpace), 'Query SQLi'); // 2017.03.01
+            '~(?:from|union|where).*select|then.*else|(?:o[nr]|where).*is null|(?:inner|left|outer|right) join)~',
+            $QueryNoSpace
+        ), 'Query SQLi'); // 2017.03.01 mod 2020.11.29
 
         $Trigger(preg_match('/(?:(modez|osc|tasya)=|=((bot|scanner|shell)z|psybnc))/', $QueryNoSpace), 'Query command injection', '', $InstaBan); // 2017.02.25
 
@@ -254,7 +258,8 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
             ($CIDRAM['BlockInfo']['SignatureCount'] - $Infractions) > 0 &&
             strpos($CIDRAM['BlockInfo']['rURI'], 'administrator/') !== false &&
             strpos($CIDRAM['BlockInfo']['WhyReason'], 'POST RFI') !== false,
-        'Joomla plugins update bypass (POST RFI conflict)'); // 2017.05.10
+            'Joomla plugins update bypass (POST RFI conflict)'
+        ); // 2017.05.10
 
         $Trigger(preg_match('~(?:=\[\\\\|%5C\]|\(\)|=%5Bphp%5D|=\[php\]|\\\\\]|=\[%5C|`)~i', $RawInput), 'POST BBCESC/BBCEX/EX'); // 2017.03.01
         $Trigger(preg_match('~/â\\x80¦x\.php~i', $RawInput), 'Probe attempt', '', $InstaBan); // 2017.03.01
@@ -273,7 +278,8 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
             '22|%6f%70%65%6e%5f%62%61%73%65%64%69%72%3d%6e%6f%6e%65|%73%(61%66%6' .
             '5%5f%6d%6f%64%65%3d%6f%66%66|75%68%6f%73%69%6e%2e%73%69%6d%75%6c%61' .
             '%74%69%6f%6e%3d%6f%6e))~',
-        $RawInputSafe), 'Plesk hack'); // 2017.03.01
+            $RawInputSafe
+        ), 'Plesk hack'); // 2017.03.01
 
         $Trigger(preg_match('~(?:6\D*1\D*6\D*6\D*9\D*4\D*7\D*8\D*5)~i', $RawInput), 'Spam attempt'); // 2017.03.01
         $Trigger(preg_match('~//dail' . 'ydigita' . 'ldeals' . '\.info/~i', $RawInput), 'Spam attempt'); // 2017.03.01
@@ -281,7 +287,8 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         $Trigger(preg_match(
             '~C[46][iy]1F[12]EA7217PB(?:DF|TL)[15]FlcH(?:77|98)s[0O]pf[0O](?:%2f' .
             '|.)[Sr]1[Zt](?:15|76)(?:%2f|.)(?:13ga|OKFae)~',
-        $RawInput), 'Compromised API key used in brute-force attacks'); // 2020.08.08
+            $RawInput
+        ), 'Compromised API key used in brute-force attacks'); // 2020.08.08
 
         $Trigger(preg_match('~streaming\.live365\.com/~i', $RawInput), 'Spamvertised domain'); // 2020.03.02
     }
@@ -343,18 +350,23 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         $LCReqURI = str_replace("\\", '/', strtolower($_SERVER['REQUEST_URI']));
 
         /** Probing for webshells/backdoors. */
-        if ($Trigger(preg_match('~^/*(?:' .
+        if ($Trigger(preg_match(
+            '~^/*(?:' .
             'old/wp-admin/install\.php|' .
             'test/wp-includes/wlwmanifest\.xml|' .
             'vendor/phpunit/phpunit/src/Util/PHP/(?:eval-stdin|kill)\.php' .
-        ')~i', $LCReqURI) || preg_match(
-            '~(?:c9\d+|c10\d+|gh[0o]st|gzismexv|h6ss|icesword|itsec|php1|php_niu_\d+|' .
-            'php版iisspy|poison|php大马|session91|shell|silic|tk(?:_dencode_\d+)?|' .
-            'webshell-[a-z\d]+|wloymzuk|wso\d\.\d\.\d|xiaom|xw|zone_hackbar(?:_beutif' .
-            'y_other)?|pHp一句话(?:木马|扫描脚本程序)?)\.php$~i'
-        , $LCReqURI), 'Probing for webshells/backdoors')) {
+            ')~i',
+            $LCReqURI
+        ) || preg_match(
+            '~(?:' .
+            'c(?:9|10)\d+|gh[0o]st|gzismexv|h6ss|icesword|itsec|p[Hh]p(?:1|_niu_\d+|版iisspy|大马|一句话(?:木马|扫描脚本程序)?)|' .
+            'poison|session91|shell|silic|tk(?:_dencode_\d+)?|' .
+            'webshell-[a-z\d]+|wloymzuk|wso\d\.\d\.\d|xiaom|xw|zone_hackbar(?:_beutify_other)?' .
+            ')\.php$~i',
+            $LCReqURI
+        ), 'Probing for webshells/backdoors')) {
             $CIDRAM['Reporter']->report([15, 21], ['Caught probing for webshells/backdoors.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2019.08.12
+        } // 2019.08.12 mod 2020.11.29
 
         /** Probing for exposed Git data. */
         if ($Trigger(preg_match('~^/*\.git~i', $LCReqURI), 'Probing for exposed git data')) {

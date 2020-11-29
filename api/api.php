@@ -10,7 +10,7 @@ namespace CIDRAM\API;
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: CIDRAM API loader (last modified: 2017.12.04).
+ * This file: CIDRAM API loader (last modified: 2020.11.29).
  */
 
 /** "CIDRAM" constant needed as sanity check for some required files. */
@@ -74,5 +74,4 @@ class API
         $CIDRAM['SimulateBlockEvent']($Addr, $Modules);
         return $CIDRAM['BlockInfo'];
     }
-
 }

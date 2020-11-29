@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional cookie scanner module (last modified: 2020.09.12).
+ * This file: Optional cookie scanner module (last modified: 2020.11.29).
  *
  * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  *
@@ -64,7 +64,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             'l)|ex(ec|ists)?|f(ile|late|unction)|hex2bin|get(c|csv|ss?)?|i(f|ncl' .
             'ude)|len(gth)?|nt|open|p(ress|lace|lode|uts)|print(f|_r)?|re(ad|pla' .
             'ce|quire|store)|rot13|s(tart|ystem)|w(hil|rit)e)["\':(\[{<$]/i',
-        $ThisPairN), 'Command injection detected in cookie'); // 2017.01.02
+            $ThisPairN
+        ), 'Command injection detected in cookie'); // 2017.01.02
         $Trigger(
             preg_match('/\$(?:globals|_(cookie|env|files|get|post|request|se(rver|ssion)))/', $ThisPairN),
             'Command injection detected in cookie'

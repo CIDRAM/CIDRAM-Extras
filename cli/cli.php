@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: CLI for CIDRAM >= v2 (last modified: 2020.01.24).
+ * This file: CLI for CIDRAM >= v2 (last modified: 2020.11.29).
  */
 
 /** "CIDRAM" constant needed as sanity check for some required files. */
@@ -173,7 +173,6 @@ while (true) {
             $CIDRAM['ML'] = false;
             echo "\n";
         }
-
     } else {
 
         /** Fetch the command. */
@@ -207,9 +206,7 @@ while (true) {
                 }
                 echo "\n";
             }
-
         }
-
     }
 
     /** Chain processing. */
@@ -649,5 +646,4 @@ while (true) {
 
     /** Let the user know that the current command isn't valid. */
     echo "I don't understand that command, sorry.\n\n";
-
 }

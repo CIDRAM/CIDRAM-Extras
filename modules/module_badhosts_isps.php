@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2020.09.12).
+ * This file: Bad hosts blocker module (last modified: 2020.11.29).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [ ]Medium [x]High »
  */
@@ -61,7 +61,8 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
 
     $Trigger(preg_match(
         '/(?:hgc\.com\.hk$|\.duo\.carnet\.hr$|\.pool-xxx\.hcm\.fpt$|kiyosho\.jp$|(?:hinet|vtr)\.net$|vip-net\.pl$)/',
-    $HN), 'Spammy ISP', '', $reCAPTCHA); // 2020.04.05
+        $HN
+    ), 'Spammy ISP', '', $reCAPTCHA); // 2020.04.05
 
     $Trigger(empty($CIDRAM['Ignore']['Sun Network HK']) && preg_match('/sunnetwork\.com\.hk$/', $HN), 'Spammy ISP'); // 2018.03.27 (ASN 38197)
 
@@ -70,7 +71,8 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         (($CIDRAM['BlockInfo']['SignatureCount'] - $Infractions) > 0) &&
         preg_match('~^/wp-cron\.php\?doing_wp_cron=\d+\.\d+$~', $_SERVER['REQUEST_URI']) &&
         defined('DOING_CRON'),
-    'WordPress cronjob bypass'); // 2018.06.24
+        'WordPress cronjob bypass'
+    ); // 2018.06.24
 };
 
 /** Execute closure. */

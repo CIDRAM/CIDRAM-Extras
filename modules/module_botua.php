@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2020.11.09).
+ * This file: Optional user agents module (last modified: 2020.11.29).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -49,11 +49,13 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         '(ec|ists)?|f(ile|late|unction)|get(c|csv|ss?)?|i(f|nclude)|len(gth)?|ope' .
         'n|p(ress|lace|lode|uts)|print(f|_r)?|re(ad|place|quire|store)|rot13|s(ta' .
         'rt|ystem)|w(hil|rit)e)["\':(\[{<$]/',
-    $UANoSpace), 'UA command injection'); // 2017.01.20
+        $UANoSpace
+    ), 'UA command injection'); // 2017.01.20
 
     $Trigger(preg_match(
         '/\$(?:globals|_(cookie|env|files|get|post|request|se(rver|ssion)))/',
-    $UANoSpace), 'UA command injection'); // 2017.01.13
+        $UANoSpace
+    ), 'UA command injection'); // 2017.01.13
 
     $Trigger(preg_match('/http_(?:cmd|sum)/', $UANoSpace), 'UA command injection'); // 2017.01.02
     $Trigger(preg_match('/pa(?:rse_ini_file|ssthru)/', $UANoSpace), 'UA command injection'); // 2017.01.02
@@ -70,11 +72,13 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
     $Trigger(preg_match(
         '/(?:<(\?|body|i?frame|object|script)|(body|i?frame|object|script)>)/',
-    $UANoSpace), 'UA script injection'); // 2017.01.08
+        $UANoSpace
+    ), 'UA script injection'); // 2017.01.08
 
     $Trigger(preg_match(
         '/(?:globals|_(cookie|env|files|get|post|request|se(rver|ssion)))\[/',
-    $UANoSpace), 'UA global variable hack'); // 2017.01.13
+        $UANoSpace
+    ), 'UA global variable hack'); // 2017.01.13
 
     $Trigger(strpos($UANoSpace, '$_' . '[$' . '__') !== false, 'UA shell upload attempt', '', $InstaBan); // 2017.01.02
     $Trigger(strpos($UANoSpace, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'UA shell upload attempt', '', $InstaBan); // 2017.01.02
@@ -94,7 +98,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
     $Trigger(preg_match(
         '~cha0s|dkemdif.\d|fhscan|f' . 'uck|havij|jdatabasedrivermysqli|morfeus|urldumper|xmlset_roodkcable|zollard~',
-    $UANoSpace), 'Hack UA', '', $InstaBan); // 2019.06.23
+        $UANoSpace
+    ), 'Hack UA', '', $InstaBan); // 2019.06.23
 
     $Trigger(strpos($UA, 'select ') !== false, 'UASQLi'); // 2017.02.25
 
@@ -109,7 +114,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         'r)|s8/0\.9\.6)|p(?:atchone|aros|entru|lanetwork|robe)|riddler|s(?:asqia|' .
         'ledink|noopy|tingbot)|toata|updown_tester|w(?:hitehataviator|orio)|xirio' .
         '|zmeu)~',
-    $UANoSpace), 'Probe UA'); // 2019.03.04
+        $UANoSpace
+    ), 'Probe UA'); // 2019.03.04
 
     $Trigger(preg_match('/(?: obot|ie 5\.5 compatible browser)/', $UA), 'Probe UA'); // 2017.02.02
     $Trigger(preg_match('~(?:photon/|pogs/2\.0)~', $UANoSpace), 'Probe UA'); // 2018.06.24
@@ -124,23 +130,25 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     $Trigger(strpos($UANoSpace, 'ruru)') !== false, 'Spam UA'); // 2017.01.07
 
     $Trigger(preg_match(
-        '/(?:a(?:btasty|llsubmitter|velox)|b(?:acklink|ad-neighborhood|dsm' .
-        '|ea?stiality|iloba|ork-edition|uyessay)|c(?:asino|ialis|igar|heap|oursew' .
-        'ork)|deltasone|dissertation|drugs|editionyx|eroti[ck]|estimatewebstats|f' .
-        'orex|funbot|g(?:abapentin|erifort|inkg?o|uestbook)|hentai|honeybee|hrbot' .
-        '|in(?:cest|come|vestment)|jailbreak|kamagra|keylog|l(?:axative|esbian|ev' .
-        'itra|exap|i(?:ker\.profile|nk(?:ba|che)ck|pitor)|olita|uxury|ycosa\.se)|' .
-        'm(?:ail\.ru|e(?:laleuca|nthol)|ixrank|rie8pack)|n(?:erdybot|etzcheckbot|' .
-        'eurontin|olvadex)|orgasm|outlet|p(?:axil|harma|illz|lavix|orn|r0n|ropeci' .
-        'a|rosti)|reviewsx|rogaine|s(?:ex[xy]|hemale|ickseo|limy|putnik|tart\.exe' .
-        '|terapred|ynthroid)|t(?:entacle|[0o]p(?:hack|less|sites))|u(?:01-2|nlock' .
-        ')|v(?:(?:aluation|oila)bot|arifort|[1i](?:agra|olation|tol))|warifort|xa' .
-        'nax|zdorov)/',
-    $UANoSpace), 'Spam UA'); // 2018.12.15 mod 2020.11.09
+        '/(?:a(?:btasty|llsubmitter|velox)|b(?:acklink|ad-neighborhood|dsm|ea?sti' .
+        'ality|iloba|ork-edition|uyessay)|c(?:asino|ialis|igar|heap|oursework)|de' .
+        'ltasone|dissertation|drugs|editionyx|eroti[ck]|estimatewebstats|forex|fu' .
+        'nbot|g(?:abapentin|erifort|inkg?o|uestbook)|hentai|honeybee|hrbot|in(?:c' .
+        'est|come|vestment)|jailbreak|kamagra|keylog|l(?:axative|esbian|evitra|ex' .
+        'ap|i(?:ker\.profile|nk(?:ba|che)ck|pitor)|olita|uxury|ycosa\.se)|m(?:ail' .
+        '\.ru|e(?:laleuca|nthol)|ixrank|rie8pack)|n(?:erdybot|etzcheckbot|euronti' .
+        'n|olvadex)|orgasm|outlet|p(?:axil|harma|illz|lavix|orn|r0n|ropecia|rosti' .
+        ')|reviewsx|rogaine|s(?:ex[xy]|hemale|ickseo|limy|putnik|tart\.exe|terapr' .
+        'ed|ynthroid)|t(?:entacle|[0o]p(?:hack|less|sites))|u(?:01-2|nlock)|v(?:(' .
+        '?:aluation|oila)bot|arifort|[1i](?:agra|olation|tol))|warifort|xanax|zdo' .
+        'rov)/',
+        $UANoSpace
+    ), 'Spam UA'); // 2018.12.15 mod 2020.11.29
 
     $Trigger(preg_match(
         '/(?: (audit|href|mra |quibids )|\(build 5339\))/',
-    $UA), 'Spam UA'); // 2017.02.02
+        $UA
+    ), 'Spam UA'); // 2017.02.02
 
     $Trigger(preg_match('/[\'"`]\+[\'"`]/', $UANoSpace), 'XSS attack'); // 2017.01.03
     $Trigger(strpos($UANoSpace, '`') !== false, 'Execution attempt'); // 2017.01.13
@@ -148,7 +156,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     $Trigger(preg_match(
         '/(?:digger|e(?:mail)?collector|email(?:ex|search|spider|siphon)|extract(' .
         '?:ion|or)|iscsystems|microsofturl|oozbot|psycheclone)/',
-    $UANoSpace), 'Email havester'); // 2018.04.23
+        $UANoSpace
+    ), 'Email havester'); // 2018.04.23
 
     $Trigger(strpos($UANoSpace, 'email') !== false, 'Possible/Suspected email havester'); // 2017.01.06
 
@@ -156,7 +165,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
     $Trigger(preg_match(
         '/(?:loadimpact|re-?animator|root|webster)/',
-    $UANoSpace), 'Banned UA', '', $InstaBan); // 2017.02.25
+        $UANoSpace
+    ), 'Banned UA', '', $InstaBan); // 2017.02.25
 
     $Trigger(preg_match('/test\'?$/', $UANoSpace), 'Banned UA'); // 2017.02.02
     $Trigger(preg_match('/^(?:\'?test|-|default|foo)/', $UANoSpace), 'Banned UA'); // 2017.02.02
@@ -166,57 +176,61 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
     $Trigger(preg_match(
         '~_sitemapper|3mir|a(?:boundex|dmantx|dnormcrawler|dvbot|lphaserver|thens' .
-        '|ttache)|blekko|blogsnowbot|bytespider|cmscrawler|co(?:ccoc|llect|modo-webinspector' .
-        '-crawler|mpspy)|crawler(?:4j|\.feedback)|d(?:atacha|igout4uagent|ioscout' .
-        '|kimrepbot|sarobot)|easou|exabot|f(?:astenterprisecrawler|astlwspider|in' .
-        'd?bot|indlinks|loodgate|r[_-]?crawler)|hrcrawler|hubspot|i(?:mrbot|ntegr' .
-        'omedb|p-?web-?crawler|rcsearch|rgrabber)|jadynavebot|komodiabot|lightspe' .
-        'ed|linguee|linkpad|m(?:ajestic12|agnet|auibot|eanpath|entormate|fibot|ig' .
-        'nify|j12)|nutch|omgilibot|p(?:ackrat|cbrowser|lukkie|surf)|reaper|rsync|' .
-        's(?:aidwot|alad|cspider|ees\.co|hai|iteexplorer|[iy]phon|truct\.it|uppor' .
-        't\.wordpress\.com|ystemscrawler)|takeout|tasapspider|tweetmeme|user-agen' .
-        't|visaduhoc|vonchimpenfurlr|webtarantula|wolf|y(?:acy|isouspider|[ry]spi' .
-        'der|unrang|unyun)|zoominfobot~',
-    $UANoSpace), 'Banned UA'); // 2019.10.01
+        '|ttache)|blekko|blogsnowbot|bytespider|cmscrawler|co(?:ccoc|llect|modo-w' .
+        'ebinspector-crawler|mpspy)|crawler(?:4j|\.feedback)|d(?:atacha|igout4uag' .
+        'ent|ioscout|kimrepbot|sarobot)|easou|exabot|f(?:astenterprisecrawler|ast' .
+        'lwspider|ind?bot|indlinks|loodgate|r[_-]?crawler)|hrcrawler|hubspot|i(?:' .
+        'mrbot|ntegromedb|p-?web-?crawler|rcsearch|rgrabber)|jadynavebot|komodiab' .
+        'ot|lightspeed|linguee|linkpad|m(?:ajestic12|agnet|auibot|eanpath|entorma' .
+        'te|fibot|ignify|j12)|nutch|omgilibot|p(?:ackrat|cbrowser|lukkie|surf)|re' .
+        'aper|rsync|s(?:aidwot|alad|cspider|ees\.co|hai|iteexplorer|[iy]phon|truc' .
+        't\.it|upport\.wordpress\.com|ystemscrawler)|takeout|tasapspider|tweetmem' .
+        'e|user-agent|visaduhoc|vonchimpenfurlr|webtarantula|wolf|y(?:acy|isouspi' .
+        'der|[ry]spider|unrang|unyun)|zoominfobot~',
+        $UANoSpace
+    ), 'Banned UA'); // 2019.10.01 mod 2020.11.29
 
     $Trigger(preg_match(
         '/^wp-iphone$/',
-    $UANoSpace), 'Banned UA'); // 2017.12.14
+        $UANoSpace
+    ), 'Banned UA'); // 2017.12.14
 
     $Trigger(preg_match('/(?:80legs|chinaclaw)/', $UANoSpace), 'Scraper UA', '', $InstaBan); // 2017.01.08
 
     $Trigger(preg_match(
         '~chilkat|ccopyright|fetch/|flipboard|googlealerts|grub|indeedbot|python|' .
         'quick-crawler|scrapinghub|ttd-content|^(?:abot|spider)~',
-    $UANoSpace), 'Scraper UA'); // 2020.04.05
+        $UANoSpace
+    ), 'Scraper UA'); // 2020.04.05
 
     $Trigger(preg_match(
         '/(?:007ac9|200please|360spider|3d-ftp|a(?:6-indexer|ccelo|ffinity|ghaven' .
-        '|href|ipbot|naly(?:ticsseo|zer)|pp3lewebkit|rtviper|wcheck)|b(' .
-        '?:azqux|ender|inlar|itvo|ixo|lex|nf.fr|ogahn|oitho|pimagewalker)|c(?:cbo' .
-        't|ent(?:iverse|ric)|ityreview|msworldmap|omment|ommoncrawl|overscout|r4n' .
-        'k|rawl(?:erbotalpha|fire)|razywebcrawler|uriousgeorge|ydral)|d(?:ataprov' .
-        'ider|atenbank|aylife|ebate|igext|(?:cp|isco|ot|ouban|ownload)bot|otcomdo' .
-        'tnet|otnetdotcom|owjones|tsagent)|e(?:(?:na|uro|xperi)bot|nvolk|vaal|zoo' .
-        'm)|f(?:dm|etch(?:er.0|or)|ibgen)|g(?:alaxydownloads|et(?:download\.ws|ty' .
-        '|url11)|slfbot|umgum|urujibot)|h(?:arvest|eritrix|olmes|ttp(?:fetcher|un' .
-        'it)|ttrack)|i(?:mage(?:.fetcher|walker)|linkscrawler|nagist|ndocom|nflue' .
-        'ncebot|track)|jakarta|jike|k(?:eywenbot|eywordsearchtool|imengi|kman)|l(' .
-        '?:arbin|ink(?:dex|walker)|iperhey|(?:t|ush)bot)|m(?:ahiti|ahonie|attters' .
-        '|egaindex|iabot|lbot|oreover|ormor|ot-v980|oz\.com|rchrome|ulticrawler)|' .
-        'n(?:eofonie|etestate|ewsbot|extgensearchbot|ineconnections)|o(?:afcrawl|' .
-        'fflinenavigator|odlebot|ptimizer)|p(?:age(?:fetch|gett|_verifi)er|agesin' .
-        'ventory|anscient|ath2|ic(?:grabber|s|tsnapshot|turefinder)|i(?:pl|xmatch' .
-        '|xray)|oe-component-client-|owermarks|rofiler|roximic|(?:s|ure)bot|urity' .
-        ')|qqdownload|r(?:6_|adian6|ankivabot|ebi-shoveler|everseget|ganalytics|o' .
-        'cketcrawler|ogerbot|sscrawl|ulinki)|s(?:afeassign|bider|bl[.-]bot|crap[e' .
-        'y]|earchmetricsbot|emrush|eo(?:bulls|eng|hunt|kicks|mon|profiler|stat|to' .
-        'ol)|istrix|ite(?:bot|intel)|n[iy]per|olomono|pbot|p(?:hi|y)der|search|we' .
-        'bot)|t(?:-h-u-n|agsdir|ineye|opseo|raumacadx|urnitinbot)|u(?:12bot|p(?:d' .
-        'owner|ictobot))|v(?:agabondo|bseo|isbot|oyager)|w(?:arebay|auuu|bsearchb' .
-        'ot|eb(?:alta|capture|download|mastercoffee|meup|ripper)|ikio|indows(?:3|' .
-        'seven)|inhttp|ise-guys|khtmlto|orldbot|otbox)|xtractorpro|yoofind)/',
-    $UANoSpace), 'Backlink/SEO/Scraper UA'); // 2018.07.10 mod 2020.09.20
+        '|href|ipbot|naly(?:ticsseo|zer)|pp3lewebkit|rtviper|wcheck)|b(?:azqux|en' .
+        'der|inlar|itvo|ixo|lex|nf.fr|ogahn|oitho|pimagewalker)|c(?:cbot|ent(?:iv' .
+        'erse|ric)|ityreview|msworldmap|omment|ommoncrawl|overscout|r4nk|rawl(?:e' .
+        'rbotalpha|fire)|razywebcrawler|uriousgeorge|ydral)|d(?:ataprovider|atenb' .
+        'ank|aylife|ebate|igext|(?:cp|isco|ot|ouban|ownload)bot|otcomdotnet|otnet' .
+        'dotcom|owjones|tsagent)|e(?:(?:na|uro|xperi)bot|nvolk|vaal|zoom)|f(?:dm|' .
+        'etch(?:er.0|or)|ibgen)|g(?:alaxydownloads|et(?:download\.ws|ty|url11)|sl' .
+        'fbot|umgum|urujibot)|h(?:arvest|eritrix|olmes|ttp(?:fetcher|unit)|ttrack' .
+        ')|i(?:mage(?:.fetcher|walker)|linkscrawler|nagist|ndocom|nfluencebot|tra' .
+        'ck)|jakarta|jike|k(?:eywenbot|eywordsearchtool|imengi|kman)|l(?:arbin|in' .
+        'k(?:dex|walker)|iperhey|(?:t|ush)bot)|m(?:ahiti|ahonie|attters|egaindex|' .
+        'iabot|lbot|oreover|ormor|ot-v980|oz\.com|rchrome|ulticrawler)|n(?:eofoni' .
+        'e|etestate|ewsbot|extgensearchbot|ineconnections)|o(?:afcrawl|fflinenavi' .
+        'gator|odlebot|ptimizer)|p(?:age(?:fetch|gett|_verifi)er|agesinventory|an' .
+        'scient|ath2|ic(?:grabber|s|tsnapshot|turefinder)|i(?:pl|xmatch|xray)|oe-' .
+        'component-client-|owermarks|rofiler|roximic|(?:s|ure)bot|urity)|qqdownlo' .
+        'ad|r(?:6_|adian6|ankivabot|ebi-shoveler|everseget|ganalytics|ocketcrawle' .
+        'r|ogerbot|sscrawl|ulinki)|s(?:afeassign|bider|bl[.-]bot|crap[ey]|earchme' .
+        'tricsbot|emrush|eo(?:bulls|eng|hunt|kicks|mon|profiler|stat|tool)|istrix' .
+        '|ite(?:bot|intel)|n[iy]per|olomono|pbot|p(?:hi|y)der|search|webot)|t(?:-' .
+        'h-u-n|agsdir|ineye|opseo|raumacadx|urnitinbot)|u(?:12bot|p(?:downer|icto' .
+        'bot))|v(?:agabondo|bseo|isbot|oyager)|w(?:arebay|auuu|bsearchbot|eb(?:al' .
+        'ta|capture|download|mastercoffee|meup|ripper)|ikio|indows(?:3|seven)|inh' .
+        'ttp|ise-guys|khtmlto|orldbot|otbox)|xtractorpro|yoofind)/',
+        $UANoSpace
+    ), 'Backlink/SEO/Scraper UA'); // 2018.07.10 mod 2020.11.29
 
     $Trigger(preg_match('/(?:brandwatch|magpie)/', $UANoSpace), 'Snoop UA', '', $InstaBan); // 2017.01.13
     $Trigger(strpos($UANoSpace, 'catch') !== false, 'Risky UA'); // 2017.01.13
@@ -227,7 +241,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         '/(?:360se|cncdialer|desktopsmiley|ds_juicyaccess|foxy.1|genieo|hotbar|ic' .
         'afe|magicbrowser|mutant|myway|ootkit|ossproxy|qqpinyinsetup|sicent|simba' .
         'r|tencenttraveler|theworld|wsr-agent|zeus)/',
-    $UANoSpace), 'Malware UA'); // 2017.04.23
+        $UANoSpace
+    ), 'Malware UA'); // 2017.04.23
 
     $Trigger(preg_match(
         '~\.buzz|a(?:bonti|ccserver|cme.spider|nyevent-http|ppengine)|b(?:abbar\.' .
@@ -244,15 +259,18 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         't|masteraid|money|thumbnail)|hatweb|ikiapiary|in(?:http|inet)|maid\.com|' .
         'sr-agent|wwtype)|xenu|xovi|zibber|zurichfinancialservices|^m$|(?:\W|^)(?' .
         ':cu|pe)rl(?:\W|$)~',
-    $UANoSpace), 'Unauthorised'); // 2020.03.02
+        $UANoSpace
+    ), 'Unauthorised'); // 2020.03.02
 
     $Trigger(preg_match(
         '~^(?:bot|java|msie|windows-live-social-object-extractor)|\((?:java|\w\:\d{2,})~',
-    $UANoSpace), 'Fake UA'); // 2019.06.30
+        $UANoSpace
+    ), 'Fake UA'); // 2019.06.30
 
     $Trigger(preg_match(
         '~^go +\d|movable type|msie ?(?:\d{3,}|[2-9]\d|[0-8]\.)~i',
-    $UA), 'Fake UA'); // 2019.06.30
+        $UA
+    ), 'Fake UA'); // 2019.06.30
 
     $Trigger(preg_match('/(?:internet explorer)/', $UA), 'Hostile / Fake IE'); // 2017.02.03
     $Trigger(preg_match('/(?:MSIECrawler)/', $CIDRAM['BlockInfo']['UA']), 'Hostile / Fake IE', '', $InstaBan); // 2017.02.25
@@ -276,7 +294,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         '|scape|val|x(ec(utable)?|ists)?)|f(ile|unction)|g(et(c(sv)?|ss?)|zi' .
         'nflate)|if|[ints]able|nt|open|p(lace|uts)|re(ad|store)|s(chema|tart' .
         '|ystem)|thru|un(ction|serialize)|w(hil|rit)e)\(|database\(\))/',
-    $UA), 'UAEX'); // 2017.02.02
+        $UA
+    ), 'UAEX'); // 2017.02.02
 
     $Trigger(preg_match('~(?:[./]seo|seo/)~', $UANoSpace), 'SEO UA'); // 2018.07.10
 

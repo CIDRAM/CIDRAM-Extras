@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2020.11.15).
+ * This file: Bad hosts blocker module (last modified: 2020.11.29).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -68,7 +68,8 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         '/(?:0wn[3e]d|:(?:\{\w:|[\w\d][;:]\})|h[4a]ck(?:e[dr]|ing|[7t](?:[3e' .
         '][4a]m|[0o]{2}l))|%(?:0[0-8bcef]|1)|[`\'"]|^[-.:]|[-.:]$|[.:][\w\d-' .
         ']{64,}[.:])/i',
-    $HN), 'Banned hostname', '', $InstaBan); // 2018.06.24
+        $HN
+    ), 'Banned hostname', '', $InstaBan); // 2018.06.24
 
     $Trigger(strpos($HN, 'rm ' . '-rf') !== false, 'Banned hostname', '', $InstaBan); // 2017.01.21
     $Trigger(strpos($HN, 'sh' . 'el' . 'l_' . 'ex' . 'ec') !== false, 'Banned hostname', '', $InstaBan); // 2017.01.21
@@ -78,11 +79,13 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
 
     $Trigger(preg_match(
         '/\$(?:globals|_(cookie|env|files|get|post|request|se(rver|ssion)))/',
-    $HN), 'Banned hostname'); // 2017.01.21
+        $HN
+    ), 'Banned hostname'); // 2017.01.21
 
     $Trigger(preg_match(
         '/(?:<(\?|body|i?frame|object|script)|(body|i?frame|object|script)>)/',
-    $HN), 'Hostname script injection'); // 2017.01.21
+        $HN
+    ), 'Hostname script injection'); // 2017.01.21
 
     $Trigger(preg_match('/(?:captch|dbcapi\.me)/', $HN), 'CAPTCHA cracker host'); // 2017.01.21
 
@@ -99,11 +102,13 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         'llsales)|c(?:eptro|heapseovps|yber-uslugi)|drugstore|liwio\.|luxury' .
         'handbag|s(?:emalt|mileweb\.com\.ua|quider|tartdedicated\.)|(?:exa|f' .
         'ulltextro|we)bot)/',
-    $HN), 'SEO/Bothost/Scraper/Spamhost'); // 2020.11.15
+        $HN
+    ), 'SEO/Bothost/Scraper/Spamhost'); // 2020.11.15
 
     $Trigger(preg_match(
         '/(?:rumer|pymep|румер)/',
-    $HN), 'Spamhost', '', $InstaBan); // 2017.01.21
+        $HN
+    ), 'Spamhost', '', $InstaBan); // 2017.01.21
 
     $Trigger(preg_match('/(?:cjh-law\.com$)/', $HN), 'Phisher / Phishing Host'); // 2017.02.14
 
@@ -113,13 +118,15 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         '~^(?:damage|moon|test)\.|anahaqq|core\.youtu\.me|hosted-(?:by|in)|n' .
         'o-(?:data|(?:reverse-)?r?dns)|qeas|spletnahisa|therewill\.be|unassi' .
         'gned|work\.from|yhost\.name~',
-    $HN), 'Questionable Host'); // 2017.01.30 mod 2020.11.09
+        $HN
+    ), 'Questionable Host'); // 2017.01.30 mod 2020.11.09
 
     $Trigger(preg_match(
         '~\.(?:as13448|websense)\.|(?:bibbly|pulsepoint|zvelo)\.com|(?:\.fil' .
         'espot|cloudsystemnetworks)\.com$|westdc\.net|propagation\.net$|maje' .
         'stic|meanpath|tag-trek~',
-    $HN), 'Unauthorised'); // 2018.09.15
+        $HN
+    ), 'Unauthorised'); // 2018.09.15
 
     // Caught attempting to brute-force WordPress logins.
     $Trigger(preg_match('~\.domainserver\.ne\.jp$~', $HN), 'Cloud/Webhosting'); // 2020.11.09
@@ -128,7 +135,8 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
 
     $Trigger(preg_match(
         '/(?:megacom\.biz$|ideastack\.com$|dotnetdotcom\.org$|controlyourself\.online|seeweb\.it)/',
-    $HN), 'Hostile/Unauthorised'); // 2017.02.14
+        $HN
+    ), 'Hostile/Unauthorised'); // 2017.02.14
 
     $Trigger(preg_match('~brandaffinity~', $HN), 'Hostile/SLAPP'); // 2018.09.15
 
@@ -180,7 +188,8 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         'dorf-group|cloudsigma|dreamhost|ipxserver|linode|money(?:mattersnow' .
         '|tech\.mg)|productsnetworksx|psychz|requestedoffers|scopehosts|s(?:' .
         'p?lice|teep)host|happyoffer\.club$)/',
-    $HN), 'Cloud Service / Server Farm'); // 2019.03.12
+        $HN
+    ), 'Cloud Service / Server Farm'); // 2019.03.12
 
     $Trigger(empty($CIDRAM['Ignore']['Agava Ltd']) && preg_match('/agava\.net$/', $HN), 'Agava Ltd'); // 2017.02.06 (ASN 43146)
     $Trigger(empty($CIDRAM['Ignore']['AltusHost B.V']) && preg_match('/altushost\.com$/', $HN), 'AltusHost B.V'); // 2017.02.09 (ASN 51430)
@@ -209,27 +218,32 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         'eb(?:hostinghub|sitewelcome))\.com|server4u\.cz$|acetrophies\.co\.u' .
         'k$|\.pomserve2\.co\.uk|webhostserver\.biz$|\.haremo\.de$|webcreator' .
         's\.nl|vpsnow\.ru$/',
-    $HN), 'Probe/Scanner'); // 2019.03.04
+        $HN
+    ), 'Probe/Scanner'); // 2019.03.04
 
     $Trigger(preg_match(
         '/(?:\.oroxy|anonine)\.com$|thefreevpn|vpn(?:999\.com|gate)|public-net/',
-    $HN), 'Risky/Proxy/VPN Host'); // 2017.06.25
+        $HN
+    ), 'Risky/Proxy/VPN Host'); // 2017.06.25
 
     $Trigger(preg_match(
         '/(?:(?:dimenoc|dumpyourbitch|hostenko|internetserviceteam|ipredat(?' .
         ':e|or)|krypt|webandnetworksolutions|xcelmg)\.com|mbox\.kz|doctore\.' .
         'sk|hostnoc\.net|\.(?:host|\.spheral)\.ru)$/',
-    $HN), 'Dangerous Host'); // 2019.03.04
+        $HN
+    ), 'Dangerous Host'); // 2019.03.04
 
     $Trigger(empty($CIDRAM['Ignore']['is74.ru']) && preg_match('/is74\.ru$/', $HN), 'Dangerous Host'); // 2018.03.27 (ASNs 8369, 198675, 199619)
 
     $Trigger(preg_match(
         '/(?:(iweb|privatedns)\.com$|iweb\.ca$|^(www\.)?iweb)/',
-    $HN), 'Domain Snipers'); // 2017.02.15
+        $HN
+    ), 'Domain Snipers'); // 2017.02.15
 
     $Trigger(preg_match(
         '/(?:45ru\.net\.au|dedipower|p(rohibitivestuff|wn)|triolan)/',
-    $HN), 'Dangerous Host'); // 2017.02.14
+        $HN
+    ), 'Dangerous Host'); // 2017.02.14
 
     $Trigger(preg_match('/zetta\.net$/', $HN) && !preg_match('/ssg-corp\.zetta\.net$/', $HN), 'Cloud Service / Server Farm'); // 2017.02.14
     $Trigger(preg_match('/veloxzone\.com\.br$/', $HN) && !preg_match('/\.user\.veloxzone\.com\.br$/', $HN), 'Cloud Service / Server Farm'); // 2017.02.14
@@ -251,13 +265,15 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         'mo|mtu-net|netorn|nigma|relan|spb|totalstat)\.ru|((cosmonova|sovam|' .
         'utel)\.net|odessa|poltava|rbn\.com|volia)\.ua$|aceleo|dedibox|filme' .
         'fashion|infobox|key(machine|server|web)|kyklo|laycat|oliro)/',
-    $HN), 'RBN'); // 2017.02.06
+        $HN
+    ), 'RBN'); // 2017.02.06
 
     $Trigger(preg_match('/amazonaws\.com$/', $HN) && (
         !preg_match(
             '/(?:alexa|postrank|twitt(urly|erfeed)|bitlybot|unwindfetchor|me' .
             'tauri|pinterest|silk-accelerated=true$)/',
-        $UANoSpace) &&
+            $UANoSpace
+        ) &&
         substr($CIDRAM['BlockInfo']['UA'], -32) !== 'Feedspot http://www.feedspot.com'
     ), 'Amazon Web Services'); // 2017.02.14 modified 2020.01.11
 
@@ -304,7 +320,8 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         (($CIDRAM['BlockInfo']['SignatureCount'] - $Infractions) > 0) &&
         preg_match('~^/wp-cron\.php\?doing_wp_cron=\d+\.\d+$~', $_SERVER['REQUEST_URI']) &&
         defined('DOING_CRON'),
-    'WordPress cronjob bypass'); // 2018.06.24
+        'WordPress cronjob bypass'
+    ); // 2018.06.24
 
     /** Conjunctive reporting. */
     if (preg_match('~Spoofed/Fake Hostname|Dangerous Host|Questionable Host|DNS error~i', $CIDRAM['BlockInfo']['WhyReason'])) {
