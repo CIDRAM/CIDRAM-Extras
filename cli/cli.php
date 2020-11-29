@@ -59,7 +59,7 @@ if (
 }
 
 /** Show basic information. */
-echo "CIDRAM CLI mode (build 2020.023.590).
+echo "CIDRAM CLI mode (build 2020.333.285).
 
 To test whether an IP address is blocked by CIDRAM:
 >> test xxx.xxx.xxx.xxx
