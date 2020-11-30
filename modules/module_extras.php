@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2020.11.29).
+ * This file: Optional security extras module (last modified: 2020.11.30).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -212,9 +212,9 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
 
         $Trigger(preg_match('/id=.*(?:benchmark\(|id[xy]=|sleep\()/', $QueryNoSpace), 'Query SQLi'); // 2017.03.01
         $Trigger(preg_match(
-            '~(?:from|union|where).*select|then.*else|(?:o[nr]|where).*is null|(?:inner|left|outer|right) join)~',
+            '~(?:from|union|where).*select|then.*else|(?:o[nr]|where).*is null|(?:inner|left|outer|right) join~',
             $QueryNoSpace
-        ), 'Query SQLi'); // 2017.03.01 mod 2020.11.29
+        ), 'Query SQLi'); // 2017.03.01 mod 2020.11.30
 
         $Trigger(preg_match('/(?:(modez|osc|tasya)=|=((bot|scanner|shell)z|psybnc))/', $QueryNoSpace), 'Query command injection', '', $InstaBan); // 2017.02.25
 

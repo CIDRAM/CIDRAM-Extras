@@ -18,7 +18,7 @@ module_cookies.php:
 module_extras.php:
  Name: Optional security extras module
  False Positive Risk: Medium
- Version: 2020.333.285
+ Version: 2020.334.685
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -30,7 +30,7 @@ module_extras.php:
    - module_extras.php
    - module_extras.yaml
   Checksum:
-   - b5a6c74be0c507145520440aed8f1b91f40d89c4f4f76fab2bde0f894eaed778:24269
+   - 4d5d0c36200607b2f5839b1c7c5b7987c80922317e8b8519ef27c12e3fead730:24268
    - a794d27f0aaf79b3b37a9c53cbc9e05c91b7fc5fe6cebb9d491f9853efc9fed0:1017
  Used with: modules
  Reannotate: modules.dat
