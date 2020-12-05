@@ -107,7 +107,7 @@ theme/moss:
 theme/fullmoon:
  Name: Theme: Full Moon
  Extended Description: <img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-fullmoon.png" alt="Preview" /><br />Darker, semi-transparent colours; Navigation shifted to the top; No special fonts; Full moon backdrop.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2020.303.329
+ Version: 2020.339.499
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -185,9 +185,9 @@ theme/fullmoon:
    - 7df3ea0c5bb5c1688861e071af8a5be8b08513ec3fe7c04076328bea774ee0cd:846
    - fad1580dc2e59e366fce8cc386a57c2b26ad7d59c6d10365889f2bb5f2a6f6b7:1391
    - e3000217f637fab4f74c672f81effb20c9993f3929ee1e73aca04c7b73fe4546:919
-   - 5155593a44f63c1765a816f886cdecd700b337c29ef70568a200f2fedc43aad1:131
-   - 6d0cd093b74f437646ec4afc088853f1e2a8591135ce4acac87599f400943595:1366
-   - 15ae532b57c6c5adaf3c260f87bea48c8ce6b899faf6a071ac667df70d984502:353
+   - cf7095ea62cc4151e04bc4bf5f95f81c0d78f2aaa39d854433388c878fa93fc1:311
+   - c8d018ce328659f9f02c12398ed64d2e02778a8255c88f8f087b5b302f22ad3d:1365
+   - 45d9a7435e304b59f00d5e7f19118e1bee797d6403fc194d69c8f9c9b51f7d5b:352
    - 490b65ddbbcb63678b608ba616ef14ad88e92fa0e9e10bfd42e5dc59d638114a:616
    - 08e462da1f0514f29b95fdf9b6b4756832f521cf577edc392ed0d8bb16650367:1026
    - 1f85875ba371d03a1a7e359821b0c8be5d737fda00321439f290d95ada69d598:168
@@ -203,7 +203,7 @@ theme/fullmoon:
 theme/primer:
  Name: Theme: Primer
  Extended Description: <img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-primer.png" alt="Preview" /><br />Inspired by the "Primer Design System" (utilised by GitHub, Facebook, etc).
- Version: 2020.303.329
+ Version: 2020.339.499
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -222,15 +222,15 @@ theme/primer:
    - fe_assets/primer/frontend.html
   Checksum:
    - db71901dcf4e3248fff0974256aae06d8521d9c0d19572f93143d79f1298c92d:3327
-   - ef53cd3b67e34e08f2b6726774f9a3b669c022995ae4e66792d08a817445ec79:1837
-   - 403716ded1fc57e7d49060c0af31cebfad0e9bd51fc2c5a0f822b3c84af95f47:604
+   - e37c7cd5856ac54fb0a3761e8324c8d2577af7dc4ab256a2069f110b76e25174:1836
+   - 69bad851770b800663da73d0fd2f7287d541fc2891899a794cf1b0ae64c3ce74:603
    - fc34a98f9b86841f5410b3fdc00fb67d1d8c8b42878ae9435e692fff40e58a33:6462
    - 10fc821e94f0940ec1dc494f9b1a0b6f1cac941f8b94e9f9c9cc6c6e4b883cb9:802
  Reannotate: themes.dat
 theme/primerdark:
  Name: Theme: Primer Dark
  Extended Description: <img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-primerdark.png" alt="Preview" /><br />A darker version of the Primer theme.
- Version: 2020.303.329
+ Version: 2020.339.499
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -249,8 +249,8 @@ theme/primerdark:
    - fe_assets/primerdark/frontend.html
   Checksum:
    - 178e32c3dfe6c27c192a3bbae21817b8e147cdce60f6d6cf64a47ae15eecfcee:3308
-   - ef53cd3b67e34e08f2b6726774f9a3b669c022995ae4e66792d08a817445ec79:1837
-   - 403716ded1fc57e7d49060c0af31cebfad0e9bd51fc2c5a0f822b3c84af95f47:604
+   - e37c7cd5856ac54fb0a3761e8324c8d2577af7dc4ab256a2069f110b76e25174:1836
+   - 69bad851770b800663da73d0fd2f7287d541fc2891899a794cf1b0ae64c3ce74:603
    - 30b66523afe9e1051e14de91e0556d563fa756713e6d277a352dc26157ee13c0:6497
    - 10fc821e94f0940ec1dc494f9b1a0b6f1cac941f8b94e9f9c9cc6c6e4b883cb9:802
  Reannotate: themes.dat
