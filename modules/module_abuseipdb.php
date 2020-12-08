@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: AbuseIPDB module (last modified: 2020.11.29).
+ * This file: AbuseIPDB module (last modified: 2020.12.08).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -66,7 +66,6 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
     /** Executed if there aren't any cache entries corresponding to the IP of the request. */
     if (!isset($CIDRAM['AbuseIPDB'][$CIDRAM['BlockInfo']['IPAddr']])) {
-
         /** Perform AbuseIPDB lookup. */
         $Lookup = $CIDRAM['Request'](
             'https://api.abuseipdb.com/api/v2/check?ipAddress=' . urlencode($CIDRAM['BlockInfo']['IPAddr']) . '&maxAgeInDays=' . $CIDRAM['Config']['abuseipdb']['max_age_in_days'],
@@ -76,11 +75,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         );
 
         if ($CIDRAM['Most-Recent-HTTP-Code'] === 429) {
-
             /** Lookup limit has been exceeded. */
             $CIDRAM['AbuseIPDB']['429'] = ['Time' => $Expiry];
         } else {
-
             /** Validate or substitute. */
             $Lookup = strpos($Lookup, '"abuseConfidenceScore":') !== false ? json_decode($Lookup, true) : [];
 
@@ -95,10 +92,10 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
             /** Check whether whitelisted. */
             $CIDRAM['AbuseIPDB'][$CIDRAM['BlockInfo']['IPAddr']]['isWhitelisted'] = !empty($Lookup['data']['isWhitelisted']);
-
-            /** Cache update flag. */
-            $CIDRAM['AbuseIPDB-Modified'] = true;
         }
+
+        /** Cache update flag. */
+        $CIDRAM['AbuseIPDB-Modified'] = true;
     }
 
     /** Block the request if the IP is listed by AbuseIPDB. */

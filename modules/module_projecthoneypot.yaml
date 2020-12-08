@@ -1,0 +1,38 @@
+##\
+# This file is a part of the CIDRAM package.
+# Homepage: https://cidram.github.io/
+#
+# CIDRAM COPYRIGHT 2016 and beyond by Caleb Mazalevskis (Maikuolan).
+#
+# License: GNU/GPLv2
+# @see LICENSE.txt
+#
+# This file: Project Honeypot module configuration (last modified: 2019.12.04).
+##/
+
+Config Defaults:
+ projecthoneypot:
+  api_key:
+   type: "string"
+   default: ""
+   See also:
+    Project Honeypot Terms of Service: "https://www.projecthoneypot.org/terms_of_service_use.php"
+  max_age_in_days:
+   type: "int"
+   default: 365
+  minimum_threat_score:
+   type: "int"
+   default: 10
+  report_back:
+   type: "bool"
+   default: false
+  lookup_everything:
+   type: "bool"
+   default: false
+L10N:
+ config_projecthoneypot: "Project Honeypot module configuration."
+ config_projecthoneypot_api_key: "Please enter your API key here (if you don't already have an API key, you can get one from the Project Honeypot website)."
+ config_projecthoneypot_max_age_in_days: "The maximum age in days for which reports will be considered when performing lookups. Default = 365."
+ config_projecthoneypot_minimum_threat_score: "The minimum confidence score required in order for CIDRAM to block an IP address (must be a number between 1 and 100). Default = 10."
+ config_projecthoneypot_report_back: "Allow CIDRAM to report detected bad behaviour back to Project Honeypot using your API key? Default = False."
+ config_projecthoneypot_lookup_everything: "Perform API lookups when CIDRAM detects requests for sensitive pages (e.g., login pages, registration forms, etc), or for every request? False = Sensitive page requests only. True = Every request. Default = False."

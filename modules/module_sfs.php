@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Stop Forum Spam module (last modified: 2020.11.29).
+ * This file: Stop Forum Spam module (last modified: 2020.12.08).
  *
  * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  */
@@ -65,7 +65,6 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
     /** Executed if there aren't any cache entries corresponding to the IP of the request. */
     if (!isset($CIDRAM['SFS'][$CIDRAM['BlockInfo']['IPAddr']])) {
-
         /** Perform SFS lookup. */
         $Lookup = $CIDRAM['Request']('https://www.stopforumspam.com/api', [
             'ip' => $CIDRAM['BlockInfo']['IPAddr'],
@@ -73,19 +72,24 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         ]);
 
         if ($CIDRAM['Most-Recent-HTTP-Code'] === 429) {
-
             /** Lookup limit has been exceeded. */
             $CIDRAM['SFS']['429'] = ['Time' => $Expiry];
         } else {
-
             /** Generate local SFS cache entry. */
             $CIDRAM['SFS'][$CIDRAM['BlockInfo']['IPAddr']] = (
-                strpos($Lookup, 's:7:"success";') !== false && strpos($Lookup, 's:2:"ip";') !== false
-            ) ? ['Listed' => (strpos($Lookup, '"appears";i:1;') !== false), 'Time' => $Expiry] : ['Listed' => false, 'Time' => $ExpiryFailed];
-
-            /** Cache update flag. */
-            $CIDRAM['SFS-Modified'] = true;
+                strpos($Lookup, 's:7:"success";') !== false &&
+                strpos($Lookup, 's:2:"ip";') !== false
+            ) ? [
+                'Listed' => (strpos($Lookup, '"appears";i:1;') !== false),
+                'Time' => $Expiry
+            ] : [
+                'Listed' => false,
+                'Time' => $ExpiryFailed
+            ];
         }
+
+        /** Cache update flag. */
+        $CIDRAM['SFS-Modified'] = true;
     }
 
     /** Block the request if the IP is listed by SFS. */

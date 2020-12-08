@@ -147,7 +147,7 @@ module_badtlds.php:
 module_sfs.php:
  Name: Stop Forum Spam module
  False Positive Risk: Low
- Version: 2020.333.285
+ Version: 2020.342.676
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -157,7 +157,7 @@ module_sfs.php:
   To:
    - module_sfs.php
   Checksum:
-   - d5cbc2768391970069e8c4bdf9600dc9660cdf21a121214ac59b96ade7a24afc:3772
+   - 4abde57e7f45aaf1af731d3071c89d2c67aa3e1eaf6eb8c145273443861835ec:3869
  Used with: modules
  Reannotate: modules.dat
 module_botua.php:
@@ -259,7 +259,7 @@ PHPMailer:
 module_abuseipdb.php:
  Name: AbuseIPDB module
  False Positive Risk: Medium
- Version: 2020.333.285
+ Version: 2020.342.676
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -271,7 +271,7 @@ module_abuseipdb.php:
    - module_abuseipdb.php
    - module_abuseipdb.yaml
   Checksum:
-   - 241235c91add1f83046e1e19ac3989b520354da34eb7c0e2b03b37f3d5a074ba:5771
+   - 776df495539cb41238bd259c6684ee234dc194cb7e590d36199a025d659ac69b:5760
    - b8a798d0e0af643c2e45824732d375e9f15249ce83891223509afe7aaaef246b:1585
  Used with: modules
  Reannotate: modules.dat
@@ -321,6 +321,25 @@ module_bgpview.php:
   Checksum:
    - fddb139d0a0690f9695f458d45cad28156137d77875fcf8b2ce68d147f29d153:7322
    - 9c4625f428fedc22fec9d59975d9763114e5a2874e21f68c40559e3c70963b14:1592
+ Used with: modules
+ Reannotate: modules.dat
+module_projecthoneypot.php:
+ Name: Project Honeypot module
+ False Positive Risk: Medium
+ Version: 2020.342.676
+ Minimum Required: 1.13.1-DEV+19205785
+ Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
+ Uninstallable: true
+ Files:
+  From:
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_projecthoneypot.php
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_projecthoneypot.yaml
+  To:
+   - module_projecthoneypot.php
+   - module_projecthoneypot.yaml
+  Checksum:
+   - 6a628f9dfa6928d903f41748580cbcd4dc29d75d3c2f35b26887617b7cc2d8e1:5333
+   - 4f22cfcd4723e106d92022495b3ba30b158609cc77cca2866f2ef213b6b398e5:1645
  Used with: modules
  Reannotate: modules.dat
 
