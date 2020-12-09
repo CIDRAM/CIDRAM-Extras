@@ -7,7 +7,7 @@
 # License: GNU/GPLv2
 # @see LICENSE.txt
 #
-# This file: Project Honeypot module configuration (last modified: 2019.12.04).
+# This file: Project Honeypot module configuration (last modified: 2020.12.09).
 ##/
 
 Config Defaults:
@@ -29,6 +29,9 @@ Config Defaults:
   lookup_everything:
    type: "bool"
    default: false
+  timeout_limit:
+   type: "int"
+   default: 5
 L10N:
  config_projecthoneypot: "Project Honeypot module configuration."
  config_projecthoneypot_api_key: "Please enter your API key here (if you don't already have an API key, you can get one from the Project Honeypot website)."

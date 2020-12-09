@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: BGPView module (last modified: 2020.09.12).
+ * This file: BGPView module (last modified: 2020.12.09).
  *
  * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  */
@@ -55,7 +55,11 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
     /** Prepare to perform a new lookup if none for this origin have been cached yet. */
     if (!$InCache) {
-        $Lookup = $CIDRAM['Request']('https://api.bgpview.io/ip/' . $CIDRAM['BlockInfo']['IPAddr']);
+        $Lookup = $CIDRAM['Request'](
+            'https://api.bgpview.io/ip/' . $CIDRAM['BlockInfo']['IPAddr'],
+            [],
+            $CIDRAM['Config']['bgpview']['timeout_limit']
+        );
         $Lookup = (
             substr($Lookup, 0, 63) === '{"status":"ok","status_message":"Query was successful","data":{' &&
             substr($Lookup, -2) === '}}'

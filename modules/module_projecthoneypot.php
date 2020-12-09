@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Project Honeypot module (last modified: 2020.12.08).
+ * This file: Project Honeypot module (last modified: 2020.12.09).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -90,7 +90,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         );
 
         /** Perform Project Honeypot lookup. */
-        $Data = $CIDRAM['DNS-Resolve']($Lookup);
+        $Data = $CIDRAM['DNS-Resolve']($Lookup, $CIDRAM['Config']['projecthoneypot']['timeout_limit']);
 
         if ($CIDRAM['Most-Recent-HTTP-Code'] === 429) {
             /** Lookup limit has been exceeded. */
@@ -130,7 +130,10 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     $Trigger((
         $CIDRAM['Project Honeypot'][$CIDRAM['BlockInfo']['IPAddr']]['Threat score'] >= $CIDRAM['Config']['projecthoneypot']['minimum_threat_score'] &&
         $CIDRAM['Project Honeypot'][$CIDRAM['BlockInfo']['IPAddr']]['Days since last activity'] <= $CIDRAM['Config']['projecthoneypot']['max_age_in_days']
-    ), 'Project Honeypot Lookup', $CIDRAM['L10N']->getString('ReasonMessage_Generic'));
+    ), 'Project Honeypot Lookup', $CIDRAM['L10N']->getString('ReasonMessage_Generic') . '<br />' . sprintf(
+        $CIDRAM['L10N']->getString('request_removal'),
+        'https://www.projecthoneypot.org/ip_' . ($CIDRAM['BlockInfo']['IPAddrResolved'] ?: $CIDRAM['BlockInfo']['IPAddr'])
+    ));
 };
 
 /** Execute closure. */

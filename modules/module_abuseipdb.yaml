@@ -7,7 +7,7 @@
 # License: GNU/GPLv2
 # @see LICENSE.txt
 #
-# This file: AbuseIPDB module configuration (last modified: 2020.07.27).
+# This file: AbuseIPDB module configuration (last modified: 2020.12.09).
 ##/
 
 Config Defaults:
@@ -29,6 +29,9 @@ Config Defaults:
   lookup_everything:
    type: "bool"
    default: false
+  timeout_limit:
+   type: "int"
+   default: 12
 L10N:
  config_abuseipdb: "AbuseIPDB module configuration."
  config_abuseipdb_api_key: "Please enter your API key here (if you don't already have an API key, you can get one from the AbuseIPDB website)."

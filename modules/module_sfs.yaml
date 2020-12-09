@@ -1,0 +1,19 @@
+##\
+# This file is a part of the CIDRAM package.
+# Homepage: https://cidram.github.io/
+#
+# CIDRAM COPYRIGHT 2016 and beyond by Caleb Mazalevskis (Maikuolan).
+#
+# License: GNU/GPLv2
+# @see LICENSE.txt
+#
+# This file: Stop Forum Spam module configuration (last modified: 2020.12.09).
+##/
+
+Config Defaults:
+ sfs:
+  timeout_limit:
+   type: "int"
+   default: 12
+L10N:
+ config_sfs: "Stop Forum Spam module configuration."

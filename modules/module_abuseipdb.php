@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: AbuseIPDB module (last modified: 2020.12.08).
+ * This file: AbuseIPDB module (last modified: 2020.12.09).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -70,7 +70,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         $Lookup = $CIDRAM['Request'](
             'https://api.abuseipdb.com/api/v2/check?ipAddress=' . urlencode($CIDRAM['BlockInfo']['IPAddr']) . '&maxAgeInDays=' . $CIDRAM['Config']['abuseipdb']['max_age_in_days'],
             [],
-            $CIDRAM['Timeout'],
+            $CIDRAM['Config']['abuseipdb']['timeout_limit'],
             ['Key: ' . $CIDRAM['Config']['abuseipdb']['api_key'], 'Accept: application/json']
         );
 
@@ -126,7 +126,10 @@ if ($CIDRAM['Config']['abuseipdb']['report_back']) {
             'ip' => $Report['IP'],
             'categories' => $Categories,
             'comment' => $Report['Comments']
-        ], $CIDRAM['Timeout'], ['Key: ' . $CIDRAM['Config']['abuseipdb']['api_key'], 'Accept: application/json']);
+        ], $CIDRAM['Config']['abuseipdb']['timeout_limit'], [
+            'Key: ' . $CIDRAM['Config']['abuseipdb']['api_key'],
+            'Accept: application/json'
+        ]);
         $CIDRAM['RecentlyReported'][$Report['IP']] = ['Status' => $Status, 'Time' => ($CIDRAM['Now'] + 900)];
         $CIDRAM['RecentlyReported-Modified'] = true;
     });
