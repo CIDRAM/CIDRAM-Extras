@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: BGPView module (last modified: 2020.12.09).
+ * This file: BGPView module (last modified: 2021.01.10).
  *
  * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  */
@@ -111,13 +111,13 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
                 }
 
                 /** Origin is whitelisted. */
-                if ($CIDRAM['in_csv']($CIDRAM['BGPView'][$Factor]['ASN'], $CIDRAM['Config']['bgpview']['whitelisted_asns'])) {
+                if ($CIDRAM['Request']->inCsv($CIDRAM['BGPView'][$Factor]['ASN'], $CIDRAM['Config']['bgpview']['whitelisted_asns'])) {
                     $CIDRAM['ZeroOutBlockInfo'](true);
                     break 2;
                 }
 
                 /** Origin is blocked. */
-                if ($CIDRAM['in_csv']($CIDRAM['BGPView'][$Factor]['ASN'], $CIDRAM['Config']['bgpview']['blocked_asns'])) {
+                if ($CIDRAM['Request']->inCsv($CIDRAM['BGPView'][$Factor]['ASN'], $CIDRAM['Config']['bgpview']['blocked_asns'])) {
                     $CIDRAM['BlockInfo']['ReasonMessage'] = $CIDRAM['L10N']->getString('ReasonMessage_Generic');
                     if (!empty($CIDRAM['BlockInfo']['WhyReason'])) {
                         $CIDRAM['BlockInfo']['WhyReason'] .= ', ';
@@ -144,13 +144,13 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
                 }
 
                 /** Origin is whitelisted. */
-                if ($CIDRAM['in_csv']($CIDRAM['BGPView'][$Factor]['CC'], $CIDRAM['Config']['bgpview']['whitelisted_ccs'])) {
+                if ($CIDRAM['Request']->inCsv($CIDRAM['BGPView'][$Factor]['CC'], $CIDRAM['Config']['bgpview']['whitelisted_ccs'])) {
                     $CIDRAM['ZeroOutBlockInfo'](true);
                     break 2;
                 }
 
                 /** Origin is blocked. */
-                if ($CIDRAM['in_csv']($CIDRAM['BGPView'][$Factor]['CC'], $CIDRAM['Config']['bgpview']['blocked_ccs'])) {
+                if ($CIDRAM['Request']->inCsv($CIDRAM['BGPView'][$Factor]['CC'], $CIDRAM['Config']['bgpview']['blocked_ccs'])) {
                     $CIDRAM['BlockInfo']['ReasonMessage'] = 'No access allowed from ' . $CIDRAM['BGPView'][$Factor]['CC'] . '.';
                     if (!empty($CIDRAM['BlockInfo']['WhyReason'])) {
                         $CIDRAM['BlockInfo']['WhyReason'] .= ', ';

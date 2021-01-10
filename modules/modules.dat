@@ -147,8 +147,8 @@ module_badtlds.php:
 module_sfs.php:
  Name: Stop Forum Spam module
  False Positive Risk: Low
- Version: 2020.343.682
- Minimum Required: 1.13.1-DEV+19205785
+ Version: 2021.9.482
+ Minimum Required: 1.18.0-DEV+21009482
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
@@ -159,7 +159,7 @@ module_sfs.php:
    - module_sfs.php
    - module_sfs.yaml
   Checksum:
-   - 27e798cd0237102fea55ba49b726325a215c1ce6bb7bedc2f59140760c0368ec:3912
+   - 0f05a917cd8746cac6368c340317069972eaf6a78c374853b9cdb7545d1c369f:3920
    - e03210ce1f88a4abcf29f5f11cd653c46f957f938e547b0acc3eb2dce691b90e:415
  Used with: modules
  Reannotate: modules.dat
@@ -262,8 +262,8 @@ PHPMailer:
 module_abuseipdb.php:
  Name: AbuseIPDB module
  False Positive Risk: Medium
- Version: 2020.343.682
- Minimum Required: 1.13.1-DEV+19205785
+ Version: 2021.9.482
+ Minimum Required: 1.18.0-DEV+21009482
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
@@ -274,7 +274,7 @@ module_abuseipdb.php:
    - module_abuseipdb.php
    - module_abuseipdb.yaml
   Checksum:
-   - e4280ffd03ab575849bce6f47e504232c0fd22cce47c64e7604ffd795eaa06f3:5852
+   - c9f801f225392ec85d54c06b956608c544793a06545f9855425c6f2f930ef847:5860
    - 11f4237de8991c56ae95c91e593d0f11d1fcb79094d9be6c00fe0ebdf04cb184:1632
  Used with: modules
  Reannotate: modules.dat
@@ -310,8 +310,8 @@ module_refspam.php:
 module_bgpview.php:
  Name: BGPView module
  False Positive Risk: Low
- Version: 2020.343.682
- Minimum Required: 2.2.0
+ Version: 2021.9.482
+ Minimum Required: 2.5.0-DEV+21009482
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
@@ -322,15 +322,15 @@ module_bgpview.php:
    - module_bgpview.php
    - module_bgpview.yaml
   Checksum:
-   - 498926bcef6ffb62c4770415d77ae424f6a8401160f52552c5760201ad375f17:7419
+   - ff3e299452d0e5fd5156f703ce6e84c7c851b2d80fcce85ea30fb79574a25ed1:7451
    - 5c2f81cd3d5325c1846804b7bf0b0d6422e8f84383e32a0b56db76780fcc7c06:1639
  Used with: modules
  Reannotate: modules.dat
 module_projecthoneypot.php:
  Name: Project Honeypot module
  False Positive Risk: Medium
- Version: 2020.343.682
- Minimum Required: 1.13.1-DEV+19205785
+ Version: 2021.9.482
+ Minimum Required: 1.18.0-DEV+21009482
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
@@ -341,7 +341,7 @@ module_projecthoneypot.php:
    - module_projecthoneypot.php
    - module_projecthoneypot.yaml
   Checksum:
-   - 7c7261d6884903e895090661ddacf7c2e5744ec630933b075aa63dff0608e107:5594
+   - 1db6a4ef3371d31737bf6760eb25b401132aa2646c56191e42476fa30ceea499:5602
    - 106e29a2648d57c5889297af0f46d3f8ed416a00713bcc6f09c3e0276029e82e:1691
  Used with: modules
  Reannotate: modules.dat

@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Project Honeypot module (last modified: 2020.12.09).
+ * This file: Project Honeypot module (last modified: 2021.01.10).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -92,7 +92,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         /** Perform Project Honeypot lookup. */
         $Data = $CIDRAM['DNS-Resolve']($Lookup, $CIDRAM['Config']['projecthoneypot']['timeout_limit']);
 
-        if ($CIDRAM['Most-Recent-HTTP-Code'] === 429) {
+        if ($CIDRAM['Request']->MostRecentStatusCode === 429) {
             /** Lookup limit has been exceeded. */
             $CIDRAM['Project Honeypot']['429'] = ['Time' => $Expiry];
         } else {

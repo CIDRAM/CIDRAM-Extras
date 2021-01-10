@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: AbuseIPDB module (last modified: 2020.12.09).
+ * This file: AbuseIPDB module (last modified: 2021.01.10).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -74,7 +74,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             ['Key: ' . $CIDRAM['Config']['abuseipdb']['api_key'], 'Accept: application/json']
         );
 
-        if ($CIDRAM['Most-Recent-HTTP-Code'] === 429) {
+        if ($CIDRAM['Request']->MostRecentStatusCode === 429) {
             /** Lookup limit has been exceeded. */
             $CIDRAM['AbuseIPDB']['429'] = ['Time' => $Expiry];
         } else {

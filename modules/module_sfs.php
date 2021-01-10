@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Stop Forum Spam module (last modified: 2020.12.09).
+ * This file: Stop Forum Spam module (last modified: 2021.01.10).
  *
  * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  */
@@ -71,7 +71,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             'f' => 'serial'
         ], $CIDRAM['Config']['sfs']['timeout_limit']);
 
-        if ($CIDRAM['Most-Recent-HTTP-Code'] === 429) {
+        if ($CIDRAM['Request']->MostRecentStatusCode === 429) {
             /** Lookup limit has been exceeded. */
             $CIDRAM['SFS']['429'] = ['Time' => $Expiry];
         } else {
