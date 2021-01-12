@@ -311,7 +311,7 @@ module_bgpview.php:
  Name: BGPView module
  False Positive Risk: Low
  Version: 2021.9.482
- Minimum Required: 2.5.0-DEV+21009482
+ Minimum Required: 2.2.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
