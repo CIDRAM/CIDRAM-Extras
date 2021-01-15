@@ -54,6 +54,15 @@ Config Defaults:
   shttp/other:
    type: "bool"
    default: true
+  spdy/3.0:
+   type: "bool"
+   default: false
+  spdy/3.1:
+   type: "bool"
+   default: false
+  spdy/other:
+   type: "bool"
+   default: true
   irc/6.9:
    type: "bool"
    default: true
@@ -88,6 +97,9 @@ L10N:
  config_httpver_http/other: "Block other HTTP requests (i.e., beyond HTTP/3)? Default = True."
  config_httpver_shttp/1.3: "Block SHTTP/1.3 requests? Default = False."
  config_httpver_shttp/other: "Block other SHTTP requests (i.e., other than SHTTP/1.3)? Default = True."
+ config_httpver_spdy/3.0: "Block SPDY/3.0 requests? Default = False."
+ config_httpver_spdy/3.1: "Block SPDY/3.1 requests? Default = False."
+ config_httpver_spdy/other: "Block other SPDY requests (i.e., other than SPDY/3.0 or SPDY/3.1)? Default = True."
  config_httpver_irc/6.9: "Block IRC/6.9 requests? Default = True."
  config_httpver_irc/other: "Block other IRC requests (i.e., other than IRC/6.9)? Default = True."
  config_httpver_rta/x11: "Block RTA/x11 requests? Default = True."

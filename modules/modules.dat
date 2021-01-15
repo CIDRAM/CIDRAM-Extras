@@ -348,7 +348,7 @@ module_projecthoneypot.php:
 module_httpver.php:
  Name: HTTP version checker module
  False Positive Risk: Low
- Version: 2021.14.659
+ Version: 2021.14.666
  Minimum Required: 1.18.0-DEV+21009482
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -360,8 +360,8 @@ module_httpver.php:
    - module_httpver.php
    - module_httpver.yaml
   Checksum:
-   - 85a6cd5fe53df14b337f4d918ef26f7c934a5221156b4ec14383fd57aa3b90e0:4219
-   - 67115d9ed00856bad1af5bdda52770787e811cb89ea824a334565d622578670f:3013
+   - a13bca9bd86c1af6c0afd752cf24ea43a357e462187ae6f3f32d994724632b52:4541
+   - 073a039b671944450d5ecf0621e933e0ae6ee02cb5876368317edf553534db0a:3405
  Used with: modules
  Reannotate: modules.dat
 

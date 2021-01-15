@@ -28,14 +28,12 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     if (($Split = strpos($_SERVER['SERVER_PROTOCOL'], '/')) !== false) {
         $Protocol = strtoupper(preg_replace('~[^A-Za-z]~', '', substr($_SERVER['SERVER_PROTOCOL'], 0, $Split)));
         $Version = explode('.', preg_replace('~[^\d.]~', '', substr($_SERVER['SERVER_PROTOCOL'], $Split + 1)), 2);
-        $Major = (int)$Version[0];
-        $Minor = isset($Version[1]) ? (int)$Version[1] : 0;
     } else {
         $Protocol = strtoupper(preg_replace('~[^A-Za-z]~', '', $_SERVER['SERVER_PROTOCOL']));
         $Version = explode('.', preg_replace('~[^\d.]~', '', $_SERVER['SERVER_PROTOCOL']), 2);
-        $Major = (int)$Version[0];
-        $Minor = isset($Version[1]) ? (int)$Version[1] : 0;
     }
+    $Major = (int)$Version[0];
+    $Minor = isset($Version[1]) ? (int)$Version[1] : 0;
 
     /** Inherit trigger closure (see functions.php). */
     $Trigger = $CIDRAM['Trigger'];
@@ -60,6 +58,12 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         $Trigger((
             ($CIDRAM['Config']['httpver']['shttp/1.3'] && $Major === 1 && $Minor === 3) ||
             ($CIDRAM['Config']['httpver']['shttp/other'] && !($Major === 1 && $Minor === 3))
+        ), 'Protocol denied', $CIDRAM['Config']['httpver']['reason_message']);
+    } elseif ($Protocol === 'SPDY') {
+        $Trigger((
+            ($CIDRAM['Config']['httpver']['spdy/3.0'] && $Major === 3 && $Minor === 0) ||
+            ($CIDRAM['Config']['httpver']['spdy/3.1'] && $Major === 3 && $Minor === 1) ||
+            ($CIDRAM['Config']['httpver']['spdy/other'] && ($Major !== 3 || ($Minor !== 0 && $Minor !== 1)))
         ), 'Protocol denied', $CIDRAM['Config']['httpver']['reason_message']);
     } elseif ($Protocol === 'IRC') {
         /** See: https://tools.ietf.org/html/rfc7230 */
