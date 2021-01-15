@@ -1,0 +1,96 @@
+##\
+# This file is a part of the CIDRAM package.
+# Homepage: https://cidram.github.io/
+#
+# CIDRAM COPYRIGHT 2016 and beyond by Caleb Mazalevskis (Maikuolan).
+#
+# License: GNU/GPLv2
+# @see LICENSE.txt
+#
+# This file: HTTP version checker module configuration (last modified: 2021.01.15).
+##/
+
+Config Defaults:
+ httpver:
+  http/0.9:
+   type: "bool"
+   default: true
+  http/0.x:
+   type: "bool"
+   default: true
+  http/1.0:
+   type: "bool"
+   default: false
+  http/1.1:
+   type: "bool"
+   default: false
+  http/1.2:
+   type: "bool"
+   default: false
+  http/1.3:
+   type: "bool"
+   default: false
+  http/1.x:
+   type: "bool"
+   default: true
+  http/2.0:
+   type: "bool"
+   default: false
+  http/2.x:
+   type: "bool"
+   default: false
+  http/3.0:
+   type: "bool"
+   default: false
+  http/3.x:
+   type: "bool"
+   default: false
+  http/other:
+   type: "bool"
+   default: true
+  shttp/1.3:
+   type: "bool"
+   default: false
+  shttp/other:
+   type: "bool"
+   default: true
+  irc/6.9:
+   type: "bool"
+   default: true
+  irc/other:
+   type: "bool"
+   default: true
+  rta/x11:
+   type: "bool"
+   default: true
+  rta/other:
+   type: "bool"
+   default: true
+  empty_unfamiliar:
+   type: "bool"
+   default: true
+  reason_message:
+   type: "string"
+   default: "Protocol denied. Please upgrade your internet browser."
+L10N:
+ config_httpver: "HTTP version checker module configuration."
+ config_httpver_http/0.9: "Block HTTP/0.9 requests? Default = True."
+ config_httpver_http/0.x: "Block other HTTP/0 requests? Default = True."
+ config_httpver_http/1.0: "Block HTTP/1.0 requests? Default = False."
+ config_httpver_http/1.1: "Block HTTP/1.1 requests? Default = False."
+ config_httpver_http/1.2: "Block HTTP/1.2 requests? Default = False."
+ config_httpver_http/1.3: "Block HTTP/1.3 requests? Default = False."
+ config_httpver_http/1.x: "Block other HTTP/1 requests? Default = True."
+ config_httpver_http/2.0: "Block HTTP/2.0 requests? Default = False."
+ config_httpver_http/2.x: "Block other HTTP/2 requests? Default = False."
+ config_httpver_http/3.0: "Block HTTP/3.0 requests? Default = False."
+ config_httpver_http/3.x: "Block other HTTP/3 requests? Default = False."
+ config_httpver_http/other: "Block other HTTP requests (i.e., beyond HTTP/3)? Default = True."
+ config_httpver_shttp/1.3: "Block SHTTP/1.3 requests? Default = False."
+ config_httpver_shttp/other: "Block other SHTTP requests (i.e., other than SHTTP/1.3)? Default = True."
+ config_httpver_irc/6.9: "Block IRC/6.9 requests? Default = True."
+ config_httpver_irc/other: "Block other IRC requests (i.e., other than IRC/6.9)? Default = True."
+ config_httpver_rta/x11: "Block RTA/x11 requests? Default = True."
+ config_httpver_rta/other: "Block other RTA requests (i.e., other than RTA/x11)? Default = True."
+ config_httpver_empty_unfamiliar: "Block empty and unfamiliar protocols, and other kinds of requests (e.g., other than HTTP, SHTTP, IRC, RTA, etc)? Default = True."
+ config_httpver_reason_message: "The reason message displayed when such requests are blocked."
