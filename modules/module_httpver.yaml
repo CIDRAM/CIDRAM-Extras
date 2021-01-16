@@ -7,72 +7,72 @@
 # License: GNU/GPLv2
 # @see LICENSE.txt
 #
-# This file: HTTP version checker module configuration (last modified: 2021.01.15).
+# This file: HTTP version checker module configuration (last modified: 2021.01.16).
 ##/
 
 Config Defaults:
  httpver:
-  http/0.9:
+  http_zero_nine:
    type: "bool"
    default: true
-  http/0.x:
+  http_zero_x:
    type: "bool"
    default: true
-  http/1.0:
+  http_one_zero:
    type: "bool"
    default: false
-  http/1.1:
+  http_one_one:
    type: "bool"
    default: false
-  http/1.2:
+  http_one_two:
    type: "bool"
    default: false
-  http/1.3:
+  http_one_three:
    type: "bool"
    default: false
-  http/1.x:
+  http_one_x:
    type: "bool"
    default: true
-  http/2.0:
+  http_two_zero:
    type: "bool"
    default: false
-  http/2.x:
+  http_two_x:
    type: "bool"
    default: false
-  http/3.0:
+  http_three_zero:
    type: "bool"
    default: false
-  http/3.x:
+  http_three_x:
    type: "bool"
    default: false
-  http/other:
+  http_other:
    type: "bool"
    default: true
-  shttp/1.3:
+  shttp_one_three:
    type: "bool"
    default: false
-  shttp/other:
+  shttp_other:
    type: "bool"
    default: true
-  spdy/3.0:
+  spdy_three_zero:
    type: "bool"
    default: false
-  spdy/3.1:
+  spdy_three_one:
    type: "bool"
    default: false
-  spdy/other:
+  spdy_other:
    type: "bool"
    default: true
-  irc/6.9:
+  irc_six_nine:
    type: "bool"
    default: true
-  irc/other:
+  irc_other:
    type: "bool"
    default: true
-  rta/x11:
+  rta_xeleven:
    type: "bool"
    default: true
-  rta/other:
+  rta_other:
    type: "bool"
    default: true
   empty_unfamiliar:
@@ -83,26 +83,26 @@ Config Defaults:
    default: "Protocol denied. Please upgrade your internet browser."
 L10N:
  config_httpver: "HTTP version checker module configuration."
- config_httpver_http/0.9: "Block HTTP/0.9 requests? Default = True."
- config_httpver_http/0.x: "Block other HTTP/0 requests? Default = True."
- config_httpver_http/1.0: "Block HTTP/1.0 requests? Default = False."
- config_httpver_http/1.1: "Block HTTP/1.1 requests? Default = False."
- config_httpver_http/1.2: "Block HTTP/1.2 requests? Default = False."
- config_httpver_http/1.3: "Block HTTP/1.3 requests? Default = False."
- config_httpver_http/1.x: "Block other HTTP/1 requests? Default = True."
- config_httpver_http/2.0: "Block HTTP/2.0 requests? Default = False."
- config_httpver_http/2.x: "Block other HTTP/2 requests? Default = False."
- config_httpver_http/3.0: "Block HTTP/3.0 requests? Default = False."
- config_httpver_http/3.x: "Block other HTTP/3 requests? Default = False."
- config_httpver_http/other: "Block other HTTP requests (i.e., beyond HTTP/3)? Default = True."
- config_httpver_shttp/1.3: "Block SHTTP/1.3 requests? Default = False."
- config_httpver_shttp/other: "Block other SHTTP requests (i.e., other than SHTTP/1.3)? Default = True."
- config_httpver_spdy/3.0: "Block SPDY/3.0 requests? Default = False."
- config_httpver_spdy/3.1: "Block SPDY/3.1 requests? Default = False."
- config_httpver_spdy/other: "Block other SPDY requests (i.e., other than SPDY/3.0 or SPDY/3.1)? Default = True."
- config_httpver_irc/6.9: "Block IRC/6.9 requests? Default = True."
- config_httpver_irc/other: "Block other IRC requests (i.e., other than IRC/6.9)? Default = True."
- config_httpver_rta/x11: "Block RTA/x11 requests? Default = True."
- config_httpver_rta/other: "Block other RTA requests (i.e., other than RTA/x11)? Default = True."
- config_httpver_empty_unfamiliar: "Block empty and unfamiliar protocols, and other kinds of requests (e.g., other than HTTP, SHTTP, IRC, RTA, etc)? Default = True."
+ config_httpver_http_zero_nine: "Block HTTP/0.9 requests? Default = True."
+ config_httpver_http_zero_x: "Block other HTTP/0 requests? Default = True."
+ config_httpver_http_one_zero: "Block HTTP/1.0 requests? Default = False."
+ config_httpver_http_one_one: "Block HTTP/1.1 requests? Default = False."
+ config_httpver_http_one_two: "Block HTTP/1.2 requests? Default = False."
+ config_httpver_http_one_three: "Block HTTP/1.3 requests? Default = False."
+ config_httpver_http_one_x: "Block other HTTP/1 requests? Default = True."
+ config_httpver_http_two_zero: "Block HTTP/2.0 requests? Default = False."
+ config_httpver_http_two_x: "Block other HTTP/2 requests? Default = False."
+ config_httpver_http_three_zero: "Block HTTP/3.0 requests? Default = False."
+ config_httpver_http_three_x: "Block other HTTP/3 requests? Default = False."
+ config_httpver_http_other: "Block other HTTP requests (i.e., beyond HTTP/3)? Default = True."
+ config_httpver_shttp_one_three: "Block SHTTP/1.3 requests? Default = False."
+ config_httpver_shttp_other: "Block other SHTTP requests (i.e., other than SHTTP/1.3)? Default = True."
+ config_httpver_spdy_three_zero: "Block SPDY/3.0 requests? Default = False."
+ config_httpver_spdy_three_one: "Block SPDY/3.1 requests? Default = False."
+ config_httpver_spdy_other: "Block other SPDY requests (i.e., other than SPDY/3.0 or SPDY/3.1)? Default = True."
+ config_httpver_irc_six_nine: "Block IRC/6.9 requests? Default = True."
+ config_httpver_irc_other: "Block other IRC requests (i.e., other than IRC/6.9)? Default = True."
+ config_httpver_rta_xeleven: "Block RTA/x11 requests? Default = True."
+ config_httpver_rta_other: "Block other RTA requests (i.e., other than RTA/x11)? Default = True."
+ config_httpver_empty_unfamiliar: "Block empty and unfamiliar protocols, and other kinds of requests (e.g., other than HTTP, SHTTP, SPDY, IRC, RTA, etc)? Default = True."
  config_httpver_reason_message: "The reason message displayed when such requests are blocked."
