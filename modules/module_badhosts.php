@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2020.11.29).
+ * This file: Bad hosts blocker module (last modified: 2021.01.27).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -276,12 +276,6 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         ) &&
         substr($CIDRAM['BlockInfo']['UA'], -32) !== 'Feedspot http://www.feedspot.com'
     ), 'Amazon Web Services'); // 2017.02.14 modified 2020.01.11
-
-    $Trigger((
-        empty($CIDRAM['Ignore']['OVH Systems']) &&
-        preg_match('/ovh\.net$/', $HN) &&
-        strpos($UANoSpace, 'paperlibot') === false
-    ), 'OVH Systems'); // 2017.02.16
 
     $Trigger(preg_match('/^localhost$/', $HN) && (
         !preg_match('/^(?:1(?:27|92\.168)(?:\.1?\d{1,2}|\.2[0-4]\d|\.25[0-5]){2,3}|\:\:1)$/', $CIDRAM['BlockInfo']['IPAddr'])
