@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: HTTP version checker module (last modified: 2021.01.16).
+ * This file: HTTP version checker module (last modified: 2021.02.03).
  *
  * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  */
@@ -35,6 +35,13 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     $Major = (int)$Version[0];
     $Minor = isset($Version[1]) ? (int)$Version[1] : 0;
     $Rebuilt = $Protocol . '/' . $Major . '.' . $Minor;
+
+    /** Account for different protocols used through proxying. */
+    if ($Protocol === 'HTTP' && $Major === 1 && isset($_SERVER['X_SPDY']) && substr($_SERVER['X_SPDY'], 0, 4) === 'HTTP') {
+        $Version = explode('.', preg_replace('~[^\d.]~', '', substr($_SERVER['X_SPDY'], 4)), 2);
+        $Major = (int)$Version[0];
+        $Minor = isset($Version[1]) ? (int)$Version[1] : 0;
+    }
 
     /** Inherit trigger closure (see functions.php). */
     $Trigger = $CIDRAM['Trigger'];
