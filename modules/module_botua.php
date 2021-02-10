@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2020.11.29).
+ * This file: Optional user agents module (last modified: 2021.02.10).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -164,9 +164,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     $Trigger(preg_match('/%(?:[01][\da-f]|2[257]|3[ce]|[57][bd]|[7f]f)/', $UANoSpace), 'Bad UA'); // 2017.01.06
 
     $Trigger(preg_match(
-        '/(?:loadimpact|re-?animator|root|webster)/',
+        '~loadimpact|re-?animator|root|theknowledgeai|webster~',
         $UANoSpace
-    ), 'Banned UA', '', $InstaBan); // 2017.02.25
+    ), 'Banned UA', '', $InstaBan); // 2021.02.10
 
     $Trigger(preg_match('/test\'?$/', $UANoSpace), 'Banned UA'); // 2017.02.02
     $Trigger(preg_match('/^(?:\'?test|-|default|foo)/', $UANoSpace), 'Banned UA'); // 2017.02.02
@@ -300,6 +300,11 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     $Trigger(preg_match('~(?:[./]seo|seo/)~', $UANoSpace), 'SEO UA'); // 2018.07.10
 
     $Trigger(strpos($UA, 'bittorrent') !== false, 'Bad context (not a bittorrent hub)'); // 2017.02.25
+
+    $Trigger(
+        strpos($UA, 'projectdiscovery') !== false || strpos($UA, 'nuclei') !== false,
+        'Vulnerability scanner detected; Unauthorised'
+    ); // 2021.02.08
 
     /** Reporting. */
     if (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UA command injection') !== false) {
