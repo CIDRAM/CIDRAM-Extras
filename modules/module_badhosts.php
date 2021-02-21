@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2021.02.07).
+ * This file: Bad hosts blocker module (last modified: 2021.02.19).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -168,7 +168,7 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         '?:layer|rimp|uanti(?:vo|x-uk))|r(?:ackspace(?:cloud)?|e(?:di2|ducti' .
         'velabs|lia(?:blehosting|cloud)|sponsys)|ight(?:now|scale)|ollbase|o' .
         'mania-webhosting|path)|s(?:alesforce|avvis|ertifi|huilinchi|kytap|m' .
-        'artservercontrol|naplogic|oasta|pringcm|tax|treetsmarts|uccessmetri' .
+        'artservercontrol|naplogic|oasta|pringcm|tax|treetsmarts|tretchoid|uccessmetri' .
         'cs|wifttrim|ymplified|yncplicity)|t(?:aleo|err[ae]mark|h(?:eprocess' .
         'factory|inkgos|oughtexpress)|rustsaas)|utilitystatus|v(?:aultscape|' .
         'ertica|mware|ordel)|web(?:hosting\.uk|scalesolutions)|xactlycorp|xl' .
@@ -189,7 +189,7 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         '|tech\.mg)|productsnetworksx|psychz|requestedoffers|scopehosts|s(?:' .
         'p?lice|teep)host|happyoffer\.club$)/',
         $HN
-    ), 'Cloud Service / Server Farm'); // 2019.03.12
+    ), 'Cloud Service / Server Farm'); // 2019.03.12 mod 2021.02.19
 
     $Trigger(empty($CIDRAM['Ignore']['Agava Ltd']) && preg_match('/agava\.net$/', $HN), 'Agava Ltd'); // 2017.02.06 (ASN 43146)
     $Trigger(empty($CIDRAM['Ignore']['AltusHost B.V']) && preg_match('/altushost\.com$/', $HN), 'AltusHost B.V'); // 2017.02.09 (ASN 51430)

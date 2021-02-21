@@ -99,7 +99,7 @@ module_yandexblocker.php:
 module_badhosts.php:
  Name: Bad hosts blocker module
  False Positive Risk: Medium
- Version: 2021.37.131
+ Version: 2021.40.594
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -109,7 +109,7 @@ module_badhosts.php:
   To:
    - module_badhosts.php
   Checksum:
-   - 7f318cab3405cf995b0ad1ab1e408e2b2d2bc98911e95e6a1e822a58cf814199:18753
+   - 584cb0485e270ca05038247522335bda95e816f38d685dfdaf33d7c96c274bd8:18778
  Used with: modules
  Reannotate: modules.dat
 module_badhosts_isps.php:
@@ -166,7 +166,7 @@ module_sfs.php:
 module_botua.php:
  Name: Optional user agents module
  False Positive Risk: Medium
- Version: 2021.40.579
+ Version: 2021.50.147
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -176,7 +176,7 @@ module_botua.php:
   To:
    - module_botua.php
   Checksum:
-   - acc46bc2866f3837c93ab4f5c43fd3e7edf1f8099c40ae54cb1c5bc853fc97e4:21314
+   - 9b89701224620e73754cd9568269d606c608883c0ada2d7fd0d98f34ef71557b:21312
  Used with: modules
  Reannotate: modules.dat
 Chart.js:
@@ -233,7 +233,7 @@ compat_bunnycdn.php:
  Reannotate: modules.dat
 PHPMailer:
  Name: PHPMailer
- Version: 6.2.0
+ Version: 6.3.0
  Minimum Required: 1.13.1-DEV+19205785
  Minimum Required PHP: 5.5.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -241,11 +241,11 @@ PHPMailer:
  Provisional: true
  Files:
   From:
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/e38888a75c070304ca5514197d4847a59a5c853f/src/Exception.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/e38888a75c070304ca5514197d4847a59a5c853f/src/OAuth.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/e38888a75c070304ca5514197d4847a59a5c853f/src/PHPMailer.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/e38888a75c070304ca5514197d4847a59a5c853f/src/POP3.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/e38888a75c070304ca5514197d4847a59a5c853f/src/SMTP.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/4a08cf4cdd2c38d12ee2b9fa69e5d235f37a6dcb/src/Exception.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/4a08cf4cdd2c38d12ee2b9fa69e5d235f37a6dcb/src/OAuth.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/4a08cf4cdd2c38d12ee2b9fa69e5d235f37a6dcb/src/PHPMailer.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/4a08cf4cdd2c38d12ee2b9fa69e5d235f37a6dcb/src/POP3.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/4a08cf4cdd2c38d12ee2b9fa69e5d235f37a6dcb/src/SMTP.php
   To:
    - classes/PHPMailer/Exception.php
    - classes/PHPMailer/OAuth.php
@@ -254,10 +254,10 @@ PHPMailer:
    - classes/PHPMailer/SMTP.php
   Checksum:
    - 67d962f239fc087bb48f7ba250cb301d354147f58b55ddebab0d6e49405e5e36:1214
-   - 98560ed0dc3ac8cea99fd7ee787eae3146ccf654bce97587a1682e49661d3031:3745
-   - 476f32ee5a1ca5442741daedbd6c5ec15664aac05b51d659f96ce5fb04eaea30:167338
-   - 615f927b3177392b7a9630e09a98e67d91440ec58951880fe933dc82b37cd98c:11769
-   - 6c30e7f52488a92787b69f72e8de2231f400ea2a7603ae4565ebcf4ebb77f4a1:46145
+   - d1456eb234737d0e0aa7c7e816e0b8b01f6aca147f29739864bb553b840f4fce:3744
+   - 5fee43d943af638930afb64265f4b3a9b1fb1bc2a8355863c4f5c3d6984dce92:170285
+   - 3dda81b987dd5cc19b0cb5bca569ac16937be0254ebe1cec09a0f30f1cbef5e2:11732
+   - 2d664cbebc85117ef0a1d4aa6e892bcf9de75a04b3b5b6fe196db163510c914b:47048
  Reannotate: modules.dat
 module_abuseipdb.php:
  Name: AbuseIPDB module

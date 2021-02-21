@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2021.02.10).
+ * This file: Optional user agents module (last modified: 2021.02.21).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -222,15 +222,15 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         'scient|ath2|ic(?:grabber|s|tsnapshot|turefinder)|i(?:pl|xmatch|xray)|oe-' .
         'component-client-|owermarks|rofiler|roximic|(?:s|ure)bot|urity)|qqdownlo' .
         'ad|r(?:6_|adian6|ankivabot|ebi-shoveler|everseget|ganalytics|ocketcrawle' .
-        'r|ogerbot|sscrawl|ulinki)|s(?:afeassign|bider|bl[.-]bot|crap[ey]|earchme' .
-        'tricsbot|emrush|eo(?:bulls|eng|hunt|kicks|mon|profiler|stat|tool)|istrix' .
-        '|ite(?:bot|intel)|n[iy]per|olomono|pbot|p(?:hi|y)der|search|webot)|t(?:-' .
-        'h-u-n|agsdir|ineye|opseo|raumacadx|urnitinbot)|u(?:12bot|p(?:downer|icto' .
-        'bot))|v(?:agabondo|bseo|isbot|oyager)|w(?:arebay|auuu|bsearchbot|eb(?:al' .
-        'ta|capture|download|mastercoffee|meup|ripper)|ikio|indows(?:3|seven)|inh' .
-        'ttp|ise-guys|khtmlto|orldbot|otbox)|xtractorpro|yoofind)/',
+        'r|ogerbot|sscrawl|ulinki)|s(?:afeassign|bider|bl[.-]bot|crap[ey]|creamin' .
+        'gfrog|earchmetricsbot|emrush|eo(?:bulls|eng|hunt|kicks|mon|profiler|stat' .
+        '|tool)|istrix|ite(?:bot|intel)|n[iy]per|olomono|pbot|p(?:hi|y)der|search' .
+        '|webot)|t(?:-h-u-n|agsdir|ineye|opseo|raumacadx|urnitinbot)|u(?:12bot|p(' .
+        '?:downer|ictobot))|v(?:agabondo|bseo|isbot|oyager)|w(?:arebay|auuu|bsear' .
+        'chbot|eb(?:alta|capture|download|mastercoffee|meup|ripper)|ikio|indows(?' .
+        ':3|seven)|inhttp|ise-guys|khtmlto|orldbot|otbox)|xtractorpro|yoofind)/',
         $UANoSpace
-    ), 'Backlink/SEO/Scraper UA'); // 2018.07.10 mod 2020.11.29
+    ), 'Backlink/SEO/Scraper UA'); // 2021.02.21
 
     $Trigger(preg_match('/(?:brandwatch|magpie)/', $UANoSpace), 'Snoop UA', '', $InstaBan); // 2017.01.13
     $Trigger(strpos($UANoSpace, 'catch') !== false, 'Risky UA'); // 2017.01.13
