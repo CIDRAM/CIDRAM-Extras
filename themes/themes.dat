@@ -2,7 +2,7 @@
 theme/rbi:
  Name: Theme: Red-Blue Inverted
  Extended Description: <img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-rbi.png" alt="Preview" /><br />Exactly the same as the default theme, but with some of the colours swapped around. No big changes.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2021.35.680
+ Version: 2021.58.204
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -15,7 +15,7 @@ theme/rbi:
    - fe_assets/rbi/frontend.css
   Checksum:
    - 38d10d3913b777f344b2121e399637441bc3f3610d935f584ddc67109e5d1430:2546
-   - bc5a0d5c878571160a72cc1dbdf2f31b8a8b59b224e048a5dcd4d345443fb5db:6119
+   - 93cba4172beeb1d1991da6baa237b3461e2ef94ab0ae29bd20b469f814212339:6223
  Reannotate: themes.dat
 theme/obscured:
  Name: Theme: Obscured
@@ -35,7 +35,7 @@ theme/obscured:
 theme/slate:
  Name: Theme: Slate
  Extended Description: <img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-slate.png" alt="Preview" /><br />Simple layout; Gentle, darker colours.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2021.35.680
+ Version: 2021.58.204
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -52,14 +52,14 @@ theme/slate:
    - fe_assets/slate/pips.php
   Checksum:
    - adccda9e9e3228519e2e9f79f2505c80b533751712b91d70690396b0679d8c24:2567
-   - b1beea0969c3a3ffc6590e2d5be69eeb80666f1ef14d7797affd8a37c20ecabf:6187
+   - f5a419d3d213de51874e095b1811524414ff4255b86431180eaa1b37f57eb64b:6291
    - 75c589be9cff52166d458dc6b84ae7a1789ef2be37a47c3dd4d3096403b7c6a9:983
    - 6f9cef332609d596d45a816ceea2a0f8dccd652b85defd5924da98ba5ef11f0f:763
  Reannotate: themes.dat
 theme/bluemetal:
  Name: Theme: Blue Metal
  Extended Description: <img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-bluemetal.png" alt="Preview" /><br />Simple blue/black colour scheme with gentle tones.<br /><em>Author: Caleb M (Maikuolan), based on previous work by Daniel R.</em>
- Version: 2021.35.680
+ Version: 2021.58.204
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -76,14 +76,14 @@ theme/bluemetal:
    - fe_assets/bluemetal/pips.php
   Checksum:
    - 3ae6370c5cf0b7ee9ce9e0f39c62f8b75af1f8af81e091867b8e0d1a78f90f12:2689
-   - 87e2fa97572dee1fe4cc27be1ee23809ce42d42506c072eb04c5b6ff5dec1e19:6325
+   - 0c014151040e20813b2cfb3febd0c471f86459bfa0204ea54ddd661ea0e6c44e:6429
    - 75c589be9cff52166d458dc6b84ae7a1789ef2be37a47c3dd4d3096403b7c6a9:983
    - 991fa26b3e3f5743a2a6ad615ca12cf1dfa22b9a3e916a811f1f39682933427f:744
  Reannotate: themes.dat
 theme/moss:
  Name: Theme: Moss
  Extended Description: <img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-moss.png" alt="Preview" /><br />Inspired by the colours of nature.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2021.35.680
+ Version: 2021.58.204
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -101,13 +101,13 @@ theme/moss:
   Checksum:
    - fc098f3af28dd29481dde82c64ed679b836c2758e72e05fb8fda633805687c36:2595
    - ceb4497bbae40d04a2a8ecb42086307bc57677235685ea07bedf98795dea780f:17804
-   - 57bd1bc5a34612f077881ccc4bb063952e6d52cd685614a98eb7dd1279361eee:6489
+   - ae7c965b85bb3a3491db3897cd0e6c59b36124e02873d138ba86bd49f61cdc85:6593
    - 75c589be9cff52166d458dc6b84ae7a1789ef2be37a47c3dd4d3096403b7c6a9:983
  Reannotate: themes.dat
 theme/fullmoon:
  Name: Theme: Full Moon
  Extended Description: <img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-fullmoon.png" alt="Preview" /><br />Darker, semi-transparent colours; Navigation shifted to the top; No special fonts; Full moon backdrop.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2021.48.273
+ Version: 2021.58.204
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -195,7 +195,7 @@ theme/fullmoon:
    - 25926fe60915a4e511968d5d83e9b6f39e724575f2a4defb0bce17d95e5cc653:43
    - 53ddb587183e76e4090d39546e25e2b7232a34b608bd876aa89b1cf199d72538:3510
    - a8a8726cef3d963c656f1b1ed2e70fb96f7c582492380eb085a933a2ffb8c4e4:727
-   - 309cffd08147213696e09c306e91f83e4eb13c27777f7a7814364579c452de54:5628
+   - 3cec9f4f4cc898693e57d13c7bfe60de76e98f6a195f35fc05eae87d2ef6a915:5732
    - 358afec9047638b3269ac4048f8d36a0dcee435fc039f4838185f19d42c346a6:779
    - 17703149e6f8a4312527243bfaf369c2dfa73e56c50d4d2fdb2b9f8fa0b332c3:34088
    - 8303efe5267ff22717e51387e5e7d17fe33c885a50e9c7e11c98b3bb3d53bc0d:767
@@ -203,7 +203,7 @@ theme/fullmoon:
 theme/primer:
  Name: Theme: Primer
  Extended Description: <img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-primer.png" alt="Preview" /><br />Inspired by the "Primer Design System" (utilised by GitHub, Facebook, etc).
- Version: 2021.35.680
+ Version: 2021.58.204
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -224,13 +224,13 @@ theme/primer:
    - db71901dcf4e3248fff0974256aae06d8521d9c0d19572f93143d79f1298c92d:3327
    - e37c7cd5856ac54fb0a3761e8324c8d2577af7dc4ab256a2069f110b76e25174:1836
    - 69bad851770b800663da73d0fd2f7287d541fc2891899a794cf1b0ae64c3ce74:603
-   - d7c235eff220ed084b2e2750090fc719780086711419bd106bf3a1e946b45e49:6499
+   - 8cdec4035950bef84848112daea29e4cd41256b8458993e486903eda021809cd:6603
    - 10fc821e94f0940ec1dc494f9b1a0b6f1cac941f8b94e9f9c9cc6c6e4b883cb9:802
  Reannotate: themes.dat
 theme/primerdark:
  Name: Theme: Primer Dark
  Extended Description: <img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-primerdark.png" alt="Preview" /><br />A darker version of the Primer theme.
- Version: 2021.35.680
+ Version: 2021.58.204
  Minimum Required: 1.0.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat
  Uninstallable: true
@@ -251,7 +251,7 @@ theme/primerdark:
    - 178e32c3dfe6c27c192a3bbae21817b8e147cdce60f6d6cf64a47ae15eecfcee:3308
    - e37c7cd5856ac54fb0a3761e8324c8d2577af7dc4ab256a2069f110b76e25174:1836
    - 69bad851770b800663da73d0fd2f7287d541fc2891899a794cf1b0ae64c3ce74:603
-   - daf955c5694c50437aeea6184acb0271d43db0e465dcca19dbb7652562dff13e:6534
+   - f392f898cd91a37d1c13d975accddd9267dc133f61f5c0d556ed405ebad7eaea:6638
    - 10fc821e94f0940ec1dc494f9b1a0b6f1cac941f8b94e9f9c9cc6c6e4b883cb9:802
  Reannotate: themes.dat
 
