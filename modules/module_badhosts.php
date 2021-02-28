@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2021.02.19).
+ * This file: Bad hosts blocker module (last modified: 2021.02.28).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -191,7 +191,6 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         $HN
     ), 'Cloud Service / Server Farm'); // 2019.03.12 mod 2021.02.19
 
-    $Trigger(empty($CIDRAM['Ignore']['Agava Ltd']) && preg_match('/agava\.net$/', $HN), 'Agava Ltd'); // 2017.02.06 (ASN 43146)
     $Trigger(empty($CIDRAM['Ignore']['AltusHost B.V']) && preg_match('/altushost\.com$/', $HN), 'AltusHost B.V'); // 2017.02.09 (ASN 51430)
     $Trigger(empty($CIDRAM['Ignore']['Bezeq International']) && preg_match('/bezeqint\.net$/', $HN), 'Bezeq International'); // 2017.02.09 (ASN 8551)
     $Trigger(empty($CIDRAM['Ignore']['Bharti Airtel']) && preg_match('/\.airtelbroadband\.in$/', $HN), 'Bharti Airtel'); // 2017.02.06 (ASNs 9498, 24560, 45514, 45609)
@@ -203,13 +202,11 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
     $Trigger(empty($CIDRAM['Ignore']['IDEAL HOSTING']) && strpos($HN, 'idealhosting.net.tr') !== false, 'IDEAL HOSTING'); // 2018.04.08 (ASN 29262)
     $Trigger(empty($CIDRAM['Ignore']['Kyivstar']) && strpos($HN, 'kyivstar') !== false, 'Kyivstar'); // 2017.01.21 (ASNs 12530, 15895, 35081)
     $Trigger(empty($CIDRAM['Ignore']['Leaseweb']) && strpos($HN, 'leaseweb') !== false, 'Leaseweb'); // 2017.02.06 (numerous ASNs)
-    $Trigger(empty($CIDRAM['Ignore']['Nobis/Ubiquity']) && preg_match('/(?:nobis|ubiquity)/', $HN), 'Nobis/Ubiquity'); // 2017.02.15 (ASN 15003)
     $Trigger(empty($CIDRAM['Ignore']['QuadraNet, Inc']) && preg_match('/quadranet\.com$/', $HN), 'QuadraNet, Inc'); // 2017.02.14 (ASNs 8100, 29761, 62639)
     $Trigger(empty($CIDRAM['Ignore']['SISTRIX GmbH']) && strpos($HN, 'sistrix') !== false, 'SISTRIX GmbH'); // 2017.01.21 (no ASN)
     $Trigger(empty($CIDRAM['Ignore']['Versaweb, LLC']) && strpos($HN, 'versaweb') !== false, 'Versaweb, LLC'); // 2017.02.14 (ASN 36114)
     $Trigger(empty($CIDRAM['Ignore']['Voxility LLC']) && strpos($HN, 'voxility.net') !== false, 'Voxility LLC'); // 2017.02.06 (ASN 3223)
     $Trigger(empty($CIDRAM['Ignore']['Wowrack.com']) && preg_match('~themothership\.net|wowrack\.com~', $HN), 'Wowrack.com'); // 2018.09.15 (ASN 23033)
-    $Trigger(empty($CIDRAM['Ignore']['OOO TimeWeb']) && strpos($HN, 'timeweb.ru') !== false, 'OOO TimeWeb'); // 2019.03.04 (ASN 9123)
 
     $Trigger(preg_match(
         '/(?:\.above|shared-server|jkserv)\.net$|akpackaging\.net|(?:academi' .
