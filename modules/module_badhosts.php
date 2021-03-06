@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2021.02.28).
+ * This file: Bad hosts blocker module (last modified: 2021.03.06).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -303,7 +303,7 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
          */
         !preg_match('~^(?:google|rate-limited)-proxy-.*\.google\.com$~i', $HN)
     ) {
-        $Trigger(preg_match('~(?<!\w)tor(?!\w)|anonym|proxy~i', $HN), 'Proxy host'); // 2019.05.25
+        $Trigger(preg_match('~(?<!\w)tor(?!\w)|anonym|makesecure\.nl$|proxy~i', $HN), 'Proxy host'); // 2021.03.06
     }
 
     /** WordPress cronjob bypass. */
