@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Baidu blocker module (last modified: 2020.10.10).
+ * This file: Baidu blocker module (last modified: 2021.03.18).
  *
  * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  *
@@ -31,14 +31,13 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     /** Inherit trigger closure (see functions.php). */
     $Trigger = $CIDRAM['Trigger'];
 
-    /** Options for instantly banning (sets tracking time to 1 year and infraction count to 1000). */
-    $InstaBan = ['Options' => ['TrackTime' => 31536000, 'TrackCount' => 1000]];
-
     /** Set flag to ignore validation. */
     $CIDRAM['Flag-Bypass-Baidu-Check'] = true;
 
     /** Block based on UA. */
-    $Trigger(strpos(strtolower($CIDRAM['BlockInfo']['UA']), 'baidu') !== false, 'Baidu UA', '百度被禁止从这里', $InstaBan);
+    if ($Trigger(strpos(strtolower($CIDRAM['BlockInfo']['UA']), 'baidu') !== false, 'Baidu UA', '百度被禁止从这里')) {
+        $CIDRAM['AddProfileEntry']('Blocked search engine');
+    }
 
     /** Fetch hostname. */
     if (empty($CIDRAM['Hostname'])) {
@@ -46,7 +45,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     }
 
     /** Block based on hostname. */
-    $Trigger(strpos(strtolower($CIDRAM['Hostname']), 'baidu') !== false, 'Baidu Host', '百度被禁止从这里', $InstaBan);
+    if ($Trigger(strpos(strtolower($CIDRAM['Hostname']), 'baidu') !== false, 'Baidu Host', '百度被禁止从这里')) {
+        $CIDRAM['AddProfileEntry']('Blocked search engine');
+    }
 };
 
 /** Execute closure. */
@@ -63,41 +64,17 @@ IPv4 Signatures
 106.12.192.0/19 Deny 百度被禁止从这里
 106.12.224.0/20 Deny 百度被禁止从这里
 106.12.240.0/21 Deny 百度被禁止从这里
+106.12.250.0/23 Deny 百度被禁止从这里
 106.13.0.0/17 Deny 百度被禁止从这里
 106.13.128.0/18 Deny 百度被禁止从这里
 106.13.192.0/19 Deny 百度被禁止从这里
 106.13.224.0/20 Deny 百度被禁止从这里
 106.13.240.0/22 Deny 百度被禁止从这里
-106.13.252.0/22 Deny 百度被禁止从这里
-114.110.65.0/24 Deny 百度被禁止从这里
-114.110.80.0/24 Deny 百度被禁止从这里
-114.110.96.0/24 Deny 百度被禁止从这里
-114.110.126.0/24 Deny 百度被禁止从这里
-114.111.1.0/24 Deny 百度被禁止从这里
-114.111.8.0/24 Deny 百度被禁止从这里
-114.111.16.0/24 Deny 百度被禁止从这里
-114.111.30.0/24 Deny 百度被禁止从这里
+106.13.250.0/23 Deny 百度被禁止从这里
+106.13.253.0/24 Deny 百度被禁止从这里
+114.111.16.0/20 Deny 百度被禁止从这里
 119.75.208.0/20 Deny 百度被禁止从这里
-120.48.1.0/24 Deny 百度被禁止从这里
-120.48.32.0/24 Deny 百度被禁止从这里
-120.48.65.0/24 Deny 百度被禁止从这里
-120.48.96.0/24 Deny 百度被禁止从这里
-120.48.129.0/24 Deny 百度被禁止从这里
-120.48.160.0/24 Deny 百度被禁止从这里
-120.48.193.0/24 Deny 百度被禁止从这里
-120.48.224.0/24 Deny 百度被禁止从这里
-120.49.1.0/24 Deny 百度被禁止从这里
-120.49.32.0/24 Deny 百度被禁止从这里
-120.49.65.0/24 Deny 百度被禁止从这里
-120.49.96.0/24 Deny 百度被禁止从这里
-120.49.129.0/24 Deny 百度被禁止从这里
-120.49.160.0/24 Deny 百度被禁止从这里
-120.49.193.0/24 Deny 百度被禁止从这里
-120.49.224.0/24 Deny 百度被禁止从这里
-122.248.49.0/24 Deny 百度被禁止从这里
-122.248.52.0/24 Deny 百度被禁止从这里
-122.248.56.0/24 Deny 百度被禁止从这里
-122.248.62.0/24 Deny 百度被禁止从这里
+120.48.0.0/17 Deny 百度被禁止从这里
 150.242.120.0/24 Deny 百度被禁止从这里
 150.242.122.0/23 Deny 百度被禁止从这里
 180.76.0.0/17 Deny 百度被禁止从这里
@@ -117,31 +94,21 @@ IPv4 Signatures
 182.61.216.0/21 Deny 百度被禁止从这里
 182.61.224.0/19 Deny 百度被禁止从这里
 202.46.48.0/20 Deny 百度被禁止从这里
-202.181.113.0/24 Deny 百度被禁止从这里
-202.181.116.0/24 Deny 百度被禁止从这里
-202.181.120.0/24 Deny 百度被禁止从这里
-202.181.126.0/24 Deny 百度被禁止从这里
 Origin: CN
-185.10.104.0/24 Deny 百度被禁止从这里
-Origin: EU
 45.113.192.0/22 Deny 百度被禁止从这里
 103.235.44.0/22 Deny 百度被禁止从这里
+185.10.104.0/24 Deny 百度被禁止从这里
 Origin: HK
 119.63.192.0/21 Deny 百度被禁止从这里
 Origin: JP
-154.85.32.0/21 Deny 百度被禁止从这里
-154.85.46.0/23 Deny 百度被禁止从这里
-154.85.48.0/20 Deny 百度被禁止从这里
+154.85.32.0/19 Deny 百度被禁止从这里
 Origin: SC
 63.243.252.0/24 Deny 百度被禁止从这里
 104.193.88.0/23 Deny 百度被禁止从这里
 104.193.90.0/24 Deny 百度被禁止从这里
 Origin: US
+Profile: Blocked search engine
 Tag: Baidu IPv4
----
-Options:
- TrackTime: 31536000
- TrackCount: 1000
 
 ---
 IPv6 Signatures
@@ -152,10 +119,7 @@ Origin: CN
 2402:2b40:8000::/36 Deny 百度被禁止从这里
 2402:2b40:a000::/36 Deny 百度被禁止从这里
 Origin: HK
+Profile: Blocked search engine
 Tag: Baidu IPv6
----
-Options:
- TrackTime: 31536000
- TrackCount: 1000
 
 */

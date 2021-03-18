@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: AbuseIPDB module (last modified: 2021.01.10).
+ * This file: AbuseIPDB module (last modified: 2021.03.18).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -46,7 +46,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
      */
     if (
         isset($CIDRAM['AbuseIPDB']['429']) ||
-        $CIDRAM['BlockInfo']['SignatureCount'] ||
+        !$CIDRAM['HonourLookup']() ||
         filter_var($CIDRAM['BlockInfo']['IPAddr'], FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) === false
     ) {
         return;

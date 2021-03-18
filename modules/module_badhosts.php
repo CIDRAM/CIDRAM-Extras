@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2021.03.06).
+ * This file: Bad hosts blocker module (last modified: 2021.03.18).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -218,10 +218,12 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         $HN
     ), 'Probe/Scanner'); // 2019.03.04
 
-    $Trigger(preg_match(
+    if ($Trigger(preg_match(
         '/(?:\.oroxy|anonine)\.com$|thefreevpn|vpn(?:999\.com|gate)|public-net/',
         $HN
-    ), 'Risky/Proxy/VPN Host'); // 2017.06.25
+    ), 'Risky/Proxy/VPN Host')) {
+        $CIDRAM['AddProfileEntry']('Tor endpoints here');
+    } // 2021.03.18
 
     $Trigger(preg_match(
         '/(?:(?:dimenoc|dumpyourbitch|hostenko|internetserviceteam|ipredat(?' .
@@ -303,7 +305,9 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
          */
         !preg_match('~^(?:google|rate-limited)-proxy-.*\.google\.com$~i', $HN)
     ) {
-        $Trigger(preg_match('~(?<!\w)tor(?!\w)|anonym|makesecure\.nl$|proxy~i', $HN), 'Proxy host'); // 2021.03.06
+        if ($Trigger(preg_match('~(?<!\w)tor(?!\w)|anonym|makesecure\.nl$|proxy~i', $HN), 'Proxy host')) {
+            $CIDRAM['AddProfileEntry']('Tor endpoints here');
+        } // 2021.03.18
     }
 
     /** WordPress cronjob bypass. */

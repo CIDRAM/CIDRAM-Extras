@@ -53,7 +53,7 @@ module_baidublocker.php:
   zh: 可用由于请求。​<span class="txtRd">警告：将销毁百度网页排名为您的网站。​中文用户的网站应避免使用此模块。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
   zh-tw: 可用由於請求。​<span class="txtRd">警告：將銷毀百度網頁排名為您的網站。​中文用戶的網站應避免使用此模塊。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
- Version: 2020.283.404
+ Version: 2021.76.320
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -63,7 +63,7 @@ module_baidublocker.php:
   To:
    - module_baidublocker.php
   Checksum:
-   - 3f5e04e6f63c1eb5d82aef99589d6627b0087d576410d71e55ca0769e7c3ace4:5656
+   - 9c921b769d81d49b573f5602beb765b756105ee9bfa36bd7ea91af033d98bb20:4171
  Reannotate: modules.dat
 module_yandexblocker.php:
  Name: Yandex blocker module
@@ -84,7 +84,7 @@ module_yandexblocker.php:
   zh: 可用由于请求。​<span class="txtRd">警告：将销毁Yandex网页排名为您的网站。​俄文用户的网站应避免使用此模块。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
   zh-tw: 可用由於請求。​<span class="txtRd">警告：將銷毀Yandex網頁排名為您的網站。​俄文用戶的網站應避免使用此模塊。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
- Version: 2020.283.404
+ Version: 2021.76.320
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -94,12 +94,12 @@ module_yandexblocker.php:
   To:
    - module_yandexblocker.php
   Checksum:
-   - 9315ab01f3d28ab85edf2b382e4210b86da2814f32b81e42f081c42293bfd5f1:4148
+   - 90f41f2652e830a1abbfdb58e67eba6675ab656703992e70de753bdcf6aeeac8:4111
  Reannotate: modules.dat
 module_badhosts.php:
  Name: Bad hosts blocker module
  False Positive Risk: Medium
- Version: 2021.64.203
+ Version: 2021.76.320
  Minimum Required: 1.13.1-DEV+19205785
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -109,7 +109,7 @@ module_badhosts.php:
   To:
    - module_badhosts.php
   Checksum:
-   - 8fde4035090627836b35fa0a99fe025cfb5c60c852ce52e130673ae70c27a7ba:18387
+   - ad7b5603f9efdcbe0910fcee50631467a30038496b7af0703388428bb94028cd:18535
  Used with: modules
  Reannotate: modules.dat
 module_badhosts_isps.php:
@@ -147,8 +147,8 @@ module_badtlds.php:
 module_sfs.php:
  Name: Stop Forum Spam module
  False Positive Risk: Low
- Version: 2021.9.482
- Minimum Required: 1.18.0-DEV+21009482
+ Version: 2021.76.320
+ Minimum Required: 1.18.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
@@ -159,7 +159,7 @@ module_sfs.php:
    - module_sfs.php
    - module_sfs.yaml
   Checksum:
-   - 0f05a917cd8746cac6368c340317069972eaf6a78c374853b9cdb7545d1c369f:3920
+   - 58a0b3fff1d1cf52f8005f130ff1f571a3809a76067780fd69755333c48d651f:3908
    - e03210ce1f88a4abcf29f5f11cd653c46f957f938e547b0acc3eb2dce691b90e:415
  Used with: modules
  Reannotate: modules.dat
@@ -262,8 +262,8 @@ PHPMailer:
 module_abuseipdb.php:
  Name: AbuseIPDB module
  False Positive Risk: Medium
- Version: 2021.9.482
- Minimum Required: 1.18.0-DEV+21009482
+ Version: 2021.76.320
+ Minimum Required: 1.18.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
@@ -274,7 +274,7 @@ module_abuseipdb.php:
    - module_abuseipdb.php
    - module_abuseipdb.yaml
   Checksum:
-   - c9f801f225392ec85d54c06b956608c544793a06545f9855425c6f2f930ef847:5860
+   - 0cdbac563481323e5361b7584e3796ece38e7ae13169bfb0636ec3a2f195e595:5848
    - 11f4237de8991c56ae95c91e593d0f11d1fcb79094d9be6c00fe0ebdf04cb184:1632
  Used with: modules
  Reannotate: modules.dat
@@ -329,8 +329,8 @@ module_bgpview.php:
 module_projecthoneypot.php:
  Name: Project Honeypot module
  False Positive Risk: Medium
- Version: 2021.9.482
- Minimum Required: 1.18.0-DEV+21009482
+ Version: 2021.76.320
+ Minimum Required: 1.18.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
@@ -341,7 +341,7 @@ module_projecthoneypot.php:
    - module_projecthoneypot.php
    - module_projecthoneypot.yaml
   Checksum:
-   - 1db6a4ef3371d31737bf6760eb25b401132aa2646c56191e42476fa30ceea499:5602
+   - 61479cace07842a27dc9bd679be0d6daeb88180d3430c470e709b1ee5517a677:5590
    - 106e29a2648d57c5889297af0f46d3f8ed416a00713bcc6f09c3e0276029e82e:1691
  Used with: modules
  Reannotate: modules.dat

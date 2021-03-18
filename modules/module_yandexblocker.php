@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Yandex blocker module (last modified: 2020.10.10).
+ * This file: Yandex blocker module (last modified: 2021.03.18).
  *
  * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  *
@@ -31,14 +31,13 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     /** Inherit trigger closure (see functions.php). */
     $Trigger = $CIDRAM['Trigger'];
 
-    /** Options for instantly banning (sets tracking time to 1 year and infraction count to 1000). */
-    $InstaBan = ['Options' => ['TrackTime' => 31536000, 'TrackCount' => 1000]];
-
     /** Set flag to ignore validation. */
     $CIDRAM['Flag-Bypass-Yandex-Check'] = true;
 
     /** Block based on UA. */
-    $Trigger(strpos(strtolower($CIDRAM['BlockInfo']['UA']), 'yandex') !== false, 'Yandex UA', 'Яндекс запретили здесь', $InstaBan);
+    if ($Trigger(strpos(strtolower($CIDRAM['BlockInfo']['UA']), 'yandex') !== false, 'Yandex UA', 'Яндекс запретили здесь')) {
+        $CIDRAM['AddProfileEntry']('Blocked search engine');
+    }
 
     /** Fetch hostname. */
     if (empty($CIDRAM['Hostname'])) {
@@ -46,7 +45,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     }
 
     /** Block based on hostname. */
-    $Trigger(strpos(strtolower($CIDRAM['Hostname']), 'yandex') !== false, 'Yandex Host', 'Яндекс запретили здесь', $InstaBan);
+    if ($Trigger(strpos(strtolower($CIDRAM['Hostname']), 'yandex') !== false, 'Yandex Host', 'Яндекс запретили здесь')) {
+        $CIDRAM['AddProfileEntry']('Blocked search engine');
+    }
 };
 
 /** Execute closure. */
@@ -67,6 +68,7 @@ Origin: FI
 77.75.152.0/21 Deny Яндекс запретили здесь
 77.88.0.0/18 Deny Яндекс запретили здесь
 84.201.128.0/18 Deny Яндекс запретили здесь
+84.252.128.0/20 Deny Яндекс запретили здесь
 87.250.224.0/19 Deny Яндекс запретили здесь
 93.158.128.0/18 Deny Яндекс запретили здесь
 95.108.128.0/17 Deny Яндекс запретили здесь
@@ -86,11 +88,8 @@ Origin: RU
 199.21.96.0/22 Deny Яндекс запретили здесь
 199.36.240.0/22 Deny Яндекс запретили здесь
 Origin: US
+Profile: Blocked search engine
 Tag: Yandex CIDRs
----
-Options:
- TrackTime: 31536000
- TrackCount: 1000
 
 ---
 IPv6 Signatures
@@ -104,10 +103,7 @@ Origin: FI
 Origin: RU
 2620:10f:d000::/44 Deny Яндекс запретили здесь
 Origin: US
+Profile: Blocked search engine
 Tag: Yandex CIDRs
----
-Options:
- TrackTime: 31536000
- TrackCount: 1000
 
 */
