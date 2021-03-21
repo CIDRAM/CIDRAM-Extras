@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Project Honeypot module (last modified: 2021.03.18).
+ * This file: Project Honeypot module (last modified: 2021.03.21).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -46,13 +46,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     $LCURI = preg_replace('/\s/', '', strtolower($CIDRAM['BlockInfo']['rURI']));
 
     /** If the request isn't attempting to access a sensitive page (login, registration page, etc), exit. */
-    if (!$CIDRAM['Config']['projecthoneypot']['lookup_everything'] && !preg_match(
-        '~(?:/(comprofiler|user)/(login|register)|=(activate|login|regist(er|rat' .
-        'ion)|signup)|act(ion)?=(edit|reg)|(activate|confirm|login|newuser|reg(i' .
-        'st(er|ration))?|sign(in|up))(\.php|=)|special:userlogin&|verifyemail|wp' .
-        '-comments-post)~',
-        $LCURI
-    )) {
+    if (!$CIDRAM['Config']['projecthoneypot']['lookup_everything'] && !$CIDRAM['IsSensitive']($LCURI)) {
         return;
     }
 

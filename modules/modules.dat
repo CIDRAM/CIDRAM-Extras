@@ -147,7 +147,7 @@ module_badtlds.php:
 module_sfs.php:
  Name: Stop Forum Spam module
  False Positive Risk: Low
- Version: 2021.76.320
+ Version: 2021.79.185
  Minimum Required: 1.18.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -159,7 +159,7 @@ module_sfs.php:
    - module_sfs.php
    - module_sfs.yaml
   Checksum:
-   - 58a0b3fff1d1cf52f8005f130ff1f571a3809a76067780fd69755333c48d651f:3908
+   - f17be200a0d4919c43d04067baae76db16cd61c1faad3b94080217da32858ee9:3626
    - e03210ce1f88a4abcf29f5f11cd653c46f957f938e547b0acc3eb2dce691b90e:415
  Used with: modules
  Reannotate: modules.dat
@@ -262,7 +262,7 @@ PHPMailer:
 module_abuseipdb.php:
  Name: AbuseIPDB module
  False Positive Risk: Medium
- Version: 2021.76.320
+ Version: 2021.79.185
  Minimum Required: 1.18.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -274,7 +274,7 @@ module_abuseipdb.php:
    - module_abuseipdb.php
    - module_abuseipdb.yaml
   Checksum:
-   - 0cdbac563481323e5361b7584e3796ece38e7ae13169bfb0636ec3a2f195e595:5848
+   - 62d4a7ab0c3c4893bc47a60bf416a5c9f47cbc3cd91ae74cee663fbcac5c4372:5566
    - 11f4237de8991c56ae95c91e593d0f11d1fcb79094d9be6c00fe0ebdf04cb184:1632
  Used with: modules
  Reannotate: modules.dat
@@ -329,7 +329,7 @@ module_bgpview.php:
 module_projecthoneypot.php:
  Name: Project Honeypot module
  False Positive Risk: Medium
- Version: 2021.76.320
+ Version: 2021.79.185
  Minimum Required: 1.18.0
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
@@ -341,7 +341,7 @@ module_projecthoneypot.php:
    - module_projecthoneypot.php
    - module_projecthoneypot.yaml
   Checksum:
-   - 61479cace07842a27dc9bd679be0d6daeb88180d3430c470e709b1ee5517a677:5590
+   - ef22594eb18aeeed75af10c8bb1727e32907f143993479e1e901395b22bcd780:5308
    - 106e29a2648d57c5889297af0f46d3f8ed416a00713bcc6f09c3e0276029e82e:1691
  Used with: modules
  Reannotate: modules.dat

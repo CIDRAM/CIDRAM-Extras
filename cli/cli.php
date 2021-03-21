@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: CLI for CIDRAM >= v2 (last modified: 2021.03.10).
+ * This file: CLI for CIDRAM >= v2 (last modified: 2021.03.18).
  */
 
 /** "CIDRAM" constant needed as sanity check for some required files. */
@@ -59,7 +59,7 @@ if (
 }
 
 /** Show basic information. */
-echo "CIDRAM CLI mode (build 2021.68.615).
+echo "CIDRAM CLI mode (build 2021.77.727).
 
 To test whether an IP address is blocked by CIDRAM:
 >> test xxx.xxx.xxx.xxx
@@ -144,11 +144,10 @@ $CIDRAM['Stage'] = '';
 $CIDRAM['ResetBypassFlags']();
 
 /** Open STDIN. */
-$CIDRAM['stdin_handle'] = fopen('php://stdin', 'r');
+$CIDRAM['stdin_handle'] = fopen('php://stdin', 'rb');
 
 while (true) {
-
-    /** Set CLI process title (PHP => 5.5.0). */
+    /** Set CLI process title. */
     if (function_exists('cli_set_process_title')) {
         cli_set_process_title($CIDRAM['ScriptIdent']);
     }
@@ -163,7 +162,6 @@ while (true) {
 
     /** Check whether expected input is multiline. */
     if ($CIDRAM['ML']) {
-
         /** Multiline detection. */
         if (substr($CIDRAM['stdin_clean'], -1, 1) !== '"') {
             $CIDRAM['Data'][] = $CIDRAM['stdin_clean'];
@@ -174,7 +172,6 @@ while (true) {
             echo "\n";
         }
     } else {
-
         /** Fetch the command. */
         if (($CIDRAM['SPos'] = strpos($CIDRAM['stdin_clean'], ' ')) === false) {
             $CIDRAM['cmd'] = $CIDRAM['stdin_clean'];
@@ -220,7 +217,7 @@ while (true) {
         $CIDRAM['Chain'] = '';
     }
 
-    /** Set CLI process title with "working" notice (PHP => 5.5.0). */
+    /** Set CLI process title with "working" notice. */
     if (function_exists('cli_set_process_title')) {
         cli_set_process_title($CIDRAM['ScriptIdent'] . ' - ' . $CIDRAM['L10N']->getString('state_loading'));
     }
