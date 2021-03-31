@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Stop Forum Spam module (last modified: 2021.03.21).
+ * This file: Stop Forum Spam module (last modified: 2021.03.31).
  *
  * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  */
@@ -25,6 +25,11 @@ if (!isset($CIDRAM['ModuleResCache'])) {
 
 /** Defining as closure for later recall (no params; no return value). */
 $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
+    /** Guard. */
+    if (empty($CIDRAM['BlockInfo']['IPAddr'])) {
+        return;
+    }
+
     /** Normalised, lower-cased request URI; Used to determine whether the module needs to do anything for the request. */
     $LCURI = preg_replace('/\s/', '', strtolower($CIDRAM['BlockInfo']['rURI']));
 

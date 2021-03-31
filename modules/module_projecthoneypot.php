@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Project Honeypot module (last modified: 2021.03.21).
+ * This file: Project Honeypot module (last modified: 2021.03.31).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -25,6 +25,11 @@ if (!isset($CIDRAM['ModuleResCache'])) {
 
 /** Defining as closure for later recall (no params; no return value). */
 $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
+    /** Guard. */
+    if (empty($CIDRAM['BlockInfo']['IPAddr'])) {
+        return;
+    }
+
     /**
      * Project Honeypot's HTTP:BL API currently can only handle IPv4 (i.e., not
      * IPv6). So, we shouldn't continue for the instance if the request isn't

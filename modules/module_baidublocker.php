@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Baidu blocker module (last modified: 2021.03.18).
+ * This file: Baidu blocker module (last modified: 2021.03.31).
  *
  * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  *
@@ -28,6 +28,11 @@ if (!isset($CIDRAM['ModuleResCache'])) {
 
 /** Defining as closure for later recall (no params; no return value). */
 $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
+    /** Guard. */
+    if (empty($CIDRAM['BlockInfo']['IPAddr'])) {
+        return;
+    }
+
     /** Inherit trigger closure (see functions.php). */
     $Trigger = $CIDRAM['Trigger'];
 

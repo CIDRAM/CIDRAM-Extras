@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2020.11.30).
+ * This file: Optional security extras module (last modified: 2021.03.31).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -294,52 +294,54 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
     }
 
     /** Reporting. */
-    if (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Accessing quarantined files not allowed') !== false) {
-        $CIDRAM['Reporter']->report([15], ['Unauthorised attempt to access quarantined files detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Compromised API key') !== false) {
-        $CIDRAM['Reporter']->report([15], ['Unauthorised use of known compromised API key detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'FancyBox exploit attempt') !== false) {
-        $CIDRAM['Reporter']->report([15, 21], ['FancyBox hack attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Hack attempt') !== false) {
-        $CIDRAM['Reporter']->report([15], ['Hack attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Nesting attack') !== false) {
-        $CIDRAM['Reporter']->report([15], ['Nesting attack detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Non-escaped characters in POST') !== false) {
-        $CIDRAM['Reporter']->report([19], ['Non-escaped characters in POST detected (bot indicator).'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Null truncation attempt') !== false) {
-        $CIDRAM['Reporter']->report([15], ['Null truncation attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Overflow attempt') !== false) {
-        $CIDRAM['Reporter']->report([15], ['Overflow attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'POST BBCESC/BBCEX/EX') !== false) {
-        $CIDRAM['Reporter']->report([15], ['POST BBCESC/BBCEX/EX detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Path hack') !== false) {
-        $CIDRAM['Reporter']->report([15], ['Path hack detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Pipe hack') !== false) {
-        $CIDRAM['Reporter']->report([15], ['Pipe hack detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Plesk hack') !== false) {
-        $CIDRAM['Reporter']->report([15, 21], ['Plesk hack attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Probe attempt') !== false) {
-        $CIDRAM['Reporter']->report([19], ['Probe detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Query SQLi') !== false) {
-        $CIDRAM['Reporter']->report([16], ['SQL injection attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Query command injection') !== false) {
-        $CIDRAM['Reporter']->report([15], ['Query command injection attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Query global variable hack') !== false) {
-        $CIDRAM['Reporter']->report([15], ['Query global variable hack attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Query script injection') !== false) {
-        $CIDRAM['Reporter']->report([15], ['Query script injection attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Shell upload attempt') !== false) {
-        $CIDRAM['Reporter']->report([15], ['Shell upload attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Spam attempt') !== false) {
-        $CIDRAM['Reporter']->report([10], ['Detected a spambot attempting to drop its payload.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Spam attempt') !== false) {
-        $CIDRAM['Reporter']->report([10, 19], ['Detected a spambot attempting to drop its payload.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'WP hack attempt') !== false) {
-        $CIDRAM['Reporter']->report([15, 21], ['WordPress hack attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Traversal attack') !== false) {
-        $CIDRAM['Reporter']->report([15, 21], ['Traversal attack detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'WSO not allowed') !== false) {
-        $CIDRAM['Reporter']->report([20, 21], ['Unauthorised attempt to connect to WSO webshell detected (host might be compromised).'], $CIDRAM['BlockInfo']['IPAddr']);
+    if (!empty($CIDRAM['BlockInfo']['IPAddr'])) {
+        if (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Accessing quarantined files not allowed') !== false) {
+            $CIDRAM['Reporter']->report([15], ['Unauthorised attempt to access quarantined files detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Compromised API key') !== false) {
+            $CIDRAM['Reporter']->report([15], ['Unauthorised use of known compromised API key detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'FancyBox exploit attempt') !== false) {
+            $CIDRAM['Reporter']->report([15, 21], ['FancyBox hack attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Hack attempt') !== false) {
+            $CIDRAM['Reporter']->report([15], ['Hack attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Nesting attack') !== false) {
+            $CIDRAM['Reporter']->report([15], ['Nesting attack detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Non-escaped characters in POST') !== false) {
+            $CIDRAM['Reporter']->report([19], ['Non-escaped characters in POST detected (bot indicator).'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Null truncation attempt') !== false) {
+            $CIDRAM['Reporter']->report([15], ['Null truncation attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Overflow attempt') !== false) {
+            $CIDRAM['Reporter']->report([15], ['Overflow attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'POST BBCESC/BBCEX/EX') !== false) {
+            $CIDRAM['Reporter']->report([15], ['POST BBCESC/BBCEX/EX detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Path hack') !== false) {
+            $CIDRAM['Reporter']->report([15], ['Path hack detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Pipe hack') !== false) {
+            $CIDRAM['Reporter']->report([15], ['Pipe hack detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Plesk hack') !== false) {
+            $CIDRAM['Reporter']->report([15, 21], ['Plesk hack attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Probe attempt') !== false) {
+            $CIDRAM['Reporter']->report([19], ['Probe detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Query SQLi') !== false) {
+            $CIDRAM['Reporter']->report([16], ['SQL injection attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Query command injection') !== false) {
+            $CIDRAM['Reporter']->report([15], ['Query command injection attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Query global variable hack') !== false) {
+            $CIDRAM['Reporter']->report([15], ['Query global variable hack attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Query script injection') !== false) {
+            $CIDRAM['Reporter']->report([15], ['Query script injection attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Shell upload attempt') !== false) {
+            $CIDRAM['Reporter']->report([15], ['Shell upload attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Spam attempt') !== false) {
+            $CIDRAM['Reporter']->report([10], ['Detected a spambot attempting to drop its payload.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Spam attempt') !== false) {
+            $CIDRAM['Reporter']->report([10, 19], ['Detected a spambot attempting to drop its payload.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'WP hack attempt') !== false) {
+            $CIDRAM['Reporter']->report([15, 21], ['WordPress hack attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Traversal attack') !== false) {
+            $CIDRAM['Reporter']->report([15, 21], ['Traversal attack detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'WSO not allowed') !== false) {
+            $CIDRAM['Reporter']->report([20, 21], ['Unauthorised attempt to connect to WSO webshell detected (host might be compromised).'], $CIDRAM['BlockInfo']['IPAddr']);
+        }
     }
 
     /**
@@ -347,6 +349,11 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
      * Please report all false positives to https://github.com/CIDRAM/CIDRAM/issues
      */
     if ($CIDRAM['Config']['extras']['uri'] && !empty($_SERVER['REQUEST_URI'])) {
+        /** Guard. */
+        if (empty($CIDRAM['BlockInfo']['IPAddr'])) {
+            return;
+        }
+
         $LCReqURI = str_replace("\\", '/', strtolower($_SERVER['REQUEST_URI']));
 
         /** Probing for webshells/backdoors. */

@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional cookie scanner module (last modified: 2020.11.29).
+ * This file: Optional cookie scanner module (last modified: 2021.03.31).
  *
  * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  *
@@ -123,16 +123,18 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     }
 
     /** Reporting. */
-    if (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Function call detected in cookie') !== false) {
-        $CIDRAM['Reporter']->report([15], ['Function call detected in cookie.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Command injection detected in cookie') !== false) {
-        $CIDRAM['Reporter']->report([15], ['Command injection detected in cookie.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Cookie hack detected') !== false) {
-        $CIDRAM['Reporter']->report([15], ['Cookie hack detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Shell upload attempted via cookies') !== false) {
-        $CIDRAM['Reporter']->report([15], ['Shell upload attempted via cookies.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Probe attempt') !== false) {
-        $CIDRAM['Reporter']->report([21], ['Probe attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+    if (!empty($CIDRAM['BlockInfo']['IPAddr'])) {
+        if (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Function call detected in cookie') !== false) {
+            $CIDRAM['Reporter']->report([15], ['Function call detected in cookie.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Command injection detected in cookie') !== false) {
+            $CIDRAM['Reporter']->report([15], ['Command injection detected in cookie.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Cookie hack detected') !== false) {
+            $CIDRAM['Reporter']->report([15], ['Cookie hack detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Shell upload attempted via cookies') !== false) {
+            $CIDRAM['Reporter']->report([15], ['Shell upload attempted via cookies.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Probe attempt') !== false) {
+            $CIDRAM['Reporter']->report([21], ['Probe attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        }
     }
 };
 

@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Referrer spam module (last modified: 2020.11.29).
+ * This file: Referrer spam module (last modified: 2021.03.31).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -41,6 +41,11 @@ if (!function_exists('idn_to_utf8') && is_readable($CIDRAM['Vault'] . 'classes/S
 
 /** Defining as closure for later recall (no params; no return value). */
 $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
+    /** Guard. */
+    if (empty($CIDRAM['BlockInfo']['IPAddr'])) {
+        return;
+    }
+
     /** If the referrer isn't populated, exit early. */
     if ($CIDRAM['BlockInfo']['Referrer'] === '') {
         return;

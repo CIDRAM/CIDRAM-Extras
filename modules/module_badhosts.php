@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2021.03.18).
+ * This file: Bad hosts blocker module (last modified: 2021.03.31).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -29,6 +29,11 @@ if (!isset($CIDRAM['ModuleResCache'])) {
  * @param int $Infractions The number of infractions incurred thus far.
  */
 $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) {
+    /** Guard. */
+    if (empty($CIDRAM['BlockInfo']['IPAddr'])) {
+        return;
+    }
+
     /** Don't continue if compatibility indicators exist. */
     if (strpos($CIDRAM['BlockInfo']['Signatures'], 'compat_bunnycdn.php') !== false) {
         return;
@@ -191,23 +196,6 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         $HN
     ), 'Cloud Service / Server Farm'); // 2019.03.12 mod 2021.02.19
 
-    $Trigger(empty($CIDRAM['Ignore']['AltusHost B.V']) && preg_match('/altushost\.com$/', $HN), 'AltusHost B.V'); // 2017.02.09 (ASN 51430)
-    $Trigger(empty($CIDRAM['Ignore']['Bezeq International']) && preg_match('/bezeqint\.net$/', $HN), 'Bezeq International'); // 2017.02.09 (ASN 8551)
-    $Trigger(empty($CIDRAM['Ignore']['Bharti Airtel']) && preg_match('/\.airtelbroadband\.in$/', $HN), 'Bharti Airtel'); // 2017.02.06 (ASNs 9498, 24560, 45514, 45609)
-    $Trigger(empty($CIDRAM['Ignore']['ColoCrossing']) && strpos($HN, 'colocrossing.com') !== false, 'ColoCrossing'); // 2017.01.30 (ASN 36352)
-    $Trigger(empty($CIDRAM['Ignore']['GorillaServers, Inc']) && strpos($HN, 'gorillaservers') !== false, 'GorillaServers, Inc'); // 2017.02.06 (ASN 53850)
-    $Trigger(empty($CIDRAM['Ignore']['HOSTKEY B.V']) && preg_match('/hostkey\.ru$/', $HN), 'HOSTKEY B.V'); // 2017.02.15 (ASN 57043)
-    $Trigger(empty($CIDRAM['Ignore']['Host Europe GmbH']) && strpos($HN, 'hosteurope') !== false, 'Host Europe GmbH'); // 2017.01.30 (numerous ASNs)
-    $Trigger(empty($CIDRAM['Ignore']['Hostmaster, Ltd']) && strpos($HN, 'fcsrv.net') !== false, 'Hostmaster, Ltd'); // 2018.02.02 (ASN 50968)
-    $Trigger(empty($CIDRAM['Ignore']['IDEAL HOSTING']) && strpos($HN, 'idealhosting.net.tr') !== false, 'IDEAL HOSTING'); // 2018.04.08 (ASN 29262)
-    $Trigger(empty($CIDRAM['Ignore']['Kyivstar']) && strpos($HN, 'kyivstar') !== false, 'Kyivstar'); // 2017.01.21 (ASNs 12530, 15895, 35081)
-    $Trigger(empty($CIDRAM['Ignore']['Leaseweb']) && strpos($HN, 'leaseweb') !== false, 'Leaseweb'); // 2017.02.06 (numerous ASNs)
-    $Trigger(empty($CIDRAM['Ignore']['QuadraNet, Inc']) && preg_match('/quadranet\.com$/', $HN), 'QuadraNet, Inc'); // 2017.02.14 (ASNs 8100, 29761, 62639)
-    $Trigger(empty($CIDRAM['Ignore']['SISTRIX GmbH']) && strpos($HN, 'sistrix') !== false, 'SISTRIX GmbH'); // 2017.01.21 (no ASN)
-    $Trigger(empty($CIDRAM['Ignore']['Versaweb, LLC']) && strpos($HN, 'versaweb') !== false, 'Versaweb, LLC'); // 2017.02.14 (ASN 36114)
-    $Trigger(empty($CIDRAM['Ignore']['Voxility LLC']) && strpos($HN, 'voxility.net') !== false, 'Voxility LLC'); // 2017.02.06 (ASN 3223)
-    $Trigger(empty($CIDRAM['Ignore']['Wowrack.com']) && preg_match('~themothership\.net|wowrack\.com~', $HN), 'Wowrack.com'); // 2018.09.15 (ASN 23033)
-
     $Trigger(preg_match(
         '/(?:\.above|shared-server|jkserv)\.net$|akpackaging\.net|(?:academi' .
         'cedge|cyber-freaks|dailyrazor|gothamdating|ibuzytravel|server306|we' .
@@ -231,8 +219,6 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         'sk|hostnoc\.net|\.(?:host|\.spheral)\.ru)$/',
         $HN
     ), 'Dangerous Host'); // 2019.03.04
-
-    $Trigger(empty($CIDRAM['Ignore']['is74.ru']) && preg_match('/is74\.ru$/', $HN), 'Dangerous Host'); // 2018.03.27 (ASNs 8369, 198675, 199619)
 
     $Trigger(preg_match(
         '/(?:(iweb|privatedns)\.com$|iweb\.ca$|^(www\.)?iweb)/',

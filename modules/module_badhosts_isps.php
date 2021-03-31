@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2020.11.29).
+ * This file: Bad hosts blocker module (last modified: 2021.03.31).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [ ]Medium [x]High »
  */
@@ -29,6 +29,11 @@ if (!isset($CIDRAM['ModuleResCache'])) {
  * @param int $Infractions The number of infractions incurred thus far.
  */
 $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) {
+    /** Guard. */
+    if (empty($CIDRAM['BlockInfo']['IPAddr'])) {
+        return;
+    }
+
     /** Don't continue if compatibility indicators exist. */
     if (strpos($CIDRAM['BlockInfo']['Signatures'], 'compat_bunnycdn.php') !== false) {
         return;
@@ -63,8 +68,6 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         '/(?:hgc\.com\.hk$|\.duo\.carnet\.hr$|\.pool-xxx\.hcm\.fpt$|kiyosho\.jp$|(?:hinet|vtr)\.net$|vip-net\.pl$)/',
         $HN
     ), 'Spammy ISP', '', $reCAPTCHA); // 2020.04.05
-
-    $Trigger(empty($CIDRAM['Ignore']['Sun Network HK']) && preg_match('/sunnetwork\.com\.hk$/', $HN), 'Spammy ISP'); // 2018.03.27 (ASN 38197)
 
     /** WordPress cronjob bypass. */
     $Bypass(

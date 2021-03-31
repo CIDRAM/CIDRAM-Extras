@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2021.02.21).
+ * This file: Optional user agents module (last modified: 2021.03.31).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -255,12 +255,12 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         'geglimpse|arsijoo|egasusmonitoring|hantomjs|hpcrawl|ingdom|rlog)|r(?:are' .
         'lyused|obo(?:cop|spider)|yze)|s(?:can\.lol|creener|itedomain|mut|nap(?:p' .
         'review)?bot|oapclient|ocial(?:ayer|searcher)|oso|pyglass|quider|treetbot' .
-        '|ynapse)|tweezler|urlappendbot|w(?:asalive|atchmouse|eb(?:-monitoring|bo' .
-        't|masteraid|money|thumbnail)|hatweb|ikiapiary|in(?:http|inet)|maid\.com|' .
-        'sr-agent|wwtype)|xenu|xovi|zibber|zurichfinancialservices|^m$|(?:\W|^)(?' .
-        ':cu|pe)rl(?:\W|$)~',
+        '|ynapse)|t(?:omba|weezler)|urlappendbot|w(?:asalive|atchmouse|eb(?:-moni' .
+        'toring|bot|masteraid|money|thumbnail)|hatweb|ikiapiary|in(?:http|inet)|m' .
+        'aid\.com|sr-agent|wwtype)|xenu|xovi|zibber|zurichfinancialservices|^m$|(' .
+        '?:\W|^)(?:cu|pe)rl(?:\W|$)~',
         $UANoSpace
-    ), 'Unauthorised'); // 2020.03.02
+    ), 'Unauthorised'); // 2021.03.31
 
     $Trigger(preg_match(
         '~^(?:bot|java|msie|windows-live-social-object-extractor)|\((?:java|\w\:\d{2,})~',
@@ -307,44 +307,46 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     ); // 2021.02.08
 
     /** Reporting. */
-    if (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UA command injection') !== false) {
-        $CIDRAM['Reporter']->report([15], ['Command injection detected in user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UA script injection') !== false) {
-        $CIDRAM['Reporter']->report([15], ['Script injection detected in user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UA global variable hack') !== false) {
-        $CIDRAM['Reporter']->report([15], ['Globvar hack detected in user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UA shell upload attempt') !== false) {
-        $CIDRAM['Reporter']->report([15], ['Shell upload attempt detected in user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Hack UA') !== false) {
-        $CIDRAM['Reporter']->report([15], ['Hack identifier detected in user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UASQLi') !== false) {
-        $CIDRAM['Reporter']->report([16], ['SQLi attempt detected in user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'CAPTCHA cracker UA') !== false) {
-        $CIDRAM['Reporter']->report([19], ['CAPTCHA cracker detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Probe UA') !== false) {
-        $CIDRAM['Reporter']->report([19], ['Probe detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Bash/Shellshock UA') !== false) {
-        $CIDRAM['Reporter']->report([16], ['Bash/Shellshock attempt detected via user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Spam UA') !== false) {
-        $CIDRAM['Reporter']->report([19], ['Spambot detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Email havester') !== false) {
-        $CIDRAM['Reporter']->report([19], ['Email havester detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Execution attempt') !== false) {
-        $CIDRAM['Reporter']->report([15], ['Attempted to push shell commands via user agent header.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'XSS attack') !== false) {
-        $CIDRAM['Reporter']->report([15], ['Attempted to push XSS via user agent header.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Banned UA') !== false) {
-        $CIDRAM['Reporter']->report([19], ['Misbehaving bot detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Scraper UA') !== false) {
-        $CIDRAM['Reporter']->report([19], ['Scraper detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Malware UA') !== false) {
-        $CIDRAM['Reporter']->report([19], ['User agent cited by malware detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Fake UA') !== false) {
-        $CIDRAM['Reporter']->report([19], ['Faked user agent detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UAEX') !== false) {
-        $CIDRAM['Reporter']->report([19], ['Detected command execution via user agent header.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'bittorrent') !== false) {
-        $CIDRAM['Reporter']->report([4, 19], ['BitTorrent user agent seen at HTTP server endpoint (possible flood/DDoS attempt).'], $CIDRAM['BlockInfo']['IPAddr']);
+    if (!empty($CIDRAM['BlockInfo']['IPAddr'])) {
+        if (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UA command injection') !== false) {
+            $CIDRAM['Reporter']->report([15], ['Command injection detected in user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UA script injection') !== false) {
+            $CIDRAM['Reporter']->report([15], ['Script injection detected in user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UA global variable hack') !== false) {
+            $CIDRAM['Reporter']->report([15], ['Globvar hack detected in user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UA shell upload attempt') !== false) {
+            $CIDRAM['Reporter']->report([15], ['Shell upload attempt detected in user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Hack UA') !== false) {
+            $CIDRAM['Reporter']->report([15], ['Hack identifier detected in user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UASQLi') !== false) {
+            $CIDRAM['Reporter']->report([16], ['SQLi attempt detected in user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'CAPTCHA cracker UA') !== false) {
+            $CIDRAM['Reporter']->report([19], ['CAPTCHA cracker detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Probe UA') !== false) {
+            $CIDRAM['Reporter']->report([19], ['Probe detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Bash/Shellshock UA') !== false) {
+            $CIDRAM['Reporter']->report([16], ['Bash/Shellshock attempt detected via user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Spam UA') !== false) {
+            $CIDRAM['Reporter']->report([19], ['Spambot detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Email havester') !== false) {
+            $CIDRAM['Reporter']->report([19], ['Email havester detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Execution attempt') !== false) {
+            $CIDRAM['Reporter']->report([15], ['Attempted to push shell commands via user agent header.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'XSS attack') !== false) {
+            $CIDRAM['Reporter']->report([15], ['Attempted to push XSS via user agent header.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Banned UA') !== false) {
+            $CIDRAM['Reporter']->report([19], ['Misbehaving bot detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Scraper UA') !== false) {
+            $CIDRAM['Reporter']->report([19], ['Scraper detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Malware UA') !== false) {
+            $CIDRAM['Reporter']->report([19], ['User agent cited by malware detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Fake UA') !== false) {
+            $CIDRAM['Reporter']->report([19], ['Faked user agent detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UAEX') !== false) {
+            $CIDRAM['Reporter']->report([19], ['Detected command execution via user agent header.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'bittorrent') !== false) {
+            $CIDRAM['Reporter']->report([4, 19], ['BitTorrent user agent seen at HTTP server endpoint (possible flood/DDoS attempt).'], $CIDRAM['BlockInfo']['IPAddr']);
+        }
     }
 };
 
