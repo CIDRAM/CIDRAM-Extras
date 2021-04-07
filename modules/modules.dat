@@ -2,8 +2,11 @@
 module_cookies.php:
  Name: Optional cookie scanner module
  False Positive Risk: Low
- Version: 2021.89.309
- Minimum Required: 1.13.1-DEV+19205785
+ Version: 2021.95.583
+ Minimum Required: 1.13.1
+ Dependencies:
+  PHP: >=5.4
+  CIDRAM Core: >=1.13.1
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
@@ -18,8 +21,11 @@ module_cookies.php:
 module_extras.php:
  Name: Optional security extras module
  False Positive Risk: Medium
- Version: 2021.89.309
- Minimum Required: 1.13.1-DEV+19205785
+ Version: 2021.95.583
+ Minimum Required: 1.13.1
+ Dependencies:
+  PHP: >=5.4
+  CIDRAM Core: >=1.13.1
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
@@ -53,8 +59,11 @@ module_baidublocker.php:
   zh: 可用由于请求。​<span class="txtRd">警告：将销毁百度网页排名为您的网站。​中文用户的网站应避免使用此模块。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
   zh-tw: 可用由於請求。​<span class="txtRd">警告：將銷毀百度網頁排名為您的網站。​中文用戶的網站應避免使用此模塊。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
- Version: 2021.89.309
- Minimum Required: 1.13.1-DEV+19205785
+ Version: 2021.95.583
+ Minimum Required: 1.13.1
+ Dependencies:
+  PHP: >=5.4
+  CIDRAM Core: >=1.13.1
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
@@ -84,8 +93,11 @@ module_yandexblocker.php:
   zh: 可用由于请求。​<span class="txtRd">警告：将销毁Yandex网页排名为您的网站。​俄文用户的网站应避免使用此模块。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
   zh-tw: 可用由於請求。​<span class="txtRd">警告：將銷毀Yandex網頁排名為您的網站。​俄文用戶的網站應避免使用此模塊。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
- Version: 2021.89.309
- Minimum Required: 1.13.1-DEV+19205785
+ Version: 2021.95.583
+ Minimum Required: 1.13.1
+ Dependencies:
+  PHP: >=5.4
+  CIDRAM Core: >=1.13.1
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
@@ -99,8 +111,11 @@ module_yandexblocker.php:
 module_badhosts.php:
  Name: Bad hosts blocker module
  False Positive Risk: Medium
- Version: 2021.89.309
- Minimum Required: 1.13.1-DEV+19205785
+ Version: 2021.95.583
+ Minimum Required: 1.13.1
+ Dependencies:
+  PHP: >=5.4
+  CIDRAM Core: >=1.13.1
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
@@ -115,8 +130,11 @@ module_badhosts.php:
 module_badhosts_isps.php:
  Name: Bad hosts blocker module (ISPs)
  False Positive Risk: High
- Version: 2021.89.309
- Minimum Required: 1.13.1-DEV+19205785
+ Version: 2021.95.583
+ Minimum Required: 1.13.1
+ Dependencies:
+  PHP: >=5.4
+  CIDRAM Core: >=1.13.1
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
@@ -131,8 +149,11 @@ module_badhosts_isps.php:
 module_badtlds.php:
  Name: Bad TLDs blocker module
  False Positive Risk: Low
- Version: 2021.89.309
- Minimum Required: 1.13.1-DEV+19205785
+ Version: 2021.95.583
+ Minimum Required: 1.13.1
+ Dependencies:
+  PHP: >=5.4
+  CIDRAM Core: >=1.13.1
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
@@ -147,8 +168,11 @@ module_badtlds.php:
 module_sfs.php:
  Name: Stop Forum Spam module
  False Positive Risk: Low
- Version: 2021.89.309
+ Version: 2021.95.583
  Minimum Required: 1.18.0
+ Dependencies:
+  PHP: >=5.4
+  CIDRAM Core: >=1.18
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
@@ -166,8 +190,11 @@ module_sfs.php:
 module_botua.php:
  Name: Optional user agents module
  False Positive Risk: Medium
- Version: 2021.89.309
- Minimum Required: 1.13.1-DEV+19205785
+ Version: 2021.95.583
+ Minimum Required: 1.13.1
+ Dependencies:
+  PHP: >=5.4
+  CIDRAM Core: >=1.13.1
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
@@ -182,7 +209,9 @@ module_botua.php:
 Chart.js:
  Name: Chart.js
  Version: 2.9.3
- Minimum Required: 1.13.1-DEV+19205785
+ Minimum Required: 1.13.1
+ Dependencies:
+  CIDRAM Core: >=1.13.1
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Provisional: true
@@ -199,8 +228,10 @@ Chart.js:
  Reannotate: modules.dat
 flags.css:
  Name: Flags CSS
- Version: 2020.151.320
- Minimum Required: 1.13.1-DEV+19205785
+ Version: 2021.95.583
+ Minimum Required: 1.13.1
+ Dependencies:
+  CIDRAM Core: >=1.13.1
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Provisional: true
@@ -215,8 +246,11 @@ flags.css:
 compat_bunnycdn.php:
  Name: BunnyCDN compatibility module
  False Positive Risk: Low
- Version: 2021.89.309
- Minimum Required: 1.13.1-DEV+19205785
+ Version: 2021.95.583
+ Minimum Required: 1.13.1
+ Dependencies:
+  PHP: >=5.4
+  CIDRAM Core: >=1.13.1
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
@@ -234,8 +268,13 @@ compat_bunnycdn.php:
 PHPMailer:
  Name: PHPMailer
  Version: 6.3.0
- Minimum Required: 1.13.1-DEV+19205785
- Minimum Required PHP: 5.5.0
+ Minimum Required: 1.13.1
+ Dependencies:
+  PHP: >=5.5
+  CIDRAM Core: >=1.13.1
+  ctype: "*"
+  filter: "*"
+  hash: "*"
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Provisional: true
@@ -262,8 +301,11 @@ PHPMailer:
 module_abuseipdb.php:
  Name: AbuseIPDB module
  False Positive Risk: Medium
- Version: 2021.89.309
+ Version: 2021.95.583
  Minimum Required: 1.18.0
+ Dependencies:
+  PHP: >=5.4
+  CIDRAM Core: >=1.18
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
@@ -281,9 +323,11 @@ module_abuseipdb.php:
 module_refspam.php:
  Name: Referrer spam module
  False Positive Risk: Medium
- Version: 2021.89.309
- Minimum Required: 1.13.1-DEV+19205785
- Minimum Required PHP: 5.5.0
+ Version: 2021.95.583
+ Minimum Required: 1.13.1
+ Dependencies:
+  PHP: >=5.5
+  CIDRAM Core: >=1.13.1
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
@@ -310,8 +354,11 @@ module_refspam.php:
 module_bgpview.php:
  Name: BGPView module
  False Positive Risk: Low
- Version: 2021.89.309
+ Version: 2021.95.583
  Minimum Required: 2.2.0
+ Dependencies:
+  PHP: >=5.4
+  CIDRAM Core: >=2.2
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
@@ -329,8 +376,11 @@ module_bgpview.php:
 module_projecthoneypot.php:
  Name: Project Honeypot module
  False Positive Risk: Medium
- Version: 2021.89.309
+ Version: 2021.95.583
  Minimum Required: 1.18.0
+ Dependencies:
+  PHP: >=5.4
+  CIDRAM Core: >=1.18
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
@@ -348,8 +398,11 @@ module_projecthoneypot.php:
 module_httpver.php:
  Name: HTTP version checker module
  False Positive Risk: Low
- Version: 2021.89.309
- Minimum Required: 1.18.0-DEV+21009482
+ Version: 2021.95.583
+ Minimum Required: 1.18.0
+ Dependencies:
+  PHP: >=5.4
+  CIDRAM Core: >=1.18
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
