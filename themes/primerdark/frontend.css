@@ -75,7 +75,7 @@ input[type=reset]{color:#fff;background-color:#955}
   .f500{width:98%}
 }
 .flong{width:auto}
-.big,.h1f,.h2f,.h3f,.h4f,.rf{white-space:nowrap}
+.h1f,.h2f,.h3f,.h4f,.rf{white-space:nowrap}
 @media only all and (max-width:640px) {
   .big,.dt{display:none}
   .mob{display:block}
