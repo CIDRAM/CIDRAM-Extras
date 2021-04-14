@@ -3,7 +3,6 @@ module_cookies.php:
  Name: Optional cookie scanner module
  False Positive Risk: Low
  Version: 2021.95.583
- Minimum Required: 1.13.1
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.13.1
@@ -22,7 +21,6 @@ module_extras.php:
  Name: Optional security extras module
  False Positive Risk: Medium
  Version: 2021.95.583
- Minimum Required: 1.13.1
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.13.1
@@ -60,7 +58,6 @@ module_baidublocker.php:
   zh-tw: 可用由於請求。​<span class="txtRd">警告：將銷毀百度網頁排名為您的網站。​中文用戶的網站應避免使用此模塊。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
  Version: 2021.95.583
- Minimum Required: 1.13.1
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.13.1
@@ -94,7 +91,6 @@ module_yandexblocker.php:
   zh-tw: 可用由於請求。​<span class="txtRd">警告：將銷毀Yandex網頁排名為您的網站。​俄文用戶的網站應避免使用此模塊。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
  False Positive Risk: Low
  Version: 2021.95.583
- Minimum Required: 1.13.1
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.13.1
@@ -112,7 +108,6 @@ module_badhosts.php:
  Name: Bad hosts blocker module
  False Positive Risk: Medium
  Version: 2021.95.583
- Minimum Required: 1.13.1
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.13.1
@@ -131,7 +126,6 @@ module_badhosts_isps.php:
  Name: Bad hosts blocker module (ISPs)
  False Positive Risk: High
  Version: 2021.95.583
- Minimum Required: 1.13.1
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.13.1
@@ -150,7 +144,6 @@ module_badtlds.php:
  Name: Bad TLDs blocker module
  False Positive Risk: Low
  Version: 2021.95.583
- Minimum Required: 1.13.1
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.13.1
@@ -169,7 +162,6 @@ module_sfs.php:
  Name: Stop Forum Spam module
  False Positive Risk: Low
  Version: 2021.95.583
- Minimum Required: 1.18.0
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.18
@@ -191,7 +183,6 @@ module_botua.php:
  Name: Optional user agents module
  False Positive Risk: Medium
  Version: 2021.95.583
- Minimum Required: 1.13.1
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.13.1
@@ -209,7 +200,6 @@ module_botua.php:
 Chart.js:
  Name: Chart.js
  Version: 2.9.3
- Minimum Required: 1.13.1
  Dependencies:
   CIDRAM Core: >=1.13.1
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -229,7 +219,6 @@ Chart.js:
 flags.css:
  Name: Flags CSS
  Version: 2021.95.583
- Minimum Required: 1.13.1
  Dependencies:
   CIDRAM Core: >=1.13.1
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -247,7 +236,6 @@ compat_bunnycdn.php:
  Name: BunnyCDN compatibility module
  False Positive Risk: Low
  Version: 2021.95.583
- Minimum Required: 1.13.1
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.13.1
@@ -267,8 +255,7 @@ compat_bunnycdn.php:
  Reannotate: modules.dat
 PHPMailer:
  Name: PHPMailer
- Version: 6.3.0
- Minimum Required: 1.13.1
+ Version: 6.4.0
  Dependencies:
   PHP: >=5.5
   CIDRAM Core: >=1.13.1
@@ -280,11 +267,11 @@ PHPMailer:
  Provisional: true
  Files:
   From:
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/4a08cf4cdd2c38d12ee2b9fa69e5d235f37a6dcb/src/Exception.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/4a08cf4cdd2c38d12ee2b9fa69e5d235f37a6dcb/src/OAuth.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/4a08cf4cdd2c38d12ee2b9fa69e5d235f37a6dcb/src/PHPMailer.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/4a08cf4cdd2c38d12ee2b9fa69e5d235f37a6dcb/src/POP3.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/4a08cf4cdd2c38d12ee2b9fa69e5d235f37a6dcb/src/SMTP.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/050d430203105c27c30efd1dce7aa421ad882d01/src/Exception.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/050d430203105c27c30efd1dce7aa421ad882d01/src/OAuth.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/050d430203105c27c30efd1dce7aa421ad882d01/src/PHPMailer.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/050d430203105c27c30efd1dce7aa421ad882d01/src/POP3.php
+   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/050d430203105c27c30efd1dce7aa421ad882d01/src/SMTP.php
   To:
    - classes/PHPMailer/Exception.php
    - classes/PHPMailer/OAuth.php
@@ -294,15 +281,14 @@ PHPMailer:
   Checksum:
    - 67d962f239fc087bb48f7ba250cb301d354147f58b55ddebab0d6e49405e5e36:1214
    - d1456eb234737d0e0aa7c7e816e0b8b01f6aca147f29739864bb553b840f4fce:3744
-   - 5fee43d943af638930afb64265f4b3a9b1fb1bc2a8355863c4f5c3d6984dce92:170285
-   - 3dda81b987dd5cc19b0cb5bca569ac16937be0254ebe1cec09a0f30f1cbef5e2:11732
-   - 2d664cbebc85117ef0a1d4aa6e892bcf9de75a04b3b5b6fe196db163510c914b:47048
+   - 31ab4c52c6dc62779df7f7c98cd587f81fc8fdd3048beb203205b0c3fb7234be:170346
+   - ede75ca6dcafc757a268029ebcfb82d6873b934d66c6656d4e0bb4a5f9abd1c1:11732
+   - 47def70fde60666f50fe1550aa55a43b0fe60721b85571202a9a2b897b10fc05:47228
  Reannotate: modules.dat
 module_abuseipdb.php:
  Name: AbuseIPDB module
  False Positive Risk: Medium
  Version: 2021.95.583
- Minimum Required: 1.18.0
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.18
@@ -324,7 +310,6 @@ module_refspam.php:
  Name: Referrer spam module
  False Positive Risk: Medium
  Version: 2021.95.583
- Minimum Required: 1.13.1
  Dependencies:
   PHP: >=5.5
   CIDRAM Core: >=1.13.1
@@ -355,7 +340,6 @@ module_bgpview.php:
  Name: BGPView module
  False Positive Risk: Low
  Version: 2021.95.583
- Minimum Required: 2.2.0
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=2.2
@@ -377,7 +361,6 @@ module_projecthoneypot.php:
  Name: Project Honeypot module
  False Positive Risk: Medium
  Version: 2021.95.583
- Minimum Required: 1.18.0
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.18
@@ -399,7 +382,6 @@ module_httpver.php:
  Name: HTTP version checker module
  False Positive Risk: Low
  Version: 2021.95.583
- Minimum Required: 1.18.0
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.18
