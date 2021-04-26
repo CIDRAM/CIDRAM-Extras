@@ -3,23 +3,20 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="robots" content="noindex,nofollow" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" /><!-- WebFont Begin -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Space+Mono" /><!-- WebFont End -->
-  <title>{denied}</title>{recaptcha_api_include}
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{denied}</title>{captcha_api_include}
   <style>
 #wrapper{border-style:solid;border-color:#999;width:98%;margin:auto;padding:2px;border-top-right-radius:24px}
 body,#wrapper{text-align:center}
 hr,#wrapper{border-width:1px}
 input,#wrapper{background-color:#fff}
 #wrapper_inner{width:96%;margin:auto;padding:2px}
-#denied,#footer_inner,#detected,#textBlock,input,#pp{font-weight:700}
+#denied,#detected,#textBlock,input,#pp{font-weight:700}
 #denied,#ScriptIdent,input{color:red}
 #denied{font-size:calc(20px * {Magnification})}
-#footer_inner,input{font-family:'Open Sans',sans-serif,Verdana,Arial,Helvetica}
-#footer_inner{font-size:calc(12px * {Magnification});letter-spacing:0px;white-space:nowrap;text-align:right}
-#generated_by{color:#000}
+input{font-family:'Open Sans',sans-serif,Verdana,Arial,Helvetica}
 #textBlock{{textBlockAlign}}
-#generated_by,#ScriptIdent{display:inline}
+#ScriptIdent{display:inline}
 .textLabel{{textBlockFloat}color:#466;white-space:pre}
 body{font-family:'Open Sans',sans-serif,'Lucida Grande',Tahoma,Verdana,Arial,MingLiU;font-size:calc(12px * {Magnification});letter-spacing:1px;text-decoration:none;border-style:none;white-space:normal;background-color:#ccc;color:#033}
 hr{border-style:solid none none;margin:5px 2px 0;padding:2px;color:#900}
@@ -39,14 +36,12 @@ button,input[type=button],input[type=submit]{border-radius:18px}
         <div id="denied"{L10N-Lang-Attache}>{denied}</div>
       </div>
       <div id="detected">{ReasonMessage}</div>
-      <div id="mailsupport"{L10N-Lang-Attache}>{EmailAddr}</div>{recaptcha_div_include}
+      <div id="mailsupport"{L10N-Lang-Attache}>{EmailAddr}</div>{captcha_div_include}
       <hr />
       <div id="textBlock">
         {Output}
       </div>
       <hr />
-      <div id="footer">
-      </div>
     </div>
   </div>
   <div id="pp"{L10N-Lang-Attache}>{pp}</div>

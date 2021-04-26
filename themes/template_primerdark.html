@@ -5,15 +5,14 @@
   <meta name="robots" content="noindex,nofollow" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="shortcut icon" type="image/gif" href="data:image/gif;base64,{favicon}" />
-  <title>CIDRAM</title>{recaptcha_api_include}
+  <title>CIDRAM</title>{captcha_api_include}
   <style>
 body,button,input{font-family:BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";letter-spacing:1px;text-decoration:none;border-style:none;margin:0;padding:0;white-space:normal;background-color:#18191a;color:#e4e6eb;font-size:calc(12px * {Magnification})}
 body,#wrapper{text-align:center}
 hr{box-sizing:content-box;height:0;overflow:visible;height:0;margin:15px 0;overflow:hidden;background:0 0;border:0;border-bottom:1px solid #3a3b3c}
 hr::after{display:table;clear:both;content:""}
 hr::before{display:table;content:""}
-#wrapper{background-color:#242526;width:98%;margin:auto;padding:2px}
-#wrapper{border:none;border-radius:6px}
+#wrapper{background-color:#242526;width:98%;margin:auto;padding:2px;border:none;border-radius:6px}
 #wrapper_inner{width:96%;margin:auto;padding:2px}
 #wrapper,#denied,#footer_inner,#detected,#textBlock,#pp{font-weight:700}
 #denied,#ScriptIdent{color:#955}
@@ -33,7 +32,7 @@ button:hover,input:hover{transition-duration:.1s;text-decoration:none;filter:gra
 button,input[type=button],input[type=submit]{color:#fff;background-color:#595}
 input[type=button],input[type=submit]{color:#fff;background-color:#595}
 input:not([type=submit]):not([type=reset]):not([type=button]){border:none;height:20px}
-select,input[type=submit],input[type=reset],input[type=button]{height:20px;padding-top:0;padding-bottom:0}
+input[type=submit],input[type=reset],input[type=button]{height:20px;padding-top:0;padding-bottom:0}
   </style>
 </head>
 
@@ -45,7 +44,7 @@ select,input[type=submit],input[type=reset],input[type=button]{height:20px;paddi
         <div id="denied"{L10N-Lang-Attache}>{denied}</div>
       </div>
       <div id="detected">{ReasonMessage}</div>
-      <div id="mailsupport"{L10N-Lang-Attache}>{EmailAddr}</div>{recaptcha_div_include}
+      <div id="mailsupport"{L10N-Lang-Attache}>{EmailAddr}</div>{captcha_div_include}
       <hr />
       <div id="textBlock">
         {Output}
