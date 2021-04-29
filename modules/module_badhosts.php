@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2021.03.31).
+ * This file: Bad hosts blocker module (last modified: 2021.04.29).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -59,28 +59,28 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
     /** Inherit bypass closure (see functions.php). */
     $Bypass = $CIDRAM['Bypass'];
 
-    /** Options for instantly banning (sets tracking time to 1 year and infraction count to 1000). */
-    $InstaBan = ['Options' => ['TrackTime' => 31536000, 'TrackCount' => 1000]];
+    /** Sets tracking time to 1 year and infraction count to 1000. */
+    $ModifyTracking = ['Options' => ['TrackTime' => 31536000, 'TrackCount' => 1000]];
 
     /** Signatures start here. */
     $HN = preg_replace('/\s/', '', str_replace("\\", '/', strtolower(urldecode($CIDRAM['Hostname']))));
     $UA = str_replace("\\", '/', strtolower(urldecode($CIDRAM['BlockInfo']['UA'])));
     $UANoSpace = preg_replace('/\s/', '', $UA);
 
-    $Trigger(substr($HN, 0, 2) === '()', 'Banned hostname (Bash/Shellshock)', '', $InstaBan); // 2017.01.21
+    $Trigger(substr($HN, 0, 2) === '()', 'Banned hostname (Bash/Shellshock)', '', $ModifyTracking); // 2017.01.21
 
     $Trigger(preg_match(
         '/(?:0wn[3e]d|:(?:\{\w:|[\w\d][;:]\})|h[4a]ck(?:e[dr]|ing|[7t](?:[3e' .
         '][4a]m|[0o]{2}l))|%(?:0[0-8bcef]|1)|[`\'"]|^[-.:]|[-.:]$|[.:][\w\d-' .
         ']{64,}[.:])/i',
         $HN
-    ), 'Banned hostname', '', $InstaBan); // 2018.06.24
+    ), 'Banned hostname', '', $ModifyTracking); // 2018.06.24
 
-    $Trigger(strpos($HN, 'rm ' . '-rf') !== false, 'Banned hostname', '', $InstaBan); // 2017.01.21
-    $Trigger(strpos($HN, 'sh' . 'el' . 'l_' . 'ex' . 'ec') !== false, 'Banned hostname', '', $InstaBan); // 2017.01.21
+    $Trigger(strpos($HN, 'rm ' . '-rf') !== false, 'Banned hostname', '', $ModifyTracking); // 2017.01.21
+    $Trigger(strpos($HN, 'sh' . 'el' . 'l_' . 'ex' . 'ec') !== false, 'Banned hostname', '', $ModifyTracking); // 2017.01.21
 
-    $Trigger(strpos($HN, '$_' . '[$' . '__') !== false, 'Banned hostname', '', $InstaBan); // 2017.01.21
-    $Trigger(strpos($HN, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Banned hostname', '', $InstaBan); // 2017.01.21
+    $Trigger(strpos($HN, '$_' . '[$' . '__') !== false, 'Banned hostname', '', $ModifyTracking); // 2017.01.21
+    $Trigger(strpos($HN, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Banned hostname', '', $ModifyTracking); // 2017.01.21
 
     $Trigger(preg_match(
         '/\$(?:globals|_(cookie|env|files|get|post|request|se(rver|ssion)))/',
@@ -113,7 +113,7 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
     $Trigger(preg_match(
         '/(?:rumer|pymep|румер)/',
         $HN
-    ), 'Spamhost', '', $InstaBan); // 2017.01.21
+    ), 'Spamhost', '', $ModifyTracking); // 2017.01.21
 
     $Trigger(preg_match('/(?:cjh-law\.com$)/', $HN), 'Phisher / Phishing Host'); // 2017.02.14
 
@@ -264,13 +264,13 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
 
     $Trigger(preg_match('/^localhost$/', $HN) && (
         !preg_match('/^(?:1(?:27|92\.168)(?:\.1?\d{1,2}|\.2[0-4]\d|\.25[0-5]){2,3}|\:\:1)$/', $CIDRAM['BlockInfo']['IPAddr'])
-    ), 'Spoofed/Fake Hostname', '', $InstaBan); // 2018.06.24
+    ), 'Spoofed/Fake Hostname', '', $ModifyTracking); // 2018.06.24
     $Trigger(preg_match('/\.local$/', $HN), 'Spoofed/Fake Hostname'); // 2017.02.06
 
     // See: https://zb-block.net/zbf/showthread.php?t=25
     $Trigger(preg_match('/shodan\.io|(?:serverprofi24|aspadmin|project25499)\./', $HN), 'AutoSploit Host'); // 2018.02.02 mod 2021.02.07
 
-    $Trigger($HN === '.', 'DNS error', '', $InstaBan); // 2017.02.25
+    $Trigger($HN === '.', 'DNS error', '', $ModifyTracking); // 2017.02.25
 
     /**
      * Only to be triggered if other signatures haven't already been triggered

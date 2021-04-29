@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Template module file for CIDRAM (last modified: 2020.11.29).
+ * This file: Template module file for CIDRAM (last modified: 2021.04.29).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -27,130 +27,11 @@ if (!isset($CIDRAM['ModuleResCache'])) {
  * @param int $Infractions The number of infractions incurred thus far.
  */
 $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) {
-    // If you're intending to write a standard module, which uses the normal,
-    // default syntax for signatures, keep the "Inherit trigger closure ..." block
-    // in the file and remove the "$Trigger = function ($ ..." block which follows.
-    // Otherwise, if you want to use different syntax, or modify the way that
-    // triggers work, get rid of the "Inherit trigger closure ..." block, and
-    // instead, modify the "$Trigger = function ($ ..." block as per your needs and
-    // keep that instead. Or, if you're feeling confident, get rid of both and just
-    // write something entirely from scratch yourself (but in any case, *don't*
-    // keep *both*). :-)
-
     /** Inherit trigger closure (see functions.php). */
     $Trigger = $CIDRAM['Trigger'];
 
-    /**
-     * Required for handling signature triggers within this module.
-     *
-     * @param bool $Condition Include any variable or PHP code which can be
-     *      evaluated for truthiness. Truthiness is evaluated, and if true, the
-     *      signature is "triggered". If false, the signature is *not* "triggered".
-     * @param string $ReasonShort Cited in the "Why Blocked" field when the
-     *      signature is triggered and thus included within logfile entries.
-     * @param string $ReasonLong Message displayed to the user/client when blocked,
-     *      to explain why they've been blocked. Optional. Defaults to the standard
-     *      "Access Denied!" message.
-     * @param array $DefineOptions An optional array containing key/value pairs,
-     *      used to define configuration options specific to the request instance.
-     *      Configuration options will be applied when the signature is triggered.
-     * @return bool Returns true if the signature was triggered, and false if it
-     *      wasn't. Should correspond to the truthiness of $Condition.
-     */
-    $Trigger = function ($Condition, $ReasonShort, $ReasonLong = '', array $DefineOptions = []) use (&$CIDRAM) {
-        if (!$Condition) {
-            return false;
-        }
-        if (!$ReasonLong) {
-            $ReasonLong = $CIDRAM['L10N']->getString('denied');
-        }
-        if (is_array($DefineOptions) && !empty($DefineOptions)) {
-            foreach ($DefineOptions as $CatKey => $CatValue) {
-                if (is_array($CatValue) && !empty($CatValue)) {
-                    foreach ($CatValue as $OptionKey => $OptionValue) {
-                        $CIDRAM['Config'][$CatKey][$OptionKey] = $OptionValue;
-                    }
-                }
-            }
-        }
-        $CIDRAM['BlockInfo']['ReasonMessage'] = $ReasonLong;
-        if (!empty($CIDRAM['BlockInfo']['WhyReason'])) {
-            $CIDRAM['BlockInfo']['WhyReason'] .= ', ';
-        }
-        $CIDRAM['BlockInfo']['WhyReason'] .= $ReasonShort;
-        if (!empty($CIDRAM['BlockInfo']['Signatures'])) {
-            $CIDRAM['BlockInfo']['Signatures'] .= ', ';
-        }
-        $Debug = debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT | DEBUG_BACKTRACE_IGNORE_ARGS, 1)[0];
-        $CIDRAM['BlockInfo']['Signatures'] .= basename($Debug['file']) . ':L' . $Debug['line'];
-        $CIDRAM['BlockInfo']['SignatureCount']++;
-        return true;
-    };
-
-    // Similar deal to as with triggers, if you're wanting your module to be able
-    // to bypass signatures (such as signatures from within other modules), keep
-    // one or the other of the following two blocks.
-
     /** Inherit bypass closure (see functions.php). */
     $Bypass = $CIDRAM['Bypass'];
-
-    /**
-     * Required for handling signature bypasses within this module.
-     *
-     * @param bool $Condition Include any variable or PHP code which can be
-     *      evaluated for truthiness. Truthiness is evaluated, and if true, the
-     *      bypass is "triggered". If false, the bypass is *not* "triggered".
-     * @param string $ReasonShort Cited in the "Why Blocked" field when the
-     *      bypass is triggered (included within logfile entries if there are still
-     *      other preexisting signatures which have otherwise been triggered).
-     * @param array $DefineOptions An optional array containing key/value pairs,
-     *      used to define configuration options specific to the request instance.
-     *      Configuration options will be applied when the bypass is triggered.
-     * @return bool Returns true if the bypass was triggered, and false if it
-     *      wasn't. Should correspond to the truthiness of $Condition.
-     */
-    $Bypass = function ($Condition, $ReasonShort, array $DefineOptions = []) use (&$CIDRAM) {
-        if (!$Condition) {
-            return false;
-        }
-        if (is_array($DefineOptions) && !empty($DefineOptions)) {
-            foreach ($DefineOptions as $CatKey => $CatValue) {
-                if (is_array($CatValue) && !empty($CatValue)) {
-                    foreach ($CatValue as $OptionKey => $OptionValue) {
-                        $CIDRAM['Config'][$CatKey][$OptionKey] = $OptionValue;
-                    }
-                }
-            }
-        }
-        if (!empty($CIDRAM['BlockInfo']['WhyReason'])) {
-            $CIDRAM['BlockInfo']['WhyReason'] .= ', ';
-        }
-        $CIDRAM['BlockInfo']['WhyReason'] .= $ReasonShort;
-        if (!empty($CIDRAM['BlockInfo']['Signatures'])) {
-            $CIDRAM['BlockInfo']['Signatures'] .= ', ';
-        }
-        $Debug = debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT | DEBUG_BACKTRACE_IGNORE_ARGS, 1)[0];
-        $CIDRAM['BlockInfo']['Signatures'] .= basename($Debug['file']) . ':L' . $Debug['line'];
-        $CIDRAM['BlockInfo']['SignatureCount']--;
-        return true;
-    };
-
-    // The following block is used to allow bans to be instantly enforced when
-    // signatures are triggered. If you wish to enforce instantaneous bans (ie,
-    // "insta-bans") for any of your signatures, keep it in the file. Otherwise,
-    // you can remove it safely. You can build your own variations on it, too, if
-    // you want. In this case, "TrackTime" represents how much time should elapse
-    // in seconds before any IPs associated with any triggered signatures will be
-    // removed from the IP tracking database, and the minimum amount of time which
-    // must elapse before any associated bans will be lifted. "TrackCount" is how
-    // many "infractions" should be incurred as a result of a signature being
-    // triggered (1 by default for normal signatures, 1000 by default for
-    // insta-bans). You can actually put anything you want in here, and it'll be
-    // parsed as configuration settings for the given request instance whenever a
-    // signature is triggered.
-
-    /** Options for instantly banning (sets tracking time to 1 year and infraction count to 1000). */
-    $InstaBan = ['Options' => ['TrackTime' => 31536000, 'TrackCount' => 1000]];
 
     // All the following examples and guidelines are based on the assumption that
     // you've not modified the default signature trigger or signature bypass
@@ -293,9 +174,9 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
     // A few simple "gotchas":
     // - The reason I've used "!== false" within the first parameter when using
     //   strpos, is because strpos will return false when a sub-string is not found
-    //   within a string (ie, the needle is not found within the haystack), but it
+    //   within a string (i.e., the needle is not found within the haystack), but it
     //   will return 0 if the needle exists at the beginning of the haystack (or at
-    //   character position 0), and 0 also evaluates as false (ie, the truthiness
+    //   character position 0), and 0 also evaluates as false (i.e., the truthiness
     //   for 0, is false). Using "!== false" ensures that our signatures will only
     //   be triggered if the needle truly does not exist within the haystack.
     // - CIDRAM uses "closures"; It does not use "functions". Using "Trigger()"

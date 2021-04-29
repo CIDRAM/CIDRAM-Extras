@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional cookie scanner module (last modified: 2021.03.31).
+ * This file: Optional cookie scanner module (last modified: 2021.04.29).
  *
  * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  *
@@ -40,8 +40,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         return;
     }
 
-    /** Options for instantly banning (sets tracking time to 1 year and infraction count to 1000). */
-    $InstaBan = ['Options' => ['TrackTime' => 31536000, 'TrackCount' => 1000]];
+    /** Sets tracking time to 1 year and infraction count to 1000. */
+    $ModifyTracking = ['Options' => ['TrackTime' => 31536000, 'TrackCount' => 1000]];
 
     /** Signatures start from here. */
     foreach ($_COOKIE as $Key => $Value) {
@@ -95,8 +95,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
         $Trigger(preg_match('/\'(?:uploadedfile|move_uploaded_file|tmp_name)\'/', $ThisPairN), 'Probe attempt'); // 2017.01.02
 
-        $Trigger(strpos($ThisPairN, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Shell upload attempted via cookies', '', $InstaBan); // 2017.01.02
-        $Trigger(strpos($ThisPairN, 'linkirc') !== false, 'Shell upload attempted via cookies', '', $InstaBan); // 2017.01.02
+        $Trigger(strpos($ThisPairN, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Shell upload attempted via cookies', '', $ModifyTracking); // 2017.01.02
+        $Trigger(strpos($ThisPairN, 'linkirc') !== false, 'Shell upload attempted via cookies', '', $ModifyTracking); // 2017.01.02
 
         $Trigger($Key === 'SESSUNIVUCADIACOOKIE', 'Hotlinking detected', 'Hotlinking not allowed!'); // 2017.01.02
 
@@ -106,20 +106,20 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         $Trigger($Key === 'ja_edenite_tpl', 'Bad cookie'); // 2017.01.02
         $Trigger($Key === 'phpbb3_1fh61_', 'Bad cookie'); // 2017.01.02
 
-        $Trigger($Key === '()' || $Value === '()', 'Cookie hack detected (Bash/Shellshock)', '', $InstaBan); // 2017.01.02
+        $Trigger($Key === '()' || $Value === '()', 'Cookie hack detected (Bash/Shellshock)', '', $ModifyTracking); // 2017.01.02
 
         $Trigger((
             ($Key === 'CUSTOMER' || $Key === 'CUSTOMER_INFO' || $Key === 'NEWMESSAGE') &&
             strpos($ThisPairN, 'deleted') !== false
         ), 'Cookie hack detected'); // 2017.01.02
 
-        $Trigger($KeyLC === 'rm ' . '-rf' || $ValueLC === 'rm ' . '-rf', 'Cookie hack detected', '', $InstaBan); // 2017.01.02
-        $Trigger(preg_match('/:(?:\{\w:|[\w\d][;:]\})/', $ThisPairN), 'Cookie hack detected', '', $InstaBan); // 2018.06.24
+        $Trigger($KeyLC === 'rm ' . '-rf' || $ValueLC === 'rm ' . '-rf', 'Cookie hack detected', '', $ModifyTracking); // 2017.01.02
+        $Trigger(preg_match('/:(?:\{\w:|[\w\d][;:]\})/', $ThisPairN), 'Cookie hack detected', '', $ModifyTracking); // 2018.06.24
 
         $Trigger((
             ($Value === -1 || $Value === '-1') &&
             ($Key === 'ASP_NET_SessionId' || $Key === 'CID' || $Key === 'SID' || $Key === 'NID')
-        ), 'ASP.NET hack detected', '', $InstaBan); // 2017.01.02
+        ), 'ASP.NET hack detected', '', $ModifyTracking); // 2017.01.02
     }
 
     /** Reporting. */

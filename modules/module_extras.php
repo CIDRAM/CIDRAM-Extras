@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2021.03.31).
+ * This file: Optional security extras module (last modified: 2021.04.29).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -45,8 +45,8 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
     /** Inherit bypass closure (see functions.php). */
     $Bypass = $CIDRAM['Bypass'];
 
-    /** Options for instantly banning (sets tracking time to 1 year and infraction count to 1000). */
-    $InstaBan = ['Options' => ['TrackTime' => 31536000, 'TrackCount' => 1000]];
+    /** Sets tracking time to 1 year and infraction count to 1000. */
+    $ModifyTracking = ['Options' => ['TrackTime' => 31536000, 'TrackCount' => 1000]];
 
     /**
      * Signatures based on the reconstructed URI start from here.
@@ -61,7 +61,7 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         /** Detect bad/dangerous/malformed requests. */
         $Trigger(preg_match('~(?:(/|%5[cf])\.(/|%5[cf])|(/|%5[cf]){3,}|[\x00-\x1f\x7f])~i', $LCNrURI), 'Bad request'); // 2017.01.13
 
-        $Trigger(preg_match('~(?:(/%e2%80%a6x|shrift)\.php|/get?(fwversion|mac))~', $LCNrURI), 'Hack attempt', '', $InstaBan); // 2017.02.25
+        $Trigger(preg_match('~(?:(/%e2%80%a6x|shrift)\.php|/get?(fwversion|mac))~', $LCNrURI), 'Hack attempt', '', $ModifyTracking); // 2017.02.25
 
         /** WordPress user enumeration (modified 2019.09.14). */
         if ($Trigger(preg_match('~author=\d+~i', $LCNrURI), 'WordPress user enumeration not allowed')) {
@@ -146,8 +146,8 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         $Trigger(substr($_SERVER['QUERY_STRING'], -4) === '%000', 'Null truncation attempt'); // 2016.12.31
         $Trigger(substr($_SERVER['QUERY_STRING'], -5) === '%0000', 'Null truncation attempt'); // 2016.12.31
 
-        $Trigger(strpos($QueryNoSpace, '$_' . '[$' . '__') !== false, 'Shell upload attempt', '', $InstaBan); // 2017.03.01
-        $Trigger(strpos($QueryNoSpace, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Shell upload attempt', '', $InstaBan); // 2017.03.01
+        $Trigger(strpos($QueryNoSpace, '$_' . '[$' . '__') !== false, 'Shell upload attempt', '', $ModifyTracking); // 2017.03.01
+        $Trigger(strpos($QueryNoSpace, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Shell upload attempt', '', $ModifyTracking); // 2017.03.01
 
         $Trigger(preg_match('/%(?:20\'|25[01u]|[46]1%[46]e%[46]4)/', $_SERVER['QUERY_STRING']), 'Hack attempt'); // 2017.01.05
         $Trigger(preg_match('/&arrs[12]\[\]=/', $QueryNoSpace), 'Hack attempt'); // 2017.02.25
@@ -155,11 +155,11 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         $Trigger(preg_match('/user_login,\w{4},user_(?:pass|email|activation_key)/', $QueryNoSpace), 'WP hack attempt'); // 2017.02.18
         $Trigger(preg_match('/\'%2[05]/', $_SERVER['QUERY_STRING']), 'Hack attempt'); // 2017.01.05
         $Trigger(preg_match('/\|(?:include|require)/', $QueryNoSpace), 'Hack attempt'); // 2017.01.01
-        $Trigger(strpos($Query, 'rm ' . '-rf') !== false, 'Hack attempt', '', $InstaBan); // 2017.01.02
+        $Trigger(strpos($Query, 'rm ' . '-rf') !== false, 'Hack attempt', '', $ModifyTracking); // 2017.01.02
         $Trigger(strpos($QueryNoSpace, "'='") !== false, 'Hack attempt'); // 2017.01.05
         $Trigger(strpos($QueryNoSpace, '.php/login.php') !== false, 'Hack attempt'); // 2017.01.05
         $Trigger(preg_match('~\dhttps?:~', $QueryNoSpace), 'Hack attempt'); // 2017.01.01 mod 2018.09.22
-        $Trigger(strpos($QueryNoSpace, ';c' . 'hmod7' . '77') !== false, 'Hack attempt', '', $InstaBan); // 2017.01.05
+        $Trigger(strpos($QueryNoSpace, ';c' . 'hmod7' . '77') !== false, 'Hack attempt', '', $ModifyTracking); // 2017.01.05
         $Trigger(strpos($QueryNoSpace, 'id=\'') !== false, 'Hack attempt'); // 2017.02.18
         $Trigger(strpos($QueryNoSpace, 'name=lobex21.php') !== false, 'Hack attempt'); // 2017.02.18
         $Trigger(strpos($QueryNoSpace, 'php://') !== false, 'Hack attempt'); // 2017.02.18
@@ -167,7 +167,7 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         $Trigger(strpos($_SERVER['QUERY_STRING'], '=-1%27') !== false, 'Hack attempt'); // 2017.01.05
         $Trigger(substr($QueryNoSpace, 0, 1) === ';', 'Hack attempt'); // 2017.01.05
 
-        $Trigger(substr($QueryNoSpace, 0, 2) === '()', 'Bash/Shellshock', '', $InstaBan); // 2017.01.05
+        $Trigger(substr($QueryNoSpace, 0, 2) === '()', 'Bash/Shellshock', '', $ModifyTracking); // 2017.01.05
 
         $Trigger(strpos($QueryNoSpace, 'allow_url_include=on') !== false, 'Plesk hack'); // 2017.01.05
         $Trigger(strpos($QueryNoSpace, 'auto_prepend_file=php://input') !== false, 'Plesk hack'); // 2017.01.05
@@ -180,7 +180,7 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
 
         $Trigger(preg_match('~(?:^-|/r[ks]=|dg[cd]=1|pag(?:e|ina)=-)~', $QueryNoSpace), 'Probe attempt'); // 2017.02.25
         $Trigger(preg_match('~yt=phpinfo~', $QueryNoSpace), 'Probe attempt'); // 2017.03.05
-        $Trigger(strpos($QueryNoSpace, '0x31303235343830303536') !== false, 'Probe attempt', '', $InstaBan); // 2017.02.25
+        $Trigger(strpos($QueryNoSpace, '0x31303235343830303536') !== false, 'Probe attempt', '', $ModifyTracking); // 2017.02.25
 
         $Trigger(preg_match(
             '/\[(?:[alrw]\]|classes|file|itemid|l(?:astrss_ap_enabled|oadfile|ocalserverfile)|pth|src)/',
@@ -216,7 +216,7 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
             $QueryNoSpace
         ), 'Query SQLi'); // 2017.03.01 mod 2020.11.30
 
-        $Trigger(preg_match('/(?:(modez|osc|tasya)=|=((bot|scanner|shell)z|psybnc))/', $QueryNoSpace), 'Query command injection', '', $InstaBan); // 2017.02.25
+        $Trigger(preg_match('/(?:(modez|osc|tasya)=|=((bot|scanner|shell)z|psybnc))/', $QueryNoSpace), 'Query command injection', '', $ModifyTracking); // 2017.02.25
 
         $Trigger(preg_match('/cpis_.*i0seclab@intermal\.com/', $QueryNoSpace), 'Hack attempt'); // 2018.02.20
     }
@@ -262,12 +262,12 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         ); // 2017.05.10
 
         $Trigger(preg_match('~(?:=\[\\\\|%5C\]|\(\)|=%5Bphp%5D|=\[php\]|\\\\\]|=\[%5C|`)~i', $RawInput), 'POST BBCESC/BBCEX/EX'); // 2017.03.01
-        $Trigger(preg_match('~/â\\x80¦x\.php~i', $RawInput), 'Probe attempt', '', $InstaBan); // 2017.03.01
-        $Trigger(preg_match('~\([\'"](?:zwnobyai|awyoznvu)~', $RawInputSafe), 'Injection attempt', '', $InstaBan); // 2017.03.01
-        $Trigger(preg_match('~^/\?-~', $RawInput), 'Hack attempt', '', $InstaBan); // 2017.03.01
-        $Trigger(strpos($RawInputSafe, '$_' . '[$' . '__') !== false, 'Shell upload attempt', '', $InstaBan); // 2017.03.01
-        $Trigger(strpos($RawInputSafe, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Shell upload attempt', '', $InstaBan); // 2017.03.01
-        $Trigger(preg_match('~&author_name=(?:%5b|\[)~', $RawInputSafe), 'Bot detection', '', $InstaBan); // 2017.03.01
+        $Trigger(preg_match('~/â\\x80¦x\.php~i', $RawInput), 'Probe attempt', '', $ModifyTracking); // 2017.03.01
+        $Trigger(preg_match('~\([\'"](?:zwnobyai|awyoznvu)~', $RawInputSafe), 'Injection attempt', '', $ModifyTracking); // 2017.03.01
+        $Trigger(preg_match('~^/\?-~', $RawInput), 'Hack attempt', '', $ModifyTracking); // 2017.03.01
+        $Trigger(strpos($RawInputSafe, '$_' . '[$' . '__') !== false, 'Shell upload attempt', '', $ModifyTracking); // 2017.03.01
+        $Trigger(strpos($RawInputSafe, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Shell upload attempt', '', $ModifyTracking); // 2017.03.01
+        $Trigger(preg_match('~&author_name=(?:%5b|\[)~', $RawInputSafe), 'Bot detection', '', $ModifyTracking); // 2017.03.01
 
         $Trigger(preg_match(
             '~(?:%61%(6c%6c%6f%77%5f%75%72%6c%5f%69%6e%63%6c%75%64%65%3d%6f%6e|7' .
