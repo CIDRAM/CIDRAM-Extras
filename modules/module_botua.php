@@ -39,6 +39,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     /** Sets tracking time to 1 year and infraction count to 1000. */
     $ModifyTracking = ['Options' => ['TrackTime' => 31536000, 'TrackCount' => 1000]];
 
+    /** Unmarks for use with reCAPTCHA and hCAPTCHA. */
+    $UnmarkCaptcha = ['recaptcha' => ['enabled' => false], 'hcaptcha' => ['enabled' => false]];
+
     $UA = str_replace("\\", '/', strtolower(urldecode($CIDRAM['BlockInfo']['UA'])));
     $UANoSpace = preg_replace('/\s/', '', $UA);
 
@@ -103,7 +106,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
     $Trigger(strpos($UA, 'select ') !== false, 'UASQLi'); // 2017.02.25
 
-    $Trigger(strpos($UANoSpace, 'captch') !== false, 'CAPTCHA cracker UA'); // 2017.01.08
+    $Trigger(strpos($UANoSpace, 'captch') !== false, 'CAPTCHA cracker UA', '', $UnmarkCaptcha); // 2017.01.08 mod 2021.04.29
 
     $Trigger(preg_match('~(?:(aihit|casper)bot|mamac(asper|yber)|mozilla/0)~', $UANoSpace), 'Probe UA', '', $ModifyTracking); // 2017.02.25
 

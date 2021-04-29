@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Project Honeypot module (last modified: 2021.03.31).
+ * This file: Project Honeypot module (last modified: 2021.04.29).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -57,6 +57,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
     /** Inherit trigger closure (see functions.php). */
     $Trigger = $CIDRAM['Trigger'];
+
+    /** Marks for use with reCAPTCHA and hCAPTCHA. */
+    $EnableCaptcha = ['recaptcha' => ['enabled' => true], 'hcaptcha' => ['enabled' => true]];
 
     /** Local Project Honeypot cache entry expiry time (successful lookups). */
     $Expiry = $CIDRAM['Now'] + 604800;
@@ -126,13 +129,18 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     }
 
     /** Block the request if the IP is listed by Project Honeypot. */
-    $Trigger((
-        $CIDRAM['Project Honeypot'][$CIDRAM['BlockInfo']['IPAddr']]['Threat score'] >= $CIDRAM['Config']['projecthoneypot']['minimum_threat_score'] &&
-        $CIDRAM['Project Honeypot'][$CIDRAM['BlockInfo']['IPAddr']]['Days since last activity'] <= $CIDRAM['Config']['projecthoneypot']['max_age_in_days']
-    ), 'Project Honeypot Lookup', $CIDRAM['L10N']->getString('ReasonMessage_Generic') . '<br />' . sprintf(
-        $CIDRAM['L10N']->getString('request_removal'),
-        'https://www.projecthoneypot.org/ip_' . ($CIDRAM['BlockInfo']['IPAddrResolved'] ?: $CIDRAM['BlockInfo']['IPAddr'])
-    ));
+    $Trigger(
+        (
+            $CIDRAM['Project Honeypot'][$CIDRAM['BlockInfo']['IPAddr']]['Threat score'] >= $CIDRAM['Config']['projecthoneypot']['minimum_threat_score'] &&
+            $CIDRAM['Project Honeypot'][$CIDRAM['BlockInfo']['IPAddr']]['Days since last activity'] <= $CIDRAM['Config']['projecthoneypot']['max_age_in_days']
+        ),
+        'Project Honeypot Lookup',
+        $CIDRAM['L10N']->getString('ReasonMessage_Generic') . '<br />' . sprintf(
+            $CIDRAM['L10N']->getString('request_removal'),
+            'https://www.projecthoneypot.org/ip_' . ($CIDRAM['BlockInfo']['IPAddrResolved'] ?: $CIDRAM['BlockInfo']['IPAddr'])
+        ),
+        $CIDRAM['Project Honeypot'][$CIDRAM['BlockInfo']['IPAddr']]['Threat score'] <= $CIDRAM['Config']['projecthoneypot']['max_ts_for_captcha'] ? $EnableCaptcha : []
+    );
 };
 
 /** Execute closure. */

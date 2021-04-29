@@ -2,7 +2,7 @@
 module_cookies.php:
  Name: Optional cookie scanner module
  False Positive Risk: Low
- Version: 2021.95.583
+ Version: 2021.118.492
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.13.1
@@ -14,13 +14,13 @@ module_cookies.php:
   To:
    - module_cookies.php
   Checksum:
-   - 864aa5838422a846d91115705d7208b9d4bf8050d4670032cfbea7c9a4f390fa:8428
+   - 1a04688c8258f2a5eaed65cbf7905ad960726060d313b045865eb29c1629de22:8438
  Used with: modules
  Reannotate: modules.dat
 module_extras.php:
  Name: Optional security extras module
  False Positive Risk: Medium
- Version: 2021.95.583
+ Version: 2021.118.492
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.13.1
@@ -34,7 +34,7 @@ module_extras.php:
    - module_extras.php
    - module_extras.yaml
   Checksum:
-   - 08d6647fd54a6bc2739d28e92d2fb81d5f4df764f2671723bc82839c864f9307:24618
+   - 7d40795881729856ed58a80d87d3c6befd091c3058274c24b0b1866a8c89f7dc:24676
    - a794d27f0aaf79b3b37a9c53cbc9e05c91b7fc5fe6cebb9d491f9853efc9fed0:1017
  Used with: modules
  Reannotate: modules.dat
@@ -107,7 +107,7 @@ module_yandexblocker.php:
 module_badhosts.php:
  Name: Bad hosts blocker module
  False Positive Risk: Medium
- Version: 2021.95.583
+ Version: 2021.118.492
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.13.1
@@ -119,13 +119,13 @@ module_badhosts.php:
   To:
    - module_badhosts.php
   Checksum:
-   - 57b7d3360ddd5dd83e46e6147435432aa5953463fa51f5a8c58c74fa3e44f66e:16163
+   - 2d0422cbea99358f73a953d605a77e19a6345a39649e6154d44ed5e137d362a8:16191
  Used with: modules
  Reannotate: modules.dat
 module_badhosts_isps.php:
  Name: Bad hosts blocker module (ISPs)
  False Positive Risk: High
- Version: 2021.95.583
+ Version: 2021.118.492
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.13.1
@@ -137,7 +137,7 @@ module_badhosts_isps.php:
   To:
    - module_badhosts_isps.php
   Checksum:
-   - 2e3059b337dd64155e3ae03212663467d1bba84367bf7b2035cc44810192e591:2560
+   - 2661756eb87e4b9696055efa3e5bbc3667b8be94326bfcdd780f393433369413:2611
  Used with: modules
  Reannotate: modules.dat
 module_badtlds.php:
@@ -161,7 +161,7 @@ module_badtlds.php:
 module_sfs.php:
  Name: Stop Forum Spam module
  False Positive Risk: Low
- Version: 2021.95.583
+ Version: 2021.118.492
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.18
@@ -175,14 +175,14 @@ module_sfs.php:
    - module_sfs.php
    - module_sfs.yaml
   Checksum:
-   - f984a33f0f03d1bdfa08b6e3f89163224c5fe445258873e1c0dcd3f564e89e07:3716
-   - e03210ce1f88a4abcf29f5f11cd653c46f957f938e547b0acc3eb2dce691b90e:415
+   - fc4b430ff5839bad109d351e9923695712f18018a6428529d1bacdbf9d7ae291:3938
+   - 95af369879326c23fcfe7585e97e23a8d9147c27b1b0f24343e883106a79090a:561
  Used with: modules
  Reannotate: modules.dat
 module_botua.php:
  Name: Optional user agents module
  False Positive Risk: Medium
- Version: 2021.114.227
+ Version: 2021.118.492
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.13.1
@@ -194,7 +194,7 @@ module_botua.php:
   To:
    - module_botua.php
   Checksum:
-   - 32f025c7724bdce23740110b5f1f43366c333bc9967a16ea81357784b13f539b:21624
+   - d371d297853a651989f5883e6caa86f5b24ea68a25422f1a1769509eb5d96a66:21918
  Used with: modules
  Reannotate: modules.dat
 Chart.js:
@@ -288,7 +288,7 @@ PHPMailer:
 module_abuseipdb.php:
  Name: AbuseIPDB module
  False Positive Risk: Medium
- Version: 2021.95.583
+ Version: 2021.118.492
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.18
@@ -302,8 +302,8 @@ module_abuseipdb.php:
    - module_abuseipdb.php
    - module_abuseipdb.yaml
   Checksum:
-   - f80b5f12f2d676f0ec26b1d78c2132b512195e6413f78223c19469d2ea97fdcd:5656
-   - 11f4237de8991c56ae95c91e593d0f11d1fcb79094d9be6c00fe0ebdf04cb184:1632
+   - 7194225beb57c2bbc80038cfd6abfbb79fc692148a402cc729648c6244c25b84:6011
+   - b2c52f604e210775d64cc04794e1832e81efed28310c108ac3564361c4f21106:1840
  Used with: modules
  Reannotate: modules.dat
 module_refspam.php:
@@ -360,7 +360,7 @@ module_bgpview.php:
 module_projecthoneypot.php:
  Name: Project Honeypot module
  False Positive Risk: Medium
- Version: 2021.95.583
+ Version: 2021.118.492
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.18
@@ -374,8 +374,8 @@ module_projecthoneypot.php:
    - module_projecthoneypot.php
    - module_projecthoneypot.yaml
   Checksum:
-   - a1632da198cc95caa662b04c27a1ebe12815dc0359d25a0559c911697a554621:5398
-   - 106e29a2648d57c5889297af0f46d3f8ed416a00713bcc6f09c3e0276029e82e:1691
+   - 6e9f0a2c5bba8da117584c243b3b6321e9d3de1a57834997c31dc2847f1ad16f:5770
+   - 296a9d098b7a04f3a524836e20f6e1872ca32950728efc82d8cfd28313127b8f:1897
  Used with: modules
  Reannotate: modules.dat
 module_httpver.php:

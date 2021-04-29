@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2021.03.31).
+ * This file: Bad hosts blocker module (last modified: 2021.04.29).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [ ]Medium [x]High »
  */
@@ -59,15 +59,15 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
     /** Inherit bypass closure (see functions.php). */
     $Bypass = $CIDRAM['Bypass'];
 
-    /** Enables reCAPTCHA option for ISPs. */
-    $reCAPTCHA = ['recaptcha' => ['enabled' => true]];
+    /** Marks for use with reCAPTCHA and hCAPTCHA. */
+    $EnableCaptcha = ['recaptcha' => ['enabled' => true], 'hcaptcha' => ['enabled' => true]];
 
     $HN = preg_replace('/\s/', '', str_replace("\\", '/', strtolower(urldecode($CIDRAM['Hostname']))));
 
     $Trigger(preg_match(
         '/(?:hgc\.com\.hk$|\.duo\.carnet\.hr$|\.pool-xxx\.hcm\.fpt$|kiyosho\.jp$|(?:hinet|vtr)\.net$|vip-net\.pl$)/',
         $HN
-    ), 'Spammy ISP', '', $reCAPTCHA); // 2020.04.05
+    ), 'Spammy ISP', '', $EnableCaptcha); // 2020.04.05
 
     /** WordPress cronjob bypass. */
     $Bypass(

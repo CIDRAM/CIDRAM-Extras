@@ -7,7 +7,7 @@
 # License: GNU/GPLv2
 # @see LICENSE.txt
 #
-# This file: AbuseIPDB module configuration (last modified: 2020.12.09).
+# This file: AbuseIPDB module configuration (last modified: 2021.04.29).
 ##/
 
 Config Defaults:
@@ -23,6 +23,9 @@ Config Defaults:
   minimum_confidence_score:
    type: "int"
    default: 50
+  max_cs_for_captcha:
+   type: "int"
+   default: 10
   report_back:
    type: "bool"
    default: false
@@ -37,5 +40,6 @@ L10N:
  config_abuseipdb_api_key: "Please enter your API key here (if you don't already have an API key, you can get one from the AbuseIPDB website)."
  config_abuseipdb_max_age_in_days: "The maximum age in days for which reports will be considered when performing lookups (must be a number between 1 and 365). Default = 365."
  config_abuseipdb_minimum_confidence_score: "The minimum confidence score required in order for CIDRAM to block an IP address (must be a number between 1 and 100). Default = 50."
+ config_abuseipdb_max_cs_for_captcha: "The maximum confidence score allowed for being served a CAPTCHA (must be a number between 1 and 100). Default = 10."
  config_abuseipdb_report_back: "Allow CIDRAM to report detected bad behaviour back to AbuseIPDB using your API key? Default = False."
  config_abuseipdb_lookup_everything: "Perform API lookups when CIDRAM detects requests for sensitive pages (e.g., login pages, registration forms, etc), or for every request? False = Sensitive page requests only. True = Every request. Default = False."

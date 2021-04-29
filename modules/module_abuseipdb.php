@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: AbuseIPDB module (last modified: 2021.03.31).
+ * This file: AbuseIPDB module (last modified: 2021.04.29).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -54,6 +54,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     /** Inherit trigger closure (see functions.php). */
     $Trigger = $CIDRAM['Trigger'];
 
+    /** Marks for use with reCAPTCHA and hCAPTCHA. */
+    $EnableCaptcha = ['recaptcha' => ['enabled' => true], 'hcaptcha' => ['enabled' => true]];
+
     /** Local AbuseIPDB cache entry expiry time (successful lookups). */
     $Expiry = $CIDRAM['Now'] + 604800;
 
@@ -98,10 +101,15 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     }
 
     /** Block the request if the IP is listed by AbuseIPDB. */
-    $Trigger((
-        !$CIDRAM['AbuseIPDB'][$CIDRAM['BlockInfo']['IPAddr']]['isWhitelisted'] &&
-        $CIDRAM['AbuseIPDB'][$CIDRAM['BlockInfo']['IPAddr']]['abuseConfidenceScore'] >= $CIDRAM['Config']['abuseipdb']['minimum_confidence_score']
-    ), 'AbuseIPDB Lookup', $CIDRAM['L10N']->getString('ReasonMessage_Generic') . '<br />' . sprintf($CIDRAM['L10N']->getString('request_removal'), 'https://www.abuseipdb.com/check/' . $CIDRAM['BlockInfo']['IPAddr']));
+    $Trigger(
+        (
+            !$CIDRAM['AbuseIPDB'][$CIDRAM['BlockInfo']['IPAddr']]['isWhitelisted'] &&
+            $CIDRAM['AbuseIPDB'][$CIDRAM['BlockInfo']['IPAddr']]['abuseConfidenceScore'] >= $CIDRAM['Config']['abuseipdb']['minimum_confidence_score']
+        ),
+        'AbuseIPDB Lookup',
+        $CIDRAM['L10N']->getString('ReasonMessage_Generic') . '<br />' . sprintf($CIDRAM['L10N']->getString('request_removal'), 'https://www.abuseipdb.com/check/' . $CIDRAM['BlockInfo']['IPAddr']),
+        $CIDRAM['AbuseIPDB'][$CIDRAM['BlockInfo']['IPAddr']]['abuseConfidenceScore'] <= $CIDRAM['Config']['abuseipdb']['max_cs_for_captcha'] ? $EnableCaptcha : []
+    );
 };
 
 /** Add AbuseIPDB report handler. */

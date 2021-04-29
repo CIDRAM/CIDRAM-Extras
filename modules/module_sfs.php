@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Stop Forum Spam module (last modified: 2021.03.31).
+ * This file: Stop Forum Spam module (last modified: 2021.04.29).
  *
  * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  */
@@ -40,6 +40,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
     /** Inherit trigger closure (see functions.php). */
     $Trigger = $CIDRAM['Trigger'];
+
+    /** Marks for use with reCAPTCHA and hCAPTCHA. */
+    $EnableCaptcha = ['recaptcha' => ['enabled' => true], 'hcaptcha' => ['enabled' => true]];
 
     /** Local SFS cache entry expiry time (successful lookups). */
     $Expiry = $CIDRAM['Now'] + 604800;
@@ -95,7 +98,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     $Trigger(
         !empty($CIDRAM['SFS'][$CIDRAM['BlockInfo']['IPAddr']]['Listed']),
         'SFS Lookup',
-        $CIDRAM['L10N']->getString('ReasonMessage_Generic') . '<br />' . sprintf($CIDRAM['L10N']->getString('request_removal'), 'https://www.stopforumspam.com/removal')
+        $CIDRAM['L10N']->getString('ReasonMessage_Generic') . '<br />' . sprintf($CIDRAM['L10N']->getString('request_removal'), 'https://www.stopforumspam.com/removal'),
+        $CIDRAM['Config']['sfs']['offer_captcha'] ? $EnableCaptcha : []
     );
 };
 
