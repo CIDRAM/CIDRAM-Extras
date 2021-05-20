@@ -182,7 +182,7 @@ module_sfs.php:
 module_botua.php:
  Name: Optional user agents module
  False Positive Risk: Medium
- Version: 2021.118.492
+ Version: 2021.137.586
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.13.1
@@ -194,7 +194,7 @@ module_botua.php:
   To:
    - module_botua.php
   Checksum:
-   - d371d297853a651989f5883e6caa86f5b24ea68a25422f1a1769509eb5d96a66:21918
+   - dbb1162f198218133e7e71712eaa5240a0af927529fa1157e9d7fb0bb1c0a677:22179
  Used with: modules
  Reannotate: modules.dat
 Chart.js:
@@ -339,10 +339,11 @@ module_refspam.php:
 module_bgpview.php:
  Name: BGPView module
  False Positive Risk: Low
- Version: 2021.95.583
+ Version: 2021.139.519
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=2.2
+  l10n/{lang}: >=2021.139.519
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  Uninstallable: true
  Files:
@@ -353,7 +354,7 @@ module_bgpview.php:
    - module_bgpview.php
    - module_bgpview.yaml
   Checksum:
-   - e9a92bc23b7d7af640564c531ce5519f96fc3a46afd6d9ab32a17bae2ec995c2:7541
+   - 91ad29ad9b296a01561ce7c8349f2ca2ac69afa29ddf4e489c1e8080ed585225:7644
    - 5c2f81cd3d5325c1846804b7bf0b0d6422e8f84383e32a0b56db76780fcc7c06:1639
  Used with: modules
  Reannotate: modules.dat

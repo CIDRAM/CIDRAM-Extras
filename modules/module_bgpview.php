@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: BGPView module (last modified: 2021.03.31).
+ * This file: BGPView module (last modified: 2021.05.20).
  *
  * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  */
@@ -156,7 +156,10 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
                 /** Origin is blocked. */
                 if ($CIDRAM['Request']->inCsv($CIDRAM['BGPView'][$Factor]['CC'], $CIDRAM['Config']['bgpview']['blocked_ccs'])) {
-                    $CIDRAM['BlockInfo']['ReasonMessage'] = 'No access allowed from ' . $CIDRAM['BGPView'][$Factor]['CC'] . '.';
+                    $CIDRAM['BlockInfo']['ReasonMessage'] = sprintf(
+                        $CIDRAM['L10N']->getString('why_no_access_allowed_from'),
+                        $CIDRAM['BGPView'][$Factor]['CC']
+                    );
                     if (!empty($CIDRAM['BlockInfo']['WhyReason'])) {
                         $CIDRAM['BlockInfo']['WhyReason'] .= ', ';
                     }
