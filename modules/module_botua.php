@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2021.04.29).
+ * This file: Optional user agents module (last modified: 2021.05.18).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -238,7 +238,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     $Trigger(preg_match('/(?:brandwatch|magpie)/', $UANoSpace), 'Snoop UA', '', $ModifyTracking); // 2017.01.13
     $Trigger(strpos($UANoSpace, 'catch') !== false, 'Risky UA'); // 2017.01.13
 
-    $Trigger(preg_match('/(?:anonymous|vpngate)/', $UANoSpace), 'Proxy UA'); // 2017.01.13
+    if ($CIDRAM['Config']['signatures']['block_proxies']) {
+        $Trigger((strpos($UANoSpace, 'anonymous') !== false || strpos($UANoSpace, 'vpngate') !== false), 'Proxy UA'); // 2017.01.13 mod 2021.05.18
+    }
 
     $Trigger(preg_match(
         '/(?:360se|cncdialer|desktopsmiley|ds_juicyaccess|foxy.1|genieo|hotbar|ic' .
@@ -309,6 +311,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         strpos($UA, 'projectdiscovery') !== false || strpos($UA, 'nuclei') !== false,
         'Vulnerability scanner detected; Unauthorised'
     ); // 2021.02.08
+
+    $Trigger(preg_match('~^python/|aiohttp/|\.post0~', $UANoSpace), 'Bad context (Python/AIO clients not permitted here)'); // 2021.05.18
 
     /** Reporting. */
     if (!empty($CIDRAM['BlockInfo']['IPAddr'])) {
