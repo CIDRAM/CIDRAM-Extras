@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: AbuseIPDB module (last modified: 2021.04.29).
+ * This file: AbuseIPDB module (last modified: 2021.05.21).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -92,6 +92,18 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
                 'Time' => $Expiry
             ];
 
+            /** Total reports. */
+            if (empty($Lookup['data']['totalReports'])) {
+                $CIDRAM['AbuseIPDB'][$CIDRAM['BlockInfo']['IPAddr']]['totalReports'] = 0;
+            } else {
+                $CIDRAM['AbuseIPDB'][$CIDRAM['BlockInfo']['IPAddr']]['totalReports'] = $Lookup['data']['totalReports'];
+            }
+
+            /** Usage type. */
+            if (!empty($Lookup['data']['usageType'])) {
+                $CIDRAM['AbuseIPDB'][$CIDRAM['BlockInfo']['IPAddr']]['usageType'] = $Lookup['data']['usageType'];
+            }
+
             /** Check whether whitelisted. */
             $CIDRAM['AbuseIPDB'][$CIDRAM['BlockInfo']['IPAddr']]['isWhitelisted'] = !empty($Lookup['data']['isWhitelisted']);
         }
@@ -104,12 +116,21 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     $Trigger(
         (
             !$CIDRAM['AbuseIPDB'][$CIDRAM['BlockInfo']['IPAddr']]['isWhitelisted'] &&
-            $CIDRAM['AbuseIPDB'][$CIDRAM['BlockInfo']['IPAddr']]['abuseConfidenceScore'] >= $CIDRAM['Config']['abuseipdb']['minimum_confidence_score']
+            $CIDRAM['AbuseIPDB'][$CIDRAM['BlockInfo']['IPAddr']]['abuseConfidenceScore'] >= $CIDRAM['Config']['abuseipdb']['minimum_confidence_score'] &&
+            $CIDRAM['AbuseIPDB'][$CIDRAM['BlockInfo']['IPAddr']]['totalReports'] >= $CIDRAM['Config']['abuseipdb']['minimum_total_reports']
         ),
         'AbuseIPDB Lookup',
         $CIDRAM['L10N']->getString('ReasonMessage_Generic') . '<br />' . sprintf($CIDRAM['L10N']->getString('request_removal'), 'https://www.abuseipdb.com/check/' . $CIDRAM['BlockInfo']['IPAddr']),
         $CIDRAM['AbuseIPDB'][$CIDRAM['BlockInfo']['IPAddr']]['abuseConfidenceScore'] <= $CIDRAM['Config']['abuseipdb']['max_cs_for_captcha'] ? $EnableCaptcha : []
     );
+
+    /** Build profiles. */
+    if (
+        $CIDRAM['Config']['abuseipdb']['build_profiles_from_usage_type'] &&
+        !empty($CIDRAM['AbuseIPDB'][$CIDRAM['BlockInfo']['IPAddr']]['usageType'])
+    ) {
+        $CIDRAM['AddProfileEntry']($CIDRAM['AbuseIPDB'][$CIDRAM['BlockInfo']['IPAddr']]['usageType']);
+    }
 };
 
 /** Add AbuseIPDB report handler. */
