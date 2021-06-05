@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2021.05.18).
+ * This file: Optional user agents module (last modified: 2021.06.05).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -201,10 +201,10 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     $Trigger(preg_match('/(?:80legs|chinaclaw)/', $UANoSpace), 'Scraper UA', '', $ModifyTracking); // 2017.01.08
 
     $Trigger(preg_match(
-        '~chilkat|ccopyright|fetch/|flipboard|googlealerts|grub|indeedbot|python|' .
-        'quick-crawler|scrapinghub|ttd-content|^(?:abot|spider)~',
+        '~c(?:copyright|hilkat|olly)|fetch/|flipboard|googlealerts|grub|indeedbot' .
+        '|python|quick-crawler|scrapinghub|ttd-content|^(?:abot|spider)~',
         $UANoSpace
-    ), 'Scraper UA'); // 2020.04.05
+    ), 'Scraper UA'); // 2021.06.05
 
     $Trigger(preg_match(
         '/(?:007ac9|200please|360spider|3d-ftp|a(?:6-indexer|ccelo|ffinity|ghaven' .
