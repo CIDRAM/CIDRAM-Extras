@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2021.06.05).
+ * This file: Optional user agents module (last modified: 2021.06.16).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -294,6 +294,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     $Trigger(strpos($UA, 'mozilla/4.76 [ru] (x11; U; sunos 5.7 sun4u)') !== false, 'Bot UA'); // 2017.02.25
     $Trigger(strpos($UA, 'php /') !== false, 'Bot UA'); // 2017.02.25
     $Trigger($UANoSpace === 'chorme', 'Bot UA'); // 2021.04.16
+    $Trigger(preg_match('~^python-requests/~', $UANoSpace), 'Scraper UA'); // 2021.06.16
 
     $Trigger(preg_match(
         '/(?:drop ?table|(_table|assert|co(de|ntents)|dotnet_load|e(cho|regi' .
