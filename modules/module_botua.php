@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2021.06.16).
+ * This file: Optional user agents module (last modified: 2021.06.20).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -173,9 +173,13 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
     $Trigger(preg_match('/test\'?$/', $UANoSpace), 'Banned UA'); // 2017.02.02
     $Trigger(preg_match('/^(?:\'?test|-|default|foo)/', $UANoSpace), 'Banned UA'); // 2017.02.02
-    $Trigger(preg_match('/^[\'"].*[\'"]$/', $UANoSpace), 'Banned UA'); // 2017.02.02
     $Trigger(strpos($UA, '   ') !== false, 'Banned UA'); // 2017.02.02
     $Trigger(strpos($UANoSpace, '(somename)') !== false, 'Banned UA', '', $ModifyTracking); // 2017.02.02
+
+    $Trigger((
+        preg_match('/^[\'"].*[\'"]$/', $UANoSpace) &&
+        strpos($UANoSpace, 'duckduckbot') === false
+    ), 'Banned UA'); // 2017.02.02 mod 2021.06.20
 
     $Trigger(preg_match(
         '~_sitemapper|3mir|a(?:boundex|dmantx|dnormcrawler|dvbot|lphaserver|thens' .
