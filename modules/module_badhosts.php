@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2021.04.29).
+ * This file: Bad hosts blocker module (last modified: 2021.06.28).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -59,28 +59,10 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
     /** Inherit bypass closure (see functions.php). */
     $Bypass = $CIDRAM['Bypass'];
 
-    /** Sets tracking time to 1 year and infraction count to 1000. */
-    $ModifyTracking = ['Options' => ['TrackTime' => 31536000, 'TrackCount' => 1000]];
-
     /** Signatures start here. */
     $HN = preg_replace('/\s/', '', str_replace("\\", '/', strtolower(urldecode($CIDRAM['Hostname']))));
     $UA = str_replace("\\", '/', strtolower(urldecode($CIDRAM['BlockInfo']['UA'])));
     $UANoSpace = preg_replace('/\s/', '', $UA);
-
-    $Trigger(substr($HN, 0, 2) === '()', 'Banned hostname (Bash/Shellshock)', '', $ModifyTracking); // 2017.01.21
-
-    $Trigger(preg_match(
-        '/(?:0wn[3e]d|:(?:\{\w:|[\w\d][;:]\})|h[4a]ck(?:e[dr]|ing|[7t](?:[3e' .
-        '][4a]m|[0o]{2}l))|%(?:0[0-8bcef]|1)|[`\'"]|^[-.:]|[-.:]$|[.:][\w\d-' .
-        ']{64,}[.:])/i',
-        $HN
-    ), 'Banned hostname', '', $ModifyTracking); // 2018.06.24
-
-    $Trigger(strpos($HN, 'rm ' . '-rf') !== false, 'Banned hostname', '', $ModifyTracking); // 2017.01.21
-    $Trigger(strpos($HN, 'sh' . 'el' . 'l_' . 'ex' . 'ec') !== false, 'Banned hostname', '', $ModifyTracking); // 2017.01.21
-
-    $Trigger(strpos($HN, '$_' . '[$' . '__') !== false, 'Banned hostname', '', $ModifyTracking); // 2017.01.21
-    $Trigger(strpos($HN, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Banned hostname', '', $ModifyTracking); // 2017.01.21
 
     $Trigger(preg_match(
         '/\$(?:globals|_(cookie|env|files|get|post|request|se(rver|ssion)))/',
@@ -92,32 +74,27 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
         $HN
     ), 'Hostname script injection'); // 2017.01.21
 
-    $Trigger(preg_match('/(?:captch|dbcapi\.me)/', $HN), 'CAPTCHA cracker host'); // 2017.01.21
+    $Trigger(preg_match('~captch|dbcapi\.me~', $HN), 'CAPTCHA cracker host'); // 2017.01.21
 
     $Trigger(preg_match(
-        '/(?:prking\.com\.au$|(?:qvt|telsp)\.net\.br$|(?:\.(?:giga-dns|oodle' .
-        '|pointandchange|solidseo(?:dedicated|vps)?|topsy|vadino)|23gb|35up|' .
-        'accelovation|barefruit|bestprice|colo\.iinet|detangled|kimsufi|ligh' .
-        'tspeedsystems|lipperhey|mantraonline|netcomber|onlinehome-server\.m' .
-        'yforexvps|page-store|setooz|technicolor)\.com$|poneytelecom\.eu$|(?' .
-        ':4u|netadvert|onlinehome-server)\.info$|mobilemarketingaid\.info|(?' .
-        ':3fn|buyurl|dragonara|isnet|mfnx|onlinehome-server)\.net$|seomoz\.o' .
-        'rg$|(?:dimargroup|itrack|mail|rulinki|vipmailoffer)\.ru$|(?:2kom|so' .
-        'lomono)\.ru|\.v4\.ngi\.it|awcheck|b(?:oardreader|reakingtopics|uyse' .
-        'llsales)|c(?:eptro|heapseovps|yber-uslugi)|drugstore|liwio\.|luxury' .
-        'handbag|s(?:emalt|mileweb\.com\.ua|quider|tartdedicated\.)|(?:exa|f' .
-        'ulltextro|we)bot)/',
+        '~prking\.com\.au$|(?:qvt|telsp)\.net\.br$|(?:\.(?:giga-dns|oodle|po' .
+        'intandchange|solidseo(?:dedicated|vps)?|topsy|vadino)|23gb|35up|acc' .
+        'elovation|barefruit|bestprice|colo\.iinet|detangled|kimsufi|lightsp' .
+        'eedsystems|lipperhey|mantraonline|netcomber|onlinehome-server\.myfo' .
+        'rexvps|page-store|setooz|technicolor)\.com$|poneytelecom\.eu$|(?:4u' .
+        '|netadvert|onlinehome-server)\.info$|mobilemarketingaid\.info|(?:3f' .
+        'n|buyurl|dragonara|isnet|mfnx|onlinehome-server)\.net$|seomoz\.org$' .
+        '|(?:dimargroup|itrack|mail|rulinki|vipmailoffer)\.ru$|(?:2kom|solom' .
+        'ono)\.ru|\.v4\.ngi\.it|awcheck|b(?:oardreader|reakingtopics|uysells' .
+        'ales)|c(?:eptro|heapseovps|yber-uslugi)|drugstore|liwio\.|luxuryhan' .
+        'dbag|s(?:emalt|mileweb\.com\.ua|quider|tartdedicated\.)|(?:exa|full' .
+        'textro|we)bot~',
         $HN
-    ), 'SEO/Bothost/Scraper/Spamhost'); // 2020.11.15
+    ), 'SEO/Bothost/Scraper/Spamhost'); // 2020.11.15 mod 2021.06.28
 
-    $Trigger(preg_match(
-        '/(?:rumer|pymep|румер)/',
-        $HN
-    ), 'Spamhost', '', $ModifyTracking); // 2017.01.21
+    $Trigger(preg_match('~cjh-law\.com$~', $HN), 'Phisher / Phishing Host'); // 2017.02.14
 
-    $Trigger(preg_match('/(?:cjh-law\.com$)/', $HN), 'Phisher / Phishing Host'); // 2017.02.14
-
-    $Trigger(preg_match('/(?:exatt\.net$|unpef\.org$)/', $HN), 'Pornobot/Pornhost'); // 2017.02.16
+    $Trigger(preg_match('~exatt\.net$|unpef\.org$~', $HN), 'Pornobot/Pornhost'); // 2017.02.16
 
     $Trigger(preg_match(
         '~^(?:damage|moon|test)\.|anahaqq|core\.youtu\.me|hosted-(?:by|in)|n' .
@@ -139,62 +116,58 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
     $Trigger(preg_match('~anchorfree|hotspotsheild|esonicspider\.com$~', $HN), 'Hostile/esonicspider'); // 2018.09.15
 
     $Trigger(preg_match(
-        '/(?:megacom\.biz$|ideastack\.com$|dotnetdotcom\.org$|controlyourself\.online|seeweb\.it)/',
+        '~megacom\.biz$|ideastack\.com$|dotnetdotcom\.org$|controlyourself\.online|seeweb\.it~',
         $HN
-    ), 'Hostile/Unauthorised'); // 2017.02.14
+    ), 'Hostile/Unauthorised'); // 2017.02.14 mod 2021.06.28
 
     $Trigger(preg_match('~brandaffinity~', $HN), 'Hostile/SLAPP'); // 2018.09.15
 
     $Trigger(preg_match(
-        '/(?:andersdenken\.at$|i(?:g|nsite)\.com\.br$|terra\.cl$|(?:\.(?:app' .
-        'ian|bc\.googleusercontent|cloud|ctera|dyn|emc|force|fsfreeware|gnip' .
-        '|gridlayer|hosting|icims|panorama|parallels|quest|thegridlayer|voda' .
-        '|vultr|webzilla|workday)|10gen|12designer|3leafsystems|3tera|a(?:cc' .
-        'entrainc|conex|dvologix|gathon|ltornetworks|mericanforeclosures|mit' .
-        'ive|pp(?:irio|istry|jet|nexus|renda|spot|zero)|ptana|riasystems|rju' .
-        'na|rtofdefence|sterdata|syanka|uthenticnetworks|zati)|b(?:alticserv' .
-        'ers|eam4d|hivesoft|irtondemand|linklogic|lue(?:host|lock|wolf)|oomi' .
-        '|ucketexplorer|ungeeconnect)|c(?:a(?:dinor|msolutionsinc|spio|ssatt' .
-        '|stiron)|l(?:arioanalytics|ickability|oud(?:42|9analytics|computing' .
-        'china|control|era|foundry|kick|scale|status|switch|works)|usterseve' .
-        'n)|o(?:ghead|hesiveft|ldlightsolutions|ncur|ntroltier)|tinets)|d(?:' .
-        'ata(?:line|sisar|synaps)|edicatedpanel|irectlaw|ns-safe|oclanding|r' .
-        'opbox|ynamsoft)|e(?:last(?:ichosts|ra)|n(?:gineyard|omalism|stratus' .
-        ')|telos|ucalyptus|vapt|vionet)|fathomdb|flexiscale|followmeoffice|g' .
-        '(?:emstone|enerositycool|igaspaces|ogrid|roupcross)|h(?:eroku|exagr' .
-        'id|olhost|ost(?:acy|cats|ing24)|ubspan|yperic)|i(?:cloud|modrive|nf' .
-        'o(?:bright|rmatica)|tricityhosting)|j(?:oyent|umpbox|unglebox|ustho' .
-        'st)|k(?:2analytics|aavo|eynote|nowledgetree)|l(?:ayeredtech|inkneo|' .
-        'iveops|oadstorm|ogixml|ongjump|tdomains)|m(?:o(?:derro|jsite|rphexc' .
-        'hange|sso|zy)|idphase|turk|ulesoft)|n(?:asstar|e(?:ointeractiva|t(?' .
-        ':app|documents|suite|topia)|wrelic|wservers)|ionex|irvanix|ovatium|' .
-        'scaled)|o(?:co-inc|nelogin|npathtech|penqrm|psource)|p(?:ara(?:scal' .
-        '|tur)e|hatservers|iemontetv|inqidentity|ivotlink|luraprocessing)|q(' .
-        '?:layer|rimp|uanti(?:vo|x-uk))|r(?:ackspace(?:cloud)?|e(?:di2|ducti' .
-        'velabs|lia(?:blehosting|cloud)|sponsys)|ight(?:now|scale)|ollbase|o' .
-        'mania-webhosting|path)|s(?:alesforce|avvis|ertifi|huilinchi|kytap|m' .
-        'artservercontrol|naplogic|oasta|pringcm|tax|treetsmarts|tretchoid|uccessmetri' .
-        'cs|wifttrim|ymplified|yncplicity)|t(?:aleo|err[ae]mark|h(?:eprocess' .
-        'factory|inkgos|oughtexpress)|rustsaas)|utilitystatus|v(?:aultscape|' .
-        'ertica|mware|ordel)|web(?:hosting\.uk|scalesolutions)|xactlycorp|xl' .
-        'host|xythos|z(?:embly|imory|manda|oho|uora))\.com$|(?:alxagency|art' .
-        'isticgoals|capellahealthcare|host(?:gator|ingprod)|instantdedicated' .
-        '|khavarzamin|link88\.seo|missiondish|newslettersrus|profninja|secur' .
-        'ityspace|ser\.servidor-sainet|serve(?:path|rbuddies)|viral-customer' .
-        's)\.com|(?:(?:\.|kunden)server|clanmoi|fastwebserver|optimal|server' .
-        '4you)\.de$|your-server\.de|eucalyptus\.cs\.uscb\.edu$|candycloud\.e' .
-        'u$|adsinmedia\.co\.in$|server\.lu$|starnet\.md$|(?:\.(?:bhsrv|box|p' .
-        'ropagation|voxel)|1978th|collab|emcytown|enkiconsulting|host\.carac' .
-        'astelecom|phicallyon|techajans|visualpleasures)\.net$|re(?:liablesi' .
-        'te|plyingst)\.net|hitech-hosting\.nl|(?:\.terracotta|beowulf|iboss|' .
-        'memcached|opennebula|xen)\.org$|mor\.ph$|(?:ogicom|vampire)\.pl$|(?' .
-        ':cyber-host|slaskdatacenter)\.pl|(?:serverhub|rivreg)\.ru$|(?:tkvpr' .
-        'ok|vympelstroy)\.ru|g\.ho\.st$|(?:webfusion|xcalibre)\.co\.uk$|berg' .
-        'dorf-group|cloudsigma|dreamhost|ipxserver|linode|money(?:mattersnow' .
-        '|tech\.mg)|productsnetworksx|psychz|requestedoffers|scopehosts|s(?:' .
-        'p?lice|teep)host|happyoffer\.club$)/',
+        '~i(?:g|nsite)\.com\.br$|terra\.cl$|(?:\.(?:appian|bc\.googleusercontent|' .
+        'cloud|ctera|dyn|emc|force|fsfreeware|gnip|gridlayer|hosting|icims|panora' .
+        'ma|parallels|quest|thegridlayer|voda|vultr|webzilla|workday)|10gen|12des' .
+        'igner|3leafsystems|3tera|a(?:ccentrainc|conex|dvologix|gathon|ltornetwor' .
+        'ks|mericanforeclosures|mitive|pp(?:irio|istry|jet|nexus|renda|spot|zero)' .
+        '|ptana|riasystems|rjuna|rtofdefence|sterdata|syanka|uthenticnetworks|zat' .
+        'i)|b(?:alticservers|eam4d|hivesoft|irtondemand|linklogic|lue(?:host|lock' .
+        '|wolf)|oomi|ucketexplorer|ungeeconnect)|c(?:a(?:dinor|msolutionsinc|spio' .
+        '|ssatt|stiron)|l(?:arioanalytics|ickability|oud(?:42|9analytics|computin' .
+        'gchina|control|era|foundry|kick|scale|status|switch|works)|usterseven)|o' .
+        '(?:ghead|hesiveft|ldlightsolutions|ncur|ntroltier)|tinets)|d(?:ata(?:lin' .
+        'e|sisar|synaps)|edicatedpanel|irectlaw|ns-safe|oclanding|ropbox|ynamsoft' .
+        ')|e(?:last(?:ichosts|ra)|n(?:gineyard|omalism|stratus)|telos|ucalyptus|v' .
+        'apt|vionet)|fathomdb|flexiscale|followmeoffice|g(?:emstone|enerositycool' .
+        '|igaspaces|ogrid|roupcross)|h(?:eroku|exagrid|olhost|ost(?:acy|cats|ing2' .
+        '4)|ubspan|yperic)|i(?:cloud|modrive|nfo(?:bright|rmatica)|tricityhosting' .
+        ')|j(?:oyent|umpbox|unglebox|usthost)|k(?:2analytics|aavo|eynote|nowledge' .
+        'tree)|l(?:ayeredtech|inkneo|iveops|oadstorm|ogixml|ongjump|tdomains)|m(?' .
+        ':o(?:derro|jsite|rphexchange|sso|zy)|idphase|turk|ulesoft)|n(?:asstar|e(' .
+        '?:ointeractiva|t(?:app|documents|suite|topia)|wrelic|wservers)|ionex|irv' .
+        'anix|ovatium|scaled)|o(?:co-inc|nelogin|npathtech|penqrm|psource)|p(?:ar' .
+        'a(?:scal|tur)e|hatservers|iemontetv|inqidentity|ivotlink|luraprocessing)' .
+        '|q(?:layer|rimp|uanti(?:vo|x-uk))|r(?:ackspace(?:cloud)?|e(?:di2|ductive' .
+        'labs|lia(?:blehosting|cloud)|sponsys)|ight(?:now|scale)|ollbase|omania-w' .
+        'ebhosting|path)|s(?:alesforce|avvis|ertifi|huilinchi|kytap|martservercon' .
+        'trol|naplogic|oasta|pringcm|tax|treetsmarts|tretchoid|uccessmetrics|wift' .
+        'trim|ymplified|yncplicity)|t(?:aleo|err[ae]mark|h(?:eprocessfactory|inkg' .
+        'os|oughtexpress)|rustsaas)|utilitystatus|v(?:aultscape|ertica|mware|orde' .
+        'l)|web(?:hosting\.uk|scalesolutions)|xactlycorp|xlhost|xythos|z(?:embly|' .
+        'imory|manda|oho|uora))\.com$|(?:alxagency|artisticgoals|capellahealthcar' .
+        'e|host(?:gator|ingprod)|instantdedicated|khavarzamin|link88\.seo|mission' .
+        'dish|newslettersrus|profninja|securityspace|ser\.servidor-sainet|serve(?' .
+        ':path|rbuddies)|viral-customers)\.com|(?:(?:\.|kunden)server|clanmoi|fas' .
+        'twebserver|optimal|server4you)\.de$|your-server\.de|eucalyptus\.cs\.uscb' .
+        '\.edu$|candycloud\.eu$|adsinmedia\.co\.in$|server\.lu$|starnet\.md$|(?:' .
+        '\.(?:bhsrv|box|propagation|voxel)|1978th|collab|emcytown|enkiconsulting|' .
+        'host\.caracastelecom|phicallyon|techajans|visualpleasures)\.net$|re(?:li' .
+        'ablesite|plyingst)\.net|hitech-hosting\.nl|(?:\.terracotta|beowulf|iboss' .
+        '|opennebula|xen)\.org$|mor\.ph$|(?:ogicom|vampire)\.pl$|(?:cyber-host|sl' .
+        'askdatacenter)\.pl|(?:serverhub|rivreg)\.ru$|(?:tkvprok|vympelstroy)\.ru' .
+        '|g\.ho\.st$|(?:webfusion|xcalibre)\.co\.uk$|bergdorf-group|cloudsigma|dr' .
+        'eamhost|ipxserver|linode|money(?:mattersnow|tech\.mg)|productsnetworksx|' .
+        'psychz|requestedoffers|scopehosts|s(?:p?lice|teep)host|happyoffer\.club$~',
         $HN
-    ), 'Cloud Service / Server Farm'); // 2019.03.12 mod 2021.02.19
+    ), 'Cloud Service / Server Farm'); // 2021.06.28
 
     $Trigger(preg_match(
         '/(?:\.above|shared-server|jkserv)\.net$|akpackaging\.net|(?:academi' .
@@ -221,14 +194,14 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
     ), 'Dangerous Host'); // 2019.03.04
 
     $Trigger(preg_match(
-        '/(?:(iweb|privatedns)\.com$|iweb\.ca$|^(www\.)?iweb)/',
+        '~(?:iweb|privatedns)\.com$|iweb\.ca$|^(?:www\.)?iweb~',
         $HN
-    ), 'Domain Snipers'); // 2017.02.15
+    ), 'Domain Snipers'); // 2017.02.15 mod 2021.06.28
 
     $Trigger(preg_match(
-        '/(?:45ru\.net\.au|dedipower|p(rohibitivestuff|wn)|triolan)/',
+        '~45ru\.net\.au|dedipower|p(?:rohibitivestuff|wn)|triolan~',
         $HN
-    ), 'Dangerous Host'); // 2017.02.14
+    ), 'Dangerous Host'); // 2017.02.14 mod 2021.06.28
 
     $Trigger(preg_match('/zetta\.net$/', $HN) && !preg_match('/ssg-corp\.zetta\.net$/', $HN), 'Cloud Service / Server Farm'); // 2017.02.14
     $Trigger(preg_match('/veloxzone\.com\.br$/', $HN) && !preg_match('/\.user\.veloxzone\.com\.br$/', $HN), 'Cloud Service / Server Farm'); // 2017.02.14
@@ -240,37 +213,60 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
     ), 'SoftLayer'); // 2017.01.21 (ASN 36351) modified 2020.01.11
 
     $Trigger(preg_match(
-        '/(?:(starlogic|temka)\.biz$|ethymos\.com\.br$|(amplilogic|astranigh' .
-        't|borderfreehosting|creatoor|dl-hosting|hosting-ie|idknet|ipilum|ku' .
-        'zbass|prommorpg|uxxicom|vdswin|x-svr)\.com$|(ahost01|efdns|em-zwo|h' .
-        'aebdler-treff|key(account|mars64)|mail\.adc|rootbash|securewebserve' .
-        'r|tagdance|traders-briefing|vilitas|w-4)\.de$|(hostrov|kemhost|neto' .
-        'rn|power-web34|profithost|volia)\.net$|cssgroup\.lv|(nasza-klasa|so' .
-        'ftel\.com)\.pl$|(corbina|cpms|datapoint|elsv-v|hc|itns|limt|majordo' .
-        'mo|mtu-net|netorn|nigma|relan|spb|totalstat)\.ru|((cosmonova|sovam|' .
-        'utel)\.net|odessa|poltava|rbn\.com|volia)\.ua$|aceleo|dedibox|filme' .
-        'fashion|infobox|key(machine|server|web)|kyklo|laycat|oliro)/',
+        '~(?:starlogic|temka)\.biz$|ethymos\.com\.br$|(?:amplilogic|astranig' .
+        'ht|borderfreehosting|creatoor|dl-hosting|hosting-ie|idknet|ipilum|k' .
+        'uzbass|prommorpg|uxxicom|vdswin|x-svr)\.com$|(?:ahost01|efdns|em-zw' .
+        'o|haebdler-treff|key(account|mars64)|mail\.adc|rootbash|securewebse' .
+        'rver|tagdance|traders-briefing|vilitas|w-4)\.de$|(?:hostrov|kemhost' .
+        '|netorn|power-web34|profithost|volia)\.net$|cssgroup\.lv|(?:nasza-k' .
+        'lasa|softel\.com)\.pl$|(?:corbina|cpms|datapoint|elsv-v|hc|itns|lim' .
+        't|majordomo|mtu-net|netorn|nigma|relan|spb|totalstat)\.ru|(?:(?:cos' .
+        'monova|sovam|utel)\.net|odessa|poltava|rbn\.com|volia)\.ua$|aceleo|' .
+        'dedibox|filmefashion|infobox|key(?:machine|server|web)|kyklo|laycat' .
+        '|oliro~',
         $HN
-    ), 'RBN'); // 2017.02.06
+    ), 'RBN'); // 2017.02.06 mod 2021.06.28
 
-    $Trigger(preg_match('/amazonaws\.com$/', $HN) && (
+    $Trigger(preg_match('~amazonaws\.com$~', $HN) && (
         !preg_match(
-            '/(?:alexa|postrank|twitt(urly|erfeed)|bitlybot|unwindfetchor|me' .
-            'tauri|pinterest|silk-accelerated=true$)/',
+            '~alexa|postrank|twitt(?:urly|erfeed)|bitlybot|unwindfetchor|met' .
+            'auri|pinterest|silk-accelerated=true$~',
             $UANoSpace
         ) &&
         substr($CIDRAM['BlockInfo']['UA'], -32) !== 'Feedspot http://www.feedspot.com'
-    ), 'Amazon Web Services'); // 2017.02.14 modified 2020.01.11
+    ), 'Amazon Web Services'); // 2017.02.14 mod 2021.06.28
 
-    $Trigger(preg_match('/^localhost$/', $HN) && (
-        !preg_match('/^(?:1(?:27|92\.168)(?:\.1?\d{1,2}|\.2[0-4]\d|\.25[0-5]){2,3}|\:\:1)$/', $CIDRAM['BlockInfo']['IPAddr'])
-    ), 'Spoofed/Fake Hostname', '', $ModifyTracking); // 2018.06.24
     $Trigger(preg_match('/\.local$/', $HN), 'Spoofed/Fake Hostname'); // 2017.02.06
 
     // See: https://zb-block.net/zbf/showthread.php?t=25
     $Trigger(preg_match('/shodan\.io|(?:serverprofi24|aspadmin|project25499)\./', $HN), 'AutoSploit Host'); // 2018.02.02 mod 2021.02.07
 
-    $Trigger($HN === '.', 'DNS error', '', $ModifyTracking); // 2017.02.25
+    // Caught trying to brute-force honeypots.
+    $Trigger(preg_match('~criminalip\.com$~', $HN), 'Dangerous Host'); // 2021.06.28
+
+    /** These signatures can set extended tracking options. */
+    if (
+        $Trigger(substr($HN, 0, 2) === '()', 'Banned hostname (Bash/Shellshock)') || // 2017.01.21
+        $Trigger(preg_match(
+            '/(?:0wn[3e]d|:(?:\{\w:|[\w\d][;:]\})|h[4a]ck(?:e[dr]|ing|[7t](?:[3e' .
+            '][4a]m|[0o]{2}l))|%(?:0[0-8bcef]|1)|[`\'"]|^[-.:]|[-.:]$|[.:][\w\d-' .
+            ']{64,}[.:])/i',
+            $HN
+        ), 'Banned hostname') || // 2018.06.24
+        $Trigger((
+            strpos($HN, 'rm ' . '-rf') !== false ||
+            strpos($HN, 'sh' . 'el' . 'l_' . 'ex' . 'ec') !== false ||
+            strpos($HN, '$_' . '[$' . '__') !== false ||
+            strpos($HN, '@$' . '_[' . ']=' . '@!' . '+_') !== false
+        ), 'Banned hostname') || // 2017.01.21
+        $Trigger(preg_match('~rumer|pymep|румер~', $HN), 'Spamhost') || // 2017.01.21
+        $Trigger(preg_match('/^localhost$/', $HN) && (
+            !preg_match('/^(?:1(?:27|92\.168)(?:\.1?\d{1,2}|\.2[0-4]\d|\.25[0-5]){2,3}|\:\:1)$/', $CIDRAM['BlockInfo']['IPAddr'])
+        ), 'Spoofed/Fake Hostname') || // 2018.06.24
+        $Trigger($HN === '.', 'DNS error') // 2017.02.25
+    ) {
+        $CIDRAM['Tracking options override'] = 'extended';
+    }
 
     /**
      * Only to be triggered if other signatures haven't already been triggered

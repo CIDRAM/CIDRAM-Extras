@@ -2,7 +2,7 @@
 module_cookies.php:
  Name: Optional cookie scanner module
  False Positive Risk: Low
- Version: 2021.118.492
+ Version: 2021.178.318
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.13.1
@@ -14,13 +14,13 @@ module_cookies.php:
   To:
    - module_cookies.php
   Checksum:
-   - 1a04688c8258f2a5eaed65cbf7905ad960726060d313b045865eb29c1629de22:8438
+   - 1c0ffc5bbe0734e3ac295407b3a22042fca4a26b528dbe1b2ab8a9523c0c8968:8362
  Used with: modules
  Reannotate: modules.dat
 module_extras.php:
  Name: Optional security extras module
  False Positive Risk: Medium
- Version: 2021.118.492
+ Version: 2021.178.318
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.13.1
@@ -34,7 +34,7 @@ module_extras.php:
    - module_extras.php
    - module_extras.yaml
   Checksum:
-   - 7d40795881729856ed58a80d87d3c6befd091c3058274c24b0b1866a8c89f7dc:24676
+   - d7bcf0eabf4a86f837872496da63337a05f763f752ba7d39abf37553a062fac9:24826
    - a794d27f0aaf79b3b37a9c53cbc9e05c91b7fc5fe6cebb9d491f9853efc9fed0:1017
  Used with: modules
  Reannotate: modules.dat
@@ -107,7 +107,7 @@ module_yandexblocker.php:
 module_badhosts.php:
  Name: Bad hosts blocker module
  False Positive Risk: Medium
- Version: 2021.118.492
+ Version: 2021.178.318
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.13.1
@@ -119,7 +119,7 @@ module_badhosts.php:
   To:
    - module_badhosts.php
   Checksum:
-   - 2d0422cbea99358f73a953d605a77e19a6345a39649e6154d44ed5e137d362a8:16191
+   - b3df6372aaa62d149e1e597bd1e1d41a52e9adf152426c028b47080c6c903c68:16052
  Used with: modules
  Reannotate: modules.dat
 module_badhosts_isps.php:
@@ -182,7 +182,7 @@ module_sfs.php:
 module_botua.php:
  Name: Optional user agents module
  False Positive Risk: Medium
- Version: 2021.170.442
+ Version: 2021.178.318
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.13.1
@@ -194,7 +194,7 @@ module_botua.php:
   To:
    - module_botua.php
   Checksum:
-   - cb5993529aea48dea1582249bbb3ef72316e13de65ca4305deaf02ba29ccdc10:22363
+   - adae3c48dac1105a28d5639f883076574b8bf483b9b25418e21d5436b867d867:22012
  Used with: modules
  Reannotate: modules.dat
 Chart.js:

@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2021.06.20).
+ * This file: Optional user agents module (last modified: 2021.06.28).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -35,9 +35,6 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     if (!$CIDRAM['BlockInfo']['UA'] || $Trigger(strlen($CIDRAM['BlockInfo']['UA']) > 4096, 'Bad UA', 'User agent string is too long!')) {
         return;
     }
-
-    /** Sets tracking time to 1 year and infraction count to 1000. */
-    $ModifyTracking = ['Options' => ['TrackTime' => 31536000, 'TrackCount' => 1000]];
 
     /** Unmarks for use with reCAPTCHA and hCAPTCHA. */
     $UnmarkCaptcha = ['recaptcha' => ['enabled' => false], 'hcaptcha' => ['enabled' => false]];
@@ -83,32 +80,12 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         $UANoSpace
     ), 'UA global variable hack'); // 2017.01.13
 
-    $Trigger(strpos($UANoSpace, '$_' . '[$' . '__') !== false, 'UA shell upload attempt', '', $ModifyTracking); // 2017.01.02
-    $Trigger(strpos($UANoSpace, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'UA shell upload attempt', '', $ModifyTracking); // 2017.01.02
-
-    $Trigger(preg_match('/0wn[3e]d/', $UANoSpace), 'Hack UA', '', $ModifyTracking); // 2017.01.06
-    $Trigger(preg_match('/:(\{[\w]:|[\w\d][;:]\})/', $UANoSpace), 'Hack UA', '', $ModifyTracking); // 2017.01.20
-    $Trigger(preg_match('/h[4a]c' . 'k(?:e[dr]|ing|t([3e][4a]m|[0o]{2}l))/', $UANoSpace), 'Hack UA', '', $ModifyTracking); // 2017.01.06
     $Trigger(preg_match('/Y[EI]$/', $CIDRAM['BlockInfo']['UA']), 'Possible/Suspected hack UA'); // 2017.01.06
-    $Trigger(strpos($UA, 'rm ' . '-rf') !== false, 'Hack UA', '', $ModifyTracking); // 2017.01.02
-    $Trigger(strpos($UA, 'wordpress ha') !== false, 'Hack UA', '', $ModifyTracking); // 2017.01.06
-    $Trigger(strpos($UANoSpace, 'if(') !== false, 'Hack UA', '', $ModifyTracking); // 2017.01.06
-    $Trigger(strpos($UANoSpace, 'r0' . '0t') !== false, 'Hack UA', '', $ModifyTracking); // 2017.01.02
-    $Trigger(strpos($UANoSpace, 'sh' . 'el' . 'l_' . 'ex' . 'ec') !== false, 'Hack UA', '', $ModifyTracking); // 2017.01.02
-    $Trigger(strpos($UANoSpace, 'whcc/') !== false, 'Hack UA', '', $ModifyTracking); // 2017.01.06
-    $Trigger(strpos($UANoSpace, '\0\0\0') !== false, 'Hack UA', '', $ModifyTracking); // 2017.01.09
-    $Trigger(strpos($UANoSpace, '}__') !== false, 'Hack UA', '', $ModifyTracking); // 2017.01.02
-
-    $Trigger(preg_match(
-        '~cha0s|dkemdif.\d|fhscan|f' . 'uck|havij|jdatabasedrivermysqli|morfeus|urldumper|xmlset_roodkcable|zollard~',
-        $UANoSpace
-    ), 'Hack UA', '', $ModifyTracking); // 2019.06.23
 
     $Trigger(strpos($UA, 'select ') !== false, 'UASQLi'); // 2017.02.25
 
     $Trigger(strpos($UANoSpace, 'captch') !== false, 'CAPTCHA cracker UA', '', $UnmarkCaptcha); // 2017.01.08 mod 2021.04.29
 
-    $Trigger(preg_match('~(?:(aihit|casper)bot|mamac(asper|yber)|mozilla/0)~', $UANoSpace), 'Probe UA', '', $ModifyTracking); // 2017.02.25
 
     $Trigger(preg_match(
         '~(?:^b55|-agent-|auto_?http|bigbrother|cybeye|d(?:(?:iavol|ragoste)a|own' .
@@ -119,13 +96,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         '|zmeu)~',
         $UANoSpace
     ), 'Probe UA'); // 2019.03.04
-
     $Trigger(preg_match('/(?: obot|ie 5\.5 compatible browser)/', $UA), 'Probe UA'); // 2017.02.02
     $Trigger(preg_match('~(?:photon/|pogs/2\.0)~', $UANoSpace), 'Probe UA'); // 2018.06.24
 
-    $Trigger(strpos($UANoSpace, 'wopbot') !== false, 'Bash/Shellshock UA', '', $ModifyTracking); // 2017.01.06
-
-    $Trigger(preg_match('/(?:x(rumer|pymep)|хрумер)/', $UANoSpace), 'Spam UA', '', $ModifyTracking); // 2017.01.02
     $Trigger(preg_match('/[<\[](?:a|link|url)[ =>\]]/', $UA), 'Spam UA'); // 2017.01.02
     $Trigger(preg_match('/^\.?=/', $UANoSpace), 'Spam UA'); // 2017.01.07
     $Trigger(strpos($UANoSpace, '/how-') !== false, 'Spam UA'); // 2017.01.04
@@ -166,15 +139,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
     $Trigger(preg_match('/%(?:[01][\da-f]|2[257]|3[ce]|[57][bd]|[7f]f)/', $UANoSpace), 'Bad UA'); // 2017.01.06
 
-    $Trigger(preg_match(
-        '~loadimpact|re-?animator|root|theknowledgeai|webster~',
-        $UANoSpace
-    ), 'Banned UA', '', $ModifyTracking); // 2021.02.10
-
     $Trigger(preg_match('/test\'?$/', $UANoSpace), 'Banned UA'); // 2017.02.02
     $Trigger(preg_match('/^(?:\'?test|-|default|foo)/', $UANoSpace), 'Banned UA'); // 2017.02.02
     $Trigger(strpos($UA, '   ') !== false, 'Banned UA'); // 2017.02.02
-    $Trigger(strpos($UANoSpace, '(somename)') !== false, 'Banned UA', '', $ModifyTracking); // 2017.02.02
 
     $Trigger((
         preg_match('/^[\'"].*[\'"]$/', $UANoSpace) &&
@@ -201,8 +168,6 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         '/^wp-iphone$/',
         $UANoSpace
     ), 'Banned UA'); // 2017.12.14
-
-    $Trigger(preg_match('/(?:80legs|chinaclaw)/', $UANoSpace), 'Scraper UA', '', $ModifyTracking); // 2017.01.08
 
     $Trigger(preg_match(
         '~c(?:copyright|hilkat|olly)|fetch/|flipboard|googlealerts|grub|indeedbot' .
@@ -239,7 +204,6 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         $UANoSpace
     ), 'Backlink/SEO/Scraper UA'); // 2021.02.21
 
-    $Trigger(preg_match('/(?:brandwatch|magpie)/', $UANoSpace), 'Snoop UA', '', $ModifyTracking); // 2017.01.13
     $Trigger(strpos($UANoSpace, 'catch') !== false, 'Risky UA'); // 2017.01.13
 
     if ($CIDRAM['Config']['signatures']['block_proxies']) {
@@ -282,7 +246,6 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     ), 'Fake UA'); // 2019.06.30
 
     $Trigger(preg_match('/(?:internet explorer)/', $UA), 'Hostile / Fake IE'); // 2017.02.03
-    $Trigger(preg_match('/(?:MSIECrawler)/', $CIDRAM['BlockInfo']['UA']), 'Hostile / Fake IE', '', $ModifyTracking); // 2017.02.25
 
     $Trigger(preg_match('~opera/[0-8]\.~', $UA), 'Bot UA'); // 2017.02.25
     $Trigger(strpos($UA, 'http://www.mozilla/') !== false, 'Abusive UA'); // 2017.02.25
@@ -318,6 +281,42 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     ); // 2021.02.08
 
     $Trigger(preg_match('~^python/|aiohttp/|\.post0~', $UANoSpace), 'Bad context (Python/AIO clients not permitted here)'); // 2021.05.18
+
+    /** These signatures can set extended tracking options. */
+    if (
+        $Trigger(strpos($UANoSpace, '$_' . '[$' . '__') !== false, 'UA shell upload attempt') || // 2017.01.02
+        $Trigger(strpos($UANoSpace, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'UA shell upload attempt') || // 2017.01.02
+        $Trigger(preg_match('/h[4a]c' . 'k(?:e[dr]|ing|t([3e][4a]m|[0o]{2}l))/', $UANoSpace), 'Hack UA') || // 2017.01.06
+        $Trigger((
+            strpos($UA, 'rm ' . '-rf') !== false ||
+            strpos($UA, 'wordpress ha') !== false ||
+            strpos($UANoSpace, '\0\0\0') !== false ||
+            strpos($UANoSpace, 'cha0s') !== false ||
+            strpos($UANoSpace, 'fhscan') !== false ||
+            strpos($UANoSpace, 'havij') !== false ||
+            strpos($UANoSpace, 'if(') !== false ||
+            strpos($UANoSpace, 'jdatabasedrivermysqli') !== false ||
+            strpos($UANoSpace, 'morfeus') !== false ||
+            strpos($UANoSpace, 'r0' . '0t') !== false ||
+            strpos($UANoSpace, 'sh' . 'el' . 'l_' . 'ex' . 'ec') !== false ||
+            strpos($UANoSpace, 'urldumper') !== false ||
+            strpos($UANoSpace, 'whcc/') !== false ||
+            strpos($UANoSpace, 'xmlset_roodkcable') !== false ||
+            strpos($UANoSpace, 'zollard') !== false ||
+            strpos($UANoSpace, '}__') !== false ||
+            preg_match('~0wn[3e]d|dkemdif.\d|f' . 'uck|:(?:\{[\w]:|[\w\d][;:]\})~', $UANoSpace)
+        ), 'Hack UA') || // 2021.06.28
+        $Trigger(preg_match('~(?:(aihit|casper)bot|mamac(asper|yber)|mozilla/0)~', $UANoSpace), 'Probe UA') || // 2017.02.25
+        $Trigger(strpos($UANoSpace, 'wopbot') !== false, 'Bash/Shellshock UA') || // 2017.01.06
+        $Trigger(preg_match('/(?:x(rumer|pymep)|хрумер)/', $UANoSpace), 'Spam UA') || // 2017.01.02
+        $Trigger(preg_match('~loadimpact|re-?animator|root|theknowledgeai|webster~', $UANoSpace), 'Banned UA') || // 2021.02.10
+        $Trigger(strpos($UANoSpace, '(somename)') !== false, 'Banned UA') || // 2017.02.02
+        $Trigger(preg_match('~80legs|chinaclaw~', $UANoSpace), 'Scraper UA') || // 2017.01.08 mod 2021.06.28
+        $Trigger(preg_match('~brandwatch|magpie~', $UANoSpace), 'Snoop UA') || // 2017.01.13 mod 2021.06.28
+        $Trigger(strpos($CIDRAM['BlockInfo']['UA'], 'MSIECrawler') !== false, 'Hostile / Fake IE') // 2017.02.25 mod 2021.06.28
+    ) {
+        $CIDRAM['Tracking options override'] = 'extended';
+    }
 
     /** Reporting. */
     if (!empty($CIDRAM['BlockInfo']['IPAddr'])) {
