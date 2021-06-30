@@ -107,7 +107,7 @@ module_yandexblocker.php:
 module_badhosts.php:
  Name: Bad hosts blocker module
  False Positive Risk: Medium
- Version: 2021.178.318
+ Version: 2021.180.647
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.13.1
@@ -119,7 +119,7 @@ module_badhosts.php:
   To:
    - module_badhosts.php
   Checksum:
-   - b3df6372aaa62d149e1e597bd1e1d41a52e9adf152426c028b47080c6c903c68:16052
+   - 144327295261310a44560027f14d5a4ee499a0870722397c8c9350e9234ec2d3:16043
  Used with: modules
  Reannotate: modules.dat
 module_badhosts_isps.php:
