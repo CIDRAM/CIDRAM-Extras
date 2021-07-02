@@ -38,72 +38,6 @@ module_extras.php:
    - a794d27f0aaf79b3b37a9c53cbc9e05c91b7fc5fe6cebb9d491f9853efc9fed0:1017
  Used with: modules
  Reannotate: modules.dat
-module_baidublocker.php:
- Name: Baidu blocker module
- Extended Description:
-  en: Made available due to requests. <span class="txtRd">Warning: Will destroy your website's Baidu PR!</span> Websites targeting Chinese speaking users should avoid this module.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  ar: تتاح بسبب الطلبات. <span class="txtRd">تحذير: وسوف تدمر بايدو رانك الخاص بك!<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  de: Verfügbar wegen Anfragen. <span class="txtRd">Warnung: Es wird den Baidu-Pagerank für deine Website zerstören!</span> Websites, die chinesisch sprechende Benutzer ansprechen, sollten dieses Modul vermeiden.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  es: Disponible debido a las peticiones. <span class="txtRd">Advertencia: Destruirá Baidu PR (página rank) para su sitio web!</span> Los sitios web dirigidos a usuarios de habla china deben evitar este módulo.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  fr: Disponibles à cause des demandes. <span class="txtRd">Attention : Il détruira le Baidu PR (page rank) pour votre site Web !</span> Les sites Web ciblant les utilisateurs parlant chinois doivent éviter ce module.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  id: Dibuat tersedia karena permintaan. <span class="txtRd">Peringatan: Modul ini akan menghancurkan peringkat halaman Baidu untuk situs web Anda!</span> Situs yang menargetkan pengguna berbahasa Cina harus menghindari modul ini.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  it: Disponibile a causa di richieste. <span class="txtRd">Avvertimento: Distruggerà Baidu PR (page rank) per il tuo sito!</span> Siti web destinati agli utenti di lingua cinese dovrebbero evitare questo modulo.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  ja: それが要求されたために利用可能です。​<span class="txtRd">警告：これはあなたのBaiduのページランクを破壊します。</span>​中国語を話すユーザーを対象としたウェブサイトは、​このモジュールを避けるべきです。<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  ko: 요청으로 인해 제공되었습니다. <span class="txtRd">경고 : 이것은 당신의 Baidu의 페이지 순위를 파괴합니다.</span> 중국어를하는 사용자를 대상으로 한 웹 사이트는이 모듈을 피해야한다.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  nl: Beschikbaar gesteld als gevolg van verzoeken. <span class="txtRd">Waarschuwing: Zal de Baidu PR (pagerank) voor uw website te vernietigen!</span> Websites die bestemd zijn voor de Chinese sprekende gebruikers moeten deze module te vermijden.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  pt: Disponível por causa de pedidos. <span class="txtRd">Atenção: Isso irá destruir Baidu PR (ranking da página) para o seu site!</span> Os sites direcionados a usuários que falam chinês devem evitar este módulo.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  ru: Сделано доступным из-за запросов. <span class="txtRd">Предупреждение: Это разрушит ваш Baidu PR (рейтинг страницы) для вашего сайта!</span> Веб-сайты предназначенные для китайские пользователи должны избегать этого модул.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  vi: Có sẵn bởi vì các yêu cầu. <span class="txtRd">Cảnh báo: Sẽ phá hủy PR Baidu (xếp hạng trang) cho trang web của bạn!</span> Các trang web dành cho người dùng nói tiếng Trung Quốc nên tránh mô-đun này.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  zh: 可用由于请求。​<span class="txtRd">警告：将销毁百度网页排名为您的网站。​中文用户的网站应避免使用此模块。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  zh-tw: 可用由於請求。​<span class="txtRd">警告：將銷毀百度網頁排名為您的網站。​中文用戶的網站應避免使用此模塊。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
- False Positive Risk: Low
- Version: 2021.95.583
- Dependencies:
-  PHP: >=5.4
-  CIDRAM Core: >=1.13.1
- Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
- Uninstallable: true
- Files:
-  From:
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_baidublocker.php
-  To:
-   - module_baidublocker.php
-  Checksum:
-   - 6c7e0ce36234a39e0e19ba99dcff48f420cd27f7747186f8134b0a15e8b39e49:4261
- Reannotate: modules.dat
-module_yandexblocker.php:
- Name: Yandex blocker module
- Extended Description:
-  en: Made available due to requests. <span class="txtRd">Warning: Will destroy your website's Yandex PR!</span> Websites targeting Russian speaking users should avoid this module.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  ar: تتاح بسبب الطلبات. <span class="txtRd">تحذير: وسوف تدمر ياندكس رانك الخاص بك!</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  de: Verfügbar wegen Anfragen. <span class="txtRd">Warnung: Es wird den Yandex-Pagerank für deine Website zerstören!</span> Websites, die russisch sprechenden Benutzer ansprechen, sollten dieses Modul vermeiden.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  es: Disponible debido a las peticiones. <span class="txtRd">Advertencia: Destruirá Yandex PR (página rank) para su sitio web!</span> Los sitios web dirigidos a usuarios de habla rusa deben evitar este módulo.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  fr: Disponibles à cause des demandes. <span class="txtRd">Attention : Il détruira le Yandex PR (page rank) pour votre site Web !</span> Les sites Web ciblant les utilisateurs parlant russes doivent éviter ce module.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  id: Dibuat tersedia karena permintaan. <span class="txtRd">Peringatan: Modul ini akan menghancurkan peringkat halaman Yandex untuk situs web Anda!</span> Situs yang menargetkan pengguna berbahasa Rusia harus menghindari modul ini.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  it: Disponibile a causa di richieste. <span class="txtRd">Avvertimento: Distruggerà Yandex PR (page rank) per il tuo sito!</span> Siti web destinati agli utenti di lingua russa dovrebbero evitare questo modulo.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  ja: それが要求されたために利用可能です。​<span class="txtRd">警告：これはあなたのYandexのページランクを破壊します。</span>​ロシア語を話すユーザーを対象としたウェブサイトは、​このモジュールを避けるべきです。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  ko: 요청으로 인해 제공되었습니다. <span class="txtRd">경고 : 이것은 당신의 Yandex의 페이지 순위를 파괴합니다.</span> 러시아어를 사용하는 사용자를 대상으로 한 웹 사이트는이 모듈을 피해야한다.</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  nl: Beschikbaar gesteld als gevolg van verzoeken. <span class="txtRd">Waarschuwing: Zal de Yandex PR (pagerank) voor uw website te vernietigen!</span> Websites die bestemd zijn voor de Russisch sprekende gebruikers moeten deze module te vermijden.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  pt: Disponível por causa de pedidos. <span class="txtRd">Atenção: Isso irá destruir Yandex PR (ranking da página) para o seu site!</span> Os sites direcionados a usuários que falam russo devem evitar este módulo.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  ru: Сделано доступным из-за запросов. <span class="txtRd">Предупреждение: Это разрушит ваш Яндекс PR (рейтинг страницы) для вашего сайта!</span> Веб-сайты предназначенные для русские пользователи должны избегать этого модул.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  vi: Có sẵn bởi vì các yêu cầu. <span class="txtRd">Cảnh báo: Sẽ phá hủy PR Yandex (xếp hạng trang) cho trang web của bạn!</span> Các trang web dành cho người dùng nói tiếng Nga nên tránh mô-đun này.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  zh: 可用由于请求。​<span class="txtRd">警告：将销毁Yandex网页排名为您的网站。​俄文用户的网站应避免使用此模块。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
-  zh-tw: 可用由於請求。​<span class="txtRd">警告：將銷毀Yandex網頁排名為您的網站。​俄文用戶的網站應避免使用此模塊。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
- False Positive Risk: Low
- Version: 2021.95.583
- Dependencies:
-  PHP: >=5.4
-  CIDRAM Core: >=1.13.1
- Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
- Uninstallable: true
- Files:
-  From:
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_yandexblocker.php
-  To:
-   - module_yandexblocker.php
-  Checksum:
-   - f374808c1672516dde6c92054ab1f651274ece302669e48cc46030ff437f78e1:4201
- Reannotate: modules.dat
 module_badhosts.php:
  Name: Bad hosts blocker module
  False Positive Risk: Medium
@@ -402,14 +336,18 @@ module_httpver.php:
  Reannotate: modules.dat
 Search engines blocker module:
  Name: Search engines blocker module
- Extended Description:
-  en: Provides the ability to block search engines which may be problematic for some websites (e.g., Baidu, Yandex, etc). After activating, needs to be configured.
  False Positive Risk: Medium
  Version: 2021.181.743
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=2.6
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
+ When Install Succeeds:
+  - if {Components.Installed Versions.module_baidublocker\.php}=== else Message The search engines blocker module replaces the Baidu blocker module. Seeing as the search engines blocker module has been successfully installed, the Baidu blocker module will now be uninstalled accordingly.
+  - if {Components.Installed Versions.module_baidublocker\.php}=== else UpdatesHandler deactivate-and-uninstall-component module_baidublocker.php
+  - if {Components.Installed Versions.module_yandexblocker\.php}=== else Message The search engines blocker module replaces the Yandex blocker module. Seeing as the search engines blocker module has been successfully installed, the Yandex blocker module will now be uninstalled accordingly.
+  - if {Components.Installed Versions.module_yandexblocker\.php}=== else UpdatesHandler deactivate-and-uninstall-component module_yandexblocker.php
+  - Message response_please_check_config
  Uninstallable: true
  Files:
   From:
@@ -429,12 +367,62 @@ Search engines blocker module:
    - 099b6abb39cdb555a8db55916e82cebf59b1801a1090cfb026dc86b44a639902:2910
    - 9579c7cb75c2628bba1050f7349a8b412417de708fe553e28c132917613ca050:3664
    - 001a7d74c94ea494a0d8b856e9df54a9faedcd281c5a8a701c06780586bd945e:1257
-   - 679da22fe6db19d1a160b470417e395558824d3369eb400ca70cd9fa8c377669:1386
+   - 8bde2a33e9f052b51b7390b9608f4a45eacbe95702efdba7728a9be496d0e3d2:1576
  Used with:
   - modules
   - n/a
   - ipv4
   - ipv6
   - n/a
+ Reannotate: modules.dat
+module_baidublocker.php:
+ Name: Baidu blocker module
+ Extended Description:
+  en: Made available due to requests. <span class="txtRd">Warning: Will destroy your website's Baidu PR!</span> Websites targeting Chinese speaking users should avoid this module.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  ar: تتاح بسبب الطلبات. <span class="txtRd">تحذير: وسوف تدمر بايدو رانك الخاص بك!<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  de: Verfügbar wegen Anfragen. <span class="txtRd">Warnung: Es wird den Baidu-Pagerank für deine Website zerstören!</span> Websites, die chinesisch sprechende Benutzer ansprechen, sollten dieses Modul vermeiden.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  es: Disponible debido a las peticiones. <span class="txtRd">Advertencia: Destruirá Baidu PR (página rank) para su sitio web!</span> Los sitios web dirigidos a usuarios de habla china deben evitar este módulo.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  fr: Disponibles à cause des demandes. <span class="txtRd">Attention : Il détruira le Baidu PR (page rank) pour votre site Web !</span> Les sites Web ciblant les utilisateurs parlant chinois doivent éviter ce module.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  id: Dibuat tersedia karena permintaan. <span class="txtRd">Peringatan: Modul ini akan menghancurkan peringkat halaman Baidu untuk situs web Anda!</span> Situs yang menargetkan pengguna berbahasa Cina harus menghindari modul ini.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  it: Disponibile a causa di richieste. <span class="txtRd">Avvertimento: Distruggerà Baidu PR (page rank) per il tuo sito!</span> Siti web destinati agli utenti di lingua cinese dovrebbero evitare questo modulo.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  ja: それが要求されたために利用可能です。​<span class="txtRd">警告：これはあなたのBaiduのページランクを破壊します。</span>​中国語を話すユーザーを対象としたウェブサイトは、​このモジュールを避けるべきです。<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  ko: 요청으로 인해 제공되었습니다. <span class="txtRd">경고 : 이것은 당신의 Baidu의 페이지 순위를 파괴합니다.</span> 중국어를하는 사용자를 대상으로 한 웹 사이트는이 모듈을 피해야한다.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  nl: Beschikbaar gesteld als gevolg van verzoeken. <span class="txtRd">Waarschuwing: Zal de Baidu PR (pagerank) voor uw website te vernietigen!</span> Websites die bestemd zijn voor de Chinese sprekende gebruikers moeten deze module te vermijden.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  pt: Disponível por causa de pedidos. <span class="txtRd">Atenção: Isso irá destruir Baidu PR (ranking da página) para o seu site!</span> Os sites direcionados a usuários que falam chinês devem evitar este módulo.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  ru: Сделано доступным из-за запросов. <span class="txtRd">Предупреждение: Это разрушит ваш Baidu PR (рейтинг страницы) для вашего сайта!</span> Веб-сайты предназначенные для китайские пользователи должны избегать этого модул.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  vi: Có sẵn bởi vì các yêu cầu. <span class="txtRd">Cảnh báo: Sẽ phá hủy PR Baidu (xếp hạng trang) cho trang web của bạn!</span> Các trang web dành cho người dùng nói tiếng Trung Quốc nên tránh mô-đun này.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  zh: 可用由于请求。​<span class="txtRd">警告：将销毁百度网页排名为您的网站。​中文用户的网站应避免使用此模块。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  zh-tw: 可用由於請求。​<span class="txtRd">警告：將銷毀百度網頁排名為您的網站。​中文用戶的網站應避免使用此模塊。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+ False Positive Risk: Low
+ Dependencies:
+  PHP: >=5.4
+  CIDRAM Core: >=1.13.1
+ Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
+ Uninstallable: true
+ Reannotate: modules.dat
+module_yandexblocker.php:
+ Name: Yandex blocker module
+ Extended Description:
+  en: Made available due to requests. <span class="txtRd">Warning: Will destroy your website's Yandex PR!</span> Websites targeting Russian speaking users should avoid this module.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  ar: تتاح بسبب الطلبات. <span class="txtRd">تحذير: وسوف تدمر ياندكس رانك الخاص بك!</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  de: Verfügbar wegen Anfragen. <span class="txtRd">Warnung: Es wird den Yandex-Pagerank für deine Website zerstören!</span> Websites, die russisch sprechenden Benutzer ansprechen, sollten dieses Modul vermeiden.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  es: Disponible debido a las peticiones. <span class="txtRd">Advertencia: Destruirá Yandex PR (página rank) para su sitio web!</span> Los sitios web dirigidos a usuarios de habla rusa deben evitar este módulo.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  fr: Disponibles à cause des demandes. <span class="txtRd">Attention : Il détruira le Yandex PR (page rank) pour votre site Web !</span> Les sites Web ciblant les utilisateurs parlant russes doivent éviter ce module.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  id: Dibuat tersedia karena permintaan. <span class="txtRd">Peringatan: Modul ini akan menghancurkan peringkat halaman Yandex untuk situs web Anda!</span> Situs yang menargetkan pengguna berbahasa Rusia harus menghindari modul ini.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  it: Disponibile a causa di richieste. <span class="txtRd">Avvertimento: Distruggerà Yandex PR (page rank) per il tuo sito!</span> Siti web destinati agli utenti di lingua russa dovrebbero evitare questo modulo.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  ja: それが要求されたために利用可能です。​<span class="txtRd">警告：これはあなたのYandexのページランクを破壊します。</span>​ロシア語を話すユーザーを対象としたウェブサイトは、​このモジュールを避けるべきです。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  ko: 요청으로 인해 제공되었습니다. <span class="txtRd">경고 : 이것은 당신의 Yandex의 페이지 순위를 파괴합니다.</span> 러시아어를 사용하는 사용자를 대상으로 한 웹 사이트는이 모듈을 피해야한다.</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  nl: Beschikbaar gesteld als gevolg van verzoeken. <span class="txtRd">Waarschuwing: Zal de Yandex PR (pagerank) voor uw website te vernietigen!</span> Websites die bestemd zijn voor de Russisch sprekende gebruikers moeten deze module te vermijden.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  pt: Disponível por causa de pedidos. <span class="txtRd">Atenção: Isso irá destruir Yandex PR (ranking da página) para o seu site!</span> Os sites direcionados a usuários que falam russo devem evitar este módulo.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  ru: Сделано доступным из-за запросов. <span class="txtRd">Предупреждение: Это разрушит ваш Яндекс PR (рейтинг страницы) для вашего сайта!</span> Веб-сайты предназначенные для русские пользователи должны избегать этого модул.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  vi: Có sẵn bởi vì các yêu cầu. <span class="txtRd">Cảnh báo: Sẽ phá hủy PR Yandex (xếp hạng trang) cho trang web của bạn!</span> Các trang web dành cho người dùng nói tiếng Nga nên tránh mô-đun này.<br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  zh: 可用由于请求。​<span class="txtRd">警告：将销毁Yandex网页排名为您的网站。​俄文用户的网站应避免使用此模块。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+  zh-tw: 可用由於請求。​<span class="txtRd">警告：將銷毀Yandex網頁排名為您的網站。​俄文用戶的網站應避免使用此模塊。</span><br /><em><code>signatures-&gt;ipv4</code>, <code>signatures-&gt;ipv6</code>, <code>signatures-&gt;modules</code></em>
+ False Positive Risk: Low
+ Dependencies:
+  PHP: >=5.4
+  CIDRAM Core: >=1.13.1
+ Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
+ Uninstallable: true
  Reannotate: modules.dat
 

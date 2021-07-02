@@ -32,9 +32,9 @@ Config Defaults:
    default: "Яндекс запретили здесь."
 L10N:
  config_seblocker: "Search engines blocker module configuration."
- config_seblocker_block_baidu: "Block requests from Baidu/百度? Default = False."
+ config_seblocker_block_baidu: "Block requests from Baidu/百度? Default = False. For websites with a presence in China, this isn't recommended."
  config_seblocker_baidu_block_message: "The message to display for blocked requests from Baidu/百度
- config_seblocker_block_sogou: "Block requests from Sogou/搜狗? Default = False."
+ config_seblocker_block_sogou: "Block requests from Sogou/搜狗? Default = False. For websites with a presence in China, this isn't recommended."
  config_seblocker_sogou_block_message: "The message to display for blocked requests from Sogou/搜狗."
- config_seblocker_block_yandex: "Block requests from Yandex/Яндекс? Default = False."
+ config_seblocker_block_yandex: "Block requests from Yandex/Яндекс? Default = False. For websites with a presence in Russia, this isn't recommended."
  config_seblocker_yandex_block_message: "The message to display for blocked requests from Yandex/Яндекс."
