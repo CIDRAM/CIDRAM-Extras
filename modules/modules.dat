@@ -400,4 +400,41 @@ module_httpver.php:
    - ecfdc9cf48af19396c4489d5b1aea94cec251498b110fc7c3a2e07c45d4e5010:3563
  Used with: modules
  Reannotate: modules.dat
+Search engines blocker module:
+ Name: Search engines blocker module
+ Extended Description:
+  en: Provides the ability to block search engines which may be problematic for some websites (e.g., Baidu, Yandex, etc). After activating, needs to be configured.
+ False Positive Risk: Medium
+ Version: 2021.181.743
+ Dependencies:
+  PHP: >=5.4
+  CIDRAM Core: >=2.6
+ Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
+ Uninstallable: true
+ Files:
+  From:
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/seblocker.php
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/seblocker_rules.php
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/seblocker_ipv4.dat
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/seblocker_ipv6.dat
+   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/seblocker.yml
+  To:
+   - seblocker.php
+   - seblocker_rules.php
+   - seblocker_ipv4.dat
+   - seblocker_ipv6.dat
+   - seblocker.yml
+  Checksum:
+   - bb2678dadd5ebe0ffb105ccb793d0bf5a1cef013748dae48915e959a71eecbe8:3779
+   - 099b6abb39cdb555a8db55916e82cebf59b1801a1090cfb026dc86b44a639902:2910
+   - 9579c7cb75c2628bba1050f7349a8b412417de708fe553e28c132917613ca050:3664
+   - 001a7d74c94ea494a0d8b856e9df54a9faedcd281c5a8a701c06780586bd945e:1257
+   - 679da22fe6db19d1a160b470417e395558824d3369eb400ca70cd9fa8c377669:1386
+ Used with:
+  - modules
+  - n/a
+  - ipv4
+  - ipv6
+  - n/a
+ Reannotate: modules.dat
 
