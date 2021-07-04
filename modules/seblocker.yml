@@ -7,7 +7,7 @@
 # License: GNU/GPLv2
 # @see LICENSE.txt
 #
-# This file: Search engines blocker module configuration (last modified: 2021.07.02).
+# This file: Search engines blocker module configuration (last modified: 2021.07.04).
 ##/
 
 Config Defaults:
@@ -33,8 +33,80 @@ Config Defaults:
 L10N:
  config_seblocker: "Search engines blocker module configuration."
  config_seblocker_block_baidu: "Block requests from Baidu/百度? Default = False. For websites with a presence in China, this isn't recommended."
- config_seblocker_baidu_block_message: "The message to display for blocked requests from Baidu/百度
+ config_seblocker_baidu_block_message: "The message to display for blocked requests from Baidu/百度."
  config_seblocker_block_sogou: "Block requests from Sogou/搜狗? Default = False. For websites with a presence in China, this isn't recommended."
  config_seblocker_sogou_block_message: "The message to display for blocked requests from Sogou/搜狗."
  config_seblocker_block_yandex: "Block requests from Yandex/Яндекс? Default = False. For websites with a presence in Russia, this isn't recommended."
  config_seblocker_yandex_block_message: "The message to display for blocked requests from Yandex/Яндекс."
+ de:
+  config_seblocker: "Konfiguration des Suchmaschinen-Blocker-Modul."
+  config_seblocker_block_baidu: "Anfragen von Baidu/百度 blockieren? Standardeinstellung = False. Für Websites mit einer Präsenz in China wird dies nicht empfohlen."
+  config_seblocker_baidu_block_message: "Die Nachricht für die blockierten Anfragen von Baidu/百度."
+  config_seblocker_block_sogou: "Anfragen von Sogou/搜狗 blockieren? Standardeinstellung = False. Für Websites mit einer Präsenz in China wird dies nicht empfohlen."
+  config_seblocker_sogou_block_message: "Die Nachricht für die blockierten Anfragen von Sogou/搜狗."
+  config_seblocker_block_yandex: "Anfragen von Yandex/Яндекс blockieren? Standardeinstellung = False. Für Websites mit einer Präsenz in Russland wird dies nicht empfohlen."
+  config_seblocker_yandex_block_message: "Die Nachricht für die blockierten Anfragen von Yandex/Яндекс."
+ es:
+  config_seblocker: "Configuración del módulo bloqueador de motores de búsqueda."
+  config_seblocker_block_baidu: "¿Bloquear solicitudes de Baidu/百度? Predefinido = False. Para los sitios web con presencia en China, esto no se recomienda."
+  config_seblocker_baidu_block_message: "El mensaje que se mostrará para las solicitudes bloqueadas de Baidu/百度."
+  config_seblocker_block_sogou: "¿Bloquear solicitudes de Sogou/搜狗? Predefinido = False. Para los sitios web con presencia en China, esto no se recomienda."
+  config_seblocker_sogou_block_message: "El mensaje que se mostrará para las solicitudes bloqueadas de from Sogou/搜狗."
+  config_seblocker_block_yandex: "¿Bloquear solicitudes de Yandex/Яндекс? Predefinido = False. Para los sitios web con presencia en Rusia, esto no se recomienda."
+  config_seblocker_yandex_block_message: "El mensaje que se mostrará para las solicitudes bloqueadas de from Yandex/Яндекс."
+ fr:
+  config_seblocker: "Configuration du module de blocage des moteurs de recherche."
+  config_seblocker_block_baidu: "Bloquer les requêtes de Baidu/百度 ? Défaut = False. Pour les sites Web avec une présence en Chine, cela n'est pas recommandé."
+  config_seblocker_baidu_block_message: "Le message à afficher pour les requêtes bloquées de Baidu/百度."
+  config_seblocker_block_sogou: "Bloquer les requêtes de Sogou/搜狗 ? Défaut = False. Pour les sites Web avec une présence en Chine, cela n'est pas recommandé."
+  config_seblocker_sogou_block_message: "Le message à afficher pour les requêtes bloquées de Sogou/搜狗."
+  config_seblocker_block_yandex: "Bloquer les requêtes de Yandex/Яндекс ? Défaut = False. Pour les sites Web avec une présence en Russie, cela n'est pas recommandé."
+  config_seblocker_yandex_block_message: "Le message à afficher pour les requêtes bloquées de Yandex/Яндекс."
+ id:
+  config_seblocker: "Konfigurasi untuk modul pemblokir mesin pencari."
+  config_seblocker_block_baidu: "Blokir permintaan dari Baidu/百度? Default = False. Untuk situs web dengan kehadiran di China, ini tidak disarankan."
+  config_seblocker_baidu_block_message: "Pesan yang ditampilkan untuk permintaan diblokir dari Baidu/百度."
+  config_seblocker_block_sogou: "Blokir permintaan dari Sogou/搜狗? Default = False. Untuk situs web dengan kehadiran di China, ini tidak disarankan."
+  config_seblocker_sogou_block_message: "Pesan yang ditampilkan untuk permintaan diblokir dari Sogou/搜狗."
+  config_seblocker_block_yandex: "Blokir permintaan dari Yandex/Яндекс? Default = False. Untuk situs web dengan kehadiran di Rusia, ini tidak disarankan."
+  config_seblocker_yandex_block_message: "Pesan yang ditampilkan untuk permintaan diblokir dari Yandex/Яндекс."
+ it:
+  config_seblocker: "Configurazione del modulo bloccante dei motori di ricerca."
+  config_seblocker_block_baidu: "Blocca le richieste da Baidu/百度? Predefinito = False. Per i siti web con una presenza in Cina, questo non è raccomandato."
+  config_seblocker_baidu_block_message: "Il messaggio da visualizzare per le richieste bloccate da Baidu/百度."
+  config_seblocker_block_sogou: "Blocca le richieste da Sogou/搜狗? Predefinito = False. Per i siti web con una presenza in Cina, questo non è raccomandato."
+  config_seblocker_sogou_block_message: "Il messaggio da visualizzare per le richieste bloccate da Sogou/搜狗."
+  config_seblocker_block_yandex: "Blocca le richieste da Yandex/Яндекс? Predefinito = False. Per i siti web con una presenza in Russia, questo non è raccomandato."
+  config_seblocker_yandex_block_message: "Il messaggio da visualizzare per le richieste bloccate da Yandex/Яндекс."
+ ja:
+  config_seblocker: "検索エンジン・ブロッカー・モジュールのコンフィグレーション。"
+  config_seblocker_block_baidu: "Baiduからのリクエストをブロックしますか？ Default（デフォルルト） = False。 これは中国のウェブサイトにはお勧めできません。"
+  config_seblocker_baidu_block_message: "Baiduからのブロックされたリクエストに対して表示するメッセージ。"
+  config_seblocker_block_sogou: "Sogouからのリクエストをブロックしますか？ Default（デフォルルト） = False。 これは中国のウェブサイトにはお勧めできません。"
+  config_seblocker_sogou_block_message: "Sogouからのブロックされたリクエストに対して表示するメッセージ。"
+  config_seblocker_block_yandex: "Yandexからのリクエストをブロックしますか？ Default（デフォルルト） = False。 これはロシアのウェブサイトにはお勧めできません。"
+  config_seblocker_yandex_block_message: "Yandexからのブロックされたリクエストに対して表示するメッセージ。"
+ pt:
+  config_seblocker: "Configuração do módulo bloqueador de mecanismos de busca."
+  config_seblocker_block_baidu: "Bloquear solicitações de Baidu/百度? Padrão = False. Para sites com presença na China, isso não é recomendado."
+  config_seblocker_baidu_block_message: "A mensagem a ser exibida para solicitações bloqueadas de Baidu/百度."
+  config_seblocker_block_sogou: "Bloquear solicitações de Sogou/搜狗? Padrão = False. Para sites com presença na China, isso não é recomendado."
+  config_seblocker_sogou_block_message: "A mensagem a ser exibida para solicitações bloqueadas de Sogou/搜狗."
+  config_seblocker_block_yandex: "Bloquear solicitações de Yandex/Яндекс? Padrão = False. Para sites com presença na Rússia, isso não é recomendado."
+  config_seblocker_yandex_block_message: "A mensagem a ser exibida para solicitações bloqueadas de Yandex/Яндекс."
+ ru:
+  config_seblocker: "Настройка модуля блокировщика поисковых систем."
+  config_seblocker_block_baidu: "Заблокировать запросы от Baidu/百度? Стандарт = False. Не рекомендуется для китайских сайтов."
+  config_seblocker_baidu_block_message: "Сообщение, отображаемое для заблокированных запросов от Baidu/百度."
+  config_seblocker_block_sogou: "Заблокировать запросы от Sogou/搜狗? Стандарт = False. Не рекомендуется для китайских сайтов."
+  config_seblocker_sogou_block_message: "Сообщение, отображаемое для заблокированных запросов от Sogou/搜狗."
+  config_seblocker_block_yandex: "Заблокировать запросы от Yandex/Яндекс? Стандарт = False. Не рекомендуется для русскоязычных сайтов."
+  config_seblocker_yandex_block_message: "Сообщение, отображаемое для заблокированных запросов от Yandex/Яндекс."
+ zh:
+  config_seblocker: "搜索引擎阻塞模块配置。"
+  config_seblocker_block_baidu: "阻止来自百度的请求？默认=False。​对于在中国有业务的网站，不建议这样做。"
+  config_seblocker_baidu_block_message: "被阻止的百度请求的响应消息。"
+  config_seblocker_block_sogou: "阻止来自搜狗的请求？默认=False。​对于在中国有业务的网站，不建议这样做。"
+  config_seblocker_sogou_block_message: "被阻止的搜狗请求的响应消息。"
+  config_seblocker_block_yandex: "阻止来自Yandex的请求？默认=False。​对于在俄罗斯有业务的网站，不建议这样做。"
+  config_seblocker_yandex_block_message: "被阻止的Yandex请求的响应消息。"
