@@ -341,6 +341,7 @@ Search engines blocker module:
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=2.6
+  CIDRAM Front-End: >=2.6.1-DEV+21184548
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  When Install Succeeds:
   - if {Components.Installed Versions.module_baidublocker\.php}=== else Message The search engines blocker module replaces the Baidu blocker module. Seeing as the search engines blocker module has been successfully installed, the Baidu blocker module will now be uninstalled accordingly.
