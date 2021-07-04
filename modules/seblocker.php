@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Search engines blocker module (last modified: 2021.07.02).
+ * This file: Search engines blocker module (last modified: 2021.07.04).
  *
  * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  */
@@ -51,8 +51,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         ) || $Trigger(
             preg_match('~(?:baidu|bdstatic|hao123)\.~i', $CIDRAM['Hostname']),
             'Baidu/百度 Host',
-            $CIDRAM['Config']['seblocker']['baidu_block_message'])
-        ) {
+            $CIDRAM['Config']['seblocker']['baidu_block_message']
+        )) {
             $CIDRAM['AddProfileEntry']('Blocked search engine');
         }
     }
@@ -75,8 +75,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         ) || $Trigger(
             preg_match('~sogou\.~i', $CIDRAM['Hostname']),
             'Sogou/搜狗 Host',
-            $CIDRAM['Config']['seblocker']['sogou_block_message'])
-        ) {
+            $CIDRAM['Config']['seblocker']['sogou_block_message']
+        )) {
             $CIDRAM['AddProfileEntry']('Blocked search engine');
         }
     }
@@ -99,8 +99,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         ) || $Trigger(
             preg_match('~(?:yandex|yoomoney)\.~i', $CIDRAM['Hostname']),
             'Yandex/Яндекс Host',
-            $CIDRAM['Config']['seblocker']['yandex_block_message'])
-        ) {
+            $CIDRAM['Config']['seblocker']['yandex_block_message']
+        )) {
             $CIDRAM['AddProfileEntry']('Blocked search engine');
         }
     }
