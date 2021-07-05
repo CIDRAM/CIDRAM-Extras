@@ -24,7 +24,7 @@ jobs:
 
   - name: PHP-CS-Fixer Check
     run: |
-     php-cs-fixer fix -v --dry-run ./api --rules=@PSR2
-     php-cs-fixer fix -v --dry-run ./cli --rules=@PSR2
-     php-cs-fixer fix -v --dry-run ./modules --rules=@PSR2
-     php-cs-fixer fix -v --dry-run ./themes --rules=@PSR2
+     php-cs-fixer fix -v --dry-run ./api --rules=@PSR12
+     php-cs-fixer fix -v --dry-run ./cli --rules=@PSR12
+     php-cs-fixer fix -v --dry-run ./modules --rules=@PSR12
+     php-cs-fixer fix -v --dry-run ./themes --rules=@PSR12
