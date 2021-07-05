@@ -1,6 +1,4 @@
 <?php
-namespace CIDRAM\API;
-
 /**
  * This file is an optional extension of the CIDRAM package.
  * Homepage: https://cidram.github.io/
@@ -10,8 +8,10 @@ namespace CIDRAM\API;
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: CIDRAM API loader (last modified: 2020.11.29).
+ * This file: CIDRAM API loader (last modified: 2021.07.05).
  */
+
+namespace CIDRAM\API;
 
 /** "CIDRAM" constant needed as sanity check for some required files. */
 if (!defined('CIDRAM')) {
@@ -50,7 +50,6 @@ foreach (['functions.php', 'config.php', 'lang.php', 'frontend_functions.php'] a
 /** Class for OOP implementation. */
 class API
 {
-
     /** We'll inherit the $CIDRAM global to this with our constructor. */
     public $CIDRAM = [];
 
