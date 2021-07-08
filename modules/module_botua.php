@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2021.06.28).
+ * This file: Optional user agents module (last modified: 2021.07.08).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -155,14 +155,14 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         'ent|ioscout|kimrepbot|sarobot)|easou|exabot|f(?:astenterprisecrawler|ast' .
         'lwspider|ind?bot|indlinks|loodgate|r[_-]?crawler)|hrcrawler|hubspot|i(?:' .
         'mrbot|ntegromedb|p-?web-?crawler|rcsearch|rgrabber)|jadynavebot|komodiab' .
-        'ot|lightspeed|linguee|linkpad|m(?:ajestic12|agnet|auibot|eanpath|entorma' .
-        'te|fibot|ignify|j12)|nutch|omgilibot|p(?:ackrat|cbrowser|lukkie|surf)|re' .
-        'aper|rsync|s(?:aidwot|alad|cspider|ees\.co|hai|iteexplorer|[iy]phon|truc' .
-        't\.it|upport\.wordpress\.com|ystemscrawler)|takeout|tasapspider|tweetmem' .
-        'e|user-agent|visaduhoc|vonchimpenfurlr|webtarantula|wolf|y(?:acy|isouspi' .
-        'der|[ry]spider|unrang|unyun)|zoominfobot~',
+        'ot|linguee|linkpad|m(?:ajestic12|agnet|auibot|eanpath|entormate|fibot|ig' .
+        'nify|j12)|nutch|omgilibot|p(?:ackrat|cbrowser|lukkie|surf)|reaper|rsync|' .
+        's(?:aidwot|alad|cspider|ees\.co|hai|iteexplorer|[iy]phon|truct\.it|uppor' .
+        't\.wordpress\.com|ystemscrawler)|takeout|tasapspider|tweetmeme|user-agen' .
+        't|visaduhoc|vonchimpenfurlr|webtarantula|wolf|y(?:acy|isouspider|[ry]spi' .
+        'der|unrang|unyun)|zoominfobot~',
         $UANoSpace
-    ), 'Banned UA'); // 2019.10.01 mod 2020.11.29
+    ), 'Banned UA'); // 2021.07.08
 
     $Trigger(preg_match(
         '/^wp-iphone$/',
@@ -330,6 +330,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             $CIDRAM['Reporter']->report([15], ['Shell upload attempt detected in user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Hack UA') !== false) {
             $CIDRAM['Reporter']->report([15], ['Hack identifier detected in user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Vulner') !== false) {
+            $CIDRAM['Reporter']->report([15], ['Caught looking for vulnerabilities.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UASQLi') !== false) {
             $CIDRAM['Reporter']->report([16], ['SQLi attempt detected in user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'CAPTCHA cracker UA') !== false) {

@@ -116,7 +116,7 @@ module_sfs.php:
 module_botua.php:
  Name: Optional user agents module
  False Positive Risk: Medium
- Version: 2021.178.318
+ Version: 2021.188.290
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.13.1
@@ -128,7 +128,7 @@ module_botua.php:
   To:
    - module_botua.php
   Checksum:
-   - adae3c48dac1105a28d5639f883076574b8bf483b9b25418e21d5436b867d867:22012
+   - 1cf28185bb46aaad9a22c78aa0e04ffa5f22294afd7100e8ddbd81092944b469:22189
  Used with: modules
  Reannotate: modules.dat
 Chart.js:
