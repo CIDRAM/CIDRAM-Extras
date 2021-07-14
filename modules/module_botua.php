@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2021.07.08).
+ * This file: Optional user agents module (last modified: 2021.07.14).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -219,7 +219,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
     $Trigger(preg_match(
         '~\.buzz|a(?:bonti|ccserver|cme.spider|nyevent-http|ppengine)|b(?:abbar\.' .
-        'tech|igbozz|lackbird|logsearch|logbot|salsa)|c(?:atexplorador|lickagy|li' .
+        'tech|igbozz|lackbird|logsearch|logbot|salsa)|c(?:astlebot|atexplorador|lickagy|li' .
         'qzbot|ontextad|orporama|rowsnest|yberpatrol)|d(?:bot/|le_spider|omainapp' .
         'ender|umprendertree)|flightdeckreportsbot|g(atheranalyzeprovide|dnplus|i' .
         'mme60|ooglebenjojo)|http-?(?:agent|client)|internetcensus|ips-agent|isit' .
@@ -233,7 +233,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         '|ikiapiary|in(?:http|inet)|maid\.com|sr-agent|wwtype)|xenu|xovi|zibber|z' .
         'urichfinancialservices|^m$|(?:\W|^)(?:cu|pe)rl(?:\W|$)~',
         $UANoSpace
-    ), 'Unauthorised'); // 2021.04.25
+    ), 'Unauthorised'); // 2021.07.14
 
     $Trigger(preg_match(
         '~^(?:bot|java|msie|windows-live-social-object-extractor)|\((?:java|\w\:\d{2,})~',
