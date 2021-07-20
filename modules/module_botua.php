@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2021.07.14).
+ * This file: Optional user agents module (last modified: 2021.07.20).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -219,21 +219,26 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
     $Trigger(preg_match(
         '~\.buzz|a(?:bonti|ccserver|cme.spider|nyevent-http|ppengine)|b(?:abbar\.' .
-        'tech|igbozz|lackbird|logsearch|logbot|salsa)|c(?:astlebot|atexplorador|lickagy|li' .
-        'qzbot|ontextad|orporama|rowsnest|yberpatrol)|d(?:bot/|le_spider|omainapp' .
-        'ender|umprendertree)|flightdeckreportsbot|g(atheranalyzeprovide|dnplus|i' .
-        'mme60|ooglebenjojo)|http-?(?:agent|client)|internetcensus|ips-agent|isit' .
-        'wp|k2spider|kemvi|lexxebot|livelapbot|lwp|macinroyprivacyauditors|massca' .
-        'n|metaintelligence|n(?:etcraft|ettrapport|icebot|mapscriptingengine|rsbo' .
-        't)|p(?:4bot|4load|acrawler|ageglimpse|arsijoo|egasusmonitoring|hantomjs|' .
-        'hpcrawl|ingdom|rlog)|r(?:arelyused|obo(?:cop|spider)|yze)|s(?:can\.lol|c' .
-        'reener|itedomain|mut|nap(?:preview)?bot|oapclient|ocial(?:ayer|searcher)' .
-        '|oso|pyglass|quider|treetbot|ynapse)|t(?:omba|weezler)|urlappendbot|w(?:' .
-        'asalive|atchmouse|eb(?:-monitoring|bot|masteraid|money|thumbnail)|hatweb' .
-        '|ikiapiary|in(?:http|inet)|maid\.com|sr-agent|wwtype)|xenu|xovi|zibber|z' .
-        'urichfinancialservices|^m$|(?:\W|^)(?:cu|pe)rl(?:\W|$)~',
+        'tech|igbozz|lackbird|logsearch|logbot|salsa)|c(?:astlebot|atexplorador|l' .
+        'ickagy|liqzbot|ontextad|orporama|rowsnest|yberpatrol)|d(?:bot/|le_spider' .
+        '|omainappender|umprendertree)|flightdeckreportsbot|g(atheranalyzeprovide' .
+        '|dnplus|imme60|ooglebenjojo)|internetcensus|ips-agent|isitwp|k2spider|ke' .
+        'mvi|lexxebot|livelapbot|lwp|macinroyprivacyauditors|masscan|metaintellig' .
+        'ence|n(?:etcraft|ettrapport|icebot|mapscriptingengine|rsbot)|p(?:4bot|4l' .
+        'oad|acrawler|ageglimpse|arsijoo|egasusmonitoring|hantomjs|hpcrawl|ingdom' .
+        '|rlog)|r(?:arelyused|obo(?:cop|spider)|yze)|s(?:can\.lol|creener|itedoma' .
+        'in|mut|nap(?:preview)?bot|oapclient|ocial(?:ayer|searcher)|oso|pyglass|q' .
+        'uider|treetbot|ynapse)|t(?:omba|weezler)|urlappendbot|w(?:asalive|atchmo' .
+        'use|eb(?:-monitoring|bot|masteraid|money|thumbnail)|hatweb|ikiapiary|in(' .
+        '?:http|inet)|maid\.com|sr-agent|wwtype)|xenu|xovi|zibber|zurichfinancial' .
+        'services|^m$|(?:\W|^)(?:cu|pe)rl(?:\W|$)~',
         $UANoSpace
-    ), 'Unauthorised'); // 2021.07.14
+    ), 'Unauthorised'); // 2021.07.20
+
+    $Trigger(preg_match(
+        '~^(?!linkedinbot).*http-?(?:agent|client)~',
+        $UANoSpace
+    ), 'Unauthorised'); // 2021.07.20
 
     $Trigger(preg_match(
         '~^(?:bot|java|msie|windows-live-social-object-extractor)|\((?:java|\w\:\d{2,})~',
