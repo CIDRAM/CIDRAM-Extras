@@ -10,6 +10,10 @@ label{font-weight:600}
 table,.spanner{width:100%}
 textarea{height:150px}
 textarea.half{height:75px}
+input.txtf{width:calc(100% - 4px)}
+textarea{width:calc(100% - 20px)}
+.iCntr>.iCntn>textarea{width:calc(100% - 62px)}
+li>.iCntr>.iCntn>textarea{width:calc(100% - 102px)}
 a:active,a:hover{outline-width:0}
 a:link,a:visited{color:#0366d6;text-decoration:none}
 a:hover{text-decoration:underline;color:#f64}
@@ -20,7 +24,6 @@ a:active,a:focus{color:#cb2431}
 .bNav{height:64px}
 .ci,.co,.gen,.center{margin:auto}
 .ci,.co,.ng1,.ng2,.ci>.bNav:first-child{width:98%}
-textarea,.txtf{width:72%}
 .ci{text-align:{FE_Align};padding:12px}
 .co,body,.center{text-align:center}
 .co{padding:12}
@@ -44,16 +47,14 @@ textarea,.txtf{width:72%}
 .txtOe{color:#a04100}
 .txtRd{color:#cb2431}
 .ufts{width:220px}
-@keyframes idxAn{0%{background:rgba(255,153,102,1)}100%{background:rgba(255,153,102,0.5)}}
+@keyframes idxAn{0%{background:rgba(246,192,153,0.5)}100%{background:rgba(164,128,102,0.5)}}
 @keyframes xAux{0%{opacity:0.0}100%{opacity:1.0}}
 @keyframes rAux{0%{background:rgba(255,0,0,0.7)}100%{background:rgba(255,0,0,0.0)}}
 .inv{opacity:0.0}
 .mob{display:none}
-input,textarea{padding:0 8px 0 8px;font-weight:600}
-select,option{padding:0;font-weight:700}
+input,textarea{padding:0 8px 0 8px;font-weight:600;border-radius:6px}
+select,option{padding:0;font-weight:700;border-radius:0}
 select,option,input,textarea{margin:2px;border-color:rgba(27,31,35,.5);border-style:solid;border-width:1px;box-shadow:0 1px 0 rgba(27,31,35,.04),inset 0 1px 0 rgba(255,255,255,.25);transition:background-color .2s cubic-bezier(.3,0,.5,1);filter:grayscale(.3) brightness(.9)}
-select,option{border-radius:0}
-input,textarea{border-radius:6px}
 select:active,textarea:active:not([readonly]),input:active{box-shadow:inset 0 1px 0 rgba(225,228,232,.2);transition:none;filter:grayscale(0) brightness(1)}
 select:disabled,textarea:disabled,input:disabled{filter:grayscale(1) brightness(.3)}
 select:focus,textarea:focus:not([readonly]),input:focus{outline:1px dotted transparent;outline-offset:2px;box-shadow:0 0 0 3px rgba(3,102,214,.3);filter:grayscale(0) brightness(1)}
