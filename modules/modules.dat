@@ -152,7 +152,7 @@ Chart.js:
  Reannotate: modules.dat
 flags.css:
  Name: Flags CSS
- Version: 2021.199.245
+ Version: 2021.242.462
  Dependencies:
   CIDRAM Core: >=1.13.1
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -164,7 +164,7 @@ flags.css:
   To:
    - fe_assets/flags.css
   Checksum:
-   - 35d10c70e1136dca204c6096c42d01234da967641bec1b4deb4a92f07f5717be:190705
+   - d518b7f6c489393f10275a45b06f25b515bc8e72fa5cf2311d50d28722d71b58:191405
  Reannotate: modules.dat
 compat_bunnycdn.php:
  Name: BunnyCDN compatibility module
@@ -341,7 +341,7 @@ Search engines blocker module:
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=2.6
-  CIDRAM Front-End: >=2.6.1-DEV+21184548
+  CIDRAM Front-End: >=2.7.0-DEV
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
  When Install Succeeds:
   - if {Components.Installed Versions.module_baidublocker\.php}=== else Message The search engines blocker module replaces the Baidu blocker module. Seeing as the search engines blocker module has been successfully installed, the Baidu blocker module will now be uninstalled accordingly.
