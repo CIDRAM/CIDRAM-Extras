@@ -152,7 +152,7 @@ Chart.js:
  Reannotate: modules.dat
 flags.css:
  Name: Flags CSS
- Version: 2021.242.462
+ Version: 2021.242.628
  Dependencies:
   CIDRAM Core: >=1.13.1
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -164,7 +164,7 @@ flags.css:
   To:
    - fe_assets/flags.css
   Checksum:
-   - d518b7f6c489393f10275a45b06f25b515bc8e72fa5cf2311d50d28722d71b58:191405
+   - 32fea34f5a7d59654f30bd569e376425304dc51d84ed1a98aab6fb236fd38fb8:191405
  Reannotate: modules.dat
 compat_bunnycdn.php:
  Name: BunnyCDN compatibility module
