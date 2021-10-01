@@ -137,7 +137,7 @@ theme/moss:
 theme/fullmoon:
  Name: Theme: Full Moon
  Extended Description: <img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-fullmoon.png" alt="Preview" /><br />Darker, semi-transparent colours; Navigation shifted to the top; No special fonts; Full moon backdrop.<br /><em>Author: Caleb M (Maikuolan)</em>
- Version: 2021.236.702
+ Version: 2021.273.693
  Dependencies:
   CIDRAM Core: ^1.18|>=2.5
   CIDRAM Front-End: ^1.18|>=2.5
@@ -214,7 +214,7 @@ theme/fullmoon:
    - 8cdbed4f59e0a221314881fda659dc688ef1a281b1fcd1f65d827a0903493643:7238
    - 56a436ba2608acbd85c63a8a4f0fc04dd4ae6b2d3e9d954d16a5d03e029ee768:302
    - b157e35ad544f3bad773e867060116cb7bc5b5a3196cfc354b74b17d64a287b8:48
-   - a83bdc9721a8c29f72c5267c0762c0b485a5a27cbf185eda5227161f55e1ef1f:494
+   - ce7c061f0d63cde1eecb4c10061de23ca9c7afada327ee3cba4e8de0ef74d39f:2249
    - 93068d539b4849105f5e32ca7dd4b0e4e6b451a91fe5cb6f83435fc97007d8e3:703
    - 50ff7598bfea9623dedc4200341e341a10ecc13cd02a7fa26e064aa348edbef2:953
    - 8df089b6dfc8707af8033b4080efedd1635c56fe9ca7bbb3a8685f217675b842:624
