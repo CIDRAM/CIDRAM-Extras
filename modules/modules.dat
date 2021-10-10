@@ -133,7 +133,7 @@ module_botua.php:
  Reannotate: modules.dat
 Chart.js:
  Name: Chart.js
- Version: 2.9.3
+ Version: 3.5.1
  Dependencies:
   CIDRAM Core: >=1.13.1
  Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
@@ -141,14 +141,14 @@ Chart.js:
  Provisional: true
  Files:
   From:
-   - https://github.com/chartjs/Chart.js/releases/download/v2.9.3/Chart.min.js
+   - https://raw.githubusercontent.com/Maikuolan/Chart.js-Common-Module/master/chart.min.js
    - https://raw.githubusercontent.com/Maikuolan/Chart.js-Common-Module/master/_chartjs.html
   To:
-   - fe_assets/Chart.min.js
+   - fe_assets/chart.min.js
    - fe_assets/_chartjs.html
   Checksum:
-   - 478a6a70e615f25b7bb27c4c40efc749b5421513cc76b84014c1febebf608982:172812
-   - 47dee555745921badf2c055c6acbf585d7900bcbbddcb261bb6bae92793fd5e4:1086
+   - 6c2dcb0990b029e7a163a4f87c58bd55f394d20ced51af92e1c9e422154f6791:188369
+   - 615790402dd1f3b88e2dcc5c12e3bbbe59de032cae3b2a9678961b68d351b65e:893
  Reannotate: modules.dat
 flags.css:
  Name: Flags CSS
