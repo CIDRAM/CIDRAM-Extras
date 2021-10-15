@@ -2,7 +2,7 @@
 module_cookies.php:
  Name: Optional cookie scanner module
  False Positive Risk: Low
- Version: 2021.178.318
+ Version: 2021.287.582
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.13.1
@@ -14,7 +14,7 @@ module_cookies.php:
   To:
    - module_cookies.php
   Checksum:
-   - 1c0ffc5bbe0734e3ac295407b3a22042fca4a26b528dbe1b2ab8a9523c0c8968:8362
+   - 8c50f81ff702cc3842ad0bb6a0bad7e0013e7dde7d4e434dd1d337aa8feee34c:8361
  Used with: modules
  Reannotate: modules.dat
 module_extras.php:
@@ -95,7 +95,7 @@ module_badtlds.php:
 module_sfs.php:
  Name: Stop Forum Spam module
  False Positive Risk: Low
- Version: 2021.118.492
+ Version: 2021.287.582
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.18
@@ -110,13 +110,13 @@ module_sfs.php:
    - module_sfs.yaml
   Checksum:
    - fc4b430ff5839bad109d351e9923695712f18018a6428529d1bacdbf9d7ae291:3938
-   - 95af369879326c23fcfe7585e97e23a8d9147c27b1b0f24343e883106a79090a:561
+   - e7067062deb21f4a83fecf416eba1c99cd5626a1b74fe55fd8c28f737ea733a9:562
  Used with: modules
  Reannotate: modules.dat
 module_botua.php:
  Name: Optional user agents module
  False Positive Risk: Medium
- Version: 2021.260.408
+ Version: 2021.287.582
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.13.1
@@ -128,7 +128,7 @@ module_botua.php:
   To:
    - module_botua.php
   Checksum:
-   - dbe763b16b0290096360c933f3868f3f2adac903fa96d0293e43075b4d59ca68:22325
+   - 8bf4eb4635fd67406a978bc5897d4fa29db35ad4c756f80e31d7a3ca3c04ffd9:22547
  Used with: modules
  Reannotate: modules.dat
 Chart.js:
@@ -169,7 +169,7 @@ flags.css:
 compat_bunnycdn.php:
  Name: BunnyCDN compatibility module
  False Positive Risk: Low
- Version: 2021.95.583
+ Version: 2021.287.582
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=1.13.1
@@ -183,7 +183,7 @@ compat_bunnycdn.php:
    - compat_bunnycdn.php
    - compat_bunnycdn.yaml
   Checksum:
-   - cdb8a2e53bc86f562b19d9b2d6cb6a7d7366754e6f8f88cd4f9a58e0c796c981:2678
+   - 13173053705f2586021db2fc97279e6f9661d2034cf6a17038873627fe87e625:2677
    - 2003fef71511cb96e1adceb26a3a466a7e8efe301eac3473b77db7415301a87b:2266
  Used with: modules
  Reannotate: modules.dat
@@ -273,7 +273,7 @@ module_refspam.php:
 module_bgpview.php:
  Name: BGPView module
  False Positive Risk: Low
- Version: 2021.139.519
+ Version: 2021.287.582
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=2.2
@@ -289,7 +289,7 @@ module_bgpview.php:
    - module_bgpview.yaml
   Checksum:
    - 91ad29ad9b296a01561ce7c8349f2ca2ac69afa29ddf4e489c1e8080ed585225:7644
-   - 5c2f81cd3d5325c1846804b7bf0b0d6422e8f84383e32a0b56db76780fcc7c06:1639
+   - 0f33226eb374fb0dc9fd0bfdc299e7313aec312e65070837c470579f1972cc1f:1355
  Used with: modules
  Reannotate: modules.dat
 module_projecthoneypot.php:

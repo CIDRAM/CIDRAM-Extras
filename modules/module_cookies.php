@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional cookie scanner module (last modified: 2021.06.28).
+ * This file: Optional cookie scanner module (last modified: 2021.10.15).
  *
  * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  *
@@ -42,7 +42,6 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
     /** Signatures start from here. */
     foreach ($_COOKIE as $Key => $Value) {
-
         /** MyBB fix (skip iteration if value/key are unexpected types). */
         if (is_array($Key) || is_array($Value) || is_object($Key) || is_object($Value)) {
             continue;

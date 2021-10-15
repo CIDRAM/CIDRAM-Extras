@@ -7,7 +7,7 @@
 # License: GNU/GPLv2
 # @see LICENSE.txt
 #
-# This file: Stop Forum Spam module configuration (last modified: 2021.04.29).
+# This file: Stop Forum Spam module configuration (last modified: 2021.10.15).
 ##/
 
 Config Defaults:
@@ -20,4 +20,4 @@ Config Defaults:
    default: true
 L10N:
  config_sfs: "Stop Forum Spam module configuration."
- config_sfs_offer_captcha: "Offer a CAPTCHA to request blocked by this module? Default = True."
+ config_sfs_offer_captcha: "Offer a CAPTCHA to requests blocked by this module? Default = True."

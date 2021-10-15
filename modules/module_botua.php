@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2021.09.18).
+ * This file: Optional user agents module (last modified: 2021.10.15).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -286,6 +286,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     ); // 2021.02.08
 
     $Trigger(preg_match('~^python/|aiohttp/|\.post0~', $UANoSpace), 'Bad context (Python/AIO clients not permitted here)'); // 2021.05.18
+
+    /** First detected originating from Facebook's servers, but haven't been able to determine their identity or purpose. */
+    $Trigger(preg_match('~(?:adreview|cortex)/\d~', $UANoSpace), 'Unauthorised'); // 2021.10.15
 
     /** These signatures can set extended tracking options. */
     if (
