@@ -1,15 +1,15 @@
 # Search engines blocker IPv6 signatures file.
 # Canonical link to the online version of this file: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/seblocker_ipv6.dat
 
-# Version: 2021.181.743
-# Last modified: 2021.07.02
+# Version: 2021.357.0
+# Last modified: 2021.12.24
 
 
 # ---
 # ASNs 38365, 38627, 55967 ("Beijing Baidu Netcom Science and Technology Co.,
 # Ltd", "Baidu, Inc").
-# Stop Forum Spam (SFS) listings: 17 (AS38365), 2 (AS55967).
-# Updated: 2021.07.02
+# Stop Forum Spam (SFS) listings: 1,955 (AS38365), 24 (AS55967).
+# Updated: 2021.07.02 / Checked: 2021.12.24
 
 2400:da00::/32 Run seblocker_rules.php
 240c:4000::/22 Run seblocker_rules.php
@@ -24,8 +24,8 @@ Tag: SEBlocker/Baidu
 # ASNs 13238, 43247, 200350, 202611, 207207, 208722 ("YANDEX LLC", '"YooMoney"
 # NBCO LLC', "Yandex.Cloud LLC", "Yandex.Telecom LLC", "Yandex.OFD LLC",
 # "Yandex Oy").
-# Stop Forum Spam (SFS) listings: 3 (AS13238), 114 (AS200350).
-# Updated: 2021.07.02
+# Stop Forum Spam (SFS) listings: 2 (AS13238), 52 (AS200350), 1 (AS208722).
+# Updated: 2021.07.02 / Checked: 2021.12.24
 
 2a0e:fd80::/29 Run seblocker_rules.php
 Origin: FI

@@ -337,7 +337,7 @@ module_httpver.php:
 Search engines blocker module:
  Name: Search engines blocker module
  False Positive Risk: Medium
- Version: 2021.184.525
+ Version: 2021.357.0
  Dependencies:
   PHP: >=5.4
   CIDRAM Core: >=2.6
@@ -366,8 +366,8 @@ Search engines blocker module:
   Checksum:
    - 842fa881b2ca144b6b6473fde4a12087b85bef7e1174951e4c8e3f73ff99511e:3779
    - 099b6abb39cdb555a8db55916e82cebf59b1801a1090cfb026dc86b44a639902:2910
-   - 9579c7cb75c2628bba1050f7349a8b412417de708fe553e28c132917613ca050:3664
-   - 001a7d74c94ea494a0d8b856e9df54a9faedcd281c5a8a701c06780586bd945e:1257
+   - dd7afe0af88d711d36cd44b2fdefe353ee9cee6ea4e3c061e8f94c68e5a04745:3437
+   - d541d415ddb89b318b9f6799e37c12debf3b2026ccb6439d19ae8d4b0cff2ed5:1316
    - 9a572ac0dc4ef52585869df86659f1d1c4132a4b15c38d9b0ed529845e35c87d:10209
  Used with:
   - modules
