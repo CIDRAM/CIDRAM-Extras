@@ -1,0 +1,45 @@
+name: lint
+
+on: [push, pull_request]
+
+jobs:
+ build:
+  runs-on: ${{ matrix.operating-system }}
+
+  strategy:
+   matrix:
+    operating-system: [ubuntu-latest]
+    php-versions: ['7.2', '7.3', '7.4', '8.0', '8.1']
+  name: PHP ${{ matrix.php-versions }} on ${{ matrix.operating-system }}
+  steps:
+  - name: Checkout
+    uses: actions/checkout@v2
+
+  - name: Set up PHP
+    uses: shivammathur/setup-php@v2
+    with:
+     php-version: ${{ matrix.php-versions }}
+     extensions: pcre, curl
+
+  - name: Lint
+    run: |
+     lintPaths=()
+     lintPaths+=("${GITHUB_WORKSPACE}/api")
+     lintPaths+=("${GITHUB_WORKSPACE}/cli")
+     lintPaths+=("${GITHUB_WORKSPACE}/modules")
+     lintPaths+=("${GITHUB_WORKSPACE}/themes")
+     for lintPath in "${lintPaths[@]}"
+     do
+     for file in `find "$lintPath"`
+     do
+     EXTENSION="${file##*.}"
+     if [ "$EXTENSION" == "php" ]
+     then
+     RESULTS=`php -l "$file"`
+     if [ "$RESULTS" != "No syntax errors detected in $file" ]
+     then
+     echo $RESULTS
+     fi
+     fi
+     done
+     done
