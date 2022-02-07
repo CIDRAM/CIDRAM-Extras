@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: CLI for CIDRAM >= v2 (last modified: 2021.03.18).
+ * This file: CLI for CIDRAM >= v2 (last modified: 2022.02.07).
  */
 
 /** "CIDRAM" constant needed as sanity check for some required files. */
@@ -47,7 +47,7 @@ foreach (['functions.php', 'config.php', 'lang.php', 'frontend_functions.php'] a
 if (
     !empty($_SERVER['REQUEST_METHOD']) ||
     substr(php_sapi_name(), 0, 3) !== 'cli' ||
-    !empty($_SERVER[$CIDRAM['IPAddr']]) ||
+    !empty($CIDRAM['IPAddr']) ||
     !empty($_SERVER['HTTP_USER_AGENT']) ||
     (
         isset($_SERVER['SCRIPT_FILENAME']) &&
