@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2021.10.15).
+ * This file: Optional user agents module (last modified: 2022.02.23).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -287,8 +287,16 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
     $Trigger(preg_match('~^python/|aiohttp/|\.post0~', $UANoSpace), 'Bad context (Python/AIO clients not permitted here)'); // 2021.05.18
 
-    /** First detected originating from Facebook's servers, but haven't been able to determine their identity or purpose. */
+    /**
+     * First detected originating from Facebook's servers, but haven't been
+     * able to determine their identity or purpose.
+     */
     $Trigger(preg_match('~(?:adreview|cortex)/\d~', $UANoSpace), 'Unauthorised'); // 2021.10.15
+
+    /**
+     * @link https://gist.github.com/paralax/6de9968e989c292781b2df167a1fb4ce
+     */
+    $Trigger(strpos($UANoSpace, 'gbrmss/') !== false, 'Gebriano webshell detected'); // 2022.02.23
 
     /** These signatures can set extended tracking options. */
     if (
@@ -328,7 +336,17 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
     /** Reporting. */
     if (!empty($CIDRAM['BlockInfo']['IPAddr'])) {
-        if (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UA command injection') !== false) {
+        if (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Spam UA') !== false) {
+            $CIDRAM['Reporter']->report([12, 19], ['Spambot detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Malware UA') !== false) {
+            $CIDRAM['Reporter']->report([19, 20], ['User agent cited by malware detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UAEX') !== false) {
+            $CIDRAM['Reporter']->report([15, 19], ['Detected command execution via user agent header.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'bittorrent') !== false) {
+            $CIDRAM['Reporter']->report([4, 19], ['BitTorrent user agent seen at HTTP server endpoint (possible flood/DDoS attempt).'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Gebriano') !== false) {
+            $CIDRAM['Reporter']->report([15, 19, 20, 21], ['Gebriano webshell detected here.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UA command injection') !== false) {
             $CIDRAM['Reporter']->report([15], ['Command injection detected in user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UA script injection') !== false) {
             $CIDRAM['Reporter']->report([15], ['Script injection detected in user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
@@ -347,9 +365,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Probe UA') !== false) {
             $CIDRAM['Reporter']->report([19], ['Probe detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Bash/Shellshock UA') !== false) {
-            $CIDRAM['Reporter']->report([16], ['Bash/Shellshock attempt detected via user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Spam UA') !== false) {
-            $CIDRAM['Reporter']->report([19], ['Spambot detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+            $CIDRAM['Reporter']->report([15], ['Bash/Shellshock attempt detected via user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Email havester') !== false) {
             $CIDRAM['Reporter']->report([19], ['Email havester detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Execution attempt') !== false) {
@@ -360,14 +376,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             $CIDRAM['Reporter']->report([19], ['Misbehaving bot detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Scraper UA') !== false) {
             $CIDRAM['Reporter']->report([19], ['Scraper detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Malware UA') !== false) {
-            $CIDRAM['Reporter']->report([19], ['User agent cited by malware detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Fake UA') !== false) {
             $CIDRAM['Reporter']->report([19], ['Faked user agent detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UAEX') !== false) {
-            $CIDRAM['Reporter']->report([19], ['Detected command execution via user agent header.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'bittorrent') !== false) {
-            $CIDRAM['Reporter']->report([4, 19], ['BitTorrent user agent seen at HTTP server endpoint (possible flood/DDoS attempt).'], $CIDRAM['BlockInfo']['IPAddr']);
         }
     }
 };
