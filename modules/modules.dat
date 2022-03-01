@@ -1,7 +1,7 @@
 ---
 Chart.js:
  Name: "Chart.js"
- Version: "3.7.0"
+ Version: "3.7.1"
  Dependencies:
   CIDRAM Core: "^1.20.0-DEV|>=2.7.0-DEV"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
@@ -15,12 +15,12 @@ Chart.js:
    - "fe_assets/chart.min.js"
    - "fe_assets/_chartjs.html"
   Checksum:
-   - "636e8032f6887eb675110538f697fa1f8433553ace23c9bdc1060a91fb41b78b:194890"
+   - "12b674f4a9199f38e9a9c6a77b8482cb21ec2805ccbc80fdff1c1b97f02ad697:195090"
    - "615790402dd1f3b88e2dcc5c12e3bbbe59de032cae3b2a9678961b68d351b65e:893"
  Reannotate: "modules.dat"
 PHPMailer:
  Name: "PHPMailer"
- Version: "6.5.4"
+ Version: "6.6.0"
  Dependencies:
   PHP: ">=5.5"
   CIDRAM Core: ">=1.13.1"
@@ -32,11 +32,11 @@ PHPMailer:
  Provisional: true
  Files:
   From:
-   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.5.4/src/Exception.php"
-   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.5.4/src/OAuth.php"
-   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.5.4/src/PHPMailer.php"
-   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.5.4/src/POP3.php"
-   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.5.4/src/SMTP.php"
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.0/src/Exception.php"
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.0/src/OAuth.php"
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.0/src/PHPMailer.php"
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.0/src/POP3.php"
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.0/src/SMTP.php"
   To:
    - "classes/PHPMailer/Exception.php"
    - "classes/PHPMailer/OAuth.php"
@@ -45,10 +45,10 @@ PHPMailer:
    - "classes/PHPMailer/SMTP.php"
   Checksum:
    - "655e82ae2e40561a4c125115ffd49fb172a5221fa224bcdb10d41bf72eae9a87:1240"
-   - "d1456eb234737d0e0aa7c7e816e0b8b01f6aca147f29739864bb553b840f4fce:3744"
-   - "e362bedb5c3bda7889e815c97cec95444a15f8707b1ec520c4ac8ed13b0cb513:176499"
-   - "c62d83f5effe50154732d80db9cd00999c32cec4cf2e933f0495a271a89b9197:12112"
-   - "c655c7717ad8da8e4c2dee386745ede32cee02198c2a42a5c936eb9e77c044b9:47305"
+   - "3b272d5f1fd9e185ad8daab260ad0b548a679e351701b6b78f80a6e523f1f961:3774"
+   - "af9a69684decbb422f200cc291af39df6eae303d34941737bafba0533d592f41:177425"
+   - "3e762d316dcca19da00da32ac128ff9aa5adfda2d6aaa831945af4191a4b20a1:12112"
+   - "8ed1b3a4fa558db14a5ddc3629d3ab2a0afa8a67a5f90dce545eb0cfdd3681eb:47327"
  Reannotate: "modules.dat"
 Search engines blocker module:
  Name: "Search engines blocker module"
