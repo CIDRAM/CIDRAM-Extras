@@ -56,11 +56,11 @@ L10N:
   config_seblocker_yandex_block_message: "El mensaje que se mostrará para las solicitudes bloqueadas de from Yandex/Яндекс."
  fr:
   config_seblocker: "Configuration du module de blocage des moteurs de recherche."
-  config_seblocker_block_baidu: "Bloquer les requêtes de Baidu/百度 ? Défaut = False. Pour les sites Web avec une présence en Chine, cela n'est pas recommandé."
+  config_seblocker_block_baidu: "Bloquer les requêtes de Baidu/百度\_? Défaut = False. Pour les sites Web avec une présence en Chine, cela n'est pas recommandé."
   config_seblocker_baidu_block_message: "Le message à afficher pour les requêtes bloquées de Baidu/百度."
-  config_seblocker_block_sogou: "Bloquer les requêtes de Sogou/搜狗 ? Défaut = False. Pour les sites Web avec une présence en Chine, cela n'est pas recommandé."
+  config_seblocker_block_sogou: "Bloquer les requêtes de Sogou/搜狗\_? Défaut = False. Pour les sites Web avec une présence en Chine, cela n'est pas recommandé."
   config_seblocker_sogou_block_message: "Le message à afficher pour les requêtes bloquées de Sogou/搜狗."
-  config_seblocker_block_yandex: "Bloquer les requêtes de Yandex/Яндекс ? Défaut = False. Pour les sites Web avec une présence en Russie, cela n'est pas recommandé."
+  config_seblocker_block_yandex: "Bloquer les requêtes de Yandex/Яндекс\_? Défaut = False. Pour les sites Web avec une présence en Russie, cela n'est pas recommandé."
   config_seblocker_yandex_block_message: "Le message à afficher pour les requêtes bloquées de Yandex/Яндекс."
  id:
   config_seblocker: "Konfigurasi untuk modul pemblokir mesin pencari."

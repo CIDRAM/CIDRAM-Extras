@@ -39,7 +39,7 @@ if (!is_dir($CIDRAM['Vault'])) {
 }
 
 /** Load each required file or kill the script if any of them don't exist. */
-foreach (['functions.php', 'config.php', 'lang.php', 'frontend_functions.php'] as $File) {
+foreach (['functions.php', 'config.php', 'frontend_functions.php'] as $File) {
     if (!file_exists($CIDRAM['Vault'] . $File)) {
         header('Content-Type: text/plain');
         die('[CIDRAM API] ' . $File . ' is missing! Please reinstall CIDRAM.');

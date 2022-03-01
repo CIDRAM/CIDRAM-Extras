@@ -1,379 +1,378 @@
 ---
-module_cookies.php:
- Name: Optional cookie scanner module
- False Positive Risk: Low
- Version: 2021.287.582
- Dependencies:
-  PHP: >=5.4
-  CIDRAM Core: >=1.13.1
- Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
- Uninstallable: true
- Files:
-  From:
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_cookies.php
-  To:
-   - module_cookies.php
-  Checksum:
-   - 8c50f81ff702cc3842ad0bb6a0bad7e0013e7dde7d4e434dd1d337aa8feee34c:8361
- Used with: modules
- Reannotate: modules.dat
-module_extras.php:
- Name: Optional security extras module
- False Positive Risk: Medium
- Version: 2021.178.318
- Dependencies:
-  PHP: >=5.4
-  CIDRAM Core: >=1.13.1
- Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
- Uninstallable: true
- Files:
-  From:
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_extras.php
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_extras.yaml
-  To:
-   - module_extras.php
-   - module_extras.yaml
-  Checksum:
-   - d7bcf0eabf4a86f837872496da63337a05f763f752ba7d39abf37553a062fac9:24826
-   - a794d27f0aaf79b3b37a9c53cbc9e05c91b7fc5fe6cebb9d491f9853efc9fed0:1017
- Used with: modules
- Reannotate: modules.dat
-module_badhosts.php:
- Name: Bad hosts blocker module
- False Positive Risk: Medium
- Version: 2021.180.647
- Dependencies:
-  PHP: >=5.4
-  CIDRAM Core: >=1.13.1
- Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
- Uninstallable: true
- Files:
-  From:
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_badhosts.php
-  To:
-   - module_badhosts.php
-  Checksum:
-   - 144327295261310a44560027f14d5a4ee499a0870722397c8c9350e9234ec2d3:16043
- Used with: modules
- Reannotate: modules.dat
-module_badhosts_isps.php:
- Name: Bad hosts blocker module (ISPs)
- False Positive Risk: High
- Version: 2021.118.492
- Dependencies:
-  PHP: >=5.4
-  CIDRAM Core: >=1.13.1
- Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
- Uninstallable: true
- Files:
-  From:
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_badhosts_isps.php
-  To:
-   - module_badhosts_isps.php
-  Checksum:
-   - 2661756eb87e4b9696055efa3e5bbc3667b8be94326bfcdd780f393433369413:2611
- Used with: modules
- Reannotate: modules.dat
-module_badtlds.php:
- Name: Bad TLDs blocker module
- False Positive Risk: Low
- Version: 2021.95.583
- Dependencies:
-  PHP: >=5.4
-  CIDRAM Core: >=1.13.1
- Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
- Uninstallable: true
- Files:
-  From:
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_badtlds.php
-  To:
-   - module_badtlds.php
-  Checksum:
-   - 460ec2dfb73cf464d8adfad56d241130461a58f75b3c9dd9fb0be92cf05225c0:2070
- Used with: modules
- Reannotate: modules.dat
-module_sfs.php:
- Name: Stop Forum Spam module
- False Positive Risk: Low
- Version: 2021.287.582
- Dependencies:
-  PHP: >=5.4
-  CIDRAM Core: >=1.18
- Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
- Uninstallable: true
- Files:
-  From:
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_sfs.php
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_sfs.yaml
-  To:
-   - module_sfs.php
-   - module_sfs.yaml
-  Checksum:
-   - fc4b430ff5839bad109d351e9923695712f18018a6428529d1bacdbf9d7ae291:3938
-   - e7067062deb21f4a83fecf416eba1c99cd5626a1b74fe55fd8c28f737ea733a9:562
- Used with: modules
- Reannotate: modules.dat
-module_botua.php:
- Name: Optional user agents module
- False Positive Risk: Medium
- Version: 2022.53.500
- Dependencies:
-  PHP: >=5.4
-  CIDRAM Core: >=1.13.1
- Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
- Uninstallable: true
- Files:
-  From:
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_botua.php
-  To:
-   - module_botua.php
-  Checksum:
-   - 02aeeda7c70b64641b108d1da41028ccb20d1f813d9d6e74a136710845643783:22986
- Used with: modules
- Reannotate: modules.dat
 Chart.js:
- Name: Chart.js
- Version: 3.7.0
+ Name: "Chart.js"
+ Version: "3.7.0"
  Dependencies:
-  CIDRAM Core: ^1.20.0-DEV|>=2.7.0-DEV
- Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
+  CIDRAM Core: "^1.20.0-DEV|>=2.7.0-DEV"
+ Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
  Uninstallable: true
  Provisional: true
  Files:
   From:
-   - https://raw.githubusercontent.com/Maikuolan/Chart.js-Common-Module/master/chart.min.js
-   - https://raw.githubusercontent.com/Maikuolan/Chart.js-Common-Module/master/_chartjs.html
+   - "https://raw.githubusercontent.com/Maikuolan/Chart.js-Common-Module/master/chart.min.js"
+   - "https://raw.githubusercontent.com/Maikuolan/Chart.js-Common-Module/master/_chartjs.html"
   To:
-   - fe_assets/chart.min.js
-   - fe_assets/_chartjs.html
+   - "fe_assets/chart.min.js"
+   - "fe_assets/_chartjs.html"
   Checksum:
-   - 636e8032f6887eb675110538f697fa1f8433553ace23c9bdc1060a91fb41b78b:194890
-   - 615790402dd1f3b88e2dcc5c12e3bbbe59de032cae3b2a9678961b68d351b65e:893
- Reannotate: modules.dat
-flags.css:
- Name: Flags CSS
- Version: 2021.242.628
- Dependencies:
-  CIDRAM Core: >=1.13.1
- Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
- Uninstallable: true
- Provisional: true
- Files:
-  From:
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/flags.css
-  To:
-   - fe_assets/flags.css
-  Checksum:
-   - 32fea34f5a7d59654f30bd569e376425304dc51d84ed1a98aab6fb236fd38fb8:191405
- Reannotate: modules.dat
-compat_bunnycdn.php:
- Name: BunnyCDN compatibility module
- False Positive Risk: Low
- Version: 2021.287.582
- Dependencies:
-  PHP: >=5.4
-  CIDRAM Core: >=1.13.1
- Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
- Uninstallable: true
- Files:
-  From:
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/compat_bunnycdn.php
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/compat_bunnycdn.yaml
-  To:
-   - compat_bunnycdn.php
-   - compat_bunnycdn.yaml
-  Checksum:
-   - 13173053705f2586021db2fc97279e6f9661d2034cf6a17038873627fe87e625:2677
-   - 2003fef71511cb96e1adceb26a3a466a7e8efe301eac3473b77db7415301a87b:2266
- Used with: modules
- Reannotate: modules.dat
+   - "636e8032f6887eb675110538f697fa1f8433553ace23c9bdc1060a91fb41b78b:194890"
+   - "615790402dd1f3b88e2dcc5c12e3bbbe59de032cae3b2a9678961b68d351b65e:893"
+ Reannotate: "modules.dat"
 PHPMailer:
- Name: PHPMailer
- Version: 6.5.4
+ Name: "PHPMailer"
+ Version: "6.5.4"
  Dependencies:
-  PHP: >=5.5
-  CIDRAM Core: >=1.13.1
+  PHP: ">=5.5"
+  CIDRAM Core: ">=1.13.1"
   ctype: "*"
   filter: "*"
   hash: "*"
- Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
+ Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
  Uninstallable: true
  Provisional: true
  Files:
   From:
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.5.4/src/Exception.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.5.4/src/OAuth.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.5.4/src/PHPMailer.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.5.4/src/POP3.php
-   - https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.5.4/src/SMTP.php
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.5.4/src/Exception.php"
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.5.4/src/OAuth.php"
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.5.4/src/PHPMailer.php"
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.5.4/src/POP3.php"
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.5.4/src/SMTP.php"
   To:
-   - classes/PHPMailer/Exception.php
-   - classes/PHPMailer/OAuth.php
-   - classes/PHPMailer/PHPMailer.php
-   - classes/PHPMailer/POP3.php
-   - classes/PHPMailer/SMTP.php
+   - "classes/PHPMailer/Exception.php"
+   - "classes/PHPMailer/OAuth.php"
+   - "classes/PHPMailer/PHPMailer.php"
+   - "classes/PHPMailer/POP3.php"
+   - "classes/PHPMailer/SMTP.php"
   Checksum:
-   - 655e82ae2e40561a4c125115ffd49fb172a5221fa224bcdb10d41bf72eae9a87:1240
-   - d1456eb234737d0e0aa7c7e816e0b8b01f6aca147f29739864bb553b840f4fce:3744
-   - e362bedb5c3bda7889e815c97cec95444a15f8707b1ec520c4ac8ed13b0cb513:176499
-   - c62d83f5effe50154732d80db9cd00999c32cec4cf2e933f0495a271a89b9197:12112
-   - c655c7717ad8da8e4c2dee386745ede32cee02198c2a42a5c936eb9e77c044b9:47305
- Reannotate: modules.dat
-module_abuseipdb.php:
- Name: AbuseIPDB module
- False Positive Risk: Medium
- Version: 2021.140.589
- Dependencies:
-  PHP: >=5.4
-  CIDRAM Core: ^1.18.1|>=2.5.1
- Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
- Uninstallable: true
- Files:
-  From:
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_abuseipdb.php
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_abuseipdb.yaml
-  To:
-   - module_abuseipdb.php
-   - module_abuseipdb.yaml
-  Checksum:
-   - 2073c0cf728b57e78fab7a45c84629c5f308e654cb24a76d067112ec19b14dbc:7020
-   - f7ec386d728d0595bc61b594274d434cc537b0427de13ed114068e8a5ca500a0:2255
- Used with: modules
- Reannotate: modules.dat
-module_refspam.php:
- Name: Referrer spam module
- False Positive Risk: Medium
- Version: 2021.95.583
- Dependencies:
-  PHP: >=5.5
-  CIDRAM Core: >=1.13.1
- Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
- Uninstallable: true
- Files:
-  From:
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_refspam.php
-   - https://raw.githubusercontent.com/symfony/polyfill-intl-idn/3bff59ea7047e925be6b7f2059d60af31bb46d6a/Idn.php
-   - https://raw.githubusercontent.com/symfony/polyfill-intl-idn/3bff59ea7047e925be6b7f2059d60af31bb46d6a/bootstrap.php
-   - https://raw.githubusercontent.com/symfony/polyfill-mbstring/3ed80deaf77c304010e3f637bc1842c85fd6c485/Mbstring.php
-   - https://raw.githubusercontent.com/symfony/polyfill-mbstring/3ed80deaf77c304010e3f637bc1842c85fd6c485/bootstrap.php
-  To:
-   - module_refspam.php
-   - classes/Symfony/Idn.php
-   - classes/Symfony/Idn-bootstrap.php
-   - classes/Symfony/Mbstring.php
-   - classes/Symfony/Mbstring-bootstrap.php
-  Checksum:
-   - 0c28c325235046a041531276dc67cc7b77674d60363fc3f246647b300865ecec:13365
-   - 5ef6df1cecc7cd468d1077c41e164c1155c5d84d5ac58193c43c930b18912e52:8750
-   - 149715bd93cc76d66f16b5430fb7ddff560875d9063fc8d6089b56496fd39164:4610
-   - 6a41fab9e7100d2ed6c8a49ca93d4c08489a11944b97bb95c9771913d10b84cb:28145
-   - d41ea1b39f5da2c767d9fbc220c4c50ef57158794572c27eb9fe5b5a929d44fb:6575
- Used with: modules
- Reannotate: modules.dat
-module_bgpview.php:
- Name: BGPView module
- False Positive Risk: Low
- Version: 2022.53.500
- Dependencies:
-  PHP: >=7
-  CIDRAM Core: >=2.2
-  l10n/{lang}: >=2021.139.519
- Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
- Uninstallable: true
- Files:
-  From:
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_bgpview.php
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_bgpview.yaml
-  To:
-   - module_bgpview.php
-   - module_bgpview.yaml
-  Checksum:
-   - b26e15e52bf9ae64a7067e6e7e061a262a2a81f14a7ea1b44442b895ada58bf8:7650
-   - 0f33226eb374fb0dc9fd0bfdc299e7313aec312e65070837c470579f1972cc1f:1355
- Used with: modules
- Reannotate: modules.dat
-module_projecthoneypot.php:
- Name: Project Honeypot module
- False Positive Risk: Medium
- Version: 2021.118.492
- Dependencies:
-  PHP: >=5.4
-  CIDRAM Core: >=1.18
- Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
- Uninstallable: true
- Files:
-  From:
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_projecthoneypot.php
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_projecthoneypot.yaml
-  To:
-   - module_projecthoneypot.php
-   - module_projecthoneypot.yaml
-  Checksum:
-   - 6e9f0a2c5bba8da117584c243b3b6321e9d3de1a57834997c31dc2847f1ad16f:5770
-   - 296a9d098b7a04f3a524836e20f6e1872ca32950728efc82d8cfd28313127b8f:1897
- Used with: modules
- Reannotate: modules.dat
-module_httpver.php:
- Name: HTTP version checker module
- False Positive Risk: Low
- Version: 2021.95.583
- Dependencies:
-  PHP: >=5.4
-  CIDRAM Core: >=1.18
- Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
- Uninstallable: true
- Files:
-  From:
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_httpver.php
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_httpver.yaml
-  To:
-   - module_httpver.php
-   - module_httpver.yaml
-  Checksum:
-   - e5f7dfe50dda58ac05f37a50bf4a0dad7ff8bc42ddcab60f127e608111c05b61:5176
-   - ecfdc9cf48af19396c4489d5b1aea94cec251498b110fc7c3a2e07c45d4e5010:3563
- Used with: modules
- Reannotate: modules.dat
+   - "655e82ae2e40561a4c125115ffd49fb172a5221fa224bcdb10d41bf72eae9a87:1240"
+   - "d1456eb234737d0e0aa7c7e816e0b8b01f6aca147f29739864bb553b840f4fce:3744"
+   - "e362bedb5c3bda7889e815c97cec95444a15f8707b1ec520c4ac8ed13b0cb513:176499"
+   - "c62d83f5effe50154732d80db9cd00999c32cec4cf2e933f0495a271a89b9197:12112"
+   - "c655c7717ad8da8e4c2dee386745ede32cee02198c2a42a5c936eb9e77c044b9:47305"
+ Reannotate: "modules.dat"
 Search engines blocker module:
- Name: Search engines blocker module
- False Positive Risk: Medium
- Version: 2021.357.0
+ Name: "Search engines blocker module"
+ False Positive Risk: "Medium"
+ Version: "2021.357.0"
  Dependencies:
-  PHP: >=5.4
-  CIDRAM Core: >=2.6
-  CIDRAM Front-End: >=2.7.0-DEV
- Remote: https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat
+  PHP: ">=5.4"
+  CIDRAM Core: ">=2.6"
+  CIDRAM Front-End: ">=2.7.0-DEV"
+ Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
  When Install Succeeds:
-  - if {Components.Installed Versions.module_baidublocker\.php}=== else Message The search engines blocker module replaces the Baidu blocker module. Seeing as the search engines blocker module has been successfully installed, the Baidu blocker module will now be uninstalled accordingly.
-  - if {Components.Installed Versions.module_baidublocker\.php}=== else UpdatesHandler deactivate-and-uninstall-component module_baidublocker.php
-  - if {Components.Installed Versions.module_yandexblocker\.php}=== else Message The search engines blocker module replaces the Yandex blocker module. Seeing as the search engines blocker module has been successfully installed, the Yandex blocker module will now be uninstalled accordingly.
-  - if {Components.Installed Versions.module_yandexblocker\.php}=== else UpdatesHandler deactivate-and-uninstall-component module_yandexblocker.php
-  - Message response_please_check_config
+  - "if {Components.Installed Versions.module_baidublocker\\.php}=== else Message The search engines blocker module replaces the Baidu blocker module. Seeing as the search engines blocker module has been successfully installed, the Baidu blocker module will now be uninstalled accordingly."
+  - "if {Components.Installed Versions.module_baidublocker\\.php}=== else UpdatesHandler deactivate-and-uninstall-component module_baidublocker.php"
+  - "if {Components.Installed Versions.module_yandexblocker\\.php}=== else Message The search engines blocker module replaces the Yandex blocker module. Seeing as the search engines blocker module has been successfully installed, the Yandex blocker module will now be uninstalled accordingly."
+  - "if {Components.Installed Versions.module_yandexblocker\\.php}=== else UpdatesHandler deactivate-and-uninstall-component module_yandexblocker.php"
+  - "Message response_please_check_config"
  Uninstallable: true
  Files:
   From:
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/seblocker.php
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/seblocker_rules.php
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/seblocker_ipv4.dat
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/seblocker_ipv6.dat
-   - https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/seblocker.yml
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/seblocker.php"
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/seblocker_rules.php"
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/seblocker_ipv4.dat"
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/seblocker_ipv6.dat"
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/seblocker.yml"
   To:
-   - seblocker.php
-   - seblocker_rules.php
-   - seblocker_ipv4.dat
-   - seblocker_ipv6.dat
-   - seblocker.yml
+   - "seblocker.php"
+   - "seblocker_rules.php"
+   - "seblocker_ipv4.dat"
+   - "seblocker_ipv6.dat"
+   - "seblocker.yml"
   Checksum:
-   - 842fa881b2ca144b6b6473fde4a12087b85bef7e1174951e4c8e3f73ff99511e:3779
-   - 099b6abb39cdb555a8db55916e82cebf59b1801a1090cfb026dc86b44a639902:2910
-   - dd7afe0af88d711d36cd44b2fdefe353ee9cee6ea4e3c061e8f94c68e5a04745:3437
-   - d541d415ddb89b318b9f6799e37c12debf3b2026ccb6439d19ae8d4b0cff2ed5:1316
-   - 9a572ac0dc4ef52585869df86659f1d1c4132a4b15c38d9b0ed529845e35c87d:10209
+   - "842fa881b2ca144b6b6473fde4a12087b85bef7e1174951e4c8e3f73ff99511e:3779"
+   - "099b6abb39cdb555a8db55916e82cebf59b1801a1090cfb026dc86b44a639902:2910"
+   - "dd7afe0af88d711d36cd44b2fdefe353ee9cee6ea4e3c061e8f94c68e5a04745:3437"
+   - "d541d415ddb89b318b9f6799e37c12debf3b2026ccb6439d19ae8d4b0cff2ed5:1316"
+   - "9a572ac0dc4ef52585869df86659f1d1c4132a4b15c38d9b0ed529845e35c87d:10209"
  Used with:
-  - modules
-  - n/a
-  - ipv4
-  - ipv6
-  - n/a
- Reannotate: modules.dat
-
+  - "modules"
+  - "n/a"
+  - "ipv4"
+  - "ipv6"
+  - "n/a"
+ Reannotate: "modules.dat"
+compat_bunnycdn.php:
+ Name: "BunnyCDN compatibility module"
+ False Positive Risk: "Low"
+ Version: "2021.287.582"
+ Dependencies:
+  PHP: ">=5.4"
+  CIDRAM Core: ">=1.13.1"
+ Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
+ Uninstallable: true
+ Files:
+  From:
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/compat_bunnycdn.php"
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/compat_bunnycdn.yaml"
+  To:
+   - "compat_bunnycdn.php"
+   - "compat_bunnycdn.yaml"
+  Checksum:
+   - "13173053705f2586021db2fc97279e6f9661d2034cf6a17038873627fe87e625:2677"
+   - "2003fef71511cb96e1adceb26a3a466a7e8efe301eac3473b77db7415301a87b:2266"
+ Used with: "modules"
+ Reannotate: "modules.dat"
+flags.css:
+ Name: "Flags CSS"
+ Version: "2021.242.628"
+ Dependencies:
+  CIDRAM Core: ">=1.13.1"
+ Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
+ Uninstallable: true
+ Provisional: true
+ Files:
+  From:
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/flags.css"
+  To:
+   - "fe_assets/flags.css"
+  Checksum:
+   - "32fea34f5a7d59654f30bd569e376425304dc51d84ed1a98aab6fb236fd38fb8:191405"
+ Reannotate: "modules.dat"
+module_abuseipdb.php:
+ Name: "AbuseIPDB module"
+ False Positive Risk: "Medium"
+ Version: "2021.140.589"
+ Dependencies:
+  PHP: ">=5.4"
+  CIDRAM Core: "^1.18.1|>=2.5.1"
+ Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
+ Uninstallable: true
+ Files:
+  From:
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_abuseipdb.php"
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_abuseipdb.yaml"
+  To:
+   - "module_abuseipdb.php"
+   - "module_abuseipdb.yaml"
+  Checksum:
+   - "2073c0cf728b57e78fab7a45c84629c5f308e654cb24a76d067112ec19b14dbc:7020"
+   - "f7ec386d728d0595bc61b594274d434cc537b0427de13ed114068e8a5ca500a0:2255"
+ Used with: "modules"
+ Reannotate: "modules.dat"
+module_badhosts.php:
+ Name: "Bad hosts blocker module"
+ False Positive Risk: "Medium"
+ Version: "2021.180.647"
+ Dependencies:
+  PHP: ">=5.4"
+  CIDRAM Core: ">=1.13.1"
+ Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
+ Uninstallable: true
+ Files:
+  From:
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_badhosts.php"
+  To:
+   - "module_badhosts.php"
+  Checksum:
+   - "144327295261310a44560027f14d5a4ee499a0870722397c8c9350e9234ec2d3:16043"
+ Used with: "modules"
+ Reannotate: "modules.dat"
+module_badhosts_isps.php:
+ Name: "Bad hosts blocker module (ISPs)"
+ False Positive Risk: "High"
+ Version: "2021.118.492"
+ Dependencies:
+  PHP: ">=5.4"
+  CIDRAM Core: ">=1.13.1"
+ Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
+ Uninstallable: true
+ Files:
+  From:
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_badhosts_isps.php"
+  To:
+   - "module_badhosts_isps.php"
+  Checksum:
+   - "2661756eb87e4b9696055efa3e5bbc3667b8be94326bfcdd780f393433369413:2611"
+ Used with: "modules"
+ Reannotate: "modules.dat"
+module_badtlds.php:
+ Name: "Bad TLDs blocker module"
+ False Positive Risk: "Low"
+ Version: "2021.95.583"
+ Dependencies:
+  PHP: ">=5.4"
+  CIDRAM Core: ">=1.13.1"
+ Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
+ Uninstallable: true
+ Files:
+  From:
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_badtlds.php"
+  To:
+   - "module_badtlds.php"
+  Checksum:
+   - "460ec2dfb73cf464d8adfad56d241130461a58f75b3c9dd9fb0be92cf05225c0:2070"
+ Used with: "modules"
+ Reannotate: "modules.dat"
+module_bgpview.php:
+ Name: "BGPView module"
+ False Positive Risk: "Low"
+ Version: "2022.53.500"
+ Dependencies:
+  PHP: ">=7"
+  CIDRAM Core: ">=2.2"
+  l10n/{lang}: ">=2021.139.519"
+ Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
+ Uninstallable: true
+ Files:
+  From:
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_bgpview.php"
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_bgpview.yaml"
+  To:
+   - "module_bgpview.php"
+   - "module_bgpview.yaml"
+  Checksum:
+   - "b26e15e52bf9ae64a7067e6e7e061a262a2a81f14a7ea1b44442b895ada58bf8:7650"
+   - "0f33226eb374fb0dc9fd0bfdc299e7313aec312e65070837c470579f1972cc1f:1355"
+ Used with: "modules"
+ Reannotate: "modules.dat"
+module_botua.php:
+ Name: "Optional user agents module"
+ False Positive Risk: "Medium"
+ Version: "2022.53.500"
+ Dependencies:
+  PHP: ">=5.4"
+  CIDRAM Core: ">=1.13.1"
+ Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
+ Uninstallable: true
+ Files:
+  From:
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_botua.php"
+  To:
+   - "module_botua.php"
+  Checksum:
+   - "02aeeda7c70b64641b108d1da41028ccb20d1f813d9d6e74a136710845643783:22986"
+ Used with: "modules"
+ Reannotate: "modules.dat"
+module_cookies.php:
+ Name: "Optional cookie scanner module"
+ False Positive Risk: "Low"
+ Version: "2021.287.582"
+ Dependencies:
+  PHP: ">=5.4"
+  CIDRAM Core: ">=1.13.1"
+ Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
+ Uninstallable: true
+ Files:
+  From:
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_cookies.php"
+  To:
+   - "module_cookies.php"
+  Checksum:
+   - "8c50f81ff702cc3842ad0bb6a0bad7e0013e7dde7d4e434dd1d337aa8feee34c:8361"
+ Used with: "modules"
+ Reannotate: "modules.dat"
+module_extras.php:
+ Name: "Optional security extras module"
+ False Positive Risk: "Medium"
+ Version: "2021.178.318"
+ Dependencies:
+  PHP: ">=5.4"
+  CIDRAM Core: ">=1.13.1"
+ Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
+ Uninstallable: true
+ Files:
+  From:
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_extras.php"
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_extras.yaml"
+  To:
+   - "module_extras.php"
+   - "module_extras.yaml"
+  Checksum:
+   - "d7bcf0eabf4a86f837872496da63337a05f763f752ba7d39abf37553a062fac9:24826"
+   - "a794d27f0aaf79b3b37a9c53cbc9e05c91b7fc5fe6cebb9d491f9853efc9fed0:1017"
+ Used with: "modules"
+ Reannotate: "modules.dat"
+module_httpver.php:
+ Name: "HTTP version checker module"
+ False Positive Risk: "Low"
+ Version: "2021.95.583"
+ Dependencies:
+  PHP: ">=5.4"
+  CIDRAM Core: ">=1.18"
+ Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
+ Uninstallable: true
+ Files:
+  From:
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_httpver.php"
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_httpver.yaml"
+  To:
+   - "module_httpver.php"
+   - "module_httpver.yaml"
+  Checksum:
+   - "e5f7dfe50dda58ac05f37a50bf4a0dad7ff8bc42ddcab60f127e608111c05b61:5176"
+   - "ecfdc9cf48af19396c4489d5b1aea94cec251498b110fc7c3a2e07c45d4e5010:3563"
+ Used with: "modules"
+ Reannotate: "modules.dat"
+module_projecthoneypot.php:
+ Name: "Project Honeypot module"
+ False Positive Risk: "Medium"
+ Version: "2021.118.492"
+ Dependencies:
+  PHP: ">=5.4"
+  CIDRAM Core: ">=1.18"
+ Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
+ Uninstallable: true
+ Files:
+  From:
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_projecthoneypot.php"
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_projecthoneypot.yaml"
+  To:
+   - "module_projecthoneypot.php"
+   - "module_projecthoneypot.yaml"
+  Checksum:
+   - "6e9f0a2c5bba8da117584c243b3b6321e9d3de1a57834997c31dc2847f1ad16f:5770"
+   - "296a9d098b7a04f3a524836e20f6e1872ca32950728efc82d8cfd28313127b8f:1897"
+ Used with: "modules"
+ Reannotate: "modules.dat"
+module_refspam.php:
+ Name: "Referrer spam module"
+ False Positive Risk: "Medium"
+ Version: "2021.95.583"
+ Dependencies:
+  PHP: ">=5.5"
+  CIDRAM Core: ">=1.13.1"
+ Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
+ Uninstallable: true
+ Files:
+  From:
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_refspam.php"
+   - "https://raw.githubusercontent.com/symfony/polyfill-intl-idn/3bff59ea7047e925be6b7f2059d60af31bb46d6a/Idn.php"
+   - "https://raw.githubusercontent.com/symfony/polyfill-intl-idn/3bff59ea7047e925be6b7f2059d60af31bb46d6a/bootstrap.php"
+   - "https://raw.githubusercontent.com/symfony/polyfill-mbstring/3ed80deaf77c304010e3f637bc1842c85fd6c485/Mbstring.php"
+   - "https://raw.githubusercontent.com/symfony/polyfill-mbstring/3ed80deaf77c304010e3f637bc1842c85fd6c485/bootstrap.php"
+  To:
+   - "module_refspam.php"
+   - "classes/Symfony/Idn.php"
+   - "classes/Symfony/Idn-bootstrap.php"
+   - "classes/Symfony/Mbstring.php"
+   - "classes/Symfony/Mbstring-bootstrap.php"
+  Checksum:
+   - "0c28c325235046a041531276dc67cc7b77674d60363fc3f246647b300865ecec:13365"
+   - "5ef6df1cecc7cd468d1077c41e164c1155c5d84d5ac58193c43c930b18912e52:8750"
+   - "149715bd93cc76d66f16b5430fb7ddff560875d9063fc8d6089b56496fd39164:4610"
+   - "6a41fab9e7100d2ed6c8a49ca93d4c08489a11944b97bb95c9771913d10b84cb:28145"
+   - "d41ea1b39f5da2c767d9fbc220c4c50ef57158794572c27eb9fe5b5a929d44fb:6575"
+ Used with: "modules"
+ Reannotate: "modules.dat"
+module_sfs.php:
+ Name: "Stop Forum Spam module"
+ False Positive Risk: "Low"
+ Version: "2021.287.582"
+ Dependencies:
+  PHP: ">=5.4"
+  CIDRAM Core: ">=1.18"
+ Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
+ Uninstallable: true
+ Files:
+  From:
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_sfs.php"
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_sfs.yaml"
+  To:
+   - "module_sfs.php"
+   - "module_sfs.yaml"
+  Checksum:
+   - "fc4b430ff5839bad109d351e9923695712f18018a6428529d1bacdbf9d7ae291:3938"
+   - "e7067062deb21f4a83fecf416eba1c99cd5626a1b74fe55fd8c28f737ea733a9:562"
+ Used with: "modules"
+ Reannotate: "modules.dat"
