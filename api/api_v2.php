@@ -50,7 +50,9 @@ foreach (['functions.php', 'config.php', 'lang.php', 'frontend_functions.php'] a
 /** Class for OOP implementation. */
 class API
 {
-    /** We'll inherit the $CIDRAM global to this with our constructor. */
+    /**
+     * @var array We'll inherit the $CIDRAM global to this with our constructor.
+     */
     public $CIDRAM = [];
 
     public function __construct(array &$CIDRAM)
@@ -58,6 +60,14 @@ class API
         $this->CIDRAM = &$CIDRAM;
     }
 
+    /**
+     * Lookup method.
+     *
+     * @param string|array $Addr The address (or array of addresses) to look up.
+     * @param bool $Modules Whether to test against modules. (True = Yes; False = No).
+     * @param string $UA An optional custom user agent to cite for the simulated block event.
+     * @return array The results of the lookup.
+     */
     public function lookup($Addr = '', $Modules = false, $UA = '')
     {
         $CIDRAM = &$this->CIDRAM;

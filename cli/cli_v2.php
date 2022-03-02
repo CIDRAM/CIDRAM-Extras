@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: CLI for CIDRAM >= v2 (last modified: 2022.02.07).
+ * This file: CLI for CIDRAM >= v2 (last modified: 2022.03.02).
  */
 
 /** "CIDRAM" constant needed as sanity check for some required files. */
@@ -19,7 +19,7 @@ if (!defined('CIDRAM')) {
 /** Version check. */
 if (!version_compare(PHP_VERSION, '7.2.0', '>=')) {
     header('Content-Type: text/plain');
-    die('[CIDRAM CLI] Not compatible with PHP versions below 7.2.0; Please update PHP in order to use CIDRAM CLI.');
+    die('[CIDRAM CLI] Not compatible with PHP versions below 7.2; Please update PHP in order to use CIDRAM CLI.');
 }
 
 /** Create an array for our working data, populate the vault, etc. */
@@ -59,7 +59,7 @@ if (
 }
 
 /** Show basic information. */
-echo "CIDRAM CLI mode (build 2021.77.727).
+echo "CIDRAM CLI mode (build 2022.60.668 for v2).
 
 To test whether an IP address is blocked by CIDRAM:
 >> test xxx.xxx.xxx.xxx
