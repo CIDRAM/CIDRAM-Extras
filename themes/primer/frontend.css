@@ -60,13 +60,14 @@ a:active,a:focus{color:#cb2431}
 input,textarea{padding:0 8px 0 8px;font-weight:600;border-radius:6px}
 select,option{padding:0;font-weight:700;border-radius:0}
 select,option,input:not([type=checkbox]):not([type=radio]),textarea{margin:2px;border-color:rgba(27,31,35,.4);border-style:solid;border-width:1px;box-shadow:0 1px 0 rgba(27,31,35,.04),inset 0 1px 0 rgba(255,255,255,.25);transition:background-color .2s cubic-bezier(.3,0,.5,1);filter:grayscale(.3) brightness(.9)}
-select:active,textarea:active:not([readonly]),input:active{box-shadow:inset 0 1px 0 rgba(225,228,232,.2);transition:none;filter:grayscale(0) brightness(1)}
+select:active,textarea:active:not([readonly]),input:active{box-shadow:inset 0 1px 0 rgba(225,228,232,.2);filter:grayscale(0) brightness(1)}
 select:disabled,textarea:disabled,input:disabled{filter:grayscale(1) brightness(.3)}
 select:focus,textarea:focus:not([readonly]),input:focus{outline:1px dotted transparent;outline-offset:2px;box-shadow:0 0 0 3px rgba(3,102,214,.3);filter:grayscale(0) brightness(1)}
-select:hover,textarea:hover:not([readonly]),input:hover{transition-duration:.1s;text-decoration:none;filter:grayscale(0) brightness(1)}
+select:hover,textarea:hover:not([readonly]),input:hover{text-decoration:none;filter:grayscale(0) brightness(1)}
 select,option,textarea,input{color:#000;background-color:#fff}
 input[type=button],input[type=submit]{color:#fff;background-color:#22863a}
 input[type=reset]{color:#fff;background-color:#cb2431}
+input[type=button]:hover,input[type=submit]:hover,input[type=reset]:hover,button:hover{transition:all .2s ease-out;filter:grayscale(0) brightness(1.2)}
 .textLabel{color:#466;white-space:pre}
 .f400{width:400px}
 @media only all and (max-width:410px) {
@@ -146,7 +147,7 @@ input[type=text][pattern]:invalid:not(input[type=text]:placeholder-shown){backgr
 .gridboxcheckcell{vertical-align:middle;margin:0;padding:auto}
 .gridboxcheckcell>input[type=checkbox]{position:relative;top:1px}
 .gridlabel{display:block;height:100%;width:100%}
-.gridlabel:hover{background-color:rgba(255,255,255,.4);transition:all .2s ease-out;filter:brightness(1.4)}
+.gridlabel:hover{background-color:rgba(255,255,255,.4);filter:brightness(1.4)}
 .gridHA.vrte,.gridHA:not(.gridVA):not(.gridVB):not(.vrto){background:linear-gradient(90deg,rgba(0,0,0,.125) 0 40%,rgba(0,0,0,0) 80%)}
 .gridHA.vrto{background:linear-gradient(90deg,rgba(0,0,0,.125) 0 25%,rgba(0,0,0,0) 50%)}
 .gridHA.gridVA{background-color:rgba(0,0,0,.125)}
@@ -156,3 +157,7 @@ input[type=text][pattern]:invalid:not(input[type=text]:placeholder-shown){backgr
 .configMatrixLabel.gridVB{background:linear-gradient(0deg,rgba(127,191,251,.35),rgba(0,0,0,0))}
 .warning::before,.warning::after{content:"⚠️";font-size:24px;display:inline;line-height:100%;position:relative;top:2px}
 .warning{font-weight:700;color:#cb2431;background:linear-gradient(90deg,rgba(255,192,0,0) 0,rgba(255,192,0,.8) 20% 80%,rgba(255,192,0,0) 100%);line-height:100%}
+.gridlabel,.copySvg{transition:all .2s ease-out}
+.copySvg{position:relative;top:-3px;stroke-width:1px;stroke-linecap:round}
+.copySvg:hover{filter:brightness(1.2);cursor:pointer}
+.copyHind,.copyFore,.copyLine{stroke:#24292e;fill:#f6f8fa}
