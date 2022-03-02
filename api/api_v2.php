@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: CIDRAM API loader (last modified: 2021.07.05).
+ * This file: CIDRAM API loader (last modified: 2022.03.02).
  */
 
 namespace CIDRAM\API;
@@ -21,7 +21,7 @@ if (!defined('CIDRAM')) {
 /** Version check. */
 if (!version_compare(PHP_VERSION, '5.4.0', '>=')) {
     header('Content-Type: text/plain');
-    die('[CIDRAM API] Not compatible with PHP versions below 5.4.0; Please update PHP in order to use CIDRAM.');
+    die('[CIDRAM API] Not compatible with PHP versions below 5.4; Please update PHP in order to use CIDRAM.');
 }
 
 /** Create an array for our working data. */
@@ -39,7 +39,7 @@ if (!is_dir($CIDRAM['Vault'])) {
 }
 
 /** Load each required file or kill the script if any of them don't exist. */
-foreach (['functions.php', 'config.php', 'frontend_functions.php'] as $File) {
+foreach (['functions.php', 'config.php', 'lang.php', 'frontend_functions.php'] as $File) {
     if (!file_exists($CIDRAM['Vault'] . $File)) {
         header('Content-Type: text/plain');
         die('[CIDRAM API] ' . $File . ' is missing! Please reinstall CIDRAM.');
