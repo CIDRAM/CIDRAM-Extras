@@ -115,7 +115,7 @@ compat_bunnycdn.php:
  Reannotate: "modules.dat"
 flags.css:
  Name: "Flags CSS"
- Version: "2021.242.628"
+ Version: "2022.65.0"
  Dependencies:
   CIDRAM Core: ">=1.13.1"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
@@ -127,7 +127,7 @@ flags.css:
   To:
    - "fe_assets/flags.css"
   Checksum:
-   - "32fea34f5a7d59654f30bd569e376425304dc51d84ed1a98aab6fb236fd38fb8:191405"
+   - "2bb4f2b6d0c5b1ce9ddbc4bc90ec584300092ba91bafdaf90823f087862d8de7:191734"
  Reannotate: "modules.dat"
 module_abuseipdb.php:
  Name: "AbuseIPDB module"
