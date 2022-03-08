@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2021.04.29).
+ * This file: Bad hosts blocker module (last modified: 2022.03.08).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [ ]Medium [x]High »
  */
@@ -23,16 +23,15 @@ if (!isset($CIDRAM['ModuleResCache'])) {
     $CIDRAM['ModuleResCache'] = [];
 }
 
-/**
- * Defining as closure for later recall (one param; no return value).
- *
- * @param int $Infractions The number of infractions incurred thus far.
- */
-$CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) {
+/** Defining as closure for later recall (no params; no return value). */
+$CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     /** Guard. */
     if (empty($CIDRAM['BlockInfo']['IPAddr'])) {
         return;
     }
+
+    /** The number of signatures triggered by this point in time. */
+    $Before = $CIDRAM['BlockInfo']['SignaturesCount'] ?? 0;
 
     /** Don't continue if compatibility indicators exist. */
     if (strpos($CIDRAM['BlockInfo']['Signatures'], 'compat_bunnycdn.php') !== false) {
@@ -71,7 +70,7 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
 
     /** WordPress cronjob bypass. */
     $Bypass(
-        (($CIDRAM['BlockInfo']['SignatureCount'] - $Infractions) > 0) &&
+        (($CIDRAM['BlockInfo']['SignatureCount'] - $Before) > 0) &&
         preg_match('~^/wp-cron\.php\?doing_wp_cron=\d+\.\d+$~', $_SERVER['REQUEST_URI']) &&
         defined('DOING_CRON'),
         'WordPress cronjob bypass'
@@ -79,4 +78,4 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
 };
 
 /** Execute closure. */
-$CIDRAM['ModuleResCache'][$Module]($Infractions);
+$CIDRAM['ModuleResCache'][$Module]();

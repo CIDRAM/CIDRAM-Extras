@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2021.06.28).
+ * This file: Optional security extras module (last modified: 2022.03.08).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -23,14 +23,13 @@ if (!isset($CIDRAM['ModuleResCache'])) {
     $CIDRAM['ModuleResCache'] = [];
 }
 
-/**
- * Defining as closure for later recall (one param; no return value).
- *
- * @param int $Infractions The number of infractions incurred thus far.
- */
-$CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) {
+/** Defining as closure for later recall (no params; no return value). */
+$CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     /** Inherit trigger closure (see functions.php). */
     $Trigger = $CIDRAM['Trigger'];
+
+    /** The number of signatures triggered by this point in time. */
+    $Before = $CIDRAM['BlockInfo']['SignaturesCount'] ?? 0;
 
     $Trigger(count($_REQUEST) >= 500, 'Hack attempt', 'Too many request variables sent!'); // 2017.01.01
 
@@ -260,7 +259,7 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
 
         /** Joomla plugins update bypass (POST RFI conflict). */
         $Bypass(
-            ($CIDRAM['BlockInfo']['SignatureCount'] - $Infractions) > 0 &&
+            ($CIDRAM['BlockInfo']['SignatureCount'] - $Before) > 0 &&
             strpos($CIDRAM['BlockInfo']['rURI'], 'administrator/') !== false &&
             strpos($CIDRAM['BlockInfo']['WhyReason'], 'POST RFI') !== false,
             'Joomla plugins update bypass (POST RFI conflict)'
@@ -404,4 +403,4 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
 };
 
 /** Execute closure. */
-$CIDRAM['ModuleResCache'][$Module]($Infractions);
+$CIDRAM['ModuleResCache'][$Module]();

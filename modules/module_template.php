@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Template module file for CIDRAM (last modified: 2021.04.29).
+ * This file: Template module file for CIDRAM (last modified: 2022.03.08).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -21,12 +21,8 @@ if (!isset($CIDRAM['ModuleResCache'])) {
     $CIDRAM['ModuleResCache'] = [];
 }
 
-/**
- * Defining as closure for later recall (one param; no return value).
- *
- * @param int $Infractions The number of infractions incurred thus far.
- */
-$CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) {
+/** Defining as closure for later recall (no params; no return value). */
+$CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     /** Inherit trigger closure (see functions.php). */
     $Trigger = $CIDRAM['Trigger'];
 
@@ -199,4 +195,4 @@ $CIDRAM['ModuleResCache'][$Module] = function ($Infractions = 0) use (&$CIDRAM) 
 };
 
 /** Execute closure. */
-$CIDRAM['ModuleResCache'][$Module]($Infractions);
+$CIDRAM['ModuleResCache'][$Module]();
