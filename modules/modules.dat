@@ -53,7 +53,7 @@ PHPMailer:
 Search engines blocker module:
  Name: "Search engines blocker module"
  False Positive Risk: "Medium"
- Version: "2022.67.0"
+ Version: "2022.67.500"
  Dependencies:
   PHP: ">=5.4"
   CIDRAM Core: "^2.7"
@@ -83,7 +83,7 @@ Search engines blocker module:
    - "099b6abb39cdb555a8db55916e82cebf59b1801a1090cfb026dc86b44a639902:2910"
    - "dd7afe0af88d711d36cd44b2fdefe353ee9cee6ea4e3c061e8f94c68e5a04745:3437"
    - "d541d415ddb89b318b9f6799e37c12debf3b2026ccb6439d19ae8d4b0cff2ed5:1316"
-   - "9be75c097fae69e31aba03f0c134a1b15b330f0a2a16541cfcf94be5ebf888b5:10202"
+   - "09818581d5077cd61165931aa59a2ee1bf84cf29b9586e883adbf74da9b9dfd1:10202"
  Used with:
   - "modules"
   - "n/a"
@@ -206,7 +206,7 @@ module_badtlds.php:
 module_bgpview.php:
  Name: "BGPView module"
  False Positive Risk: "Low"
- Version: "2022.67.0"
+ Version: "2022.67.500"
  Dependencies:
   PHP: ">=7"
   CIDRAM Core: "^2.2"
@@ -221,8 +221,8 @@ module_bgpview.php:
    - "module_bgpview.php"
    - "module_bgpview.yaml"
   Checksum:
-   - "1b4ee90ea9d22394236ac993c06cfd69c59339e61f7dc16f121465a3ca51376c:7750"
-   - "ac625d35330d2713f8c57f334d25b60b7391139dad735fb171e2880c5f75d24c:1348"
+   - "6974873a21c4c06bc924f58511a823aab55e03dd9087c6dadeb9e185a0abc170:7766"
+   - "b9852991af216e039ee3f7d412ca540543091e5edf5a269ff433c797ffd489fc:1344"
  Used with: "modules"
  Reannotate: "modules.dat"
 module_botua.php:
