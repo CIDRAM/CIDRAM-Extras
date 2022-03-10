@@ -1,6 +1,6 @@
 *{vertical-align:text-top}
 body,input,select,textarea,.idx{font-size:calc((12px * {Magnification}) + .03vw)}
-body{font-family:'PT Serif',sans-serif,'Lucida Grande',Tahoma,Verdana,Arial;letter-spacing:1px;text-decoration:none;border-style:none;margin:0;white-space:normal;background-color:#333;color:#cde;background-image:url(data:image/gif;base64,R0lGODdhAwADAIACADMzM1VicCwAAAAAAwADAAACBIQRBwUAOw==);background-attachment:fixed}
+body{font-family:'PT Serif','Lucida Grande',Tahoma,Verdana,Arial;letter-spacing:1px;text-decoration:none;border-style:none;margin:0;white-space:normal;background-color:#333;color:#cde;background-image:url(data:image/gif;base64,R0lGODdhAwADAIACADMzM1VicCwAAAAAAwADAAACBIQRBwUAOw==);background-attachment:fixed}
 code{font-family:monospace;background-color:rgba(85,85,85,.5);color:#111;vertical-align:0;display:inline-block;height:calc(1em + 2px)}
 hr{border-style:solid none none;border-width:1px;margin:5px 2px 0;padding:2px;color:#89b}
 img.ico{width:16px;height:16px;border:0;filter:hue-rotate(180deg) brightness(.8)}
