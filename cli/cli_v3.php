@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: CLI for CIDRAM >= v3 (last modified: 2022.03.02).
+ * This file: CLI for CIDRAM >= v3 (last modified: 2022.03.11).
  */
 
 /** "CIDRAM" constant needed as sanity check for some required files. */
@@ -58,8 +58,11 @@ if (
     die('[CIDRAM CLI] Webserver access not permitted.');
 }
 
+/** Load CIDRAM front-end L10N data. */
+$CIDRAM['LoadL10N']($CIDRAM['Vault'] . 'l10n' . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR);
+
 /** Show basic information. */
-echo "CIDRAM CLI mode (build 2022.60.668 for v3).
+echo "CIDRAM CLI mode (build 2022.69.0 for v3).
 
 To test whether an IP address is blocked by CIDRAM:
 >> test xxx.xxx.xxx.xxx
