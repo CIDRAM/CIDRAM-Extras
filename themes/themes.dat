@@ -2,7 +2,7 @@
 theme/bluemetal:
  Name: "Theme: Blue Metal"
  Extended Description: "<img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-bluemetal.png" alt="Preview" /><br />Simple blue/black colour scheme with gentle tones.<br /><em>Author: Caleb M (Maikuolan), based on previous work by Daniel R.</em>"
- Version: "2022.81.0"
+ Version: "2022.85.0"
  Dependencies:
   CIDRAM Core: "^1.18|>=2.5"
   CIDRAM Front-End: "^1.18|>=2.5"
@@ -23,8 +23,8 @@ theme/bluemetal:
    - "fe_assets/bluemetal/frontend.html"
    - "fe_assets/bluemetal/pips.php"
   Checksum:
-   - "18cd5aebbdc00ef7ae2ea403d2b6a296d861e795cca0fb92aed1df65f277c146:2008"
-   - "c368962618f236779cdd0e37a61073cc392b564f706c7a1d49180182b8b9f8de:2516"
+   - "e7b728ac1bdb4107f9793801b0a5bc50c1ff41f9f165b6830a01ec84cb79651f:2010"
+   - "7405a80593058c1ba96a58a27e75494e93f456fbe3cb913059cde9ae7eec2615:2518"
    - "41e60adab1e115cef3cba65bd8cae3495bd07d0e7aa088370ea2d049ce7ede9e:10575"
    - "2bae3ea25fcfe0eddbdb8bfc46102037dd1733e14c79f1857423a902aba254af:864"
    - "af80d6b5e415d4348293ca1c7ca7415690bde933b538f00a594eda4d5bf8d324:1294"
@@ -32,7 +32,7 @@ theme/bluemetal:
 theme/fullmoon:
  Name: "Theme: Full Moon"
  Extended Description: "<img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-fullmoon.png" alt="Preview" /><br />Darker, semi-transparent colours; Navigation shifted to the top; No special fonts; Full moon backdrop.<br /><em>Author: Caleb M (Maikuolan)</em>"
- Version: "2022.81.0"
+ Version: "2022.85.0"
  Dependencies:
   CIDRAM Core: "^1.18|>=2.5"
   CIDRAM Front-End: "^1.18|>=2.5"
@@ -103,8 +103,8 @@ theme/fullmoon:
    - "fe_assets/fullmoon/moon.jpg"
    - "fe_assets/fullmoon/pips.php"
   Checksum:
-   - "82f53951df12d1005b8d6433d3f374849460f919b4a4a535cd1065ea3f4e0b1e:1937"
-   - "712762d5f42cda70969505cc83ee63fcc2076deaae881902c47323017f13a9c0:2433"
+   - "fc16fc5a38609547f7b560c3ede266f53ee7b84d7b503d5f13bd13f60fff0dec:1939"
+   - "c14d1181f8c1cae7512bb7cb0704ca3d996477760009f43c545ced647b7d19cd:2435"
    - "7a996126ae2e45f2097349348740d9875adf591829a43255092fa1f002534102:1853"
    - "04531bb884bbcff29ee993291b52faa8538377f12ad0f0e7a9265b53f21d1488:7778"
    - "c2c95223939fdced650dbd0ccdf8cf0e1b041664d10c4258036809018adc2ba3:308"
@@ -137,7 +137,7 @@ theme/fullmoon:
 theme/moss:
  Name: "Theme: Moss"
  Extended Description: "<img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-moss.png" alt="Preview" /><br />Inspired by the colours of nature.<br /><em>Author: Caleb M (Maikuolan)</em>"
- Version: "2022.81.0"
+ Version: "2022.85.0"
  Dependencies:
   CIDRAM Core: "^1.18|>=2.5"
   CIDRAM Front-End: "^1.18|>=2.5"
@@ -158,8 +158,8 @@ theme/moss:
    - "fe_assets/moss/frontend.css"
    - "fe_assets/moss/frontend.html"
   Checksum:
-   - "a3dd7c9f3a2298fc671964cff511d4c01f12f9599527243e495dd8de9fae6a49:1935"
-   - "1f393ce62df9793a53c5332066854c705228fc233d2389d7604552b23f6d63c5:2436"
+   - "901635d95e22d04dcdfeffc4bb12f8d66e339d31b33c24a4b5a99af036528278:1937"
+   - "bd9c5e4c1d54d14fc1901ee8f7baee594491b9f4737ca762bbb657d8639d2de3:2438"
    - "ceb4497bbae40d04a2a8ecb42086307bc57677235685ea07bedf98795dea780f:17804"
    - "bc69b20cf48da3af955f220418129326984df4df662cae39ce1a783969d7ceb4:10770"
    - "2bae3ea25fcfe0eddbdb8bfc46102037dd1733e14c79f1857423a902aba254af:864"
@@ -167,7 +167,7 @@ theme/moss:
 theme/primer:
  Name: "Theme: Primer"
  Extended Description: "<img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-primer.png" alt="Preview" /><br />Inspired by the "Primer Design System" (utilised by GitHub, Facebook, etc)."
- Version: "2022.81.0"
+ Version: "2022.85.0"
  Dependencies:
   CIDRAM Core: "^1.18|>=2.5"
   CIDRAM Front-End: "^1.18|>=2.5"
@@ -190,8 +190,8 @@ theme/primer:
    - "fe_assets/primer/frontend.css"
    - "fe_assets/primer/frontend.html"
   Checksum:
-   - "bd79a5617eef680b62ed92d89177765735555aa7210026dffec8c85eaffeaeda:2838"
-   - "53051ccdb002fa82d41e7189df25bbf52376c747c0d9e1f5f1b3d3ee72f94ee0:3316"
+   - "eae951fdde3bb2f01d7aca3a09363cd5277734f6f14c9ff9eddd30eaa3556d81:2840"
+   - "91e29d1ec09a7b4b0c80f14cd589d4d3e7984749047c2e3e57d1fe077658a839:3318"
    - "5e2ba7a73537f3f563279cd2a70d07bca5cd07a44ef7f0750df7e46fe8ec78eb:1807"
    - "6145977fd40e6cf39446446915e1dc7691e87ce4f7f67f4f80b92cb06662cddc:574"
    - "c2b1f69fde5dd35c201b1006dec141ccaeb2e4c3de8063cd7108586a79a1fe8e:11625"
@@ -200,7 +200,7 @@ theme/primer:
 theme/primerdark:
  Name: "Theme: Primer Dark"
  Extended Description: "<img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-primerdark.png" alt="Preview" /><br />A darker version of the Primer theme."
- Version: "2022.81.0"
+ Version: "2022.85.0"
  Dependencies:
   CIDRAM Core: "^1.18|>=2.5"
   CIDRAM Front-End: "^1.18|>=2.5"
@@ -223,8 +223,8 @@ theme/primerdark:
    - "fe_assets/primerdark/frontend.css"
    - "fe_assets/primerdark/frontend.html"
   Checksum:
-   - "735c843a378d7346294ec5f4aed62fe51dc84bc19dcc0582d070c3d541d2939d:2819"
-   - "1e6be6e1369e0312a10f1264d68b59f86818e524b7686121b812687d15cda180:3297"
+   - "2ce508a762d8c8bb5e58a19dd4a607d8cbf0306e0051a6fbac0c6ad31b584c8f:2821"
+   - "f24942206d223c88e901f510c7cf7147d9e8e53e88c139c8d166fedfb3d66418:3299"
    - "5e2ba7a73537f3f563279cd2a70d07bca5cd07a44ef7f0750df7e46fe8ec78eb:1807"
    - "6145977fd40e6cf39446446915e1dc7691e87ce4f7f67f4f80b92cb06662cddc:574"
    - "15ca7598d0964ada35c921da7ba6d7887255cdea5d8b02f8b4933fb892620b3f:11466"
@@ -233,7 +233,7 @@ theme/primerdark:
 theme/rbi:
  Name: "Theme: Red-Blue Inverted"
  Extended Description: "<img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-rbi.png" alt="Preview" /><br />Exactly the same as the default theme, but with some of the colours swapped around. No big changes.<br /><em>Author: Caleb M (Maikuolan)</em>"
- Version: "2022.81.0"
+ Version: "2022.85.0"
  Dependencies:
   CIDRAM Core: "^1.18|>=2.5"
   CIDRAM Front-End: "^1.18|>=2.5"
@@ -250,14 +250,14 @@ theme/rbi:
    - "template_rbi.html"
    - "fe_assets/rbi/frontend.css"
   Checksum:
-   - "b6ac482fd30329e2b9469c9a1abde566e79c256025d445c902a81611f1d2a7d7:1925"
-   - "c7653c27ec5e69bf1f1170894f0645df399d2e593065ab30cb99a3d9156b8363:2406"
+   - "f9fb589bfa0832a4e7df4365a41fe1fe65026f64ecda0737b2726d8611bb98f2:1927"
+   - "53bc98db048566f9c2e06fd0555fb3956572ad7b78dffe44c2ea5d37cc0cd236:2408"
    - "5711f880696c521077e9d4ebac0e18e8f267d871b45096bc9c751fa9cfd56770:10396"
  Reannotate: "themes.dat"
 theme/slate:
  Name: "Theme: Slate"
  Extended Description: "<img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-slate.png" alt="Preview" /><br />Simple layout; Gentle, darker colours.<br /><em>Author: Caleb M (Maikuolan)</em>"
- Version: "2022.81.0"
+ Version: "2022.85.0"
  Dependencies:
   CIDRAM Core: "^1.18|>=2.5"
   CIDRAM Front-End: "^1.18|>=2.5"
@@ -278,8 +278,8 @@ theme/slate:
    - "fe_assets/slate/frontend.html"
    - "fe_assets/slate/pips.php"
   Checksum:
-   - "3ba0ca1ef03139ac96f8142200fc6a5ea8059b4a4a523fea0892186e8b13089a:1897"
-   - "63aa094e6da7b19838c4e8ca3a6b67b8c7a4fb1c58401cde81a7a0ab4d6a9756:2578"
+   - "f6495f9b934253d9a1758d8ade00c873df07f604e0df3ad7997e010b464a2148:1899"
+   - "ea973ecef7375b90399afc7c0417b7b9427cc6c8e532a94fd87c71bb3c2ad66c:2580"
    - "1aea9fe12493684447cc6b32ce8631fa520db75a6128866e1afc0032666b2b5d:10454"
    - "2bae3ea25fcfe0eddbdb8bfc46102037dd1733e14c79f1857423a902aba254af:864"
    - "6f59f94a3fa54fd54f255720addf3d9e7fc65ac54df5aac4201527bfea2669ed:1289"
