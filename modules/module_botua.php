@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2022.02.23).
+ * This file: Optional user agents module (last modified: 2022.05.08).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -133,9 +133,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         '/(?:digger|e(?:mail)?collector|email(?:ex|search|spider|siphon)|extract(' .
         '?:ion|or)|iscsystems|microsofturl|oozbot|psycheclone)/',
         $UANoSpace
-    ), 'Email havester'); // 2018.04.23
+    ), 'Email harvester'); // 2018.04.23 mod 2022.05.08 (typo)
 
-    $Trigger(strpos($UANoSpace, 'email') !== false, 'Possible/Suspected email havester'); // 2017.01.06
+    $Trigger(strpos($UANoSpace, 'email') !== false, 'Possible/Suspected email harvester'); // 2017.01.06 mod 2022.05.08 (typo)
 
     $Trigger(preg_match('/%(?:[01][\da-f]|2[257]|3[ce]|[57][bd]|[7f]f)/', $UANoSpace), 'Bad UA'); // 2017.01.06
 
@@ -169,11 +169,17 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         $UANoSpace
     ), 'Banned UA'); // 2017.12.14
 
-    $Trigger(preg_match(
-        '~c(?:copyright|hilkat|olly)|fetch/|flipboard|googlealerts|grub|indeedbot' .
-        '|python|quick-crawler|scrapinghub|ttd-content|^(?:abot|spider)~',
-        $UANoSpace
-    ), 'Scraper UA'); // 2021.06.05
+    if (!$Trigger((
+        preg_match('~^python-requests/2\.27~', $UANoSpace) &&
+        preg_match('~admin|config\.php~', $CIDRAM['BlockInfo']['rURI'])
+    ), 'Hack attempt')) { // 2022.05.08
+        $Trigger(preg_match(
+            '~c(?:copyright|hilkat|olly)|fetch/|flipboard|googlealerts|grub|indeedbot' .
+            '|quick-crawler|scrapinghub|ttd-content|zgrab|^(?:abot|python-requests/|s' .
+            'pider)~',
+            $UANoSpace
+        ), 'Scraper UA'); // 2022.05.08
+    }
 
     $Trigger(preg_match(
         '/(?:007ac9|200please|360spider|3d-ftp|a(?:6-indexer|ccelo|ffinity|ghaven' .
@@ -266,7 +272,6 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     $Trigger(strpos($UA, 'mozilla/4.76 [ru] (x11; U; sunos 5.7 sun4u)') !== false, 'Bot UA'); // 2017.02.25
     $Trigger(strpos($UA, 'php /') !== false, 'Bot UA'); // 2017.02.25
     $Trigger($UANoSpace === 'chorme', 'Bot UA'); // 2021.04.16
-    $Trigger(preg_match('~^python-requests/~', $UANoSpace), 'Scraper UA'); // 2021.06.16
 
     $Trigger(preg_match(
         '/(?:drop ?table|(_table|assert|co(de|ntents)|dotnet_load|e(cho|regi' .
@@ -297,6 +302,11 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
      * @link https://gist.github.com/paralax/6de9968e989c292781b2df167a1fb4ce
      */
     $Trigger(strpos($UANoSpace, 'gbrmss/') !== false, 'Gebriano webshell detected'); // 2022.02.23
+
+    /**
+     * @link https://isc.sans.edu/forums/diary/MGLNDD+Scans/28458/
+     */
+    $Trigger(preg_match('~^MGLNDD_~i', $UANoSpace), 'Attempting to expose honeypots'); // 2022.05.08
 
     /** These signatures can set extended tracking options. */
     if (
@@ -366,8 +376,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             $CIDRAM['Reporter']->report([19], ['Probe detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Bash/Shellshock UA') !== false) {
             $CIDRAM['Reporter']->report([15], ['Bash/Shellshock attempt detected via user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Email havester') !== false) {
-            $CIDRAM['Reporter']->report([19], ['Email havester detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Email harvester') !== false) {
+            $CIDRAM['Reporter']->report([19], ['Email harvester detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Execution attempt') !== false) {
             $CIDRAM['Reporter']->report([15], ['Attempted to push shell commands via user agent header.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'XSS attack') !== false) {
@@ -378,6 +388,10 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             $CIDRAM['Reporter']->report([19], ['Scraper detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Fake UA') !== false) {
             $CIDRAM['Reporter']->report([19], ['Faked user agent detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Attempting to expose honeypots') !== false) {
+            $CIDRAM['Reporter']->report([21], ['Caught attempting to expose honeypot via reporting mechanism.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Hack attempt') !== false) {
+            $CIDRAM['Reporter']->report([15, 19, 21], ['Hack attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         }
     }
 };
