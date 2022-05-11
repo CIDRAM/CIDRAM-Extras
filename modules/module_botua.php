@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional user agents module (last modified: 2022.05.08).
+ * This file: Bot user agents module (last modified: 2022.05.11).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -174,11 +174,11 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         preg_match('~admin|config\.php~', $CIDRAM['BlockInfo']['rURI'])
     ), 'Hack attempt')) { // 2022.05.08
         $Trigger(preg_match(
-            '~c(?:copyright|hilkat|olly)|fetch/|flipboard|googlealerts|grub|indeedbot' .
-            '|quick-crawler|scrapinghub|ttd-content|zgrab|^(?:abot|python-requests/|s' .
-            'pider)~',
+            '~c(?:copyright|enturyb|9hilkat|olly)|fetch/|flipboard|googlealerts|grub|' .
+            'indeedbot|quick-crawler|scrapinghub|ttd-content|zgrab|^(?:abot|python-re' .
+            'quests/|spider)~',
             $UANoSpace
-        ), 'Scraper UA'); // 2022.05.08
+        ), 'Scraper UA'); // 2022.05.11
     }
 
     $Trigger(preg_match(
