@@ -1,0 +1,76 @@
+---
+Chart.js:
+ Name: "Chart.js"
+ Version: "3.7.1"
+ Dependencies:
+  CIDRAM Core: "^3"
+ Uninstallable: true
+ Provisional: true
+ Files:
+  From:
+   - "https://raw.githubusercontent.com/Maikuolan/Chart.js-Common-Module/master/chart.min.js"
+   - "https://raw.githubusercontent.com/Maikuolan/Chart.js-Common-Module/master/_chartjs.html"
+  To:
+   - "assets/frontend/chart.min.js"
+   - "assets/frontend/_chartjs.html"
+  Checksum:
+   - "12b674f4a9199f38e9a9c6a77b8482cb21ec2805ccbc80fdff1c1b97f02ad697:195090"
+   - "615790402dd1f3b88e2dcc5c12e3bbbe59de032cae3b2a9678961b68d351b65e:893"
+PHPMailer:
+ Name: "PHPMailer"
+ Version: "6.6.0"
+ Dependencies:
+  PHP: ">=5.5"
+  CIDRAM Core: "^3"
+  ctype: "*"
+  filter: "*"
+  hash: "*"
+ Uninstallable: true
+ Provisional: true
+ Files:
+  From:
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.0/src/Exception.php"
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.0/src/OAuth.php"
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.0/src/PHPMailer.php"
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.0/src/POP3.php"
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.0/src/SMTP.php"
+  To:
+   - "classes/PHPMailer/Exception.php"
+   - "classes/PHPMailer/OAuth.php"
+   - "classes/PHPMailer/PHPMailer.php"
+   - "classes/PHPMailer/POP3.php"
+   - "classes/PHPMailer/SMTP.php"
+  Checksum:
+   - "655e82ae2e40561a4c125115ffd49fb172a5221fa224bcdb10d41bf72eae9a87:1240"
+   - "3b272d5f1fd9e185ad8daab260ad0b548a679e351701b6b78f80a6e523f1f961:3774"
+   - "af9a69684decbb422f200cc291af39df6eae303d34941737bafba0533d592f41:177425"
+   - "3e762d316dcca19da00da32ac128ff9aa5adfda2d6aaa831945af4191a4b20a1:12112"
+   - "8ed1b3a4fa558db14a5ddc3629d3ab2a0afa8a67a5f90dce545eb0cfdd3681eb:47327"
+Referrer spam module:
+ Name: "Referrer spam module"
+ False Positive Risk: "Medium"
+ Version: "2022.67.0"
+ Dependencies:
+  PHP: ">=5.5"
+  CIDRAM Core: "^3"
+ Uninstallable: true
+ Files:
+  From:
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM/v3/vault/modules/refspam.php"
+   - "https://raw.githubusercontent.com/symfony/polyfill-intl-idn/3bff59ea7047e925be6b7f2059d60af31bb46d6a/Idn.php"
+   - "https://raw.githubusercontent.com/symfony/polyfill-intl-idn/3bff59ea7047e925be6b7f2059d60af31bb46d6a/bootstrap.php"
+   - "https://raw.githubusercontent.com/symfony/polyfill-mbstring/3ed80deaf77c304010e3f637bc1842c85fd6c485/Mbstring.php"
+   - "https://raw.githubusercontent.com/symfony/polyfill-mbstring/3ed80deaf77c304010e3f637bc1842c85fd6c485/bootstrap.php"
+  To:
+   - "modules/refspam.php"
+   - "classes/Symfony/Idn.php"
+   - "classes/Symfony/Idn-bootstrap.php"
+   - "classes/Symfony/Mbstring.php"
+   - "classes/Symfony/Mbstring-bootstrap.php"
+  Checksum:
+   - "0c28c325235046a041531276dc67cc7b77674d60363fc3f246647b300865ecec:13365"
+   - "5ef6df1cecc7cd468d1077c41e164c1155c5d84d5ac58193c43c930b18912e52:8750"
+   - "149715bd93cc76d66f16b5430fb7ddff560875d9063fc8d6089b56496fd39164:4610"
+   - "6a41fab9e7100d2ed6c8a49ca93d4c08489a11944b97bb95c9771913d10b84cb:28145"
+   - "d41ea1b39f5da2c767d9fbc220c4c50ef57158794572c27eb9fe5b5a929d44fb:6575"
+ Used with: "modules"
