@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Referrer spam module (last modified: 2021.03.31).
+ * This file: Referrer spam module (last modified: 2022.05.18).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -24,19 +24,11 @@ if (!isset($CIDRAM['ModuleResCache'])) {
 }
 
 /**
- * Fetch Symfony polyfills for Mbstring (needed for Idn polyfills to work
- * properly in case Mbstring functions aren't available).
- */
-if (!function_exists('mb_strlen') && is_readable($CIDRAM['Vault'] . 'classes/Symfony/Mbstring-bootstrap.php')) {
-    require $CIDRAM['Vault'] . 'classes/Symfony/Mbstring-bootstrap.php';
-}
-
-/**
  * Fetch Symfony polyfills for Idn (needed to process international domain
  * names, which utilise punycode, which requires Idn functionality to decode).
  */
-if (!function_exists('idn_to_utf8') && is_readable($CIDRAM['Vault'] . 'classes/Symfony/Idn-bootstrap.php')) {
-    require $CIDRAM['Vault'] . 'classes/Symfony/Idn-bootstrap.php';
+if (!function_exists('idn_to_utf8') && is_readable($CIDRAM['Vault'] . 'classes/Symfony/bootstrap.php')) {
+    require $CIDRAM['Vault'] . 'classes/Symfony/bootstrap.php';
 }
 
 /** Defining as closure for later recall (no params; no return value). */
