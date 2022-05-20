@@ -1,4 +1,3 @@
----
 Chart.js:
  Name: "Chart.js"
  Version: "3.7.1"
@@ -7,15 +6,12 @@ Chart.js:
  Uninstallable: true
  Provisional: true
  Files:
-  From:
-   - "https://raw.githubusercontent.com/Maikuolan/Chart.js-Common-Module/master/chart.min.js"
-   - "https://raw.githubusercontent.com/Maikuolan/Chart.js-Common-Module/master/_chartjs.html"
-  To:
-   - "assets/frontend/chart.min.js"
-   - "assets/frontend/_chartjs.html"
-  Checksum:
-   - "12b674f4a9199f38e9a9c6a77b8482cb21ec2805ccbc80fdff1c1b97f02ad697:195090"
-   - "615790402dd1f3b88e2dcc5c12e3bbbe59de032cae3b2a9678961b68d351b65e:893"
+  assets/frontend/chart.min.js:
+   From: "https://raw.githubusercontent.com/Maikuolan/Chart.js-Common-Module/master/chart.min.js"
+   Checksum: "12b674f4a9199f38e9a9c6a77b8482cb21ec2805ccbc80fdff1c1b97f02ad697:195090"
+  assets/frontend/_chartjs.html:
+   From: "https://raw.githubusercontent.com/Maikuolan/Chart.js-Common-Module/master/_chartjs.html"
+   Checksum: "615790402dd1f3b88e2dcc5c12e3bbbe59de032cae3b2a9678961b68d351b65e:893"
 PHPMailer:
  Name: "PHPMailer"
  Version: "6.6.0"
@@ -28,49 +24,74 @@ PHPMailer:
  Uninstallable: true
  Provisional: true
  Files:
-  From:
-   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.0/src/Exception.php"
-   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.0/src/OAuth.php"
-   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.0/src/PHPMailer.php"
-   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.0/src/POP3.php"
-   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.0/src/SMTP.php"
-  To:
-   - "classes/PHPMailer/Exception.php"
-   - "classes/PHPMailer/OAuth.php"
-   - "classes/PHPMailer/PHPMailer.php"
-   - "classes/PHPMailer/POP3.php"
-   - "classes/PHPMailer/SMTP.php"
-  Checksum:
-   - "655e82ae2e40561a4c125115ffd49fb172a5221fa224bcdb10d41bf72eae9a87:1240"
-   - "3b272d5f1fd9e185ad8daab260ad0b548a679e351701b6b78f80a6e523f1f961:3774"
-   - "af9a69684decbb422f200cc291af39df6eae303d34941737bafba0533d592f41:177425"
-   - "3e762d316dcca19da00da32ac128ff9aa5adfda2d6aaa831945af4191a4b20a1:12112"
-   - "8ed1b3a4fa558db14a5ddc3629d3ab2a0afa8a67a5f90dce545eb0cfdd3681eb:47327"
+  PHPMailer/PHPMailer/Exception.php:
+   From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.0/src/Exception.php"
+   Checksum: "655e82ae2e40561a4c125115ffd49fb172a5221fa224bcdb10d41bf72eae9a87:1240"
+  PHPMailer/PHPMailer/OAuth.php:
+   From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.0/src/OAuth.php"
+   Checksum: "3b272d5f1fd9e185ad8daab260ad0b548a679e351701b6b78f80a6e523f1f961:3774"
+  PHPMailer/PHPMailer/PHPMailer.php:
+   From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.0/src/PHPMailer.php"
+   Checksum: "af9a69684decbb422f200cc291af39df6eae303d34941737bafba0533d592f41:177425"
+  PHPMailer/PHPMailer/POP3.php:
+   From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.0/src/POP3.php"
+   Checksum: "3e762d316dcca19da00da32ac128ff9aa5adfda2d6aaa831945af4191a4b20a1:12112"
+  PHPMailer/PHPMailer/SMTP.php:
+   From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.0/src/SMTP.php"
+   Checksum: "8ed1b3a4fa558db14a5ddc3629d3ab2a0afa8a67a5f90dce545eb0cfdd3681eb:47327"
+  phpmailer.yml:
+   From: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/phpmailer.yml"
+   Checksum: "ad4e7e84f340a29e1c68dc8d99ea11965f0c31a27f9383ab6954feef81ba87c9:1162"
+   Used with: "imports"
 Referrer spam module:
  Name: "Referrer spam module"
  False Positive Risk: "Medium"
- Version: "2022.67.0"
+ Version: "2022.137.0"
  Dependencies:
-  PHP: ">=5.5"
+  PHP: ">=7.1"
   CIDRAM Core: "^3"
  Uninstallable: true
  Files:
-  From:
-   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM/v3/vault/modules/refspam.php"
-   - "https://raw.githubusercontent.com/symfony/polyfill-intl-idn/3bff59ea7047e925be6b7f2059d60af31bb46d6a/Idn.php"
-   - "https://raw.githubusercontent.com/symfony/polyfill-intl-idn/3bff59ea7047e925be6b7f2059d60af31bb46d6a/bootstrap.php"
-   - "https://raw.githubusercontent.com/symfony/polyfill-mbstring/3ed80deaf77c304010e3f637bc1842c85fd6c485/Mbstring.php"
-   - "https://raw.githubusercontent.com/symfony/polyfill-mbstring/3ed80deaf77c304010e3f637bc1842c85fd6c485/bootstrap.php"
-  To:
-   - "modules/refspam.php"
-   - "classes/Symfony/Idn.php"
-   - "classes/Symfony/Idn-bootstrap.php"
-   - "classes/Symfony/Mbstring.php"
-   - "classes/Symfony/Mbstring-bootstrap.php"
-  Checksum:
-   - "0c28c325235046a041531276dc67cc7b77674d60363fc3f246647b300865ecec:13365"
-   - "5ef6df1cecc7cd468d1077c41e164c1155c5d84d5ac58193c43c930b18912e52:8750"
-   - "149715bd93cc76d66f16b5430fb7ddff560875d9063fc8d6089b56496fd39164:4610"
-   - "6a41fab9e7100d2ed6c8a49ca93d4c08489a11944b97bb95c9771913d10b84cb:28145"
-   - "d41ea1b39f5da2c767d9fbc220c4c50ef57158794572c27eb9fe5b5a929d44fb:6575"
- Used with: "modules"
+  modules/refspam.php:
+   From: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_refspam.php"
+   Checksum: "0c28c325235046a041531276dc67cc7b77674d60363fc3f246647b300865ecec:13365"
+   Used with: "modules"
+  Symfony/Polyfill/bootstrap.php:
+   From: "https://raw.githubusercontent.com/symfony/polyfill-intl-idn/f362de8d826550e6f325444cfe611def70c5c3ec/Symfony/Polyfill/bootstrap.php"
+   Checksum: "d1c848be8e40cd932b4c417062a06e344aebe6beefebaf627f4990a05e651653:4625"
+  Symfony/Polyfill/bootstrap80.php:
+   From: "https://raw.githubusercontent.com/symfony/polyfill-intl-idn/f362de8d826550e6f325444cfe611def70c5c3ec/Symfony/Polyfill/bootstrap80.php"
+   Checksum: "235b2ec58965606763d4939d9adecf447064056589ccf14840a8401685a89a85:4018"
+  Symfony/Polyfill/DisallowedRanges.php:
+   From: "https://raw.githubusercontent.com/symfony/polyfill-intl-idn/f362de8d826550e6f325444cfe611def70c5c3ec/Symfony/Polyfill/Resources/unidata/DisallowedRanges.php"
+   Checksum: "c951b4b333204d8a5ea67fdc03c6d0ce2c2d1d5f3484e169b983ad1df4fd59b6:8707"
+  Symfony/Polyfill/Idn.php:
+   From: "https://raw.githubusercontent.com/symfony/polyfill-intl-idn/f362de8d826550e6f325444cfe611def70c5c3ec/Symfony/Polyfill/Idn.php"
+   Checksum: "646035578baf1bb49c9a3838ef803db4dae3addccf2fa6e6cf8bc6837db40bd2:30387"
+  Symfony/Polyfill/Info.php:
+   From: "https://raw.githubusercontent.com/symfony/polyfill-intl-idn/f362de8d826550e6f325444cfe611def70c5c3ec/Symfony/Polyfill/Info.php"
+   Checksum: "92bb7f4240fbec226637cee39f4895184fef4f4c4e7bef7f35c1bb5c6497c095:493"
+  Symfony/Polyfill/Regex.php:
+   From: "https://raw.githubusercontent.com/symfony/polyfill-intl-idn/f362de8d826550e6f325444cfe611def70c5c3ec/Symfony/Polyfill/Resources/unidata/Regex.php"
+   Checksum: "387e0a11b4372895408ed6f2a0b183dab0224410f53e0b75acb52e3ede7e8bd9:100362"
+  Symfony/Polyfill/Resources/unidata/deviation.php:
+   From: "https://raw.githubusercontent.com/symfony/polyfill-intl-idn/f362de8d826550e6f325444cfe611def70c5c3ec/Symfony/Polyfill/Resources/unidata/deviation.php"
+   Checksum: "99a5e49efead1d6ee1780af3023d1f5fef26c7febb693e1ff9531c40c9dd63a3:83"
+  Symfony/Polyfill/Resources/unidata/disallowed.php:
+   From: "https://raw.githubusercontent.com/symfony/polyfill-intl-idn/f362de8d826550e6f325444cfe611def70c5c3ec/Symfony/Polyfill/Resources/unidata/disallowed.php"
+   Checksum: "1fd2115a03d5cf31fed318fffb19a0a41e0caff9526a7f0b6d73037ecc1393d6:44492"
+  Symfony/Polyfill/Resources/unidata/disallowed_STD3_mapped.php:
+   From: "https://raw.githubusercontent.com/symfony/polyfill-intl-idn/f362de8d826550e6f325444cfe611def70c5c3ec/Symfony/Polyfill/Resources/unidata/disallowed_STD3_mapped.php"
+   Checksum: "4b0c8682d28c96a7c9d7543d7f2177569d66cb2a47749090ac67ad48359111d3:5442"
+  Symfony/Polyfill/Resources/unidata/disallowed_STD3_valid.php:
+   From: "https://raw.githubusercontent.com/symfony/polyfill-intl-idn/f362de8d826550e6f325444cfe611def70c5c3ec/Symfony/Polyfill/Resources/unidata/disallowed_STD3_valid.php"
+   Checksum: "7afc76f69129190acdd6a5ea0e74520fd99159cd5c8c152388a733307848bfdd:964"
+  Symfony/Polyfill/Resources/unidata/ignored.php:
+   From: "https://raw.githubusercontent.com/symfony/polyfill-intl-idn/f362de8d826550e6f325444cfe611def70c5c3ec/Symfony/Polyfill/Resources/unidata/ignored.php"
+   Checksum: "a8feb976e2b2275eefbc5d25fb9d52970bd5a966a88cf1d27395cdd70f2ab78a:4832"
+  Symfony/Polyfill/Resources/unidata/mapped.php:
+   From: "https://raw.githubusercontent.com/symfony/polyfill-intl-idn/f362de8d826550e6f325444cfe611def70c5c3ec/Symfony/Polyfill/Resources/unidata/mapped.php"
+   Checksum: "8bac58f0d71c7d30ff9f9400b281647ae114a52eedc9588b7f3a8d0622744a4b:103243"
+  Symfony/Polyfill/Resources/unidata/virama.php:
+   From: "https://raw.githubusercontent.com/symfony/polyfill-intl-idn/f362de8d826550e6f325444cfe611def70c5c3ec/Symfony/Polyfill/Resources/unidata/virama.php"
+   Checksum: "136c161169ba3bba05298cc751b98d4481143c875b5ae0af31ea09ff3e5878d7:853"

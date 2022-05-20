@@ -1,0 +1,63 @@
+##\
+# This file is a part of the CIDRAM package.
+# Homepage: https://cidram.github.io/
+#
+# CIDRAM COPYRIGHT 2016 and beyond by Caleb Mazalevskis (Maikuolan).
+#
+# License: GNU/GPLv2
+# @see LICENSE.txt
+#
+# This file: PHPMailer defaults file (last modified: 2022.05.20).
+##/
+
+Config Defaults:
+ phpmailer:
+  event_log:
+   type: "string"
+   default: ""
+  skip_auth_process:
+   type: "bool"
+   default: false
+  enable_two_factor:
+   type: "bool"
+   default: false
+  host:
+   type: "string"
+   default: ""
+  port:
+   type: "int"
+   default: 587
+  smtp_secure:
+   type: "string"
+   default: "default"
+   choices:
+    default: "-"
+    tls: "TLS"
+    ssl: "SSL"
+  smtp_auth:
+   type: "bool"
+   default: true
+  username:
+   type: "string"
+   default: ""
+   autocomplete: "username"
+  password:
+   type: "string"
+   default: ""
+   autocomplete: "current-password"
+  set_from_address:
+   type: "email"
+   default: ""
+   autocomplete: "email"
+  set_from_name:
+   type: "string"
+   default: ""
+   autocomplete: "name"
+  add_reply_to_address:
+   type: "email"
+   default: ""
+   autocomplete: "email"
+  add_reply_to_name:
+   type: "string"
+   default: ""
+   autocomplete: "name"
