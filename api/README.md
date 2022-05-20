@@ -2,7 +2,7 @@
 
 The CIDRAM API loader is useful if you want to integrate the functionality that CIDRAM provides into an already existing solution without needing to reorganise your stack. It provides a way to load CIDRAM and access its functionality *without* performing any automated checks against the IP of the page request, or performing any of the other automated procedures that CIDRAM would normally perform during the course of its execution (if you want these automated checks and automated procedures, just install CIDRAM and its hooks normally).
 
-To use the CIDRAM API loader, install CIDRAM, but don't install any of its hooks anywhere. Copy the API loader (either `api_v2.php` if you're using CIDRAM v2, or `api_v3.php` if you're using CIDRAM v3) to the base directory of your CIDRAM installation (the same directory containing the `loader.php` file), and instead of hooking `loader.php` anywhere, hook the API loader to whichever script or package needs CIDRAM and its functionality.
+To use the CIDRAM API loader, install CIDRAM, but don't install any of its hooks anywhere. For v2, copy the API loader, `api_v2.php`, to the base directory of your CIDRAM installation (the same directory containing the `loader.php` file), and instead of hooking `loader.php` anywhere, hook the API loader to whichever script or package needs CIDRAM and its functionality. For v3, the API loader is integrated directly into the CIDRAM core itself.
 
 Example:
 
@@ -61,4 +61,4 @@ var_dump($Foo);
 ---
 
 
-Last Updated: 2 March 2022 (2022.03.02).
+Last Updated: 20 May 2022 (2022.05.20).

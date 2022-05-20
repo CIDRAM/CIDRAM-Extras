@@ -1,6 +1,6 @@
 ### CIDRAM CLI mode.
 
-This is useful if you want to use CLI or terminal to check whether an IP address is blocked by CIDRAM. CIDRAM v1 and earlier had an integrated CLI mode feature available, but this was removed since CIDRAM v2 and onward. You can reintroduce CLI mode into CIDRAM by using this separate, downloadable file (`cli_v2.php` for CIDRAM v2, or `cli_v3.php` for CIDRAM v2).
+This is useful if you want to use CLI or terminal to check whether an IP address is blocked by CIDRAM. CIDRAM v1 and earlier had an integrated CLI mode feature available, but this was removed for CIDRAM v2. You can reintroduce CLI mode into CIDRAM by using the separate, downloadable file, `cli_v2.php`.
 
 All you need to do is copy the file to the base directory of your CIDRAM installation (the same directory containing the `loader.php` file) and then run it directly from your CLI or terminal.
 
@@ -9,4 +9,4 @@ All you need to do is copy the file to the base directory of your CIDRAM install
 ---
 
 
-Last Updated: 2 March 2022 (2022.03.02).
+Last Updated: 20 May 2022 (2022.05.20).
