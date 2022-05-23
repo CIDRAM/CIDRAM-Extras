@@ -327,7 +327,7 @@ module_projecthoneypot.php:
 module_refspam.php:
  Name: "Referrer spam module"
  False Positive Risk: "Medium"
- Version: "2022.140.0"
+ Version: "2022.142.0"
  Dependencies:
   PHP: ">=7.1"
   CIDRAM Core: "^1.13.1|^2.0.1"
@@ -350,7 +350,7 @@ module_refspam.php:
    - "https://raw.githubusercontent.com/symfony/polyfill-intl-idn/f362de8d826550e6f325444cfe611def70c5c3ec/Resources/unidata/mapped.php"
    - "https://raw.githubusercontent.com/symfony/polyfill-intl-idn/f362de8d826550e6f325444cfe611def70c5c3ec/Resources/unidata/virama.php"
   To:
-   - "modules/refspam.php"
+   - "module_refspam.php"
    - "classes/Symfony/bootstrap.php"
    - "classes/Symfony/bootstrap80.php"
    - "classes/Symfony/DisallowedRanges.php"
@@ -365,7 +365,7 @@ module_refspam.php:
    - "classes/Symfony/Resources/unidata/mapped.php"
    - "classes/Symfony/Resources/unidata/virama.php"
   Checksum:
-   - "0c28c325235046a041531276dc67cc7b77674d60363fc3f246647b300865ecec:13365"
+   - "9e99207e48b3631740f952a32dc35353a81565b19f6d81e8ad24b9ad1ca03c6d:13028"
    - "d1c848be8e40cd932b4c417062a06e344aebe6beefebaf627f4990a05e651653:4625"
    - "235b2ec58965606763d4939d9adecf447064056589ccf14840a8401685a89a85:4018"
    - "c951b4b333204d8a5ea67fdc03c6d0ce2c2d1d5f3484e169b983ad1df4fd59b6:8707"
