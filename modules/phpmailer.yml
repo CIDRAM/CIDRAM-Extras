@@ -7,7 +7,7 @@
 # License: GNU/GPLv2
 # @see LICENSE.txt
 #
-# This file: PHPMailer defaults file (last modified: 2022.05.20).
+# This file: PHPMailer configuration defaults (last modified: 2022.05.23).
 ##/
 
 Config Defaults:
@@ -16,9 +16,6 @@ Config Defaults:
    type: "string"
    default: ""
   skip_auth_process:
-   type: "bool"
-   default: false
-  enable_two_factor:
    type: "bool"
    default: false
   host:

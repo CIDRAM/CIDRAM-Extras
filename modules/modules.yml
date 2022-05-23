@@ -22,7 +22,6 @@ PHPMailer:
   filter: "*"
   hash: "*"
  Uninstallable: true
- Provisional: true
  Files:
   PHPMailer/PHPMailer/Exception.php:
    From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.0/src/Exception.php"
@@ -39,22 +38,26 @@ PHPMailer:
   PHPMailer/PHPMailer/SMTP.php:
    From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.0/src/SMTP.php"
    Checksum: "8ed1b3a4fa558db14a5ddc3629d3ab2a0afa8a67a5f90dce545eb0cfdd3681eb:47327"
+  events/phpmailer.php:
+   From: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/phpmailer.php"
+   Checksum: "6edd3a890e1ebd236747df7ec2865ca01d084aebaede90967d19af3e46f72c9b:6837"
+   Used with: "events"
   imports/phpmailer.yml:
    From: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/phpmailer.yml"
-   Checksum: "ad4e7e84f340a29e1c68dc8d99ea11965f0c31a27f9383ab6954feef81ba87c9:1162"
+   Checksum: "d70c7b0ce40a8f3ca6e330bd0380bdff270415e2d4179670de36a8913d7edbf2:1116"
    Used with: "imports"
 Referrer spam module:
  Name: "Referrer spam module"
  False Positive Risk: "Medium"
- Version: "2022.137.0"
+ Version: "2022.142.0"
  Dependencies:
   PHP: ">=7.1"
   CIDRAM Core: "^3.0.0-DEV"
  Uninstallable: true
  Files:
   modules/refspam.php:
-   From: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_refspam.php"
-   Checksum: "0c28c325235046a041531276dc67cc7b77674d60363fc3f246647b300865ecec:13365"
+   From: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/refspam.php"
+   Checksum: "9d591e9cad43eeab47e920a8080ce5dc1dcbed642f229f70ac44569457268d33:12799"
    Used with: "modules"
   Symfony/Polyfill/bootstrap.php:
    From: "https://raw.githubusercontent.com/symfony/polyfill-intl-idn/f362de8d826550e6f325444cfe611def70c5c3ec/bootstrap.php"
