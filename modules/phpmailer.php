@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: PHPMailer event handlers (last modified: 2022.05.23).
+ * This file: PHPMailer event handlers (last modified: 2022.05.25).
  */
 
 /**
@@ -33,6 +33,21 @@ $this->Events->addHandler('writeToPHPMailerEventLog', function (string $Data): b
     fclose($Handle);
     if ($WriteMode === 'wb') {
         $this->logRotation($this->Configuration['phpmailer']['event_log']);
+    }
+    return true;
+});
+
+/**
+ * Build PHPMailer event log path.
+ *
+ * @return true
+ */
+$this->Events->addHandler('isLogFile', function (): bool {
+    if (!isset($this->CIDRAM['LogPatterns'])) {
+        $this->CIDRAM['LogPatterns'] = [];
+    }
+    if (strlen($this->Configuration['phpmailer']['event_log'])) {
+        $this->CIDRAM['LogPatterns'][] = $this->buildLogPattern($this->Configuration['phpmailer']['event_log'], true);
     }
     return true;
 });
