@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2022.03.08).
+ * This file: Optional security extras module (last modified: 2022.05.24).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -90,8 +90,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
      * Query-based signatures start from here.
      * Please report all false positives to https://github.com/CIDRAM/CIDRAM/issues
      */
-    if ($CIDRAM['Config']['extras']['query'] && !empty($_SERVER['QUERY_STRING'])) {
-        $Query = str_replace("\\", '/', strtolower(urldecode($_SERVER['QUERY_STRING'])));
+    if ($CIDRAM['Config']['extras']['query'] && !empty($CIDRAM['BlockInfo']['Query'])) {
+        $Query = str_replace("\\", '/', strtolower(urldecode($CIDRAM['BlockInfo']['Query'])));
         $QueryNoSpace = preg_replace('/\s/', '', $Query);
 
         $Trigger(preg_match('/\((?:["\']{2})?\)/', $QueryNoSpace), 'Query command injection'); // 2016.12.31
@@ -121,14 +121,14 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         $Trigger(strpos($QueryNoSpace, 'tmp_name') !== false, 'Query command injection'); // 2016.12.31
         $Trigger(strpos($QueryNoSpace, '_contents') !== false, 'Query command injection'); // 2016.12.31
 
-        $Trigger(preg_match('/%(?:0[0-8bcef]|1)/i', $_SERVER['QUERY_STRING']), 'Non-printable characters in query'); // 2016.12.31
+        $Trigger(preg_match('/%(?:0[0-8bcef]|1)/i', $CIDRAM['BlockInfo']['Query']), 'Non-printable characters in query'); // 2016.12.31
 
         $Trigger(preg_match('/(?:amp(;|%3b)){2,}/', $QueryNoSpace), 'Nesting attack'); // 2016.12.31
         $Trigger(preg_match('/\?(?:&|cmd=)/', $QueryNoSpace), 'Nesting attack'); // 2017.02.25
 
         $Trigger((
             strpos($CIDRAM['BlockInfo']['rURI'], '/ucp.php?mode=login') === false &&
-            preg_match('/%(?:(25){2,}|(25)+27)/', $_SERVER['QUERY_STRING'])
+            preg_match('/%(?:(25){2,}|(25)+27)/', $CIDRAM['BlockInfo']['Query'])
         ), 'Nesting attack'); // 2017.01.01
 
         $Trigger(preg_match(
@@ -143,15 +143,15 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
         $Trigger(strpos($QueryNoSpace, 'globals['), 'Query global variable hack'); // 2017.01.01
 
-        $Trigger(substr($_SERVER['QUERY_STRING'], -3) === '%00', 'Null truncation attempt'); // 2016.12.31
-        $Trigger(substr($_SERVER['QUERY_STRING'], -4) === '%000', 'Null truncation attempt'); // 2016.12.31
-        $Trigger(substr($_SERVER['QUERY_STRING'], -5) === '%0000', 'Null truncation attempt'); // 2016.12.31
+        $Trigger(substr($CIDRAM['BlockInfo']['Query'], -3) === '%00', 'Null truncation attempt'); // 2016.12.31
+        $Trigger(substr($CIDRAM['BlockInfo']['Query'], -4) === '%000', 'Null truncation attempt'); // 2016.12.31
+        $Trigger(substr($CIDRAM['BlockInfo']['Query'], -5) === '%0000', 'Null truncation attempt'); // 2016.12.31
 
-        $Trigger(preg_match('/%(?:20\'|25[01u]|[46]1%[46]e%[46]4)/', $_SERVER['QUERY_STRING']), 'Hack attempt'); // 2017.01.05
+        $Trigger(preg_match('/%(?:20\'|25[01u]|[46]1%[46]e%[46]4)/', $CIDRAM['BlockInfo']['Query']), 'Hack attempt'); // 2017.01.05
         $Trigger(preg_match('/&arrs[12]\[\]=/', $QueryNoSpace), 'Hack attempt'); // 2017.02.25
         $Trigger(preg_match('/p(?:ath|ull)\[?\]/', $QueryNoSpace), 'Hack attempt'); // 2017.01.06
         $Trigger(preg_match('/user_login,\w{4},user_(?:pass|email|activation_key)/', $QueryNoSpace), 'WP hack attempt'); // 2017.02.18
-        $Trigger(preg_match('/\'%2[05]/', $_SERVER['QUERY_STRING']), 'Hack attempt'); // 2017.01.05
+        $Trigger(preg_match('/\'%2[05]/', $CIDRAM['BlockInfo']['Query']), 'Hack attempt'); // 2017.01.05
         $Trigger(preg_match('/\|(?:include|require)/', $QueryNoSpace), 'Hack attempt'); // 2017.01.01
         $Trigger(strpos($QueryNoSpace, "'='") !== false, 'Hack attempt'); // 2017.01.05
         $Trigger(strpos($QueryNoSpace, '.php/login.php') !== false, 'Hack attempt'); // 2017.01.05
@@ -160,7 +160,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         $Trigger(strpos($QueryNoSpace, 'name=lobex21.php') !== false, 'Hack attempt'); // 2017.02.18
         $Trigger(strpos($QueryNoSpace, 'php://') !== false, 'Hack attempt'); // 2017.02.18
         $Trigger(strpos($QueryNoSpace, 'tmunblock.cgi') !== false, 'Hack attempt'); // 2017.02.18
-        $Trigger(strpos($_SERVER['QUERY_STRING'], '=-1%27') !== false, 'Hack attempt'); // 2017.01.05
+        $Trigger(strpos($CIDRAM['BlockInfo']['Query'], '=-1%27') !== false, 'Hack attempt'); // 2017.01.05
         $Trigger(substr($QueryNoSpace, 0, 1) === ';', 'Hack attempt'); // 2017.01.05
 
         $Trigger(strpos($QueryNoSpace, 'allow_url_include=on') !== false, 'Plesk hack'); // 2017.01.05
@@ -188,8 +188,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         $Trigger(preg_match('/[\'"`]\+[\'"`]/', $QueryNoSpace), 'Query command injection'); // 2017.01.03
         $Trigger(preg_match('/[\'"`]\|[\'"`]/', $QueryNoSpace), 'Pipe hack'); // 2017.01.08 mod 2017.10.31 (bugged)
         $Trigger(strpos($QueryNoSpace, 'num_replies=77777') !== false, 'Overflow attempt'); // 2017.02.25
-        $Trigger(strpos($_SERVER['QUERY_STRING'], '++++') !== false, 'Overflow attempt'); // 2017.01.05
-        $Trigger(strpos($_SERVER['QUERY_STRING'], '->') !== false, 'Hack attempt'); // 2017.02.25
+        $Trigger(strpos($CIDRAM['BlockInfo']['Query'], '++++') !== false, 'Overflow attempt'); // 2017.01.05
+        $Trigger(strpos($CIDRAM['BlockInfo']['Query'], '->') !== false, 'Hack attempt'); // 2017.02.25
 
         $Trigger(preg_match('~src=https?:~', $QueryNoSpace), 'RFI'); // 2017.02.18 mod 2018.09.22
         $Trigger(strpos($QueryNoSpace, 'path]=') !== false, 'Path hack'); // 2017.02.18
@@ -199,9 +199,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
         $Trigger(preg_match('/(?:keywords|query|searchword|terms)=%d8%b3%d9%83%d8%b3/', $QueryNoSpace), 'Unauthorised'); // 2017.02.18
 
-        $Trigger(strpos($_SERVER['QUERY_STRING'], '??') !== false, 'Bad query'); // 2017.02.25
-        $Trigger(strpos($_SERVER['QUERY_STRING'], ',0x') !== false, 'Bad query'); // 2017.02.25
-        $Trigger(strpos($_SERVER['QUERY_STRING'], ',\'\',') !== false, 'Bad query'); // 2017.02.25
+        $Trigger(strpos($CIDRAM['BlockInfo']['Query'], '??') !== false, 'Bad query'); // 2017.02.25
+        $Trigger(strpos($CIDRAM['BlockInfo']['Query'], ',0x') !== false, 'Bad query'); // 2017.02.25
+        $Trigger(strpos($CIDRAM['BlockInfo']['Query'], ',\'\',') !== false, 'Bad query'); // 2017.02.25
 
         $Trigger(preg_match('/id=.*(?:benchmark\(|id[xy]=|sleep\()/', $QueryNoSpace), 'Query SQLi'); // 2017.03.01
         $Trigger(preg_match(
@@ -358,13 +358,13 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
      * Signatures based on the original REQUEST_URI start from here.
      * Please report all false positives to https://github.com/CIDRAM/CIDRAM/issues
      */
-    if ($CIDRAM['Config']['extras']['uri'] && !empty($_SERVER['REQUEST_URI'])) {
+    if ($CIDRAM['Config']['extras']['uri'] && !empty($CIDRAM['BlockInfo']['rURI'])) {
         /** Guard. */
         if (empty($CIDRAM['BlockInfo']['IPAddr'])) {
             return;
         }
 
-        $LCReqURI = str_replace("\\", '/', strtolower($_SERVER['REQUEST_URI']));
+        $LCReqURI = str_replace("\\", '/', strtolower($CIDRAM['BlockInfo']['rURI']));
 
         /** Probing for webshells/backdoors. */
         if ($Trigger(preg_match(
