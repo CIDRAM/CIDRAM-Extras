@@ -1,7 +1,7 @@
 ---
 Chart.js:
  Name: "Chart.js"
- Version: "3.7.1"
+ Version: "3.8.0"
  Dependencies:
   CIDRAM Core: "^1.20.0-DEV|^2.7.0-DEV"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
@@ -15,7 +15,7 @@ Chart.js:
    - "fe_assets/chart.min.js"
    - "fe_assets/_chartjs.html"
   Checksum:
-   - "12b674f4a9199f38e9a9c6a77b8482cb21ec2805ccbc80fdff1c1b97f02ad697:195090"
+   - "70754ee1da997da9918560fbb38897c9a5d654ad74a1d0feaa9e3189d173a932:197005"
    - "615790402dd1f3b88e2dcc5c12e3bbbe59de032cae3b2a9678961b68d351b65e:893"
  Reannotate: "modules.dat"
 PHPMailer:
