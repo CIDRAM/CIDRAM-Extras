@@ -306,7 +306,7 @@ module_httpver.php:
 module_projecthoneypot.php:
  Name: "Project Honeypot module"
  False Positive Risk: "Medium"
- Version: "2022.67.0"
+ Version: "2022.154.0"
  Dependencies:
   PHP: ">=5.4"
   CIDRAM Core: "^1.18|^2.5"
@@ -321,7 +321,7 @@ module_projecthoneypot.php:
    - "module_projecthoneypot.yaml"
   Checksum:
    - "6e9f0a2c5bba8da117584c243b3b6321e9d3de1a57834997c31dc2847f1ad16f:5770"
-   - "5717109e4076a6e1206e78741d81585cb175f409da42c6c4265411f0302348a9:1890"
+   - "8f4986ec07d28d32d7d90d338be300f142f276246cd40f32966ae3eebcee6ff7:1694"
  Used with: "modules"
  Reannotate: "modules.dat"
 module_refspam.php:
