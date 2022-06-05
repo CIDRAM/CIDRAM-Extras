@@ -264,7 +264,7 @@ module_cookies.php:
 module_extras.php:
  Name: "Optional security extras module"
  False Positive Risk: "Medium"
- Version: "2022.155.0"
+ Version: "2022.155.400"
  Dependencies:
   PHP: ">=5.4"
   CIDRAM Core: "^1.13.1|^2.0.1"
@@ -278,7 +278,7 @@ module_extras.php:
    - "module_extras.php"
    - "module_extras.yaml"
   Checksum:
-   - "7ecdd4fe3631bbe070209c091b00619db51cc04493c0c5a5b2f59083a6651a18:25191"
+   - "3217a5530373e1ce57f750182fee6fddaa7542f60df999eba4ba4628b2845431:25190"
    - "3ba90e3c835e95f1aa713dd6edf2eddd3177c3852fa44b94420764355517e5b2:1010"
  Used with: "modules"
  Reannotate: "modules.dat"

@@ -368,7 +368,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
         /** Probing for webshells/backdoors. */
         if ($Trigger(preg_match(
-            '~^(?:' .
+            '~(?:' .
             'old/wp-admin/install\.php|' .
             'shell\?cd|' .
             'test/wp-includes/wlwmanifest\.xml|' .
