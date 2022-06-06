@@ -131,7 +131,7 @@ flags.css:
 module_abuseipdb.php:
  Name: "AbuseIPDB module"
  False Positive Risk: "Medium"
- Version: "2022.67.0"
+ Version: "2022.156.0"
  Dependencies:
   PHP: ">=5.4"
   CIDRAM Core: "^1.18.1|^2.5.1"
@@ -145,7 +145,7 @@ module_abuseipdb.php:
    - "module_abuseipdb.php"
    - "module_abuseipdb.yaml"
   Checksum:
-   - "2073c0cf728b57e78fab7a45c84629c5f308e654cb24a76d067112ec19b14dbc:7020"
+   - "20fc7a636542ffd4083f8fed98e36b08c5cc87768be4de89f6c945f2134e0c37:7250"
    - "74135795c5d72d50bcd34ccd1c04e130a7a9aa8832b8c499e3f0f80142bb98b3:2248"
  Used with: "modules"
  Reannotate: "modules.dat"
@@ -206,7 +206,7 @@ module_badtlds.php:
 module_bgpview.php:
  Name: "BGPView module"
  False Positive Risk: "Low"
- Version: "2022.67.500"
+ Version: "2022.156.0"
  Dependencies:
   PHP: ">=7"
   CIDRAM Core: "^2.2"
@@ -221,7 +221,7 @@ module_bgpview.php:
    - "module_bgpview.php"
    - "module_bgpview.yaml"
   Checksum:
-   - "6974873a21c4c06bc924f58511a823aab55e03dd9087c6dadeb9e185a0abc170:7766"
+   - "2c11372f9af24d14d2f711d069b0bc9b903ed9d08b0a7a5008eebfd0708856ef:8539"
    - "b9852991af216e039ee3f7d412ca540543091e5edf5a269ff433c797ffd489fc:1344"
  Used with: "modules"
  Reannotate: "modules.dat"
@@ -306,7 +306,7 @@ module_httpver.php:
 module_projecthoneypot.php:
  Name: "Project Honeypot module"
  False Positive Risk: "Medium"
- Version: "2022.154.0"
+ Version: "2022.156.0"
  Dependencies:
   PHP: ">=5.4"
   CIDRAM Core: "^1.18|^2.5"
@@ -320,7 +320,7 @@ module_projecthoneypot.php:
    - "module_projecthoneypot.php"
    - "module_projecthoneypot.yaml"
   Checksum:
-   - "6e9f0a2c5bba8da117584c243b3b6321e9d3de1a57834997c31dc2847f1ad16f:5770"
+   - "a6bfa9fc76837ec51d95cf8d9b2932b2e9b2ea831c3cea28956f8f3c1e9a3b11:5815"
    - "8f4986ec07d28d32d7d90d338be300f142f276246cd40f32966ae3eebcee6ff7:1694"
  Used with: "modules"
  Reannotate: "modules.dat"
@@ -384,7 +384,7 @@ module_refspam.php:
 module_sfs.php:
  Name: "Stop Forum Spam module"
  False Positive Risk: "Low"
- Version: "2022.67.0"
+ Version: "2022.156.0"
  Dependencies:
   PHP: ">=5.4"
   CIDRAM Core: "^1.18|^2.5"
@@ -398,7 +398,7 @@ module_sfs.php:
    - "module_sfs.php"
    - "module_sfs.yaml"
   Checksum:
-   - "fc4b430ff5839bad109d351e9923695712f18018a6428529d1bacdbf9d7ae291:3938"
+   - "2a807ad1c1ee5707c023c8a4601f0cc41f3604f8a5247196568d17e02b2a3261:3983"
    - "abcd9145804949fb1877b8ba83a48cee83fa36667cb925b1f1c5071d77218406:555"
  Used with: "modules"
  Reannotate: "modules.dat"

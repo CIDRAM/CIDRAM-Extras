@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Project Honeypot module (last modified: 2021.04.29).
+ * This file: Project Honeypot module (last modified: 2022.06.06).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -40,17 +40,23 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     }
 
     /**
-     * We can't perform lookups without an API key, so we should check for that,
-     * too.
+     * We can't perform lookups without an API key, so we should check for
+     * that, too.
      */
     if (empty($CIDRAM['Config']['projecthoneypot']['api_key'])) {
         return;
     }
 
-    /** Normalised, lower-cased request URI; Used to determine whether the module needs to do anything for the request. */
+    /**
+     * Normalised, lower-cased request URI; Used to determine whether the
+     * module needs to do anything for the request.
+     */
     $LCURI = preg_replace('/\s/', '', strtolower($CIDRAM['BlockInfo']['rURI']));
 
-    /** If the request isn't attempting to access a sensitive page (login, registration page, etc), exit. */
+    /**
+     * If the request isn't attempting to access a sensitive page (login,
+     * registration page, etc), exit.
+     */
     if (!$CIDRAM['Config']['projecthoneypot']['lookup_everything'] && !$CIDRAM['IsSensitive']($LCURI)) {
         return;
     }
@@ -71,8 +77,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     $CIDRAM['InitialiseCacheSection']('Project Honeypot');
 
     /**
-     * Only execute if not already blocked for some other reason, if the IP is valid, if not from a private or reserved
-     * range, and if the lookup limit hasn't already been exceeded (reduces superfluous lookups).
+     * Only execute if not already blocked for some other reason, if the IP is
+     * valid, if not from a private or reserved range, and if the lookup limit
+     * hasn't already been exceeded (reduces superfluous lookups).
      */
     if (
         isset($CIDRAM['Project Honeypot']['429']) ||

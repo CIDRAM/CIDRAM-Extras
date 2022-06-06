@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: BGPView module (last modified: 2022.03.09).
+ * This file: BGPView module (last modified: 2022.06.06).
  *
  * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  */
@@ -27,6 +27,18 @@ if (!isset($CIDRAM['ModuleResCache'])) {
 $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     /** Guard. */
     if (empty($CIDRAM['BlockInfo']['IPAddr'])) {
+        return;
+    }
+
+    /**
+     * Only execute if the IP is valid, if not from a private or reserved
+     * range, and if the lookup limit hasn't already been exceeded (reduces
+     * superfluous lookups).
+     */
+    if (
+        isset($CIDRAM['BGPView']['429']) ||
+        filter_var($CIDRAM['BlockInfo']['IPAddr'], FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) === false
+    ) {
         return;
     }
 
@@ -65,37 +77,45 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             [],
             $CIDRAM['Config']['bgpview']['timeout_limit'] ?? 12
         );
-        $Lookup = (
-            substr($Lookup, 0, 63) === '{"status":"ok","status_message":"Query was successful","data":{' &&
-            substr($Lookup, -2) === '}}'
-        ) ? json_decode($Lookup, true) : false;
-        $Low = strpos($CIDRAM['BlockInfo']['IPAddr'], ':') !== false ? 128 : 32;
-        $CIDRAM['BGPView'][$CIDRAM['BlockInfo']['IPAddr'] . '/' . $Low] = ['ASN' => -1, 'CC' => 'XX', 'Time' => $Expiry];
-        $CIDRAM['BGPView-Modified'] = true;
-        if (is_array($Lookup) && isset($Lookup['data'])) {
-            if (isset($Lookup['data']['prefixes']) && is_array($Lookup['data']['prefixes'])) {
-                foreach ($Lookup['data']['prefixes'] as $Prefix) {
-                    $Factor = isset($Prefix['prefix']) ? $Prefix['prefix'] : false;
-                    $ASN = isset($Prefix['asn']['asn']) ? $Prefix['asn']['asn'] : false;
-                    $CC = isset($Prefix['asn']['country_code']) ? $Prefix['asn']['country_code'] : 'XX';
-                    if ($Factor && $ASN) {
-                        $CIDRAM['BGPView'][$Factor] = ['ASN' => $ASN, 'CC' => $CC, 'Time' => $Expiry];
+
+        if ($CIDRAM['Request']->MostRecentStatusCode !== 200) {
+            /** Lookup limit has been exceeded. */
+            $CIDRAM['BGPView']['429'] = ['Time' => $Expiry];
+        } else {
+            $Lookup = (
+                substr($Lookup, 0, 63) === '{"status":"ok","status_message":"Query was successful","data":{' &&
+                substr($Lookup, -2) === '}}'
+            ) ? json_decode($Lookup, true) : false;
+            $Low = strpos($CIDRAM['BlockInfo']['IPAddr'], ':') !== false ? 128 : 32;
+            $CIDRAM['BGPView'][$CIDRAM['BlockInfo']['IPAddr'] . '/' . $Low] = ['ASN' => -1, 'CC' => 'XX', 'Time' => $Expiry];
+            if (is_array($Lookup) && isset($Lookup['data'])) {
+                if (isset($Lookup['data']['prefixes']) && is_array($Lookup['data']['prefixes'])) {
+                    foreach ($Lookup['data']['prefixes'] as $Prefix) {
+                        $Factor = isset($Prefix['prefix']) ? $Prefix['prefix'] : false;
+                        $ASN = isset($Prefix['asn']['asn']) ? $Prefix['asn']['asn'] : false;
+                        $CC = isset($Prefix['asn']['country_code']) ? $Prefix['asn']['country_code'] : 'XX';
+                        if ($Factor && $ASN) {
+                            $CIDRAM['BGPView'][$Factor] = ['ASN' => $ASN, 'CC' => $CC, 'Time' => $Expiry];
+                        }
+                    }
+                }
+                if (
+                    isset($Lookup['data']['rir_allocation']) &&
+                    is_array($Lookup['data']['rir_allocation']) &&
+                    isset($Lookup['data']['rir_allocation']['country_code'], $Lookup['data']['rir_allocation']['prefix'])
+                ) {
+                    $Prefix = $Lookup['data']['rir_allocation']['prefix'];
+                    if (isset($CIDRAM['BGPView'][$Prefix])) {
+                        $CIDRAM['BGPView'][$Prefix]['CC'] = $Lookup['data']['rir_allocation']['country_code'];
+                    } else {
+                        $CIDRAM['BGPView'][$Prefix] = ['CC' => $Lookup['data']['rir_allocation']['country_code']];
                     }
                 }
             }
-            if (
-                isset($Lookup['data']['rir_allocation']) &&
-                is_array($Lookup['data']['rir_allocation']) &&
-                isset($Lookup['data']['rir_allocation']['country_code'], $Lookup['data']['rir_allocation']['prefix'])
-            ) {
-                $Prefix = $Lookup['data']['rir_allocation']['prefix'];
-                if (isset($CIDRAM['BGPView'][$Prefix])) {
-                    $CIDRAM['BGPView'][$Prefix]['CC'] = $Lookup['data']['rir_allocation']['country_code'];
-                } else {
-                    $CIDRAM['BGPView'][$Prefix] = ['CC' => $Lookup['data']['rir_allocation']['country_code']];
-                }
-            }
         }
+
+        /** Cache update flag. */
+        $CIDRAM['BGPView-Modified'] = true;
     }
 
     /** Process lookup results for this origin and act as per configured. */
