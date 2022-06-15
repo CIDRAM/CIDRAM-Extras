@@ -1,48 +1,6 @@
-Search engines blocker module:
- Name: "Search engines blocker module"
- False Positive Risk: "Medium"
- Version: "2022.154.0"
- Dependencies:
-  CIDRAM Core: "^3.0.0-DEV"
- Uninstallable: true
- Files:
-  modules/seblocker.php:
-   From: "https://raw.githubusercontent.com/CIDRAM/CIDRAM/v3/vault/modules/seblocker.php"
-   Checksum: "da40c15a5a0384f4982d9fcb19ebb5fc3797f22ee82c5bea6735cd3b95d8915b:3614"
-   Used with: "modules"
-  seblocker_rules.php:
-   From: "https://raw.githubusercontent.com/CIDRAM/CIDRAM/v3/vault/modules/seblocker_rules.php"
-   Checksum: "561d8707f3bd9072bb9dda71431be91f6aee5321f4f788758e3e17238e414c3e:2728"
-  signatures/seblocker_ipv4.dat:
-   From: "https://raw.githubusercontent.com/CIDRAM/CIDRAM/v3/vault/modules/seblocker_ipv4.dat"
-   Checksum: "dd7afe0af88d711d36cd44b2fdefe353ee9cee6ea4e3c061e8f94c68e5a04745:3437"
-   Used with: "ipv4"
-  signatures/seblocker_ipv6.dat:
-   From: "https://raw.githubusercontent.com/CIDRAM/CIDRAM/v3/vault/modules/seblocker_ipv6.dat"
-   Checksum: "d541d415ddb89b318b9f6799e37c12debf3b2026ccb6439d19ae8d4b0cff2ed5:1316"
-   Used with: "ipv6"
-  imports/seblocker.yml:
-   From: "https://raw.githubusercontent.com/CIDRAM/CIDRAM/v3/vault/modules/seblocker.yml"
-   Checksum: "09818581d5077cd61165931aa59a2ee1bf84cf29b9586e883adbf74da9b9dfd1:10202"
-   Used with: "imports"
-Bad hosts blocker module (ISPs):
- Name: "Bad hosts blocker module (ISPs)"
- False Positive Risk: "High"
- Version: "2022.154.0"
- Dependencies:
-  CIDRAM Core: "^3.0.0-DEV"
- Uninstallable: true
- Files:
-  modules/badhosts_isps.php:
-   From: "https://raw.githubusercontent.com/CIDRAM/CIDRAM/v3/vault/modules/badhosts_isps.php"
-   Checksum: "528f4e6a1ffcf861c239490f03889637ef4b858e5e3ce38ad5860fb06f3e83af:2308"
-   Used with: "modules"
 Chart.js:
  Name: "Chart.js"
  Version: "3.8.0"
- Dependencies:
-  CIDRAM Core: "^3.0.0-DEV"
- Uninstallable: true
  Provisional: true
  Files:
   assets/frontend/chart.min.js:
@@ -55,11 +13,9 @@ PHPMailer:
  Name: "PHPMailer"
  Version: "6.6.0"
  Dependencies:
-  CIDRAM Core: "^3.0.0-DEV"
   ctype: "*"
   filter: "*"
   hash: "*"
- Uninstallable: true
  Files:
   PHPMailer/PHPMailer/Exception.php:
    From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.0/src/Exception.php"
@@ -88,9 +44,6 @@ Referrer spam module:
  Name: "Referrer spam module"
  False Positive Risk: "Medium"
  Version: "2022.154.0"
- Dependencies:
-  CIDRAM Core: "^3.0.0-DEV"
- Uninstallable: true
  Files:
   modules/refspam.php:
    From: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/refspam.php"
@@ -135,19 +88,3 @@ Referrer spam module:
   Symfony/Polyfill/Resources/unidata/virama.php:
    From: "https://raw.githubusercontent.com/symfony/polyfill-intl-idn/f362de8d826550e6f325444cfe611def70c5c3ec/Resources/unidata/virama.php"
    Checksum: "136c161169ba3bba05298cc751b98d4481143c875b5ae0af31ea09ff3e5878d7:853"
-HTTP version checker module:
- Name: "HTTP version checker module"
- False Positive Risk: "Low"
- Version: "2022.154.0"
- Dependencies:
-  CIDRAM Core: "^3.0.0-DEV"
- Uninstallable: true
- Files:
-  imports/httpver.yml:
-   From: "https://raw.githubusercontent.com/CIDRAM/CIDRAM/v3/vault/imports/httpver.yml"
-   Checksum: "e04f8130085641f1d654156ff1001f895e772c0b0f5cedc998eae0eaa31ab2f8:3556"
-   Used with: "imports"
-  modules/httpver.php:
-   From: "https://raw.githubusercontent.com/CIDRAM/CIDRAM/v3/vault/modules/httpver.php"
-   Checksum: "486f492d11102c03766ddc34cccee739630405b9cd369cae7d65fedb31c9df83:5051"
-   Used with: "modules"
