@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bot user agents module (last modified: 2022.06.16).
+ * This file: Bot user agents module (last modified: 2022.06.21).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -247,6 +247,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         '~^(?!linkedinbot).*http-?(?:agent|client)~',
         $UANoSpace
     ), 'Unauthorised'); // 2021.07.20
+
+    $Trigger(preg_match('~fluid/|leak\.info~', $UANoSpace), 'Unauthorised'); // 2022.06.21
 
     $Trigger(preg_match(
         '~^(?:bot|java|msie|windows-live-social-object-extractor)|\((?:java|\w\:\d{2,})~',
