@@ -152,7 +152,7 @@ module_abuseipdb.php:
 module_badhosts.php:
  Name: "Bad hosts blocker module"
  False Positive Risk: "Medium"
- Version: "2022.172.0"
+ Version: "2022.174.0"
  Dependencies:
   PHP: ">=5.4"
   CIDRAM Core: "^1.13.1|^2.0.1"
@@ -164,7 +164,7 @@ module_badhosts.php:
   To:
    - "module_badhosts.php"
   Checksum:
-   - "9240b3c302e95910cbba6d9f69cc74a6d96dbf8c12aefb85325ec7f920211631:16197"
+   - "a36c7862585ad5be5558a9185e72d44a060ed4640aa47a8243fe4c88d042780f:15564"
  Used with: "modules"
  Reannotate: "modules.dat"
 module_badhosts_isps.php:
