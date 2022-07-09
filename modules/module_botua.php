@@ -131,7 +131,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         'xanax|' .
         'zdorov~',
         $UANoSpace
-    ), 'Spam UA'); // 2018.12.15 mod 2020.11.29
+    ), 'Spam UA'); // 2022.07.09
 
     $Trigger(preg_match(
         '/(?: (audit|href|mra |quibids )|\(build 5339\))/',
@@ -221,7 +221,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         'xtractorpro|' .
         'yoofind~',
         $UANoSpace
-    ), 'Backlink/SEO/Scraper UA'); // 2021.02.21
+    ), 'Backlink/SEO/Scraper UA'); // 2022.07.09
 
     $Trigger(strpos($UANoSpace, 'catch') !== false, 'Risky UA'); // 2017.01.13
 
