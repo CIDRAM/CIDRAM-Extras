@@ -4,8 +4,8 @@ theme/bluemetal:
  Extended Description: "<img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-bluemetal.png" alt="Preview" /><br />Simple blue/black colour scheme with gentle tones.<br /><em>Author: Caleb M (Maikuolan), based on previous work by Daniel R.</em>"
  Version: "2022.167.0"
  Dependencies:
-  CIDRAM Core: "^1.18|>=2.5"
-  CIDRAM Front-End: "^1.18|>=2.5"
+  CIDRAM Core: "^1.18|^2.5"
+  CIDRAM Front-End: "^1.18|^2.5"
   l10n/{lang}: ">=2021.95.583"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat"
  Uninstallable: true
@@ -34,8 +34,8 @@ theme/fullmoon:
  Extended Description: "<img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-fullmoon.png" alt="Preview" /><br />Darker, semi-transparent colours; Navigation shifted to the top; No special fonts; Full moon backdrop.<br /><em>Author: Caleb M (Maikuolan)</em>"
  Version: "2022.167.0"
  Dependencies:
-  CIDRAM Core: "^1.18|>=2.5"
-  CIDRAM Front-End: "^1.18|>=2.5"
+  CIDRAM Core: "^1.18|^2.5"
+  CIDRAM Front-End: "^1.18|^2.5"
   l10n/{lang}: ">=2021.139.519"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat"
  Uninstallable: true
@@ -139,8 +139,8 @@ theme/moss:
  Extended Description: "<img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-moss.png" alt="Preview" /><br />Inspired by the colours of nature.<br /><em>Author: Caleb M (Maikuolan)</em>"
  Version: "2022.167.0"
  Dependencies:
-  CIDRAM Core: "^1.18|>=2.5"
-  CIDRAM Front-End: "^1.18|>=2.5"
+  CIDRAM Core: "^1.18|^2.5"
+  CIDRAM Front-End: "^1.18|^2.5"
   l10n/{lang}: ">=2021.95.583"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat"
  Uninstallable: true
@@ -169,8 +169,8 @@ theme/primer:
  Extended Description: "<img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-primer.png" alt="Preview" /><br />Inspired by the "Primer Design System" (utilised by GitHub, Facebook, etc)."
  Version: "2022.167.0"
  Dependencies:
-  CIDRAM Core: "^1.18|>=2.5"
-  CIDRAM Front-End: "^1.18|>=2.5"
+  CIDRAM Core: "^1.18|^2.5"
+  CIDRAM Front-End: "^1.18|^2.5"
   l10n/{lang}: ">=2021.95.583"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat"
  Uninstallable: true
@@ -202,8 +202,8 @@ theme/primerdark:
  Extended Description: "<img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-primerdark.png" alt="Preview" /><br />A darker version of the Primer theme."
  Version: "2022.167.0"
  Dependencies:
-  CIDRAM Core: "^1.18|>=2.5"
-  CIDRAM Front-End: "^1.18|>=2.5"
+  CIDRAM Core: "^1.18|^2.5"
+  CIDRAM Front-End: "^1.18|^2.5"
   l10n/{lang}: ">=2021.95.583"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat"
  Uninstallable: true
@@ -235,8 +235,8 @@ theme/rbi:
  Extended Description: "<img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-rbi.png" alt="Preview" /><br />Exactly the same as the default theme, but with some of the colours swapped around. No big changes.<br /><em>Author: Caleb M (Maikuolan)</em>"
  Version: "2022.167.0"
  Dependencies:
-  CIDRAM Core: "^1.18|>=2.5"
-  CIDRAM Front-End: "^1.18|>=2.5"
+  CIDRAM Core: "^1.18|^2.5"
+  CIDRAM Front-End: "^1.18|^2.5"
   l10n/{lang}: ">=2021.95.583"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat"
  Uninstallable: true
@@ -259,8 +259,8 @@ theme/slate:
  Extended Description: "<img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-slate.png" alt="Preview" /><br />Simple layout; Gentle, darker colours.<br /><em>Author: Caleb M (Maikuolan)</em>"
  Version: "2022.167.0"
  Dependencies:
-  CIDRAM Core: "^1.18|>=2.5"
-  CIDRAM Front-End: "^1.18|>=2.5"
+  CIDRAM Core: "^1.18|^2.5"
+  CIDRAM Front-End: "^1.18|^2.5"
   l10n/{lang}: ">=2021.95.583"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat"
  Uninstallable: true

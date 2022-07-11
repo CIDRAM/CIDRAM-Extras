@@ -3,7 +3,7 @@ Chart.js:
  Name: "Chart.js"
  Version: "3.8.0"
  Dependencies:
-  CIDRAM Core: "^1.20.0-DEV|^2.7.0-DEV"
+  CIDRAM Core: "^1.20|^2.7"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
  Uninstallable: true
  Provisional: true
@@ -55,7 +55,7 @@ Search engines blocker module:
  False Positive Risk: "Medium"
  Version: "2022.67.500"
  Dependencies:
-  PHP: ">=5.4"
+  PHP: "^5.4|^7|^8"
   CIDRAM Core: "^2.7"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
  When Install Succeeds:
@@ -96,7 +96,7 @@ compat_bunnycdn.php:
  False Positive Risk: "Low"
  Version: "2022.67.0"
  Dependencies:
-  PHP: ">=5.4"
+  PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.13.1|^2.0.1"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
  Uninstallable: true
@@ -133,7 +133,7 @@ module_abuseipdb.php:
  False Positive Risk: "Medium"
  Version: "2022.156.0"
  Dependencies:
-  PHP: ">=5.4"
+  PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.18.1|^2.5.1"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
  Uninstallable: true
@@ -154,7 +154,7 @@ module_badhosts.php:
  False Positive Risk: "Medium"
  Version: "2022.174.0"
  Dependencies:
-  PHP: ">=5.4"
+  PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.13.1|^2.0.1"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
  Uninstallable: true
@@ -172,7 +172,7 @@ module_badhosts_isps.php:
  False Positive Risk: "High"
  Version: "2022.143.0"
  Dependencies:
-  PHP: ">=5.4"
+  PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.13.1|^2.0.1"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
  Uninstallable: true
@@ -190,7 +190,7 @@ module_badtlds.php:
  False Positive Risk: "Low"
  Version: "2021.95.583"
  Dependencies:
-  PHP: ">=5.4"
+  PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.13.1|^2.0.1"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
  Uninstallable: true
@@ -208,7 +208,7 @@ module_bgpview.php:
  False Positive Risk: "Low"
  Version: "2022.156.0"
  Dependencies:
-  PHP: ">=7"
+  PHP: "^7|^8"
   CIDRAM Core: "^2.2"
   l10n/{lang}: ">=2021.139.519"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
@@ -230,7 +230,7 @@ module_botua.php:
  False Positive Risk: "Medium"
  Version: "2022.189.530"
  Dependencies:
-  PHP: ">=5.4"
+  PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.13.1|^2.0.1"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
  Uninstallable: true
@@ -248,7 +248,7 @@ module_cookies.php:
  False Positive Risk: "Low"
  Version: "2021.287.582"
  Dependencies:
-  PHP: ">=5.4"
+  PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.13.1|^2.0.1"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
  Uninstallable: true
@@ -266,7 +266,7 @@ module_extras.php:
  False Positive Risk: "Medium"
  Version: "2022.155.400"
  Dependencies:
-  PHP: ">=5.4"
+  PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.13.1|^2.0.1"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
  Uninstallable: true
@@ -287,7 +287,7 @@ module_httpver.php:
  False Positive Risk: "Low"
  Version: "2022.67.0"
  Dependencies:
-  PHP: ">=5.4"
+  PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.18|^2.5"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
  Uninstallable: true
@@ -308,7 +308,7 @@ module_projecthoneypot.php:
  False Positive Risk: "Medium"
  Version: "2022.156.0"
  Dependencies:
-  PHP: ">=5.4"
+  PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.18|^2.5"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
  Uninstallable: true
@@ -329,7 +329,7 @@ module_refspam.php:
  False Positive Risk: "Medium"
  Version: "2022.142.0"
  Dependencies:
-  PHP: ">=7.1"
+  PHP: "^7.1|^8"
   CIDRAM Core: "^1.13.1|^2.0.1"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
  Uninstallable: true
@@ -386,7 +386,7 @@ module_sfs.php:
  False Positive Risk: "Low"
  Version: "2022.156.0"
  Dependencies:
-  PHP: ">=5.4"
+  PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.18|^2.5"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
  Uninstallable: true
