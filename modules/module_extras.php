@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2022.06.05).
+ * This file: Optional security extras module (last modified: 2022.07.21).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -239,11 +239,6 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     if ($CIDRAM['Config']['extras']['raw'] && $RawInput) {
         $RawInputSafe = strtolower(preg_replace('/[\s\x00-\x1f\x7f-\xff]/', '', $RawInput));
 
-        $Trigger(
-            !$is_WP_plugin && preg_match('/[\x00-\x1f\x7f-\xff"#\'-);<>\[\]]/', $RawInput),
-            'Non-escaped characters in POST'
-        ); // 2017.10.23
-
         $Trigger(preg_match('/charcode\(88,83,83\)/', $RawInputSafe), 'Hack attempt'); // 2017.03.01
         $Trigger((
             strpos($RawInputSafe, '<?xml') !== false &&
@@ -315,8 +310,6 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             $CIDRAM['Reporter']->report([15], ['Hack attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Nesting attack') !== false) {
             $CIDRAM['Reporter']->report([15], ['Nesting attack detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Non-escaped characters in POST') !== false) {
-            $CIDRAM['Reporter']->report([19], ['Non-escaped characters in POST detected (bot indicator).'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Null truncation attempt') !== false) {
             $CIDRAM['Reporter']->report([15], ['Null truncation attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Overflow attempt') !== false) {
