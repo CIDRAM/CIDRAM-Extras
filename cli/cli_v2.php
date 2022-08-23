@@ -183,7 +183,6 @@ while (true) {
         if ($CIDRAM['Chain']) {
             $CIDRAM['Data'] = explode("\n", substr($CIDRAM['stdin_clean'], strlen($CIDRAM['cmd']) + 1));
         } else {
-
             /** Multiline detection. */
             if ($CIDRAM['ML'] = (
                 substr($CIDRAM['stdin_clean'], strlen($CIDRAM['cmd']) + 1, 1) === '"' &&
