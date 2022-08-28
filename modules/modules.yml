@@ -11,27 +11,27 @@ Chart.js:
    Checksum: "615790402dd1f3b88e2dcc5c12e3bbbe59de032cae3b2a9678961b68d351b65e:893"
 PHPMailer:
  Name: "PHPMailer"
- Version: "6.6.3"
+ Version: "6.6.4"
  Dependencies:
   ctype: "*"
   filter: "*"
   hash: "*"
  Files:
   PHPMailer/PHPMailer/Exception.php:
-   From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.3/src/Exception.php"
+   From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.4/src/Exception.php"
    Checksum: "655e82ae2e40561a4c125115ffd49fb172a5221fa224bcdb10d41bf72eae9a87:1240"
   PHPMailer/PHPMailer/OAuth.php:
-   From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.3/src/OAuth.php"
+   From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.4/src/OAuth.php"
    Checksum: "3b272d5f1fd9e185ad8daab260ad0b548a679e351701b6b78f80a6e523f1f961:3774"
   PHPMailer/PHPMailer/PHPMailer.php:
-   From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.3/src/PHPMailer.php"
-   Checksum: "7d2030797f2249c975c20f23f9d6a1a907c208c8a473ea45dc21ef1fee9b0d05:177947"
+   From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.4/src/PHPMailer.php"
+   Checksum: "62bddcc967958b7c64221f2831e53573ed3767a0c317760bde826d57e9531b72:178349"
   PHPMailer/PHPMailer/POP3.php:
-   From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.3/src/POP3.php"
-   Checksum: "7a012b3877f0df4060bbcc6fc3560b3b4121575ca6db40a7380da2b96162fd25:12112"
+   From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.4/src/POP3.php"
+   Checksum: "d1dc392c655850c74c9a4cc06dd04bea807e20deb671cf1df58bdf342577c3f5:12112"
   PHPMailer/PHPMailer/SMTP.php:
-   From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.3/src/SMTP.php"
-   Checksum: "058d84ee36d10392f7732ddc3f36819f7bc3446abf35b59fbb8babb135375fb5:47435"
+   From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.4/src/SMTP.php"
+   Checksum: "6f4d16c997e448b4ddedb6dccedf65191533fe56ebf7343ad5c83621d757634d:47435"
   events/phpmailer.php:
    From: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/phpmailer.php"
    Checksum: "3dd80887d9931cf42eae681033e8ff435b6f992df17803c3a7a72b86420c6dcf:7268"
