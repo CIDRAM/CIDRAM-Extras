@@ -32,7 +32,7 @@ theme/bluemetal:
 theme/fullmoon:
  Name: "Theme: Full Moon"
  Extended Description: "<img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-fullmoon.png" alt="Preview" /><br />Darker, semi-transparent colours; Navigation shifted to the top; No special fonts; Full moon backdrop.<br /><em>Author: Caleb M (Maikuolan)</em>"
- Version: "2022.242.0"
+ Version: "2022.244.0"
  Dependencies:
   CIDRAM Core: "^1.18|^2.5"
   CIDRAM Front-End: "^1.18|^2.5"
@@ -118,7 +118,7 @@ theme/fullmoon:
    - "d576a6d3c2672e3f04eb7c763d3ff7aad5055c9c9697e3ca3bcbfd9130b62b4e:1548"
    - "18f8f889225daaa0678130bcfbccf6031ef20f990e989dc13f723038d78fabd0:1493"
    - "29c8b0d6739ae69aeffb07aaacbd9ae0e7a42a751d1f2979e2c0f2bbb449315f:1508"
-   - "bd7d70a4c937bd4d6229724e917c1e74f18a87832723caa9a5949f04260ae8e3:2187"
+   - "35536dfe9a591e9d60c01dd28f671cc1f55188e23075b8cd598ae5e8078e8357:3679"
    - "cf7095ea62cc4151e04bc4bf5f95f81c0d78f2aaa39d854433388c878fa93fc1:311"
    - "cb561023ca47fc2afd2668f6f9ec95a194e7d9848ae3f34b483734a68adbe5de:1336"
    - "ee6175bffa6a6323e28a35943e15a00a3de51341277026796101ead3efce1ea3:323"
