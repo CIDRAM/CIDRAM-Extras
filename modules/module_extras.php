@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2022.07.22).
+ * This file: Optional security extras module (last modified: 2022.10.01).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -106,30 +106,21 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         ), 'Query command injection'); // 2018.05.02
 
         $Trigger(preg_match(
-            '/\$(?:globals|_(cookie|env|files|get|post|request|se(rver|ssion)))/',
+            '~\$(?:globals|_(?:cookie|env|files|get|post|request|se(?:rver|ssion)))|' .
+            '_contents|dotnet_load|execcgi|http_(?:cmd|sum)|move_uploaded_file|' .
+            'pa(?:rse_ini_file|ssthru)|rewrite(?:cond|rule)|symlink|tmp_name|u(?:nserializ|ploadedfil)e~',
             $QueryNoSpace
-        ), 'Query command injection'); // 2017.01.13
-
-        $Trigger(preg_match('/http_(?:cmd|sum)/', $QueryNoSpace), 'Query command injection'); // 2017.01.02
-        $Trigger(preg_match('/pa(?:rse_ini_file|ssthru)/', $QueryNoSpace), 'Query command injection'); // 2017.01.02
-        $Trigger(preg_match('/rewrite(?:cond|rule)/', $QueryNoSpace), 'Query command injection'); // 2017.01.02
-        $Trigger(preg_match('/u(?:nserializ|ploadedfil)e/', $QueryNoSpace), 'Query command injection'); // 2017.01.13
-        $Trigger(strpos($QueryNoSpace, 'dotnet_load') !== false, 'Query command injection'); // 2016.12.31
-        $Trigger(strpos($QueryNoSpace, 'execcgi') !== false, 'Query command injection'); // 2016.12.31
-        $Trigger(strpos($QueryNoSpace, 'move_uploaded_file') !== false, 'Query command injection'); // 2016.12.31
-        $Trigger(strpos($QueryNoSpace, 'symlink') !== false, 'Query command injection'); // 2016.12.31
-        $Trigger(strpos($QueryNoSpace, 'tmp_name') !== false, 'Query command injection'); // 2016.12.31
-        $Trigger(strpos($QueryNoSpace, '_contents') !== false, 'Query command injection'); // 2016.12.31
+        ), 'Query command injection'); // 2022.10.01
 
         $Trigger(preg_match('/%(?:0[0-8bcef]|1)/i', $CIDRAM['BlockInfo']['Query']), 'Non-printable characters in query'); // 2016.12.31
 
-        $Trigger(preg_match('/(?:amp(;|%3b)){2,}/', $QueryNoSpace), 'Nesting attack'); // 2016.12.31
-        $Trigger(preg_match('/\?(?:&|cmd=)/', $QueryNoSpace), 'Nesting attack'); // 2017.02.25
+        $Trigger(preg_match('/(?:amp(?:;|%3b)){3,}/', $QueryNoSpace), 'Nesting attack'); // 2016.12.31 mod 2022.10.01
 
         $Trigger((
             strpos($CIDRAM['BlockInfo']['rURI'], '/ucp.php?mode=login') === false &&
+            strpos($CIDRAM['BlockInfo']['rURI'], 'Category=') === false &&
             preg_match('/%(?:(25){2,}|(25)+27)/', $CIDRAM['BlockInfo']['Query'])
-        ), 'Nesting attack'); // 2017.01.01
+        ), 'Nesting attack'); // 2017.01.01 mod 2022.10.01
 
         $Trigger(preg_match(
             '/(?:<(\?|body|i?frame|object|script)|(body|i?frame|object|script)>)/',
@@ -373,27 +364,27 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             ')\.php$~i',
             $LCReqURI
         ), 'Probing for webshells/backdoors')) {
-            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for webshells/backdoors.'], $this->BlockInfo['IPAddr']);
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for webshells/backdoors.'], $CIDRAM['BlockInfo']['IPAddr']);
         } // 2022.06.05
 
         /** Probing for exposed Git data. */
         if ($Trigger(preg_match('~\.git(?:$|\W)~i', $LCReqURI), 'Probing for exposed git data')) {
-            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed git data.'], $this->BlockInfo['IPAddr']);
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed git data.'], $CIDRAM['BlockInfo']['IPAddr']);
         } // 2022.06.05
 
         /** Probing for exposed SSH data. */
         if ($Trigger(preg_match('~^\.ssh(?:$|\W)~i', $LCReqURI), 'Probing for exposed SSH data')) {
-            $CIDRAM['Reporter']->report([15, 22], ['Caught probing for exposed SSH data.'], $this->BlockInfo['IPAddr']);
+            $CIDRAM['Reporter']->report([15, 22], ['Caught probing for exposed SSH data.'], $CIDRAM['BlockInfo']['IPAddr']);
         } // 2022.06.05
 
         /** Probing for vulnerable routers. */
         if ($Trigger(preg_match('~(?:^|\W)HNAP1~i', $LCReqURI), 'Probing for vulnerable routers')) {
-            $CIDRAM['Reporter']->report([15, 23], ['Caught probing for vulnerable routers.'], $this->BlockInfo['IPAddr']);
+            $CIDRAM['Reporter']->report([15, 23], ['Caught probing for vulnerable routers.'], $CIDRAM['BlockInfo']['IPAddr']);
         } // 2022.06.05
 
         /** Probing for vulnerable webapps. */
         if ($Trigger(preg_match('~cgi-bin/(?:web)?login\.cgi(?:$|\?)~i', $LCReqURI), 'Probing for vulnerable webapps')) {
-            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for vulnerable webapps.'], $this->BlockInfo['IPAddr']);
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for vulnerable webapps.'], $CIDRAM['BlockInfo']['IPAddr']);
         } // 2022.06.05
     }
 };
