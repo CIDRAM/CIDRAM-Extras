@@ -20,7 +20,7 @@ Chart.js:
  Reannotate: "modules.dat"
 PHPMailer:
  Name: "PHPMailer"
- Version: "6.6.4"
+ Version: "6.6.5"
  Dependencies:
   PHP: ">=5.5"
   CIDRAM Core: "^1.13.1|^2.0.1"
@@ -32,11 +32,11 @@ PHPMailer:
  Provisional: true
  Files:
   From:
-   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.4/src/Exception.php"
-   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.4/src/OAuth.php"
-   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.4/src/PHPMailer.php"
-   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.4/src/POP3.php"
-   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.4/src/SMTP.php"
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.5/src/Exception.php"
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.5/src/OAuth.php"
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.5/src/PHPMailer.php"
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.5/src/POP3.php"
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.6.5/src/SMTP.php"
   To:
    - "classes/PHPMailer/Exception.php"
    - "classes/PHPMailer/OAuth.php"
@@ -46,9 +46,9 @@ PHPMailer:
   Checksum:
    - "655e82ae2e40561a4c125115ffd49fb172a5221fa224bcdb10d41bf72eae9a87:1240"
    - "3b272d5f1fd9e185ad8daab260ad0b548a679e351701b6b78f80a6e523f1f961:3774"
-   - "62bddcc967958b7c64221f2831e53573ed3767a0c317760bde826d57e9531b72:178349"
-   - "d1dc392c655850c74c9a4cc06dd04bea807e20deb671cf1df58bdf342577c3f5:12112"
-   - "6f4d16c997e448b4ddedb6dccedf65191533fe56ebf7343ad5c83621d757634d:47435"
+   - "61e7519a91945be4afa6a84665e2bf09a0c5cc31fe4b738de6fba4604c9fddf6:178458"
+   - "3c5dc741ca27b75299165fa4cae8183e2d9243cefb612dd54a640ecb6ef206ac:12112"
+   - "e22f09605895b7e99877523bd9896402a737c865262395cf0e07ab5c338a7386:47406"
  Reannotate: "modules.dat"
 Search engines blocker module:
  Name: "Search engines blocker module"
