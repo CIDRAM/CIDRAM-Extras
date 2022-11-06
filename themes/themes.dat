@@ -5,8 +5,8 @@ theme/bluemetal:
  Version: "2022.265.0"
  Dependencies:
   CIDRAM Core: "^1.18|^2.5"
-  CIDRAM Front-End: "^1.18|^2.5"
-  l10n/{lang}: ">=2021.95.583"
+  CIDRAM Front-End: "^1.22.2|^2.9.2"
+  l10n/{lang}: ">=2022.309"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat"
  Uninstallable: true
  Files:
@@ -32,11 +32,11 @@ theme/bluemetal:
 theme/fullmoon:
  Name: "Theme: Full Moon"
  Extended Description: "<img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-fullmoon.png" alt="Preview" /><br />Darker, semi-transparent colours; Navigation shifted to the top; No special fonts; Full moon backdrop.<br /><em>Author: Caleb M (Maikuolan)</em>"
- Version: "2022.269.0"
+ Version: "2022.309.0"
  Dependencies:
   CIDRAM Core: "^1.18|^2.5"
-  CIDRAM Front-End: "^1.18|^2.5"
-  l10n/{lang}: ">=2022.191"
+  CIDRAM Front-End: "^1.22.2|^2.9.2"
+  l10n/{lang}: ">=2022.309"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat"
  Uninstallable: true
  Files:
@@ -64,6 +64,7 @@ theme/fullmoon:
    - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_range_intersector.html"
    - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_range_row.html"
    - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_range_subtractor.html"
+   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_rl.html"
    - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_sections.html"
    - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_statistics.html"
    - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/fullmoon/_updates.html"
@@ -95,6 +96,7 @@ theme/fullmoon:
    - "fe_assets/fullmoon/_range_intersector.html"
    - "fe_assets/fullmoon/_range_row.html"
    - "fe_assets/fullmoon/_range_subtractor.html"
+   - "fe_assets/fullmoon/_rl.html"
    - "fe_assets/fullmoon/_sections.html"
    - "fe_assets/fullmoon/_statistics.html"
    - "fe_assets/fullmoon/_updates.html"
@@ -120,12 +122,13 @@ theme/fullmoon:
    - "29c8b0d6739ae69aeffb07aaacbd9ae0e7a42a751d1f2979e2c0f2bbb449315f:1508"
    - "35536dfe9a591e9d60c01dd28f671cc1f55188e23075b8cd598ae5e8078e8357:3679"
    - "cf7095ea62cc4151e04bc4bf5f95f81c0d78f2aaa39d854433388c878fa93fc1:311"
-   - "cb561023ca47fc2afd2668f6f9ec95a194e7d9848ae3f34b483734a68adbe5de:1336"
+   - "0cb11fd765ca4cd906ac1a4383e2f77bd2e8b909570d28c6918e82606cf9b46a:1389"
    - "ee6175bffa6a6323e28a35943e15a00a3de51341277026796101ead3efce1ea3:323"
    - "2f1684c6c3937ccac410e35a031e6708d1cc25293abead39cf1da131e70869ab:648"
    - "4f653dab3238273dcd4e8bc771be5190f203d4a104f4080ce4c50265dbbb6b8f:1671"
    - "1f85875ba371d03a1a7e359821b0c8be5d737fda00321439f290d95ada69d598:168"
    - "6574e8ce2c6c0af14869ce881e34b10b4202d7fa6c1c5c3a4274f1c6a7825f73:1689"
+   - "9526b3dad2a5eb52f734c7c2982519465e4001f2c2902391dc57bd76ee027b6f:94"
    - "25926fe60915a4e511968d5d83e9b6f39e724575f2a4defb0bce17d95e5cc653:43"
    - "9784992c71456fe723b22d54063005a62861c341bbf5ed18e4cbcb664a14bcdc:4107"
    - "2dc043c315ad494bcc06b32ded6bd46b8beb09acde8237b0ece9f191323bb5e0:743"
@@ -140,8 +143,8 @@ theme/moss:
  Version: "2022.265.0"
  Dependencies:
   CIDRAM Core: "^1.18|^2.5"
-  CIDRAM Front-End: "^1.18|^2.5"
-  l10n/{lang}: ">=2021.95.583"
+  CIDRAM Front-End: "^1.22.2|^2.9.2"
+  l10n/{lang}: ">=2022.309"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat"
  Uninstallable: true
  Files:
@@ -167,11 +170,11 @@ theme/moss:
 theme/primer:
  Name: "Theme: Primer"
  Extended Description: "<img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-primer.png" alt="Preview" /><br />Inspired by the "Primer Design System" (utilised by GitHub, Facebook, etc)."
- Version: "2022.242.0"
+ Version: "2022.309.0"
  Dependencies:
   CIDRAM Core: "^1.18|^2.5"
-  CIDRAM Front-End: "^1.18|^2.5"
-  l10n/{lang}: ">=2021.95.583"
+  CIDRAM Front-End: "^1.22.2|^2.9.2"
+  l10n/{lang}: ">=2022.309"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat"
  Uninstallable: true
  Files:
@@ -192,7 +195,7 @@ theme/primer:
   Checksum:
    - "eae951fdde3bb2f01d7aca3a09363cd5277734f6f14c9ff9eddd30eaa3556d81:2840"
    - "91e29d1ec09a7b4b0c80f14cd589d4d3e7984749047c2e3e57d1fe077658a839:3318"
-   - "5e2ba7a73537f3f563279cd2a70d07bca5cd07a44ef7f0750df7e46fe8ec78eb:1807"
+   - "5a2e00a26eb5f2be009bbfc068fa1c2529492630d6184640aed9b49ad9762b0b:1874"
    - "6145977fd40e6cf39446446915e1dc7691e87ce4f7f67f4f80b92cb06662cddc:574"
    - "00c16e163f77bd760ed41fc2e5e021b8e300c722f7f2df5d2e1b7aa0e58f6743:12002"
    - "937dcd685005d7af5c868b1e1c43ad36adf560bffcf56f202d999a7ba25387bc:838"
@@ -200,11 +203,11 @@ theme/primer:
 theme/primerdark:
  Name: "Theme: Primer Dark"
  Extended Description: "<img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-primerdark.png" alt="Preview" /><br />A darker version of the Primer theme."
- Version: "2022.242.0"
+ Version: "2022.309.0"
  Dependencies:
   CIDRAM Core: "^1.18|^2.5"
-  CIDRAM Front-End: "^1.18|^2.5"
-  l10n/{lang}: ">=2021.95.583"
+  CIDRAM Front-End: "^1.22.2|^2.9.2"
+  l10n/{lang}: ">=2022.309"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat"
  Uninstallable: true
  Files:
@@ -225,7 +228,7 @@ theme/primerdark:
   Checksum:
    - "2ce508a762d8c8bb5e58a19dd4a607d8cbf0306e0051a6fbac0c6ad31b584c8f:2821"
    - "f24942206d223c88e901f510c7cf7147d9e8e53e88c139c8d166fedfb3d66418:3299"
-   - "5e2ba7a73537f3f563279cd2a70d07bca5cd07a44ef7f0750df7e46fe8ec78eb:1807"
+   - "5a2e00a26eb5f2be009bbfc068fa1c2529492630d6184640aed9b49ad9762b0b:1874"
    - "6145977fd40e6cf39446446915e1dc7691e87ce4f7f67f4f80b92cb06662cddc:574"
    - "657058439101f9738ce38ec39cc711588491f672fd6a35111b0c487e27fa2dda:11840"
    - "937dcd685005d7af5c868b1e1c43ad36adf560bffcf56f202d999a7ba25387bc:838"
@@ -236,8 +239,8 @@ theme/rbi:
  Version: "2022.265.0"
  Dependencies:
   CIDRAM Core: "^1.18|^2.5"
-  CIDRAM Front-End: "^1.18|^2.5"
-  l10n/{lang}: ">=2021.95.583"
+  CIDRAM Front-End: "^1.22.2|^2.9.2"
+  l10n/{lang}: ">=2022.309"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat"
  Uninstallable: true
  Files:
@@ -260,8 +263,8 @@ theme/slate:
  Version: "2022.265.0"
  Dependencies:
   CIDRAM Core: "^1.18|^2.5"
-  CIDRAM Front-End: "^1.18|^2.5"
-  l10n/{lang}: ">=2021.95.583"
+  CIDRAM Front-End: "^1.22.2|^2.9.2"
+  l10n/{lang}: ">=2022.309"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/themes.dat"
  Uninstallable: true
  Files:
