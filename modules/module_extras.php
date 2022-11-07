@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2022.10.06).
+ * This file: Optional security extras module (last modified: 2022.11.07).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -57,8 +57,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         /** Detect bad/dangerous/malformed requests. */
         $Trigger(preg_match('~(?:(/|%5[cf])\.(/|%5[cf])|(/|%5[cf]){3,}|[\x00-\x1f\x7f])~i', $LCNrURI), 'Bad request'); // 2017.01.13
 
-        /** WordPress user enumeration (modified 2019.09.14). */
-        if ($Trigger(preg_match('~author=\d+~i', $LCNrURI), 'WordPress user enumeration not allowed')) {
+        /** WordPress user enumeration (modified 2022.11.07). */
+        if ($Trigger(preg_match('~\?author=\d+~i', $LCNrURI), 'WordPress user enumeration not allowed')) {
             $Bypass(
                 strpos($LCNrURI, 'administrator/') !== false,
                 'Joomla image inserting tool bypass (WordPress user enumeration conflict)'
