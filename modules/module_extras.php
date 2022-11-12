@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2022.11.08).
+ * This file: Optional security extras module (last modified: 2022.11.12).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -249,8 +249,6 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             'Joomla plugins update bypass (POST RFI conflict)'
         ); // 2017.05.10
 
-        $Trigger(preg_match('~(?:=\[\\\\|%5C\]|\(\)|=%5Bphp%5D|=\[php\]|\\\\\]|=\[%5C|`)~i', $RawInput), 'POST BBCESC/BBCEX/EX'); // 2017.03.01
-
         $Trigger(preg_match(
             '~(?:%61%(6c%6c%6f%77%5f%75%72%6c%5f%69%6e%63%6c%75%64%65%3d%6f%6e|7' .
             '5%74%6f%5f%70%72%65%70%65%6e%64%5f%66%69%6c%65%3d%70%68%70%3a%2f%2f' .
@@ -303,8 +301,6 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             $CIDRAM['Reporter']->report([15], ['Null truncation attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Overflow attempt') !== false) {
             $CIDRAM['Reporter']->report([15], ['Overflow attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'POST BBCESC/BBCEX/EX') !== false) {
-            $CIDRAM['Reporter']->report([15], ['POST BBCESC/BBCEX/EX detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Path hack') !== false) {
             $CIDRAM['Reporter']->report([15], ['Path hack detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Pipe hack') !== false) {
