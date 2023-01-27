@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2022.12.19).
+ * This file: Bad hosts blocker module (last modified: 2023.01.27).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -86,10 +86,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         '|(?:dimargroup|itrack|mail|rulinki|vipmailoffer)\.ru$|(?:2kom|solom' .
         'ono)\.ru|\.v4\.ngi\.it|awcheck|b(?:oardreader|reakingtopics|uysells' .
         'ales)|c(?:eptro|heapseovps|yber-uslugi)|drugstore|liwio\.|luxuryhan' .
-        'dbag|s(?:emalt|mileweb\.com\.ua|quider|tartdedicated\.)|(?:exa|full' .
-        'textro|we)bot~',
+        'dbag|s(?:emalt|mileweb\.com\.ua|quider|tartdedicated\.)|exabot~',
         $HN
-    ), 'SEO/Bothost/Scraper/Spamhost'); // 2020.11.15 mod 2021.06.28
+    ), 'SEO/Bothost/Scraper/Spamhost'); // 2020.11.15 mod 2023.01.27
 
     $Trigger(preg_match('~cjh-law\.com$~', $HN), 'Phisher / Phishing Host'); // 2017.02.14
 
