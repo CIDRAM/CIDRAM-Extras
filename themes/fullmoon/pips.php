@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Full moon theme pips handler (last modified: 2021.12.11).
+ * This file: Full moon theme pips handler (last modified: 2023.02.09).
  */
 
 /** Prevents execution from outside of CIDRAM. */
@@ -23,3 +23,4 @@ $CIDRAM['FE']['PIP_Left_Valid'] = 'R0lGODlhCAAQAKECAAKZAMrMyQAAAAAAACH5BAEKAAIAL
 $CIDRAM['FE']['PIP_Right'] = 'R0lGODlhCAAIAKECAMrMyfv99P///////yH5BAEKAAEALAAAAAAIAAgAAAINjH+gmwvoUGBSSfOuKQA7';
 $CIDRAM['FE']['PIP_Right_Invalid'] = 'R0lGODlhCAAQAIABAMrMyQAAACH5BAEKAAEALAAAAAAIABAAAAIWjH+gmwvoUGBSSfPatTVDr10i94lIAQA7';
 $CIDRAM['FE']['PIP_Right_Valid'] = 'R0lGODlhCAAQAKECAAKZAMrMyQAAAAAAACH5BAEKAAIALAAAAAAIABAAAAIalH+hmxvokGBSSfOuFuCCLoHId5Ci8Z3ohhQAOw==';
+$CIDRAM['FE']['Tick'] = 'R0lGODlhCAAJAIABAAKZAP///yH5BAEKAAEALAAAAAAIAAkAAAINjI8IGbD5VHQNUshYAQA7';
