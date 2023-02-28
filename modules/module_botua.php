@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bot user agents module (last modified: 2022.09.19).
+ * This file: Bot user agents module (last modified: 2023.02.28).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -326,6 +326,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
      * @link https://github.com/CIDRAM/CIDRAM/issues/315
      */
     $Trigger(strpos($UANoSpace, 'seekport') !== false, 'Unauthorised'); // 2022.06.16
+
+    $Trigger(strpos($UANoSpace, 'orbbot') !== false, 'Scraper UA'); // 2023.02.28
 
     /** These signatures can set extended tracking options. */
     if (
