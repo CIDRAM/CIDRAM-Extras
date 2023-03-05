@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bot user agents module (last modified: 2023.02.28).
+ * This file: Bot user agents module (last modified: 2023.03.05).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -110,7 +110,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         'b(?:ad-neighborhood|dsm|ea?stiality|iloba|ork-edition|uyessay)|' .
         'c(?:asino|ialis|igar|heap|oursework)|' .
         'deltasone|dissertation|drugs|' .
-        'editionyx|eroti[ck]|' .
+        'eroti[ck]|' .
         'forex|funbot|' .
         'g(?:abapentin|erifort|inkg?o|uestbook)|' .
         'hentai|honeybee|hrbot|' .
