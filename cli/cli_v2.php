@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: CLI for CIDRAM >= v2 (last modified: 2022.03.02).
+ * This file: CLI for CIDRAM >= v2 (last modified: 2023.03.09).
  */
 
 /** "CIDRAM" constant needed as sanity check for some required files. */
@@ -59,7 +59,7 @@ if (
 }
 
 /** Show basic information. */
-echo "CIDRAM CLI mode (build 2022.60.668 for v2).
+echo "CIDRAM CLI mode (build 2023.67.0 for v2).
 
 To test whether an IP address is blocked by CIDRAM:
 >> test xxx.xxx.xxx.xxx
@@ -558,7 +558,7 @@ while (true) {
         }
         $CIDRAM['Fixer']['StrObject'] = new \Maikuolan\Common\ComplexStringHandler(
             "\n" . $CIDRAM['Data'] . "\n",
-            '~(?<=\n)(?:\n|Expires\: \d{4}\.\d\d\.\d\d|Origin\: [A-Z]{2}|(?:\#|Tag\: |Profile\: |Defers to\: )[^\n]+| *\/\*\*(?:\n *\*[^\n]*)*\/| *\/\*\*? [^\n*]+\*\/|---\n(?:[^\n:]+\:(?:\n +[^\n:]+\: [^\n]+)+)+)+\n~',
+            '~(?<=\n)(?:\n|Expires: \d{4}\.\d\d\.\d\d|Origin: [A-Z]{2}|(?:\#|Tag: |Profile: |Defers to: )[^\n]+| *\/\*\*(?:\n *\*[^\n]*)*\/| *\/\*\*? [^\n*]+\*\/|---\n(?:[^\n:]+:(?:\n +[^\n:]+: [^\n]+)+)+)+\n~',
             function ($Data) use (&$CIDRAM) {
                 if (!$Data = trim($Data)) {
                     return '';
@@ -575,7 +575,8 @@ while (true) {
                             $NEoLPos++;
                         }
                         $Param = (($Pos = strpos($Line, ' ')) !== false) ? substr($Line, $Pos + 1) : 'Deny Generic';
-                        if (!$Previous) {
+                        $Param = preg_replace(['~^\s+|\s+$~', '~(\S+)\s+(\S+)~'], ['', '\1 \2'], $Param);
+                        if ($Previous === '') {
                             $Previous = $Param;
                         }
                         if ($Param !== $Previous) {
@@ -599,7 +600,7 @@ while (true) {
                 return trim($Output);
             }
         );
-        $CIDRAM['Fixer']['StrObject']->iterateClosure(function ($Data) use (&$CIDRAM) {
+        $CIDRAM['Fixer']['StrObject']->iterateClosure(function (string $Data) use (&$CIDRAM) {
             if (($Pos = strpos($Data, "---\n")) !== false && substr($Data, $Pos - 1, 1) === "\n") {
                 $YAML = substr($Data, $Pos + 4);
                 if (($HPos = strpos($YAML, "\n#")) !== false) {
