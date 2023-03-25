@@ -16,6 +16,8 @@ PHPMailer:
   ctype: "*"
   filter: "*"
   hash: "*"
+ When Update Succeeds:
+  - "if {Components.Meta.PHPMailer.Version}<6.8.0&&{Components.RemoteMeta.PHPMailer.Version}>=6.8.0 then message response_release_notes https://github.com/PHPMailer/PHPMailer/releases/tag/v6.8.0 PHPMailer v6.8.0"
  Files:
   PHPMailer/PHPMailer/Exception.php:
    From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.8.0/src/Exception.php"
