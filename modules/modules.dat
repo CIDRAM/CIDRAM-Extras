@@ -53,42 +53,26 @@ PHPMailer:
 Search engines blocker module:
  Name: "Search engines blocker module"
  False Positive Risk: "Medium"
- Version: "2022.67.500"
+ Version: "2023.95.0"
  Dependencies:
   PHP: "^5.4|^7|^8"
   CIDRAM Core: "^2.7"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
  When Install Succeeds:
-  - "if {Components.Installed Versions.module_baidublocker\\.php}=== else Message The search engines blocker module replaces the Baidu blocker module. Seeing as the search engines blocker module has been successfully installed, the Baidu blocker module will now be uninstalled accordingly."
-  - "if {Components.Installed Versions.module_baidublocker\\.php}=== else UpdatesHandler deactivate-and-uninstall-component module_baidublocker.php"
-  - "if {Components.Installed Versions.module_yandexblocker\\.php}=== else Message The search engines blocker module replaces the Yandex blocker module. Seeing as the search engines blocker module has been successfully installed, the Yandex blocker module will now be uninstalled accordingly."
-  - "if {Components.Installed Versions.module_yandexblocker\\.php}=== else UpdatesHandler deactivate-and-uninstall-component module_yandexblocker.php"
   - "Message response_please_check_config"
  Uninstallable: true
  Files:
   From:
    - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/seblocker.php"
-   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/seblocker_rules.php"
-   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/seblocker_ipv4.dat"
-   - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/seblocker_ipv6.dat"
    - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/seblocker.yml"
   To:
    - "seblocker.php"
-   - "seblocker_rules.php"
-   - "seblocker_ipv4.dat"
-   - "seblocker_ipv6.dat"
    - "seblocker.yml"
   Checksum:
    - "842fa881b2ca144b6b6473fde4a12087b85bef7e1174951e4c8e3f73ff99511e:3779"
-   - "099b6abb39cdb555a8db55916e82cebf59b1801a1090cfb026dc86b44a639902:2910"
-   - "dd7afe0af88d711d36cd44b2fdefe353ee9cee6ea4e3c061e8f94c68e5a04745:3437"
-   - "d541d415ddb89b318b9f6799e37c12debf3b2026ccb6439d19ae8d4b0cff2ed5:1316"
    - "09818581d5077cd61165931aa59a2ee1bf84cf29b9586e883adbf74da9b9dfd1:10202"
  Used with:
   - "modules"
-  - "n/a"
-  - "ipv4"
-  - "ipv6"
   - "n/a"
  Reannotate: "modules.dat"
 compat_bunnycdn.php:
