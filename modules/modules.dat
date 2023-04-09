@@ -30,6 +30,7 @@ PHPMailer:
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
  Uninstallable: true
  Provisional: true
+ When Install Succeeds: ["Queue Message response_please_check_config"]
  Files:
   From:
    - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.8.0/src/Exception.php"
@@ -58,8 +59,7 @@ Search engines blocker module:
   PHP: "^5.4|^7|^8"
   CIDRAM Core: "^2.7"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
- When Install Succeeds:
-  - "Message response_please_check_config"
+ When Install Succeeds: ["Queue Message response_please_check_config"]
  Uninstallable: true
  Files:
   From:
@@ -84,7 +84,7 @@ compat_bunnycdn.php:
   CIDRAM Core: "^1.13.1|^2.0.1"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
  Uninstallable: true
- When Install Succeeds: ["Message response_please_check_config"]
+ When Install Succeeds: ["Queue Message response_please_check_config"]
  Files:
   From:
    - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/compat_bunnycdn.php"
@@ -122,7 +122,7 @@ module_abuseipdb.php:
   CIDRAM Core: "^1.18.1|^2.5.1"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
  Uninstallable: true
- When Install Succeeds: ["Message response_please_check_config"]
+ When Install Succeeds: ["Queue Message response_please_check_config"]
  Files:
   From:
    - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_abuseipdb.php"
@@ -199,7 +199,7 @@ module_bgpview.php:
   l10n/{lang}: ">=2021.139.519"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
  Uninstallable: true
- When Install Succeeds: ["Message response_please_check_config"]
+ When Install Succeeds: ["Queue Message response_please_check_config"]
  Files:
   From:
    - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_bgpview.php"
@@ -257,7 +257,7 @@ module_extras.php:
   CIDRAM Core: "^1.13.1|^2.0.1"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
  Uninstallable: true
- When Install Succeeds: ["Message response_please_check_config"]
+ When Install Succeeds: ["Queue Message response_please_check_config"]
  Files:
   From:
    - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_extras.php"
@@ -279,7 +279,7 @@ module_httpver.php:
   CIDRAM Core: "^1.18|^2.5"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
  Uninstallable: true
- When Install Succeeds: ["Message response_please_check_config"]
+ When Install Succeeds: ["Queue Message response_please_check_config"]
  Files:
   From:
    - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_httpver.php"
@@ -301,7 +301,7 @@ module_projecthoneypot.php:
   CIDRAM Core: "^1.18|^2.5"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
  Uninstallable: true
- When Install Succeeds: ["Message response_please_check_config"]
+ When Install Succeeds: ["Queue Message response_please_check_config"]
  Files:
   From:
    - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_projecthoneypot.php"
@@ -380,7 +380,7 @@ module_sfs.php:
   CIDRAM Core: "^1.18|^2.5"
  Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
  Uninstallable: true
- When Install Succeeds: ["Message response_please_check_config"]
+ When Install Succeeds: ["Queue Message response_please_check_config"]
  Files:
   From:
    - "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/module_sfs.php"
