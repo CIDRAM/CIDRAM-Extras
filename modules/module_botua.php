@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bot user agents module (last modified: 2023.04.10).
+ * This file: Bot user agents module (last modified: 2023.04.20).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -333,6 +333,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         $Trigger(strpos($UANoSpace, '$_' . '[$' . '__') !== false, 'UA shell upload attempt') || // 2017.01.02
         $Trigger(strpos($UANoSpace, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'UA shell upload attempt') || // 2017.01.02
         $Trigger(preg_match('/h[4a]c' . 'k(?:e[dr]|ing|t([3e][4a]m|[0o]{2}l))/', $UANoSpace), 'Hack UA') || // 2017.01.06
+        $Trigger(strpos($UANoSpace, 'alittleclient') !== false, 'Hack UA') || // 2023.04.20
         $Trigger((
             strpos($UA, 'rm ' . '-rf') !== false ||
             strpos($UA, 'wordpress ha') !== false ||
@@ -385,7 +386,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UA shell upload attempt') !== false) {
             $CIDRAM['Reporter']->report([15], ['Shell upload attempt detected in user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Hack UA') !== false) {
-            $CIDRAM['Reporter']->report([15], ['Hack identifier detected in user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
+            $CIDRAM['Reporter']->report([15, 19, 21], ['Hack identifier detected in user agent.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Vulner') !== false) {
             $CIDRAM['Reporter']->report([15], ['Caught looking for vulnerabilities.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UASQLi') !== false) {
