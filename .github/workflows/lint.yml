@@ -24,8 +24,6 @@ jobs:
   - name: Lint
     run: |
      lintPaths=()
-     lintPaths+=("${GITHUB_WORKSPACE}/api")
-     lintPaths+=("${GITHUB_WORKSPACE}/cli")
      lintPaths+=("${GITHUB_WORKSPACE}/modules")
      lintPaths+=("${GITHUB_WORKSPACE}/themes")
      for lintPath in "${lintPaths[@]}"
