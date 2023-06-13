@@ -6,7 +6,6 @@
 # https://help.github.com/articles/dealing-with-line-endings/
 
 * text eol=lf
-*.dat binary
 *.gif binary
 *.jpg binary
 *.png binary
@@ -15,5 +14,18 @@
 # Refer to:
 # https://github.com/github/linguist
 
-modules/modules.dat linguist-language=YAML
-themes/themes.dat linguist-language=YAML
+*.md linguist-documentation
+*.txt linguist-documentation
+
+# Going to be a bit more explicit about languages in order to ensure that files
+# are detected and identified *correctly*. Refer to:
+# https://github.com/github-linguist/linguist/blob/master/lib/linguist/languages.yml
+
+*.css linguist-language=CSS
+*.dat linguist-language=YAML
+*.html linguist-language=HTML
+*.js linguist-language=JavaScript
+*.php linguist-language=PHP
+*.svg linguist-language=SVG
+*.yaml linguist-language=YAML
+*.yml linguist-language=YAML
