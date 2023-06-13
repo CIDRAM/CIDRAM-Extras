@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: AbuseIPDB module (last modified: 2022.06.06).
+ * This file: AbuseIPDB module (last modified: 2023.06.13).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -174,6 +174,17 @@ if ($CIDRAM['Config']['abuseipdb']['report_back']) {
         ]);
         $CIDRAM['RecentlyReported'][$Report['IP']] = ['Status' => $Status, 'Time' => ($CIDRAM['Now'] + 900)];
         $CIDRAM['RecentlyReported-Modified'] = true;
+        if (strpos($Status, '"ipAddress": "127.0.0.1"') !== false && strpos($Status, '"errors":') === false) {
+            if (!isset($CIDRAM['Report OK'])) {
+                $CIDRAM['Report OK'] = 0;
+            }
+            $CIDRAM['Report OK']++;
+        } else {
+            if (!isset($CIDRAM['Report Failed'])) {
+                $CIDRAM['Report Failed'] = 0;
+            }
+            $CIDRAM['Report Failed']++;
+        }
     });
 }
 
