@@ -215,7 +215,7 @@ module_bgpview.php:
 module_botua.php:
  Name: "Bot user agents module"
  False Positive Risk: "Medium"
- Version: "2023.109.0"
+ Version: "2023.167.0"
  Dependencies:
   PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.13.1|^2.0.1"
@@ -227,7 +227,7 @@ module_botua.php:
   To:
    - "module_botua.php"
   Checksum:
-   - "6e2ed17b61f869d8e26d3f095f11fd6b2ddf82261518d7df8d6eecc14c70c6ef:24326"
+   - "c897ff7fb323de92767ec63aa5ee5367a98ce639deb768ab3e419fba9ccba06c:24338"
  Used with: "modules"
  Reannotate: "modules.dat"
 module_cookies.php:
@@ -317,7 +317,7 @@ module_projecthoneypot.php:
 module_refspam.php:
  Name: "Referrer spam module"
  False Positive Risk: "Medium"
- Version: "2022.142.0"
+ Version: "2023.167.0"
  Dependencies:
   PHP: "^7.1|^8"
   CIDRAM Core: "^1.13.1|^2.0.1"
@@ -355,7 +355,7 @@ module_refspam.php:
    - "classes/Symfony/Resources/unidata/mapped.php"
    - "classes/Symfony/Resources/unidata/virama.php"
   Checksum:
-   - "9e99207e48b3631740f952a32dc35353a81565b19f6d81e8ad24b9ad1ca03c6d:13028"
+   - "99c72da1953a6ae19ac2d967f8d49dde296c58449156611914a63bb5afadd07a:13396"
    - "d1c848be8e40cd932b4c417062a06e344aebe6beefebaf627f4990a05e651653:4625"
    - "235b2ec58965606763d4939d9adecf447064056589ccf14840a8401685a89a85:4018"
    - "c951b4b333204d8a5ea67fdc03c6d0ce2c2d1d5f3484e169b983ad1df4fd59b6:8707"

@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Referrer spam module (last modified: 2022.05.18).
+ * This file: Referrer spam module (last modified: 2023.06.16).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -216,6 +216,15 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             'Referrer spam originating from this address detected (' . $Domain . ').'
         ], $CIDRAM['BlockInfo']['IPAddr']);
     } // (circa ~2020 additions) 2020.04.13
+
+    if ($Trigger(preg_match(
+        '~anonymousfox\.co|binance\.com~i',
+        $Domain
+    ), 'Referrer spam detected (' . $Domain . ')')) {
+        $CIDRAM['Reporter']->report([10, 15, 21], [
+            'Referrer spam associated with WordPress/WooCommerce hack attempts detected (' . $Domain . ').'
+        ], $CIDRAM['BlockInfo']['IPAddr']);
+    } // 2023.06.16
 
     $Trigger($RefLC === '(null)', 'Illegal referrer'); // 2018.03.13
 };
