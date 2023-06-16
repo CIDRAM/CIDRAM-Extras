@@ -128,7 +128,7 @@ blockquote.comSub{margin:-2px 0 0 0;padding:0 0 0 0}
 #testnavlink::before{content:"🔬"}
 #updtnavlink::before{content:"🔄"}
 #websitelink::before{content:"🔗"}
-.navicon{filter:invert(22%) sepia(17%) saturate(5055%) hue-rotate(340deg) brightness(97%) contrast(90%);position:relative;top:1px;width:16px;height:16px}
+.navicon{filter:invert(23%) sepia(36%) saturate(1876%) hue-rotate(333deg) brightness(96%) contrast(94%);position:relative;top:1px;width:16px;height:16px}
 select+input[type=submit],select+input[type=button]{margin-{FE_Align}:-3px;border-bottom-{FE_Align}-radius:0;border-top-{FE_Align}-radius:0;padding-{FE_Align}:3px}
 select,input[type=submit],input[type=reset],input[type=button],input[type=text],input[type=password],input[type=number],input[type=date],input[type=time],button{box-sizing:border-box;height:20px;padding-top:0;padding-bottom:0}
 select[class=auto]+select[class=auto]{margin-{FE_Align}:-3px;margin-{FE_Align_Reverse}:0}
