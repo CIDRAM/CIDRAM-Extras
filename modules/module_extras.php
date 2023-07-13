@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2022.11.12).
+ * This file: Optional security extras module (last modified: 2023.07.13).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -199,6 +199,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         ), 'Query SQLi'); // 2017.03.01 mod 2020.11.30
 
         $Trigger(preg_match('/cpis_.*i0seclab@intermal\.com/', $QueryNoSpace), 'Hack attempt'); // 2018.02.20
+        $Trigger(preg_match('/^3[Xx]=3[Xx]/', $CIDRAM['BlockInfo']['Query']), 'Hack attempt'); // 2023.07.13
 
         /** These signatures can set extended tracking options. */
         if (
