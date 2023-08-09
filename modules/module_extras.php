@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2023.08.09).
+ * This file: Optional security extras module (last modified: 2023.08.10).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -68,13 +68,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             );
         }
 
-        $Trigger((
-            strpos($LCNrURI, 'wp-print.php?script=1') !== false || // 2017.10.07
-            strpos($LCNrURI, 'css/newgolden.php') !== false // 2017.10.07
-        ), 'WP hack attempt');
-
-        /** WSO is a common PHP backdoor/trojan. */
-        $Trigger(preg_match('~[\x5c/]wso\.php~i', $LCNrURI), 'WSO not allowed'); // 2017.03.22
+        $Trigger(strpos($LCNrURI, 'wp-print.php?script=1') !== false, 'WP hack attempt'); // 2017.10.07 mod 2023.08.10
 
         $Trigger(preg_match('~\.(?:bak|cgi|php)\.suspected~i', $LCNrURI), 'Accessing quarantined files not allowed'); // 2017.03.22
 
@@ -84,6 +78,57 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         ) {
             $CIDRAM['Tracking options override'] = 'extended';
         }
+
+        /** Probing for webshells/backdoors. */
+        if ($Trigger(preg_match(
+            '~old/wp-admin/install\.php|shell\?cd|' .
+            'test/wp-includes/wlwmanifest\.xml|' .
+            '(?:' .
+            '\.w(?:ell-known|p-cli)/.*(?:about|install|moon|wp-login)|' .
+            '991176|' .
+            'admin-heade\d*|adminfuns|alfa(?:-rex|ioxi|new)\d*|anjas|apismtp|' .
+            'bak|bala|' .
+            'c(?:9|10)\d+|classsmtps|css/(?:moon|newgolden|radio|well-known)|' .
+            'gh[0o]st|glab-rare|gzismexv|' .
+            'h6ss|hehehe|' .
+            'icesword|indoxploit|ir7szrsouep|itsec|' .
+            'lock360|lufix(?:-shell)?|' .
+            'miin|my1|' .
+            'php(?:1|_niu_\d+)|poison|' .
+            'session91|shell\d*|silic|' .
+            't62|themes/universal-news/www|tinymce/langs/about|tk(?:_dencode_\d+)?|topxoh/drsx|' .
+            'upfile(?:_\(\d\))?|' .
+            'w0rdpr3ssnew|walker-nva|webshell-[a-z\d]+|widgets-nva|wloymzuk|wp-(?:2019|22|(?:admin|content|includes)/repeater|conflg|setups|sigunq|p)|wso(?:yanz)?[\d.]*|wwdv|' .
+            'xiaom|x+l(?:\d+|eet(?:-shell)?x?)|xmrlpc|xw|' .
+            'yanz|' .
+            'zone_hackbar(?:_beutify_other)?|' .
+            '/src/util/php/(?:eval-stdin|kill)|' .
+            '版iisspy|大马|一句话(?:木马|扫描脚本程序)?' .
+            ')\.php[57]?(?:$|[/?])~',
+            $LCNrURI
+        ), 'Probing for webshells/backdoors')) {
+            $CIDRAM['Reporter']->report([15, 20, 21], ['Caught probing for webshells/backdoors. Host might be compromised.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2023.08.10
+
+        /** Probing for exposed Git data. */
+        if ($Trigger(preg_match('~\.git(?:$|\W)~i', $LCNrURI), 'Probing for exposed git data')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed git data.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2022.06.05
+
+        /** Probing for exposed SSH data. */
+        if ($Trigger(preg_match('~^\.ssh(?:$|\W)~i', $LCNrURI), 'Probing for exposed SSH data')) {
+            $CIDRAM['Reporter']->report([15, 22], ['Caught probing for exposed SSH data.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2022.06.05
+
+        /** Probing for vulnerable routers. */
+        if ($Trigger(preg_match('~(?:^|\W)HNAP1~i', $LCNrURI), 'Probing for vulnerable routers')) {
+            $CIDRAM['Reporter']->report([15, 23], ['Caught probing for vulnerable routers.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2022.06.05
+
+        /** Probing for vulnerable webapps. */
+        if ($Trigger(preg_match('~cgi-bin/(?:web)?login\.cgi(?:$|\?)~i', $LCNrURI), 'Probing for vulnerable webapps')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for vulnerable webapps.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2022.06.05
     }
 
     /**
@@ -115,6 +160,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         $Trigger(preg_match('/(?:amp(?:;|%3b)){3,}/', $QueryNoSpace), 'Nesting attack'); // 2016.12.31 mod 2022.10.01
 
         $Trigger((
+            !$is_WP_plugin &&
             strpos($CIDRAM['BlockInfo']['rURI'], '/ucp.php?mode=login') === false &&
             strpos($CIDRAM['BlockInfo']['rURI'], 'Category=') === false &&
             preg_match('/%(?:(25){2,}|(25)+27)/', $CIDRAM['BlockInfo']['Query'])
@@ -331,59 +377,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             $CIDRAM['Reporter']->report([15, 21], ['WordPress hack attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Traversal attack') !== false) {
             $CIDRAM['Reporter']->report([15, 21], ['Traversal attack detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'WSO not allowed') !== false) {
-            $CIDRAM['Reporter']->report([20, 21], ['Unauthorised attempt to connect to WSO webshell detected (host might be compromised).'], $CIDRAM['BlockInfo']['IPAddr']);
         }
-    }
-
-    /**
-     * Signatures based on the original REQUEST_URI start from here.
-     * Please report all false positives to https://github.com/CIDRAM/CIDRAM/issues
-     */
-    if ($CIDRAM['Config']['extras']['uri'] && !empty($CIDRAM['BlockInfo']['rURI'])) {
-        /** Guard. */
-        if (empty($CIDRAM['BlockInfo']['IPAddr'])) {
-            return;
-        }
-
-        $LCReqURI = str_replace("\\", '/', strtolower($CIDRAM['BlockInfo']['rURI']));
-
-        /** Probing for webshells/backdoors. */
-        if ($Trigger(preg_match(
-            '~(?:' .
-            'old/wp-admin/install\.php|' .
-            'shell\?cd|' .
-            'test/wp-includes/wlwmanifest\.xml|' .
-            'vendor/phpunit/phpunit/src/Util/PHP/(?:eval-stdin|kill)\.php' .
-            ')|(?:' .
-            'c(?:9|10)\d+|gh[0o]st|gzismexv|h6ss|icesword|itsec|p[Hh]p(?:1|_niu_\d+|版iisspy|大马|一句话(?:木马|扫描脚本程序)?)|' .
-            'poison|session91|shell|silic|tk(?:_dencode_\d+)?|' .
-            'webshell-[a-z\d]+|wloymzuk|wso\d\.\d\.\d|xiaom|xw|zone_hackbar(?:_beutify_other)?' .
-            ')\.php$~i',
-            $LCReqURI
-        ), 'Probing for webshells/backdoors')) {
-            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for webshells/backdoors.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2022.06.05
-
-        /** Probing for exposed Git data. */
-        if ($Trigger(preg_match('~\.git(?:$|\W)~i', $LCReqURI), 'Probing for exposed git data')) {
-            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed git data.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2022.06.05
-
-        /** Probing for exposed SSH data. */
-        if ($Trigger(preg_match('~^\.ssh(?:$|\W)~i', $LCReqURI), 'Probing for exposed SSH data')) {
-            $CIDRAM['Reporter']->report([15, 22], ['Caught probing for exposed SSH data.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2022.06.05
-
-        /** Probing for vulnerable routers. */
-        if ($Trigger(preg_match('~(?:^|\W)HNAP1~i', $LCReqURI), 'Probing for vulnerable routers')) {
-            $CIDRAM['Reporter']->report([15, 23], ['Caught probing for vulnerable routers.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2022.06.05
-
-        /** Probing for vulnerable webapps. */
-        if ($Trigger(preg_match('~cgi-bin/(?:web)?login\.cgi(?:$|\?)~i', $LCReqURI), 'Probing for vulnerable webapps')) {
-            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for vulnerable webapps.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2022.06.05
     }
 };
 

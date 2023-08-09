@@ -7,15 +7,12 @@
 # License: GNU/GPLv2
 # @see LICENSE.txt
 #
-# This file: Optional security extras defaults file (last modified: 2022.03.09).
+# This file: Optional security extras defaults file (last modified: 2023.08.10).
 ##/
 
 Config Defaults:
  extras:
   block_empty_ua:
-   type: "bool"
-   default: true
-  ruri:
    type: "bool"
    default: true
   query:
@@ -24,13 +21,12 @@ Config Defaults:
   raw:
    type: "bool"
    default: true
-  uri:
+  ruri:
    type: "bool"
    default: true
 L10N:
  config_extras: "Optional security extras module configuration."
  config_extras_block_empty_ua: "Block empty user agents? Default = True."
- config_extras_ruri: "Process signatures based on reconstructed URIs? Default = True."
  config_extras_query: "Process signatures based on request queries? Default = True."
  config_extras_raw: "Process signatures based on raw request input? Default = True."
- config_extras_uri: "Process signatures based on request URIs? Default = True."
+ config_extras_ruri: "Process signatures based on reconstructed URIs? Default = True."
