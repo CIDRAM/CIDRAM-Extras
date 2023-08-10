@@ -72,13 +72,6 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
         $Trigger(preg_match('~\.(?:bak|cgi|php)\.suspected~i', $LCNrURI), 'Accessing quarantined files not allowed'); // 2017.03.22
 
-        /** These signatures can set extended tracking options. */
-        if (
-            $Trigger(preg_match('~(?:/%e2%80%a6x|shrift)\.php|/get?(?:fwversion|mac)~', $LCNrURI), 'Hack attempt') // 2017.02.25 mod 2021.06.28
-        ) {
-            $CIDRAM['Tracking options override'] = 'extended';
-        }
-
         /** Probing for webshells/backdoors. */
         if ($Trigger(preg_match(
             '~old/wp-admin/install\.php|shell\?cd|' .
@@ -95,7 +88,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             'lock360|lufix(?:-shell)?|' .
             'miin|my1|' .
             'php(?:1|_niu_\d+)|poison|' .
-            'session91|shell\d*|silic|' .
+            'session91|shell\d*|shrift|silic|' .
             't62|themes/universal-news/www|tinymce/langs/about|tk(?:_dencode_\d+)?|topxoh/drsx|' .
             'upfile(?:_\(\d\))?|' .
             'w0rdpr3ssnew|walker-nva|webshell-[a-z\d]+|widgets-nva|wloymzuk|wp-(?:2019|22|(?:admin|content|includes)/repeater|conflg|setups|sigunq|p)|wso(?:yanz)?[\d.]*|wwdv|' .
