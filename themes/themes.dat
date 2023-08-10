@@ -143,7 +143,7 @@ theme/fullmoon:
 theme/moss:
  Name: "Theme: Moss"
  Extended Description: "<img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-moss.png" alt="Preview" /><br />Inspired by the colours of nature.<br /><em>Author: Caleb M (Maikuolan)</em>"
- Version: "2023.214.0"
+ Version: "2023.221.0"
  Dependencies:
   CIDRAM Core: "^1.18|^2.5"
   CIDRAM Front-End: "^1.22.2|^2.9.2"
@@ -169,7 +169,7 @@ theme/moss:
    - "901635d95e22d04dcdfeffc4bb12f8d66e339d31b33c24a4b5a99af036528278:1937"
    - "bd9c5e4c1d54d14fc1901ee8f7baee594491b9f4737ca762bbb657d8639d2de3:2438"
    - "ceb4497bbae40d04a2a8ecb42086307bc57677235685ea07bedf98795dea780f:17804"
-   - "a24a9df6afc2eb10694ccef4987482c3189fa96a2dfcf25cb26161a6f2bf454a:11817"
+   - "7e201d5b66569728b06eb38c3d9d36b7679e6d98a8f69dabd49c54ff0f543d29:1582"
    - "772aabbb007513eb4111ea6ac60f2fa8687c0a5b982f6579b413faf00bbb8c4d:11931"
    - "6c533c40ff1440d1f6e625b350386959679a359a801cf5874be33c4565edc6ae:886"
  Reannotate: "themes.dat"
