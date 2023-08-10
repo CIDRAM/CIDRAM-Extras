@@ -370,7 +370,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         if (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Spam UA') !== false) {
             $CIDRAM['Reporter']->report([12, 19], ['Spambot detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Malware UA') !== false) {
-            $CIDRAM['Reporter']->report([19, 20], ['User agent cited by malware detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
+            $CIDRAM['Reporter']->report([19, 20], ['User agent cited by malware detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'UAEX') !== false) {
             $CIDRAM['Reporter']->report([15, 19], ['Detected command execution via user agent header.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'bittorrent') !== false) {
@@ -404,9 +404,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'XSS attack') !== false) {
             $CIDRAM['Reporter']->report([15], ['Attempted to push XSS via user agent header.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Banned UA') !== false) {
-            $CIDRAM['Reporter']->report([19], ['Misbehaving bot detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
+            $CIDRAM['Reporter']->report([19], ['Misbehaving bot detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Scraper UA') !== false) {
-            $CIDRAM['Reporter']->report([19], ['Scraper detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
+            $CIDRAM['Reporter']->report([19], ['Scraper detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Fake UA') !== false) {
             $CIDRAM['Reporter']->report([19], ['Faked user agent detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Attempting to expose honeypots') !== false) {
@@ -426,6 +426,11 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         $CIDRAM['Reporter']->report([15, 19, 20, 21], ['User agent cited by various attack tools, rootkits, backdoors, webshells, and malware detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         $CIDRAM['Tracking options override'] = 'extended';
     }
+
+    /**
+     * @link https://github.com/CIDRAM/CIDRAM/issues/494
+     */
+    $Trigger(preg_match('~anthropic-ai|%(?:client|forward|host|method|name|referrer|time|ua|uri)~', $UANoSpace), 'Unauthorised AI scanner'); // 2023.08.10
 };
 
 /** Execute closure. */
