@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bot user agents module (last modified: 2023.08.10).
+ * This file: Bot user agents module (last modified: 2023.08.12).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -421,7 +421,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
      * @link https://trunc.org/learning/the-mozlila-user-agent-bot
      */
     if (
-        $Trigger(strpos($UANoSpace, 'mozlila') !== false, 'Attack UA') // 2023.08.10
+        $Trigger(strpos($UANoSpace, 'mozlila') !== false || strpos($UANoSpace, 'moblie safari') !== false, 'Attack UA') // 2023.08.10 mod 2023.08.12
     ) {
         $CIDRAM['Reporter']->report([15, 19, 20, 21], ['User agent cited by various attack tools, rootkits, backdoors, webshells, and malware detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         $CIDRAM['Tracking options override'] = 'extended';
@@ -430,7 +430,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     /**
      * @link https://github.com/CIDRAM/CIDRAM/issues/494
      */
-    $Trigger(preg_match('~anthropic-ai~', $UANoSpace), 'Unauthorised AI scanner'); // 2023.08.10
+    $Trigger(strpos($UANoSpace, 'anthropic-ai') !== false, 'Unauthorised AI scanner'); // 2023.08.10 mod 2023.08.12
 };
 
 /** Execute closure. */
