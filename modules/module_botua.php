@@ -421,7 +421,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
      * @link https://trunc.org/learning/the-mozlila-user-agent-bot
      */
     if (
-        $Trigger(strpos($UANoSpace, 'mozlila') !== false || strpos($UANoSpace, 'moblie safari') !== false, 'Attack UA') // 2023.08.10 mod 2023.08.12
+        $Trigger(strpos($UANoSpace, 'mozlila') !== false || strpos($UANoSpace, 'mobliesafari') !== false, 'Attack UA') // 2023.08.10 mod 2023.08.12
     ) {
         $CIDRAM['Reporter']->report([15, 19, 20, 21], ['User agent cited by various attack tools, rootkits, backdoors, webshells, and malware detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         $CIDRAM['Tracking options override'] = 'extended';
