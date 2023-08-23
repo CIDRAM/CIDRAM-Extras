@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: AbuseIPDB module (last modified: 2023.06.16).
+ * This file: AbuseIPDB module (last modified: 2023.08.23).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -151,7 +151,10 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 if ($CIDRAM['Config']['abuseipdb']['report_back']) {
     $CIDRAM['Reporter']->addHandler(function ($Report) use (&$CIDRAM) {
         $CIDRAM['InitialiseCacheSection']('RecentlyReported');
-        if (isset($CIDRAM['RecentlyReported'][$Report['IP']])) {
+        if (
+            isset($CIDRAM['RecentlyReported'][$Report['IP']]) ||
+            ($CIDRAM['Config']['abuseipdb']['report_back'] === 2 && $CIDRAM['BlockInfo']['SignatureCount'] < 1)
+        ) {
             return;
         }
         $Categories = [];
