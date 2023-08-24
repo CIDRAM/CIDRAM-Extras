@@ -38,7 +38,7 @@ PHPMailer:
    Checksum: "90d0b7b89bfe25fe1c0ec9554b8a5a717f273e684dcc271b31c34ec756c5f3cd:47594"
   events/phpmailer.php:
    From: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/phpmailer.php"
-   Checksum: "3dd80887d9931cf42eae681033e8ff435b6f992df17803c3a7a72b86420c6dcf:7268"
+   Checksum: "edd9b461c979c40d640c5d58724170c004b81e53b81003b8eafc4ae453748589:7261"
    Used with: "events"
   imports/phpmailer.yml:
    From: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/phpmailer.yml"

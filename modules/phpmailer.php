@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: PHPMailer event handlers (last modified: 2022.05.25).
+ * This file: PHPMailer event handlers (last modified: 2023.08.24).
  */
 
 /**
@@ -67,7 +67,7 @@ $this->Events->addHandler('sendEmail', function (string $Blank = '', array $Data
      * @var string $AltBody The alternative plain-text content of the email.
      * @var array $Attachments An optional array of attachments.
      */
-    [$Recipients, $Subject, $Body, $AltBody, $Attachments] = $ByReference;
+    [$Recipients, $Subject, $Body, $AltBody, $Attachments] = $Data;
 
     /** Prepare event logging. */
     $EventLogData = sprintf(
