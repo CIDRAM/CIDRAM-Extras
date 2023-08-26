@@ -25,8 +25,7 @@ a:active,a:focus{color:#cb2431}
 .ci,.co,.gen,.center{margin:auto}
 .ci,.co,.ng1,.ng2,.ci>.bNav:first-child{width:calc(100% - 32px)}
 .idx{width:calc(100% - 10px)}
-.ci{padding:12px}
-.ci{text-align:{FE_Align}}
+.ci{padding:12px;text-align:{FE_Align}}
 .co,body,.center{text-align:center}
 .co,body,input,select{padding:0}
 .dt,.s,.tip,.txtBl,.txtGn,.txtOe,.txtRd{display:inline}
@@ -183,3 +182,6 @@ input[type=button].reset:hover,input[type=button].reset:active{color:#f88}
 .scaleXToOne{display:inline-block;overflow:hidden;transform:scaleX(1);transform-origin:{FE_Align};opacity:1;max-height:16px;max-width:auto;transition:all .2s ease-in}
 #logsTA{position:relative;top:-2px}
 .canBreak{white-space:normal;overflow-wrap:break-word}
+.toolTip{cursor:help}
+.flexrow{display:flex}
+.flexin{margin-{FE_Align}:-1px;margin-{FE_Align_Reverse}:1px;width:auto;flex-grow:1}
