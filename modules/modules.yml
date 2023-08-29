@@ -11,31 +11,31 @@ Chart.js:
    Checksum: "615790402dd1f3b88e2dcc5c12e3bbbe59de032cae3b2a9678961b68d351b65e:893"
 PHPMailer:
  Name: "PHPMailer"
- Version: "6.8.0"
+ Version: "6.8.1"
  Dependencies:
   ctype: "*"
   filter: "*"
   hash: "*"
  When Install Succeeds: ["queue message response_please_check_config"]
- Release Notes For: ["6.8.0"]
+ Release Notes For: ["6.8.0", "6.8.1"]
  When Update Succeeds:
   - "foreach {Components.RemoteMeta.PHPMailer.Release Notes For} as Key => Value if {Components.Meta.PHPMailer.Version}<{Value}&&{Components.RemoteMeta.PHPMailer.Version}>={Value} then queue message response_release_notes https://github.com/PHPMailer/PHPMailer/releases/tag/v{Value} PHPMailer v{Value}"
  Files:
   PHPMailer/PHPMailer/Exception.php:
-   From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.8.0/src/Exception.php"
+   From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.8.1/src/Exception.php"
    Checksum: "655e82ae2e40561a4c125115ffd49fb172a5221fa224bcdb10d41bf72eae9a87:1240"
   PHPMailer/PHPMailer/OAuth.php:
-   From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.8.0/src/OAuth.php"
+   From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.8.1/src/OAuth.php"
    Checksum: "3b272d5f1fd9e185ad8daab260ad0b548a679e351701b6b78f80a6e523f1f961:3774"
   PHPMailer/PHPMailer/PHPMailer.php:
-   From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.8.0/src/PHPMailer.php"
-   Checksum: "a0fa324f293ce8c073d9e5b7f3c47e0b480ef579c6db095633a3d3f61c7fd251:179441"
+   From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.8.1/src/PHPMailer.php"
+   Checksum: "70242a03c5c460dae2d9d3a246e63d033927ab7559eee5a1edb6df17b9275d9a:179433"
   PHPMailer/PHPMailer/POP3.php:
-   From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.8.0/src/POP3.php"
-   Checksum: "2dc0f740d163df70fba15e39caddf9e63c8b11fe44aebd63b74400d1559677de:12259"
+   From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.8.1/src/POP3.php"
+   Checksum: "d1efaacbb475ce7a6d996d0447173fe2928ee1b44d04dbf2378420f83b14895e:12259"
   PHPMailer/PHPMailer/SMTP.php:
-   From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.8.0/src/SMTP.php"
-   Checksum: "90d0b7b89bfe25fe1c0ec9554b8a5a717f273e684dcc271b31c34ec756c5f3cd:47594"
+   From: "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.8.1/src/SMTP.php"
+   Checksum: "0b009712fd3386187b1ecee6e5a9d0f05a82306dc3414d4387087cb99666805a:47595"
   events/phpmailer.php:
    From: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/phpmailer.php"
    Checksum: "edd9b461c979c40d640c5d58724170c004b81e53b81003b8eafc4ae453748589:7261"
