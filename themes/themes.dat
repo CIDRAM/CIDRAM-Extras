@@ -209,7 +209,7 @@ theme/primer:
 theme/primerdark:
  Name: "Theme: Primer Dark"
  Extended Description: "<img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-primerdark.png" alt="Preview" /><br />A darker version of the Primer theme."
- Version: "2023.237.0"
+ Version: "2023.241.0"
  Dependencies:
   CIDRAM Core: "^1.18|^2.5"
   CIDRAM Front-End: "^1.22.2|^2.9.2"
@@ -236,7 +236,7 @@ theme/primerdark:
    - "f24942206d223c88e901f510c7cf7147d9e8e53e88c139c8d166fedfb3d66418:3299"
    - "7d5936fe0484f6739b0ffa8d3acf81ce6df9353fe04dd7096c19c88a1134364a:1955"
    - "6145977fd40e6cf39446446915e1dc7691e87ce4f7f67f4f80b92cb06662cddc:574"
-   - "a3fab08f552e6303e1e19bf51c8fcec5aee4176553d69734318047c9bd9d517b:12707"
+   - "c2b4936f9ad98a6382ea3e047f9babb43ea3d0731b9138feb3499e458bb57eaf:12743"
    - "78237c45eb2394b72cb5dba4d0b33a366b2abc857ad3af1dbc5b5b2344a6a067:860"
  Reannotate: "themes.dat"
 theme/rbi:
