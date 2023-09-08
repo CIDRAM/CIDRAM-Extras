@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2023.09.04).
+ * This file: Optional security extras module (last modified: 2023.09.08).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -101,7 +101,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             '\.w(?:ell-known|p-cli)/.*(?:about|install|moon|wp-login)|\.?rxr(?:_[\da-z]+)?|' .
             '\d{3,5}[a-z]{3,5}|\d+-?backdoor|0byte|0x|10+|991176|' .
             'admin-heade\d*|adminfuns|ahhygskn|alfa(?:-rex|_data|a?cgiapi|ioxi|new)?\d*|anjas|apismtp|axx|' .
-            'bak|bala|' .
+            'b3d2acc621a0|bak|bala|' .
             'c(?:9|10)\d+|casper[\da-z]+|(?:cgi-bin|css)/(?:moon|newgolden|radio|uploader|well-known|wp-login)|cjfuns|classsmtps|colors/blue/uploader|' .
             'd7|deadcode\d*|dkiz|' .
             'ee|' .
@@ -112,7 +112,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             'lock0?360|lufix(?:-shell)?|' .
             'miin|my1|' .
             'orvx(?:-shell)?|' .
-            'perl\.alfa|php(?:1|_niu_\d+)|(?:plugins|themes)/(?:ccx|ioptimization)|poison|priv8|pzaiihfi|' .
+            'perl\.alfa|php(?:1|_niu_\d+)|(?:plugins|themes)/(?:ccx|ioptimization|yyobang)|poison|priv8|pzaiihfi|' .
             'session91|sh[3e]llx?\d*|shrift|sidwso|silic|skipper(?:shell)?|sonarxleetxd|spammervip|src/util/php/(?:eval(?:-stdin)?|kill)|' .
             't62|themes/(?:finley/min|pridmag/db|universal-news/www)|tinymce/langs/about|tk(?:_dencode_\d+)?|(?:tmp|wp-content)/vuln|topxoh/(?:drsx|wdr)|' .
             'unisibfu|upfile(?:_\(\d\))?|uploader_by_cloud7_agath|utchiha(?:_uploader)?|' .
@@ -121,14 +121,14 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             'wp[-_](?:2019|22|(?:admin|content|css(?:/colors)?|includes(?:/ixr|/customize|/pomo)?|js(?:/widgets)?|network)/(?:cong|dropdown|repeater|simple)|conflg|content/plugins/(?:contus-hd-flv-player/uploadvideo|dzs-zoomsounds/savepng)|filemanager|setups|sigunq|p)|' .
             'ws[ou](?:yanz)?(?:[\d.]*|[\da-z]{4,})|wwdv|' .
             'x{3,}|xiaom|xichang/x|x+l(?:\d+|eet(?:mailer|-shell)?x?)|xm(?:lrpcs|lrpz|rlpc)|xw|' .
-            'yanz|' .
+            'yanz|yyobang/mar|' .
             'zone_hackbar(?:_beutify_other)?|' .
             '版iisspy|大马|一句话(?:木马|扫描脚本程序)?' .
             '))\.php[57]?(?:$|[/?])~',
             $LCNrURI
         ), 'Probing for webshells/backdoors')) {
             $CIDRAM['Reporter']->report([15, 20, 21], ['Caught probing for webshells/backdoors. Host might be compromised.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2023.08.18 mod 2023.09.02
+        } // 2023.08.18 mod 2023.09.08
 
         /** Probing for exposed Git data. */
         if ($Trigger(preg_match('~\.git(?:$|\W)~', $LCNrURI), 'Probing for exposed git data')) {
