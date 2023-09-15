@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2023.08.12).
+ * This file: Bad hosts blocker module (last modified: 2023.09.15).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -186,6 +186,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         'stnoc\.net|\.(?:host|spheral)\.ru)$|45ru\.net\.au|p(?:rohibitivestuff|wn)~',
         $HN
     ), 'Dangerous Host'); // 2022.06.24 mod 2022.12.19
+
+    $Trigger(preg_match('~shadowserver\.org$~', $HN), 'Regular unauthorised proxy tunnel attempts'); // 2023.09.15
 
     $Trigger(preg_match(
         '~(?:iweb|privatedns)\.com$|iweb\.ca$|^(?:www\.)?iweb~',

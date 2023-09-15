@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2023.09.08).
+ * This file: Optional security extras module (last modified: 2023.09.15).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -151,9 +151,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         } // 2022.06.05
 
         /** Probing for vulnerable webapps. */
-        if ($Trigger(preg_match('~cgi-bin/(?:web)?login\.cgi(?:$|\?)~i', $LCNrURI), 'Probing for vulnerable webapps')) {
+        if ($Trigger(preg_match('~cgi-bin/(?:get_status|(?:web)?login)\.cgi(?:$|\?)|manager/text/list~i', $LCNrURI), 'Probing for vulnerable webapps')) {
             $CIDRAM['Reporter']->report([15, 21], ['Caught probing for vulnerable webapps.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2022.06.05
+        } // 2022.06.05 mod 2023.09.15
     }
 
     /**
