@@ -78,7 +78,7 @@ Search engines blocker module:
 compat_bunnycdn.php:
  Name: "BunnyCDN compatibility module"
  False Positive Risk: "Low"
- Version: "2022.67.0"
+ Version: "2023.261.0"
  Dependencies:
   PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.13.1|^2.0.1"
@@ -93,7 +93,7 @@ compat_bunnycdn.php:
    - "compat_bunnycdn.php"
    - "compat_bunnycdn.yaml"
   Checksum:
-   - "13173053705f2586021db2fc97279e6f9661d2034cf6a17038873627fe87e625:2677"
+   - "f29f419cfb7f75e98e6f51f029c63d741456d9883135b278a7d19258c0804955:2768"
    - "918edd488e556eec018c33269da5e7e094a5a15bc6f6772168b771565fd32add:2259"
  Used with: "modules"
  Reannotate: "modules.dat"

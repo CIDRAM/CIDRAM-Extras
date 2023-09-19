@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: BunnyCDN compatibility module (last modified: 2021.10.15).
+ * This file: BunnyCDN compatibility module (last modified: 2023.09.19).
  *
  * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  */
@@ -53,6 +53,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     if (is_array($IPList) && in_array($CIDRAM['BlockInfo']['IPAddr'], $IPList, true)) {
         /** Prevents search engine and social media verification. */
         $CIDRAM['SkipVerification'] = true;
+
+        /** Profiling. */
+        $CIDRAM['AddProfileEntry']('Content Delivery Network');
 
         /** Bypass the request. */
         if ($CIDRAM['Config']['bunnycdn']['positive_action'] === 'bypass') {
