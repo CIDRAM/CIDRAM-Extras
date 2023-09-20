@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: PHPMailer event handlers (last modified: 2023.09.18).
+ * This file: PHPMailer event handlers (last modified: 2023.09.19).
  */
 
 /**
@@ -186,10 +186,10 @@ $this->Events->addHandler('sendEmail', function (string $Blank = '', array $Data
             $EventLogData .= ($State ? sprintf(
                 $this->L10N->getString('state_email_sent'),
                 $SuccessDetails
-            ) : $this->L10N->getString('response_error') . ' - ' . $Mail->ErrorInfo) . "\n";
+            ) : $this->L10N->getString('response.Error') . ' - ' . $Mail->ErrorInfo) . "\n";
         } catch (\Exception $e) {
             /** An exeption occurred. Log the information. */
-            $EventLogData .= $this->L10N->getString('response_error') . ' - ' . $e->getMessage() . "\n";
+            $EventLogData .= $this->L10N->getString('response.Error') . ' - ' . $e->getMessage() . "\n";
         }
     }
 
