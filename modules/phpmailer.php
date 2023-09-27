@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: PHPMailer event handlers (last modified: 2023.09.19).
+ * This file: PHPMailer event handlers (last modified: 2023.09.27).
  */
 
 /**
@@ -84,7 +84,7 @@ $this->Events->addHandler('sendEmail', function (string $Blank = '', array $Data
 
     /** Check whether class exists to either load it and continue or fail the operation. */
     if (!class_exists('\PHPMailer\PHPMailer\PHPMailer')) {
-        $EventLogData .= $this->L10N->getString('state_failed_missing') . "\n";
+        $EventLogData .= $this->L10N->getString('response.Task failed because a necessary component is unavailable') . "\n";
     } else {
         try {
             /** Create a new PHPMailer instance. */
@@ -184,7 +184,7 @@ $this->Events->addHandler('sendEmail', function (string $Blank = '', array $Data
 
             /** Log the results of the send attempt. */
             $EventLogData .= ($State ? sprintf(
-                $this->L10N->getString('state_email_sent'),
+                $this->L10N->getString('response.Email successfully sent to %s'),
                 $SuccessDetails
             ) : $this->L10N->getString('response.Error') . ' - ' . $Mail->ErrorInfo) . "\n";
         } catch (\Exception $e) {
