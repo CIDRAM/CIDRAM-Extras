@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2023.10.06).
+ * This file: Optional security extras module (last modified: 2023.10.10).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -273,6 +273,13 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         $Trigger(preg_match('/cpis_.*i0seclab@intermal\.com/', $QueryNoSpace), 'Hack attempt'); // 2018.02.20
         $Trigger(preg_match('/^(?:3x=3x|of=1&a=1)/i', $CIDRAM['BlockInfo']['Query']), 'Hack attempt'); // 2023.07.13 mod 2023.09.02
 
+        $Trigger(strpos($QueryNoSpace, 'u=ahr0cdovl3nolnrozwjlc3rjb2rllnrvcc90zxh0l3rlehrfmy50ehrz'), 'Compromised credential in brute-force attacks'); // 2023.10.10
+
+        $Trigger(preg_match(
+            '~pw=(?:o(?:dvlmgnkc|tjmmdu1)|n(?:zrlnjnl|tk2m2i5)|mzllmwnh|yti4ngu2)~',
+            $QueryNoSpace
+        ), 'Compromised password used in brute-force attacks'); // 2023.10.10
+
         /** These signatures can set extended tracking options. */
         if (
             $Trigger(strpos($QueryNoSpace, '$_' . '[$' . '__') !== false, 'Shell upload attempt') || // 2017.03.01
@@ -334,21 +341,11 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             $RawInputSafe
         ), 'Plesk hack'); // 2017.03.01
 
-        $Trigger(preg_match('~(?:6\D*1\D*6\D*6\D*9\D*4\D*7\D*8\D*5)~i', $RawInput), 'Spam attempt'); // 2017.03.01
         $Trigger(preg_match('~//dail' . 'ydigita' . 'ldeals' . '\.info/~i', $RawInput), 'Spam attempt'); // 2017.03.01
-
-        $Trigger(preg_match(
-            '~C[46][iy]1F[12]EA7217PB(?:DF|TL)[15]FlcH(?:77|98)s[0O]pf[0O](?:%2f' .
-            '|.)[Sr]1[Zt](?:15|76)(?:%2f|.)(?:13ga|OKFae)~',
-            $RawInput
-        ), 'Compromised API key used in brute-force attacks'); // 2020.08.08
-
-        $Trigger(preg_match('~streaming\.live365\.com/~i', $RawInput), 'Spamvertised domain'); // 2020.03.02
+        $Trigger(preg_match('~streaming\.live365\.com/~i', $RawInput), 'Spam attempt'); // 2020.03.02 mod 2023.10.10
 
         /** These signatures can set extended tracking options. */
         if (
-            $Trigger(preg_match('~/â\\x80¦x\.php~i', $RawInput), 'Probe attempt') || // 2017.03.01
-            $Trigger(preg_match('~\([\'"](?:zwnobyai|awyoznvu)~', $RawInputSafe), 'Injection attempt') || // 2017.03.01
             $Trigger(preg_match('~^/\?-~', $RawInput), 'Hack attempt') || // 2017.03.01
             $Trigger(strpos($RawInputSafe, '$_' . '[$' . '__') !== false, 'Shell upload attempt') || // 2017.03.01
             $Trigger(strpos($RawInputSafe, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Shell upload attempt') || // 2017.03.01
@@ -360,8 +357,10 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
     /** Reporting. */
     if (!empty($CIDRAM['BlockInfo']['IPAddr'])) {
-        if (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Compromised API key') !== false) {
-            $CIDRAM['Reporter']->report([15], ['Unauthorised use of known compromised API key detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        if (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Compromised credential') !== false) {
+            $CIDRAM['Reporter']->report([15, 18], ['Unauthorised use of known compromised credential detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Compromised password') !== false) {
+            $CIDRAM['Reporter']->report([15, 18], ['Unauthorised use of known compromised password detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'FancyBox exploit attempt') !== false) {
             $CIDRAM['Reporter']->report([15, 21], ['FancyBox hack attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Hack attempt') !== false) {
@@ -393,9 +392,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Shell upload attempt') !== false) {
             $CIDRAM['Reporter']->report([15], ['Shell upload attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Spam attempt') !== false) {
-            $CIDRAM['Reporter']->report([10], ['Detected a spambot attempting to drop its payload.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Spam attempt') !== false) {
-            $CIDRAM['Reporter']->report([10, 19], ['Detected a spambot attempting to drop its payload.'], $CIDRAM['BlockInfo']['IPAddr']);
+            $CIDRAM['Reporter']->report([10, 19], ['Spam attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'WP hack attempt') !== false) {
             $CIDRAM['Reporter']->report([15, 21], ['WordPress hack attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Traversal attack') !== false) {
