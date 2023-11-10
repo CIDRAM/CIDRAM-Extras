@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2023.10.10).
+ * This file: Optional security extras module (last modified: 2023.11.10).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -264,7 +264,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         $Trigger(strpos($CIDRAM['BlockInfo']['Query'], ',0x') !== false, 'Bad query'); // 2017.02.25
         $Trigger(strpos($CIDRAM['BlockInfo']['Query'], ',\'\',') !== false, 'Bad query'); // 2017.02.25
 
-        $Trigger(preg_match('/id=.*(?:benchmark\(|id[xy]=|sleep\()/', $QueryNoSpace), 'Query SQLi'); // 2017.03.01
+        $Trigger(preg_match('/(?<![a-z])id=.*(?:benchmark\(|id[xy]=|sleep\()/', $QueryNoSpace), 'Query SQLi'); // 2017.03.01 mod 2023.11.10
         $Trigger(preg_match(
             '~(?:from|union|where).*select|then.*else|(?:o[nr]|where).*isnull|(?:inner|left|outer|right)join~',
             $QueryNoSpace
