@@ -18,14 +18,6 @@ if (!isset($this->CIDRAM['ModuleResCache'])) {
     $this->CIDRAM['ModuleResCache'] = [];
 }
 
-/**
- * Fetch Symfony polyfills for Idn (needed to process international domain
- * names, which utilise punycode, which requires Idn functionality to decode).
- */
-if (!function_exists('idn_to_utf8') && is_readable($this->Vault . 'Symfony/Polyfill/bootstrap.php')) {
-    require $this->Vault . 'Symfony/Polyfill/bootstrap.php';
-}
-
 /** Defining as closure for later recall (no params; no return value). */
 $this->CIDRAM['ModuleResCache'][$Module] = function () {
     /** Guard. */
