@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bot user agents module (last modified: 2023.11.17).
+ * This file: Bot user agents module (last modified: 2023.12.01).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -39,10 +39,10 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     /** Unmarks for use with reCAPTCHA and hCAPTCHA. */
     $UnmarkCaptcha = ['recaptcha' => ['enabled' => false], 'hcaptcha' => ['enabled' => false]];
 
-    $UA = str_replace("\\", '/', strtolower(urldecode($CIDRAM['BlockInfo']['UA'])));
+    $UA = str_replace('\\', '/', strtolower(urldecode($CIDRAM['BlockInfo']['UA'])));
     $UANoSpace = preg_replace('/\s/', '', $UA);
 
-    $Trigger(preg_match('/\((?:["\']{2})?\)/', $UANoSpace), 'UA command injection'); // 2017.01.02
+    $Trigger(preg_match('/\\((?:["\']{2})?\\)/', $UANoSpace), 'UA command injection'); // 2017.01.02
 
     $Trigger(preg_match(
         '/(?:_once|able|as(c|hes|sert)|c(hr|ode|ontents)|e(cho|regi|scape|val)|ex' .
@@ -133,7 +133,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     ), 'Spam UA'); // 2022.07.09
 
     $Trigger(preg_match(
-        '/(?: (audit|href|mra |quibids )|\(build 5339\))/',
+        '/(?: (audit|href|mra |quibids )|\\(build 5339\\))/',
         $UA
     ), 'Spam UA'); // 2017.02.02
 
@@ -265,7 +265,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     ), 'Unauthorised'); // 2023.09.15
 
     $Trigger(preg_match(
-        '~^(?:bot|java|msie|windows-live-social-object-extractor)|\((?:java|\w\:\d{2,})~',
+        '~^(?:bot|java|msie|windows-live-social-object-extractor)|\\((?:java|\w:\d{2,})~',
         $UANoSpace
     ), 'Fake UA'); // 2019.06.30
 
@@ -297,7 +297,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         '/(?:drop ?table|(_table|assert|co(de|ntents)|dotnet_load|e(cho|regi' .
         '|scape|val|x(ec(utable)?|ists)?)|f(ile|unction)|g(et(c(sv)?|ss?)|zi' .
         'nflate)|if|[ints]able|nt|open|p(lace|uts)|re(ad|store)|s(chema|tart' .
-        '|ystem)|thru|un(ction|serialize)|w(hil|rit)e)\(|database\(\))/',
+        '|ystem)|thru|un(ction|serialize)|w(hil|rit)e)\\(|database\\(\\))/',
         $UA
     ), 'UAEX'); // 2017.02.02
 

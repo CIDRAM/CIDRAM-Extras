@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional cookie scanner module (last modified: 2021.10.15).
+ * This file: Optional cookie scanner module (last modified: 2023.12.01).
  *
  * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  *
@@ -54,7 +54,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
         $Trigger(preg_match('/(?:\+A(?:CI|D[sw4]|[FH][s0]|GA)-|U\+003[EC])/', $ThisPair), 'UTF-7 entities detected in cookie'); // 2017.01.02
 
-        $Trigger(preg_match('/\((?:["\']{2})?\)/', $ThisPairN), 'Command injection detected in cookie'); // 2017.01.02
+        $Trigger(preg_match('/\\((?:["\']{2})?\\)/', $ThisPairN), 'Command injection detected in cookie'); // 2017.01.02
         $Trigger(preg_match(
             '/(?:_once|able|as(c|hes|sert)|c(hr|ode|ontents)|e(cho|regi|scape|va' .
             'l)|ex(ec|ists)?|f(ile|late|unction)|hex2bin|get(c|csv|ss?)?|i(f|ncl' .
@@ -81,13 +81,13 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         $Trigger(strpos($ThisPairN, 'tmp_name') !== false, 'Command injection detected in cookie'); // 2017.01.02
         $Trigger(strpos($ThisPairN, '_contents') !== false, 'Command injection detected in cookie'); // 2017.01.02
 
-        $Trigger(preg_match('/ap(?:ache_[\w\d_]{4,16}|c_[\w\d_]{3,16})\(/', $ThisPairN), 'Function call detected in cookie'); // 2018.06.24
-        $Trigger(preg_match('/curl_[\w\d_]{4,10}\(/', $ThisPairN), 'Function call detected in cookie'); // 2018.06.24
-        $Trigger(preg_match('/ftp_[\w\d_]{3,7}\(/', $ThisPairN), 'Function call detected in cookie'); // 2018.06.24
-        $Trigger(preg_match('/mysqli?(?:_|\:\:)[\w\d_]{4,9}\(/', $ThisPairN), 'Function call detected in cookie'); // 2018.06.24
-        $Trigger(preg_match('/phpads_[\w\d_]{4,12}\(/', $ThisPairN), 'Function call detected in cookie'); // 2018.06.24
-        $Trigger(preg_match('/posix_[\w\d_]{4,19}\(/', $ThisPairN), 'Function call detected in cookie'); // 2018.06.24
-        $Trigger(preg_match('/proc_[\w\d_]{4,10}\(/', $ThisPairN), 'Function call detected in cookie'); // 2018.06.24
+        $Trigger(preg_match('/ap(?:ache_[\w\d_]{4,16}|c_[\w\d_]{3,16})\\(/', $ThisPairN), 'Function call detected in cookie'); // 2018.06.24
+        $Trigger(preg_match('/curl_[\w\d_]{4,10}\\(/', $ThisPairN), 'Function call detected in cookie'); // 2018.06.24
+        $Trigger(preg_match('/ftp_[\w\d_]{3,7}\\(/', $ThisPairN), 'Function call detected in cookie'); // 2018.06.24
+        $Trigger(preg_match('/mysqli?(?:_|::)[\w\d_]{4,9}\\(/', $ThisPairN), 'Function call detected in cookie'); // 2018.06.24
+        $Trigger(preg_match('/phpads_[\w\d_]{4,12}\\(/', $ThisPairN), 'Function call detected in cookie'); // 2018.06.24
+        $Trigger(preg_match('/posix_[\w\d_]{4,19}\\(/', $ThisPairN), 'Function call detected in cookie'); // 2018.06.24
+        $Trigger(preg_match('/proc_[\w\d_]{4,10}\\(/', $ThisPairN), 'Function call detected in cookie'); // 2018.06.24
 
         $Trigger(preg_match('/\'(?:uploadedfile|move_uploaded_file|tmp_name)\'/', $ThisPairN), 'Probe attempt'); // 2017.01.02
 

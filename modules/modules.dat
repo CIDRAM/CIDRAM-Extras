@@ -78,7 +78,7 @@ Search engines blocker module:
 compat_bunnycdn.php:
  Name: "BunnyCDN compatibility module"
  False Positive Risk: "Low"
- Version: "2023.261.0"
+ Version: "2023.334.0"
  Dependencies:
   PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.13.1|^2.0.1"
@@ -93,7 +93,7 @@ compat_bunnycdn.php:
    - "compat_bunnycdn.php"
    - "compat_bunnycdn.yaml"
   Checksum:
-   - "f29f419cfb7f75e98e6f51f029c63d741456d9883135b278a7d19258c0804955:2768"
+   - "978eb15a831bbdeaee1d86027fefeb6d0552ce7e3f4d8f45a57bdd8dcfdfc22f:2770"
    - "918edd488e556eec018c33269da5e7e094a5a15bc6f6772168b771565fd32add:2259"
  Used with: "modules"
  Reannotate: "modules.dat"
@@ -138,7 +138,7 @@ module_abuseipdb.php:
 module_badhosts.php:
  Name: "Bad hosts blocker module"
  False Positive Risk: "Medium"
- Version: "2023.257.0"
+ Version: "2023.334.0"
  Dependencies:
   PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.13.1|^2.0.1"
@@ -150,7 +150,7 @@ module_badhosts.php:
   To:
    - "module_badhosts.php"
   Checksum:
-   - "21caaa82bca9922880b2b3dab4fb2ee4a1b6bbc03e21c45e810e11e211a107e5:15783"
+   - "a7711b83330e09e3346af05288a1ab5afef1ed3141dac4fbe74785621ebe1c77:15780"
  Used with: "modules"
  Reannotate: "modules.dat"
 module_badtlds.php:
@@ -197,7 +197,7 @@ module_bgpview.php:
 module_botua.php:
  Name: "Bot user agents module"
  False Positive Risk: "Medium"
- Version: "2023.320.0"
+ Version: "2023.334.0"
  Dependencies:
   PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.13.1|^2.0.1"
@@ -209,13 +209,13 @@ module_botua.php:
   To:
    - "module_botua.php"
   Checksum:
-   - "8d0acc735a04becff4804cde2817752c3baec3eea4811e6f025c3111c1596712:25431"
+   - "cf1935aa495829cda0af217f311790f1e2de724db28650b63ba1c9403c3fc1d1:25438"
  Used with: "modules"
  Reannotate: "modules.dat"
 module_cookies.php:
  Name: "Optional cookie scanner module"
  False Positive Risk: "Low"
- Version: "2021.287.582"
+ Version: "2023.334.0"
  Dependencies:
   PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.13.1|^2.0.1"
@@ -227,13 +227,13 @@ module_cookies.php:
   To:
    - "module_cookies.php"
   Checksum:
-   - "8c50f81ff702cc3842ad0bb6a0bad7e0013e7dde7d4e434dd1d337aa8feee34c:8361"
+   - "5734327bbb5899dd9b7fdf3936f617fc6d772cba7825348b35f535fad84babec:8368"
  Used with: "modules"
  Reannotate: "modules.dat"
 module_extras.php:
  Name: "Optional security extras module"
  False Positive Risk: "Medium"
- Version: "2023.313.0"
+ Version: "2023.334.0"
  Dependencies:
   PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.13.1|^2.0.1"
@@ -248,7 +248,7 @@ module_extras.php:
    - "module_extras.php"
    - "module_extras.yaml"
   Checksum:
-   - "8c31ecb15be669fad2b3af24af77daf2950b480678138849fef7af39562b48a3:25724"
+   - "164f3492b675ef2c37c14a382f7913feef97038e24550c9bc50e10a1efc6a419:25732"
    - "7b891d1fa4b1c52c410220bc758e8cb7064bd6040430fb149a5b60e9ae2e0838:890"
  Used with: "modules"
  Reannotate: "modules.dat"
@@ -299,7 +299,7 @@ module_projecthoneypot.php:
 module_refspam.php:
  Name: "Referrer spam module"
  False Positive Risk: "Medium"
- Version: "2023.167.0"
+ Version: "2023.334.0"
  Dependencies:
   PHP: "^7.1|^8"
   CIDRAM Core: "^1.13.1|^2.0.1"
@@ -337,7 +337,7 @@ module_refspam.php:
    - "classes/Symfony/Resources/unidata/mapped.php"
    - "classes/Symfony/Resources/unidata/virama.php"
   Checksum:
-   - "99c72da1953a6ae19ac2d967f8d49dde296c58449156611914a63bb5afadd07a:13396"
+   - "f4fa6f28a692edd2204774982a08e3a9ce9e4f83cf4ec0508e9fa2bc414735b8:13394"
    - "d1c848be8e40cd932b4c417062a06e344aebe6beefebaf627f4990a05e651653:4625"
    - "235b2ec58965606763d4939d9adecf447064056589ccf14840a8401685a89a85:4018"
    - "c951b4b333204d8a5ea67fdc03c6d0ce2c2d1d5f3484e169b983ad1df4fd59b6:8707"

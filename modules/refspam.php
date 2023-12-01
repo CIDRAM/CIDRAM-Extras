@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Referrer spam module (last modified: 2023.06.16).
+ * This file: Referrer spam module (last modified: 2023.12.01).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -39,7 +39,7 @@ $this->CIDRAM['ModuleResCache'][$Module] = function () {
     }
 
     /** Process to get the domain part. */
-    $Domain = preg_replace(['~^[a-z]+\:[\\/]*(?:www\d*\.)?~i', '~[\\/\:].*$~', '[ \n\r]'], '', $this->BlockInfo['Referrer']);
+    $Domain = preg_replace(['~^[a-z]+:[\\/]*(?:www\d*\.)?~i', '~[\\/:].*$~', '[ \n\r]'], '', $this->BlockInfo['Referrer']);
 
     /** Lower-case domain part. */
     $RefLC = strtolower($Domain);

@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2023.09.15).
+ * This file: Bad hosts blocker module (last modified: 2023.12.01).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -59,8 +59,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     $Bypass = $CIDRAM['Bypass'];
 
     /** Signatures start here. */
-    $HN = preg_replace('/\s/', '', str_replace("\\", '/', strtolower(urldecode($CIDRAM['Hostname']))));
-    $UA = str_replace("\\", '/', strtolower(urldecode($CIDRAM['BlockInfo']['UA'])));
+    $HN = preg_replace('/\s/', '', str_replace('\\', '/', strtolower(urldecode($CIDRAM['Hostname']))));
+    $UA = str_replace('\\', '/', strtolower(urldecode($CIDRAM['BlockInfo']['UA'])));
     $UANoSpace = preg_replace('/\s/', '', $UA);
 
     $Trigger(preg_match(
@@ -224,7 +224,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             $UANoSpace
         ) &&
         !preg_match(
-            '~(?:Feedspot http\://www\.feedspot\.com|developers\.snap\.com/robots)$~',
+            '~(?:Feedspot http://www\.feedspot\.com|developers\.snap\.com/robots)$~',
             $CIDRAM['BlockInfo']['UA']
         )
     ), 'Amazon Web Services'); // 2023.02.28
@@ -251,7 +251,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         ), 'Banned hostname') || // 2017.01.21
         $Trigger(preg_match('~rumer|pymep|румер~', $HN), 'Spamhost') || // 2017.01.21
         $Trigger(preg_match('/^localhost$/', $HN) && (
-            !preg_match('/^(?:1(?:27|92\.168)(?:\.1?\d{1,2}|\.2[0-4]\d|\.25[0-5]){2,3}|\:\:1)$/', $CIDRAM['BlockInfo']['IPAddr'])
+            !preg_match('/^(?:1(?:27|92\.168)(?:\.1?\d{1,2}|\.2[0-4]\d|\.25[0-5]){2,3}|::1)$/', $CIDRAM['BlockInfo']['IPAddr'])
         ), 'Spoofed/Fake Hostname') || // 2018.06.24
         $Trigger($HN === '.', 'DNS error') // 2017.02.25
     ) {

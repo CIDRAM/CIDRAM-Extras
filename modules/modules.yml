@@ -47,11 +47,11 @@ PHPMailer:
 Referrer spam module:
  Name: "Referrer spam module"
  False Positive Risk: "Medium"
- Version: "2023.167.0"
+ Version: "2023.334.0"
  Files:
   modules/refspam.php:
    From: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/refspam.php"
-   Checksum: "f63884ed9d3518b6d4c1377d510d099faa6b7b857c2027f3c0eb5383045d64cb:13165"
+   Checksum: "2259db03b7c18b0d58c23872bd971a8e61b61b6bb4a8e8176a058d8409e34eeb:13163"
    Used with: "modules"
   Symfony/Polyfill/bootstrap.php:
    From: "https://raw.githubusercontent.com/symfony/polyfill-intl-idn/f362de8d826550e6f325444cfe611def70c5c3ec/bootstrap.php"

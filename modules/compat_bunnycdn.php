@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: BunnyCDN compatibility module (last modified: 2023.09.19).
+ * This file: BunnyCDN compatibility module (last modified: 2023.12.01).
  *
  * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  */
@@ -46,7 +46,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     $IPList = (substr($CIDRAM['API']['BunnyCDN']['Data'], 0, 1) === '<') ? array_filter(
         explode('<>', preg_replace('~<[^<>]+>~', '<>', $CIDRAM['API']['BunnyCDN']['Data']))
     ) : (array_filter(
-        explode(',', preg_replace('~["\'\[\]]~', '', $CIDRAM['API']['BunnyCDN']['Data']))
+        explode(',', preg_replace('~["\'\\[\\]]~', '', $CIDRAM['API']['BunnyCDN']['Data']))
     ) ?: '');
 
     /** Execute configured action for positive matches against the BunnyCDN IP list. */
