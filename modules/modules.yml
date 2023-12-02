@@ -16,7 +16,7 @@ PHPMailer:
   ctype: "*"
   filter: "*"
   hash: "*"
- When Install Succeeds: ["queue message response_please_check_config"]
+ When Install Succeeds: ["queue message response.please_check_config"]
  Release Notes For: ["6.8.0", "6.8.1", "6.9.1"]
  When Update Succeeds:
   - "foreach {Components.RemoteMeta.PHPMailer.Release Notes For} as Key => Value if {Components.Meta.PHPMailer.Version}<{Value}&&{Components.RemoteMeta.PHPMailer.Version}>={Value} then queue message response_release_notes https://github.com/PHPMailer/PHPMailer/releases/tag/v{Value} PHPMailer v{Value}"
