@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: PHPMailer event handlers (last modified: 2023.09.27).
+ * This file: PHPMailer event handlers (last modified: 2023.12.02).
  */
 
 /**
@@ -26,7 +26,7 @@ $this->Events->addHandler('writeToPHPMailerEventLog', function (string $Data): b
         return false;
     }
 
-    $Truncate = $this->readBytes($this->Configuration['general']['truncate']);
+    $Truncate = $this->readBytes($this->Configuration['logging']['truncate']);
     $WriteMode = (!file_exists($EventLog) || $Truncate > 0 && filesize($EventLog) >= $Truncate) ? 'wb' : 'ab';
     if (!is_resource($Handle = fopen($EventLog, $WriteMode))) {
         trigger_error('The "writeToPHPMailerEventLog" event failed to open "' . $EventLog . '" for writing.');
