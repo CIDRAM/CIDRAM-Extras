@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bot user agents module (last modified: 2023.12.01).
+ * This file: Bot user agents module (last modified: 2023.12.17).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -244,7 +244,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         'expanse|' .
         'flightdeckreportsbot|fluid/|' .
         'g(?:atheranalyzeprovide|dnplus|imme60|lobalipv[46]space|ooglebenjojo|tbdfffgtb.?$)|' .
-        'internetcensus|ips-agent|isitwp|' .
+        'infrawatch|internetcensus|ips-agent|isitwp|' .
         'k2spider|kemvi|' .
         'leak\.info|lexxebot|livelapbot|lwp|' .
         'm(?:acinroyprivacyauditors|asscan|etaintelligence|ultipletimes)|' .
@@ -262,7 +262,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     ) || preg_match(
         '~^Mozilla/5\.0( [A-Za-z]{2,5}/0\..)?$~',
         $CIDRAM['BlockInfo']['UA']
-    ), 'Unauthorised'); // 2023.09.15
+    ), 'Unauthorised'); // 2023.09.15 mod 2023.12.17
 
     $Trigger(preg_match(
         '~^(?:bot|java|msie|windows-live-social-object-extractor)|\\((?:java|\w:\d{2,})~',
