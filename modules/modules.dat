@@ -209,7 +209,7 @@ module_botua.php:
   To:
    - "module_botua.php"
   Checksum:
-   - "e3eb2ab03dd5e3924dbb870c8f43ed0d113bdf4b695632ad4a1c69aae40aeb53:25486"
+   - "c7d35859e59f89bdeca96c720fde15054b906b4bbd3986c97d518e4e93a1aff0:25537"
  Used with: "modules"
  Reannotate: "modules.dat"
 module_cookies.php:
