@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: PHPMailer event handlers (last modified: 2023.12.02).
+ * This file: PHPMailer event handlers (last modified: 2024.04.21).
  */
 
 /**
@@ -62,7 +62,7 @@ $this->Events->addHandler('isLogFile', function (): bool {
  * @param array $Data The data used to send the email.
  * @return bool True on success; False on failure.
  */
-$this->Events->addHandler('sendEmail', function (string $Blank = '', array $Data): bool {
+$this->Events->addHandler('sendEmail', function (string $Blank = '', array $Data = []): bool {
     /**
      * @var array $Recipients An array of recipients to send to.
      * @var string $Subject The subject line of the email.
