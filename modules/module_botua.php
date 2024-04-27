@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bot user agents module (last modified: 2024.04.12).
+ * This file: Bot user agents module (last modified: 2024.04.27).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -433,8 +433,13 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
     /**
      * @link https://github.com/CIDRAM/CIDRAM/issues/494
+     * @link https://www.reddit.com/r/singularity/comments/1cdm97j/anthropics_claudebot_is_aggressively_scraping_the/
+     * @link https://www.linode.com/community/questions/24842/ddos-from-anthropic-ai
      */
-    $Trigger(strpos($UANoSpace, 'anthropic-ai') !== false, 'Unauthorised AI scanner'); // 2023.08.10 mod 2023.08.12
+    if ($Trigger((strpos($UANoSpace, 'anthropic') !== false || strpos($UANoSpace, 'claudebot') !== false), 'Unauthorised AI scanner')) {
+        $CIDRAM['Reporter']->report([4, 19], ['AI scanner notorious for flooding and DDoS attacks detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        $CIDRAM['Tracking options override'] = 'extended';
+    } // 2023.08.10 mod 2024.04.27
 };
 
 /** Execute closure. */
