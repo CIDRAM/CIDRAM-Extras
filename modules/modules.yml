@@ -42,7 +42,7 @@ PHPMailer:
    Used with: "events"
   imports/phpmailer.yml:
    From: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/phpmailer.yml"
-   Checksum: "8e8c74bd86d2e95134b440fe396b2511830197d502763ea6c26d9d4052068268:1140"
+   Checksum: "1bd3245764468ab99a8a2757dc0d2657785acce705adcca360740fbff578927c:1175"
    Used with: "imports"
 Referrer spam module:
  Name: "Referrer spam module"
