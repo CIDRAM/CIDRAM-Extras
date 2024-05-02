@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2024.04.18).
+ * This file: Optional security extras module (last modified: 2024.05.02).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -167,6 +167,11 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         if ($Trigger(preg_match('~cgi-bin/(?:get_status|(?:web)?login)\.cgi(?:$|\?)|manager/text/list~i', $LCNrURI), 'Probing for vulnerable webapps')) {
             $CIDRAM['Reporter']->report([15, 21], ['Caught probing for vulnerable webapps.'], $CIDRAM['BlockInfo']['IPAddr']);
         } // 2022.06.05 mod 2023.09.15
+
+        /** Probing for sendgrid env file. */
+        if ($Trigger(preg_match('~/sendgrid\.env(?:$|[/?])~i', $LCNrURI), 'Probing for sendgrid env file')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for sendgrid env file.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2024.05.02
     }
 
     /**
