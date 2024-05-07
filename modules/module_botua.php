@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bot user agents module (last modified: 2024.05.05).
+ * This file: Bot user agents module (last modified: 2024.05.07).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -422,10 +422,11 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     /**
      * @link https://github.com/CIDRAM/CIDRAM/issues/493
      * @link https://github.com/CIDRAM/CIDRAM/issues/557
+     * @link https://github.com/CIDRAM/CIDRAM/issues/588
      * @link https://trunc.org/learning/the-mozlila-user-agent-bot
      */
     if (
-        $Trigger(strpos($UANoSpace, 'mozlila') !== false || strpos($UANoSpace, 'moblie') !== false, 'Attack UA') // 2023.08.10 mod 2024.01.18
+        $Trigger(strpos($UANoSpace, 'mozlila') !== false || strpos($UANoSpace, 'moblie') !== false || $UANoSpace === 'mozila/5.0', 'Attack UA') // 2023.08.10 mod 2024.05.07
     ) {
         $CIDRAM['Reporter']->report([15, 19, 20, 21], ['User agent cited by various attack tools, rootkits, backdoors, webshells, and malware detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         $CIDRAM['Tracking options override'] = 'extended';
