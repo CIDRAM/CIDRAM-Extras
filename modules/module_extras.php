@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2024.06.04).
+ * This file: Optional security extras module (last modified: 2024.06.11).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -327,6 +327,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         $Handle = fopen('php://input', 'rb');
         $RawInput = fread($Handle, 1048576);
         fclose($Handle);
+    } else {
+        $RawInput = '';
     }
 
     /**
@@ -391,6 +393,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             $CIDRAM['Reporter']->report([15, 18], ['Unauthorised use of known compromised password detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'FancyBox exploit attempt') !== false) {
             $CIDRAM['Reporter']->report([15, 21], ['FancyBox hack attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'WP hack attempt') !== false) {
+            $CIDRAM['Reporter']->report([15, 21], ['WordPress hack attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Hack attempt') !== false) {
             $CIDRAM['Reporter']->report([15], ['Hack attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Nesting attack') !== false) {
@@ -421,8 +425,6 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             $CIDRAM['Reporter']->report([15], ['Shell upload attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Spam attempt') !== false) {
             $CIDRAM['Reporter']->report([10, 19], ['Spam attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'WP hack attempt') !== false) {
-            $CIDRAM['Reporter']->report([15, 21], ['WordPress hack attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Traversal attack') !== false) {
             $CIDRAM['Reporter']->report([15, 21], ['Traversal attack detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         }
