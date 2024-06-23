@@ -1,13 +1,13 @@
 Chart.js:
  Name: "Chart.js"
- Version: "3.8.0"
+ Version: "3.9.1"
  Provisional: true
  Files:
   assets/frontend/chart.min.js:
-   From: "https://raw.githubusercontent.com/Maikuolan/Chart.js-Common-Module/master/chart.min.js"
-   Checksum: "70754ee1da997da9918560fbb38897c9a5d654ad74a1d0feaa9e3189d173a932:197005"
+   From: "https://raw.githubusercontent.com/Maikuolan/Chart.js-Common-Module/v3.9.1/chart.min.js"
+   Checksum: "fbc45926e6b46845a0f905552a0e0b1331049bff1115ecf94dbe0904d895e710:199560"
   assets/frontend/_chartjs.html:
-   From: "https://raw.githubusercontent.com/Maikuolan/Chart.js-Common-Module/master/_chartjs.html"
+   From: "https://raw.githubusercontent.com/Maikuolan/Chart.js-Common-Module/v3.9.1/_chartjs.html"
    Checksum: "615790402dd1f3b88e2dcc5c12e3bbbe59de032cae3b2a9678961b68d351b65e:893"
 PHPMailer:
  Name: "PHPMailer"
