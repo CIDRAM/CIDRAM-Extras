@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bot user agents module (last modified: 2024.06.11).
+ * This file: Bot user agents module (last modified: 2024.06.27).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -447,6 +447,17 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         $CIDRAM['Reporter']->report([4, 19], ['AI scanner notorious for flooding and DDoS attacks detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         $CIDRAM['Tracking options override'] = 'extended';
     } // 2023.08.10 mod 2024.04.27
+
+    /**
+     * @link https://github.com/CIDRAM/CIDRAM/issues/606
+     * @link https://nsfocusglobal.com/ai-supply-chain-security-hugging-face-malicious-ml-models/
+     * @link https://www.darkreading.com/application-security/hugging-face-ai-platform-100-malicious-code-execution-models
+     * @link https://vulcan.io/blog/understanding-the-hugging-face-backdoor-threat/
+     */
+    if ($Trigger(preg_match('~datasets/|hugging.*face|_hub.*(?:pyarrow|torch)~', $UANoSpace), 'Potential supply chain attack')) {
+        $CIDRAM['Reporter']->report([4, 15, 19, 20], ['Huggingface detected (potential ML-based supply chain attack vector; caught flooding, scraping, and performing DDoS attacks).'], $CIDRAM['BlockInfo']['IPAddr']);
+        $CIDRAM['Tracking options override'] = 'extended';
+    } // 2024.06.27
 };
 
 /** Execute closure. */
