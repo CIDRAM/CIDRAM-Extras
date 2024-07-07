@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bot user agents module (last modified: 2024.06.27).
+ * This file: Bot user agents module (last modified: 2024.07.07).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -458,6 +458,10 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         $CIDRAM['Reporter']->report([4, 15, 19, 20], ['Huggingface detected (potential ML-based supply chain attack vector; caught flooding, scraping, and performing DDoS attacks).'], $CIDRAM['BlockInfo']['IPAddr']);
         $CIDRAM['Tracking options override'] = 'extended';
     } // 2024.06.27
+
+    if ($Trigger(strpos($UANoSpace, 'getodin.com') !== false, 'Unauthorised')) {
+        $CIDRAM['Reporter']->report([15, 19, 23], ['Strange bot caught probing for vulnerable routers and webservices detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+    } // 2024.07.07
 };
 
 /** Execute closure. */
