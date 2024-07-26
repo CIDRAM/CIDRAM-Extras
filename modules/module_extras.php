@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2024.07.16).
+ * This file: Optional security extras module (last modified: 2024.07.26).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -300,6 +300,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         $Trigger(preg_match('/^(?:3x=3x|of=1&a=1)/i', $CIDRAM['BlockInfo']['Query']), 'Hack attempt'); // 2023.07.13 mod 2023.09.02
 
         $Trigger(strpos($QueryNoSpace, 'u=ahr0cdovl3nolnrozwjlc3rjb2rllnrvcc90zxh0l3rlehrfmy50ehrz'), 'Compromised credential in brute-force attacks'); // 2023.10.10
+        $Trigger(strpos($QueryNoSpace, 'key=sb7pqiuxnpweoa84vgjy'), 'Compromised credential in brute-force attacks'); // 2024.07.26
 
         $Trigger(preg_match(
             '~pw=(?:o(?:dvlmgnkc|tjmmdu1)|n(?:zrlnjnl|tk2m2i5)|mzllmwnh|yti4ngu2)~',
