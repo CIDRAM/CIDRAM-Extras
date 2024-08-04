@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2024.07.26).
+ * This file: Optional security extras module (last modified: 2024.08.04).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -103,6 +103,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         if ($Trigger(preg_match(
             '~^/{3,}wp-|(?:^|[/?])(?:mt-xmlrpc\.cgi|shell\?cd|wp-includes/wlwmanifest\.xml)(?:$|[/?])|(?:^|[/?])(?:' .
             '\+theme\+/(?:error|index)|' .
+            '\.bak/.*|' .
             '\.w(?:ell-known|p-cli)/.*(?:a(?:bout|dmin)[\da-z]*|fierza[\da-z]*|install[\da-z]*|moon[\da-z]*|shell[\da-z]*|wp-login[\da-z]*|x)|' .
             '\.?rxr(?:_[\da-z]+)?|' .
             '\d{3,5}[a-z]{3,5}|\d+-?backdoor|0byte|0[xz]|10+|991176|' .
@@ -136,7 +137,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             $LCNrURI
         ), 'Probing for webshells/backdoors')) {
             $CIDRAM['Reporter']->report([15, 20, 21], ['Caught probing for webshells/backdoors. Host might be compromised.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2023.08.18 mod 2024.07.16
+        } // 2023.08.18 mod 2024.08.04
 
         /** Probing for webshells/backdoors. */
         if ($Trigger(preg_match(
