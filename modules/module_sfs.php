@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Stop Forum Spam module (last modified: 2022.06.06).
+ * This file: Stop Forum Spam module (last modified: 2024.08.13).
  *
  * False positive risk (an approximate, rough estimate only): « [x]Low [ ]Medium [ ]High »
  */
@@ -105,7 +105,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     $Trigger(
         !empty($CIDRAM['SFS'][$CIDRAM['BlockInfo']['IPAddr']]['Listed']),
         'SFS Lookup',
-        $CIDRAM['L10N']->getString('ReasonMessage_Generic') . '<br />' . sprintf($CIDRAM['L10N']->getString('request_removal'), 'https://www.stopforumspam.com/removal'),
+        $CIDRAM['L10N']->getString('ReasonMessage_Spam') . '<br />' . sprintf($CIDRAM['L10N']->getString('request_removal'), 'https://www.stopforumspam.com/removal'),
         $CIDRAM['Config']['sfs']['offer_captcha'] ? $EnableCaptcha : []
     );
 };
