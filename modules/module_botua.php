@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bot user agents module (last modified: 2024.08.14).
+ * This file: Bot user agents module (last modified: 2024.08.21).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -86,7 +86,6 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
     $Trigger(strpos($UANoSpace, 'captch') !== false, 'CAPTCHA cracker UA', '', $UnmarkCaptcha); // 2017.01.08 mod 2021.04.29
 
-
     $Trigger(preg_match(
         '~(?:^b55|-agent-|auto_?http|bigbrother|cybeye|d(?:(?:iavol|ragoste)a|own' .
         'loaddemon)|e(?:ak01ag9|catch)|i(?:ndylibrary|ntelium)|k(?:angen|mccrew)|' .
@@ -99,13 +98,10 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     $Trigger(preg_match('/(?: obot|ie 5\.5 compatible browser)/', $UA), 'Probe UA'); // 2017.02.02
 
     $Trigger(preg_match('/[<\[](?:a|link|url)[ =>\]]/', $UA), 'Spam UA'); // 2017.01.02
-    $Trigger(preg_match('/^\.?=/', $UANoSpace), 'Spam UA'); // 2017.01.07
-    $Trigger(strpos($UANoSpace, '/how-') !== false, 'Spam UA'); // 2017.01.04
-    $Trigger(strpos($UANoSpace, '>click') !== false, 'Spam UA'); // 2017.01.04
     $Trigger(strpos($UANoSpace, 'ruru)') !== false, 'Spam UA'); // 2017.01.07
-
     $Trigger(preg_match(
-        '~a(?:btasty|llsubmitter|velox)|' .
+        '~^\.?=|/how-|>click|' .
+        'a(?:btasty|llsubmitter|velox)|' .
         'b(?:ad-neighborhood|dsm|ea?stiality|iloba|ork-edition|uyessay)|' .
         'c(?:asino|ialis|igar|heap|oursework)|' .
         'deltasone|dissertation|drugs|' .
@@ -130,7 +126,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         'xanax|' .
         'zdorov~',
         $UANoSpace
-    ), 'Spam UA'); // 2022.07.09
+    ), 'Spam UA'); // 2022.07.09 mod 2024.08.21
 
     $Trigger(preg_match(
         '/(?: (audit|href|mra |quibids )|\\(build 5339\\))/',
@@ -265,14 +261,10 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         $CIDRAM['BlockInfo']['UA']
     ), 'Unauthorised'); // 2023.09.15 mod 2024.08.14
 
-    if ($Trigger(preg_match('~ivre-|masscan~', $UANoSpace), 'Port scanner and synflood tool detected')) {
-        $CIDRAM['Reporter']->report([14, 15, 19], ['MASSCAN port scanner and synflood tool detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-    } // 2024.07.28
-
-    $Trigger(preg_match(
-        '~^(?:bot|java|msie|windows-live-social-object-extractor)|\\((?:java|\w:\d{2,})~',
-        $UANoSpace
-    ), 'Fake UA'); // 2019.06.30
+    $Trigger((
+        preg_match('~^(?:bot|java|msie|windows-live-social-object-extractor)|\\((?:java|\w:\d{2,})~', $UANoSpace) ||
+        preg_match('~^go +\d|movable type|msie ?(?:\d{3,}|[2-9]\d|[0-8]\.)~i', $UA)
+    ), 'Fake UA'); // 2019.06.30 mod 2024.08.15
 
     $Trigger(preg_match(
         '~^go +\d|movable type|msie ?(?:\d{3,}|[2-9]\d|[0-8]\.)~i',
