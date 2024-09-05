@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2024.09.03).
+ * This file: Optional security extras module (last modified: 2024.09.05).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -138,6 +138,11 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         ), 'Probing for webshells/backdoors')) {
             $CIDRAM['Reporter']->report([15, 20, 21], ['Caught probing for webshells/backdoors. Host might be compromised.'], $CIDRAM['BlockInfo']['IPAddr']);
         } // 2023.08.18 mod 2024.08.04
+
+        /** Probing for vulnerable plugins or webapps. */
+        if ($Trigger(preg_match('~/dup-installer/main\.installer\.php[57]?(?:$|[/?])~', $LCNrURI), $Exploit = 'CVE-2022-2551')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for ' . $Exploit . ' vulnerability.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2024.09.05
 
         /** Probing for webshells/backdoors. */
         if ($Trigger(preg_match(
