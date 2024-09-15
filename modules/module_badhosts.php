@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2024.08.21).
+ * This file: Bad hosts blocker module (last modified: 2024.09.12).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -76,19 +76,21 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     $Trigger(preg_match('~captch|dbcapi\.me~', $HN), 'CAPTCHA cracker host'); // 2017.01.21
 
     $Trigger(preg_match(
-        '~prking\.com\.au$|(?:qvt|telsp)\.net\.br$|' .
+        '~prking\.com\.au$|' .
+        '(?:qvt|telsp)\.net\.br$|' .
         '(?:\.(?:giga-dns|oodle|pointandchange|solidseo(?:dedicated|vps)?|to' .
         'psy|vadino)|23gb|35up|accelovation|barefruit|bestprice|colo\.iinet|' .
         'detangled|kimsufi|lightspeedsystems|lipperhey|mantraonline|netcombe' .
         'r|myforexvps|page-store|setooz|stretchoid|technicolor)\.com$|' .
         'poneytelecom\.eu$|(?:4u|netadvert|onlinehome-server)\.info$|(?:3fn|' .
         'buyurl|dragonara|isnet|mfnx|onlinehome-server)\.net$|' .
-        'seomoz\.org$|(?:dimargroup|itrack|mail|rulinki|vipmailoffer)\.ru$|b' .
-        '(?:oardreader|reakingtopics|uysellsales)|c(?:eptro|heapseovps|yber-' .
-        'uslugi)|drugstore|liwio\.|luxuryhandbag|s(?:emalt|mileweb\.com\.ua|' .
-        'quider|tartdedicated\.)|exabot~',
+        'seomoz\.org$|' .
+        '(?:dimargroup|itrack|mail|rulinki|vipmailoffer)\.ru$|' .
+        'b(?:oardreader|reakingtopics|uysellsales)|c(?:eptro|heapseovps|ybe' .
+        'r-uslugi)|drugstore|liwio\.|luxuryhandbag|s(?:emalt|mileweb\.com\.' .
+        'ua)|exabot~',
         $HN
-    ), 'SEO/Bothost/Scraper/Spamhost'); // 2024.08.21
+    ), 'SEO/Bothost/Scraper/Spamhost'); // 2024.08.21 mod 2024.09.12
 
     $Trigger(preg_match('~cjh-law\.com$~', $HN), 'Phisher / Phishing Host'); // 2017.02.14
 
@@ -100,13 +102,6 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         'gned|work\.from|yhost\.name~',
         $HN
     ), 'Questionable Host'); // 2017.01.30 mod 2020.11.09
-
-    $Trigger(preg_match(
-        '~\.(?:as13448|websense)\.|(?:bibbly|pulsepoint|zvelo)\.com|(?:\.fil' .
-        'espot|cloudsystemnetworks)\.com$|westdc\.net|propagation\.net$|maje' .
-        'stic|meanpath|tag-trek~',
-        $HN
-    ), 'Unauthorised'); // 2018.09.15
 
     $Trigger(preg_match('~anchorfree|hotspotsheild|esonicspider\.com$~', $HN), 'Hostile/esonicspider'); // 2018.09.15
 
@@ -121,7 +116,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         // Caught attempting to brute-force WordPress logins (2020.11.09).
         $Trigger(preg_match('~\.domainserver\.ne\.jp$~', $HN), 'Cloud/Webhosting') ||
 
-        // 2022.12.19 mod 2024.08.21
+        // 2022.12.19 mod 2024.09.12
         $Trigger(preg_match(
             '~i(?:g|nsite)\.com\.br$|terra\.cl$|acetrophies\.co\.uk$|adsinmedia\.co\.' .
             'in$|(?:webfusion|xcalibre)\.co\.uk$|(?:\.(?:appian|cloud|ctera|dyn|emc|f' .
@@ -140,7 +135,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             'gineyard|omalism|stratus)|telos|ucalyptus|vapt|vionet)|fathomdb|flexisca' .
             'le|followmeoffice|g(?:emstone|enerositycool|igaspaces|ogrid|othamdating|' .
             'roupcross)|h(?:eroku|exagrid|olhost|ost(?:acy|cats|ing24)|ubspan|yperic)' .
-            '|i(?:buzytravel|cloud|modrive|nfo(?:bright|rmatica)|tricityhosting)|j(?:' .
+            '|i(?:buzytravel|modrive|nfo(?:bright|rmatica)|tricityhosting)|j(?:' .
             'oyent|umpbox|unglebox|usthost)|k(?:2analytics|aavo|eynote|nowledgetree)|' .
             'l(?:ayeredtech|inkneo|iveops|oadstorm|ogixml|ongjump|tdomains)|m(?:o(?:d' .
             'erro|jsite|rphexchange|sso|zy)|idphase|turk|ulesoft)|n(?:asstar|e(?:oint' .

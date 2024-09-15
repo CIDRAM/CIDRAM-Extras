@@ -138,7 +138,7 @@ module_abuseipdb.php:
 module_badhosts.php:
  Name: "Bad hosts blocker module"
  False Positive Risk: "Medium"
- Version: "2024.233.0"
+ Version: "2024.258.0"
  Dependencies:
   PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.13.1|^2.0.1"
@@ -150,7 +150,7 @@ module_badhosts.php:
   To:
    - "module_badhosts.php"
   Checksum:
-   - "c05d2f98d6b3cbd4f617679f5c98affa9a02f73216f6d963d0548efa48514246:14906"
+   - "8365ca24aea69dcbffc39478f46f689d8c784f1e4fabfde2353d4d955447bb4c:14647"
  Used with: "modules"
  Reannotate: "modules.dat"
 module_badtlds.php:
@@ -197,7 +197,7 @@ module_bgpview.php:
 module_botua.php:
  Name: "Bot user agents module"
  False Positive Risk: "Medium"
- Version: "2024.239.0"
+ Version: "2024.258.0"
  Dependencies:
   PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.13.1|^2.0.1"
@@ -209,7 +209,7 @@ module_botua.php:
   To:
    - "module_botua.php"
   Checksum:
-   - "425e60256a2d04eca31fbc4ff845a6670f75f34769232ee04950caea653ead52:26670"
+   - "0ee0c1fb8bc8d8596577a28bdcbaf4a226b18e27330d9a531d3410ea78ac4a96:26675"
  Used with: "modules"
  Reannotate: "modules.dat"
 module_cookies.php:
