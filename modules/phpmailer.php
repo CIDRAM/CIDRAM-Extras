@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: PHPMailer event handlers (last modified: 2024.04.21).
+ * This file: PHPMailer event handlers (last modified: 2024.09.22).
  */
 
 /**
@@ -164,7 +164,7 @@ $this->Events->addHandler('sendEmail', function (string $Blank = '', array $Data
             $Mail->Subject = $Subject;
 
             /** Tell PHPMailer that the email is written using HTML. */
-            $Mail->isHTML = true;
+            $Mail->isHTML();
 
             /** Set the HTML body of the email. */
             $Mail->Body = $Body;
