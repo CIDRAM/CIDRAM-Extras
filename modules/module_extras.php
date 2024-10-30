@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2024.09.05).
+ * This file: Optional security extras module (last modified: 2024.10.30).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -140,9 +140,12 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         } // 2023.08.18 mod 2024.08.04
 
         /** Probing for vulnerable plugins or webapps. */
-        if ($Trigger(preg_match('~/dup-installer/main\.installer\.php[57]?(?:$|[/?])~', $LCNrURI), $Exploit = 'CVE-2022-2551')) {
+        if (
+            $Trigger(preg_match('~/dup-installer/main\.installer\.php[57]?(?:$|[/?])~', $LCNrURI), $Exploit = 'CVE-2022-2551') || // 2024.09.05
+            $Trigger(preg_match('~/Telerik\.Web\.UI\.WebResource\.axd(?:$|[/?])~i', $LCNrURI), $Exploit = 'CVE-2019-18935') // 2024.10.30
+        ) {
             $CIDRAM['Reporter']->report([15, 21], ['Caught probing for ' . $Exploit . ' vulnerability.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2024.09.05
+        }
 
         /** Probing for webshells/backdoors. */
         if ($Trigger(preg_match(
