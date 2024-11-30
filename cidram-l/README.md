@@ -11,9 +11,9 @@ This package has been made available by special request of some specific users. 
 
 CIDRAM-L is mostly used in the same way as CIDRAM v2 and prior, except that instead of calling the "loader.php" file, you'll call the "cidram-l.phar" file in your require statements. Unzip the CIDRAM-L package archive (cidram-l.zip), and follow generally the same installation instructions provided for CIDRAM v2 and prior. If you need help, just ask.
 
-The currently available version of CIDRAM-L is "1.28.3".
+The currently available version of CIDRAM-L is "1.28.4".
 
 ---
 
 
-Last Updated: 22 August 2024 (2024.08.22).
+Last Updated: 30 November 2024 (2024.11.30).
