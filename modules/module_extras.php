@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2024.10.30).
+ * This file: Optional security extras module (last modified: 2025.01.04).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -106,19 +106,19 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             '\.bak/.*|' .
             '\.w(?:ell-known|p-cli)/.*(?:a(?:bout|dmin)[\da-z]*|fierza[\da-z]*|install[\da-z]*|moon[\da-z]*|shell[\da-z]*|wp-login[\da-z]*|x)|' .
             '\.?rxr(?:_[\da-z]+)?|' .
-            '\d{3,5}[a-z]{3,5}|\d+-?backdoor|0byte|0[xz]|10+|991176|' .
-            'a(?:dmin-heade\d*|dminfuns|hhygskn|lfa(?:-rex|_data|a?cgiapi|ioxi|new)?\d*|njas|pismtp|xx)|' .
-            'b0|b3d2acc621a0|bak|bala|' .
-            'c(?:(?:9|10)\d+|asper[\da-z]+|d(?:.*tmp.*rm-rf|chmod.*\d{3,})|fom[-_]files|(?:gi-bin|ss)/(?:luci/;|moon|newgolden|radio|sgd|stok=/|uploader|well-known|wp-login)|jfuns|lasssmtps|olors/blue/uploader|ong)|' .
-            'd7|deadcode\d*|dkiz|' .
+            '\d{3,5}[a-z]{3,5}|\d+-?backdoor|0byte|0[xz]|10+|4price|991176|' .
+            'a(?:b1ux1ft|dmin-heade\d*|dminfuns|hhygskn|lexus|lfa(?:-rex|_data|a?cgiapi|ioxi|new)?\d*|njas|pismtp|xx)|' .
+            'b(?:0|3d2acc621a0|ak|ala|ibil_0day)|' .
+            'c(?:(?:9|10)\d+|adastro-2|asper[\da-z]+|d(?:.*tmp.*rm-rf|chmod.*\d{3,})|fom[-_]files|(?:gi-bin|ss)/(?:luci/;|moon|newgolden|radio|sgd|stok=/|uploader|well-known|wp-login)|jfuns|lasssmtps|olors/blue/uploader|ong|ontentloader1)|' .
+            'd(?:7|eadcode\d*|epotcv|isagraep|kiz)|' .
             'ee|' .
             'f(?:ddqradz|ilefuns?)|' .
-            'gel4y|gh[0o]st|glab-rare|gzismexv|' .
-            'h[4a]x+[0o]r|h6ss|hanna1337|hehehe|htmlawedtest|' .
+            'g(?:el4y|etid3-core|h[0o]st|lab-rare|zismexv)|' .
+            'h[4a]x+[0o]r|h6ss|hanna1337|hehehe|kvkjguw|htmlawedtest|' .
             'i(?:\d{3,}[a-z]{2,}|cesword|ndoxploit|optimize|r7szrsouep|itsec|xr/(?:allez|wp-login))|' .
             'lock0?360|lufix(?:-shell)?|' .
             'miin|my1|' .
-            'old/wp-admin/install|orvx(?:-shell)?|' .
+            'old/wp-admin/install|orvx(?:-shell)?|othiondwmek|' .
             'perl\.alfa|php(?:1|_niu_\d+)|(?:plugins|themes)/(?:ccx|ioptimization|yyobang)|poison|priv8|pzaiihfi|' .
             'rendixd|' .
             's(?:ession91|h[3e]llx?\d*|hrift|idwso|ilic|kipper(?:shell)?|onarxleetxd|pammervip|rc/util/php/(?:eval(?:-stdin)?|kill))|' .
@@ -137,7 +137,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             $LCNrURI
         ), 'Probing for webshells/backdoors')) {
             $CIDRAM['Reporter']->report([15, 20, 21], ['Caught probing for webshells/backdoors. Host might be compromised.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2023.08.18 mod 2024.08.04
+        } // 2023.08.18 mod 2025.01.04
 
         /** Probing for vulnerable plugins or webapps. */
         if (
