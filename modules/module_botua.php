@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bot user agents module (last modified: 2024.09.15).
+ * This file: Bot user agents module (last modified: 2025.01.12).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -283,9 +283,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     $Trigger(strpos($UA, 'bittorrent') !== false, 'Bad context (not a bittorrent hub)'); // 2017.02.25
 
     $Trigger(preg_match(
-        '~foregenix|nuclei|projectdiscovery|threatview~',
+        '~foregenix|modat|nuclei|projectdiscovery|sslyze|threatview~',
         $UA
-    ), 'Vulnerability scanner detected; Unauthorised'); // 2023.06.16
+    ), 'Vulnerability scanner detected; Unauthorised'); // 2023.06.16 mod 2025.01.12
 
     $Trigger(preg_match('~^python/|aiohttp/|\.post0~', $UANoSpace), 'Bad context (Python/AIO clients not permitted here)'); // 2021.05.18
 
