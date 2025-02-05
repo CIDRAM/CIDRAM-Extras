@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: AbuseIPDB module (last modified: 2023.08.24).
+ * This file: AbuseIPDB module (last modified: 2025.02.05).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -134,7 +134,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             $CIDRAM['AbuseIPDB'][$CIDRAM['BlockInfo']['IPAddr']]['totalReports'] >= $CIDRAM['Config']['abuseipdb']['minimum_total_reports']
         ),
         'AbuseIPDB Lookup',
-        $CIDRAM['L10N']->getString('ReasonMessage_Generic') . '<br />' . sprintf($CIDRAM['L10N']->getString('request_removal'), 'https://www.abuseipdb.com/check/' . $CIDRAM['BlockInfo']['IPAddr']),
+        $CIDRAM['L10N']->getString('ReasonMessage_Generic') . '<br />' . sprintf($CIDRAM['L10N']->getString('request_removal'), 'https://www.abuseipdb.com/takedown/' . $CIDRAM['BlockInfo']['IPAddr']),
         $CIDRAM['AbuseIPDB'][$CIDRAM['BlockInfo']['IPAddr']]['abuseConfidenceScore'] <= $CIDRAM['Config']['abuseipdb']['max_cs_for_captcha'] ? $EnableCaptcha : []
     );
 

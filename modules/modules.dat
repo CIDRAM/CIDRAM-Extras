@@ -122,7 +122,7 @@ flags.css:
 module_abuseipdb.php:
  Name: "AbuseIPDB module"
  False Positive Risk: "Medium"
- Version: "2023.235.0"
+ Version: "2025.35.0"
  Dependencies:
   PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.18.1|^2.5.1"
@@ -137,7 +137,7 @@ module_abuseipdb.php:
    - "module_abuseipdb.php"
    - "module_abuseipdb.yaml"
   Checksum:
-   - "bec942bf66aa478ca9abbe2279881edf31b932324663aa13c4ade3d7c706e1fd:7880"
+   - "358137ed52b7d39785d7f85f1b85949f93b6835b2073bd1d0c049412776822de:7883"
    - "834236dce0924e5a1e14b458f94446d8e95f46aa227901b2d672ec1290340311:2356"
  Used with: "modules"
  Reannotate: "modules.dat"
