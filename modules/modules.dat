@@ -221,7 +221,7 @@ module_botua.php:
 module_cookies.php:
  Name: "Optional cookie scanner module"
  False Positive Risk: "Low"
- Version: "2023.334.0"
+ Version: "2025.106.0"
  Dependencies:
   PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.13.1|^2.0.1"
@@ -233,7 +233,7 @@ module_cookies.php:
   To:
    - "module_cookies.php"
   Checksum:
-   - "5734327bbb5899dd9b7fdf3936f617fc6d772cba7825348b35f535fad84babec:8368"
+   - "52384de112c8642bf5f138f94fe136a923d71043b30ad4e13ca91d6d12bd08e6:8380"
  Used with: "modules"
  Reannotate: "modules.dat"
 module_extras.php:
