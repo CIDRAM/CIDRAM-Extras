@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2025.04.17).
+ * This file: Optional security extras module (last modified: 2025.04.28).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -153,16 +153,16 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
         /** Probing for webshells/backdoors. */
         if ($Trigger(preg_match(
-            '~(?:^|[/?])(?:[1-9cefimnptuwx]{27}\.jsp$)~',
+            '~(?:^|[/?])(?:[1-9cefimnptuwx]{27}\.jsp|(?:send-)?ses\.sh)(?:$|[/?])~',
             $LCNrURI
         ), 'Probing for webshells/backdoors')) {
             $CIDRAM['Reporter']->report([15, 20], ['Caught probing for webshells/backdoors. Host might be compromised.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2024.02.18
+        } // 2024.02.18 mod 2025.04.28
 
         /** Probing for exposed Git data. */
-        if ($Trigger(preg_match('~\.git(?:$|\W)~', $LCNrURI), 'Probing for exposed git data')) {
+        if ($Trigger(preg_match('~\.git(?:config)?(?:$|\W)~', $LCNrURI), 'Probing for exposed git data')) {
             $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed git data.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2022.06.05 mod 2023.09.04
+        } // 2022.06.05 mod 2025.04.28
 
         /** Probing for exposed VSCode data. */
         if ($Trigger(preg_match('~(?:^|[/?])\.vscode(?:$|\W)~', $LCNrURI), 'Probing for exposed VSCode data')) {
@@ -175,9 +175,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         } // 2022.06.05 mod 2023.09.04
 
         /** Probing for exposed AWS credentials. */
-        if ($Trigger(preg_match('~(?:^|[/?])(?:\.aws/credentials?|aws\.yml)(?:$|\W)~', $LCNrURI), 'Probing for exposed AWS credentials')) {
+        if ($Trigger(preg_match('~(?:^|[/?])(?:\.aws_?/credentials?|aws\.yml)(?:$|\W)~', $LCNrURI), 'Probing for exposed AWS credentials')) {
             $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed AWS credentials.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2023.09.04 mod 2024.05.14
+        } // 2023.09.04 mod 2025.04.28
 
         /** Probing for exposed FTP credentials. */
         if ($Trigger(preg_match('~(?:^|[/?])\.?s?ftp-(?:config|sync)\.json(?:$|[/?])~', $LCNrURI), 'Probing for exposed FTP credentials')) {
@@ -200,9 +200,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         } // 2024.05.02 mod 2025.03.18
 
         /** Probing for env file. */
-        if ($Trigger(preg_match('~(?:^|[/?])\.env(?:\.(?:production|example))?(?:$|[/?])~', $LCNrURI), 'Probing for env file')) {
+        if ($Trigger(preg_match('~(?:^|[/?])(?:config)?\.env(?:\.(?:example|local|production|save))?(?:$|[/?])~', $LCNrURI), 'Probing for env file')) {
             $CIDRAM['Reporter']->report([15, 21], ['Caught probing for env file.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2025.03.18
+        } // 2025.03.18 mod 2025.04.28
 
         /** Attempts by broken bot to incorrectly access ReCaptcha files (treating reference to remote resource as local). */
         $Trigger(preg_match('~/www\.google\.com/recaptcha/api\.js(?:$|[/?])~', $LCNrURI), 'Bad request'); // 2025.03.03
