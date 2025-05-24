@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2025.05.20).
+ * This file: Optional security extras module (last modified: 2025.05.24).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -210,9 +210,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         } // 2024.05.02 mod 2025.03.18
 
         /** Probing for env file. */
-        if ($Trigger(preg_match('~(?:^|[/?])(?:config)?\.env(?:\.(?:example|local|production|save))?(?:$|[/?])~', $LCNrURI), 'Probing for env file')) {
+        if ($Trigger(preg_match('~(?:^|[/?=])(?:config)?\.env(?:\.(?:example|local|production|save))?(?:$|[/?])~', $LCNrURI), 'Probing for env file')) {
             $CIDRAM['Reporter']->report([15, 21], ['Caught probing for env file.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2025.03.18 mod 2025.04.28
+        } // 2025.03.18 mod 2025.05.24
 
         /** Attempts by broken bot to incorrectly access ReCaptcha files (treating reference to remote resource as local). */
         $Trigger(preg_match('~/www\.google\.com/recaptcha/api\.js(?:$|[/?])~', $LCNrURI), 'Bad request'); // 2025.03.03
@@ -343,6 +343,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         ), 'Compromised password used in brute-force attacks'); // 2023.10.10
 
         $Trigger(preg_match('~/etc/passwd:null:null$~', $QueryNoSpace), 'Hack attempt'); // 2024.02.18
+        $Trigger(preg_match('~\?phpinfo=-1$~', $QueryNoSpace), 'Hack attempt'); // 2025.05.24
 
         /** These signatures can set extended tracking options. */
         if (
