@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2025.05.24).
+ * This file: Optional security extras module (last modified: 2025.06.26).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -155,11 +155,11 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
         /** Probing for webshells/backdoors. */
         if ($Trigger(preg_match(
-            '~(?:^|[/?])(?:[1-9cefimnptuwx]{27}\.jsp|(?:send-)?ses\.sh)(?:$|[/?])~',
+            '~(?:^|[/?])(?:[1-9cefimnptuwx]{27}\.jsp|alfa-?rexhp\d\.p|(?:send-)?ses\.sh)(?:$|[/?])~',
             $LCNrURI
         ), 'Probing for webshells/backdoors')) {
             $CIDRAM['Reporter']->report([15, 20], ['Caught probing for webshells/backdoors. Host might be compromised.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2024.02.18 mod 2025.04.28
+        } // 2024.02.18 mod 2025.06.26
 
         /** Probing for webshells/backdoors. */
         if ($Trigger(preg_match(
