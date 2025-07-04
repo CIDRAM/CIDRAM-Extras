@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bot user agents module (last modified: 2025.03.31).
+ * This file: Bot user agents module (last modified: 2025.07.05).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -225,7 +225,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         '^(?:[aim]$|(?!linkedinbot).*http-?(?:agent|client))|' .
         'a(?:bonti|ccserver|cme.spider|dreview/\d|jbaxy|nthill$|nyevent-http|ppengine|xios)|' .
         'b(?:abbar\.tech|igbozz|lackbird|logsearch|logbot|salsa)|' .
-        'c(?:astlebot|atexplorador|k=\{\}|lickagy|liqzbot|ontextad|orporama|ortex/\d|rowsnest|yberpatrol)|' .
+        'c(?:astlebot|atexplorador|k=\{\}|lickagy|liqzbot|ms-?checker|ontextad|orporama|ortex/\d|rowsnest|yberpatrol)|' .
         'd(?:eepfield|le_spider|nbcrawler|omainappender|umprendertree)|' .
         'expanse|' .
         'f(?:lightdeckreportsbot|luid/|orms\.gle)|' .
@@ -248,7 +248,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     ) || preg_match(
         '~^Mozilla/5\.0( [A-Za-z]{2,5}/0\..)?$~',
         $CIDRAM['BlockInfo']['UA']
-    ), 'Unauthorised'); // 2023.09.15 mod 2024.09.15
+    ), 'Unauthorised'); // 2023.09.15 mod 2025.07.05
 
     $Trigger(preg_match('/(?:internet explorer)/', $UA), 'Hostile / Fake IE'); // 2017.02.03
 
@@ -307,6 +307,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         'whatstuffwherebot|zephuli-?bot~',
         $UANoSpace
     ), 'Scraper UA'); // 2023.11.17 mod 2024.04.11
+
+    $Trigger(preg_match('~ct‑git‑scanner/~i', $CIDRAM['BlockInfo']['UA']), 'Unauthorised Git scanner'); // 2025.07.05
 
     /** These signatures can set extended tracking options. */
     if (
