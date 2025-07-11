@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2025.07.10).
+ * This file: Optional security extras module (last modified: 2025.07.11).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -99,7 +99,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             $LCNrURI
         ), 'Probing for unsecured WordPress configuration files not allowed')) {
             $CIDRAM['Reporter']->report([15, 20, 21], ['Caught probing for unsecured WordPress configuration files.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2023.09.02 mod 2023.09.04
+        } // 2023.09.02 mod 2025.07.11
 
         /** Probing for webshells/backdoors. */
         if ($Trigger(preg_match(
