@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Referrer spam module (last modified: 2023.12.01).
+ * This file: Referrer spam module (last modified: 2025.07.17).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -36,8 +36,8 @@ $this->CIDRAM['ModuleResCache'][$Module] = function () {
     /** Lower-case domain part. */
     $RefLC = strtolower($Domain);
 
-    /** Convert punycode to UTF-8. */
-    if (strpos($RefLC, 'xn--') !== false) {
+    /** Convert punycode to UTF-8 (as long as Intl is available). */
+    if (strpos($RefLC, 'xn--') !== false && function_exists('idn_to_utf8')) {
         $Domain = explode('.', $Domain);
         foreach ($Domain as &$DomainPart) {
             if (strtolower(substr($DomainPart, 0, 4)) !== 'xn--') {

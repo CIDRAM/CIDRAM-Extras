@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2025.07.16).
+ * This file: Optional security extras module (last modified: 2025.07.17).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -77,21 +77,21 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             $CIDRAM['Reporter']->report([15], ['Caught probing for quarantined files.'], $CIDRAM['BlockInfo']['IPAddr']);
         } // 2017.03.22 mod 2023.08.13
 
-        /** Probing for unsecured backup files. */
+        /** Probing for exposed backup files. */
         if ($Trigger(preg_match(
-            '~(?:/backup|(?:archive|backup|docroot|htdocs|public_html|site|www)\.(?:gz|rar|tar(?:\.gz)?|zip)|d(?:atabase|b|ump)\.sql)(?:$|[/?])~',
+            '~(?:(?:^|[/?])backup|(?:archive|backup|d(?:atabase|b|ocroot|ump)|htdocs|public_html|site|www)(?:\.(?:new\d*|old\d*|sql))*(?:\.(?:[7bg]z\d*|7?zip|b[ac]k|[rt]ar(?:\.gz)?|tgz))+)(?:$|[/?])~',
             $LCNrURI
-        ), 'Probing for unsecured backup files not allowed')) {
-            $CIDRAM['Reporter']->report([15], ['Caught probing for unsecured backup files.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2023.08.13 mod 2025.03.03
+        ), 'Probing for exposed backup files')) {
+            $CIDRAM['Reporter']->report([15], ['Caught probing for exposed backup files.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2023.08.13 mod 2025.07.17
 
-        /** Probing for unsecured SQL dumps. */
+        /** Probing for exposed SQL dumps. */
         if ($Trigger(preg_match(
-            '~^[^?]*[^/?]+\.sql(?:\.(?:b[ac]k|bz|new|old|t?gz|7?zip|[rt]ar))?(?:$|[/?])~',
+            '~\.sql(?:\.(?:[7bg]z\d*|7?zip|b[ac]k|db\d*|new\d*|old\d*|[rt]ar|sql|tgz))*(?:$|[/?])~',
             $LCNrURI
-        ), 'Probing for unsecured SQL dumps not allowed')) {
-            $CIDRAM['Reporter']->report([15], ['Caught probing for unsecured SQL dumps.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2024.05.12
+        ), 'Probing for exposed SQL dumps')) {
+            $CIDRAM['Reporter']->report([15], ['Caught probing for exposed SQL dumps.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2024.05.12 mod 2025.07.17
 
         /** Probing for unsecured WordPress configuration files. */
         if ($Trigger(preg_match(
@@ -156,8 +156,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             $CIDRAM['Reporter']->report([15, 20], ['Caught probing for webshells/backdoors. Host might be compromised.'], $CIDRAM['BlockInfo']['IPAddr']);
         }
 
-        /** Probing for vulnerable plugins or webapps. */
+        /** Probing for common vulnerabilities and exploits. */
         if (
+            $Trigger(preg_match('~/ecp/current/exporttool/microsoft.exchange.ediscovery.exporttool.application(?:$|[/?])~', $LCNrURI), $Exploit = 'CVE-2021-28481') || // 2025.07.17
             $Trigger(preg_match('~/util/php/eval-stdin\.php[57]?(?:$|[/?])~', $LCNrURI), $Exploit = 'CVE-2017-9841') || // 2025.07.16
             $Trigger(preg_match('~/elfinder/php/connector\.php[57]?(?:$|[/?])~', $LCNrURI), $Exploit = 'elFinder') || // 2025.07.07 (possible matches: CVE-2019-1010178, CVE-2020-25213, CVE-2020-35235, CVE-2021-32682)
             $Trigger(preg_match('~/tinymce/plugins/filemanager/dialog\.php[57]?(?:$|[/?])~', $LCNrURI), $Exploit = 'TinyMCE Filemanager') || // 2025.07.07
@@ -165,16 +166,28 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             $Trigger(preg_match('~/library/openflashchart/php-ofc-library/ofc_upload_image\.php[57]?(?:$|[/?])~', $LCNrURI), $Exploit = 'ZSL-2013-5126') || // 2025.07.10
             $Trigger(preg_match('~/includes/openflashchart/php-ofc-library/ofc_upload_image\.php[57]?(?:$|[/?])~', $LCNrURI), $Exploit = 'SA53428') || // 2025.07.10
             $Trigger(preg_match('~/dup-installer/main\.installer\.php[57]?(?:$|[/?])~', $LCNrURI), $Exploit = 'CVE-2022-2551') || // 2024.09.05
-            $Trigger(preg_match('~/Telerik\.Web\.UI\.WebResource\.axd(?:$|[/?])~i', $LCNrURI), $Exploit = 'CVE-2019-18935') || // 2024.10.30
+            $Trigger(preg_match('~/Telerik\.Web\.UI\.WebResource\.axd(?:$|[/?])~i', $LCNrURI), $Exploit = 'CVE-2019-18935') // 2024.10.30
+        ) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for ' . $Exploit . ' vulnerability.'], $CIDRAM['BlockInfo']['IPAddr']);
+        }
+
+        /** Probing for common vulnerabilities and exploits. */
+        if (
+            $Trigger(preg_match('~hello\.world\?(?:%ad|\xAD)d\+allow_url_include(?:%3d|=)1\+(?:%ad|\xAD)d~', $LCNrURI), $Exploit = 'CVE-2024-4577') || // 2025.07.17
             $Trigger(preg_match('~\?s=../%5c|invokefunction&function=call_user_func_array&|vars%5b0%5d=md5|vars%5b1%5d%5b%5d=hellothinkphp~', $LCNrURI), $Exploit = 'CVE-2018-20062') // 2025.07.01
         ) {
             $CIDRAM['Reporter']->report([15, 21], ['Caught probing for ' . $Exploit . ' vulnerability.'], $CIDRAM['BlockInfo']['IPAddr']);
         }
 
         /** Probing for exposed Git data. */
-        if ($Trigger(preg_match('~\.git(?:config)?(?:$|\W)~', $LCNrURI), 'Probing for exposed git data')) {
-            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed git data.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2022.06.05 mod 2025.04.28
+        if ($Trigger(preg_match('~\.git(?:config)?(?:$|\W)~', $LCNrURI), 'Probing for exposed Git data')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed Git data.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2022.06.05 mod 2025.07.17
+
+        /** Probing for exposed SVN data. */
+        if ($Trigger(preg_match('~(?:^|[/?])\.svn(?:$|[/?])|\.svn/wc\.db(?:$|[/?])~', $LCNrURI), 'Probing for exposed SVN data')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed SVN data.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.07.17
 
         /** Probing for exposed VSCode data. */
         if ($Trigger(preg_match('~(?:^|[/?])\.vscode(?:$|\W)~', $LCNrURI), 'Probing for exposed VSCode data')) {
@@ -196,15 +209,45 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             $CIDRAM['Reporter']->report([15], ['Caught probing for exposed FTP credentials.'], $CIDRAM['BlockInfo']['IPAddr']);
         } // 2025.03.09
 
+        /** Probing for exposed FrontPage file credential dumps. */
+        if ($Trigger(preg_match('~(?:^|[/?])_vti_pvt/service\.pwd(?:$|[/?])~', $LCNrURI), 'Probing for exposed FrontPage file credential dumps')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed FrontPage file credential dumps.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.07.17
+
+        /** Probing for exposed server private keys. */
+        if ($Trigger(preg_match('~(?:^|[/?])private/server\.key(?:$|[/?])~', $LCNrURI), 'Probing for exposed server private keys')) {
+            $CIDRAM['Reporter']->report([15], ['Caught probing for exposed server private keys.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.07.17
+
+        /** Probing for exposed Ansible service credentials. */
+        if ($Trigger(preg_match('~(?:^|[/?])user_secrets\.yml(?:$|[/?])~', $LCNrURI), 'Probing for exposed Ansible service credentials')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed Ansible service credentials.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.07.17
+
+        /** Probing for exposed Visual Studio secrets. */
+        if ($Trigger(preg_match('~(?:^|[/?])secrets\.json(?:$|[/?])~', $LCNrURI), 'Probing for exposed Visual Studio secrets')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed Visual Studio secrets.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.07.17
+
+        /** Probing for exposed Rails database schema state capture file. */
+        if ($Trigger(preg_match('~(?:^|[/?])db/schema\.rb(?:$|[/?])~', $LCNrURI), 'Probing for exposed Rails database schema state capture file')) {
+            $CIDRAM['Reporter']->report([15], ['Caught probing for exposed Rails database schema state capture file.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.07.17
+
+        /** Probing for exposed cloud-init configuration file. */
+        if ($Trigger(preg_match('~(?:^|[/?])cloud-config\.yml(?:$|[/?])~', $LCNrURI), 'Probing for exposed cloud-init configuration file')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed cloud-init configuration file.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.07.17
+
         /** Probing for vulnerable routers. */
         if ($Trigger(preg_match('~(?:^|\W)HNAP1~i', $LCNrURI), 'Probing for vulnerable routers')) {
             $CIDRAM['Reporter']->report([15, 23], ['Caught probing for vulnerable routers.'], $CIDRAM['BlockInfo']['IPAddr']);
         } // 2022.06.05
 
         /** Probing for vulnerable webapps. */
-        if ($Trigger(preg_match('~cgi-bin/(?:get_status|(?:web)?login)\.cgi(?:$|\?)|manager/text/list~', $LCNrURI), 'Probing for vulnerable webapps')) {
+        if ($Trigger(preg_match('~cgi-bin/(?:get_status|(?:web)?login)\.cgi(?:$|[/?])|(?:^|[/?])manager/text/list~', $LCNrURI), 'Probing for vulnerable webapps')) {
             $CIDRAM['Reporter']->report([15, 21], ['Caught probing for vulnerable webapps.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2022.06.05 mod 2025.03.03
+        } // 2022.06.05 mod 2025.07.17
 
         /** Probing for sendgrid env file. */
         if ($Trigger(preg_match('~(?:^|[/?])sendgrid\.env(?:$|[/?])~', $LCNrURI), 'Probing for sendgrid env file')) {
