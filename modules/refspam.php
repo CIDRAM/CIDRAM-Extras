@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Referrer spam module (last modified: 2025.07.17).
+ * This file: Referrer spam module (last modified: 2025.07.24).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -209,6 +209,10 @@ $this->CIDRAM['ModuleResCache'][$Module] = function () {
             'Referrer spam associated with WordPress/WooCommerce hack attempts detected (' . $Domain . ').'
         ], $this->BlockInfo['IPAddr']);
     } // 2023.06.16
+
+    if ($this->trigger(preg_match('~//blog//wp-login\.php$~i', $this->BlockInfo['Referrer']), 'Hack attempt via referrer header injection detected')) {
+        $this->Reporter->report([10, 15, 21], ['Hack attempt via referrer header injection detected.'], $this->BlockInfo['IPAddr']);
+    } // 2025.07.24
 
     $this->trigger($RefLC === '(null)', 'Illegal referrer'); // 2018.03.13
 };
