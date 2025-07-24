@@ -315,7 +315,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         $CIDRAM['Reporter']->report([21], ['Caught attempting to expose honeypot via reporting mechanism.'], $CIDRAM['BlockInfo']['IPAddr']);
     } // 2022.05.08
 
-    $Trigger(preg_match(
+    if ($Trigger(preg_match(
         '~80legs|' .
         'a(?:dbar|i2bot|ihitbot|i.?searchbot|liyun|ndibot|nonymous-?coward|wario)|' .
         'b(?:anana-?bot|edrockbot|ot-?test|rands-?bot|rightbot|ytespider)|' .
