@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2025.07.22).
+ * This file: Optional security extras module (last modified: 2025.07.26).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -182,7 +182,14 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             $CIDRAM['Reporter']->report([15, 21], ['Caught probing for ' . $Exploit . ' vulnerability.'], $CIDRAM['BlockInfo']['IPAddr']);
         }
 
-        /** Probing for common vulnerabilities and exploits. */
+        /** Probing for common vulnerabilities and exploits (OttoKit/SureTriggers). */
+        if (!$is_WP_plugin || (function_exists('is_plugin_installed') && !is_plugin_installed('suretriggers'))) {
+            if ($Trigger(preg_match('~sure-triggers/v1/automation/action(?:$|[/?])~', $LCNrURI), $Exploit = 'CVE-2025-3102/CVE-2025-27007')) {
+                $CIDRAM['Reporter']->report([15, 21], ['Caught probing for ' . $Exploit . ' vulnerability.'], $CIDRAM['BlockInfo']['IPAddr']);
+            }
+        } // 2025.07.26
+
+        /** Probing for common vulnerabilities and exploits + SQLi. */
         if (
             $Trigger(preg_match('~/services/contributor/1&(?:amp;)?id=1(?:(?:%20|[ +-])(?:union|all|select)|.*(?:null,|md5\\(|--(?:%20|[ +-])?))~', $LCNrURI), $Exploit = 'CVE-2021-24666') // 2025.07.22
         ) {
