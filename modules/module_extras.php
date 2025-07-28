@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2025.07.27).
+ * This file: Optional security extras module (last modified: 2025.07.28).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -145,9 +145,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         ), 'Probing for webshells/backdoors')) { // 2023.08.18 mod 2025.07.10
             $CIDRAM['Reporter']->report([15, 20, 21], ['Caught probing for webshells/backdoors. Host might be compromised.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif ($Trigger(preg_match(
-            '~(?:^|[/?])(?:css/dmtixucz/golden-access|fierzashell\.html?|perl.alfa|search/label/php-shells)(?:$|[/?])~',
+            '~(?:^|[/?])(?:brutalshell|css/dmtixucz/golden-access|fierzashell\.html?|perl.alfa|search/label/php-shells)(?:$|[/?])~',
             $LCNrURI
-        ), 'Probing for webshells/backdoors')) { // 2025.05.12 mod 2025.05.20
+        ), 'Probing for webshells/backdoors')) { // 2025.05.12 mod 2025.07.28
             $CIDRAM['Reporter']->report([15, 20, 21], ['Caught probing for webshells/backdoors. Host might be compromised.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif ($Trigger(preg_match(
             '~(?:^|[/?])(?:\.well-known(?:new\d*|old\d*)|[1-9cefimnptuwx]{27}\.jsp|alfa_data/alfacgiapi|alfa-?rexhp\d\.p|(?:send-)?ses\.sh)(?:$|[/?])~',
@@ -194,6 +194,14 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         ) {
             $CIDRAM['Reporter']->report([15, 16, 21], ['Caught probing for ' . $Exploit . ' vulnerability.'], $CIDRAM['BlockInfo']['IPAddr']);
         }
+
+        /** Probing for compromised WordPress installations. */
+        if ($Trigger(preg_match(
+            '~/wp-content/plugins/(?:aryabot|cakil|cekidot|dummyyummy|helloapx|ioptimization|masterx|owfsmac|prenota|pwnd|ubh|upspy|uwogh-segs|vwcleanerplugin|wp(?:-d(?:[ao]ftx?|b-ajax-made|iambar)|-freeform|-hps|eazvp)|xichang|xt|yyobang|zaen)/~',
+            $LCNrURI
+        ), 'Probing for compromised WordPress installations')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for compromised WordPress installations.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.07.28
 
         /** Probing for exposed Git data. */
         if ($Trigger(preg_match('~\.git(?:config)?(?:$|\W)~', $LCNrURI), 'Probing for exposed Git data')) {
