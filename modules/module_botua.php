@@ -45,12 +45,12 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     $Trigger(preg_match('/\\((?:["\']{2})?\\)/', $UANoSpace), 'UA command injection'); // 2017.01.02
 
     $Trigger(preg_match(
-        '/(?:_once|able|as(c|hes|sert)|c(hr|ode|ontents)|e(cho|regi|scape|val)|ex' .
-        '(ec|ists)?|f(ile|late|unction)|get(c|csv|ss?)?|i(f|nclude)|len(gth)?|ope' .
-        'n|p(ress|lace|lode|uts)|print(f|_r)?|re(ad|place|quire|store)|rot13|s(ta' .
-        'rt|ystem)|w(hil|rit)e)["\':(\[{<$]/',
+        '/(?:_once|(?<!st)able|asc|assert|c(?:hr|ode|ontents)|e(?:cho|regi|scape|' .
+        'val)|ex(?:ec|ists)?|f(?:ile|late|unction)|get(?:c|csv|ss?)?|if|include|l' .
+        'en(?:gth)?|open|p(?:ress|rint(?:f|_r)?|lace|lode|uts)|re(?:ad|place|quir' .
+        'e|store)|rot13|start|system|w(?:hil|rit)e)["\':(\[{<$]/',
         $UANoSpace
-    ), 'UA command injection'); // 2017.01.20
+    ), 'UA command injection'); // 2017.01.20 mod 2025.08.02
 
     $Trigger(preg_match(
         '/\$(?:globals|_(cookie|env|files|get|post|request|se(rver|ssion)))/',
