@@ -254,7 +254,7 @@ module_extras.php:
    - "module_extras.php"
    - "module_extras.yaml"
   Checksum:
-   - "4064501bbdbb0a65f6f7813f5e7f73cb7232039899950658ba75470125a54251:41873"
+   - "1535ccca288331cb605bf2aac74918903e21b2043228adb316ea8b6afc3d7ed9:41921"
    - "7b891d1fa4b1c52c410220bc758e8cb7064bd6040430fb149a5b60e9ae2e0838:890"
  Used with: "modules"
  Reannotate: "modules.dat"
