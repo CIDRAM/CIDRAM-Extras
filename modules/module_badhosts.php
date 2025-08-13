@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2025.08.11).
+ * This file: Bad hosts blocker module (last modified: 2025.08.13).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -127,7 +127,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
      */
     $Trigger(preg_match('/shodan\.io|(?:serverprofi24|aspadmin|project25499)\./', $HN), 'AutoSploit Host'); // 2018.02.02 mod 2021.02.07
 
-    $this->trigger(preg_match('~\.cypex\.ai$~', $HN), 'Unauthorised security scanner'); // 2025.08.11
+    $Trigger(preg_match('~\.cypex\.ai$~', $HN), 'Unauthorised security scanner'); // 2025.08.11
 
     /** These signatures can set extended tracking options. */
     if (
