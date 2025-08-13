@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2025.08.10).
+ * This file: Optional security extras module (last modified: 2025.08.13).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -120,7 +120,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
                 'l(?:ock0?360|eaf_mailer|eaf_php|ufix(?:-shell)?|uuf)|' .
                 'm(?:akeasmtp|iin|oduless|u-plugins/db-safe-mode|y1)|' .
                 'njima|' .
-                'o(?:ld(?:/wp-admin/install|-up-ova)|rvx(?:-shell)?|thiondwmek)|' .
+                'o(?:ld(?:/wp-admin/install|-up-ova)|va-uname|rvx(?:-shell)?|thiondwmek)|' .
                 'p(?:erl\.alfa|hp(?:1|_niu_\d+)|huploader|lugins/(?:backup_index|vwcleanerplugin/bump|zedd/\d+)|oison|rayer_intentions|riv8|wnd|zaiihfi)|' .
                 'qxuho|' .
                 'r(?:andkeyword|endixd)|' .
@@ -140,7 +140,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
                 ')\.php[578]?(?:$|[/?])|' .
                 'funs\.php[578]?(?:$|[/?])~',
                 $LCNrURI
-            ), 'Probing for webshells/backdoors') || // 2023.08.18 mod 2025.08.10
+            ), 'Probing for webshells/backdoors') || // 2023.08.18 mod 2025.08.11
             $Trigger(preg_match('~(?:^|[/?])(?:brutalshell|css/dmtixucz/golden-access|fierzashell\.html?|perl.alfa|search/label/php-shells|wp-ksv1i\.ph)(?:$|[/?])~', $LCNrURI), 'Probing for webshells/backdoors') || // 2025.05.12 mod 2025.08.07
             $Trigger(preg_match('~(?:^|[/?])(?:moon\.php|ss\.php)\?(?:f_c|p)=~', $LCNrURI), 'Probing for webshells/backdoors') // 2025.08.07
         ) {
@@ -319,9 +319,89 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         } // 2025.08.07
 
         /** Probing for exposed SQLite databases. */
-        if ($Trigger(preg_match('~(?:^|[/?])database\.sqlite(?:$|[/?])~', $LCNrURI), 'Probing for exposed SQLite databases')) {
+        if ($Trigger(preg_match('~(?:^|[/?])\.?database\.sqlite(?:$|[/?])~', $LCNrURI), 'Probing for exposed SQLite databases')) {
             $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed SQLite databases.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2025.08.07
+        } // 2025.08.07 mod 2025.08.13
+
+        /** Probing for exposed Yarn configuration file. */
+        if ($Trigger(preg_match('~(?:^|[/?])\.?yarnrc(?:$|[/?])~', $LCNrURI), 'Probing for exposed Yarn configuration file')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed Yarn configuration file.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.08.13
+
+        /** Probing for exposed Yarn lock file. */
+        if ($Trigger(preg_match('~(?:^|[/?])yarn\.lock(?:$|[/?])~', $LCNrURI), 'Probing for exposed Yarn lock file')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed Yarn lock file.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.08.13
+
+        /** Probing for exposed NPM configuration file. */
+        if ($Trigger(preg_match('~(?:^|[/?])\.?npmrc(?:$|[/?])~', $LCNrURI), 'Probing for exposed NPM configuration file')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed NPM configuration file.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.08.13
+
+        /** Probing for exposed Composer configuration file. */
+        if ($Trigger(preg_match('~(?:^|[/?])composer\.json(?:$|[/?])~', $LCNrURI), 'Probing for exposed Composer configuration file')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed Composer configuration file.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.08.13
+
+        /** Probing for exposed Composer lock file. */
+        if ($Trigger(preg_match('~(?:^|[/?])composer\.lock(?:$|[/?])~', $LCNrURI), 'Probing for exposed Composer lock file')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed Composer lock file.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.08.13
+
+        /** Probing for exposed Composer OAuth keys. */
+        if ($Trigger(preg_match('~(?:^|[/?])\.?co(?:mposer/auth\.json|nfig/composer)(?:$|[/?])~', $LCNrURI), 'Probing for exposed Composer OAuth keys')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed Composer OAuth keys.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.08.13
+
+        /** Probing for exposed Bundler/Ruby lock file. */
+        if ($Trigger(preg_match('~(?:^|[/?])gemfile\.lock(?:$|[/?])~', $LCNrURI), 'Probing for exposed Bundler/Ruby lock file')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed Bundler/Ruby lock file.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.08.13
+
+        /** Probing for exposed Pipenv/Python lock file. */
+        if ($Trigger(preg_match('~(?:^|[/?])pipfile\.lock(?:$|[/?])~', $LCNrURI), 'Probing for exposed Pipenv/Python lock file')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed Pipenv/Python lock file.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.08.13
+
+        /** Probing for exposed Eclipse configuration file. */
+        if ($Trigger(preg_match('~(?:^|[/?])\.settings(?:$|[/?])~', $LCNrURI), 'Probing for exposed Eclipse configuration file')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed Eclipse configuration file.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.08.13
+
+        /** Probing for exposed Docker image. */
+        if ($Trigger(preg_match('~(?:^|[/?])\.?dockerfile(?:$|[/?])~', $LCNrURI), 'Probing for exposed Docker image')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed Docker image.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.08.13
+
+        /** Probing for exposed Gradle configuration file. */
+        if ($Trigger(preg_match('~(?:^|[/?])build\.gradle(?:$|[/?])~', $LCNrURI), 'Probing for exposed Gradle configuration file')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed Gradle configuration file.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.08.13
+
+        /** Probing for exposed PHP configuration file. */
+        if ($Trigger(preg_match('~(?:^|[/?])php\d?\.ini(?:$|[/?])~', $LCNrURI), 'Probing for exposed PHP configuration file')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed PHP configuration file.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.08.13
+
+        /** Probing for exposed Laravel/OpenCart error logs. */
+        if ($Trigger(preg_match('~(?:^|[/?])storage/logs/error\.log(?:$|[/?])~', $LCNrURI), 'Probing for exposed Laravel/OpenCart error logs')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed Laravel/OpenCart error logs.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.08.13
+
+        /** Probing for exposed Apache logs. */
+        if ($Trigger(preg_match('~(?:^|[/?])var/log/httpd(?:$|[/?])~', $LCNrURI), 'Probing for exposed Apache logs')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed Apache logs.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.08.13
+
+        /** Probing for exposed Nginx logs. */
+        if ($Trigger(preg_match('~(?:^|[/?])var/log/nginx(?:$|[/?])~', $LCNrURI), 'Probing for exposed Nginx logs')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed Nginx logs.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.08.13
+
+        /** Probing for exposed error logs. */
+        if ($Trigger(preg_match('~(?:^|[/?])(?:tmp/errors[._]log|php_error_log)(?:$|[/?])~', $LCNrURI), 'Probing for exposed error logs')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed error logs.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.08.13
     }
 
     /**

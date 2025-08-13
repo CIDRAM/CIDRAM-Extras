@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bad hosts blocker module (last modified: 2025.07.27).
+ * This file: Bad hosts blocker module (last modified: 2025.08.11).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -113,27 +113,21 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
     $Trigger(preg_match('~shadowserver\.org$~', $HN), 'Regular unauthorised proxy tunnel attempts'); // 2023.09.15
 
-    $Trigger(preg_match(
-        '~(?:iweb|privatedns)\.com$|iweb\.ca$|^(?:www\.)?iweb~',
-        $HN
-    ), 'Domain Snipers'); // 2017.02.15 mod 2021.06.28
+    $Trigger(preg_match('~(?:iweb|privatedns)\.com$|iweb\.ca$|^(?:www\.)?iweb~', $HN), 'Domain Snipers'); // 2017.02.15 mod 2021.06.28
 
     $Trigger(preg_match('~amazonaws\.com$~', $HN) && (
-        !preg_match(
-            '~alexa|postrank|twitt(?:urly|erfeed)|bitlybot|unwindfetchor|met' .
-            'auri|pinterest|slack|silk-accelerated=true$~',
-            $UANoSpace
-        ) &&
-        !preg_match(
-            '~(?:Feedspot http://www\.feedspot\.com|developers\.snap\.com/robots)$~',
-            $CIDRAM['BlockInfo']['UA']
-        )
+        !preg_match('~alexa|postrank|twitt(?:urly|erfeed)|bitlybot|unwindfetchor|metauri|pinterest|slack|silk-accelerated=true$~', $UANoSpace) &&
+        !preg_match('~(?:Feedspot http://www\.feedspot\.com|developers\.snap\.com/robots)$~', $CIDRAM['BlockInfo']['UA'])
     ), 'Amazon Web Services'); // 2023.02.28
 
     $Trigger(preg_match('/\.local$/', $HN), 'Spoofed/Fake Hostname'); // 2017.02.06
 
-    // See: https://zb-block.net/zbf/showthread.php?t=25
+    /**
+     * @link https://zb-block.net/zbf/showthread.php?t=25
+     */
     $Trigger(preg_match('/shodan\.io|(?:serverprofi24|aspadmin|project25499)\./', $HN), 'AutoSploit Host'); // 2018.02.02 mod 2021.02.07
+
+    $this->trigger(preg_match('~\.cypex\.ai$~', $HN), 'Unauthorised security scanner'); // 2025.08.11
 
     /** These signatures can set extended tracking options. */
     if (
@@ -180,7 +174,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     ) {
         if ($Trigger(preg_match('~(?<!\w)tor(?!\w)|anonym|makesecure\.nl$|proxy~i', $HN), 'Proxy host')) {
             $CIDRAM['AddProfileEntry']('Tor endpoints here');
-        } // 2021.03.18
+        } // 2021.03.18 mod 2022.07.07
     }
 
     /** WordPress cronjob bypass. */
@@ -207,7 +201,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'CAPTCHA cracker host') !== false) {
         $CIDRAM['Reporter']->report([15], ['CAPTCHA cracker detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
     } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'esonicspider') !== false) {
-        $CIDRAM['Reporter']->report([21], ['esonicspider detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
+        $CIDRAM['Reporter']->report([19, 21], ['esonicspider detected at this address.'], $CIDRAM['BlockInfo']['IPAddr']);
     }
 };
 

@@ -144,7 +144,7 @@ module_abuseipdb.php:
 module_badhosts.php:
  Name: "Bad hosts blocker module"
  False Positive Risk: "Medium"
- Version: "2025.208.0"
+ Version: "2025.224.0"
  Dependencies:
   PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.13.1|^2.0.1"
@@ -156,7 +156,7 @@ module_badhosts.php:
   To:
    - "module_badhosts.php"
   Checksum:
-   - "cba13c69d7f2b58e617bb85ab0c6d4295481e62081e0eac6457f8a443510bf3d:9295"
+   - "0e829dbe57d7df97baee6c1764789059135e3ea3556db178d163486bff11316b:9327"
  Used with: "modules"
  Reannotate: "modules.dat"
 module_badtlds.php:
@@ -239,7 +239,7 @@ module_cookies.php:
 module_extras.php:
  Name: "Optional security extras module"
  False Positive Risk: "Medium"
- Version: "2025.221.0"
+ Version: "2025.224.0"
  Dependencies:
   PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.13.1|^2.0.1"
@@ -254,7 +254,7 @@ module_extras.php:
    - "module_extras.php"
    - "module_extras.yaml"
   Checksum:
-   - "c38fbbb9051b7fbef34c00e67700075039035bc290fc837dc0c53e83bc16fa40:41938"
+   - "8d8d054847eeca00640708ecf8acf8b193a9c9a74b0d105e0c67d108f4855836:47550"
    - "7b891d1fa4b1c52c410220bc758e8cb7064bd6040430fb149a5b60e9ae2e0838:890"
  Used with: "modules"
  Reannotate: "modules.dat"
