@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bot user agents module (last modified: 2025.07.27).
+ * This file: Bot user agents module (last modified: 2025.08.19).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -241,7 +241,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         'm(?:acinroyprivacyauditors|etaintelligence|ultipletimes)|' .
         'n(?:etcraft|ettrapport|icebot|mapscriptingengine|rsbot)|' .
         'ontheinternet|' .
-        'p(?:4bot|4load|acrawler|ageglimpse|aloalto(?:company|network)|arsijoo|egasusmonitoring|hantomjs|hpcrawl|ingdom|rlog)|' .
+        'p(?:4bot|4load|acrawler|ageglimpse|aloalto(?:company|network)|andalytics|arsijoo|egasusmonitoring|hantomjs|hpcrawl|ingdom|rlog)|' .
         'r(?:arelyused|obo(?:cop|spider)|yze)|' .
         's(?:/got|can\.lol|caninfo|creener|eekport|itedomain|mut|nap(?:preview)?bot|oapclient|ocial(?:ayer|searcher)|oso|pyglass|quider|treetbot|ynapse)|' .
         't(?:omba|weezler|ryghost)|' .
@@ -253,7 +253,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     ) || preg_match(
         '~^Mozilla/5\.0( [A-Za-z]{2,5}/0\..)?$~',
         $CIDRAM['BlockInfo']['UA']
-    ), 'Unauthorised'); // 2023.09.15 mod 2025.07.27
+    ), 'Unauthorised'); // 2023.09.15 mod 2025.08.19
 
     if ($Trigger(preg_match('~ivre-|masscan~', $UANoSpace), 'Port scanner and synflood tool detected')) {
         $CIDRAM['Reporter']->report([14, 15, 19], ['MASSCAN port scanner and synflood tool detected.'], $CIDRAM['BlockInfo']['IPAddr']);
