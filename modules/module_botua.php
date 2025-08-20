@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bot user agents module (last modified: 2025.08.19).
+ * This file: Bot user agents module (last modified: 2025.08.21).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -231,11 +231,11 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         'a(?:bonti|ccserver|cme.spider|dreview/\d|jbaxy|nthill$|nyevent-http|ppengine|xios)|' .
         'b(?:igbozz|itsight|lackbird|logsearch|logbot|salsa)|' .
         'c(?:astlebot|atexplorador|cleaner|k=\{\}|lickagy|liqzbot|ms-?checker|ontextad|orporama|ortex/\d|rowsnest|yberpatrol)|' .
-        'd(?:eepfield|le_spider|nbcrawler|omainappender|umprendertree)|' .
+        'd(?:eepfield|le_spider|nbcrawler|omainappender|ummyconnection|umprendertree)|' .
         'expanse|' .
         'f(?:lightdeckreportsbot|luid/|orms\.gle)|' .
         'g(?:atheranalyzeprovide|enomecrawler|dnplus|imme60|lobalipv[46]space|ooglebenjojo|tbdfffgtb.?$)|' .
-        'i(?:nfrawatch|nternet(?:census|measurement)|ps-agent|sitwp)|' .
+        'i(?:nfrawatch|nternaldummy|nternet(?:census|measurement)|ps-agent|sitwp)|' .
         'k2spider|kemvi|' .
         'l(?:9scan|eak(?:\.info|ix)|exxebot|ivelapbot|wp)|' .
         'm(?:acinroyprivacyauditors|etaintelligence|ultipletimes)|' .
@@ -253,7 +253,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     ) || preg_match(
         '~^Mozilla/5\.0( [A-Za-z]{2,5}/0\..)?$~',
         $CIDRAM['BlockInfo']['UA']
-    ), 'Unauthorised'); // 2023.09.15 mod 2025.08.19
+    ), 'Unauthorised'); // 2023.09.15 mod 2025.08.21
 
     if ($Trigger(preg_match('~ivre-|masscan~', $UANoSpace), 'Port scanner and synflood tool detected')) {
         $CIDRAM['Reporter']->report([14, 15, 19], ['MASSCAN port scanner and synflood tool detected.'], $CIDRAM['BlockInfo']['IPAddr']);
