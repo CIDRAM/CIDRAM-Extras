@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2025.08.21).
+ * This file: Optional security extras module (last modified: 2025.08.24).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -93,11 +93,11 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
 
         /** Probing for unsecured WordPress configuration files. */
         if ($Trigger(preg_match(
-            '~(?:^|[/?.]|\._)wp-config\.php(?:\.(?:bak\d*|bkp|conf|dist|du?mp|inc|new|old|orig|sw.|tar|te?mp|txt|[\d\~#_]+)|[-.]backup)?(?:$|[/?])~',
+            '~(?:^|[/?.]|\._)wp-config(?:\.(?:\d+|new|php)|_backup)(?:\.(?:bak\d*|bkp|conf|dist|du?mp|inc|new|old|orig|sw.|tar|te?mp|txt)|\.?[\d\~#_]+|[-.]backup)?(?:$|[/?])~',
             $LCNrURI
         ), 'Probing for unsecured WordPress configuration files not allowed')) {
-            $CIDRAM['Reporter']->report([15, 20, 21], ['Caught probing for unsecured WordPress configuration files.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2023.09.02 mod 2025.07.11
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for unsecured WordPress configuration files.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2023.09.02 mod 2025.08.24
 
         /** Probing for webshells/backdoors. */
         if (
@@ -114,7 +114,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
                 'd(?:7|eadcode\d*|elpaths|epotcv|isagraep|kiz|oiconvs|ummyyummy/wp-signup)|' .
                 'e(?:ctoplasm/str_shuffcle|e|pinyins|rin\d+)|' .
                 'f(?:ddqradz|ilefun)|' .
-                'g(?:awean|dftps|el4y|etid3-core|h[0o]st|lab-rare|zismexv)|' .
+                'g(?:awean|dftps|eju|el4y|etid3-core|h[0o]st|lab-rare|odsend|zismexv)|' .
                 'h(?:[4a]x+[0o]r|6ss|anna1337|ehehe|sfpdcd|tmlawedtest)|' .
                 'i(?:\d{3,}[a-z]{2,}|cesword|d3/class-config|mages/sym|ndoxploit|optimize|oxi\d*|r7szrsouep|itsec|xr/(?:allez|wp-login))|' .
                 'k(?:i1k|vkjguw)|' .
@@ -125,13 +125,13 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
                 'p(?:erl\.alfa|hp(?:1|_niu_\d+)|huploader|lugins/(?:backup_index|vwcleanerplugin/bump|zedd/\d+)|oison|rayer_intentions|riv8|wnd|zaiihfi)|' .
                 'qxuho|' .
                 'r(?:andkeyword|endixd)|' .
-                's(?:_n?e|eoplugins/mar|ession91|h[3e]ll[sx]?\d*|hrift|idwso|ilic|kipper(?:shell)?|llolx|onarxleetxd|pammervip|rc/util/php/(?:eval(?:-stdin)?|kill)|ystem_log)|' .
+                's(?:_n?e|eoplugins/mar|ession91|h[3e]ll[sxz]?\d*|hrift|idwso|ilic|kipper(?:shell)?|llolx|onarxleetxd|pammervip|rc/util/php/(?:eval(?:-stdin)?|kill)|ystem_log)|' .
                 't(?:62|aptap-null|enda\.sh.*tenda\.sh|emplates/beez/index|hemes/(?:finley/min|pridmag/db|universal-news/www)|ermps|homs|hreefox(?:_exploit/index)?|inymce/(?:langs/about|plugins/compat3x/css/index)|k_dencode_\d+|mp/vuln|opxoh/(?:drsx|wdr))|' .
                 'u(?:bh/up|nisibfu|pfile(?:_\\(\d\\))?|pgrade-temp-backup/wp-login|ploader_by_cloud7_agath|tchiha(?:_uploader)?)|' .
                 'v(?:endor/bin/loader|zlateam)|' .
                 'w(?:[0o]rm\d+|0rdpr3ssnew|alker-nva|ebshell-[a-z\d]+|idgets-nva|idwsisw|loymzuk|orksec)|' .
                 'wp[-_](?:2019|22|(?:admin(?:/images)?|content|css(?:/colors)?|includes(?:/ixr|/customize|/pomo)?|js(?:/widgets)?|network)/(?:[^?]*wp-login|0|aaa|cof|css/(?:about|acces|bgfbmo|colors/blue/file|dist/niil|gecko|ok)|dropdown|fgertreyersd|id3/about|(?:images|widgets)/include|includes/lint-branch|install|js/(?:codemirror/\d+|jcrop/jcrop|privacy-tools\.min)|mah|maint/(?:aaa|fie|fw|lint-branch|lmfi2)|(?:random_compat/|requests/)?class(?:_api|-wp-page-[\da-z]{5,})|repeater|rk2|simple|text/(?:about|diff/renderer/last)|themes/hello-element/footer|uploads/(?:admin|error_log)|vuln)|conflg|content/plugins/(?:about|backup-backup/includes/hro|cache/dropdown|contact-form-7/.+styles-rtl|contus-hd-flv-player/uploadvideo|(?:core-plugin/|wordpresscore/)?include|dzs-zoomsounds/savepng|fix/up|(?:view-more/)?ioxi|wp-automatic/inc/csv|wp-file-manager/lib/php/connector\.minimal|wp-content/uploads/.+)|filemanager|setups|sigunq|sts|p)|' .
-                'wp-(?:aa|beckup|configs|(?:content/uploads|includes/(?:customize|js))/(?:autoload_classmap|wp-stream)|l0gins?|mail\.php/wp-includes(?:/id3/[\da-z]+)?|mna|red)|' .
+                'wp-(?:aa|beckup|configs|(?:content/uploads|includes/(?:customize|js))/(?:autoload_classmap|wp-stream)|l0gins?|mail\.php/wp-includes(?:/id3/[\da-z]+)?|mna|red|zett)|' .
                 'ws[ou](?:yanz)?(?:[\d.]*|[\da-z]{4,})|wwdv|' .
                 'x(?:iaom|ichang/x|m(?:lrpcs|lrpz|rlpc)|s?hell|w|x{2,}|x*l(?:\d+|eet(?:mailer|-shell)?x?))|' .
                 'ya?nz|yyobang/mar|' .
@@ -141,7 +141,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
                 ')\.php[578]?(?:$|[/?])|' .
                 'funs\.php[578]?(?:$|[/?])~',
                 $LCNrURI
-            ), 'Probing for webshells/backdoors') || // 2023.08.18 mod 2025.08.11
+            ), 'Probing for webshells/backdoors') || // 2023.08.18 mod 2025.08.24
             $Trigger(preg_match('~(?:^|[/?])(?:brutalshell|css/dmtixucz/golden-access|fierzashell\.html?|perl.alfa|search/label/php-shells|wp-ksv1i\.ph)(?:$|[/?])~', $LCNrURI), 'Probing for webshells/backdoors') || // 2025.05.12 mod 2025.08.07
             $Trigger(preg_match('~(?:^|[/?])(?:moon\.php|ss\.php)\?(?:f_c|p)=~', $LCNrURI), 'Probing for webshells/backdoors') // 2025.08.07
         ) {
@@ -218,9 +218,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         } // 2022.06.05 mod 2023.09.04
 
         /** Probing for exposed AWS credentials. */
-        if ($Trigger(preg_match('~(?:^|[/?])(?:\.?aws_?/(?:config(?:uration)?|credentials?)(?:\.yml)?|\.?aws\.yml|config/aws\.json)(?:$|[/?])~', $LCNrURI), 'Probing for exposed AWS credentials')) {
+        if ($Trigger(preg_match('~(?:^|[/?])(?:\.?aws_?/(?:config(?:uration)?|credentials?)(?:\.yml)?|\.?aws\.yml|aws[_-]secrets?\.ya?ml|config/aws\.json)(?:$|[/?])~', $LCNrURI), 'Probing for exposed AWS credentials')) {
             $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed AWS credentials.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2023.09.04 mod 2025.08.07
+        } // 2023.09.04 mod 2025.08.24
 
         /** Probing for exposed FTP credentials. */
         if ($Trigger(preg_match('~(?:^|[/?])\.?s?ftp-(?:config|sync)\.json(?:$|[/?])~', $LCNrURI), 'Probing for exposed FTP credentials')) {
@@ -278,9 +278,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         } // 2025.08.02
 
         /** Probing for env file. */
-        if ($Trigger(preg_match('~(?:^|[/?=])(?:config|secrets?)?\.env(?:\.[\da-z]+)?(?:$|[/?])~', $LCNrURI), 'Probing for env file')) {
+        if ($Trigger(preg_match('~(?:^|[/?=])(?:config|secrets?)?\.env(?:\.[\da-z]+)*(?:$|[/?])~', $LCNrURI), 'Probing for env file')) {
             $CIDRAM['Reporter']->report([15, 21], ['Caught probing for env file.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2025.03.18 mod 2025.08.02
+        } // 2025.03.18 mod 2025.08.24
 
         /** Probing for unsecured configuration file. */
         if ($Trigger(preg_match('~(?:^|[/?])\.?config.ya?ml(?:$|[/?])~', $LCNrURI), 'Probing for unsecured configuration file')) {
@@ -403,6 +403,41 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         if ($Trigger(preg_match('~(?:^|[/?])(?:tmp/errors[._]log|php_error_log)(?:$|[/?])~', $LCNrURI), 'Probing for exposed error logs')) {
             $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed error logs.'], $CIDRAM['BlockInfo']['IPAddr']);
         } // 2025.08.13
+
+        /** Probing for exposed shell/bash configuration/setup files. */
+        if ($Trigger(preg_match('~(?:^|[/?])config\.sh(?:$|[/?])~', $LCNrURI), 'Probing for exposed shell/bash configuration/setup files')) {
+            $CIDRAM['Reporter']->report([15], ['Caught probing for exposed shell/bash configuration/setup files.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.08.24
+
+        /** Probing for exposed Kubernetes secrets. */
+        if ($Trigger(preg_match('~(?:^|[/?])secrets\.sh(?:$|[/?])~', $LCNrURI), 'Probing for exposed Kubernetes secrets')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed Kubernetes secrets.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.08.24
+
+        /** Probing for exposed SparkPost API keys. */
+        if ($Trigger(preg_match('~(?:^|[/?])sparkpost(?:_(?:config|keys)(?:\.env|-py)?|\.(?:env|py))(?:$|[/?])~', $LCNrURI), 'Probing for exposed SparkPost API keys')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed SparkPost API keys.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.08.24
+
+        /** Probing for exposed PyPI logs. */
+        if ($Trigger(preg_match('~(?:^|[/?])pip/log\.txt(?:$|[/?])~', $LCNrURI), 'Probing for exposed PyPI logs')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed PyPI logs.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.08.24
+
+        /** Probing for printenv.tmp file. */
+        if ($Trigger(preg_match('~(?:^|[/?])printenv\.tmp(?:$|[/?])~', $LCNrURI), 'Probing for exposed printenv.tmp file')) {
+            $CIDRAM['Reporter']->report([15], ['Caught probing for exposed printenv.tmp file.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.08.24
+
+        /** Probing for exposed Jenkins configuration file. */
+        if ($Trigger(preg_match('~(?:^|[/?])\.?jenkins\.sh|jenkinsfile(?:$|[/?])~', $LCNrURI), 'Probing for exposed Jenkins configuration file')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed Jenkins configuration file.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.08.24
+
+        /** Probing for exposed Python application setup file. */
+        if ($Trigger(preg_match('~(?:^|[/?])setup\.py(?:$|[/?])~', $LCNrURI), 'Probing for exposed Python application setup file')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed Python application setup file.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.08.24
     }
 
     /**
