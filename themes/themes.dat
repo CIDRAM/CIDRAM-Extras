@@ -176,7 +176,7 @@ theme/moss:
 theme/primer:
  Name: "Theme: Primer"
  Extended Description: "<img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-primer.png" alt="Preview" /><br />Inspired by the "Primer Design System" (utilised by GitHub, Facebook, etc)."
- Version: "2025.225.0"
+ Version: "2025.237.0"
  Dependencies:
   CIDRAM Core: "^1.18|^2.5"
   CIDRAM Front-End: "^1.22.2|^2.9.2"
@@ -203,13 +203,13 @@ theme/primer:
    - "91e29d1ec09a7b4b0c80f14cd589d4d3e7984749047c2e3e57d1fe077658a839:3318"
    - "7d5936fe0484f6739b0ffa8d3acf81ce6df9353fe04dd7096c19c88a1134364a:1955"
    - "6145977fd40e6cf39446446915e1dc7691e87ce4f7f67f4f80b92cb06662cddc:574"
-   - "e4c52a4605e41aa338c04ec806a32464e81ed97615c07d116e2ccf3a6fc15ad7:13732"
+   - "3bbdcbbd9fb379010168e817d7aafd4fcc392adef8bb32cc24da5e3c317fb46e:13605"
    - "78237c45eb2394b72cb5dba4d0b33a366b2abc857ad3af1dbc5b5b2344a6a067:860"
  Reannotate: "themes.dat"
 theme/primerdark:
  Name: "Theme: Primer Dark"
  Extended Description: "<img src="https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/themes/preview-primerdark.png" alt="Preview" /><br />A darker version of the Primer theme."
- Version: "2025.225.0"
+ Version: "2025.237.0"
  Dependencies:
   CIDRAM Core: "^1.18|^2.5"
   CIDRAM Front-End: "^1.22.2|^2.9.2"
@@ -236,7 +236,7 @@ theme/primerdark:
    - "f24942206d223c88e901f510c7cf7147d9e8e53e88c139c8d166fedfb3d66418:3299"
    - "7d5936fe0484f6739b0ffa8d3acf81ce6df9353fe04dd7096c19c88a1134364a:1955"
    - "6145977fd40e6cf39446446915e1dc7691e87ce4f7f67f4f80b92cb06662cddc:574"
-   - "449ee3b12b78f7803f5ab61d8705d2081fb62740a34a14e919a5e0924d094f59:13588"
+   - "b6b1292836273e8a42f74e7838710298bd84e0e2d8c2dff31de8df5597348fa9:13461"
    - "78237c45eb2394b72cb5dba4d0b33a366b2abc857ad3af1dbc5b5b2344a6a067:860"
  Reannotate: "themes.dat"
 theme/rbi:
