@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2025.08.29).
+ * This file: Optional security extras module (last modified: 2025.09.03).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -449,6 +449,30 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         if ($Trigger(preg_match('~(?:^|[/?])wallet\.dat(?:$|[/?])~', $LCNrURI), 'Probing for exposed Bitcoin wallets')) {
             $CIDRAM['Reporter']->report([15], ['Caught probing for exposed Bitcoin wallets.'], $CIDRAM['BlockInfo']['IPAddr']);
         } // 2025.08.29
+
+        /** Malware spam redirection attempt. */
+        if ($Trigger(preg_match('~(?:^|[/?])(?:__media__/js|netsoltrademark\.php)(?:$|[/?])~', $LCNrURI), 'Malware spam redirection attempt detected')) {
+            $CIDRAM['Reporter']->report([10, 20], ['Malware spam redirection attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.09.03
+
+        /** Probing for exposed etc/passwd file. */
+        if ($Trigger(preg_match('~(?:^|[/?])etc(?:/|%2f)passwd(?:$|[/?])~', $LCNrURI), 'Probing for exposed etc/passwd file')) {
+            $CIDRAM['Reporter']->report([15], ['Caught probing for exposed etc/passwd file.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.09.03
+
+        /** Probing for exposed etc/hosts file. */
+        if ($Trigger(preg_match('~(?:^|[/?])etc(?:/|%2f)hosts(?:$|[/?])~', $LCNrURI), 'Probing for exposed etc/hosts file')) {
+            $CIDRAM['Reporter']->report([15], ['Caught probing for exposed etc/hosts file.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.09.03
+
+        /** Probing for exposed etc/shadow file. */
+        if ($Trigger(preg_match('~(?:^|[/?])etc(?:/|%2f)shadow(?:$|[/?])~', $LCNrURI), 'Probing for exposed etc/shadow file')) {
+            $CIDRAM['Reporter']->report([15], ['Caught probing for exposed etc/shadow file.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.09.03
+
+        if ($Trigger(preg_match('~\?1+1&&|\)%7d%7d%2f~', $LCNrURI), 'SQLi attack')) {
+            $CIDRAM['Reporter']->report([15, 16], ['SQL injection attack detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.09.03
     }
 
     /**
@@ -559,8 +583,12 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         $Trigger(strpos($CIDRAM['BlockInfo']['Query'], ',0x') !== false, 'Bad query'); // 2017.02.25
         $Trigger(strpos($CIDRAM['BlockInfo']['Query'], ',\'\',') !== false, 'Bad query'); // 2017.02.25
 
-        $Trigger(preg_match('/(?<![a-z])id=.*(?:benchmark\\(|id[xy]=|sleep\\()/', $QueryNoSpace), 'Query SQLi'); // 2017.03.01 mod 2023.11.10
-        $Trigger(preg_match('~(?:from|union|where).*select|then.*else|(?:o[nr]|where).*isnull|(?:inner|left|outer|right)join~', $QueryNoSpace), 'Query SQLi'); // 2017.03.01 mod 2023.08.30
+        if ($Trigger(preg_match(
+            '~(?<![a-z])id=.*(?:benchmark\\(|id[xy]=|sleep\\()|(?:from|union|where).*select|then.*else|(?:o[nr]|where).*isnull|(?:inner|left|outer|right)join~',
+            $QueryNoSpace
+        ), 'SQLi attack')) {
+            $CIDRAM['Reporter']->report([15, 16], ['SQL injection attack detected.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2017.03.01 mod 2025.09.03
 
         $Trigger(preg_match('/cpis_.*i0seclab@intermal\.com/', $QueryNoSpace), 'Hack attempt'); // 2018.02.20
         $Trigger(preg_match('/^(?:3x=3x|of=1&a=1)/i', $CIDRAM['BlockInfo']['Query']), 'Hack attempt'); // 2023.07.13 mod 2023.09.02
@@ -679,8 +707,6 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             $CIDRAM['Reporter']->report([15, 21], ['Plesk hack attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Probe attempt') !== false) {
             $CIDRAM['Reporter']->report([19], ['Probe detected.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Query SQLi') !== false) {
-            $CIDRAM['Reporter']->report([16], ['SQL injection attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Query command injection') !== false) {
             $CIDRAM['Reporter']->report([15], ['Query command injection attempt detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } elseif (strpos($CIDRAM['BlockInfo']['WhyReason'], 'Query global variable hack') !== false) {
