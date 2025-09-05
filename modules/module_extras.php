@@ -470,7 +470,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             $CIDRAM['Reporter']->report([15], ['Caught probing for exposed etc/shadow file.'], $CIDRAM['BlockInfo']['IPAddr']);
         } // 2025.09.03
 
-        if ($Trigger(preg_match('~\?1+1&&|\)%7d%7d%2f~', $LCNrURI), 'SQLi attack')) {
+        if ($Trigger(preg_match('~\?1\+1&&|\)%7d%7d%2f~', $LCNrURI), 'SQLi attack')) {
             $CIDRAM['Reporter']->report([15, 16], ['SQL injection attack detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } // 2025.09.03
     }

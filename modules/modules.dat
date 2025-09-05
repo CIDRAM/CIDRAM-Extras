@@ -1,23 +1,4 @@
 ---
-Chart.js:
- Name: "Chart.js"
- Version: "3.9.1"
- Dependencies:
-  CIDRAM Core: "^1.20|^2.7"
- Remote: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/modules.dat"
- Uninstallable: true
- Provisional: true
- Files:
-  From:
-   - "https://raw.githubusercontent.com/Maikuolan/Chart.js-Common-Module/v3.9.1/chart.min.js"
-   - "https://raw.githubusercontent.com/Maikuolan/Chart.js-Common-Module/v3.9.1/_chartjs.html"
-  To:
-   - "fe_assets/chart.min.js"
-   - "fe_assets/_chartjs.html"
-  Checksum:
-   - "fbc45926e6b46845a0f905552a0e0b1331049bff1115ecf94dbe0904d895e710:199560"
-   - "615790402dd1f3b88e2dcc5c12e3bbbe59de032cae3b2a9678961b68d351b65e:893"
- Reannotate: "modules.dat"
 PHPMailer:
  Name: "PHPMailer"
  Version: "6.10.0"
