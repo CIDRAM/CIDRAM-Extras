@@ -52,10 +52,10 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         $LCNrURI = str_replace('\\', '/', strtolower($CIDRAM['BlockInfo']['rURI']));
 
         /** Directory traversal protection. */
-        // (Bugged) if (!$Trigger(preg_match('~%5[cf]\.{2,}%5[cf]~', $LCNrURI), 'Traversal attack')) {
+        if (!$Trigger(preg_match('~%5[cf]\.{2,}%5[cf]~', $LCNrURI), 'Traversal attack')) {
             /** Detect bad/dangerous/malformed requests. */
-            // $Trigger(preg_match('~%5[cf]\.%5[cf]|%5[cf]{3,}|[\x00-\x1f\x7f]~', $LCNrURI), 'Bad request'); // 2017.01.13 mod 2024.02.08
-        // } // 2017.01.13 mod 2024.02.08
+            $Trigger(preg_match('~%5[cf]\.%5[cf]|%5[cf]{3,}|[\x00-\x1f\x7f]~', $LCNrURI), 'Bad request'); // 2017.01.13 mod 2024.02.08
+        } // 2017.01.13 mod 2024.02.08
 
         /** WordPress user enumeration (modified 2025.03.03). */
         if ($Trigger(preg_match('~\?author=\d+~', $LCNrURI), 'WordPress user enumeration not allowed')) {
