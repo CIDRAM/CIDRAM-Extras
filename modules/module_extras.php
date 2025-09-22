@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2025.09.03).
+ * This file: Optional security extras module (last modified: 2025.09.22).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -224,9 +224,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         } // 2022.06.05 mod 2023.09.04
 
         /** Probing for exposed AWS credentials. */
-        if ($Trigger(preg_match('~(?:^|[/?])(?:\.?aws_?/(?:config(?:uration)?|credentials?)(?:\.yml)?|\.?aws\.yml|aws[_-]secrets?\.ya?ml|config/aws\.json)(?:$|[/?])~', $LCNrURI), 'Probing for exposed AWS credentials')) {
+        if ($Trigger(preg_match('~(?:^|[/?])(?:\.?aws_?/(?:config(?:uration)?|credentials?)(?:\.yml)?|\.?aws\.yml|aws[_-]secrets?\.ya?ml|config/aws\.json|\.?aws-credentials\.(?:json|php|ya?ml)?|\.awsvault)(?:$|[/?])~', $LCNrURI), 'Probing for exposed AWS credentials')) {
             $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed AWS credentials.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2023.09.04 mod 2025.08.24
+        } // 2023.09.04 mod 2025.09.22
 
         /** Probing for exposed FTP credentials. */
         if ($Trigger(preg_match('~(?:^|[/?])\.?s?ftp-(?:config|sync)\.json(?:$|[/?])~', $LCNrURI), 'Probing for exposed FTP credentials')) {
@@ -284,9 +284,9 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         } // 2025.08.02
 
         /** Probing for env file. */
-        if ($Trigger(preg_match('~(?:^|[/?=])(?:config|secrets?)?\.env(?:\.[\da-z]+)*(?:$|[/?])~', $LCNrURI), 'Probing for env file')) {
+        if ($Trigger(preg_match('~(?:^|[/?=])(?:(?:config|secrets?)?\.env|env\.backup)(?:\.[\da-z]+)*(?:$|[/?])~', $LCNrURI), 'Probing for env file')) {
             $CIDRAM['Reporter']->report([15, 21], ['Caught probing for env file.'], $CIDRAM['BlockInfo']['IPAddr']);
-        } // 2025.03.18 mod 2025.08.24
+        } // 2025.03.18 mod 2025.09.22
 
         /** Probing for unsecured configuration file. */
         if ($Trigger(preg_match('~(?:^|[/?])\.?config.ya?ml(?:$|[/?])~', $LCNrURI), 'Probing for unsecured configuration file')) {
@@ -309,6 +309,16 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         if ($Trigger(preg_match('~(?:^|[/?])secrets\.yml(?:$|[/?])~', $LCNrURI), 'Probing for exposed Rails app secrets')) {
             $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed Rails app secrets.'], $CIDRAM['BlockInfo']['IPAddr']);
         } // 2025.08.07
+
+        /** Probing for exposed Home Assistant secrets. */
+        if ($Trigger(preg_match('~(?:^|[/?])secrets\.yaml(?:$|[/?])~', $LCNrURI), 'Probing for exposed Home Assistant secrets')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed Home Assistant secrets.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.09.22
+
+        /** Probing for exposed BMC secrets. */
+        if ($Trigger(preg_match('~(?:^|[/?])secrets\.txt(?:$|[/?])~', $LCNrURI), 'Probing for exposed BMC secrets')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed BMC secrets.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.09.22
 
         /** Probing for exposed Apache HTTP authentication credentials. */
         if ($Trigger(preg_match('~(?:^|[/?])\.htpasswd(?:$|[/?])~', $LCNrURI), 'Probing for exposed Apache HTTP authentication credentials')) {
@@ -470,9 +480,20 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             $CIDRAM['Reporter']->report([15], ['Caught probing for exposed etc/shadow file.'], $CIDRAM['BlockInfo']['IPAddr']);
         } // 2025.09.03
 
+        /** SQL injection attack detection. */
         if ($Trigger(preg_match('~\?1\+1&&|\)%7d%7d%2f~', $LCNrURI), 'SQLi attack')) {
             $CIDRAM['Reporter']->report([15, 16], ['SQL injection attack detected.'], $CIDRAM['BlockInfo']['IPAddr']);
         } // 2025.09.03
+
+        /** Probing for exposed Google API credentials. */
+        if ($Trigger(preg_match('~(?:^|[/?])credentials\.(?:json|txt)(?:$|[/?])~', $LCNrURI), 'Probing for exposed Google API credentials')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed Google API credentials.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.09.22
+
+        /** Probing for exposed ELMAH security file. */
+        if ($Trigger(preg_match('~(?:^|[/?])elmah\.axd(?:$|[/?])~', $LCNrURI), 'Probing for exposed ELMAH security file')) {
+            $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed ELMAH security file.'], $CIDRAM['BlockInfo']['IPAddr']);
+        } // 2025.09.22
     }
 
     /**
