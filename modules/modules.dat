@@ -1,7 +1,7 @@
 ---
 PHPMailer:
  Name: "PHPMailer"
- Version: "6.10.0"
+ Version: "6.11.1"
  Dependencies:
   PHP: ">=5.5"
   CIDRAM Core: "^1.13.1|^2.0.1"
@@ -14,13 +14,13 @@ PHPMailer:
  When Install Succeeds: ["Queue Message response_please_check_config"]
  Files:
   From:
-   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.10.0/src/DSNConfigurator.php"
-   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.10.0/src/Exception.php"
-   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.10.0/src/OAuth.php"
-   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.10.0/src/OAuthTokenProvider.php"
-   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.10.0/src/PHPMailer.php"
-   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.10.0/src/POP3.php"
-   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.10.0/src/SMTP.php"
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.11.1/src/DSNConfigurator.php"
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.11.1/src/Exception.php"
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.11.1/src/OAuth.php"
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.11.1/src/OAuthTokenProvider.php"
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.11.1/src/PHPMailer.php"
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.11.1/src/POP3.php"
+   - "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.11.1/src/SMTP.php"
   To:
    - "classes/PHPMailer/DSNConfigurator.php"
    - "classes/PHPMailer/Exception.php"
@@ -34,9 +34,9 @@ PHPMailer:
    - "22ab858ae438d98f58f41f38ad2191d1b0d59570aebea0463a7948cfae1021b7:1256"
    - "44b2c9a3b6e538a65b90261251f197d700e2eb90d51d4944fb80577263210fb4:3791"
    - "f2318ea1b2841b2481b636e205c281a733f9de944a71ae403e0b59fa71219572:1538"
-   - "835a15b6067083d7c92ea245c9ffab3ef23a8ac16bfe14a61e953741a661b9e2:187770"
-   - "42baf6cd05e05c8dba369cf7da411955b5e0b1c791828d538ca99b17335d7df9:12352"
-   - "9bc105018f6ef2576c2c4a246a46fc41ada546111fc8fb1ffce86421af35e78c:50097"
+   - "c4ef2077cddb9dcc371d0dfb7f51ce9998abcd8351cfea63722b5d8b5ce6766d:191034"
+   - "639a69e48eecfde56a016197c6404c2161edd63c30b2791d3318ea154510224e:12352"
+   - "38202fead4c2fa9d7502b1f50765ab0b3cb7ab7090760639b9a26b0edda8309d:52485"
  Reannotate: "modules.dat"
 Search engines blocker module:
  Name: "Search engines blocker module"
