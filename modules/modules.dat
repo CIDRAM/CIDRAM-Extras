@@ -184,7 +184,7 @@ module_bgpview.php:
 module_botua.php:
  Name: "Bot user agents module"
  False Positive Risk: "Medium"
- Version: "2025.303.0"
+ Version: "2025.309.0"
  Dependencies:
   PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.13.1|^2.0.1"
@@ -196,7 +196,7 @@ module_botua.php:
   To:
    - "module_botua.php"
   Checksum:
-   - "d053438d67738b7d8ad0882397edc479e47bdab149b79b272325f0892fbb13c2:27487"
+   - "2d264e4ec2f91c56b9289d79d92844ddd46df8b761a3d9b24d1e50c9ad9b6eb3:27651"
  Used with: "modules"
  Reannotate: "modules.dat"
 module_cookies.php:
@@ -220,7 +220,7 @@ module_cookies.php:
 module_extras.php:
  Name: "Optional security extras module"
  False Positive Risk: "Medium"
- Version: "2025.264.0"
+ Version: "2025.309.0"
  Dependencies:
   PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.13.1|^2.0.1"
@@ -235,7 +235,7 @@ module_extras.php:
    - "module_extras.php"
    - "module_extras.yaml"
   Checksum:
-   - "6e4e646a3270d63fb802e48cdfe141dbbfb18748114d0931e7623d12166387f9:53994"
+   - "9845128add9806bea517f63bf6a5df57f430be3c890e3f14385009fff47acd37:54008"
    - "7b891d1fa4b1c52c410220bc758e8cb7064bd6040430fb149a5b60e9ae2e0838:890"
  Used with: "modules"
  Reannotate: "modules.dat"
