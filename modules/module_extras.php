@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Optional security extras module (last modified: 2025.11.06).
+ * This file: Optional security extras module (last modified: 2025.11.13).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -102,7 +102,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         /** Probing for webshells/backdoors. */
         if (
             $Trigger(preg_match(
-                '~^/{3,}wp-|(?:^|[/?])(?:mt-xmlrpc\.cgi|shell\?cd|wp-includes/wlwmanifest\.xml)(?:$|[/?])|(?:^|[/?])(?:' .
+                '~^/{3,}wp-|(?:^|[/?])(?:mt-xmlrpc\.cgi|shell\?cd\+?|wp-includes/wlwmanifest\.xml)(?:$|[/?])|(?:^|[/?])(?:' .
                 '\+theme\+/(?:error|index)|' .
                 '\.bak/.*|' .
                 '\.w(?:ell-known(?:new\d*|old\d*)?|p-cli)/(?:.*(?:(?:a(?:bout|dmin|pap)|c(?:aches?|ihjbmjk|lasswithtostring|ong)|fi(?:erza|le)|l(?:itespeed|ofmebwd)|install|moon|shell|wp-login)[\da-z]*|/x)|go|radio|x)|' .
@@ -140,7 +140,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
                 ')\.php[578]?(?:$|[/?])|' .
                 'funs\.php[578]?(?:$|[/?])~',
                 $LCNrURI
-            ), 'Probing for webshells/backdoors') || // 2023.08.18 mod 2025.08.29
+            ), 'Probing for webshells/backdoors') || // 2023.08.18 mod 2025.11.13
             $Trigger(preg_match('~(?:^|[/?])(?:brutalshell|css/dmtixucz/golden-access|fierzashell\.html?|perl.alfa|search/label/php-shells|wp-ksv1i\.ph)(?:$|[/?])~', $LCNrURI), 'Probing for webshells/backdoors') || // 2025.05.12 mod 2025.08.07
             $Trigger(preg_match('~(?:^|[/?])(?:moon\.php|ss\.php)\?(?:f_c|p)=~', $LCNrURI), 'Probing for webshells/backdoors') // 2025.08.07
         ) {
@@ -161,7 +161,8 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
             $Trigger(preg_match('~(?:^|[/?])library/openflashchart/php-ofc-library/ofc_upload_image\.php[57]?(?:$|[/?])~', $LCNrURI), $Exploit = 'ZSL-2013-5126') || // 2025.07.10 mod 2025.08.07
             $Trigger(preg_match('~(?:^|[/?])includes/openflashchart/php-ofc-library/ofc_upload_image\.php[57]?(?:$|[/?])~', $LCNrURI), $Exploit = 'SA53428') || // 2025.07.10 mod 2025.08.07
             $Trigger(preg_match('~(?:^|[/?])dup-installer/main\.installer\.php[57]?(?:$|[/?])~', $LCNrURI), $Exploit = 'CVE-2022-2551') || // 2024.09.05 mod 2025.08.07
-            $Trigger(preg_match('~(?:^|[/?])Telerik\.Web\.UI\.WebResource\.axd(?:$|[/?])~i', $LCNrURI), $Exploit = 'CVE-2019-18935') // 2024.10.30 mod 2025.08.07
+            $Trigger(preg_match('~(?:^|[/?])Telerik\.Web\.UI\.WebResource\.axd(?:$|[/?])~i', $LCNrURI), $Exploit = 'CVE-2019-18935') || // 2024.10.30 mod 2025.08.07
+            $Trigger(preg_match('~(?:^|[/?])ipfs/bafkreicyqcbhpicbos7ev4mrxofwqx6hvvge7pahpta6xuspr44crai5by(?:$|[/?])~i', $LCNrURI), $Exploit = 'CVE-2016-10563') // 2025.11.13
         ) {
             $CIDRAM['Reporter']->report([15, 21], ['Caught probing for ' . $Exploit . ' vulnerability.'], $CIDRAM['BlockInfo']['IPAddr']);
         }
@@ -494,6 +495,11 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         if ($Trigger(preg_match('~(?:^|[/?])elmah\.axd(?:$|[/?])~', $LCNrURI), 'Probing for exposed ELMAH security file')) {
             $CIDRAM['Reporter']->report([15, 21], ['Caught probing for exposed ELMAH security file.'], $CIDRAM['BlockInfo']['IPAddr']);
         } // 2025.09.22
+
+        /** Mozi botnet requests. */
+        if ($Trigger(preg_match('~/mozi.a[;+]~', $LCNrURI), 'Mozi botnet detected')) {
+            $CIDRAM['Reporter']->report([15, 20], ['Mozi botnet detected. Host is likely compromised.'], $CIDRAM['BlockInfo']['IPAddr']);
+        }
     }
 
     /**
@@ -629,7 +635,7 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
         if (
             $Trigger(strpos($QueryNoSpace, '$_' . '[$' . '__') !== false, 'Shell upload attempt') || // 2017.03.01
             $Trigger(strpos($QueryNoSpace, '@$' . '_[' . ']=' . '@!' . '+_') !== false, 'Shell upload attempt') || // 2017.03.01
-            $Trigger(strpos($Query, 'rm ' . '-rf') !== false, 'Hack attempt') || // 2017.01.02
+            $Trigger(preg_match('~rm +-rf~', $Query), 'Hack attempt') || // 2017.01.02 mod 2025.11.13
             $Trigger(strpos($QueryNoSpace, ';c' . 'hmod7' . '77') !== false, 'Hack attempt') || // 2017.01.05
             $Trigger(substr($QueryNoSpace, 0, 2) === '()', 'Bash/Shellshock') || // 2017.01.05
             $Trigger(strpos($QueryNoSpace, '0x31303235343830303536') !== false, 'Probe attempt') || // 2017.02.25
