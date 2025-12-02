@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Bot user agents module (last modified: 2025.11.13).
+ * This file: Bot user agents module (last modified: 2025.12.02).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -347,6 +347,16 @@ $CIDRAM['ModuleResCache'][$Module] = function () use (&$CIDRAM) {
     ), 'Scraper UA')) {
         $CIDRAM['Tracking options override'] = 'extended';
     } // 2023.11.17 mod 2025.11.06
+
+    /**
+     * @link https://github.com/CIDRAM/CIDRAM/issues/651
+     */
+    $Trigger(preg_match(
+        '~(?=.*chrome\/\d)(?=.*safari\/\d)(?=.*edg\/\d).*gls\/[\d.]+$|' .
+        '(?=.*chrome\/\d)(?=.*safari\/\d).*(?:unique|trailer|agency|viewer)\/[\d.]+$|' .
+        '(?=.*gecko\/\d)(?=.*firefox\/\d).*(?:openwave|config)\/[\d.]+$~',
+        $UANoSpace
+    ), 'Scraper UA'); // 2025.12.02
 
     $Trigger(preg_match('~ct‑git‑scanner/~i', $CIDRAM['BlockInfo']['UA']), 'Unauthorised Git scanner'); // 2025.07.05
     $Trigger(preg_match('~4\.066686748~', $UANoSpace), 'Hack UA (pretending to be Netscape)'); // 2025.11.13

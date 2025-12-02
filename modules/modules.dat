@@ -184,7 +184,7 @@ module_bgpview.php:
 module_botua.php:
  Name: "Bot user agents module"
  False Positive Risk: "Medium"
- Version: "2025.316.0"
+ Version: "2025.335.0"
  Dependencies:
   PHP: "^5.4|^7|^8"
   CIDRAM Core: "^1.13.1|^2.0.1"
@@ -196,7 +196,7 @@ module_botua.php:
   To:
    - "module_botua.php"
   Checksum:
-   - "479f77971a55d0b08eddbfcf2209884c54caefc26a4f0da4eadf7817d646477b:27760"
+   - "ff41c84a2b08cf21306124f534c4be501782e8179c647fdf29dad5531cb8e79c:28152"
  Used with: "modules"
  Reannotate: "modules.dat"
 module_cookies.php:
