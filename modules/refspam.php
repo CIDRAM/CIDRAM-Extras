@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Referrer spam module (last modified: 2025.07.24).
+ * This file: Referrer spam module (last modified: 2026.01.14).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -166,21 +166,13 @@ $this->CIDRAM['ModuleResCache'][$Module] = function () {
         'y|review|science|work|xxx|xzone|zip)|powernetshop\.at|3w1\.eu|(?:cat-tre' .
         'e-house|doctoryuval|justfree|netvibes|traf(?:ers|ficfaker)|webscutest)\.' .
         'com|pyce\.info|(?:bankinfodata|facialforum)\.net|icetv\.ru|dvd\d+\.com\.' .
-        'ua)$|(?:%d8%b3%d9%83%d8%b3|-24h\.|adultfriendfinder|aimtrust|cash-blog|e' .
-        'yeglassesonlineshop|filseclab|gayxzone|healingstartswithus|investblog|ma' .
-        'ssagemiracle|mskhirakurves|myyogamassage|sobacos|typegetrich|web-ads|\.a' .
-        'dult|\.box\.net|adult\.|avelox|bea?stiality|c[1i]al[1i]s|deltasone|drugs' .
-        '(?:-|tore)|eroti[ck]|finddotcom|forex|gabapentin|geriforte|ginkg?o|henta' .
-        'i|incest|kamagra|laxative|lesbian|levitra|lexap|liker\.profile|lipitor|l' .
-        'olita|meet-women|melaleuca|menthol|neurontin|nolvadex|paxil|pdfgen|pharm' .
-        'a\.|pillz|plavix|propecia|prosti|rogaine|screenshot|shemale|sterapred|sy' .
-        'nthroid|tentacle|viagra|xanax)~i',
+        'ua)$~i',
         $Domain
     ), 'Referrer spam detected (' . $Domain . ')')) {
         $this->Reporter->report([10], [
             'Referrer spam originating from this address detected (' . $Domain . ').'
         ], $this->BlockInfo['IPAddr']);
-    } // (Some of these are quite old and mightn't be relevant anymore) 2019.08.14
+    } // 2019.08.14 mod 2026.01.14 (removed some old entries)
 
     if ($this->trigger(preg_match(
         '~(?:android-style|anti-crisis-seo|hvd-store|med-dopomoga|oohlivecams|pai' .
