@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: PHPMailer event handlers (last modified: 2024.09.22).
+ * This file: PHPMailer event handlers (last modified: 2026.03.18).
  */
 
 /**
@@ -27,13 +27,13 @@ $this->Events->addHandler('writeToPHPMailerEventLog', function (string $Data): b
     }
 
     $Truncate = $this->readBytes($this->Configuration['logging']['truncate']);
-    $WriteMode = (!file_exists($EventLog) || $Truncate > 0 && filesize($EventLog) >= $Truncate) ? 'wb' : 'ab';
-    if (!is_resource($Handle = fopen($EventLog, $WriteMode))) {
-        trigger_error('The "writeToPHPMailerEventLog" event failed to open "' . $EventLog . '" for writing.');
+    $WriteMode = (!\file_exists($EventLog) || $Truncate > 0 && \filesize($EventLog) >= $Truncate) ? 'wb' : 'ab';
+    if (!\is_resource($Handle = \fopen($EventLog, $WriteMode))) {
+        \trigger_error('The "writeToPHPMailerEventLog" event failed to open "' . $EventLog . '" for writing.');
         return false;
     }
-    fwrite($Handle, $Data);
-    fclose($Handle);
+    \fwrite($Handle, $Data);
+    \fclose($Handle);
     if ($WriteMode === 'wb') {
         $this->logRotation($this->Configuration['phpmailer']['event_log']);
     }
@@ -49,7 +49,7 @@ $this->Events->addHandler('isLogFile', function (): bool {
     if (!isset($this->CIDRAM['LogPatterns'])) {
         $this->CIDRAM['LogPatterns'] = [];
     }
-    if (strlen($this->Configuration['phpmailer']['event_log'])) {
+    if (\strlen($this->Configuration['phpmailer']['event_log'])) {
         $this->CIDRAM['LogPatterns'][] = $this->buildLogPattern($this->Configuration['phpmailer']['event_log'], true);
     }
     return true;
@@ -73,7 +73,7 @@ $this->Events->addHandler('sendEmail', function (string $Blank = '', array $Data
     [$Recipients, $Subject, $Body, $AltBody, $Attachments] = $Data;
 
     /** Prepare event logging. */
-    $EventLogData = sprintf(
+    $EventLogData = \sprintf(
         '%s - %s - ',
         $this->Configuration['legal']['pseudonymise_ip_addresses'] ? $this->pseudonymiseIp($this->ipAddr) : $this->ipAddr,
         $this->FE['DateTime'] ?? $this->timeFormat($this->Now, $this->Configuration['general']['time_format'])
@@ -83,7 +83,7 @@ $this->Events->addHandler('sendEmail', function (string $Blank = '', array $Data
     $State = false;
 
     /** Check whether class exists to either load it and continue or fail the operation. */
-    if (!class_exists('\PHPMailer\PHPMailer\PHPMailer')) {
+    if (!\class_exists('\PHPMailer\PHPMailer\PHPMailer')) {
         $EventLogData .= $this->L10N->getString('response.Task failed because a necessary component is unavailable') . "\n";
     } else {
         try {
@@ -173,7 +173,7 @@ $this->Events->addHandler('sendEmail', function (string $Blank = '', array $Data
             $Mail->AltBody = $AltBody;
 
             /** Process attachments. */
-            if (is_array($Attachments)) {
+            if (\is_array($Attachments)) {
                 foreach ($Attachments as $Attachment) {
                     $Mail->addAttachment($Attachment);
                 }
@@ -183,7 +183,7 @@ $this->Events->addHandler('sendEmail', function (string $Blank = '', array $Data
             $State = $Mail->send();
 
             /** Log the results of the send attempt. */
-            $EventLogData .= ($State ? sprintf(
+            $EventLogData .= ($State ? \sprintf(
                 $this->L10N->getString('response.Email successfully sent to %s'),
                 $SuccessDetails
             ) : $this->L10N->getString('response.Error') . ' - ' . $Mail->ErrorInfo) . "\n";

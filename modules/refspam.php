@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: Referrer spam module (last modified: 2026.01.14).
+ * This file: Referrer spam module (last modified: 2026.03.18).
  *
  * False positive risk (an approximate, rough estimate only): « [ ]Low [x]Medium [ ]High »
  */
@@ -31,20 +31,20 @@ $this->CIDRAM['ModuleResCache'][$Module] = function () {
     }
 
     /** Process to get the domain part. */
-    $Domain = preg_replace(['~^[a-z]+:[\\/]*(?:www\d*\.)?~i', '~[\\/:].*$~', '[ \n\r]'], '', $this->BlockInfo['Referrer']);
+    $Domain = \preg_replace(['~^[a-z]+:[\\/]*(?:www\d*\.)?~i', '~[\\/:].*$~', '[ \n\r]'], '', $this->BlockInfo['Referrer']);
 
     /** Lower-case domain part. */
-    $RefLC = strtolower($Domain);
+    $RefLC = \strtolower($Domain);
 
     /** Convert punycode to UTF-8 (as long as Intl is available). */
-    if (strpos($RefLC, 'xn--') !== false && function_exists('idn_to_utf8')) {
-        $Domain = explode('.', $Domain);
+    if (\strpos($RefLC, 'xn--') !== false && \function_exists('idn_to_utf8')) {
+        $Domain = \explode('.', $Domain);
         foreach ($Domain as &$DomainPart) {
-            if (strtolower(substr($DomainPart, 0, 4)) !== 'xn--') {
+            if (\strtolower(\substr($DomainPart, 0, 4)) !== 'xn--') {
                 continue;
             }
             try {
-                $DomainPartTest = idn_to_utf8($DomainPart);
+                $DomainPartTest = \idn_to_utf8($DomainPart);
                 if ($DomainPartTest) {
                     $DomainPart = $DomainPartTest;
                 }
@@ -52,12 +52,12 @@ $this->CIDRAM['ModuleResCache'][$Module] = function () {
             }
         }
         unset($DomainPartTest, $e, $DomainPart);
-        $Domain = implode('.', $Domain);
+        $Domain = \implode('.', $Domain);
     }
 
     /** Signatures begin here. */
     if (
-        $this->trigger(preg_match(
+        $this->trigger(\preg_match(
             '~(?:(?:\d{1,8}[a-z]{1,2}|a(?:dviceforum|llknow|llwomen|rtdeko|vkzaraboto' .
             'k)|b(?:estoffer[a-z]{1,8}|if-ru|izru|luerobot|rillianty|uy-cheap-online)' .
             '|call-of-duty|earnian-money|f(?:inansov|or-marketersy|orsex|orum69|reeno' .
@@ -84,7 +84,7 @@ $this->CIDRAM['ModuleResCache'][$Module] = function () {
             'ue)\.xyz)$~i',
             $Domain
         ), 'Referrer spam detected (' . $Domain . ')') || // (info, site, top, tv, xyz) 2020.04.13
-        $this->trigger(preg_match(
+        $this->trigger(\preg_match(
             '~(?:(?:(?:ai-?|auto|-)seo-(?:services?|traffic)|3(?:-letter-domains|wayn' .
             'etworks)?|\d-\d{0,4}(?:seo|best|free)(?:-?seo|-?best|-?free|-?share-butt' .
             'ons)|\d{0,4}(?:-reasons-for-seo|dollars-seo|searchengines)|\d{1,2}(?:\D' .
@@ -99,7 +99,7 @@ $this->CIDRAM['ModuleResCache'][$Module] = function () {
             'vice|solution|tip)s?)\.(?:blue|com|pro|tk))$~i',
             $Domain
         ), 'Referrer spam detected (' . $Domain . ')') || // (Generic SEO/traffic refspam) 2019.09.28
-        $this->trigger(preg_match(
+        $this->trigger(\preg_match(
             '~(?:-blanca|-fulldrive|-zheleza|[a-z]{2,3}-lk-rt|allvacancy|artclipart|b' .
             'eclean-nn|dev-seo|dojki-devki|ege-essay|englishtopic|fialka\.tomsk|gelst' .
             'ate|gidonline|hit-kino|iskussnica|kabinet-[-a-z\d]{1,16}|lalalove|mamyli' .
@@ -108,7 +108,7 @@ $this->CIDRAM['ModuleResCache'][$Module] = function () {
             'ufa|ximoda|your-tales)\.(?:blog|mobi|ru)$~i',
             $Domain
         ), 'Referrer spam detected (' . $Domain . ')') || // (blog, mobi, ru) 2019.09.28
-        $this->trigger(preg_match(
+        $this->trigger(\preg_match(
             '~(?:(?:-kredit|predmety|ukrtvory|пептиды|zagadki)\.in|-dereva\.kiev|auto' .
             'blog\.org|credit\.co|(?:kakadu-interior|naturalpharm|shopfishing|supermo' .
             'dni|vezdevoz)\.com)\.ua$|(?:ecommerce-seo|generalporn)\.org|-on-you\.ga|' .
@@ -119,18 +119,18 @@ $this->CIDRAM['ModuleResCache'][$Module] = function () {
             '|xtraffic\.|fetish\.(?:com|site)$|coast\.com$|library\.cc$~i',
             $Domain
         ), 'Referrer spam detected (' . $Domain . ')') || // (ua, su, porn refspam, etc) 2020.04.13
-        $this->trigger(preg_match(
+        $this->trigger(\preg_match(
             '~(?:(?:drev|mrbojikobi4|s-forum)\.biz|infogame\.name|(?:expediacustomers' .
             'ervicenumber|kinostar)\.online|(?:anabolics|veles)\.shop)$~i',
             $Domain
         ), 'Referrer spam detected (' . $Domain . ')') || // (biz, name, online, shop) 2019.09.28
-        $this->trigger(preg_match(
+        $this->trigger(\preg_match(
             '~(?:aitiman\.ae|rutor\.group|(?:medbrowse|piluli)\.info|(?:dantk|kazlent' .
             'a)\.kz|rxshop\.md|(?:belreferatov|mnogabukaff|sexuria|sssexxx|torrentgam' .
             'er)\.net|vseigru\.one|draniki\.org|vpdr\.pl)$~i',
             $Domain
         ), 'Referrer spam detected (' . $Domain . ')') || // (misc. other) 2019.09.28
-        $this->trigger(preg_match(
+        $this->trigger(\preg_match(
             '~(?:-poesie?|(?:arabic|spain)-poetry|-v-krym|\d[a-z]{2}\d|24h|4-less|alb' .
             'uteroli|automobile-spec|avcoast|backlinks-fast-top|baixar-musicas-gratis' .
             '|beauty-lesson|bestfortraders|bin-brokers|break-the-chains|buttons?-for-' .
@@ -153,7 +153,7 @@ $this->CIDRAM['ModuleResCache'][$Module] = function () {
     }
 
     if ($this->trigger(
-        preg_match('~delta-?search|vi-view\.com~i', $Domain),
+        \preg_match('~delta-?search|vi-view\.com~i', $Domain),
         'Referrer spam detected (' . $Domain . ')'
     )) {
         $this->Reporter->report([10, 20], [
@@ -161,7 +161,7 @@ $this->CIDRAM['ModuleResCache'][$Module] = function () {
         ], $this->BlockInfo['IPAddr']);
     } // 2019.08.12
 
-    if ($this->trigger(preg_match(
+    if ($this->trigger(\preg_match(
         '~(?:[-b-df-hj-np-tv-z\d\.]{5}\.xyz|\.(?:country|cricket|gq|kim|link|part' .
         'y|review|science|work|xxx|xzone|zip)|powernetshop\.at|3w1\.eu|(?:cat-tre' .
         'e-house|doctoryuval|justfree|netvibes|traf(?:ers|ficfaker)|webscutest)\.' .
@@ -174,7 +174,7 @@ $this->CIDRAM['ModuleResCache'][$Module] = function () {
         ], $this->BlockInfo['IPAddr']);
     } // 2019.08.14 mod 2026.01.14 (removed some old entries)
 
-    if ($this->trigger(preg_match(
+    if ($this->trigger(\preg_match(
         '~(?:android-style|anti-crisis-seo|hvd-store|med-dopomoga|oohlivecams|pai' .
         'nting-planet|vzubkah)\.com|quickchange\.cc|(?:sharebutton|spravkavspb)\.' .
         'net|elvel\.com\.ua|shoppingmiracles\.co\.uk|(?:biz-law|brothers-smaller|' .
@@ -193,7 +193,7 @@ $this->CIDRAM['ModuleResCache'][$Module] = function () {
         ], $this->BlockInfo['IPAddr']);
     } // (circa ~2020 additions) 2020.04.13
 
-    if ($this->trigger(preg_match(
+    if ($this->trigger(\preg_match(
         '~anonymousfox\.co|binance\.com~i',
         $Domain
     ), 'Referrer spam detected (' . $Domain . ')')) {
@@ -202,7 +202,7 @@ $this->CIDRAM['ModuleResCache'][$Module] = function () {
         ], $this->BlockInfo['IPAddr']);
     } // 2023.06.16
 
-    if ($this->trigger(preg_match('~//blog//wp-login\.php$~i', $this->BlockInfo['Referrer']), 'Hack attempt via referrer header injection detected')) {
+    if ($this->trigger(\preg_match('~//blog//wp-login\.php$~i', $this->BlockInfo['Referrer']), 'Hack attempt via referrer header injection detected')) {
         $this->Reporter->report([10, 15, 21], ['Hack attempt via referrer header injection detected.'], $this->BlockInfo['IPAddr']);
     } // 2025.07.24
 

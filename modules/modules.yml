@@ -33,7 +33,7 @@ PHPMailer:
    Checksum: "f7c8210e4047871f9f0b0639d7387d5574738fb9984f744d58d85378da77c68e:53628"
   events/phpmailer.php:
    From: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/phpmailer.php"
-   Checksum: "10bd631ddc5525787ab7411c030f5c6dd9e0e196a83d3e230cc1fd9a36a3cf80:7487"
+   Checksum: "8e676250e93246046c6ead204ec7e536ec13a3559d1c924149ee53a0c6252a3e:7499"
    Used with: "events"
   imports/phpmailer.yml:
    From: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/phpmailer.yml"
@@ -42,11 +42,11 @@ PHPMailer:
 Referrer spam module:
  Name: "Referrer spam module"
  False Positive Risk: "Medium"
- Version: "2026.13.0"
+ Version: "2026.76.0"
  Dependencies:
   intl: "*"
  Files:
   modules/refspam.php:
    From: "https://raw.githubusercontent.com/CIDRAM/CIDRAM-Extras/master/modules/refspam.php"
-   Checksum: "437fccf22ec70923cc6439e7f74a1b5b5babee858634cc936126dfce3d55b54f:12478"
+   Checksum: "fcd2a6afffa780194f8f02326be936f165aa7287cca0b26c92ea5cbdf6df7ace:12499"
    Used with: "modules"
